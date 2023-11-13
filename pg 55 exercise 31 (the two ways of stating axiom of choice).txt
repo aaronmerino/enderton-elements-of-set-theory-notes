@@ -503,15 +503,24 @@ idea:
 				
 				150. 		[23 CD]
 			151. 		[6 UD]
-		152. 
+		152. 		[4 CD]
+	
 
+	153. Show @I, H [ H is a function & dom H = I --> [ @i [ i in I --> H(i) != {} ] --> X_{i in I}(H(i)) != {} ] ] --> @R [ R is a relation --> 3H [ H is a function & H ⊆ R & dom H = dom R ] ]
 
-	Show @I, H [ H is a function & dom H = I --> [ @i [ i in I --> H(i) != {} ] --> X_{i in I}(H(i)) != {} ] ] --> @R [ R is a relation --> 3H [ H is a function & H ⊆ R & dom H = dom R ] ]
-		//Given R is relation, we use [TEXAS-361] @I, R [ 3D [ @t [ t in D <--> 3i [ i in I & t = <i, R[{i}]> ] ] ] ]  with I = dom R to build a set D
-		//Then use this D on the second form of the axiom of choice @I, H [ H is a function & dom H = I --> [ @i [ i in I --> H(i) != {} ] --> X_{i in I}(H(i)) != {} ] ]
+		// Given R is relation, we use [TEXAS-361] @I, R [ 3D [ @t [ t in D <--> 3i [ i in I & t = <i, R[{i}]> ] ] ] ]  with I = dom R to build a set D
+		// Then use this D on the second form of the axiom of choice @I, H [ H is a function & dom H = I --> [ @i [ i in I --> H(i) != {} ] --> X_{i in I}(H(i)) != {} ] ]
 		// to do this, we first show that D is a function and dom D = I
 		// then prove @i [ i in I --> H(i) != {} ] (this is true because I = dom R and and so i in dom R, so H(i) = R[{i}] != {})
 		// then we have X_{i in I}(H(i)) != {}
 		// since X_{i in I}(H(i)) != {}, then theres an element in it
 		// call this element f
 		// then we can show that f is a function, f ⊆ R, and dom f = I. note that I = dom R.
+
+		154. @I, H [ H is a function & dom H = I --> [ @i [ i in I --> H(i) != {} ] --> X_{i in I}(H(i)) != {} ] ]			[ACD]
+		
+		155. Show @R [ R is a relation --> 3H [ H is a function & H ⊆ R & dom H = dom R ] ]
+			156. let R be a set
+			157. Show R is a relation --> 3H [ H is a function & H ⊆ R & dom H = dom R ]
+				158. R is a relation			[ACD]
+				159. 
