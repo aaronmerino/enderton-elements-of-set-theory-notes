@@ -2,6 +2,12 @@ Axiom and Theorems:
 	Extensionality Axiom:
 	@A, B [ @x [ x in A <--> x in B ] --> A = B ]
 
+	Empty Set Axiom:
+	3B [ @x [ ~(x in B) ] ]
+	Definition (its uniqueness is always due to Ext. Axiom):
+	{ } is the set having no members
+		[You can think of {} as a 0-ary operator. It refer to one set and one set only!]
+
 	LEMMA - NON-EMPTY:
 		@A [ A != {} --> 3t [ t in A ] ]	
 
@@ -64,6 +70,13 @@ Axiom and Theorems:
 	Definition of F(x): 
 	(We define it like this for the purpose of making sure that F(x) is always defined for any F and x, so that we can always refer to it)
 		@F, x [ F(x) := U({y | <x, y> in F}) ]
+
+	Function:
+		Definition:
+		@F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]
+
+	[CH'EN] Pg 43 When F is a function and x the dom F, F(x) is y IFF <x, y> in F:
+		@F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]
 
 	The Image of A under F set:
 		@F, A [ 3D [ @v [ v in D <--> 3u [ u in A & <u, v> in F ] ] ] ]
@@ -286,11 +299,14 @@ idea:
 	2. Show @R [ R is a relation --> 3H [ H is a function & H ⊆ R & dom H = dom R ] ] --> @I, H [ H is a function & dom H = I --> [ @i [ i in I --> H(i) != {} ] --> X_{i in I}(H(i)) != {} ] ]
 		3. @R [ R is a relation --> 3H [ H is a function & H ⊆ R & dom H = dom R ] ]			[ACD]
 
-
+		// given H is a function & dom H = I, USE MUELSYSE-A to get a set D such that @t [ t in D <--> 3i [ i in I & 3j [ j in H(i) & t = <i, j> ] ] ]
+		// Then use line 3 to obtain a function f from D
+		// This f is a function & f ⊆ R & dom f = dom R
+		// we can show that f is in X_{i in I}(H(i)), so X_{i in I}(H(i)) is not empty!
 
 		4. Show @I, H [ H is a function & dom H = I --> [ @i [ i in I --> H(i) != {} ] --> X_{i in I}(H(i)) != {} ] ]
 			5. let I, H be sets
-			
+
 			6. Show H is a function & dom H = I --> [ @i [ i in I --> H(i) != {} ] --> X_{i in I}(H(i)) != {} ]
 				7. H is a function & dom H = I			[ACD]
 				8. Show I ⊆ dom H
@@ -311,6 +327,7 @@ idea:
 				22. 3D [ @f [ f in D <--> f is a function & dom f = I & @i [ i in I --> f(i) in H(i) ] ] ]			[20 21 MP]
 
 				========
+				D0. @x [ ~(x in {}) ]				[Empty Set Axiom EI & Ext. Axiom]
 				D1. @f [ f in X_{i in I}(H(i)) <--> f is a function & dom f = I & @i [ i in I --> f(i) in H(i) ] ]			[22 EI & Ext. Axiom]
 				========
 				
@@ -436,15 +453,58 @@ idea:
 							108. let i be a set
 							109. Show i in I --> f_2(i) in H(i)
 								110. i in I			[ACD]
-								111. 
+								111. i in dom f_2			[110 52 LL]
+								112. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]			[CH'EN]
+								113. f_2 is a function & i in dom f_2 -->  @w [ <i, w> in f_2 <--> f_2(i) = w ]				[112 UI/f_2 UI/i]
+								114. f_2 is a function			[47 SL SL]
+								115. f_2 is a function & i in dom f_2			[114 111 ADJ]
+								116. @w [ <i, w> in f_2 <--> f_2(i) = w ]			[113 115 MP]
+								117. <i, f_2(i)> in f_2 <--> f_2(i) = f_2(i)			[116 UI/f_2(i)]
+								118. f_2(i) = f_2(i)			[SID/f_2(i)]
+								119. <i, f_2(i)> in f_2			[117 BC 118 MP]
 
+								120. f_2 ⊆ D_1			[47 SL SR]
+								121. @t [ t in f_2 --> t in D_1 ]			[120 EQUIV.]
+								122. <i, f_2(i)> in f_2 --> <i, f_2(i)> in D_1			[121 UI/<i, f_2(i)>]
+								123. <i, f_2(i)> in D_1			[119 122 MP]
 
+								124. @t [ t in D_1 <--> 3i [ i in I & 3j [ j in H(i) & t = <i, j> ] ] ]			[27 R]
+								125. @t [ t in D_1 <--> 3u [ u in I & 3v [ v in H(u) & t = <u, v> ] ] ]			[124 EQUIV.]
+								126. <i, f_2(i)> in D_1 <--> 3u [ u in I & 3v [ v in H(u) & <i, f_2(i)> = <u, v> ] ]			[125 UI/<i, f_2(i)>]
+								127. 3u [ u in I & 3v [ v in H(u) & <i, f_2(i)> = <u, v> ] ]			[126 BC 123 MP]
+								128. u_3 in I & 3v [ v in H(u_3) & <i, f_2(i)> = <u_3, v> ]				[127 EI/u_3]
+								129. 3v [ v in H(u_3) & <i, f_2(i)> = <u_3, v> ]		[128 SR]
+								130. v_4 in H(u_3) & <i, f_2(i)> = <u_3, v_4>			[129 EI/v_4]
 
+								131. v_4 in H(u_3)			[130 SL]
+								132. <i, f_2(i)> = <u_3, v_4>			[130 SR]
+
+								133. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]			[Theorem 3A]
+								134. <i, f_2(i)> = <u_3, v_4>  <-->  i = u_3 & f_2(i) = v_4				[133 UI/i, f_2(i), u_3, v_4]
+								135. i = u_3 & f_2(i) = v_4			[134 BC 132 MP]
+
+								136. i = u_3			[135 SL]
+								137. f_2(i) = v_4			[135 SR]
+								138. v_4 in H(i)			[131 136 LL]
+								139. f_2(i) in H(i)			[137 138 LL]
+								140. 			[139 CD]
+							141. 		[109 UD]
+						
+						142. f_2 is a function			[47 SL SL]
+						143. f_2 is a function & dom f_2 = I & @i [ i in I --> f_2(i) in H(i) ]				[142 52 107 ADJ] 
+						144. f_2 in X_{i in I}(H(i))			[51 BC 143 MP]
+
+						145. f_2 in {}				[144 49 LL]
+						146. @x [ ~(x in {}) ]			[D0]
+						147. ~(f_2 in {})				[146 UI/f_2]
+						148.		[145 147 ID]
 					
-					// given H is a function & dom H = I, USE MUELSYSE-A to get a set D such that @t [ t in D <--> 3i [ i in I & 3j [ j in H(i) & t = <i, j> ] ] ]
-					// Then use line 3 to obtain a function f from D
-					// This f is a function & f ⊆ R & dom f = dom R
-					// we can show that f is in X_{i in I}(H(i)), so X_{i in I}(H(i)) is not empty!
+					149.		[48 CD]
+				
+				150. 		[23 CD]
+			151. 		[6 UD]
+		152. 
+
 
 	Show @I, H [ H is a function & dom H = I --> [ @i [ i in I --> H(i) != {} ] --> X_{i in I}(H(i)) != {} ] ] --> @R [ R is a relation --> 3H [ H is a function & H ⊆ R & dom H = dom R ] ]
 		//Given R is relation, we use [TEXAS-361] @I, R [ 3D [ @t [ t in D <--> 3i [ i in I & t = <i, R[{i}]> ] ] ] ]  with I = dom R to build a set D
