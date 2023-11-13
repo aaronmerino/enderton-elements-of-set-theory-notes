@@ -314,7 +314,7 @@ Axioms and Theorems:
 		@A [ A-pre-{} = {{}} ]
 
 	Infinite Cartesiona Product:
-		@I, H [ H is a function & I ⊆ dom H --> 3D [ @f [ f in D <--> f is a function & dom f = I & @i [  i in I --> f(i) in H(i) ] ] ] ]
+		@I, H [ H is a function & I ⊆ dom H --> 3D [ @f [ f in D <--> f is a function & dom f = I & @i [ i in I --> f(i) in H(i) ] ] ] ]
 
 		Definition (its uniqueness is due to Ext. Axiom):
 			For any I, H, where H is a function & I ⊆ dom H, then X_{i in I}(H(i)) is the product of the H(i)'s for all i in I.

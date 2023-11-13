@@ -75,7 +75,7 @@ Axiom and Theorems:
  		@R [ R is a relation --> 3H [ H is a function & H ⊆ R & dom H = dom R ] ]
 
 	Infinite Cartesiona Product:
-		@I, H [ H is a function & I ⊆ dom H --> 3D [ @f [ f in D <--> f is a function & dom f = I & @i [	i in I --> f(i) in H(i) ] ] ] ]
+		@I, H [ H is a function & I ⊆ dom H --> 3D [ @f [ f in D <--> f is a function & dom f = I & @i [ i in I --> f(i) in H(i) ] ] ] ]
 
 		Definition (its uniqueness is due to Ext. Axiom):
 			For any I, H, where H is a function & I ⊆ dom H, then X_{i in I}(H(i)) is the product of the H(i)'s for all i in I.
@@ -305,23 +305,24 @@ idea:
 					17.	I ⊆ dom H			[9 EQUIV.]
 					18.			[17 DD]
 				
-				19. @I, H [ H is a function & I ⊆ dom H --> 3D [ @f [ f in D <--> f is a function & dom f = I & @i [	i in I --> f(i) in H(i) ] ] ] ]		[Inf. Cartesian Product]
-				20. H is a function & I ⊆ dom H --> 3D [ @f [ f in D <--> f is a function & dom f = I & @i [	i in I --> f(i) in H(i) ] ] ]			[19 UI/I UI/H]
+				19. @I, H [ H is a function & I ⊆ dom H --> 3D [ @f [ f in D <--> f is a function & dom f = I & @i [ i in I --> f(i) in H(i) ] ] ] ]		[Inf. Cartesian Product]
+				20. H is a function & I ⊆ dom H --> 3D [ @f [ f in D <--> f is a function & dom f = I & @i [ i in I --> f(i) in H(i) ] ] ]			[19 UI/I UI/H]
 				21. H is a function & I ⊆ dom H			[7 SL 8 ADJ]
-				22. 3D [ @f [ f in D <--> f is a function & dom f = I & @i [	i in I --> f(i) in H(i) ] ] ]			[20 21 MP]
+				22. 3D [ @f [ f in D <--> f is a function & dom f = I & @i [ i in I --> f(i) in H(i) ] ] ]			[20 21 MP]
 
 				========
-				D1. @f [ f in X_{i in I}(H(i)) <--> f is a function & dom f = I & @i [	i in I --> f(i) in H(i) ] ]			[22 EI & Ext. Axiom]
+				D1. @f [ f in X_{i in I}(H(i)) <--> f is a function & dom f = I & @i [ i in I --> f(i) in H(i) ] ]			[22 EI & Ext. Axiom]
 				========
 				
 
 				23. Show @i [ i in I --> H(i) != {} ] --> X_{i in I}(H(i)) != {}
 					24. @i [ i in I --> H(i) != {} ]		 [ACD]
 
-					//// D_1 ////
+
 					25. @I, H [ 3D [ @t [ t in D <--> 3i [ i in I & 3j [ j in H(i) & t = <i, j> ] ] ] ] ]			[MUELSYSE-A]
 					26. 3D [ @t [ t in D <--> 3i [ i in I & 3j [ j in H(i) & t = <i, j> ] ] ] ]				[25 UI/I UI/H]
-					////////
+
+					//// D_1 ////
 					27. @t [ t in D_1 <--> 3i [ i in I & 3j [ j in H(i) & t = <i, j> ] ] ]				[26 EI/D_1]
 					////////
 
@@ -365,8 +366,8 @@ idea:
 					48. Show X_{i in I}(H(i)) != {}
 						49. X_{i in I}(H(i)) = {}			[AID]
 
-						50. @f [ f in X_{i in I}(H(i)) <--> f is a function & dom f = I & @i [	i in I --> f(i) in H(i) ] ]			[D1]
-						51. f_2 in X_{i in I}(H(i)) <--> f_2 is a function & dom f_2 = I & @i [	i in I --> f_2(i) in H(i) ]			[50 UI/f_2]
+						50. @f [ f in X_{i in I}(H(i)) <--> f is a function & dom f = I & @i [ i in I --> f(i) in H(i) ] ]			[D1]
+						51. f_2 in X_{i in I}(H(i)) <--> f_2 is a function & dom f_2 = I & @i [ i in I --> f_2(i) in H(i) ]			[50 UI/f_2]
 						52. Show dom f_2 = I
 							53. dom f_2 = dom D_1			[47 SR]
 							54. Show dom D_1 = I
@@ -404,11 +405,39 @@ idea:
 										83. H(x) != {}			[82 80 MP]
 										84. @A [ A != {} --> 3t [ t in A ] ]				[LEMMA - NON-EMPTY]
 										85. H(x) != {} --> 3t [ t in H(x) ]				[84 UI/H(x)]
-										86. 
+										86. 3t [ t in H(x) ]			[83 85 MP]
+										87. t_3 in H(x)				[86 EI/t_3]
+
+										88. @t [ t in D_1 <--> 3i [ i in I & 3j [ j in H(i) & t = <i, j> ] ] ]						[27 R]
+										89. <x, t_3> in D_1 <--> 3i [ i in I & 3j [ j in H(i) & <x, t_3> = <i, j> ] ]			[88 UI/<x, t_3>]
 										
+										90. <x, t_3> = <x, t_3>				[SID/<x, t_3>]
+										91. t_3 in H(x) & <x, t_3> = <x, t_3>				[87 90 ADJ]
+										92. 3j [ j in H(x) & <x, t_3> = <x, j> ]		[91 EG/t_3->j]
+										93. x in I & 3j [ j in H(x) & <x, t_3> = <x, j> ]			[80 92 ADJ]
+										94. 3i [ i in I & 3j [ j in H(i) & <x, t_3> = <i, j> ] ]			[93 EG/x->i]
+										95. <x, t_3> in D_1			[89 BC 94 MP]
+										96. @x [ x in dom D_1 <--> 3y [ <x, y> in D_1 ] ]			[D2]
+										97. x in dom D_1 <--> 3y [ <x, y> in D_1 ]			[96 UI/x]
+										98. 3y [ <x, y> in D_1 ]			[95 EG/t_3->y]
+										99. x in dom D_1			[97 BC 98 MP]
+										100. 		[99 CD]
+									
+									101. x in dom D_1 <--> x in I			[59 79 CB]
+									102. 		[101 UD]
+								
+								103. dom D_1 = I			[56 57 MP]
+								104. 		[103 DD]
+							
+							105. dom f_2 = I			[53 54 LL]
+							106.		[105 DD]
+						
+						107. Show @i [ i in I --> f_2(i) in H(i) ]
+							108. let i be a set
+							109. Show i in I --> f_2(i) in H(i)
+								110. i in I			[ACD]
+								111. 
 
-
-						Show @i [	i in I --> f_2(i) in H(i) ]
 
 
 					
