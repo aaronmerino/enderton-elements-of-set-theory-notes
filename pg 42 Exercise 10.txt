@@ -1,0 +1,56 @@
+Theorems:
+	Theorem 3A:
+		@u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]
+
+
+Show that an ordered 4-tuple is also an ordered m-tuple for every positive integer m less than 4.
+	Definition:
+		@x, y[ <x, y> := {{x}, {x, y}} ]
+			note {x} exists due to Pairing Axiom & Extensionality
+			note {x, y} exists due to Pairing Axiom & Extensionality
+			finally {{x}, {x, y}} exists due to Pairing Axiom & Extensionality
+	
+	Definition:
+		@x [ <x> := x ]										[1-tuple]
+		@x, y, z [ <x, y, z> := <<x, y>, z> ]				[3-tuple]
+		@x, y, z, w [ <x, y, z, w> := <<x, y, z>, w> ]		[4-tuple]
+
+	
+	Rough:
+		3-tuple: <x, y, z, w> = <<x, y>, z, w> = <<<x, y>, z>, w>
+		2-tuple: <x, y, z, w> = <<x, y, z>, w> = <<<x, y>, z>, w>
+		1-tuple: <x, y, z, w> = <<<x, y, z>, w>> = <<x, y, z>, w> = <<<x, y>, z>, w>
+	
+	
+	1. Show @x, y, z, w [ <x, y, z, w> = <<x, y>, z, w> ]		[Show 4-tuple is a 3-tuple]
+		2. let x, y, z, w be sets
+
+		3. @x, y, z, w [ <x, y, z, w> := <<x, y, z>, w> ]		[definition of 4-tuple]
+		4. <x, y, z, w> := <<x, y, z>, w>						[3 UI/x, y, z, w]
+
+		5. @x, y, z [ <x, y, z> := <<x, y>, z> ]				[definition of 3-tuple]
+		6. <x, y, z> := <<x, y>, z>								[5 UI/x, y, z]
+
+		7. <x, y, z, w> = <<<x, y>, z>, w>						[4 6 EL]
+
+		8. <<x, y>, z, w> := <<<x, y>, z>, w>					[5 UI/<x, y>, z, w]
+
+		9. <x, y, z, w> = <<x, y>, z, w>						[7 8 EL]
+		10. 	[9 UD]
+
+
+	11. Show @x, y, z, w [ <x, y, z, w> = <<<x, y>, z, w>> ] 	[Show 4-tuple is a 1-tuple]
+		12. let x, y, z, w be sets
+		13. Show <x, y, z, w> = <<<x, y>, z, w>>
+			14. @x, y, z, w [ <x, y, z, w> = <<x, y>, z, w> ]		[1 R]
+			15. <x, y, z, w> = <<x, y>, z, w>						[14 UI/x, y, z, w]
+			16. @x [ <x> := x ]										[1-tuple]
+			17. <<<x, y>, z, w>> := <<x, y>, z, w>					[16 UI/<<x, y>, z, w>]
+			18. <x, y, z, w> = <<<x, y>, z, w>>						[15 17 EL]
+			19.		[18 DD]
+		20.		[13 UD]
+	
+	21. Show @x, y, z, w [ <x, y, z, w> := <<x, y, z>, w> ] 	[Show 4-tuple is a 2-tuple]
+		22. @x, y, z, w [ <x, y, z, w> := <<x, y, z>, w> ]		[definition of 4-tuple]
+		23.		[22 DD]
+	

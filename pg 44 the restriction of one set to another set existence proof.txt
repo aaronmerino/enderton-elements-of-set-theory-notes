@@ -1,0 +1,50 @@
+Axioms and Theorems:
+
+	Subset Axioms:
+	For each formula __ not containing B, the following is an axiom:
+	@t1 ... @tk @c [ 3B [ @x [ x in B <--> x in c & __ ] ] ]
+		Definition:
+		For any set t­1, ..., tk and c, the subset B = {x in c | __ } is the set whose members are exactly those sets in c and __	
+
+	Relation:
+		Definition:
+		A relation R is a set of ordered pairs.
+		@R [ R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ] ]
+
+
+	Subset Axiom Applied (ID: APPLE):
+	@F, A [ @c [ 3B [ @w [ w in B <--> w in c & 3u, v [ w = <u, v> & <u, v> in F & u in A ] ] ] ] ]				[Subset Axiom UI_META/"@F, A" UI_META/"3u, v [ w = <u, v> & <u, v> in F & u in A ]"]
+
+1. Show @F, A [ 3D [ @w [ w in D <--> 3u, v [ w = <u, v> & <u, v> in F & u in A ] ] ] ]
+	2. let F, A be sets
+	3. Show 3D [ @w [ w in D <--> 3u, v [ w = <u, v> & <u, v> in F & u in A ] ] ]
+		4. @F, A [ @c [ 3B [ @w [ w in B <--> w in c & 3u, v [ w = <u, v> & <u, v> in F & u in A ] ] ] ] ]					[APPLE]
+		5. @c [ 3B [ @w [ w in B <--> w in c & 3u, v [ w = <u, v> & <u, v> in F & u in A ] ] ] ]							[4 UI/F UI/A]
+		7. 3B [ @w [ w in B <--> w in F & 3u, v [ w = <u, v> & <u, v> in F & u in A ] ] ]									[5 UI/F]
+		8. @w [ w in B_1 <--> w in F & 3u, v [ w = <u, v> & <u, v> in F & u in A ] ]										[7 EI/B_1]
+
+		9. Show @w [ w in B_1 <--> 3u, v [ w = <u, v> & <u, v> in F & u in A ] ]
+			10. let w be a set
+			11. Show w in B_1 <--> 3u, v [ w = <u, v> & <u, v> in F & u in A ]
+				12. Show w in B_1 --> 3u, v [ w = <u, v> & <u, v> in F & u in A ]
+					13. w in B_1			[ACD]
+					14. w in B_1 <--> w in F & 3u, v [ w = <u, v> & <u, v> in F & u in A ]			[8 UI/w]
+					15. 3u, v [ w = <u, v> & <u, v> in F & u in A ]									[14 BC 13 MP]
+					16. 	[15 CD]
+
+				17. Show 3u, v [ w = <u, v> & <u, v> in F & u in A ] --> w in B_1
+					18. 3u, v [ w = <u, v> & <u, v> in F & u in A ]			[ACD]
+					19. w = <u_1, v_1> & <u_1, v_1> in F & u_1 in A			[18 EI/u_1 EI/v_1]
+					20. w = <u_1, v_1>										[19 SL SL]
+					21. <u_1, v_1> in F										[19 SL SR]
+					22. w in F												[20 21 EL]
+					23. w in B_1 <--> w in F & 3u, v [ w = <u, v> & <u, v> in F & u in A ]			[8 UI/w]
+					24. w in F & 3u, v [ w = <u, v> & <u, v> in F & u in A ]						[22 18 ADJ]
+					25. w in B_1																	[23 BC 24 MP]
+					26. 	[25 CD]
+				27. w in B_1 <--> 3u, v [ w = <u, v> & <u, v> in F & u in A ]			[12 17 CB]
+				28. 	[27 DD]
+			29. 	[11 UD]
+		30. 3D [ @w [ w in D <--> 3u, v [ w = <u, v> & <u, v> in F & u in A ] ] ]		[9 EG/B_1->D]
+		31.		[30 DD]
+	32. 	[3 UD]

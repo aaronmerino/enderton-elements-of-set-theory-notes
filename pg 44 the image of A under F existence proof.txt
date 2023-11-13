@@ -1,0 +1,72 @@
+Axioms and Theorems:
+
+	Subset Axioms:
+	For each formula __ not containing B, the following is an axiom:
+	@t1 ... @tk @c [ 3B [ @x [ x in B <--> x in c & __ ] ] ]
+		Definition:
+		For any set t­1, ..., tk and c, the subset B = {x in c | __ } is the set whose members are exactly those sets in c and __	
+
+	Relation:
+		Definition:
+		A relation R is a set of ordered pairs.
+		@R [ R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ] ]
+
+	ran R: 
+	@R [ 3D [ @x [ x in D <--> 3t [ <t, x> in R ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets R,  ran R  is the set whose members are those 2nd-coordinate set of some ordered pair in R
+
+	Function:
+		Definition of F(x): (We define it like this for the purpose of making sure that F(x) is always defined for any F and x, but really its for semantic purposes)
+		@F, x [ F(x) := U({y | <x, y> in F}) ]
+
+		Definition:
+		@F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]
+
+		**IGNORE** Definition of F(x) **THIS IS OLD VERSION**:
+		@F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y->F(x)[ <x, F(x)> in F & @z [ <x, z> in F --> F(x) = z ] ] ] ] 
+			
+	Subset Axiom Applied (ID: APPLE):
+	@F, A [ @c [ 3B [ @v [ v in B <--> v in c & 3u [ u in A & <u, v> in F ] ] ] ] ]				[Subset Axiom UI_META/"@F, A" UI_META/"3u [ u in A & <u, v> in F ]"]
+
+1. Show @F, A [ 3D [ @v [ v in D <--> 3u [ u in A & <u, v> in F ] ] ] ]
+	2. let F, A be sets
+
+	D1. ran F  is the set whose members are those 2nd-coordinate set of some ordered pair in F		[ran UI/F EI & Ext. Axiom -> defines ran F]
+		@x [ x in ran F <--> 3t [ <t, x> in F ] ]		
+	
+	3. Show 3D [ @v [ v in D <--> 3u [ u in A & <u, v> in F ] ] ]
+		4. @F, A [ @c [ 3B [ @v [ v in B <--> v in c & 3u [ u in A & <u, v> in F ] ] ] ] ]			[APPLE]
+		5. @c [ 3B [ @v [ v in B <--> v in c & 3u [ u in A & <u, v> in F ] ] ] ]					[4 UI/F UI/A]
+		6. 3B [ @v [ v in B <--> v in ran F & 3u [ u in A & <u, v> in F ] ] ]						[5 UI/ran F]
+		7. @v [ v in B_1 <--> v in ran F & 3u [ u in A & <u, v> in F ] ]							[6 EI/B_1]
+
+		8. Show @v [ v in B_1 <--> 3u [ u in A & <u, v> in F ] ]
+			9. let v be a set
+			10. Show v in B_1 <--> 3u [ u in A & <u, v> in F ]
+				11. Show v in B_1 --> 3u [ u in A & <u, v> in F ]
+					12. v in B_1				[ACD]
+					13. v in B_1 <--> v in ran F & 3u [ u in A & <u, v> in F ]			[7 UI/v]
+					14. v in ran F & 3u [ u in A & <u, v> in F ]						[13 BC 12 MP]
+					15. 3u [ u in A & <u, v> in F ]										[14 SR]
+					16. 	[15 CD]
+				17. Show 3u [ u in A & <u, v> in F ] --> v in B_1
+					18. 3u [ u in A & <u, v> in F ]			[ACD]
+					19. u_1 in A & <u_1, v> in F			[18 EI/u_1]
+					20. v in B_1 <--> v in ran F & 3u [ u in A & <u, v> in F ]			[7 UI/v]
+					21. Show v in ran F
+						22. @x [ x in ran F <--> 3t [ <t, x> in F ] ]			[D1]
+						23. v in ran F <--> 3t [ <t, v> in F ]					[22 UI/v]
+						24. <u_1, v> in F										[19 SR]
+						25. 3t [ <t, v> in F ]									[24 EG/u_1->t]
+						26. v in ran F											[23 BC 25 MP]
+						27. 	[26 DD]
+					28. v in ran F & 3u [ u in A & <u, v> in F ]				[21 18 ADJ]
+					29. v in B_1												[20 BC 28 MP]
+					30.		[29 CD]
+				31. v in B_1 <--> 3u [ u in A & <u, v> in F ]					[11 17 CB]
+				32. 	[31 DD]
+			33.		[10 UD]
+		34. 3D [ @v [ v in D <--> 3u [ u in A & <u, v> in F ] ] ]				[8 EG/B_1->D]
+		35. 	[34 DD]
+	36.		[3 UD]

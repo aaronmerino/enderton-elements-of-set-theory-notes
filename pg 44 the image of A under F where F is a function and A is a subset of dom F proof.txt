@@ -1,0 +1,180 @@
+	Relation:
+		Definition:
+		A relation R is a set of ordered pairs.
+		@R [ R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ] ]
+	
+
+	Pg 43 Existence part:	
+	@F, x [ 3D [ @y [ y in D <--> <x, y> in F ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			For any F, x, the set {y | <x, y> in F} is the set that contains all 2nd-coordinate sets of all ordered pairs in F where x is the first-coordinate set.
+
+	Function:
+		Definition of F(x): (We define it like this for the purpose of making sure that F(x) is always defined for any F and x, but really its for semantic purposes)
+		@F, x [ F(x) := U({y | <x, y> in F}) ]
+
+		Definition:
+		@F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]
+
+		**IGNORE** Definition of F(x) **THIS IS OLD VERSION**:
+		@F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y->F(x)[ <x, F(x)> in F & @z [ <x, z> in F --> F(x) = z ] ] ] ]  
+
+	Pg 43 When F is a function and x the dom F, F(x) is y IFF <x, y> in F:
+		@F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]
+
+	The Image of A under F:
+		@F, A [ 3D [ @v [ v in D <--> 3u [ u in A & <u, v> in F ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			For any sets F, A, this set is known as the Image of A under F, F[A]
+
+
+1. Show @F, A [ F is a function & @t [ t in A --> t in dom F ] --> 3D [ @v [ v in D <--> 3u [ u in A & F(u) = v ] ] ] ]
+	2. let F, A bet sets
+
+	D1. F[A] is the image of A under F								[the Image of A under F UI/F UI/A EI & Ext. Axiom -> defines F[A]]
+		@v [ v in F[A] <--> 3u [ u in A & <u, v> in F ] ]					
+
+	3. Show F is a function & @t [ t in A --> t in dom F ] --> 3D [ @v [ v in D <--> 3u [ u in A & F(u) = v ] ] ]
+
+		4. F is a function & @t [ t in A --> t in dom F ]					[ACD]
+
+		5. Show 3D [ @v [ v in D <--> 3u [ u in A & F(u) = v ] ] ]
+			6. Show @v [ v in F[A] <--> 3u [ u in A & F(u) = v ] ]
+				7. let v be a set
+				8. Show v in F[A] <--> 3u [ u in A & F(u) = v ]
+					9. Show v in F[A] --> 3u [ u in A & F(u) = v ]
+						10. v in F[A]			[ACD]
+						11. @v [ v in F[A] <--> 3u [ u in A & <u, v> in F ] ]		[D1]
+						12. v in F[A] <--> 3u [ u in A & <u, v> in F ]				[11 UI/v]
+						13. 3u [ u in A & <u, v> in F ]								[12 BC 10 MP]
+						14. u_1 in A & <u_1, v> in F								[13 EI/u_1]
+
+						15. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]				[Definition of F(x) when F is a function and x in dom F]
+						16. F is a function & u_1 in dom F --> @w [ <u_1, w> in F <--> F(u_1) = w ]						[15 UI/F UI/u_1]
+						17. @t [ t in A --> t in dom F ]			[4 SR]
+						18. u_1 in A --> u_1 in dom F				[17 UI/u_1]
+						19. u_1 in dom F							[14 SL 18 MP]
+						20. F is a function							[4 SL]
+						21. F is a function & u_1 in dom F			[20 19 ADJ]
+
+						22. @w [ <u_1, w> in F <--> F(u_1) = w ]	[16 21 MP]
+
+						23. <u_1, v> in F --> F(u_1) = v			[22 UI/v BC]
+						24. F(u_1) = v								[14 SR 23 MP]
+						25.	u_1 in A & F(u_1) = v					[14 SL 24 ADJ]
+						26. 3u [ u in A & F(u) = v ]				[25 EG/u_1->u]
+						27.		[26 CD]
+					28. Show 3u [ u in A & F(u) = v ] --> v in F[A]
+						29. 3u [ u in A & F(u) = v ]				[ACD]
+						30. u_1 in A & F(u_1) = v					[29 EI/u_1]
+
+						31. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]				[Definition of F(x) when F is a function and x in dom F]
+						32. F is a function & u_1 in dom F --> @w [ <u_1, w> in F <--> F(u_1) = w ]						[31 UI/F UI/u_1]
+						33. @t [ t in A --> t in dom F ]			[4 SR]
+						34. u_1 in A --> u_1 in dom F				[33 UI/u_1]
+						35. u_1 in dom F							[30 SL 34 MP]
+						36. F is a function							[4 SL]
+						37. F is a function & u_1 in dom F			[36 35 ADJ]
+
+						38. @w [ <u_1, w> in F <--> F(u_1) = w ]	[32 37 MP]
+
+						39. <u_1, v> in F <--> F(u_1) = v			[38 UI/v]
+						40. <u_1, v> in F							[39 BC 30 SR MP]
+						41. @v [ v in F[A] <--> 3u [ u in A & <u, v> in F ] ]		[D1]
+						42. v in F[A] <--> 3u [ u in A & <u, v> in F ]				[41 UI/v]
+						43. u_1 in A & <u_1, v> in F								[30 SL 40 ADJ]
+						44. 3u [ u in A & <u, v> in F ]								[43 EG/u_1->u]
+						45. v in F[A]												[42 BC 44 MP]
+						46.		[45 CD]
+					
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//IGNORE THIS VERSION
+//notes: I hate this proof, I HATE LINES  33-35. DOES refering F(u_1) imply that u_1 in dom F?
+
+1. Show @F, A [ F is a function & @t [ t in A --> t in dom F ] --> 3D [ @v [ v in D <--> 3u [ u in A & F(u) = v ] ] ] ]
+	2. let F, A bet sets
+
+	D1. F[A] is the image of A under F								[the Image of A under F UI/F UI/A EI & Ext. Axiom -> defines F[A]]
+		@v [ v in F[A] <--> 3u [ u in A & <u, v> in F ] ]					
+
+	3. Show F is a function & @t [ t in A --> t in dom F ] --> 3D [ @v [ v in D <--> 3u [ u in A & F(u) = v ] ] ]
+
+		4. F is a function & @t [ t in A --> t in dom F ]					[ACD]
+
+		// Definition of F(x)
+		5. @F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y->F(x)[ <x, F(x)> in F & @z [ <x, z> in F --> F(x) = z ] ] ] ]
+		6. F is a function <--> F is a relation & @x [ x in dom F --> 3_1y->F(x)[ <x, F(x)> in F & @z [ <x, z> in F --> F(x) = z ] ] ]		[5 UI/F]
+		7. F is a relation & @x [ x in dom F --> 3_1y->F(x)[ <x, F(x)> in F & @z [ <x, z> in F --> F(x) = z ] ] ]				[6 BC 4 SL MP]
+
+		8. @x [ x in dom F --> 3_1y->F(x)[ <x, F(x)> in F & @z [ <x, z> in F --> F(x) = z ] ] ]									[7 SR]
+
+		9. Show @x [ x in A --> 3_1y->F(x)[ <x, F(x)> in F & @z [ <x, z> in F --> F(x) = z ] ] ]
+			10. let x be a set
+			11. Show x in A --> 3_1y->F(x)[ <x, F(x)> in F & @z [ <x, z> in F --> F(x) = z ] ]
+				12. x in A		[ACD]
+				13. @t [ t in A --> t in dom F ]				[4 SR]
+				14. x in dom F									[13 UI/x 12 MP]
+				15.	3_1y->F(x)[ <x, F(x)> in F & @z [ <x, z> in F --> F(x) = z ] ]			[8 UI/x 14 MP]
+				16.		[15 CD]
+			17. 	[11 UD]
+		18.
+ 
+
+		19. Show 3D [ @v [ v in D <--> 3u [ u in A & F(u) = v ] ] ]	
+			20. Show @v [ v in F[A] <--> 3u [ u in A & F(u) = v ] ]
+				21. let v be a set
+				22. Show v in F[A] <--> 3u [ u in A & F(u) = v ]
+					23. Show v in F[A] --> 3u [ u in A & F(u) = v ]
+						24. v in F[A]												[ACD]
+						25. @v [ v in F[A] <--> 3u [ u in A & <u, v> in F ] ]		[D1]
+						26. v in F[A] <--> 3u [ u in A & <u, v> in F ]				[25 UI/v]
+						27. 3u [ u in A & <u, v> in F ]								[26 BC 24 MP]
+						28. u_1 in A & <u_1, v> in F								[27 EI/u_1]
+						29. @x [ x in A --> 3_1y->F(x)[ <x, F(x)> in F & @z [ <x, z> in F --> F(x) = z ] ] ]					[9 R]
+						30. u_1 in A --> 3_1y->F(u_1)[ <u_1, F(u_1)> in F & @z [ <u_1, z> in F --> F(u_1) = z ] ]				[29 UI/u_1]
+						31. 3_1y->F(u_1)[ <u_1, F(u_1)> in F & @z [ <u_1, z> in F --> F(u_1) = z ] ]							[28 SL 30 MP]
+						32. <u_1, F(u_1)> in F & @z [ <u_1, z> in F --> F(u_1) = z ]											[31 EI_UNIQUE]
+						33. @z [ <u_1, z> in F --> F(u_1) = z ]																	[32 SR]
+						34. <u_1, v> in F --> F(u_1) = v			[33 UI/v]
+						35. F(u_1) = v								[28 SR 34 MP]
+						36. u_1 in A & F(u_1) = v					[28 SL 35 ADJ]
+						37.	3u [ u in A & F(u) = v ]			[36 EG/u_1->u]
+						38.		[37 CD]
+
+					39. Show 3u [ u in A & F(u) = v ] --> v in F[A]
+						40. 3u [ u in A & F(u) = v ]								[ACD]
+						41. u_1 in A & F(u_1) = v									[40 EI/u_1]
+						42. @x [ x in A --> 3_1y->F(x)[ <x, F(x)> in F & @z [ <x, z> in F --> F(x) = z ] ] ]			[9 R]
+

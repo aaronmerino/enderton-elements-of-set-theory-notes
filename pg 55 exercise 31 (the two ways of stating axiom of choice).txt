@@ -1,0 +1,428 @@
+Axiom and Theorems:
+	Extensionality Axiom:
+	@A, B [ @x [ x in A <--> x in B ] --> A = B ]
+
+	LEMMA - NON-EMPTY:
+		@A [ A != {} --> 3t [ t in A ] ]	
+
+	Pairing Axiom:
+	@u, v [ 3B [ @x [ x in B <--> x = u or x = v ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any sets u, v, the pair set {u, v} is the set whose only members are u and v.
+		[You can think of {u, v} as a 2-ary operator. It refer to one set and one set only based on the sets u and v!]
+
+		Definition:
+		Let {x} := {x, x} is the set whose only members are x and x
+
+	Power Set Axiom:
+	@a [ 3B [ @x [ x in B <--> @t [ t in x --> t in a ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set a, the power set  P(a) is the set whose members are exactly the subsets of a.
+		[You can think of P(a) as a 1-ary operator. It refer to one set and one set only based on the sets a!]
+
+	Subset Axioms:
+	For each formula __ not containing B, the following is an axiom:
+	@t1 ... @tk @c [ 3B [ @x [ x in B <--> x in c & __ ] ] ]
+		Definition:
+		For any set t­1, ..., tk and c, the subset B = {x in c | __ } is the set whose members are exactly those sets in c and __	
+
+	Union Axiom:
+	@A [ 3B [ @x [ x in B <--> 3b [ b in A & x in b ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set A, the union of A  U(A)     is the set whose members are exactly the members of the members of A
+		[You can think of U(A) as a 1-ary operator. It refer to one set and one set only based on the set A!]
+
+	Theorem 3A:
+		@u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]
+
+	Corollary 3C:
+		@A, B [ 3D [ @t[ t in D <--> 3x, y [x in A & y in B & t = <x, y> ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets A, B,  {<x, y> | x in A & y in B}    is the set whose members are exactly the sets of the form <x, y> for some x in A & y in B
+		Also known as the Cartesian Product A x B of the sets A and B!
+
+	Relation:
+		Definition:
+		A relation R is a set of ordered pairs.
+		@R [ R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ] ]
+
+	dom R: 
+		@R [ 3D [ @x [ x in D <--> 3y [ <x, y> in R ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets R,  dom R  is the set whose members are those 1st-coordinate set of some ordered pair in R
+
+	ran R: 
+		@R [ 3D [ @x [ x in D <--> 3t [ <t, x> in R ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets R,  ran R  is the set whose members are those 2nd-coordinate set of some ordered pair in R
+
+	[ALISA] Pg 43 Existence part:	
+		@F, x [ 3D [ @y [ y in D <--> <x, y> in F ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			For any F, x, the set {y | <x, y> in F} is the set that contains all 2nd-coordinate sets of all ordered pairs in F where x is the first-coordinate set.
+
+	Definition of F(x): 
+	(We define it like this for the purpose of making sure that F(x) is always defined for any F and x, so that we can always refer to it)
+		@F, x [ F(x) := U({y | <x, y> in F}) ]
+
+	The Image of A under F set:
+		@F, A [ 3D [ @v [ v in D <--> 3u [ u in A & <u, v> in F ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			For any sets F, A, F[A] is the set known as the Image of A under F
+			AKA: F[A] := {F(u) | u in A} when F is a function & A ⊆ dom F
+
+	Axiom of Choice (first form):
+ 		@R [ R is a relation --> 3H [ H is a function & H ⊆ R & dom H = dom R ] ]
+
+	Infinite Cartesiona Product:
+		@I, H [ H is a function & I ⊆ dom H --> 3D [ @f [ f in D <--> f is a function & dom f = I & @i [	i in I --> f(i) in H(i) ] ] ] ]
+
+		Definition (its uniqueness is due to Ext. Axiom):
+			For any I, H, where H is a function & I ⊆ dom H, then X_{i in I}(H(i)) is the product of the H(i)'s for all i in I.
+
+	Axiom of Choice (second form):
+		@I, H [ H is a function & dom H = I --> [ @i [ i in I --> H(i) != {} ] --> X_{i in I}(H(i)) != {} ] ]
+
+	[MUELSYSE] Subset Axiom (APPLIED):
+		@I, H [ @c [ 3D [ @t [ t in D <--> t in c & 3i [ i in I & 3j [ j in H(i) & t = <i, j> ] ] ] ] ] ]				[Subset Axiom UI_META/"@I, H" UI_META/"3i [ i in I & 3j [ j in H(i) & t = <i, j> ] ]"]
+		IDEA: we let c = I x U(ran H) 		(if H is a function)
+
+	[TEXAS] Subset Axiom (APPLIED):
+		@I, R [ @c [ 3D [ @t [ t in D <--> t in c & 3i [ i in I & t = <i, R[{i}]> ] ] ] ] ]				[Subset Axiom UI_META/"@I, R" UI_META/""]
+		IDEA: we let c = I x P(ran R)	
+				- u can probly prove this is a function by knowing that R[{i}] is unique by extensionality axiom
+
+	Monotonicity Properties:
+		@A, B [ @t[ t in A --> t in B ] --> @t[ t in A ∪ C --> t in B ∪ C ] ]
+		@A, B [ @t[ t in A --> t in B ] --> @t[ t in A ∩ C --> t in B ∩ C ] ]
+		@A, B [ @t[ t in A --> t in B ] --> @t[ t in U(A)  --> t in U(B) ] ]
+
+[MUELSYSE-A]
+// PROOF WITHOUT ASSUMING F is a function & I = dom F //
+idea:
+	F(x) := U{y | <x ,y> in F }
+	notice: 
+	{y | <x, y> in G} ⊆ ran F
+	--> U{y | <x, y> in G} ⊆ U(ran F)		[monotonicity property 3]
+
+
+1. Show @I, H [ 3D [ @t [ t in D <--> 3i [ i in I & 3j [ j in H(i) & t = <i, j> ] ] ] ] ]
+	2. let I, H be sets
+	========
+	D1. @y [ y in ran H <--> 3x [ <x, y> in H ] ]			[ran UI/H EI & Ext. Axiom]
+	D2. @x [ x in U(ran H) <--> 3b [ b in ran H & x in b ] ]			[Union Axiom UI/ran H EI & Ext. Axiom]
+	D3. @t [ t in (I x U(ran H)) <--> 3x, y [ x in I & y in U(ran H) & t = <x, y> ] ]				[Corollary 3C UI/I UI/U(ran H) EI & Ext. Axiom]
+	========
+	3. Show 3D [ @t [ t in D <--> 3i [ i in I & 3j [ j in H(i) & t = <i, j> ] ] ] ]
+		4. @I, H [ @c [ 3D [ @t [ t in D <--> t in c & 3i [ i in I & 3j [ j in H(i) & t = <i, j> ] ] ] ] ] ]			[MUELSYSE]
+		5. @c [ 3D [ @t [ t in D <--> t in c & 3i [ i in I & 3j [ j in H(i) & t = <i, j> ] ] ] ] ]			[4 UI/I UI/H]
+		6. 3D [ @t [ t in D <--> t in (I x U(ran H)) & 3i [ i in I & 3j [ j in H(i) & t = <i, j> ] ] ] ]				[5 UI/(I x U(ran H))]
+
+		////////
+		7. @t [ t in D_1 <--> t in (I x U(ran H)) & 3i [ i in I & 3j [ j in H(i) & t = <i, j> ] ] ]				[6 EI/D_1]
+		////////
+
+		8. Show @t [ t in D_1 <--> 3i [ i in I & 3j [ j in H(i) & t = <i, j> ] ] ]
+			9. let t be a set
+			10. Show t in D_1 --> 3i [ i in I & 3j [ j in H(i) & t = <i, j> ] ]
+				11. t in D_1			[ACD]
+				12. t in D_1 <--> t in (I x U(ran H)) & 3i [ i in I & 3j [ j in H(i) & t = <i, j> ] ]		[7 UI/t]
+				13. t in (I x U(ran H)) & 3i [ i in I & 3j [ j in H(i) & t = <i, j> ] ]			[12 BC 11 MP]
+				14. 3i [ i in I & 3j [ j in H(i) & t = <i, j> ] ]			[13 SR]
+				15. 		[14 CD]
+
+			16. Show 3i [ i in I & 3j [ j in H(i) & t = <i, j> ] ] --> t in D_1
+				17. 3i [ i in I & 3j [ j in H(i) & t = <i, j> ] ]			[ACD]
+				18. i_2 in I & 3j [ j in H(i_2) & t = <i_2, j> ]			[17 EI/i_2]
+				19. 3j [ j in H(i_2) & t = <i_2, j> ]			[18 SR]
+				20. j_3 in H(i_2) & t = <i_2, j_3>				[19 EI/j_3]
+
+				21. @F, x [ F(x) := U({y | <x, y> in F}) ]			[Definition of F(x)]
+				22. H(i_2) := U({y | <i_2, y> in H})						[21 UI/H UI/i_2]
+
+				========
+				D4. @w [ w in {y | <i_2, y> in H} <--> <i_2, w> in H ]			[ALISA UI/H UI/i_2 EI & Ext. Axiom]
+				D5. @x [ x in U({y | <i_2, y> in H}) <--> 3b [ b in {y | <i_2, y> in H} & x in b ] ]				[Union Axiom UI/({y | <i_2, y> in H}) EI & Ext. Axiom]
+				========
+
+				23. t in D_1 <--> t in (I x U(ran H)) & 3i [ i in I & 3j [ j in H(i) & t = <i, j> ] ]			[7 UI/t]
+
+				24. @t [ t in (I x U(ran H)) <--> 3x, y [ x in I & y in U(ran H) & t = <x, y> ] ]				[D3]
+				25. t in (I x U(ran H)) <--> 3x, y [ x in I & y in U(ran H) & t = <x, y> ]				[24 UI/t]
+
+				26. Show 3x, y [ x in I & y in U(ran H) & t = <x, y> ]
+					27. i_2 in I			[18 SL]
+					28. j_3 in H(i_2)			[20 SL]
+
+					29. Show j_3 in U(ran H)
+						30. Show @m [ m in {y | <i_2, y> in H} --> m in ran H ]
+							31. let m be a set
+							32. Show m in {y | <i_2, y> in H} --> m in ran H
+								33. m in {y | <i_2, y> in H}			[ACD]
+								34. @w [ w in {y | <i_2, y> in H} <--> <i_2, w> in H ]			[D4]
+								35. m in {y | <i_2, y> in H} <--> <i_2, m> in H				[34 UI/m]
+								36. <i_2, m> in H				[35 BC 33 MP]
+								37. @y [ y in ran H <--> 3x [ <x, y> in H ] ]			[D1]
+								38. m in ran H <--> 3x [ <x, m> in H ]			[37 UI/m]
+								39. 3x [ <x, m> in H ]			[36 EG/i_2->x]
+								40. m in ran H			[38 BC 39 MP]
+								41. 		[40 CD]
+							42. 		[32 UD]
+						43. @A, B [ @m [ m in A --> m in B ] --> @m [ m in U(A) --> m in U(B) ] ]			[Monotocity property (3)]
+						44. @m [ m in {y | <i_2, y> in H} --> m in ran H ] --> @m [ m in U({y | <i_2, y> in H}) --> m in U(ran H) ]			[43 UI/{y | <i_2, y> in H} UI/ran H]
+						45. @m [ m in U({y | <i_2, y> in H}) --> m in U(ran H) ]			[44 30 MP]
+						46. j_3 in U({y | <i_2, y> in H}) --> j_3 in U(ran H)				[45 UI/j_3]
+						47. H(i_2) := U({y | <i_2, y> in H})			[22 R]
+						48. j_3 in H(i_2)			[28 R]
+						49. j_3 in U({y | <i_2, y> in H})			[47 48 LL]
+						50. j_3 in U(ran H)			[46 49 MP]
+						51.			[50 DD]
+					
+					52. t = <i_2, j_3>			[20 SR]
+
+					53. i_2 in I & j_3 in U(ran H) & t = <i_2, j_3>				[27 29 52 ADJ]
+					54. 3x, y [ x in I & y in U(ran H) & t = <x, y> ]			[53 EG/i_2->x EG/j_3->y]
+					55. 		[54 DD]
+				
+				56. t in (I x U(ran H))			[25 BC 26 MP]
+				57. t in (I x U(ran H)) & 3i [ i in I & 3j [ j in H(i) & t = <i, j> ] ]				[56 17 ADJ]
+				58. t in D_1			[23 BC 57 MP]
+				59. 		[58 CD]
+			
+			60. t in D_1 <--> 3i [ i in I & 3j [ j in H(i) & t = <i, j> ] ]			[10 16 CB]
+			61.			[60 UD]
+		62. 3D [ @t [ t in D <--> 3i [ i in I & 3j [ j in H(i) & t = <i, j> ] ] ] ]			[8 EG/D_1->D]
+		63.			[62 DD]
+	64. 		[3 UD]
+
+
+				 
+[TEXAS-361]
+1. Show @I, R [ 3D [ @t [ t in D <--> 3i [ i in I & t = <i, R[{i}]> ] ] ] ]
+	2. let I, R be sets
+
+	========
+	D1. @y [ y in ran R <--> 3x [ <x, y> in R ] ]				[ran UI/R EI & Ext. Axiom]
+	D2. @x [ x in P(ran R) <--> @m [ m in x --> m in ran R ] ]				[Power Set Axiom UI/ran R EI & Ext. Axiom]
+	D3. @t [ t in (I x P(ran R)) <--> 3x, y [ x in I & y in P(ran R) & t = <x, y> ] ]				[Corollary 3C UI/I UI/P(ran R) EI & Ext. Axiom]
+	========
+
+	3. Show 3D [ @t [ t in D <--> 3i [ i in I & t = <i, R[{i}]> ] ] ]
+		4. @I, R [ @c [ 3D [ @t [ t in D <--> t in c & 3i [ i in I & t = <i, R[{i}]> ] ] ] ] ]			[TEXAS]
+		5. @c [ 3D [ @t [ t in D <--> t in c & 3i [ i in I & t = <i, R[{i}]> ] ] ] ]				[4 UI/I UI/R]
+		6. 3D [ @t [ t in D <--> t in (I x P(ran R)) & 3i [ i in I & t = <i, R[{i}]> ] ] ]				[5 UI/(I x P(ran R))]
+		////////
+		7. @t [ t in D_1 <--> t in (I x P(ran R)) & 3i [ i in I & t = <i, R[{i}]> ] ]				[7 EI/D_1]
+		////////
+		8. Show @t [ t in D_1 <--> 3i [ i in I & t = <i, R[{i}]> ] ]
+			9. let t be a set
+			10. Show t in D_1 --> 3i [ i in I & t = <i, R[{i}]> ]
+				11. t in D_1			[ACD]
+				12. t in D_1 <--> t in (I x P(ran R)) & 3i [ i in I & t = <i, R[{i}]> ]			[7 UI/t]
+				13. t in (I x P(ran R)) & 3i [ i in I & t = <i, R[{i}]> ]				[12 BC 11 MP]
+				14. 3i [ i in I & t = <i, R[{i}]> ]			[13 SR]
+				15.		[14 CD]
+
+			16. Show 3i [ i in I & t = <i, R[{i}]> ] --> t in D_1
+				17. 3i [ i in I & t = <i, R[{i}]> ]			[ACD]
+				18. i_2 in I & t = <i_2, R[{i_2}]>			[17 EI/i_2]
+
+				========
+				D4. @x [ x in {i_2} <--> x = i_2 or x = i_2 ]				[Pairing Axiom UI/i_2 UI/i_2 EI & Ext. Axiom]
+				D5. @v [ v in R[{i_2}] <--> 3u [ u in {i_2} & <u, v> in R ] ]				[Image of {i_2} under R  UI/R UI/{i_2} EI & Ext. Axiom]			
+				========
+				
+				19. t in D_1 <--> t in (I x P(ran R)) & 3i [ i in I & t = <i, R[{i}]> ]			[7 UI/t]
+				
+				20. Show t in (I x P(ran R))
+					21. @t [ t in (I x P(ran R)) <--> 3x, y [ x in I & y in P(ran R) & t = <x, y> ] ]			[D3]
+					22. t in (I x P(ran R)) <--> 3x, y [ x in I & y in P(ran R) & t = <x, y> ]			[21 UI/t]
+
+					23. i_2 in I			[18 SL]
+					24. t = <i_2, R[{i_2}]>				[18 SR]
+
+					25. @x [ x in P(ran R) <--> @m [ m in x --> m in ran R ] ]				[D2]
+					26. R[{i_2}] in P(ran R) <--> @m [ m in R[{i_2}] --> m in ran R ]				[25 UI/R[{i_2}]]
+					27. Show @m [ m in R[{i_2}] --> m in ran R ]
+						28. let m be a set
+						29. Show m in R[{i_2}] --> m in ran R
+							30. m in R[{i_2}]				[ACD]
+							31. @v [ v in R[{i_2}] <--> 3u [ u in {i_2} & <u, v> in R ] ]				[D5]
+							32. m in R[{i_2}] <--> 3u [ u in {i_2} & <u, m> in R ]			[31 UI/m]
+							33. 3u [ u in {i_2} & <u, m> in R ]				[32 BC 30 MP]
+							34. u_3 in {i_2} & <u_3, m> in R			[33 EI/u_3]
+							35. @y [ y in ran R <--> 3x [ <x, y> in R ] ]			[D1]
+							36. m in ran R <--> 3x [ <x, m> in R ]				[35 UI/m]
+							37. <u_3, m> in R			[34 SR]
+							38. 3x [ <x, m> in R ]			[37 EG/u_3->x]
+							39.	m in ran R			[36 BC 38 MP]
+							40. 		[39 CD]
+						41. 			[29 UD]
+					42. R[{i_2}] in P(ran R)			[26 BC 27 MP]
+
+					43. i_2 in I & R[{i_2}] in P(ran R) & t = <i_2, R[{i_2}]>			[23 42 24 ADJ]
+					44. 3x, y [ x in I & y in P(ran R) & t = <x, y> ]				[43 EG/i_2->x EG/R[{i_2}]->y]
+					45.	t in (I x P(ran R))			[22 BC 44 MP]
+					46.			[45 DD]
+				
+				47. t in (I x P(ran R)) & 3i [ i in I & t = <i, R[{i}]> ]			[20 17 ADJ]
+				48. t in D_1			[19 BC 47 MP]
+				49.			[48 CD]
+			
+			50. t in D_1 <--> 3i [ i in I & t = <i, R[{i}]> ]			[10 16 CB]
+			51. 			[50 UD]
+		52. 3D [ @t [ t in D <--> 3i [ i in I & t = <i, R[{i}]> ] ] ]			[8 EG/D_1->D]
+		53.			[52 DD]
+	54. 		[3 UD]
+
+
+			
+
+
+
+[pg 55 exercise 31]
+1. Show @R [ R is a relation --> 3H [ H is a function & H ⊆ R & dom H = dom R ] ] <--> @I, H [ H is a function & dom H = I --> [ @i [ i in I --> H(i) != {} ] --> X_{i in I}(H(i)) != {} ] ]
+
+	2. Show @R [ R is a relation --> 3H [ H is a function & H ⊆ R & dom H = dom R ] ] --> @I, H [ H is a function & dom H = I --> [ @i [ i in I --> H(i) != {} ] --> X_{i in I}(H(i)) != {} ] ]
+		3. @R [ R is a relation --> 3H [ H is a function & H ⊆ R & dom H = dom R ] ]			[ACD]
+
+
+
+		4. Show @I, H [ H is a function & dom H = I --> [ @i [ i in I --> H(i) != {} ] --> X_{i in I}(H(i)) != {} ] ]
+			5. let I, H be sets
+			
+			6. Show H is a function & dom H = I --> [ @i [ i in I --> H(i) != {} ] --> X_{i in I}(H(i)) != {} ]
+				7. H is a function & dom H = I			[ACD]
+				8. Show I ⊆ dom H
+					9. Show @t [ t in I --> t in dom H ]
+						10. let t be a set
+						11. Show t in I --> t in dom H
+							12. t in I			[ACD]
+							13. dom H = I			[7 SR]
+							14. t in dom H			[12 13 LL]
+							15.			[14 CD]
+						16.		[11 UD]
+					17.	I ⊆ dom H			[9 EQUIV.]
+					18.			[17 DD]
+				
+				19. @I, H [ H is a function & I ⊆ dom H --> 3D [ @f [ f in D <--> f is a function & dom f = I & @i [	i in I --> f(i) in H(i) ] ] ] ]		[Inf. Cartesian Product]
+				20. H is a function & I ⊆ dom H --> 3D [ @f [ f in D <--> f is a function & dom f = I & @i [	i in I --> f(i) in H(i) ] ] ]			[19 UI/I UI/H]
+				21. H is a function & I ⊆ dom H			[7 SL 8 ADJ]
+				22. 3D [ @f [ f in D <--> f is a function & dom f = I & @i [	i in I --> f(i) in H(i) ] ] ]			[20 21 MP]
+
+				========
+				D1. @f [ f in X_{i in I}(H(i)) <--> f is a function & dom f = I & @i [	i in I --> f(i) in H(i) ] ]			[22 EI & Ext. Axiom]
+				========
+				
+
+				23. Show @i [ i in I --> H(i) != {} ] --> X_{i in I}(H(i)) != {}
+					24. @i [ i in I --> H(i) != {} ]		 [ACD]
+
+					//// D_1 ////
+					25. @I, H [ 3D [ @t [ t in D <--> 3i [ i in I & 3j [ j in H(i) & t = <i, j> ] ] ] ] ]			[MUELSYSE-A]
+					26. 3D [ @t [ t in D <--> 3i [ i in I & 3j [ j in H(i) & t = <i, j> ] ] ] ]				[25 UI/I UI/H]
+					////////
+					27. @t [ t in D_1 <--> 3i [ i in I & 3j [ j in H(i) & t = <i, j> ] ] ]				[26 EI/D_1]
+					////////
+
+					========
+					D2. @x [ x in dom D_1 <--> 3y [ <x, y> in D_1 ] ]			[dom UI/D_1 EI & Ext. Axiom]
+					========
+
+					
+					// AXIOM OF CHOICE (FIRST FORM)
+					// THIS IS BASICALLY CUTTING DOWN D_1 so that it becomes a function, which we name f_2 on line 47!
+					28. @R [ R is a relation --> 3H [ H is a function & H ⊆ R & dom H = dom R ] ]			[3 R]
+					29. D_1 is a relation --> 3H [ H is a function & H ⊆ D_1 & dom H = dom D_1 ]			[28 UI/D_1]
+
+
+					// Show D_1 is a relation
+					30. @R [ R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ] ]			[Def. of Relation]
+					31. D_1 is a relation <--> @t [ t in D_1 --> 3x, y[ t = <x, y> ] ]			[30 UI/D_1]
+					32. Show @t [ t in D_1 --> 3x, y[ t = <x, y> ] ]
+						33. let t be a set
+						34. Show t in D_1 --> 3x, y[ t = <x, y> ]
+							35. t in D_1			[ACD]
+							36. t in D_1 <--> 3i [ i in I & 3j [ j in H(i) & t = <i, j> ] ]			[27 UI/t]
+							37. 3i [ i in I & 3j [ j in H(i) & t = <i, j> ] ]			[36 BC 35 MP]
+							38. i_2 in I & 3j [ j in H(i_2) & t = <i_2, j> ]			[37 EI/i_2]
+							39. 3j [ j in H(i_2) & t = <i_2, j> ]			[38 SR]
+							40. j_3 in H(i_2) & t = <i_2, j_3>				[39 EI/j_3]
+							41. t = <i_2, j_3>			[40 SR]
+							42. 3x, y[ t = <x, y> ]			[41 EG/i_2->x EG/j_3->y]
+							43.			[42 CD]
+						44. 			[34 UD]
+					45. D_1 is a relation			[31 BC 32 MP]
+
+					46. 3H [ H is a function & H ⊆ D_1 & dom H = dom D_1 ]			[29 45 MP]
+
+					////////
+					47. f_2 is a function & f_2 ⊆ D_1 & dom f_2 = dom D_1				[46 EI/f_2]
+					////////
+
+
+					//GOAL is to show that f_2 is in X_{i in I}(H(i)), which means X_{i in I}(H(i)) != {}
+					48. Show X_{i in I}(H(i)) != {}
+						49. X_{i in I}(H(i)) = {}			[AID]
+
+						50. @f [ f in X_{i in I}(H(i)) <--> f is a function & dom f = I & @i [	i in I --> f(i) in H(i) ] ]			[D1]
+						51. f_2 in X_{i in I}(H(i)) <--> f_2 is a function & dom f_2 = I & @i [	i in I --> f_2(i) in H(i) ]			[50 UI/f_2]
+						52. Show dom f_2 = I
+							53. dom f_2 = dom D_1			[47 SR]
+							54. Show dom D_1 = I
+								55. @A, B [ @x [ x in A <--> x in B ] --> A = B ]			[Ext. Axiom]
+								56. @x [ x in dom D_1 <--> x in I ] --> dom D_1 = I			[55 UI/dom D_1 UI/I]
+								57. Show @x [ x in dom D_1 <--> x in I ]
+									58. let x be a set
+									59. Show x in dom D_1 --> x in I
+										60. x in dom D_1			[ACD]
+										61. @x [ x in dom D_1 <--> 3y [ <x, y> in D_1 ] ]		[D2]
+										62. x in dom D_1 <--> 3y [ <x, y> in D_1 ]			[61 UI/x]
+										63. 3y [ <x, y> in D_1 ]			[62 BC 60 MP]
+										64. <x, y_3> in D_1				[63 EI/y_3]
+										65. @t [ t in D_1 <--> 3i [ i in I & 3j [ j in H(i) & t = <i, j> ] ] ]			[27 R]
+										66. <x, y_3> in D_1 <--> 3i [ i in I & 3j [ j in H(i) & <x, y_3> = <i, j> ] ]				[65 UI/<x, y_3>]
+										67. 3i [ i in I & 3j [ j in H(i) & <x, y_3> = <i, j> ] ]			[66 BC 64 MP]
+										68. i_4 in I & 3j [ j in H(i_4) & <x, y_3> = <i_4, j> ]			[67 EI/i_4]
+
+										69. 3j [ j in H(i_4) & <x, y_3> = <i_4, j> ]			[68 SR]
+										70. j_5 in H(i_4) & <x, y_3> = <i_4, j_5>				[69 EI/j_5]
+										71. <x, y_3> = <i_4, j_5>			[70 SR]
+										72. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]			[Theorem 3A]
+										73. <x, y_3> = <i_4, j_5>  <-->  x = i_4 & y_3 = j_5				[72 UI/x, y_3, i_4, j_5]
+										74. x = i_4 & y_3 = j_5			[73 BC 71 MP]
+										75. x = i_4			[74 SL]
+										76. i_4 in I			[68 SL]
+										77. x in I			[75 76 LL]
+										78. 			[77 CD]
+
+									79. Show x in I --> x in dom D_1
+										// use line 24: @i [ i in I --> H(i) != {} ]
+										80. x in I		[ACD]
+										81. @i [ i in I --> H(i) != {} ]			[line 24]
+										82. x in I --> H(x) != {}			[81 UI/x]
+										83. H(x) != {}			[82 80 MP]
+										84. @A [ A != {} --> 3t [ t in A ] ]				[LEMMA - NON-EMPTY]
+										85. H(x) != {} --> 3t [ t in H(x) ]				[84 UI/H(x)]
+										86. 
+										
+
+
+						Show @i [	i in I --> f_2(i) in H(i) ]
+
+
+					
+					// given H is a function & dom H = I, USE MUELSYSE-A to get a set D such that @t [ t in D <--> 3i [ i in I & 3j [ j in H(i) & t = <i, j> ] ] ]
+					// Then use line 3 to obtain a function f from D
+					// This f is a function & f ⊆ R & dom f = dom R
+					// we can show that f is in X_{i in I}(H(i)), so X_{i in I}(H(i)) is not empty!
+
+	Show @I, H [ H is a function & dom H = I --> [ @i [ i in I --> H(i) != {} ] --> X_{i in I}(H(i)) != {} ] ] --> @R [ R is a relation --> 3H [ H is a function & H ⊆ R & dom H = dom R ] ]
+		//Given R is relation, we use [TEXAS-361] @I, R [ 3D [ @t [ t in D <--> 3i [ i in I & t = <i, R[{i}]> ] ] ] ]  with I = dom R to build a set D
+		//Then use this D on the second form of the axiom of choice @I, H [ H is a function & dom H = I --> [ @i [ i in I --> H(i) != {} ] --> X_{i in I}(H(i)) != {} ] ]
+		// to do this, we first show that D is a function and dom D = I
+		// then prove @i [ i in I --> H(i) != {} ] (this is true because I = dom R and and so i in dom R, so H(i) = R[{i}] != {})
+		// then we have X_{i in I}(H(i)) != {}
+		// since X_{i in I}(H(i)) != {}, then theres an element in it
+		// call this element f
+		// then we can show that f is a function, f ⊆ R, and dom f = I. note that I = dom R.

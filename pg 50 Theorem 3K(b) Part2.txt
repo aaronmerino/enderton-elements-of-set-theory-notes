@@ -1,0 +1,115 @@
+Axioms and Theorems:
+	Theorem 2B (Arbitrary Intersection):
+	@A [ A != { } --> 3_1B [ @x [ x in B <--> @a [ a in A --> x in a ] ] ] ] 
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set non empty set A, the intersection of A  ∩(A)     is the set whose members are exactly the members of all members of A.
+
+	Theorem 3K(a), 3K(b) Part2 Existence part:
+		@F, Z [ 3D [ @t [ t in D <--> 3A [ A in Z & t = F[A] ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			For any F, Z, the unique set {F[A] | A in Z } is the set that contains all sets of the form F[A] for some A in Z
+
+	LEMMA - NON-EMPTY:
+		@A [ A != {} --> 3t [ t in A ] ]
+
+// Subset Proof //
+1. Show @F, Z [ Z != {} --> @t [ t in F[∩(Z)] --> t in ∩({F[A] | A in Z }) ] ]
+	2. let F, Z be sets
+
+	========
+	D0. @x [ ~(x in {}) ]			[Empty Axiom EI & Ext. Axiom]
+	========
+
+	3. Show Z != {} --> @t [ t in F[∩(Z)] --> t in ∩({F[A] | A in Z }) ]
+		4. Z != {}		[ACD]
+
+		========
+		T1. @A [ A != { } --> 3_1B [ @x [ x in B <--> @a [ a in A --> x in a ] ] ] ]			[Theorem 2B]
+		D1. @x [ x in ∩(Z) <--> @a [ a in Z --> x in a ] ]									[Theorem 2B UI/Z 4 MP EI & Ext. Axiom --> defines ∩(Z)] 
+		D2. @v [ v in F[∩(Z)] <--> 3u [ u in ∩(Z) & <u, v> in F ] ]					[Image Under UI/F UI/∩(Z) EI & Ext. Axiom]
+		D3. @t [ t in {F[A] | A in Z } <--> 3A [ A in Z & t = F[A] ] ]			[Theorem 3K(a) Part2 Existence UI/F UI/Z EI & Ext. Axiom]
+		========
+
+		// In order for us to reference ∩({F[A] | A in Z }), we need to make sure {F[A] | A in Z } != {}
+		5. Show {F[A] | A in Z } != {}
+			6. {F[A] | A in Z } = {}			[AID]
+			7. @A [ A != {} --> 3t [ t in A ] ]			[LEMMA - NON-EMPTY]
+			8. Z != {} --> 3t [ t in Z ]						[7 UI/Z]
+			9. 3t [ t in Z ]				[8 4 MP]
+			10. t_1 in Z						[8 EI/t_1]
+
+			// Consider the set F[t_1]
+			========
+			D4. @v [ v in F[t_1] <--> 3u [ u in t_1 & <u, v> in F ] ]			[Image Under UI/F UI/t_1 EI & Ext. Axiom]
+			========
+
+			11. @t [ t in {F[A] | A in Z } <--> 3A [ A in Z & t = F[A] ] ]			[D3]
+			12. F[t_1] in {F[A] | A in Z } <--> 3A [ A in Z & F[t_1] = F[A] ]		[11 UI/F[t_1]]
+			13. F[t_1] = F[t_1]										[SID/F[t_1]]
+			14. t_1 in Z & F[t_1] = F[t_1]				[10 13 ADJ]
+			15. 3A [ A in Z & F[t_1] = F[A] ]			[14 EG/t_1->A]
+			16. F[t_1] in {F[A] | A in Z }				[12 BC 15 MP]
+			17. F[t_1] in {}				[16 6 LL]
+			18. @x [ ~(x in {}) ]			[D0]
+			19. ~(F[t_1] in {})				[18 UI/F[t_1]]
+			20.			[17 19 ID]
+
+		========
+		D5. @x [ x in ∩({F[A] | A in Z }) <--> @a [ a in {F[A] | A in Z } --> x in a ] ]									[Theorem 2B UI/{F[A] | A in Z } 5 MP EI & Ext. Axiom --> defines ∩(Z)] 
+		========
+
+
+		21. Show @t [ t in F[∩(Z)] --> t in ∩({F[A] | A in Z }) ]
+			22. let t be a set
+			23. Show t in F[∩(Z)] --> t in ∩({F[A] | A in Z })
+				24. t in F[∩(Z)]			[ACD]
+				25. @v [ v in F[∩(Z)] <--> 3u [ u in ∩(Z) & <u, v> in F ] ]				[D2]
+				26. t in F[∩(Z)] <--> 3u [ u in ∩(Z) & <u, t> in F ]							[25 UI/t]
+				27. 3u [ u in ∩(Z) & <u, t> in F ]			[26 BC 24 MP]
+
+				28. u_1 in ∩(Z) & <u_1, t> in F					[27 EI/u_1]
+				29. u_1 in ∩(Z)
+
+				30. @x [ x in ∩(Z) <--> @a [ a in Z --> x in a ] ]			[D1]
+				31. u_1 in ∩(Z) <--> @a [ a in Z --> u_1 in a ]					[30 UI/u_1]
+				32. @a [ a in Z --> u_1 in a ]			[31 BC 29 MP]
+
+				33. @x [ x in ∩({F[A] | A in Z }) <--> @a [ a in {F[A] | A in Z } --> x in a ] ]		[D5]
+				34. t in ∩({F[A] | A in Z }) <--> @a [ a in {F[A] | A in Z } --> t in a ]						[33 UI/t]
+				35. Show @a [ a in {F[A] | A in Z } --> t in a ]
+					36. let a be a set
+					37. Show a in {F[A] | A in Z } --> t in a
+						38.	a in {F[A] | A in Z }			[ACD]
+						39. @t [ t in {F[A] | A in Z } <--> 3A [ A in Z & t = F[A] ] ]			[D3]
+						40. a in {F[A] | A in Z } <--> 3A [ A in Z & a = F[A] ]							[39 UI/a]
+						41. 3A [ A in Z & a = F[A] ]			[40 BC 38 MP]
+
+						42. A_2 in Z & a = F[A_2]					[41 EI/A_2]
+
+						========
+						D6. @v [ v in F[A_2] <--> 3u [ u in A_2 & <u, v> in F ] ]					[Image Under UI/F UI/A_2 EI & Ext. Axiom]
+						========
+
+						43. A_2 in Z			[42 SL]
+						44. @a [ a in Z --> u_1 in a ]		[32 R]
+						45. A_2 in Z --> u_1 in A_2				[44 UI/A_2]
+						46. u_1 in A_2			[45 43 MP]
+
+						47. a = F[A_2]			[42 SR]
+						48. @v [ v in F[A_2] <--> 3u [ u in A_2 & <u, v> in F ] ]			[D6]
+						49. t in F[A_2] <--> 3u [ u in A_2 & <u, t> in F ]						[48 UI/t]
+						50. u_1 in A_2 & <u_1, t> in F					[46 (28 SR) ADJ]
+						51. 3u [ u in A_2 & <u, t> in F ]				[50 EG/u_1->u]
+						52. t in F[A_2]			[49 BC 51 MP]
+						53. t in a 					[47 52 LL]
+						54.			[53 CD]
+					55.			[37 UD]
+				56. t in ∩({F[A] | A in Z })			[34 BC 35 MP]
+				57. 		[56 CD]
+			58. 		[23 UD]
+		59. 		[21 CD]
+	60.			[3 UD]
+
+
+
+			

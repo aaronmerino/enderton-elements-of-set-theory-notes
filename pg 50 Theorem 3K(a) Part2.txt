@@ -1,0 +1,190 @@
+Axioms and Theorems:
+	Subset Axioms:
+	For each formula __ not containing B, the following is an axiom:
+	@t1 ... @tk @c [ 3B [ @x [ x in B <--> x in c & __ ] ] ]
+		Definition:
+		For any set t­1, ..., tk and c, the subset B = {x in c | __ } is the set whose members are exactly those sets in c and __	
+	
+	APPLE [Subset Axiom Applied]:
+	@F, Z [ @c [ 3D [ @t [ t in D <--> t in c & 3A [ A in Z & t = F[A] ] ] ] ] ]			[Subset Axiom UI_META/'@F, Z' UI_META/'3A [ A in Z & t = F[A] ]']
+	
+
+
+Note: {F[A] | A in Z} is a subset of P(ran F)
+// Existence of RHS Proof //
+1. Show @F, Z [ 3D [ @t [ t in D <--> 3A [ A in Z & t = F[A] ] ] ] ]
+	2. let F, Z be sets
+
+	======== 
+	D1. @x [ x in ran F <--> 3t [ <t, x> in F ] ]				[ran UI/F EI & Ext. Axiom]
+	D2. @x [ x in P(ran F) <--> @w [ w in x --> w in ran F ] ]			[Power Axiom UI/ran F]
+	======== 
+	
+	3. Show 3D [ @t [ t in D <--> 3A [ A in Z & t = F[A] ] ] ]
+		4. @F, Z [ @c [ 3D [ @t [ t in D <--> t in c & 3A [ A in Z & t = F[A] ] ] ] ] ]		[APPLE]
+		5. @c [ 3D [ @t [ t in D <--> t in c & 3A [ A in Z & t = F[A] ] ] ] ]			[4 UI/F, Z]
+		6. 3D [ @t [ t in D <--> t in P(ran F) & 3A [ A in Z & t = F[A] ] ] ]			[5 UI/P(ran F)]
+		7. @t [ t in D_1 <--> t in P(ran F) & 3A [ A in Z & t = F[A] ] ]					[6 EI/D_1]
+
+		8. Show @t [ t in D_1 <--> 3A [ A in Z & t = F[A] ] ]
+			9. let t be a set
+			10. Show t in D_1 --> 3A [ A in Z & t = F[A] ]
+				11. t in D_1			[ACD]
+				12. t in D_1 <--> t in P(ran F) & 3A [ A in Z & t = F[A] ]			[7 UI/t]
+				13. t in P(ran F) & 3A [ A in Z & t = F[A] ]			[12 BC 11 MP]
+				14. 3A [ A in Z & t = F[A] ]			[13 SR]
+				15. 		[14 CD]
+			16. Show 3A [ A in Z & t = F[A] ] --> t in D_1
+				17. 3A [ A in Z & t = F[A] ]		[ACD]
+				18. A_2 in Z & t = F[A_2]				[17 EI/A_2]
+
+				========
+				D3. @v [ v in F[A_2] <--> 3u [ u in A_2 & <u, v> in F ] ]			[Image Under UI/F UI/A_2 EI & Ext. Axiom]
+				========
+
+				19. t in D_1 <--> t in P(ran F) & 3A [ A in Z & t = F[A] ]		[7 UI/t]
+				20. Show t in P(ran F)
+					21. @x [ x in P(ran F) <--> @w [ w in x --> w in ran F ] ]		[D2]
+					22. t in P(ran F) <--> @w [ w in t --> w in ran F ]						[21 UI/t]
+					23. Show @w [ w in t --> w in ran F ]
+						24. let w be a set
+						25.	Show w in t --> w in ran F
+							26. w in t						[ACD]
+							27. t = F[A_2]				[18 SR]
+							28. w in F[A_2]				[26 27 LL]
+							29. @v [ v in F[A_2] <--> 3u [ u in A_2 & <u, v> in F ] ]				[D3]
+							30. w in F[A_2] <--> 3u [ u in A_2 & <u, w> in F ]							[29 UI/w]
+							31. 3u [ u in A_2 & <u, w> in F ]				[30 BC 28 MP]
+							32. u_3 in A_2 & <u_3, w> in F					[31 EI/u_3]
+
+							33. @x [ x in ran F <--> 3t [ <t, x> in F ] ]			[D1]
+							34. w in ran F <--> 3t [ <t, w> in F ]						[33 UI/w]
+							35. <u_3, w> in F					[32 SR]
+							36. 3t [ <t, w> in F ]		[35 EG/u_3->t]	
+							37. w in ran F			[34 BC 36 MP]
+							38.			[37 CD]
+						39.			[25 UD]
+					40. t in P(ran F)			[22 BC 23 MP]
+					41.			[40 DD]
+				
+				42. t in P(ran F) & 3A [ A in Z & t = F[A] ]			[20 17 ADJ]
+				43.	t in D_1			[19 BC 42 MP]
+				44.		[43 CD]
+			45. t in D_1 <--> 3A [ A in Z & t = F[A] ]		[10 16 CB]
+			46. 		[45 UD]
+
+		47. 3D [ @t [ t in D <--> 3A [ A in Z & t = F[A] ] ] ]			[8 EG/D_1->D]
+		48.		[47 DD]
+	49. 	[3 UD]
+
+Theorem 3K(a), 3K(b) Part2 Existence part:
+	@F, Z [ 3D [ @t [ t in D <--> 3A [ A in Z & t = F[A] ] ] ] ]
+	Definition (its uniqueness is always due to Ext. Axiom):
+		For any F, Z, the unique set {F[A] | A in Z } is the set that contains all sets of the form F[A] for some A in Z
+
+
+// Equality Proof //
+1. Show @F, Z [ F[U(Z)] = U({F[A] | A in Z }) ]
+	2. let F, Z be a set
+
+	========
+	D1. @x [ x in U(Z) <--> 3b [ b in Z & x in b ] ]			[Union Axiom UI/Z EI & Ext. Axiom]
+	D2. @v [ v in F[U(Z)] <--> 3u [ u in U(Z) & <u, v> in F ] ]				[Image Under UI/F UI/U(Z) EI & Ext. Axiom]
+	D3. @t [ t in {F[A] | A in Z } <--> 3A [ A in Z & t = F[A] ] ]		[Thorem 3K(a) Existence UI/F UI/Z & Ext. Axiom]
+	D4. @x [ x in U({F[A] | A in Z }) <--> 3b [ b in {F[A] | A in Z } & x in b ] ]			[Union Axiom UI/{F[A] | A in Z } EI & Ext. Axiom]
+	========
+
+	3. @A, B [ @x [ x in A <--> x in B ] --> A = B ]			[Ext. Axiom]
+	4. @x [ x in F[U(Z)] <--> x in U({F[A] | A in Z }) ] --> F[U(Z)] = U({F[A] | A in Z })			[3 UI/...]
+	5. Show @x [ x in F[U(Z)] <--> x in U({F[A] | A in Z }) ]
+		6. let x be a set
+		7. Show x in F[U(Z)] --> x in U({F[A] | A in Z })
+			8. x in F[U(Z)]				[ACD]
+			9. @v [ v in F[U(Z)] <--> 3u [ u in U(Z) & <u, v> in F ] ]			[D2]
+			10. x in F[U(Z)] <--> 3u [ u in U(Z) & <u, x> in F ]						[9 UI/x]
+			11. 3u [ u in U(Z) & <u, x> in F ]			[10 BC 8 MP]
+			12. u_1 in U(Z) & <u_1, x> in F					[11 EI/u_1]
+
+			13. u_1 in U(Z)		[12 SL]
+			14. @x [ x in U(Z) <--> 3b [ b in Z & x in b ] ]		[D1]
+			15. u_1 in U(Z) <--> 3b [ b in Z & u_1 in b ]				[14 UI/u_1]
+			16. 3b [ b in Z & u_1 in b ]			[15 BC 13 MP]
+			17. b_2 in Z & u_1 in b_2					[16 EI/b_2]
+
+			// consider the set F[b_2]
+			========
+			D5. @v [ v in F[b_2] <--> 3u [ u in b_2 & <u, v> in F ] ]				[Image Under UI/F UI/b_2 EI & Ext. Axiom]
+			========
+
+			18. @x [ x in U({F[A] | A in Z }) <--> 3b [ b in {F[A] | A in Z } & x in b ] ]		[D4]
+			19. x in U({F[A] | A in Z }) <--> 3b [ b in {F[A] | A in Z } & x in b ]				[18 UI/x]
+
+			// lets show that F[b_2] in {F[A] | A in Z }
+			20. @t [ t in {F[A] | A in Z } <--> 3A [ A in Z & t = F[A] ] ]				[D3]
+			21. F[b_2] in {F[A] | A in Z } <--> 3A [ A in Z & F[b_2] = F[A] ]			[20 UI/F[b_2]]
+			22. b_2 in Z		[17 SL]
+			23. F[b_2] = F[b_2]			[SID/F[b_2]]
+			24. b_2 in Z & F[b_2] = F[b_2]		[22 23 ADJ]
+			25. 3A [ A in Z & F[b_2] = F[A] ]		[24 EG/b_2->A]
+			26. F[b_2] in {F[A] | A in Z }			[21 BC 25 MP]
+
+			// lets show x in F[b_2]
+			27. @v [ v in F[b_2] <--> 3u [ u in b_2 & <u, v> in F ] ]			[D5]
+			28. x in F[b_2] <--> 3u [ u in b_2 & <u, x> in F ]						[27 UI/x]
+			29. u_1 in b_2					[17 SR]
+			30. <u_1, x> in F				[12 SR]
+			31. u_1 in b_2 & <u_1, x> in F			[29 30 ADJ]
+			32. 3u [ u in b_2 & <u, x> in F ]		[31 EG/u_1->u]
+			33. x in F[b_2]			[28 BC 32 MP]
+
+			34. F[b_2] in {F[A] | A in Z } & x in F[b_2]			[26 33  ADJ]
+			35. 3b [ b in {F[A] | A in Z } & x in b ]					[34 EG/F[b_2]->b]
+			36. x in U({F[A] | A in Z })			[19 BC 35 MP]
+			37. 		[36 CD]
+
+		38. Show x in U({F[A] | A in Z }) --> x in F[U(Z)]
+			39. x in U({F[A] | A in Z })			[ACD]
+			40. @x [ x in U({F[A] | A in Z }) <--> 3b [ b in {F[A] | A in Z } & x in b ] ]			[D4]
+			41. x in U({F[A] | A in Z }) <--> 3b [ b in {F[A] | A in Z } & x in b ]				[40 UI/x]
+			42. 3b [ b in {F[A] | A in Z } & x in b ]			[41 BC 39 MP]
+			43. b_1 in {F[A] | A in Z } & x in b_1				[42 EI/b_1]
+			44. b_1 in {F[A] | A in Z }				[43 SL]
+
+			45. @t [ t in {F[A] | A in Z } <--> 3A [ A in Z & t = F[A] ] ]				[D3]
+			46. b_1 in {F[A] | A in Z } <--> 3A [ A in Z & b_1 = F[A] ]						[45 UI/b_1]
+			47. 3A [ A in Z & b_1 = F[A] ]			[46 BC 44 MP]
+			48. A_2 in Z & b_1 = F[A_2]					[47 EI/A_2]
+
+			========
+			D5. @v [ v in F[A_2] <--> 3u [ u in A_2 & <u, v> in F ] ]				[Image Under UI/F UI/A_2 EI & Ext. Axiom]
+			========
+
+			49. @v [ v in F[A_2] <--> 3u [ u in A_2 & <u, v> in F ] ]			[D5]
+			50. x in F[A_2] <--> 3u [ u in A_2 & <u, x> in F ]						[49 UI/x]
+			51. x in b_1					[43 SR]
+			52. b_1 = F[A_2]			[48 SR]
+			53. x in F[A_2]				[51 52 LL]
+			54. 3u [ u in A_2 & <u, x> in F ]			[50 BC 53 MP]
+			55. u_3 in A_2 & <u_3, x> in F				[54 EI/u_3]
+
+			56. @v [ v in F[U(Z)] <--> 3u [ u in U(Z) & <u, v> in F ] ]			[D2]
+			57. x in F[U(Z)] <--> 3u [ u in U(Z) & <u, x> in F ]						[56 UI/x]
+
+			58. @x [ x in U(Z) <--> 3b [ b in Z & x in b ] ]			[D1]
+			59. u_3 in U(Z) <--> 3b [ b in Z & u_3 in b ]					[58 UI/u_3]
+			60. A_2 in Z				[48 SL]
+			61. u_3 in A_2			[55 SL]
+			62. A_2 in Z & u_3 in A_2					[60 61 ADJ]
+			63. 3b [ b in Z & u_3 in b ]			[62 EG/A_2->b]
+			64. u_3 in U(Z)				[59 BC 63 MP]
+
+			65. <u_3, x> in F			[55 SR]
+			66. u_3 in U(Z) & <u_3, x> in F			[64 65 ADJ]
+			67. 3u [ u in U(Z) & <u, x> in F ]	[66 EG/u_3->u]
+			68. x in F[U(Z)]			[57 BC 67 MP]
+			69. 		[68 CD]
+		
+		70. x in F[U(Z)] <--> x in U({F[A] | A in Z })			[7 38 CB]
+		71. 		[70 UD]
+	72. F[U(Z)] = U({F[A] | A in Z })			[5 4 MP]
+	73. 		[72 UD]

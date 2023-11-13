@@ -1,0 +1,105 @@
+Axioms and Theorems:
+	Definition of single-rooted:
+		@R [ R is single-rooted <--> 
+				@y [ y in ran R --> 3_1x [ <x, y> in R ] ]
+			]
+	
+	Theorem 3K(c):
+		@F, A, B [ @t [ t in F[A] - F[B] --> t in F[A - B] ] ]
+
+1. Show @F, A, B [ F is single-rooted --> F[A] - F[B] = F[A - B] ]
+	2. let F, A, B be sets
+
+	========
+	D1. @y [ y in F[A] <--> 3u [ u in A & <u, y> in F ] ]				[Image Under UI/F UI/A EI & Ext. Axiom]
+	D2. @y [ y in F[B] <--> 3u [ u in B & <u, y> in F ] ]				[Image Under UI/F UI/B EI & Ext. Axiom]
+	D3. @t [ t in F[A] - F[B] <--> t in F[A] & ~(t in F[B]) ]					[Relative complement UI/F[A] UI/F[B] EI & Ext. Axiom]
+	D4. @t [ t in A - B <--> t in A & ~(t in B) ]											[Relative complement UI/A UI/B EI & Ext. Axiom]
+	D5. @y [ y in F[A - B] <--> 3u [ u in A - B & <u, y> in F ] ]			[Image Under UI/F UI/(A - B) EI & Ext. Axiom]
+	D6. @x [ x in ran F <--> 3t [ <t, x> in F ] ]				[ran UI/F EI & Ext. Axiom]
+	========
+
+	3. Show F is single-rooted --> F[A] - F[B] = F[A - B]
+		4. F is single-rooted			[ACD]
+		
+		5. @A, B [ @x [ x in A <--> x in B ] --> A = B ]		[Ext. Axiom]
+		6. @x [ x in F[A] - F[B] <--> x in F[A - B] ] --> F[A] - F[B] = F[A - B]			[5 UI/...]
+		7. Show @x [ x in F[A] - F[B] <--> x in F[A - B] ]
+			8. let x be a set
+			9. Show x in F[A - B] --> x in F[A] - F[B]
+				10. x in F[A - B]				[ACD]
+				11. @y [ y in F[A - B] <--> 3u [ u in A - B & <u, y> in F ] ]			[D5]
+				12. x in F[A - B] <--> 3u [ u in A - B & <u, x> in F ]						[11 UI/x]
+				13. 3u [ u in A - B & <u, x> in F ]				[12 BC 10 MP]
+				14. u_1 in A - B & <u_1, x> in F					[13 EI/u_1]
+
+				15. u_1 in A - B			[14 SL]
+				16. @t [ t in A - B <--> t in A & ~(t in B) ]			[D4]
+				17. u_1 in A - B <--> u_1 in A & ~(u_1 in B)			[16 UI/u_1]
+				18. u_1 in A & ~(u_1 in B)				[17 BC 15 MP]
+
+				19. @t [ t in F[A] - F[B] <--> t in F[A] & ~(t in F[B]) ]			[D3]
+				20. x in F[A] - F[B] <--> x in F[A] & ~(x in F[B])						[19 UI/x]
+
+				21. Show x in F[A]
+					22. @y [ y in F[A] <--> 3u [ u in A & <u, y> in F ] ]			[D1]
+					23. x in F[A] <--> 3u [ u in A & <u, x> in F ]				[22 UI/x]
+					24. u_1 in A		[18 SL]
+					25. <u_1, x> in F			[14 SR]
+					26. u_1 in A & <u_1, x> in F			[24 25 ADJ]
+					27. 3u [ u in A & <u, x> in F ]		[26 EG/u_1->u]
+					28. x in F[A]			[23 BC 27 MP]
+					29.			[28 DD]
+
+				30. Show ~(x in F[B])
+					31. x in F[B]			[AID]
+					// this shud lead to F being not single-rooted, which contradicts our assumption on line 4.
+					32. @y [ y in F[B] <--> 3u [ u in B & <u, y> in F ] ]				[D2]
+					33. x in F[B] <--> 3u [ u in B & <u, x> in F ]				[32 UI/x]
+					34. 3u [ u in B & <u, x> in F ]				[33 BC 31 MP]
+					35. u_2 in B & <u_2, x> in F				[34 EI/u_2]
+
+					// F being single-rooted implies u_2 = u_1, but then u_1 in B and ~(u_1 in B), a contradiction.
+					36. @R [ R is single-rooted <--> @y [ y in ran R --> 3_1u [ <u, y> in R ] ] ]				[Definition of single-rooted]
+					37. F is single-rooted <--> @y [ y in ran F --> 3_1u [ <u, y> in F ] ]			[36 UI/F]
+					38. @y [ y in ran F --> 3_1u [ <u, y> in F ] ]			[37 BC 4 MP]
+					39. x in ran F --> 3_1u [ <u, x> in F ]				[38 UI/x]
+
+					40. @x [ x in ran F <--> 3t [ <t, x> in F ] ]				[D6]
+					41. x in ran F <--> 3t [ <t, x> in F ]			[40 UI/x]
+					42. <u_1, x> in F			[14 SR]
+					43. 3t [ <t, x> in F ]			[42 EG/u_1->t]
+					44. x in ran F				[41 BC 43 MP]
+
+					45. 3_1u [ <u, x> in F ]			[39 44 MP]
+					46. 3u [ <u, x> in F & @w [ <w, x> in F --> w = u ] ]			[45 EQUIV.]
+					47. <u_3, x> in F & @w [ <w, x> in F --> w = u_3 ]				[46 EI/u_3]
+
+					48. @w [ <w, x> in F --> w = u_3 ]			[47 SR]
+					49. <u_1, x> in F --> u_1 = u_3					[48 UI/u_1]
+					50. <u_1, x> in F			[14 SR]
+					51. u_1 = u_3			[49 50 MP]
+
+					52. <u_2, x> in F --> u_2 = u_3					[48 UI/u_2]
+					53. <u_2, x> in F				[35 SR]
+					54. u_2 = u_3		[52 53 MP]
+
+					55. u_1 = u_2		[51 54 LL]
+					56. ~(u_1 in B)			[18 SR]
+					57. ~(u_2 in B)			[55 56 LL]
+					58. u_2 in B				[35 SL]
+					59. 		[57 58 ID]
+				
+				60. x in F[A] & ~(x in F[B])
+				61. x in F[A] - F[B]			[20 BC 60 MP]
+				62. 		[61 CD]
+			
+			63. @F, A, B [ @t [ t in F[A] - F[B] --> t in F[A - B] ] ]			[Theorem 3K(c)]
+			64. @t [ t in F[A] - F[B] --> t in F[A - B] ]				[63 UI/F, A, B]
+			65. x in F[A] - F[B] --> x in F[A - B]			[64 UI/x]
+
+			66. x in F[A] - F[B] <--> x in F[A - B]			[9 65 CB]
+			67.		[66 UD]
+		68. F[A] - F[B] = F[A - B]			[6 7 MP]
+		69. 		[68 CD]
+	70. 		[3 UD]

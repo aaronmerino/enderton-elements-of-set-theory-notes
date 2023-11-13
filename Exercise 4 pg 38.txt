@@ -1,0 +1,75 @@
+Axioms and Theorems:
+	Extensionality Axiom:
+	@A, B [ @x [ x in A <--> x in B ] --> A = B ]
+
+	Pairing Axiom:
+	@u, v [ 3B [ @x [ x in B <--> x = u or x = v ] ] ]
+		Definition:
+		For any sets u, v, the pair set {u, v} is the set whose only members are u and v.
+		[You can think of {u, v} as a 2-ary operator. It refer to one set and one set only based on the sets u and v!]
+
+		Definition:
+		Let {x} := {x, x} is the set whose only members are x and x
+
+	Theorem 2A:
+	~3V [ @x [ x in V ] ]
+
+	Definition:
+		@x, y[ <x, y> := {{x}, {x, y}} ]
+			note {x} exists due to Pairing Axiom & Extensionality
+			note {x, y} exists due to Pairing Axiom & Extensionality
+			finally {{x}, {x, y}} exists due to Pairing Axiom & Extensionality
+
+1. Show ~3D [ @x, y [ <x, y> in D ] ]
+	2. 3D [ @x, y [ <x, y> in D ] ]			[AID]
+	3. @x, y [ <x, y> in D_1 ]
+	4. U(D_1) is the set whose members are exactly the members of the members of D_1 			[Union Axiom UI/D_1 & Ext. Axiom]
+		@x [ x in U(D_1) <--> 3b [ b in D_1 & x in b ] ]
+	
+	5. U(U(D_1)) is the set whose members are exactly the members of the members of U(D_1) 		[Union Axiom UI/U(D_1) & Ext. Axiom]
+		@x [ x in U(U(D_1)) <--> 3b [ b in U(D_1) & x in b ] ]	
+
+	6. Show @x [ x in U(U(D_1)) ]
+		7. Let x be a set
+		8. Show x in U(U(D_1))
+			9. @x [ x in U(U(D_1)) <--> 3b [ b in U(D_1) & x in b ] ]		[5 R]
+			10. x in U(U(D_1)) <--> 3b [ b in U(D_1) & x in b ]				[9 UI/x]
+			11. Show 3b [ b in U(D_1) & x in b ]
+				12. @x [ x in U(D_1) <--> 3b [ b in D_1 & x in b ] ]		[4 R]
+				
+				13. {x} is the set whose only members are x and x			[Pairing Axiom UI/x UI/x & Ext. Axiom defines {x}]
+					@t [ t in {x} <--> t = x or t = x ]						
+
+				14. {x} in U(D_1) <--> 3b [ b in D_1 & {x} in b ]			[12 UI/{x}]
+				15. Show 3b [ b in D_1 & {x} in b ]
+					16. @x, y [ <x, y> in D_1 ]					[3 R]
+					17. <x, x> in D_1							[16 UI/x UI/x]
+					18. <x, x> := {{x}, {x, x}}					[definition of <x, x>]
+					19. {{x}, {x, x}} in D_1					[18 17 LL]
+					20. {x} := {x, x} 							[definition of {x} "singleton"]
+					21. {{x}, {x, x}} is the set whose only members are {x} and {x, x}			[Pairing Axiom UI/{x} UI/{x, x} & Ext. Axiom defines {{x}, {x, x}}]
+						@t [ t in {{x}, {x, x}} <--> t = {x} or t = {x, x} ]
+					22. {x} in {{x}, {x, x}} <--> {x} = {x} or {x} = {x, x}						[21 UI/{x}]
+					23. {x} = {x}							[SID]
+					24. {x} = {x} or {x} = {x, x}			[23 ADD/...]
+					25. {x} in {{x}, {x, x}}				[22 BC 24 MP]
+
+					26. {{x}, {x, x}} in D_1 & {x} in {{x}, {x, x}}			[19 25 ADJ]
+					27. 3b [ b in D_1 & {x} in b ]							[26 EG/{{x}, {x, x}} -> b]
+					28. 		[27 DD]
+				29. {x} in U(D_1)			[14 BC 15 MP]
+				30. @t [ t in {x} <--> t = x or t = x ]			[13 R]
+				31. x in {x} <--> x = x or x = x				[30 UI/x]
+				32. x = x				[SID]
+				33. x = x or x = x		[32 ADD/...]
+				34. x in {x}			[31 BC 33 MP]
+				35. {x} in U(D_1) & x in {x}		[29 34 ADJ]
+				36. 3b [ b in U(D_1) & x in b ]		[35 EG/{x}->b]
+				37.		[36 DD]
+			38. x in U(U(D_1))			[10 BC 11 MP]
+			39.		[38 DD]
+		40. 	[8 UD]
+	41. ~3V [ @x [ x in V ] ]		[Theorem 2A]
+	42. @V [ ~@x [ x in V ] ]		[41 Equiv.]
+	43. ~@x [ x in U(U(D_1)) ]		[42 UI/U(U(D_1))]
+	44. 	[6 43 ID]

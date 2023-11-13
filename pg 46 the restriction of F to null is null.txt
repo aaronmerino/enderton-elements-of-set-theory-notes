@@ -1,0 +1,49 @@
+Axioms and Theorems:
+	Extensionality Axiom:
+	@A, B [ @x [ x in A <--> x in B ] --> A = B ]
+
+	Empty Set Axiom:
+	3B [ @x [ ~(x in B) ] ]
+	Definition (its uniqueness is always due to Ext. Axiom):
+	{ } is the set having no members
+		[You can think of {} as a 0-ary operator. It refer to one set and one set only!]
+
+	The restriction of F to A set:
+		@F, A [ 3D [ @w [ w in D <--> 3u, v [ w = <u, v> & <u, v> in F & u in A ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			For any sets F, A, F | A is the set known as the restriction of F to A
+			AKA: F | A := {<u, v> | <u, v> in F & u in A}
+
+1. Show @F [ F | { } = { } ]
+	2. let F be a set
+	D1. @x [ ~(x in { }) ]				[Empty Set Axiom EI & Ext. Axiom shows uniqueness]
+	D2. @w [ w in F | { } <--> 3u, v [ w = <u, v> & <u, v> in F & u in { } ] ]		[The restriction of F to A UI/F UI/{ } EI & Ext. Axiom shows uniqueness]
+
+	3. Show F | { } = { }
+		4. @A, B [ @x [ x in A <--> x in B ] --> A = B ]					[Ext. Axiom]
+		5. @x [ x in F | { } <--> x in { } ] --> F | { } = { }				[4 UI/F | { }  UI/{ }]
+		6. Show @x [ x in F | { } <--> x in { } ]
+			7. let x be a set
+			8. Show x in F | { } <--> x in { }
+				9. Show x in F | { } --> x in { }
+					10. x in F | { }			[ACD]
+					11. @w [ w in F | { } <--> 3u, v [ w = <u, v> & <u, v> in F & u in { } ] ]		[D2]
+					12. x in F | { } <--> 3u, v [ x = <u, v> & <u, v> in F & u in { } ]				[11 UI/x]
+					13. 3u, v [ x = <u, v> & <u, v> in F & u in { } ]								[12 BC 10 MP]
+					14. x = <u_1, v_1> & <u_1, v_1> in F & u_1 in { }								[13 EI/u_1 EI/v_1]
+					15. u_1 in { }																	[14 SR]
+					16. @x [ ~(x in { }) ]															[D1]
+					17. ~(u_1 in { })																[16 UI/u_1]
+					18. 	[15 17 ID]
+
+				19. Show x in { } --> x in F | { }
+					20.	x in { }																	[ACD]
+					21. @x [ ~(x in { }) ]															[D1]
+					22. ~(x in { })																	[21 UI/x]
+					23. 	[20 22 ID]
+
+				24. x in F | { } <--> x in { }				[9 19 CB]
+			25.		[8 UD]
+		26.	F | { } = { }									[6 5 MP]
+		27.		[26 DD]
+	28.		[3 UD]

@@ -1,0 +1,156 @@
+Axioms and Theorems:
+	Extensionality Axiom:
+	@A, B [ @x [ x in A <--> x in B ] --> A = B ]
+
+	Power Set Axiom:
+	@a [ 3B [ @x [ x in B <--> @t [ t in x --> t in a ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set a, the power set  P(a) is the set whose members are exactly the subsets of a.
+		[You can think of P(a) as a 1-ary operator. It refer to one set and one set only based on the sets a!]
+
+	Subset Axioms:
+	For each formula __ not containing B, the following is an axiom:
+	@t1 ... @tk @c [ 3B [ @x [ x in B <--> x in c & __ ] ] ]
+		Definition:
+		For any set t­1, ..., tk and c, the subset B = {x in c | __ } is the set whose members are exactly those sets in c and __	
+	
+	Corollary 3C:
+		@A, B [ 3D [ @t[ t in D <--> 3x, y [x in A & y in B & t = <x, y> ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets A, B,  {<x, y> | x in A & y in B}    is the set whose members are exactly the sets of the form <x, y> for some x in A & y in B
+		Also known as the Cartesian Product A x B of the sets A and B!
+
+	Relation:
+		Definition:
+		A relation R is a set of ordered pairs.
+		@R [ R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ] ]
+
+  dom R: 
+		@R [ 3D [ @x [ x in D <--> 3y [ <x, y> in R ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets R,  dom R  is the set whose members are those 1st-coordinate set of some ordered pair in R
+
+	ran R: 
+		@R [ 3D [ @x [ x in D <--> 3t [ <t, x> in R ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets R,  ran R  is the set whose members are those 2nd-coordinate set of some ordered pair in R
+  
+  Function:
+		Definition:
+		@F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]
+
+
+	Definition of into:
+		@F, A, B [ F maps A into B (F: A->B) <--> 
+						F is a function &
+						dom F = A &
+						ran F ⊆ B 
+					]
+
+	Subset Axiom (APPLIED)	[CODENAME: ORANGE]
+		@A, B [ @c [ 3D [ @x [ x in D <--> x in c & x: A->B ] ] ] ]
+
+// IDEA:
+		notice that if F: A->B, then F is a subset of A x B
+		therefore, F in P(A x B)
+
+1. Show @A, B [ 3D [ @t [ t in D <--> t: A->B ] ] ]
+	2. let A, B be sets
+
+	========
+	D1. @t[ t in A x B <--> 3x, y [x in A & y in B & t = <x, y> ] ]						[Corollary 3C UI/A, B EI & Ext. Axiom]
+	D2. @x [ x in P(A x B) <--> @w [ w in x --> w in A x B ] ]								[Power Set Axiom UI/(A x B) EI & Ext. Axiom]
+	========
+
+	3. @A, B [ @c [ 3D [ @x [ x in D <--> x in c & x: A->B ] ] ] ]			[ORANGE]
+	4. @c [ 3D [ @x [ x in D <--> x in c & x: A->B ] ] ]			[3 UI/A, B]
+	5. 3D [ @x [ x in D <--> x in P(A x B) & x: A->B ] ]			[4 UI/P(A x B)]
+	6. @x [ x in D_1 <--> x in P(A x B) & x: A->B ]						[5 EI/D_1]
+
+	7. Show @t [ t in D_1 <--> t: A->B ]
+		8. let t be a set
+		9. Show t in D_1 --> t: A->B
+			10. t in D_1		[ACD]
+			11. @x [ x in D_1 <--> x in P(A x B) & x: A->B ]			[6 R]
+			12. t in D_1 <--> t in P(A x B) & t: A->B							[11 UI/t]
+			13. t in P(A x B) & t: A->B			[12 BC 10 MP]
+			14. t: A->B			[13 SR]
+			15.		[14 CD]
+
+		16. Show t: A->B --> t in D_1
+			17. t: A->B			[ACD]
+			18. @F, A, B [ F maps A into B (F: A->B) <--> F is a function & dom F = A & ran F ⊆ B ]			[Definition of into]
+			19. t maps A into B (t: A->B) <--> t is a function & dom t = A & ran t ⊆ B				[18 UI/t, A, B]
+			20. t is a function & 
+					dom t = A & 
+					ran t ⊆ B			[19 BC 17 MP]
+
+			========
+			D3. @x [ x in dom t <--> 3y [ <x, y> in t ] ]			[dom UI/t EI & Ext. Axiom]
+			D4. @x [ x in ran t <--> 3m [ <m, x> in t ] ]			[ran UI/t EI & Ext. Axiom]
+			========
+
+			21. @x [ x in D_1 <--> x in P(A x B) & x: A->B ]		[6 R]
+			22. t in D_1 <--> t in P(A x B) & t: A->B			[21 UI/t]
+			23. Show t in P(A x B)
+				24. @x [ x in P(A x B) <--> @w [ w in x --> w in A x B ] ]		[D2]
+				25. t in P(A x B) <--> @w [ w in t --> w in A x B ]			[24 UI/t]
+				26. Show @w [ w in t --> w in A x B ]
+					27. let w be a set
+					28. Show w in t --> w in A x B
+						29. w in t		[ACD]
+						30. @F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]			[Definition of function]
+						31. t is a function <--> t is a relation & @x [ x in dom t --> 3_1y [ <x, y> in t ] ] 					[30 UI/t]
+						32. t is a function			[20 SL SL]
+						33. t is a relation & @x [ x in dom t --> 3_1y [ <x, y> in t ] ]			[31 BC 32 MP]
+						34. t is a relation				[33 SL]
+						35. @R [ R is a relation <--> @b [ b in R --> 3x, y[ b = <x, y> ] ] ]			[Definition of relation]
+						36. t is a relation <--> @b [ b in t --> 3x, y[ b = <x, y> ] ]			[35 UI/t]
+						37. @b [ b in t --> 3x, y[ b = <x, y> ] ]			[36 BC 34 MP]
+						38. w in t --> 3x, y[ w = <x, y> ]				[37 UI/w]
+						39. 3x, y[ w = <x, y> ]				[38 29 MP]
+						40. w = <x_2, y_2>						[39 EI/x_2 EI/y_2]
+
+						41. Show x_2 in A
+							42. dom t = A			[20 SL SR]
+							43. @x [ x in dom t <--> 3y [ <x, y> in t ] ]			[D3]
+							44. x_2 in dom t <--> 3y [ <x_2, y> in t ]				[43 UI/x_2]
+							45. w = <x_2, y_2>			[40 R]
+							46. w in t			[29 R]
+							47. <x_2, y_2> in t			[45 46 LL]
+							48. 3y [ <x_2, y> in t ]			[47 EG/y_2->y]
+							49. x_2 in dom t			[44 BC 48 MP]
+							50. x_2 in A			[49 42 LL]
+							51. 		[50 DD]
+
+						52. Show y_2 in B
+							53. ran t ⊆ B			[20 SR]
+							54. @x [ x in ran t <--> 3m [ <m, x> in t ] ]			[D4]
+							55. y_2 in ran t <--> 3m [ <m, y_2> in t ]				[54 UI/y_2]
+							56. w = <x_2, y_2>		[40 R]
+							57. w in t			[29 R]
+							58. <x_2, y_2> in t			[56 57 LL]
+							59. 3m [ <m, y_2> in t ]			[58 EG/x_2->m]
+							60. y_2 in ran t			[55 BC 59 MP]
+							61. @p [ p in ran t --> p in B ]		[53 EQUIV.]
+							62. y_2 in ran t --> y_2 in B				[61 UI/y_2]
+							63. y_2 in B			[60 62 MP]
+							64.		[63 DD]
+						
+						65. @t[ t in A x B <--> 3x, y [x in A & y in B & t = <x, y> ] ]			[D1]
+						66. w in A x B <--> 3x, y [x in A & y in B & w = <x, y> ]			[65 UI/w]
+						67. x_2 in A & y_2 in B & w = <x_2, y_2>			[41 52 40 ADJ]
+						68. 3x, y [x in A & y in B & w = <x, y> ]			[67 EG/x_2->x EG/y_2->y]
+						69. w in A x B			[66 BC 68 MP]
+						70. 		[69 CD]
+					71. 		[28 UD]
+				72. t in P(A x B)			[25 BC 26 MP]
+				73. 		[72 DD]
+			74. t in P(A x B) & t: A->B			[23 17 ADJ]
+			75. t in D_1			[22 BC 74 MP]
+			76. 		[75 CD]
+		
+		77. t in D_1 <--> t: A->B			[9 16 CB]
+		78. 		[77 UD]
+	79. 3D [ @t [ t in D <--> t: A->B ] ]			[7 EG/D_1->D]
+	80. 		[79 UD]

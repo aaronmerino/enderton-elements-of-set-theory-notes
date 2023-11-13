@@ -1,0 +1,15 @@
+
+1. Show @G [ G is a function --> @Z [ (G^-1)[U(Z)] = U({(G^-1)[A] | A in Z }) ] ]
+  // Just use Theorem 3K(a) part2 directly
+
+1. Show @G [ G is a function --> @Z [ Z != {} --> (G^-1)[∩(Z)] = ∩({(G^-1)[A] | A in Z }) ] ]
+  // Use Theorem 3F part(1): @F [ (F^-1) is a function <--> F is single-rooted ]
+  // ((G^-1)^-1) is a function <--> (G^-1) is single-rooted 		[Theorem 3F part(1) UI/(G^-1)]
+  // G is a function <--> (G^-1) is single-rooted				[Since ((G^-1)^-1) = G from Theorem 3E]
+  // Then use Theorem 3K(b) part2 single-rooted directly
+
+1. Show @G [ G is a function --> @A, B [ (G^-1)[A - B] = (G^-1)[A] - (G^-1)[B] ] ]
+  // Use Theorem 3F part(1): @F [ (F^-1) is a function <--> F is single-rooted ]
+  // ((G^-1)^-1) is a function <--> (G^-1) is single-rooted 		[Theorem 3F part(1) UI/(G^-1)]
+  // G is a function <--> (G^-1) is single-rooted				[Since ((G^-1)^-1) = G from Theorem 3E]
+  // Then use Theorem 3K(c) single-rooted directly

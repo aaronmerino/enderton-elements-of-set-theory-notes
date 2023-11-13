@@ -1,0 +1,111 @@
+Axioms and Theorems:
+	Extensionality Axiom:
+	@A, B [ @x [ x in A <--> x in B ] --> A = B ]
+
+	Definition:
+		@x, y[ <x, y> := {{x}, {x, y}} ]
+			note {x} exists due to Pairing Axiom & Extensionality
+			note {x, y} exists due to Pairing Axiom & Extensionality
+			finally {{x}, {x, y}} exists due to Pairing Axiom & Extensionality
+
+	Corollary 3C:
+	@A, B [ 3D [ @t[ t in D <--> 3x, y [x in A & y in B & t = <x, y> ] ] ] ]
+		Definition:
+		For any set sets A, B,  {<x, y> | x in A & y in B}    is the set whose members are exactly the sets of the form <x, y> for some x in A & y in B
+		Also known as the Cartesian Product A x B of the sets A and B!
+	
+	dom R: 
+	@R [ 3D [ @x [ x in D <--> 3y [ <x, y> in R ] ] ] ]
+		Definition:
+		For any set sets R,  dom R  is the set whose members are those 1st-coordinate set of some ordered pair in R
+
+	ran R: 
+	@R [ 3D [ @x [ x in D <--> 3t [ <t, x> in R ] ] ] ]
+		Definition:
+		For any set sets R,  ran R  is the set whose members are those 2nd-coordinate set of some ordered pair in R
+
+Definition:
+	A relation R is a set of ordered pairs.
+	@R [ R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ] ]
+
+1. Show @A [ A is a relation <--> @t [ t in A --> t in (dom A x ran A) ] ]
+	2. Let A be a set
+	D1. dom A is the set whose members are those 1st-coordinate set of some ordered pair in A
+			@x [ x in dom A <--> 3y [ <x, y> in A ] ]
+
+	D2. ran A is the set whose members are those 2nd-coordinate set of some ordered pair in A
+			@x [ x in ran A <--> 3t [ <t, x> in A ] ]
+
+	D3. dom A x ran A   is the set whose members are exactly the sets of the form <x, y> for some x in dom A & y in ran A
+			@t[ t in (dom A x ran A) <--> 3x, y [x in dom A & y in ran A & t = <x, y> ] ]
+
+	3. Show A is a relation <--> @t [ t in A --> t in (dom A x ran A) ]
+		4. Show A is a relation --> @t [ t in A --> t in (dom A x ran A) ]
+			5. A is a relation																[ACD]
+			6. @R [ R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ] ]			[definition of relation]
+			7. A is a relation <--> @t [ t in A --> 3x, y[ t = <x, y> ] ]					[6 UI/A]
+			*8. @t [ t in A --> 3x, y[ t = <x, y> ] ]										[7 BC 5 MP]
+
+			9. Show @t [ t in A --> t in (dom A x ran A) ]
+				10. Let t be a set
+				11. Show t in A --> t in (dom A x ran A)
+					12. t in A													[ACD]
+					13. t in A --> 3x, y[ t = <x, y> ]							[8 UI/t]
+					14. 3x, y[ t = <x, y> ]										[12 13 MP]
+					15. x_1 is a set & y_1 is a set & t = <x_1, y_1>			[14 EI/x_1 EI/y_1]
+					16. @t[ t in (dom A x ran A) <--> 3x, y [x in dom A & y in ran A & t = <x, y> ] ]				[D3]
+					17. t in (dom A x ran A) <--> 3x, y [x in dom A & y in ran A & t = <x, y> ]						[16 UI/t]
+					18. Show 3x, y [x in dom A & y in ran A & t = <x, y> ] 
+						19. Show x_1 in dom A
+							20. @x [ x in dom A <--> 3y [ <x, y> in A ] ]		[D1]
+							21. x_1 in dom A <--> 3y [ <x_1, y> in A ]			[20 UI/x_1]
+							22. t = <x_1, y_1> 									[15 SR]
+							23. t in A											[12 R]
+							24. <x_1, y_1> in A									[22 23 EL]
+							25. 3y [ <x_1, y> in A ]							[24 EG/y_1->y]
+							26. x_1 in dom A									[21 BC 25 MP]
+							27. 	[26 DD]
+
+						28. Show y_1 in ran A
+							29. @x [ x in ran A <--> 3t [ <t, x> in A ] ]		[D2]
+							30. y_1 in ran A <--> 3t [ <t, y_1> in A ]			[29 UI/y_1]
+							31. t = <x_1, y_1> 									[15 SR]
+							32. t in A											[12 R]
+							33. <x_1, y_1> in A									[31 32 EL]
+							34. 3t [ <t, y_1> in A ]							[33 EG/x_1->t]
+							35. y_1 in ran A									[30 BC 34 MP]
+							36. 	[35 DD]
+
+						37. t = <x_1, y_1>										[15 SR]
+						38. x_1 in dom A & y_1 in ran A & t = <x_1, y_1>		[19 28 37 ADJ]
+						39. 3x, y [x in dom A & y in ran A & t = <x, y> ] 		[38 EG/x_1->x EG/y_1->y]
+						40.		[39 DD]
+					41. t in (dom A x ran A)				[17 BC 18 MP]
+					42. 		[41 CD]
+				43. 		[11 UD]
+			44. 		[9 CD]
+		45. Show @t [ t in A --> t in (dom A x ran A) ] --> A is a relation
+			46. @t [ t in A --> t in (dom A x ran A) ]										[ACD]
+			47. @R [ R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ] ]			[definition of relation]
+			48. A is a relation <--> @t [ t in A --> 3x, y[ t = <x, y> ] ]					[47 UI/A]
+			49. Show @t [ t in A --> 3x, y[ t = <x, y> ] ]
+				50. Let t be a set
+				51. Show t in A --> 3x, y[ t = <x, y> ]
+					52. t in A					[ACD]
+					53. Show 3x, y[ t = <x, y> ]
+						54. t in A --> t in (dom A x ran A)				[46 UI/t]
+						55. t in (dom A x ran A)						[54 52 MP]
+						56. @t[ t in (dom A x ran A) <--> 3x, y [x in dom A & y in ran A & t = <x, y> ] ]			[D3]
+						57. t in (dom A x ran A) <--> 3x, y [x in dom A & y in ran A & t = <x, y> ]					[56 UI/t]
+						58. 3x, y [x in dom A & y in ran A & t = <x, y> ]											[57 BC 55 MP]
+						59. x_1 in dom A & y_1 in ran A & t = <x_1, y_1>											[58 EI/x_1 EI/y_1]
+						60. t = <x_1, y_1>																			[59 SR]
+						61. 3x, y[ t = <x, y> ]																		[60 EG/x_1->x EG/y_1->y]
+						62. 	[61 DD]
+					63. 	[53 CD]
+				64. 	[51 UD]
+			65. A is a relation					[48 BC 49 MP]
+			66. 	[65 CD]
+		67. A is a relation <--> @t [ t in A --> t in (dom A x ran A) ]			[4 45 CB]
+		68. 	[67 DD]
+	69.		[3 UD]

@@ -1,0 +1,89 @@
+Axioms and Theorems:
+	Extensionality Axiom:
+	@A, B [ @x [ x in A <--> x in B ] --> A = B ]
+
+	Empty Set Axiom:
+	3B [ @x [ ~(x in B) ] ]
+	Definition (its uniqueness is always due to Ext. Axiom):
+	{ } is the set having no members
+		[You can think of {} as a 0-ary operator. It refer to one set and one set only!]
+
+	Relation:
+		Definition:
+		A relation R is a set of ordered pairs.
+		@R [ R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ] ]
+
+	Function:
+		Definition:
+		@F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]
+
+	Definition of into:
+		@F, A, B [ F maps A into B (F: A->B) <--> 
+						F is a function &
+						dom F = A &
+						ran F ⊆ B 
+					]
+
+	LEMMA - NON-EMPTY:
+		@A [ A != {} --> 3t [ t in A ] ]
+
+	Pg 52. B-pre-A existence:
+		@A, B [ 3D [ @t [ t in D <--> t: A->B ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			For any A, B, the unique set B-pre-A is the set that contains all functions F from A into B (F: A->B)
+
+1. @A [ A != {} -->  {}-pre-A = {} ]
+	2. let A be a set
+
+	========
+	D1. @x [ ~(x in {}) ]				[Empty Axiom EI & Ext. Axiom]
+	D2. @t [ t in {}-pre-A <--> t: A->{} ]			[B-pre-A UI/A UI/{} EI & Ext. Axiom]
+	========
+
+	3. Show A != {} -->  {}-pre-A = {}
+		4. A != {}      [ACD]
+
+		5. Show {}-pre-A = {}
+			6. {}-pre-A != {}			[AID]
+			7. @A [ A != {} --> 3t [ t in A ] ]							[LEMMA - NON-EMPTY]
+			8. {}-pre-A != {} --> 3t [ t in {}-pre-A ]			[7 UI/{}-pre-A]
+			9. 3t [ t in {}-pre-A ]			[6 8 MP]
+			10. t_1 in {}-pre-A			[9 EI/t_1]
+			11. @t [ t in {}-pre-A <--> t: A->{} ]			[D2]
+			12. t_1 in {}-pre-A <--> t_1: A->{}				[11 UI/t_1]
+			13. t_1: A->{}			[12 BC 10 MP]
+
+			========
+			D3. @x [ x in dom t_1 <--> 3y [ <x, y> in t_1 ] ]			[dom UI/t_1 EI & Ext. Axiom]
+			D4. @x [ x in ran t_1 <--> 3m [ <m, x> in t_1 ] ]			[ran UI/t_1 EI & Ext. Axiom]
+			========
+
+			14. @F, A, B [ F maps A into B (F: A->B) <--> F is a function &	dom F = A &	ran F ⊆ B ]			[Definition of into]
+			15. t_1 maps A into B (t_1: A->{}) <--> t_1 is a function &	dom t_1 = A &	ran t_1 ⊆ {}			[14 UI/t_1 UI/A UI/{}]
+			16. t_1 is a function &	dom t_1 = A &	ran t_1 ⊆ {}			[15 BC 13 MP]
+
+			17. dom t_1 = A			[16 SL SR]
+			18. @A [ A != {} --> 3t [ t in A ] ]							[LEMMA - NON-EMPTY]
+			19. A != {} --> 3t [ t in A ]				[18 UI/A]
+			20. 3t [ t in A ]			[19 4 MP]
+			21. x_2 in A					[20 EI/x_2]
+			22. x_2 in dom t_1			[17 21 LL]
+			23. @x [ x in dom t_1 <--> 3y [ <x, y> in t_1 ] ]			[D3]
+			24. x_2 in dom t_1 <--> 3y [ <x_2, y> in t_1 ]				[23 UI/x_2]
+			25. 3y [ <x_2, y> in t_1 ]				[24 BC 22 MP]
+			26. <x_2, y_3> in t_1					[25 EI/y_3]
+
+			27. @x [ x in ran t_1 <--> 3m [ <m, x> in t_1 ] ]				[D4]
+			28. y_3 in ran t_1 <--> 3m [ <m, y_3> in t_1 ]				[27 UI/y_3]
+			29. 3m [ <m, y_3> in t_1 ]			[26 EG/x_2->m]
+			30. y_3 in ran t_1			[28 BC 29 MP]
+			31. ran t_1 ⊆ {}			[16 SR]
+			32. @w [ w in ran t_1 --> w in {} ]			[31 EQUIV.]
+			33. y_3 in ran t_1 --> y_3 in {}				[32 UI/y_3]
+			34. y_3 in {}		[33 30 MP]
+			35. @x [ ~(x in {}) ]			[D1]
+			36. ~(y_3 in {})		[35 UI/y_3]
+			37.			[34 36 ID]
+		38.		[5 CD]
+	39. 		[3 UD]
+	

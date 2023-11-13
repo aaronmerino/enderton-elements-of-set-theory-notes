@@ -1,0 +1,106 @@
+Axioms and Theorems:
+	Definition of Ordered Pair:
+		@x, y[ <x, y> := {{x}, {x, y}} ]
+			note {x} exists due to Pairing Axiom & Extensionality
+			note {x, y} exists due to Pairing Axiom & Extensionality
+			finally {{x}, {x, y}} exists due to Pairing Axiom & Extensionality
+	
+	Theorem 3A:
+		@u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]
+
+	Relation:
+		Definition:
+		A relation R is a set of ordered pairs.
+		@R [ R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ] ]
+
+	Identity Relation:
+		@S [ 3D [ @x [ x in D <--> 3u [ x = <u, u> & u in S ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets S,  I_S := {<u, u> | u in S}    is the set whose members are exactly the sets of the form <u, u> for some u in S.
+
+	dom R: 
+		@R [ 3D [ @x [ x in D <--> 3y [ <x, y> in R ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets R,  dom R  is the set whose members are those 1st-coordinate set of some ordered pair in R
+
+	Function:
+		Definition:
+		@F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]	
+
+1. Show @S [ I_S is a function ]
+	2. let S be a set
+	D1. @x [ x in I_S <--> 3u [ x = <u, u> & u in S ] ]					[Identity Relation UI/S EI & Ext. Axiom]
+	D2. @x [ x in dom I_S <--> 3y [ <x, y> in I_S ] ]						[dom UI/I_S EI & Ext. Axiom]
+
+
+	3. @F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]			[Definition of Function]
+	4. I_S is a function <--> I_S is a relation & @x [ x in dom I_S --> 3_1y [ <x, y> in I_S ] ]		[3 UI/I_S]
+
+	5. Show @x [ x in dom I_S --> 3_1y [ <x, y> in I_S ] ] 
+		6. let x be a set
+		7. Show x in dom I_S --> 3_1y [ <x, y> in I_S ]
+			8. x in dom I_S			[ACD]
+			9. @x [ x in dom I_S <--> 3y [ <x, y> in I_S ] ]		[D2]
+			10. x in dom I_S <--> 3y [ <x, y> in I_S ]					[9 UI/x]
+			11. 3y [ <x, y> in I_S ]														[10 BC 8 MP]
+			12. <x, y_1> in I_S																	[11 EI/y_1]
+			13. Show @w [ <x, w> in I_S --> w = y_1 ]
+				14. let we be a set
+				15. Show <x, w> in I_S --> w = y_1
+					16.	<x, w> in I_S			[ACD]
+
+					17. @x [ x in I_S <--> 3u [ x = <u, u> & u in S ] ]				[D1]
+					18. <x, w> in I_S <--> 3u [ <x, w> = <u, u> & u in S ]		[17 UI/<x, w>]
+					19. 3u [ <x, w> = <u, u> & u in S ]												[18 BC 16 MP]
+					20.	<x, w> = <u_2, u_2> & u_2 in S												[19 EI/u_2]
+
+					21. <x, y_1> in I_S <--> 3u [ <x, y_1> = <u, u> & u in S ]		[17 UI/<x, y_1>]
+					22. 3u [ <x, y_1> = <u, u> & u in S ]													[21 BC 12 MP]
+					23. <x, y_1> = <u_3, u_3> & u_3 in S													[22 EI/u_3]
+
+					24. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]			[Theorem 3A]
+					25. <x, w> = <u_2, u_2>  <-->  x = u_2 & w = u_2							[24 UI/x, w, u_2, u_2]
+					26. x = u_2 & w = u_2				[25 BC 20 SL MP]
+
+					27. <x, y_1> = <u_3, u_3>  <-->  x = u_3 & y_1 = u_3					[24 UI/x, y_1, u_3, u_3]
+					28. x = u_3 & y_1 = u_3			[27 BC 23 SL MP]
+
+					29. x = u_2				[26 SL]
+					30. x = u_3				[28 SL]
+					31. u_2 = u_3			[29 30 LL]
+
+					32. w = u_2				[26 SR]
+					33. w = u_3				[32 33 LL]
+					34. y_1 = u_3			[28 SR]
+					35. w = y_1				[33 34 LL]
+					36. 	[35 CD]
+				37.		[15 UD]
+			
+			38. <x, y_1> in I_S & @w [ <x, w> in I_S --> w = y_1 ]				[12 13 ADJ]
+			39. 3y [ <x, y> in I_S & @w [ <x, w> in I_S --> w = y ] ]			[38 EG/y_1->y]
+			40. 3_1y [ <x, y> in I_S ]																		[39 EQUIV.]
+			41.		[40 CD]
+		42. 	[7 UD]
+
+	43. @R [ R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ] ]			[Definition of relation]
+	44. I_S is a relation <--> @t [ t in I_S --> 3x, y[ t = <x, y> ] ]				[43 UI/I_S]
+
+	45. Show @t [ t in I_S --> 3x, y[ t = <x, y> ] ]
+		46.	let t be a set
+		47. Show t in I_S --> 3x, y[ t = <x, y> ]
+			48. t in I_S			[ACD]
+			49. @x [ x in I_S <--> 3u [ x = <u, u> & u in S ] ]			[D1]
+			50. t in I_S <--> 3u [ t = <u, u> & u in S ]						[49 UI/t]
+			51. 3u [ t = <u, u> & u in S ]													[50 BC 48 MP]
+			52. t = <u_1, u_1> & u_1 in S														[51 EI/u_1]
+			53. t = <u_1, u_1>																			[52 SL]
+			54. 3y [ t = <u_1, y> ]																	[53 EG/u_1->y]
+			55. 3x [ 3y [ t = <x, y> ] ]														[54 EG/u_1->x]
+			56. 3x, y[ t = <x, y> ]																	[55 EQUIV.]
+			57.		[56 CD]
+		58.		[47 UD]
+	59. I_S is a relation				[44 BC 45 MP]
+	
+	60. I_S is a relation & @x [ x in dom I_S --> 3_1y [ <x, y> in I_S ] ]		[59 5 ADJ]
+	61. I_S is a function							[4 BC 60 MP]
+	62.		[61 UD]

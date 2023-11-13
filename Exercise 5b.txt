@@ -1,0 +1,154 @@
+Axioms and Theorems:
+	Extensionality Axiom:
+	@A, B [ @x [ x in A <--> x in B ] --> A = B ]
+
+	Pairing Axiom:
+	@u, v [ 3B [ @x [ x in B <--> x = u or x = v ] ] ]
+		Definition:
+		For any sets u, v, the pair set {u, v} is the set whose only members are u and v.
+		[You can think of {u, v} as a 2-ary operator. It refer to one set and one set only based on the sets u and v!]
+
+		Definition:
+		Let {x} := {x, x} is the set whose only members are x and x
+
+	Union Axiom:
+	@A [ 3B [ @x [ x in B <--> 3b [ b in A & x in b ] ] ] ]
+		Definition:
+		For any set A, the union of A  U(A)     is the set whose members are exactly the members of the members of A
+		[You can think of U(A) as a 1-ary operator. It refer to one set and one set only based on the set A!]
+
+	Definition:
+		@x, y[ <x, y> := {{x}, {x, y}} ]
+			note {x} exists due to Pairing Axiom & Extensionality
+			note {x, y} exists due to Pairing Axiom & Extensionality
+			finally {{x}, {x, y}} exists due to Pairing Axiom & Extensionality
+	
+	Theorem 3A:
+		@u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]
+
+	Lemma 3B:
+    		@C, x, y [ x in C & y in C --> <x, y> in P(P(C)) ]
+
+	Corollary 3C:
+	@A, B [ 3D [ @t[ t in D <--> 3x, y [x in A & y in B & t = <x, y> ] ] ] ]
+		Definition:
+		For any set sets A, B,  {<x, y> | x in A & y in B}    is the set whose members are exactly the sets of the form <x, y> for some x in A & y in B
+		Also known as the Cartesian Product A x B of the sets A and B!
+
+	Exercise 5a (Pg 38):	
+	@A, B [ 3C [ @y [ y in C <--> 3x [ x in A & y = {x} x B ] ] ] ]
+		Definition:
+		For any set sets A, B,  {{x} x B | x in A}    is the set whose members are exactly the sets of the form {x} x B for some x in A.		
+
+1. Show @A, B, C [ A x B = U( {{x} x B | x in A} ) ]
+	2. Let A, B, C be sets
+	D1. A x B is the set whose members are exactly the sets of the form <x, y> for some x in A & y in B				[Corollary 3C & Ext. Axiom]
+		@t[ t in A x B <--> 3x, y [x in A & y in B & t = <x, y> ] ]
+
+	D2. {{x} x B | x in A} is the set whose members are exactly the sets of the form {x} x B for some x in A.		[Exercise 5a & Ext. Axiom]
+		@t [ t in {{x} x B | x in A} <--> 3x [ x in A & t = {x} x B ] ]
+
+	D3. U( {{x} x B | x in A} ) is the set whose members are exactly the members of the members of {{x} x B | x in A}		[Union Axiom & Ext. Axiom]
+		@t [ t in U( {{x} x B | x in A} ) <--> 3b [ b in {{x} x B | x in A} & t in b ] ]
+
+	3. @A, B [ @w [ w in A <--> w in B ] --> A = B ]		[Ext. Axiom]
+
+	4. @w [ w in A x B <--> w in U( {{x} x B | x in A} ) ] --> A x B = U( {{x} x B | x in A} )			[3 UI/A x B UI/U( {{x} x B | x in A} )]
+
+	5. Show @w [ w in A x B <--> w in U( {{x} x B | x in A} ) ]
+		6. Show w in A x B <--> w in U( {{x} x B | x in A} )
+			7. Show w in A x B --> w in U( {{x} x B | x in A} )
+				8. w in A x B																					[ACD]
+				9. @t[ t in A x B <--> 3u, v [u in A & v in B & t = <u, v> ] ]									[D1]
+				10. w in A x B <--> 3u, v [u in A & v in B & w = <u, v> ]										[9 UI/w]
+				11. 3u, v [u in A & v in B & w = <u, v> ]														[10 BC 8 MP]
+				*12. u_1 in A & v_1 in B & w = <u_1, v_1> 														[11 EI/u_1 EI/v_1]
+				13. @t [ t in U( {{x} x B | x in A} ) <--> 3b [ b in {{x} x B | x in A} & t in b ] ]			[D3]
+				14. w in U( {{x} x B | x in A} ) <--> 3b [ b in {{x} x B | x in A} & w in b ]					[13 UI/w]
+				15. Show 3b [ b in {{x} x B | x in A} & w in b ]
+					16. {u_1, u_1} is the set whose only members are u_1 and u_1		[Pairing Axiom UI/u_1 UI/u_1 & Ext. Axiom -> name this set {u_1, u_1}]
+						let {u_1} := {u_1, u_1}
+						@x [ x in {u_1} <--> x = u_1 or x = u_1 ]
+
+					17. {u_1} x B is the set whose members are exactly the sets of the form <x, y> for some x in {u_1} & y in B			[Corollary 3C UI/{u_1} UI/B & Ext. Axiom -> name this set {u_1} x B]
+						@t[ t in {u_1} x B <--> 3x, y [x in {u_1} & y in B & t = <x, y> ] ]
+
+					18. Show {u_1} x B in {{x} x B | x in A}
+						19. @t [ t in {{x} x B | x in A} <--> 3x [ x in A & t = {x} x B ] ]							[D2]
+						20. {u_1} x B in {{x} x B | x in A} <--> 3x [ x in A & {u_1} x B = {x} x B ]				[19 UI/{u_1} x B]
+						21. {u_1} x B = {u_1} x B																	[SID/{u_1} x B]
+						22. u_1 in A																				[12 SL SL]
+						23. u_1 in A & {u_1} x B = {u_1} x B														[21 22 ADJ]
+						24. 3x [ x in A & {u_1} x B = {x} x B ]														[23 EG/u_1->x]
+						25. {u_1} x B in {{x} x B | x in A}															[20 BC 25 MP]
+						26. 		[25 DD]
+
+					27. Show w in {u_1} x B
+						28. @t[ t in {u_1} x B <--> 3x, y [x in {u_1} & y in B & t = <x, y> ] ]						[17 R]
+						29. w in {u_1} x B <--> 3x, y [x in {u_1} & y in B & w = <x, y> ]							[28 UI/w]
+						30. Show u_1 in {u_1}
+							31. @x [ x in {u_1} <--> x = u_1 or x = u_1 ]		[16 R]
+							32. u_1 in {u_1} <--> u_1 = u_1 or u_1 = u_1		[31 UI/u_1]
+							33. u_1 = u_1										[SID/u_1]
+							34. u_1 = u_1 or u_1 = u_1							[33 ADD/...]
+							35. u_1 in {u_1}									[32 BC 34 MP]
+							36. 		[35 DD]
+
+						37. v_1 in B											[12 SL SR]
+						38. w = <u_1, v_1> 										[12 SR]
+						39. u_1 in {u_1} & v_1 in B & w = <u_1, v_1>			[30 37 38 ADJ]
+						40. 3x, y [x in {u_1} & y in B & w = <x, y> ]			[39 EG/u_1->x EG/v_1->y]
+						41. w in {u_1} x B										[29 BC 40 MP]
+						42. 		[41 DD]
+
+					43. {u_1} x B in {{x} x B | x in A} & w in {u_1} x B		[18 27 ADJ]
+					44. 3b [ b in {{x} x B | x in A} & w in b ]					[43 EG/{u_1} x B -> b]
+					45. 		[44 DD]
+				46. w in U( {{x} x B | x in A} )			[14 BC 15 MP]
+				47. 		[46 CD]
+
+						
+			48. Show w in U( {{x} x B | x in A} ) --> w in A x B
+				49. w in U( {{x} x B | x in A} )																	[ACD]
+				50. @t [ t in U( {{x} x B | x in A} ) <--> 3b [ b in {{x} x B | x in A} & t in b ] ]				[D3]
+				51. w in U( {{x} x B | x in A} ) <--> 3b [ b in {{x} x B | x in A} & w in b ]						[50 UI/w]
+				52. 3b [ b in {{x} x B | x in A} & w in b ]															[51 BC 49 MP]
+				*53. b_1 in {{x} x B | x in A} & w in b_1															[52 EI/b_1]
+
+				54. @t [ t in {{x} x B | x in A} <--> 3x [ x in A & t = {x} x B ] ]									[D2]
+				55. b_1 in {{x} x B | x in A} <--> 3x [ x in A & b_1 = {x} x B ]									[54 UI/b_1]
+				56. b_1 in {{x} x B | x in A}																		[53 SL]
+				57. 3x [ x in A & b_1 = {x} x B ]																	[55 BC 56 MP]
+				58. x_1 in A & b_1 = {x_1} x B																		[57 EI/x_1]
+
+				59. {x_1} is the set whose only members are x_1 and x_1		[Pairing Axiom UI/x_1 UI/x_1 & Ext. Axiom -> name this set {x_1}]
+						@w [ w in {x_1} <--> w = x_1 or w = x_1 ]
+
+				60. {x_1} x B is the set whose members are exactly the sets of the form <u, v> for some u in {x_1} & v in B			[Corollary 3C UI/{x_1} UI/B & Ext. Axiom -> name this set {u_1} x B]
+						@t[ t in {x_1} x B <--> 3u, v [u in {x_1} & v in B & t = <u, v> ] ]
+
+				61. w in b_1										[53 SR]
+				62. b_1 = {x_1} x B									[58 SR]
+				63. w in {x_1} x B									[61 62 LL]
+				64. @t[ t in {x_1} x B <--> 3u, v [u in {x_1} & v in B & t = <u, v> ] ]				[60 R]
+				65. w in {x_1} x B <--> 3u, v [u in {x_1} & v in B & w = <u, v> ]					[64 UI/w]
+				66. 3u, v [u in {x_1} & v in B & w = <u, v> ]										[65 BC 63 MP]
+				67. u_1 in {x_1} & v_1 in B & w = <u_1, v_1> 										[66 EI/u_1 EI/v_1]
+
+				68. @w [ w in {x_1} <--> w = x_1 or w = x_1 ]										[59 R]
+				69. u_1 in {x_1} <--> u_1 = x_1 or u_1 = x_1										[68 UI/u_1]
+				70. u_1 in {x_1}																	[67 SL SL]
+				71. u_1 = x_1 or u_1 = x_1															[69 BC 70 MP]
+				72. u_1 = x_1																		[71 SIMPLIFY_OR]
+
+				73. @t[ t in A x B <--> 3x, y [x in A & y in B & t = <x, y> ] ]						[D1]
+				74. w in A x B <--> 3x, y [x in A & y in B & w = <x, y> ]							[73 UI/w]
+				75. x_1 in A																		[58 SL]
+				76. u_1 in A																		[75 72 EL]
+				77. v_1 in B																		[67 SL SR]
+				78. w = <u_1, v_1>																	[67 SR]
+
+				79. u_1 in A & v_1 in B & w = <u_1, v_1>											[76 77 78 ADJ]
+				80. 3x, y [x in A & y in B & w = <x, y> ]											[79 EG/u_1->x EG/v_1->y]
+				81.	w in A x B																		[74 BC 80 MP]
+				82. 	[81 CD]

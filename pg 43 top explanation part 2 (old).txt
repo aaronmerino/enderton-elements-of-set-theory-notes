@@ -1,0 +1,95 @@
+****OLD VERSION****
+
+Axioms/Theorems/Definitions:
+	Extensionality Axiom:
+	@A, B [ @x [ x in A <--> x in B ] --> A = B ]
+
+	Pairing Axiom:
+	@u, v [ 3B [ @x [ x in B <--> x = u or x = v ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any sets u, v, the pair set {u, v} is the set whose only members are u and v.
+		[You can think of {u, v} as a 2-ary operator. It refer to one set and one set only based on the sets u and v!]
+
+		Definition:
+		Let {x} := {x, x} is the set whose only members are x and x
+
+	Function:
+		Definition:
+		@F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]  
+		
+			Definition:
+			@F [F is a function --> @x [ x in dom F --> F(x) is the unique set such that <x, F(x)> in F ] ]
+		
+	Pg 43 Existence part:	
+	@F, x [ 3D [ @y [ y in D <--> <x, y> in F ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			For any F, x, the set {y | <x, y> in F} is the {y | <x, y> in F} is the set that contains all 2nd-coordinate sets of all ordered pairs in F where x is the first-coordinate set.
+
+Premise:
+	Pr1. F is a function
+
+
+1. Show @x [ x in dom F --> F(x) = U({y | <x, y> in F }) ] 
+	2. let x be a set
+
+	D1. @F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]
+	
+	D2. {y | <x, y> in F} is the set that contains all second-coordinate of all ordered pairs with x being the first-coordinate in F
+		@t [ t in {y | <x, y> in F} <--> <x, t> in F ]
+
+	3. Show x in dom F --> F(x) = U({y | <x, y> in F })
+		4. x in dom F			[ACD]
+
+		5. F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] 			[D1 UI/F]
+		6. F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ]									[5 BC Pr1 MP]
+		7. @x [ x in dom F --> 3_1y [ <x, y> in F ] ]													[6 SR]
+		8. x in dom F --> 3_1y [ <x, y> in F ]															[7 UI/x]
+		9. 3_1y[ <x, y> in F ]																			[8 4 MP]
+		10. 3y [ <x, y> in F & @z [ <x, z> in F --> z = y ] ]											[9 EQUIV.]
+
+		*11. <x, y_1> in F & @z [ <x, z> in F --> z = y_1 ]												[10 EI/y_1]
+
+		D3. {y_1} is the set whose only members are y_1 and y_1
+			@x [ x in {y_1} <--> x = y_1 or x = y_1 ]
+
+		D4. F(x) is the unique set such that <x, F(x)> in F 
+			let F(x) := y_1
+
+		12. @A, B [ @t [ t in A <--> t in B ] --> A = B ]												[Ext. Axiom]
+		13. @t [ t in {y_1} <--> t in {y | <x, y> in F} ] --> {y_1} = {y | <x, y> in F}					[12 UI/{y_1} UI/{y | <x, y> in F}]
+		14. Show @t [ t in {y_1} <--> t in {y | <x, y> in F} ]
+			15. let t be a set
+			16. Show t in {y_1} <--> t in {y | <x, y> in F}
+				17. Show t in {y_1} --> t in {y | <x, y> in F}
+					18. t in {y_1}												[ACD]
+					19. @x [ x in {y_1} <--> x = y_1 or x = y_1 ]				[D3]
+					20. t in {y_1} <--> t = y_1 or t = y_1						[19 UI/t]
+					21. t = y_1 or t = y_1										[20 BC 18 MP]
+					22. t = y_1													[21 SIMPLIFY_OR]
+					23. @t [ t in {y | <x, y> in F} <--> <x, t> in F ]			[D2]
+					24. t in {y | <x, y> in F} <--> <x, t> in F					[23 UI/t]
+					25. <x, y_1> in F											[11 SL]
+					26. <x, t> in F												[25 22 EL]
+					27. t in {y | <x, y> in F}									[24 BC 26 MP]
+					28.		[27 CD]
+
+				29. Show t in {y | <x, y> in F} --> t in {y_1}
+					30. t in {y | <x, y> in F}									[ACD]
+					31. @t [ t in {y | <x, y> in F} <--> <x, t> in F ]			[D2]
+					32. t in {y | <x, y> in F} <--> <x, t> in F					[31 UI/t]
+					33. <x, t> in F												[32 BC 30 MP]
+					34. @z [ <x, z> in F --> z = y_1 ]							[11 SR]
+					35. <x, t> in F --> t = y_1									[34 UI/t]
+					36. t = y_1													[33 35 MP]
+					37. @x [ x in {y_1} <--> x = y_1 or x = y_1 ]				[D3]
+					38. t in {y_1} <--> t = y_1 or t = y_1						[37 UI/t]
+					39. t = y_1 or t = y_1										[36 ADD/...]
+					40. t in {y_1}												[38 BC 39 MP]
+					41.		[40 CD]
+				42. t in {y_1} <--> t in {y | <x, y> in F}						[17 29 CB]
+				43. 	[42 DD]
+			44.		[16 UD]
+		45. {y_1} = {y | <x, y> in F}											[13 14 MP]
+
+		46. U({{y | <x, y> in F}}) = U({y_1}) = y_1 = F(x)						[Union of Singleton proof (check Pg 43)]
+		47.		[46 CD]

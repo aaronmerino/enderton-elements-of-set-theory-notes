@@ -1,0 +1,195 @@
+Axioms and Theorems:
+	Subset Axioms:
+	For each formula __ not containing B, the following is an axiom:
+	@t1 ... @tk @c [ 3B [ @x [ x in B <--> x in c & __ ] ] ]
+		Definition:
+		For any set t­1, ..., tk and c, the subset B = {x in c | __ } is the set whose members are exactly those sets in c and __	
+
+	Union Axiom:
+	@A [ 3B [ @x [ x in B <--> 3b [ b in A & x in b ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set A, the union of A  U(A)     is the set whose members are exactly the members of the members of A
+		[You can think of U(A) as a 1-ary operator. It refer to one set and one set only based on the set A!]
+
+	dom R: 
+		@R [ 3D [ @x [ x in D <--> 3y [ <x, y> in R ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets R,  dom R  is the set whose members are those 1st-coordinate set of some ordered pair in R
+
+	ran R: 
+		@R [ 3D [ @x [ x in D <--> 3t [ <t, x> in R ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets R,  ran R  is the set whose members are those 2nd-coordinate set of some ordered pair in R
+
+	Definition of F(x): 
+	(We define it like this for the purpose of making sure that F(x) is always defined for any F and x, so that we can always refer to it)
+		@F, x [ F(x) := U({y | <x, y> in F}) ]
+
+	Function:
+		Definition:
+		@F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]
+
+	
+	[MARIN] Pg 43 When F is a function and x the dom F, F(x) is y IFF <x, y> in F:
+		@F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]
+			
+
+	Definition of into:
+		@F, A, B [ F maps A into B (F: A->B) <--> 
+						F is a function &
+						dom F = A &
+						ran F ⊆ B 
+					]
+
+
+	[ORANGE] Pg 51 infinite index existence:
+		@F, I [ F is a function & I ⊆ dom F --> 3D [ @v [ v in D <--> 3i [ i in I & v = F(i) ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			For any F, I, where F is a function & I ⊆ dom F, the unique set {F(i) | i in I} is the set of sets of the form F(i) where i in I.
+
+		@F, I [ 3D [ @v [ v in D <--> 3i [ i in I & v = F(i) ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			For any F, I, the unique set {F(i) | i in I} is the set of sets of the form F(i) where i in I.
+
+
+	Pg 52. B-pre-A existence:
+		@A, B [ 3D [ @t [ t in D <--> t: A->B ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			For any A, B, the unique set B-pre-A is the set that contains all functions F from A into B (F: A->B)
+
+
+	[MUELSYSE] Subset Axiom (APPLIED):
+		@I, H [ @c [ 3D [ @f [ f in D <--> f in c & f is a function & dom f = I & @i [  i in I --> f(i) in H(i) ] ] ] ] ]			[Subset Axiom UI_META/"@I, H" UI_META/"f is a function & dom f = I & @i [  i in I --> f(i) in H(i) ]"]
+
+
+1. Show @I, H [ H is a function & I ⊆ dom H --> 3D [ @f [ f in D <--> f is a function & dom f = I & @i [  i in I --> f(i) in H(i) ] ] ] ]
+	2. let I, H be sets
+	3. Show H is a function & I ⊆ dom H --> 3D [ @f [ f in D <--> f is a function & dom f = I & @i [  i in I --> f(i) in H(i) ] ] ]
+		4. H is a function & I ⊆ dom H			[ACD]
+
+		5. @F, I [ F is a function & I ⊆ dom F --> 3D [ @v [ v in D <--> 3i [ i in I & v = F(i) ] ] ] ]			[ORANGE]
+		6. H is a function & I ⊆ dom H --> 3D [ @v [ v in D <--> 3i [ i in I & v = H(i) ] ] ]				[5 UI/H UI/I]
+		7. 3D [ @v [ v in D <--> 3i [ i in I & v = H(i) ] ] ]
+
+		========
+		8. @v [ v in {H(i) | i in I} <--> 3i [ i in I & v = H(i) ] ]			[7 EI & Ext. Axiom -> define: {H(i) | i in I}]
+		========
+
+		9. @A [ 3B [ @x [ x in B <--> 3b [ b in A & x in b ] ] ] ]			[Union Axiom]
+		10. 3B [ @x [ x in B <--> 3b [ b in {H(i) | i in I} & x in b ] ] ]				[9 UI/{H(i) | i in I}]
+
+		========
+		11. @x [ x in U({H(i) | i in I}) <--> 3b [ b in {H(i) | i in I} & x in b ] ]			[10 EI & Ext. Axiom -> define: U({H(i) | i in I})]
+		========
+
+		12. @A, B [ 3D [ @t [ t in D <--> t: A->B ] ] ]			[B-pre-A]
+		13. 3D [ @t [ t in D <--> t: I->U({H(i) | i in I}) ] ]			[12 UI/I UI/U({H(i) | i in I})]
+
+		========
+		14. @t [ t in U({H(i) | i in I})-pre-I <--> t: I->U({H(i) | i in I}) ]			[13 EI & Ext. Axiom --> define: U({H(i) | i in I})-pre-I]
+		========
+
+		15. Show 3D [ @f [ f in D <--> f is a function & dom f = I & @i [  i in I --> f(i) in H(i) ] ] ]
+			16. @I, H [ @c [ 3D [ @f [ f in D <--> f in c & f is a function & dom f = I & @i [  i in I --> f(i) in H(i) ] ] ] ] ]				[MUELSYSE]
+			17. @c [ 3D [ @f [ f in D <--> f in c & f is a function & dom f = I & @i [  i in I --> f(i) in H(i) ] ] ] ]				[13 UI/I UI/H]
+			18. 3D [ @f [ f in D <--> f in U({H(i) | i in I})-pre-I & f is a function & dom f = I & @i [  i in I --> f(i) in H(i) ] ] ]				[17 UI/U({H(i) | i in I})-pre-I]
+			19. @f [ f in D_1 <--> f in U({H(i) | i in I})-pre-I & f is a function & dom f = I & @i [  i in I --> f(i) in H(i) ] ]			[18 EI/D_1]
+
+
+			20. Show @f [ f in D_1 <--> f is a function & dom f = I & @i [  i in I --> f(i) in H(i) ] ]
+				21. let f be a set
+
+				========
+				D1. @y [ y in ran f <--> 3x [ <x, y> in f ] ]			[ran UI/f EI & Ext. Axiom -> define: ran f]
+				D2. @x [ x in dom f <--> 3y [ <x, y> in f ] ]			[dom UI/f EI & Ext. Axiom -> define: dom f]
+				========
+
+				22. Show f in D_1 --> f is a function & dom f = I & @i [  i in I --> f(i) in H(i) ]
+					23. f in D_1			[ACD]
+					24. f in D_1 <--> f in U({H(i) | i in I})-pre-I & f is a function & dom f = I & @i [  i in I --> f(i) in H(i) ]			[19 UI/f]
+					25. f in U({H(i) | i in I})-pre-I & f is a function & dom f = I & @i [  i in I --> f(i) in H(i) ]			[24 BC 23 MP]
+					26. f is a function & dom f = I & @i [  i in I --> f(i) in H(i) ]			[(25 SL SL SR) (25 SL SR) (25 SR) ADJ]
+					27. 			[26 CD]
+
+				28. Show f is a function & dom f = I & @i [  i in I --> f(i) in H(i) ] --> f in D_1
+					29. f is a function & dom f = I & @i [  i in I --> f(i) in H(i) ]			[ACD]
+
+					30. f in D_1 <--> f in U({H(i) | i in I})-pre-I & f is a function & dom f = I & @i [  i in I --> f(i) in H(i) ]			[19 UI/f]
+
+					31. Show f in U({H(i) | i in I})-pre-I
+						32. @t [ t in U({H(i) | i in I})-pre-I <--> t: I->U({H(i) | i in I}) ]				[14 R]
+						33. f in U({H(i) | i in I})-pre-I <--> f: I->U({H(i) | i in I})				[32 UI/f]
+
+						34. @F, A, B [ F maps A into B (F: A->B) <--> F is a function & dom F = A & ran F ⊆ B ]			[Definition of into]
+						35. f maps I into U({H(i) | i in I}) (f: I->U({H(i) | i in I})) <--> f is a function & dom f = I & ran f ⊆ U({H(i) | i in I})			[34 UI/f UI/I UI/U({H(i) | i in I})]
+
+						36. Show ran f ⊆ U({H(i) | i in I})
+							37. Show @t [ t in ran f --> t in U({H(i) | i in I}) ]
+								38. let t be a set
+								39. Show t in ran f --> t in U({H(i) | i in I})
+									40. t in ran f			[ACD]
+									41. @y [ y in ran f <--> 3x [ <x, y> in f ] ]			[D1]
+									42. t in ran f <--> 3x [ <x, t> in f ]			[41 UI/t]
+									43. 3x [ <x, t> in f ]			[42 BC 40 MP]
+									44. <x_1, t> in f				[43 EI/x_1]
+
+									45. @x [ x in dom f <--> 3y [ <x, y> in f ] ]			[D2]
+									46. x_1 in dom f <--> 3y [ <x_1, y> in f ]			[45 UI/x_1]
+									47. 3y [ <x_1, y> in f ]			[44 EG/t->y]
+									48. x_1 in dom f			[46 BC 47 MP]
+									49. dom f = I			[29 SL SR]
+									50. x_1 in I			[49 49 LL]
+
+									51. @i [  i in I --> f(i) in H(i) ]			[29 SR]
+									52. x_1 in I --> f(x_1) in H(x_1)				[51 UI/x_1]
+									53. f(x_1) in H(x_1)				[52 50 MP]
+
+									54. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]			[MARIN]
+									55. f is a function & x_1 in dom f -->  @w [ <x_1, w> in f <--> f(x_1) = w ]			[54 UI/f UI/x_1]
+									56. f is a function & x_1 in dom f			[(29 SL SL) 48 ADJ]
+									57. @w [ <x_1, w> in f <--> f(x_1) = w ]			[55 56 MP]
+									58. <x_1, t> in f <--> f(x_1) = t				[57 UI/t]
+									59. f(x_1) = t			[58 BC 44 MP]
+
+									60. t in H(x_1)			[53 59 LL]
+
+									61. @x [ x in U({H(i) | i in I}) <--> 3b [ b in {H(i) | i in I} & x in b ] ]			[11 R]
+									62. t in U({H(i) | i in I}) <--> 3b [ b in {H(i) | i in I} & t in b ]				[61 UI/t]
+
+									63. Show H(x_1) in {H(i) | i in I}
+										64. @v [ v in {H(i) | i in I} <--> 3i [ i in I & v = H(i) ] ]				[8 R]
+										65. H(x_1) in {H(i) | i in I} <--> 3i [ i in I & H(x_1) = H(i) ]		[64 UI/H(x_1)]
+										66. x_1 in I			[50 R]
+										67. H(x_1) = H(x_1)			[SID/H(x_1)]
+										68. x_1 in I & H(x_1) = H(x_1)			[66 67 ADJ]
+										69. 3i [ i in I & H(x_1) = H(i) ]			[68 EG/x_1->i]
+										70. H(x_1) in {H(i) | i in I}				[65 BC 69 MP]
+										71.		[70 DD]
+									
+									72. H(x_1) in {H(i) | i in I} & t in H(x_1)			[63 60 ADJ]
+									73. 3b [ b in {H(i) | i in I} & t in b ]				[72 EG/H(x_1) -> b]
+
+									74. t in U({H(i) | i in I})			[62 BC 73 MP]
+									75.		[74 CD]
+								
+								76. 		[39 UD]
+							77. ran f ⊆ U({H(i) | i in I})			[37 EQUIV.]
+							78. 		[77 DD]
+						
+						79. f is a function & dom f = I & ran f ⊆ U({H(i) | i in I})			[(29 SL SL) (29 SL SR) 36 ADJ]
+						80. f maps I into U({H(i) | i in I}) (f: I->U({H(i) | i in I}))			[35 BC 79 MP]
+
+						81. f in U({H(i) | i in I})-pre-I				[33 BC 80 MP]
+						82.			[81 DD]
+					83. f in U({H(i) | i in I})-pre-I & f is a function & dom f = I & @i [  i in I --> f(i) in H(i) ]				[31 29 ADJ]
+					84. f in D_1			[30 BC 83 MP]
+					85.			[84 CD]
+				
+				86. f in D_1 <--> f is a function & dom f = I & @i [  i in I --> f(i) in H(i) ]			[22 28 CB]
+				87. 		[86 UD]
+			88. 3D [ @f [ f in D <--> f is a function & dom f = I & @i [  i in I --> f(i) in H(i) ] ] ]			[20 EG/D_1->D]
+			89. 		[88 DD]
+		90. 		[15 CD]
+	
+	91. 		[3 UD]
+

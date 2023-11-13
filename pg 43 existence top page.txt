@@ -1,0 +1,60 @@
+Note that for any set F, x, the set {y | <x, y> in F} exists because it is a subset of the set ran F.
+We can use the subset axiom to build this set, and use ran F as c.
+
+Axioms and Theorems:
+	Subset Axioms:
+	For each formula __ not containing D, the following is an axiom:
+		@t1 ... @tk @c [ 3D [ @x [ x in D <--> x in c & __ ] ] ]
+			Definition:
+			For any set t­1, ..., tk and c, the subset D = {x in c | __ } is the set whose members are exactly those sets in c and __	
+
+
+	ran R: 
+	@R [ 3D [ @x [ x in D <--> 3t [ <t, x> in R ] ] ] ]
+		Definition:
+		For any set sets R,  ran R  is the set whose members are those 2nd-coordinate set of some ordered pair in R
+
+
+1. Show @F, x [ 3D [ @y [ y in D <--> <x, y> in F ] ] ]
+	2. let F, x be sets
+	D1. ran F is the set whose members are those 2nd-coordinate set of some ordered pair in R
+		@x [ x in ran F <--> 3t [ <t, x> in F ] ]
+	
+
+	3. Show 3D [ @y [ y in D <--> <x, y> in F ] ]
+		4. @t1 ... @tk @c [ 3D [ @y [ y in D <--> y in c & __ ] ] ]				 [Subset Axiom; note __ cannot contain D]
+		5. @c [ 3D [ @y [ y in D <--> y in c & <x, y> in F ] ] ]					[4 UI_META/"<x, y> in F"]
+		6. 3D [ @y [ y in D <--> y in ran F & <x, y> in F ] ]					   [5 UI/ran F]
+		7. @y [ y in D_1 <--> y in ran F & <x, y> in F ]							[6 EI/D_1]
+		8. Show @y [ y in D_1 <--> <x, y> in F ]
+			9. let y be a set
+			10. Show y in D_1 <--> <x, y> in F
+				11. Show y in D_1 --> <x, y> in F
+					12. y in D_1			[ACD]
+					13. y in D_1 <--> y in ran F & <x, y> in F	  [7 UI/y]
+					14. y in ran F & <x, y> in F					[13 BC 12 MP]
+					15. <x, y> in F								 [14 SR]
+					17.	 [15 CD]
+
+
+				18. Show <x, y> in F --> y in D_1
+					19. <x, y> in F										 [ACD]
+					20. y in D_1 <--> y in ran F & <x, y> in F			  [7 UI/y]
+					21. Show y in ran F
+						22. @x [ x in ran F <--> 3t [ <t, x> in F ] ]	   [D1]
+						23. y in ran F <--> 3t [ <t, y> in F ]			  [22 UI/y]
+						24. <x, y> in F									 [19 R]
+						25. 3t [ <t, y> in F ]							  [24 EG/x->t]
+						26. y in ran F									  [23 BC 25 MP]
+						27.	 [26 DD]
+
+					28. y in ran F & <x, y> in F							[21 19 ADJ]
+					29. y in D_1											[20 BC 28 MP]
+					30.	 [29 CD]
+				
+				31. y in D_1 <--> <x, y> in F							   [11 18 CB]
+				32.	 [31 DD]
+			33.	 [10 UD]
+		34. 3D [ @y [ y in D <--> <x, y> in F ] ]						   [8 EG/D_1->D]
+		35.	 [34 DD]
+	36.	 [3 UD]

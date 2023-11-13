@@ -1,0 +1,123 @@
+	
+Axioms and Theorems:
+	Extensionality Axiom:
+	@A, B [ @x [ x in A <--> x in B ] --> A = B ]
+
+	Union Axiom:
+	@A [ 3B [ @x [ x in B <--> 3b [ b in A & x in b ] ] ] ]
+		Definition:
+		For any set A, the union of A  U(A)     is the set whose members are exactly the members of the members of A
+		[You can think of U(A) as a 1-ary operator. It refer to one set and one set only based on the set A!]
+
+	Definition:
+		@x, y[ <x, y> := {{x}, {x, y}} ]
+			note {x} exists due to Pairing Axiom & Extensionality
+			note {x, y} exists due to Pairing Axiom & Extensionality
+			finally {{x}, {x, y}} exists due to Pairing Axiom & Extensionality
+
+	dom R: 
+	@R [ 3D [ @x [ x in D <--> 3y [ <x, y> in R ] ] ] ]
+		Definition:
+		For any set sets R,  dom R  is the set whose members are those 1st-coordinate set of some ordered pair in R
+
+	Exercise 8 part 1:
+	@A [ 3D [ @t [ t in D <--> 3R [ R in A & t = dom R ] ] ] ]
+		Definition:
+		For any set sets A, {dom R | R in A} is the set whose members are exactly the sets of the form dom R for some R in A.
+
+1. Show @A [ dom(U(A)) = U({dom R | R in A}) ]
+	2. let A be a set
+
+	D1. U(A) is the set whose members are exactly the members of the members of A					[Union Axiom UI/A & Ext. Axiom -> defines U(A)]
+		@t [ t in U(A) <--> 3b [ b in A & t in b ] ]
+
+	D2. dom(U(A)) is the set whose members are those 1st-coordinate set of some ordered pair in U(A)		[dom Theorem UI/U(A) & Ext. Axiom -> defines dom(U(A))]
+		@t [ t in dom(U(A)) <--> 3y [ <t, y> in U(A) ] ]
+	
+	D3. {dom R | R in A} is the set whose members are exactly the sets of the form dom R for some R in A.		[Exercise 8 part 1 UI/A & Ext. Axiom -> defines {dom R | R in A}]
+		@t [ t in {dom R | R in A} <--> 3R [ R in A & t = dom R ] ]
+
+	D4. U({dom R | R in A}) is the set whose members are exactly the members of the members of {dom R | R in A}					[Union Axiom UI/{dom R | R in A} & Ext. Axiom -> defines U({dom R | R in A})]
+		@t [ t in U({dom R | R in A}) <--> 3b [ b in {dom R | R in A} & t in b ] ]
+
+	3. @A, B [ @x [ x in A <--> x in B ] --> A = B ]				[Ext. Axiom]
+	4. @t [ t in dom(U(A)) <--> t in U({dom R | R in A}) ] --> dom(U(A)) = U({dom R | R in A})			[3 UI/dom(U(A)) UI/...]
+	5. Show @t [ t in dom(U(A)) <--> t in U({dom R | R in A}) ]	
+		6. let t be a set
+		7. Show t in dom(U(A)) <--> t in U({dom R | R in A})
+			8. Show t in dom(U(A)) --> t in U({dom R | R in A})
+				9. t in dom(U(A))						[ACD]
+				10. @t [ t in dom(U(A)) <--> 3y [ <t, y> in U(A) ] ]		[D2]
+				11. t in dom(U(A)) <--> 3y [ <t, y> in U(A) ]				[10 UI/t]
+				12. 3y [ <t, y> in U(A) ]									[11 BC 9 MP]
+				13. <t, y_1> in U(A)										[12 EI/y_1]
+				14. @t [ t in U(A) <--> 3b [ b in A & t in b ] ]			[D1]
+				15. <t, y_1> in U(A) <--> 3b [ b in A & <t, y_1> in b ]		[14 UI/<t, y_1>]
+				16. 3b [ b in A & <t, y_1> in b ]							[15 BC 13 MP]
+				17. R_1 in A & <t, y_1> in R_1								[16 UI/R_1]
+
+				D5. dom(R_1) is the set whose members are those 1st-coordinate set of some ordered pair in R_1			[dom Theorem UI/R_1 & Ext. Axiom -> defines dom(R_1)]
+					@t [ t in dom(R_1) <--> 3y [ <t, y> in R_1 ] ]
+
+				18. @t [ t in dom(R_1) <--> 3y [ <t, y> in R_1 ] ]		[D5]
+				19. t in dom(R_1) <--> 3y [ <t, y> in R_1 ]				[18 UI/t]
+				20. <t, y_1> in R_1										[17 SR]
+				21. 3y [ <t, y> in R_1 ]								[20 EG/y_1->y]
+				22. t in dom(R_1)										[19 BC 21 MP] 
+
+				23. @t [ t in U({dom R | R in A}) <--> 3b [ b in {dom R | R in A} & t in b ] ]			[D4]
+				24. t in U({dom R | R in A}) <--> 3b [ b in {dom R | R in A} & t in b ]					[14 UI/t]
+
+				25. @t [ t in {dom R | R in A} <--> 3R [ R in A & t = dom R ] ]				[D3]
+				26. dom(R_1) in {dom R | R in A} <--> 3R [ R in A & dom(R_1) = dom R ]		[25 UI/dom(R_1)]
+				27. R_1 in A								[17 SL]
+				28. dom(R_1) = dom(R_1)						[SID/dom(R_1)]
+				29. R_1 in A & dom(R_1) = dom(R_1)			[28 28 ADJ] 
+				30. 3R [ R in A & dom(R_1) = dom R ]		[29 EG/R_1->R]
+
+				31. dom(R_1) in {dom R | R in A}							[26 BC 30 MP]
+				32. t in dom(R_1)											[22 R]
+				33. dom(R_1) in {dom R | R in A} & t in dom(R_1)			[31 32 ADJ]
+				34. 3b [ b in {dom R | R in A} & t in b ] 					[33 EG/dom(R_1)->b]
+				35. t in U({dom R | R in A})								[24 BC 34 MP]
+				36. 		[35 CD]
+
+			37. Show t in U({dom R | R in A}) --> t in dom(U(A))
+				38. t in U({dom R | R in A})			[ACD]
+				39. @t [ t in U({dom R | R in A}) <--> 3b [ b in {dom R | R in A} & t in b ] ]			[D4]
+				40. t in U({dom R | R in A}) <--> 3b [ b in {dom R | R in A} & t in b ]					[39 UI/t]
+				41. 3b [ b in {dom R | R in A} & t in b ]												[40 BC 38 MP]
+				42. b_1 in {dom R | R in A} & t in b_1													[41 EI/R_1]
+
+				43. @t [ t in {dom R | R in A} <--> 3R [ R in A & t = dom R ] ]				[D3]
+				44. b_1 in {dom R | R in A} <--> 3R [ R in A & b_1 = dom R ]				[43 UI/b_1]
+				45. b_1 in {dom R | R in A}													[42 SL]
+				46. 3R [ R in A & b_1 = dom R ]												[44 BC 45 MP]
+				47. R_1 in A & b_1 = dom R_1												[46 EI/R_1]
+
+				D6. dom(R_1) is the set whose members are those 1st-coordinate set of some ordered pair in R_1			[dom Theorem UI/R_1 & Ext. Axiom -> defines dom(R_1)]
+					@t [ t in dom(R_1) <--> 3y [ <t, y> in R_1 ] ]
+
+				48. t in b_1																[42 SR]
+				49. b_1 = dom R_1															[47 SR]
+				50. t in dom R_1															[48 49 EL]
+				51. @t [ t in dom(R_1) <--> 3y [ <t, y> in R_1 ] ]							[D6]
+				52. t in dom R_1 <--> 3y [ <t, y> in R_1 ]									[51 UI/t]
+				53. 3y [ <t, y> in R_1 ]													[52 BC 50 MP]
+				54. <t, y_1> in R_1															[53 EI/y_1]
+
+				55. @t [ t in dom(U(A)) <--> 3y [ <t, y> in U(A) ] ]			[D2]
+				56. t in dom(U(A)) <--> 3y [ <t, y> in U(A) ]					[55 UI/t]
+
+				57. @t [ t in U(A) <--> 3b [ b in A & t in b ] ]				[D1]
+				58. <t, y_1> in U(A) <--> 3b [ b in A & <t, y_1> in b ]			[57 UI/<t, y_1>]
+				59. R_1 in A													[47 SL]
+				60. <t, y_1> in R_1												[54 R]
+				61. R_1 in A & <t, y_1> in R_1									[59 60 ADJ]
+				62. 3b [ b in A & <t, y_1> in b ]								[61 EG/R_1->b]
+				63. <t, y_1> in U(A)											[58 BC 62 MP]
+				64. 3y [ <t, y> in U(A) ]										[63 EG/y_1->y]
+				65. t in dom(U(A))												[56 BC 64 MP]
+				66.		[65 CD]
+
+

@@ -1,0 +1,412 @@
+Axioms:
+	Extensionality Axiom:
+	@A, B [ @x [ x in A <--> x in B ] --> A = B ]
+
+	Converse of Extensionality Axiom (Theorem Pg.2):
+	@A, B [ A = B  --> @x [ x in A <--> x in B ]  ]
+
+Definition:
+	@x, y[ <x, y> := {{x}, {x, y}} ]
+		note {x} exists due to Pairing Axiom and is unique due to Ext. Axiom
+		note {x, y} exists due to Pairing Axiom and is unique due to Ext. Axiom
+		finally {{x}, {x, y}} exists due to Pairing Axiom and is unique due to Ext. Axiom
+
+1. Show @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]
+	2. let u, v, x, y be sets
+	D1. @t [ t in {u} <--> t = u or t = u ]			[2 Pairing Axiom & Ext. Axiom]
+	D2. @t [ t in {u, v} <--> t = u or t = v ]		[2 Pairing Axiom & Ext. Axiom]
+	D3. @t [ t in {{u}, {u, v}} <--> t = {u} or t = {u, v} ]	[2 Pairing Axiom & Ext. Axiom]
+
+	D4. @t [ t in {x} <--> t = x or t = x ]			[2 Pairing Axiom & Ext. Axiom]
+	D5. @t [ t in {x, y} <--> t = x or t = y ]			[2 Pairing Axiom & Ext. Axiom]
+	D6. @t [ t in {{x}, {x, y}} <--> t = {x} or t = {x, y} ]	[2 Pairing Axiom & Ext. Axiom]
+
+	3. Show <u, v> = <x, y>  <-->  u = x & v = y
+		4. Show u = x & v = y  -->  <u, v> = <x ,y>
+			5. u = x & v = y			[ACD]
+			6. Show {{u}, {u, v}} = {{x}, {x, y}}	[Shows <u, v> = <x ,y>]
+				7. @A, B [ @x [ x in A <--> x in B ] --> A = B ]		[Ext. Axiom]
+				8. @t [ t in {{u}, {u, v}} <--> t in {{x}, {x, y}} ] --> {{u}, {u, v}} = {{x}, {x, y}}		[7 UI/{{u}, {u, v}} UI/{{x}, {x, y}}]
+				9. Show @t [ t in {{u}, {u, v}} <--> t in {{x}, {x, y}} ]
+					10. Show t in {{u}, {u, v}} <--> t in {{x}, {x, y}}
+						11. Show t in {{u}, {u, v}} --> t in {{x}, {x, y}}
+							12. t in {{u}, {u, v}}		[ACD]
+							13. {u} = {u}			[SID]		[You can think of {u} as a 1-ary operator. They refer to one thing and one thing only based on u!]
+							14. u = x			[5 SL]
+							15. {u} = {x}			[13 14 LL]
+
+							16. {u, v} = {u, v}		[SID]
+							17. {u, v} = {x, v}		[14 16 LL]
+							18. v = y			[5 SR]
+							19. {u, v} = {x, y}		[17 18 LL]
+
+							20. t in {{x}, {u, v}}		[12 15 LL]
+							21. t in {{x}, {x, y}}		[20 19 LL]
+							22. 	[21 CD]
+
+						23. Show t in {{x}, {x, y}} --> t in {{u}, {u, v}}
+							24. t in {{x}, {x, y}}		[ACD]
+							25. {x} = {x}			[SID]
+							26. u = x			[5 SL]
+							27. {u} = {x}			[25 26 LL]
+
+							28. {u, v} = {u, v}		[SID]
+							29. {u, v} = {x, v}		[28 26 LL]
+							30. v = y			[5 SR]
+							31. {u, v} = {x, y}		[30 29 LL]
+
+							32. t in {{u}, {x, y}}		[24 27 LL]
+							33. t in {{u}, {u, v}}		[32 31 LL]
+							34.	[33 CD]
+						35. t in {{u}, {u, v}} <--> t in {{x}, {x, y}}	[11 23 CB]
+						36.	[35 DD]
+					37.	[10 UD]
+				38. {{u}, {u, v}} = {{x}, {x, y}}			[8 9 MP]
+				39.	[38 DD]
+			40. 	[6 CD]
+	
+		41. Show <u, v> = <x, y>  -->  u = x & v = y
+			42. <u, v> = <x, y>					[ACD]
+			43. {{u}, {u, v}} = {{x}, {x, y}}			[42 definition of <u, v> and <x, y>]
+			45. @t [ t in {{u}, {u, v}} <--> t = {u} or t = {u, v} ]			[D3]
+			46. {u} in {{u}, {u, v}} <--> {u} = {u} or {u} = {u, v}				[45 UI/{u}]
+			47. {u} = {u}						[SID]
+			48. {u} = {u} or {u} = {u, v}				[47 ADD/...]
+			49. {u} in {{u}, {u, v}}						[46 BC 48 MP]
+			50. {u} in {{x}, {x, y}}						[43 49 LL]
+			51. @t [ t in {{x}, {x, y}} <--> t = {x} or t = {x, y} ]	[D6]
+			52. {u} in {{x}, {x, y}} <--> {u} = {x} or {u} = {x, y}	[51 UI/{u}]
+			53. {u} = {x} or {u} = {x, y}				[52 BC 50 MP]
+
+			54. Show {u} = {x} --> u = x				[Case 1 For line 53]
+				55. {u} = {x}					[ACD]
+				note: [we don't know if the operation {x} is injective, so we can't right away say u = x]
+
+				56. @t [ t in {u} <--> t = u or t = u ]		[D1]
+				57. u in {u} <--> u = u or u = u		[56 UI/u]
+				58. u = u					[SID]
+				59. u = u or u = u				[58 ADD/...]
+				60. u in {u}					[57 BC 59 MP]
+				61. u in {x}					[55 60 LL]
+				62. @t [ t in {x} <--> t = x or t = x ]		[D4]
+				63. u in {x} <--> u = x or u = x		[62 UI/x]
+				64. u = x or u = x				[63 BC 61 MP]
+				65. Show u = x
+					66. ~(u = x)		[AID]
+					67. u = x		[64 66 MTP]
+					68.	[67 DD]
+				66.	[65 CD]
+				
+			67. Show {u} = {x, y} --> u = x			[Case 2 For line 53]
+				68. {u} = {x, y}					[ACD]
+				69. 
+				70. @t [ t in {u} <--> t = u or t = u ]		[D1]
+				71. u in {u} <--> u = u or u = u		[70 UI/u]
+				72. u = u					[SID]
+				73. u = u or u = u				[72 ADD/...]
+				74. u in {u}					[71 BC 73 MP]
+				75. u in {x, y}					[74 68 LL]
+				76. @t [ t in {x, y} <--> t = x or t = y ]		[D5]
+				77. u in {x, y} <--> u = x or u = y		[76 UI/x]
+				78. u = x or u = y				[77 BC 75 MP]
+
+				79. Show x = y
+					80. ~(x = y)				[AID]
+					81. @A, B [ A = B  --> @t [ t in A <--> t in B ]  ]		[Converse of Ext. Axiom]
+					82. {u} = {x, y}  --> @t [ t in {u} <--> t in {x, y} ]		[81 UI/{u} UI/{x, y}]
+					83. @t [ t in {u} <--> t in {x, y} ]				[68 82 MP]
+
+					84. @t [ t in {x, y} <--> t = x or t = y ]				[D5]
+					85. x in {x, y} <--> x = x or x = y				[84 UI/x]
+					86. x = x							[SID]
+					87. x = x or x = y						[86 ADD/...]
+					88. x in {x, y}							[85 BC 87 MP]
+					89. x in {u} <--> x in {x, y}					[83 UI/x]
+					90. x in {u}							[89 BC 88 MP]
+					91. @t [ t in {u} <--> t = u or t = u ]				[D1]
+					92. x in {u} <--> x = u or x = u				[91 UI/x]
+					93. x = u or x = u						[92 BC 90 MP]
+					94. Show x = u
+						95. ~(x = u)			[AID]
+						96. x = u			[93 95 MTP]
+						97. 	[96 DD]
+
+					98. y in {x, y} <--> y = x or y = y				[84 UI/y]
+					99. y = y							[SID]
+					100. y = x or y = y						[99 ADD/...]
+					101. y in {x, y}							[98 BC 100 MP]
+					102. y in {u} <--> y in {x, y}					[83 UI/y]
+					103. y in {u}							[102 BC 101 MP]
+					104. y in {u} <--> y = u or y = u				[91 UI/y]
+					105. y = u or y = u						[104 BC 103 MP]
+					106. Show y = u
+						107. ~(y = u)			[AID]
+						108. y = u			[105 107 MTP]
+						109. 	[108 DD]
+
+					110. x = y		[94 106 LL]
+					111.			[80 110 ID]
+
+				112. Show u = x --> u = x				[Case 1 for line 78]
+					113. u = x					[ACD]
+					114.	[113 CD]
+
+				115. Show u = y --> u = x				[Case 2 for line 78]
+					116. u = y					[ACD]
+					117. x = y					[79 R]
+					118. u = x					[116 117 LL]
+					119. 	[118 CD]
+				
+				120. u = x or u = y --> u = x				[112 115 CASE_PROOF for line 78]
+				121. u = x						[120 78 MP]
+				122.	[121 CD]
+	
+			123. {u} = {x} or {u} = {x, y} --> u = x				[54 67 CASE_PROOF for line 53]
+			124. u = x							[123 53 MP]
+
+			125. @t [ t in {{x}, {x, y}} <--> t = {x} or t = {x, y} ]							[D6]
+			126. {x, y} in {{x}, {x, y}} <--> {x, y} = {x} or {x, y} = {x, y} 		[125 UI/{x, y}]
+			127. {x, y} = {x, y}							[SID]
+			128. {x, y} = {x} or {x, y} = {x, y}					[127 ADD/...]
+			129. {x, y} in {{x}, {x, y}}									[126 BC 128 MP]
+			130. {x, y} in {{u}, {u, v}}									[43 129 LL]
+			131. @t [ t in {{u}, {u, v}} <--> t = {u} or t = {u, v} ]							[D3]
+			132. {x, y} in {{u}, {u, v}} <--> {x, y} = {u} or {x, y} = {u, v}			[131 UI/{x, y}]
+			133. {x, y} = {u} or {x, y} = {u, v}					[52 BC 50 MP]
+			
+			134. Show {x, y} = {u} --> v = y							[Case 1 for line 133]
+				135. {x, y} = {u}				[ACD]
+				136. Show x = y
+					137. @t [ t in {x, y} <--> t = x or t = y ]			[D5]
+					138. x in {x, y} <--> x = x or x = y						[137 UI/x]
+					139. x = x							[SID]
+					140. x = x or x = y			[139 ADD/...]
+          
+					141. x in {x, y}					[138 BC 140 MP]
+					142. x in {u}							[135 141 LL]
+					143. @t [ t in {u} <--> t = u or t = u ]			[D1]
+					144. x in {u} <--> x = u or x = u							[143 UI/x]
+					145. x = u or x = u 													[144 BC 142 MP]
+
+					146. Show x = u
+						147. ~(x = u)			[AID]
+						148. x = u				[147 145 MTP]
+						149.	[148 DD]
+
+					150. @t [ t in {x, y} <--> t = x or t = y ]			[D5]
+					151. y in {x, y} <--> y = x or y = y						[150 UI/y]
+					152. y = y								[SID]
+					153. y = x or y = y				[152 ADD/...]
+					154. y in {x, y}					[151 BC 153 MP]
+					155. y in {u}							[135 154 LL]
+					156. @t [ t in {u} <--> t = u or t = u ]			[D1]
+					157. y in {u} <--> y = u or y = u							[156 UI/y]
+					158. y = u or y = u														[157 BC 155 MP]
+
+					159. Show y = u
+						160. ~(y = u)			[AID]
+						161. y = u				[158 160 MTP]
+						162.	[161 DD]
+
+					163. x = y    [146 159 LL] 
+					164.  [163 DD]
+        
+
+				165. u = x      [124 R]
+				166. y = u      [165 136 LL]
+				
+				
+				167. {{u}, {u, v}} = {{x}, {x, y}}                      [43 R]
+				168. @A, B [ A = B  --> @t [ t in A <--> t in B ]  ]		[Converse of Ext. Axiom]
+				169. {{u}, {u, v}} = {{x}, {x, y}}  --> @t [ t in {{u}, {u, v}} <--> t in {{x}, {x, y}} ]   [168 UI/{{u}, {u, v}} UI/{{x}, {x, y}}]
+				
+				170. @t [ t in {{u}, {u, v}} <--> t in {{x}, {x, y}} ]      [169 167 MP]
+
+				171. Show u = v
+					172. ~(u = v)	                                                  [AID]
+					173. {u, v} in {{u}, {u, v}} <--> {u, v} in {{x}, {x, y}}       [170 UI/{u, v}]
+
+					174. @t [ t in {{u}, {u, v}} <--> t = {u} or t = {u, v} ]       [D3]
+					175. {u, v} in {{u}, {u, v}} <--> {u, v} = {u} or {u, v} = {u, v}   [174 UI/{u, v}]
+					178. {u, v} = {u, v}           [SID]
+					179. {u, v} = {u} or {u, v} = {u, v}      [178 ADD/...]
+					180. {u, v} in {{u}, {u, v}}              [175 BC 179 MP]
+
+					181. {u, v} in {{x}, {x, y}}        [180 167 LL]
+					182. @t [ t in {{x}, {x, y}} <--> t = {x} or t = {x, y} ]   [D6]
+					183. {u, v} in {{x}, {x, y}} <--> {u, v} = {x} or {u, v} = {x, y}     [182 UI/{u, v}]
+					184. {u, v} = {x} or {u, v} = {x, y}          [183 BC 181 MP]
+				
+					185. Show ~({u, v} = {x})
+						186. {u, v} = {x}		  [AID]
+						187. u = x            [124 R]
+
+						188. @t [ t in {u, v} <--> t = u or t = v ]     [D2]
+						189. v in {u, v} <--> v = u or v = v            [188 UI/v]
+						190. v = v              [SID]
+						191. v = u or v = v     [190 ADD/...]
+						192. v in {u, v}        [189 BC 191 MP]
+						193. v in {x}           [192 186 LL]
+
+						194. @t [ t in {x} <--> t = x or t = x ]    [D4]
+						195. v in {x} <--> v = x or v = x           [194 UI/v]
+
+						196. v = x or v = x                 [195 BC 193 MP]
+						197. Show v = x
+							198. ~(v = x)       [AID]
+							199. v = x          [196 198 MTP]
+							200.  [199 DD]
+
+						201. u = v        [197 187 LL]
+						202. ~(u = v)     [172 R]
+						203.  [201 202 ID]
+
+					204. {u, v} = {x, y}		  [184 185 MTP]
+
+					205. ~(u = v)    [172 R]
+
+					206. @t [ t in {u, v} <--> t = u or t = v ]			[D2]
+					207. v in {u, v} <--> v = u or v = v						[206 UI/v]
+					208. v = v              [SID]
+					209. v = u or v = v     [208 ADD/...]
+					210. v in {u, v}        [207 BC 209 MP]
+					211. v in {x, y}        [210 204 LL]
+
+					212. @t [ t in {x, y} <--> t = x or t = y ]     [D5]
+					213. v in {x, y} <--> v = x or v = y            [212 UI/v]
+					214. v = x or v = y                             [213 BC 211 MP]
+
+					215. Show ~(v = x)
+						216. v = x						[AID]
+						217. u = x						[124 R]
+						218. v = u						[216 217 LL]
+						219. ~(u = v)						[172 R]
+						220.  [218 219 ID]
+
+					221. v = y					[214 215 MTP]
+					222. y = u					[166 R]
+					223. v = u					[221 222 LL]
+
+					224. ~(u = v) 	  [172 R]
+					225.  [223 224 ID]
+
+				226. u = v         [171 R]
+				227. y = u         [166 R]
+				228. v = y         [226 227 LL]
+				229.  [228 CD]
+
+			230. Show {x, y} = {u, v} --> v = y				[Case 2 for line 133]
+				231. {x, y} = {u, v}				[ACD]
+				232. u = x									[124 R]
+
+				233. x = y or ~(x = y)			[Tautology]
+				234. Show x = y --> v = y		[Case 1 for line 233]
+					235. x = y								[ACD]
+					236. Show u = v
+						237. ~(u = v)						[AID]
+
+						238. @t [ t in {u, v} <--> t = u or t = v ]			[D2]
+						239. u in {u, v} <--> u = u or u = v									[238 UI/u]
+						240. u = u							[SID]
+						241. u = u or u = v			[240 ADD/...]
+						242. u in {u, v}				[239 BC 241 MP]
+
+						243. @t [ t in {u, v} <--> t = u or t = v ]			[D2]
+						244. v in {u, v} <--> v = u or v = v						[243 UI/v]
+						245. v = v							[SID]
+						246. v = u or v = v			[245 ADD/...]
+						247. v in {u, v}				[244 BC 246 MP]
+						248. v in {x, y}				[247 231 LL]
+						249. @t [ t in {x, y} <--> t = x or t = y ]			[D5]
+						250. v in {x, y} <--> v = x or v = y						[249 UI/x]
+
+						251. v = x or v = y								[250 BC 248 MP]
+						252. v = x or v = x								[235 251 LL]
+
+						253. Show v = x
+							254. ~(v = x)					[AID]
+							255. v = x						[254 252 MTP]
+							256. 	[255 DD]
+
+						
+						257. u = v							[232 253 LL]
+						258. ~(u = v)						[237 R]
+						259.		[257 258 ID]
+
+					260. u = y			[232 235 LL]
+					261. v = y			[260 236 LL]
+					262.	[261 CD]
+
+				263. Show ~(x = y) --> v = y		[Case 2 for line 233]
+					264. ~(x = y)
+					265. Show ~(u = v)
+						266. u = v												[AID]
+						267. {x, y} = {u, v}							[231 R]
+
+						268. u = x 		[124 R]
+
+						269. @t [ t in {x, y} <--> t = x or t = y ]		[D5]
+						270. y in {x, y} <--> y = x or y = y					[269 UI/y]
+						271. y = y																		[SID]
+						272. y = x or y = y														[271 ADD/...]
+						273. y in {x, y}															[270 BC 273 MP]
+						274. y in {u, v}															[273 267 LL]
+						275. @t [ t in {u, v} <--> t = u or t = v ]		[D2]
+						276. y in {u, v} <--> y = u or y = v					[275 UI/y]
+						277. y = u or y = v														[276 BC 274 MP]
+						278. y = u or y = u														[277 266 LL]
+						279. Show y = u
+							280. ~(y = u)			[AID]
+							281. y = u				[278 280 MTP]
+							282.	[281 DD]
+
+						283. x = y			[279 268 LL]
+						284. ~(x = y)		[264 R]
+						285.		[283 284 ID]
+					286. {x, y} = {u, v}					[231 R]
+					287. u = x										[124 R]
+					288. Show v = y
+						289. ~(v = y)				[AID]
+						290. @t [ t in {u, v} <--> t = u or t = v ]		[D2]
+						291. v in {u, v} <--> v = u or v = v					[290 UI/v]
+						292. v = v				[SID]
+						293. v = u or v = v				[292 ADD/...]
+						294. v in {u, v}					[291 BC 293 MP]
+						295. v in {x, y}					[294 286 LL]
+						296. @t [ t in {x, y} <--> t = x or t = y ]			[D5]
+						297. v in {x, y} <--> v = x or v = y						[296 UI/v]
+						298. v = x or v = y				[297 BC 295 MP]
+						299. v = x								[298 289 MTP]
+						300. v = u								[299 287 LL]
+						301. ~(u = v)							[265 R]
+						302.		[300 301 ID]
+					303. 	[288 CD]
+
+				304. x = y or ~(x = y) --> v = y			[234 263 CASE_PROOF for line 233]
+				305. v = y			[304 233 MP]
+				306.		[305 CD]
+
+			307. {x, y} = {u} or {x, y} = {u, v} --> v = y				[134 230 CASE_PROOF for line 133]
+			308. v = y											[307 133 MP]
+			309. u = x											[124 R]
+			310. u = x & v = y							[309 308 ADJ]
+			311.		[310 CD]
+	
+					
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		

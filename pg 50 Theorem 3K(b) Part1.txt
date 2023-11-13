@@ -1,0 +1,53 @@
+
+
+
+
+1. Show @F, A, B [ @t[ t in F[A ∩ B] --> t in F[A] ∩ F[B] ] ]
+	2. let F, A, B be a set
+
+	========
+	D1. @x [ x in A ∩ B <--> x in B & x in A ]			[Subset Axiom (Intersection) UI/A UI/B EI & Ext. Axiom]
+	D2. @v [ v in F[A ∩ B] <--> 3u [ u in A ∩ B & <u, v> in F ] ]				[Image Under UI/F UI/A ∩ B EI & Ext. Axiom]
+	D3. @v [ v in F[A] <--> 3u [ u in A & <u, v> in F ] ]				[Image Under UI/F UI/A EI & Ext. Axiom]
+	D4. @v [ v in F[B] <--> 3u [ u in B & <u, v> in F ] ]				[Image Under UI/F UI/B EI & Ext. Axiom]
+	D5. @x [ x in F[A] ∩ F[B] <--> x in F[B] & x in F[A] ]			[Subset Axiom (Intersection) UI/F[A] UI/F[B] EI & Ext. Axiom]
+	========
+
+	3. Show @t[ t in F[A ∩ B] --> t in F[A] ∩ F[B] ]
+		4. let t be a set
+		5. Show t in F[A ∩ B] --> t in F[A] ∩ F[B]
+			6. t in F[A ∩ B]			[ACD]
+			7. @v [ v in F[A ∩ B] <--> 3u [ u in A ∩ B & <u, v> in F ] ]			[D2]
+			8. t in F[A ∩ B] <--> 3u [ u in A ∩ B & <u, t> in F ]							[7 UI/t]
+			9. 3u [ u in A ∩ B & <u, t> in F ]				[8 BC 6 MP]
+			10. u_1 in A ∩ B & <u_1, t> in F					[9 EI/u_1]
+			11. u_1 in A ∩ B			[10 SL]
+			12. @x [ x in A ∩ B <--> x in B & x in A ]			[D1]
+			13. u_1 in A ∩ B <--> u_1 in B & u_1 in A				[12 UI/u_1]
+			14. u_1 in B & u_1 in A			[13 BC 11 MP]
+
+			15. @x [ x in F[A] ∩ F[B] <--> x in F[B] & x in F[A] ]			[D5]
+			16. t in F[A] ∩ F[B] <--> t in F[B] & t in F[A]			[15 UI/t]
+
+			17. @v [ v in F[B] <--> 3u [ u in B & <u, v> in F ] ]			[D4]
+			18. t in F[B] <--> 3u [ u in B & <u, t> in F ]						[17 UI/t]
+			19. u_1 in B		[14 SL]
+			20. <u_1, t> in F			[10 SR]
+			21. u_1 in B & <u_1, t> in F			[19 20 ADJ]
+			22. 3u [ u in B & <u, t> in F ]			[21 EG/u_1->u]
+			23. t in F[B]			[18 BC 22 MP]
+
+			24. @v [ v in F[A] <--> 3u [ u in A & <u, v> in F ] ]			[D3]
+			25. t in F[A] <--> 3u [ u in A & <u, t> in F ]						[24 UI/t]
+			26. u_1 in A		[14 SR]
+			27. <u_1, t> in F			[10 SR]
+			28. u_1 in A & <u_1, t> in F				[26 27 ADJ]
+			29. 3u [ u in A & <u, t> in F ]			[28 EG/u_1->u]
+			30. t in F[A]			[25 BC 29 MP]
+
+			31. t in F[B] & t in F[A]			[23 30 ADJ]
+			32. t in F[A] ∩ F[B]			[16 BC 31 MP]
+			33.		[32 CD]
+		34. 		[5 UD]
+	35. 		[3 UD]
+	

@@ -1,0 +1,104 @@
+Axioms and Theorems:
+	Extensionality Axiom:
+	@A, B [ @x [ x in A <--> x in B ] --> A = B ]
+
+	Union Axiom (Preliminary Form):
+	@a, b [ 3B [ @x [ x in B <--> x in a or x in b ] ] ]
+		Definition:
+		For any sets a, b, the union a ∪ b is the set whose members are those sets belonging either to a or to b (or both).
+		[You can think of a ∪ b as a 2-ary operator. It refer to one set and one set only based on the sets a and b!]
+
+	Corollary 3C:
+	@A, B [ 3D [ @t[ t in D <--> 3x, y [x in A & y in B & t = <x, y> ] ] ] ]
+		Definition:
+		For any set sets A, B,  {<x, y> | x in A & x in B}    is the set whose members are exactly the sets of the form <x, y> for some x in A & y in B
+		Also known as the Cartesian Product A x B of the sets A and B!
+
+	
+1. Show @A, B, C [ A x (B ∪ C) = (A x B) ∪ (A x C) ]
+	2. Let A, B, C be sets
+	
+	D1. @t [ t in (B ∪ C) <--> t in B or t in C ]											[2 Union Axiom UI/B   UI/C & Ext. Axiom allows us to give the set a well-defined symbol: B ∪ C]
+	D2. @t [ t in A x (B ∪ C) <--> 3x, y [x in A & y in (B ∪ C) & t = <x, y> ] ]			[2 D1 Corollary 3C UI/A  UI/(B ∪ C)  &  Ext. Axiom allows us to give the set a well-defined symbol A x (B ∪ C)]
+
+	D3. @t [ t in (A x B) <--> 3x, y [x in A & y in B & t = <x, y> ] ]						[2 Corollary 3C UI/A  UI/B  &  Ext. Axiom allows us to give the set a well-defined symbol A x B]
+	D4. @t [ t in (A x C) <--> 3x, y [x in A & y in C & t = <x, y> ] ]						[2 Corollary 3C UI/A  UI/C  &  Ext. Axiom allows us to give the set a well-defined symbol A x C]
+	D5. @t [ t in (A x B) ∪ (A x C) <--> t in (A x B) or t in (A x C) ]						[2 D3 D4 Union Axiom UI/(A x B)   UI/(A x C) & Ext. Axiom allows us to give the set a well-defined symbol (A x B) ∪ (A x C)]
+
+	3. @A, B [ @t [ t in A <--> t in B ] --> A = B ]												[Ext. Axiom]
+	4. @t [ t in A x (B ∪ C) <--> t in (A x B) ∪ (A x C) ] --> A x (B ∪ C) = (A x B) ∪ (A x C)		[3 UI/A x (B ∪ C)   UI/(A x B) ∪ (A x C)]
+	
+	5. Show @t [ t in A x (B ∪ C) <--> t in (A x B) ∪ (A x C) ]
+		6. Show t in A x (B ∪ C) <--> t in (A x B) ∪ (A x C)
+			7. Show t in A x (B ∪ C) --> t in (A x B) ∪ (A x C)
+				8. t in A x (B ∪ C)		[ACD]
+				9. @t [ t in A x (B ∪ C) <--> 3x, y [x in A & y in (B ∪ C) & t = <x, y> ] ]			[D2]
+				10. 3x, y [x in A & y in (B ∪ C) & t = <x, y> ]										[9 UI/t BC 8 MP]
+				11. x in A & y in (B ∪ C) & t = <x, y>												[10 EI/x EI/y]
+
+				12. @t [ t in (A x B) ∪ (A x C) <--> t in (A x B) or t in (A x C) ]					[D5]
+				13. t in (A x B) ∪ (A x C) <--> t in (A x B) or t in (A x C)						[12 UI/t]
+				14. Show t in (A x B) or t in (A x C)
+					15. x in A			[11 SL SL]
+					16. y in (B ∪ C)	[11 SL SR]
+					17. t = <x, y>		[11 SR]
+					18. @t [ t in (B ∪ C) <--> t in B or t in C ]		[D1]
+					19. y in (B ∪ C) <--> y in B or y in C				[18 UI/y]
+					20. y in B or y in C								[19 BC 16 MP]
+					21. Show y in B --> t in (A x B) or t in (A x C)	[Case 1 for line 20]
+						22. y in B		[ACD]
+						23. @t [ t in (A x B) <--> 3x, y [x in A & y in B & t = <x, y> ] ]		[D3]
+						24. t in (A x B) <--> 3x, y [x in A & y in B & t = <x, y> ]				[23 UI/t]
+						25. x in A & y in B & t = <x, y>				[15 22 17 ADJ]
+						26. 3x, y [x in A & y in B & t = <x, y> ]		[25 EG/x->x EG/y->y]
+						27. t in (A x B)								[24 BC 26 MP]
+						28. t in (A x B) or t in (A x C)				[27 ADD/...]
+						29. 	[28 CD]
+
+					30. Show y in C --> t in (A x B) or t in (A x C)	[Case 2 for line 20]
+						31. y in C		[ACD]
+						32. @t [ t in (A x C) <--> 3x, y [x in A & y in C & t = <x, y> ] ]		[D4]
+						33. t in (A x C) <--> 3x, y [x in A & y in C & t = <x, y> ]				[32 UI/t]
+						34. x in A & y in C & t = <x, y>				[15 31 17 ADJ]
+						35. 3x, y [x in A & y in C & t = <x, y> ]		[34 EG/x->x EG/y->y]
+						36. t in (A x C)								[33 BC 35 MP]
+						37. t in (A x B) or t in (A x C)				[36 ADD/...]
+						38. 	[37 CD]
+					
+					39. y in B or y in C --> t in (A x B) or t in (A x C)		[21 30 CASE_PROOF for line 20]
+					40. t in (A x B) or t in (A x C)							[39 20 MP]
+					41. 	[40 DD]
+				42. t in (A x B) ∪ (A x C)		[13 BC 14 MP]
+				43. 	[42 CD]
+
+			44. Show t in (A x B) ∪ (A x C)	--> t in A x (B ∪ C)
+				45. t in (A x B) ∪ (A x C)		[ACD]
+				46. @t [ t in (A x B) ∪ (A x C) <--> t in (A x B) or t in (A x C) ]		[D5]
+				47. t in (A x B) or t in (A x C)										[46 UI/t BC 45 MP]
+				48. Show t in (A x B) --> t in A x (B ∪ C)				[Case 1 for line 47]
+					49. t in (A x B)	[ACD]
+					50. @t [ t in (A x B) <--> 3x, y [x in A & y in B & t = <x, y> ] ]		[D3]
+					51. 3x, y [x in A & y in B & t = <x, y> ]				[50 UI/t BC 49 MP]
+					52. x in A & y in B & t = <x, y> 						[51 EI/x EI/y]
+
+					53. @t [ t in A x (B ∪ C) <--> 3x, y [x in A & y in (B ∪ C) & t = <x, y> ] ]	[D2]
+					54. t in A x (B ∪ C) <--> 3x, y [x in A & y in (B ∪ C) & t = <x, y> ]			[53 UI/t]
+					55. @t [ t in (B ∪ C) <--> t in B or t in C ]									[D1]
+					56. y in (B ∪ C) <--> y in B or y in C											[55 UI/y]
+					57. y in B				[52 SL SR]
+					58. y in B or y in C	[57 ADD/...]
+					59. y in (B ∪ C)		[56 BC 58 MP]
+					60. x in A				[52 SL SL]
+					61.	t = <x, y> 			[52 SR]
+					62. x in A & y in (B ∪ C) & t = <x, y>				[60 59 61 ADJ]
+					63. 3x, y [x in A & y in (B ∪ C) & t = <x, y> ]		[62 EG/x->x EG/y->y]
+					64. t in A x (B ∪ C)								[54 BC 63 MP]
+					65. 	[64 CD]
+
+				66. Show t in (A x C) --> t in A x (B ∪ C)					[Case 2 for line 47]
+					...similar steps as lines 48-65
+
+
+
+
+

@@ -1,0 +1,89 @@
+Axioms and Theorems:
+	Extensionality Axiom:
+	@A, B [ @x [ x in A <--> x in B ] --> A = B ]
+
+	Subset Axiom:
+	@t1 ... @tk @c [ 3D [ @t [ t in D <--> t in c & __ ] ] ]
+
+	Subset Axiom (APPLIED: APPLE):
+	@F, B [ @c [ 3D [ @t [ t in D <--> t in c & 3y [ [y in ran F & t = <y, (F^-1)(y)>] or @w [y in B - ran F & t = <y, w> ] ] ] ] ] ]				[Subset Axiom UI_META/"@F" UI_META/""@y [ y in ran F --> [ t = <y, (F^-1)(y)> ] ] & @y [ y in B - ran F --> [ t = <y, t_1> ] ]""]
+
+	*****NOTES*****:
+	so, am i essentially trying to prove something like this?
+		@a, b, [ @c [ 3D [ @t [ t in D <--> t in c & [t in a or t in b] ] ] ] ]
+	like, am i trying to prove that the union axiom is not needed?
+	i don't think we can do something like APPLE...
+	it feels weird...
+	but if u think about it, we can use it like we did in Theorem 3J, but that requires knowing that the set we are looking
+	for is a subset of B x A...
+
+	but to prove 
+	
+	perhaps we can do something like this:
+		@F, A, B [ (F maps A into B) & A != {} & F is single-rooted --> 
+							3D [ @t [ t in D <--> 3w [ t = w & [w in (F^-1) or @u[ u in A --> w in (B - ran F) x {u} ] ] ] ] ] ]
+
+
+	for subset axiom i think we can do something like this:
+		@a, b, c [ 3D [ @t [ t in D <--> t in c & [t in a or t in B] ] ] ]
+
+LEMMA - NON-EMPTY:
+1. Show @A [ A != {} --> 3t [ t in A ] ]
+	2. let A be a set
+
+	D1. @x [ ~(x in {}) ]			[Empty Set Axiom EI & Ext. Axiom]
+
+	3. Show A != {} --> 3t [ t in A ]
+		4. A != {} 																						[ACD]
+		5. Show 3t [ t in A ]
+			6. ~3t [ t in A ]						[AID]
+			7. @A, B [ @x [ x in A <--> x in B ] --> A = B ]		[Ext. Axiom]
+			8. @x [ x in A <--> x in {} ] --> A = {}						[7 UI/A UI/{}]
+			9. Show @x [ x in A <--> x in {} ]
+				10. let x be a set
+				11. Show x in A --> x in {}
+					12. x in A						[ACD]
+					13. 3t [ t in A ]			[12 EG/x->t]
+					14. ~3t [ t in A ]		[6 R]
+					15.		[13 14 ID]
+				16. Show x in {} --> x in A
+					17. x in {}							[ACD]
+					18. @x [ ~(x in {}) ]		[D1]
+					19. ~(x in {})					[18 UI/x]
+					20.		[17 19 ID]
+				21. x in A <--> x in {}		[11 16 CB]
+				22.		[21 UD]
+			23. A = {}				[8 9 MP]
+			24.	A != {}				[4 R]
+			25.		[23 24 ID]
+		26. 	[5 CD]
+
+
+1. Show @F, B, w [ 3D [ @t [ t in D <--> 3y [ [y in ran F & t = <y, (F^-1)(y)>] or [y in B - ran F & t = <y, w>] ] ] ] ]
+	2. let F, B, w be a set
+	3. @F, B, w [ @c [ 3D [ @t [ t in D <--> t in c & 3y [ [y in ran F & t = <y, (F^-1)(y)>] or [y in B - ran F & t = <y, w> ] ] ] ] ] ]		[APPLE]
+	4. @c [ 3D [ @t [ t in D <--> t in c & 3y [ [y in ran F & t = <y, (F^-1)(y)>] or [y in B - ran F & t = <y, w> ] ] ] ] ]									[3 UI/F, B, w]
+	5. 3D [ @t [ t in D <--> t in (B x dom F) & 3y [ [y in ran F & t = <y, (F^-1)(y)>] or [y in B - ran F & t = <y, w> ] ] ] ]							[4 UI/(B x dom F)]
+	6. @t [ t in D_1 <--> t in (B x dom F) & 3y [ [y in ran F & t = <y, (F^-1)(y)>] or [y in B - ran F & t = <y, w> ] ] ]										[5 EI/D_1]
+	7. 
+
+		
+
+
+1. Show @F, A, B [ (F maps A into B) & A != {} & F is single-rooted --> 3t[ ??? =  (F^-1) U ((B - ran F) x {t}) ] ]
+	2. let F, A, B be sets
+	
+	3. @F [ @c [ 3D [ @t [ t in D <--> t in c & 3y [ [y in ran F & t = <y, (F^-1)(y)>] or [y in B - ran F & t = <y, t_1> ] ] ] ] ] ]		[APPLE]
+
+	4. 3D [ @t [ t in D <--> t in B x A & 3y [ [y in ran F & t = <y, (F^-1)(y)>] or [y in B - ran F & t = <y, t_1> ] ] ] ]					[3 UI/F UI/B x A]
+
+	5. @t [ t in D_1 <--> t in B x A & 3y [ [y in ran F & t = <y, (F^-1)(y)>] or [y in B - ran F & t = <y, t_1> ] ] ]
+
+	6. Show (F maps A into B) & A != {} & F is single-rooted --> 3t[ ??? =  (F^-1) U ((B - ran F) x {t}) ]
+		7. (F maps A into B) & A != {} & F is single-rooted				[ACD]
+
+		8. @A [ A != {} --> 3t [ t in A ] ]			[LEMMA - NON-EMPTY]
+		9. A != {} --> 3t [ t in A ]						[8 UI/A]
+		10. 3t [ t in A ]												[7 SL SR 9 MP]
+		11. t_1 in A														[10 EI/t_1]
+	Show D_1 = (F^-1) U ((B - ran F) x {t_1})

@@ -1,0 +1,48 @@
+Axioms and Theorems:
+	Extensionality Axiom:
+	@A, B [ @x [ x in A <--> x in B ] --> A = B ]
+
+	pg 52 Exercise 11:
+		@F, G [ F, G are functions & dom F = dom G & @x [ x in dom F --> F(x) = G(x) ] --> F = G ]
+
+	pg 52 Exercise 12:
+		@F, G [ F, G are functions --> [ F ⊆ G <--> dom F ⊆ dom G & @x [ x in dom F --> F(x) = G(x) ] ] ]
+
+1. Show @F, G [ F, G are functions & F ⊆ G & dom G ⊆ dom F --> F = G ]
+	2. let F, G be sets
+	3. Show F, G are functions & F ⊆ G & dom G ⊆ dom F --> F = G
+		4. F, G are functions & F ⊆ G & dom G ⊆ dom F				[ACD]
+
+		5. @F, G [ F, G are functions --> [ F ⊆ G <--> dom F ⊆ dom G & @x [ x in dom F --> F(x) = G(x) ] ] ]		[Pg 52 Exercise 12]
+		6. F, G are functions --> [ F ⊆ G <--> dom F ⊆ dom G & @x [ x in dom F --> F(x) = G(x) ] ]			[5 UI/F, G]
+		7. F, G are functions			[4 SL SL]
+		8. F ⊆ G <--> dom F ⊆ dom G & @x [ x in dom F --> F(x) = G(x) ]			[6 7 MP]
+		9. F ⊆ G				[4 SL SR]
+		10. dom F ⊆ dom G & @x [ x in dom F --> F(x) = G(x) ]			[8 BC 9 MP]
+		11. dom F ⊆ dom G				[10 SL]
+		12. dom G ⊆ dom F				[4 SR]
+
+		13. @A, B [ @x [ x in A <--> x in B ] --> A = B ]			[Ext. Axiom]
+		14. @x [ x in dom F <--> x in dom G ] --> dom F = dom G				[13 UI/dom F UI/dom G]
+
+		15. Show @x [ x in dom F <--> x in dom G ]
+			16. let x be a set
+			17. dom F ⊆ dom G			[11 R]
+			18. @x [ x in dom F --> x in dom G ]			[17 EQUIV.]
+			19. x in dom F --> x in dom G			[18 UI/x]
+
+			20. dom G ⊆ dom F			[12 R]
+			21. @x [ x in dom G --> x in dom F ]			[20 EQUIV.]
+			22. x in dom G --> x in dom F			[21 UI/x]
+
+			23. x in dom F <--> x in dom G			[19 22 CB]
+			24. 		[23 UD]
+		
+		25. dom F = dom G			[14 15 MP]
+
+		26. @F, G [ F, G are functions & dom F = dom G & @x [ x in dom F --> F(x) = G(x) ] --> F = G ]		[Pg 52 Exercise 11]
+		27. F, G are functions & dom F = dom G & @x [ x in dom F --> F(x) = G(x) ] --> F = G			[26 UI/F, G]
+		28. F, G are functions & dom F = dom G & @x [ x in dom F --> F(x) = G(x) ]			[(4 SL SL) 25 (10 SR) ADJ]
+		29. F = G			[27 28 MP]
+		30. 		[29 CD]
+	31.		[3 UD]

@@ -1,0 +1,149 @@
+Axioms and Theorems:
+	Extensionality Axiom:
+	@A, B [ @x [ x in A <--> x in B ] --> A = B ]
+
+	Definition of Ordered Pair:
+		@x, y[ <x, y> := {{x}, {x, y}} ]
+			note {x} exists due to Pairing Axiom & Extensionality
+			note {x, y} exists due to Pairing Axiom & Extensionality
+			finally {{x}, {x, y}} exists due to Pairing Axiom & Extensionality
+	
+	Theorem 3A:
+		@u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]
+
+	The inverse of F set:
+		@F [ 3D [ @t [ t in D <--> 3u, v [ <v, u> in F & t = <u, v> ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			For any sets F, F^-1 is the set known as the inverse of F
+			AKA: F^-1 := {<u, v> | <v, u> in F}
+
+	The composition of F and G set:
+		@F, G [ 3D [ @w [ w in D <--> 3u, v [ w = <u, v> & 3t [ <u, t> in G & <t, v> in F ] ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			For any sets F, G, F o G is the set known as the composition of F and G
+			AKA: F o G := {<u, v> | 3t[<u, t> in G & <t, v> in F]}
+
+1. Show @F, G [ ((F o G)^-1) = (G^-1) o (F^-1) ]
+	2. let F, G be sets
+
+	D1. @t [ t in (G^-1) <--> 3u, v [ <v, u> in G & t = <u, v> ] ]					[Inverse UI/G EI & Ext. Axiom]
+	D2. @t [ t in (F^-1) <--> 3u, v [ <v, u> in F & t = <u, v> ] ]					[Inverse UI/F EI & Ext. Axiom]
+	D3. @w [ w in (G^-1) o (F^-1) <--> 3u, v [ w = <u, v> & 3t [ <u, t> in (F^-1) & <t, v> in (G^-1) ] ] ]		[Composition UI/(G^-1), (F^-1) EI & Ext. Axiom]
+	D4. @w [ w in F o G <--> 3u, v [ w = <u, v> & 3t [ <u, t> in G & <t, v> in F ] ] ]					[Composition UI/F, G EI & Ext. Axiom]
+	D5. @t [ t in ((F o G)^-1) <--> 3u, v [ <v, u> in F o G & t = <u, v> ] ]										[Inverse UI/(F o G) EI & Ext. Axiom]
+
+	3. @A, B [ @x [ x in A <--> x in B ] --> A = B ]			[Ext. Axiom]
+	4. @x [ x in ((F o G)^-1) <--> x in (G^-1) o (F^-1) ] --> ((F o G)^-1) = (G^-1) o (F^-1)		[3 UI/...]
+	5. Show @x [ x in ((F o G)^-1) <--> x in (G^-1) o (F^-1) ]
+		6. let x be a set
+		7. Show x in ((F o G)^-1) --> x in (G^-1) o (F^-1)
+			8. x in ((F o G)^-1)			[ACD]
+			9. @t [ t in ((F o G)^-1) <--> 3u, v [ <v, u> in F o G & t = <u, v> ] ]		[D5]
+			10. x in ((F o G)^-1) <--> 3u, v [ <v, u> in F o G & x = <u, v> ]					[9 UI/x]
+			11. 3u, v [ <v, u> in F o G & x = <u, v> ]																[10 BC 8 MP]
+			12. <v_1, u_1> in F o G & x = <u_1, v_1>																	[11 EI/u_1 EI/v_1]
+
+			13. <v_1, u_1> in F o G			[12 SL]
+			14. @w [ w in F o G <--> 3u, v [ w = <u, v> & 3t [ <u, t> in G & <t, v> in F ] ] ]								[D4]
+			15. <v_1, u_1> in F o G <--> 3u, v [ <v_1, u_1> = <u, v> & 3t [ <u, t> in G & <t, v> in F ] ]			[14 UI/<v_1, u_1>]
+			16. 3u, v [ <v_1, u_1> = <u, v> & 3t [ <u, t> in G & <t, v> in F ] ]															[15 BC 13 MP]
+			17. <v_1, u_1> = <u_2, v_2> & 3t [ <u_2, t> in G & <t, v_2> in F ]																[16 EI/u_2 EI/v_2]
+
+			18. 3t [ <u_2, t> in G & <t, v_2> in F ]								[17 SR]
+			19. <u_2, t_3> in G & <t_3, v_2> in F										[18 EI/t_3]
+
+			20. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]		[Theorem 3A]
+			21. <v_1, u_1> = <u_2, v_2>  <-->  v_1 = u_2 & u_1 = v_2		[20 UI/v_1, u_1, u_2, v_2]
+			22. v_1 = u_2 & u_1 = v_2																		[21 BC 17 SL MP]
+
+			23. <v_1, t_3> in G & <t_3, u_1> in F												[19 22 SL LL 22 SR LL]
+
+			24. @w [ w in (G^-1) o (F^-1) <--> 3u, v [ w = <u, v> & 3t [ <u, t> in (F^-1) & <t, v> in (G^-1) ] ] ]		[D3]
+			25. x in (G^-1) o (F^-1) <--> 3u, v [ x = <u, v> & 3t [ <u, t> in (F^-1) & <t, v> in (G^-1) ] ]						[24 UI/x]
+
+			26. Show 3u, v [ x = <u, v> & 3t [ <u, t> in (F^-1) & <t, v> in (G^-1) ] ]
+				27. x = <u_1, v_1>			[12 SR]
+
+				28. <v_1, t_3> in G			[23 SL]
+				29. <t_3, u_1> in F			[23 SR]
+
+				30. @t [ t in (G^-1) <--> 3u, v [ <v, u> in G & t = <u, v> ] ]												[D1]
+				31. <t_3, v_1> in (G^-1) <--> 3u, v [ <v, u> in G & <t_3, v_1> = <u, v> ]							[30 UI/<t_3, v_1>]
+				32. <t_3, v_1> = <t_3, v_1>																	[SID/<t_3, v_1>]
+				33. <v_1, t_3> in G & <t_3, v_1> = <t_3, v_1>								[28 32 ADJ]
+				34. 3u, v [ <v, u> in G & <t_3, v_1> = <u, v> ]							[33 EG/v_1->v EG/t_3->u]
+				35. <t_3, v_1> in (G^-1)																		[31 BC 34 MP]
+
+				36. @t [ t in (F^-1) <--> 3u, v [ <v, u> in F & t = <u, v> ] ]												[D2]
+				37. <u_1, t_3> in (F^-1) <--> 3u, v [ <v, u> in F & <u_1, t_3> = <u, v> ]							[36 UI/<u_1, t_3>]
+				38. <u_1, t_3> = <u_1, t_3>																	[SID/<u_1, t_3>]
+				39. <t_3, u_1> in F & <u_1, t_3> = <u_1, t_3>								[29 38 ADJ]
+				40. 3u, v [ <v, u> in F & <u_1, t_3> = <u, v> ]							[39 EG/t_3->v EG/u_1->u]
+				41. <u_1, t_3> in (F^-1)																		[37 BC 40 MP]
+
+				44. <u_1, t_3> in (F^-1) & <t_3, v_1> in (G^-1)							[41 35 ADJ]
+				43. 3t [ <u_1, t> in (F^-1) & <t, v_1> in (G^-1) ]					[44 EG/t_3->t]
+				44. x = <u_1, v_1> & 3t [ <u_1, t> in (F^-1) & <t, v_1> in (G^-1) ]			[27 43 ADJ]
+				45. 3u, v [ x = <u, v> & 3t [ <u, t> in (F^-1) & <t, v> in (G^-1) ] ]		[44 EG/u_1->u EG/v_1->v]
+				46. 		[45 DD]
+			47. x in (G^-1) o (F^-1)				[25 BC 26 MP]
+			48. 		[47 CD]
+
+		49. Show x in (G^-1) o (F^-1) --> x in ((F o G)^-1)
+			50. x in (G^-1) o (F^-1)			[ACD]
+			51. @w [ w in (G^-1) o (F^-1) <--> 3u, v [ w = <u, v> & 3t [ <u, t> in (F^-1) & <t, v> in (G^-1) ] ] ]		[D3]
+			52. x in (G^-1) o (F^-1) <--> 3u, v [ x = <u, v> & 3t [ <u, t> in (F^-1) & <t, v> in (G^-1) ] ]						[51 UI/x]
+			53. 3u, v [ x = <u, v> & 3t [ <u, t> in (F^-1) & <t, v> in (G^-1) ] ]																			[52 BC 50 MP]
+			54. x = <u_1, v_1> & 3t [ <u_1, t> in (F^-1) & <t, v_1> in (G^-1) ]																				[53 EI/u_1 EI/v_1]
+			55. 3t [ <u_1, t> in (F^-1) & <t, v_1> in (G^-1) ]																												[54 SR]
+			56. <u_1, t_2> in (F^-1) & <t_2, v_1> in (G^-1)																														[55 EI/t_2]
+
+			// Showing <u_1, t_2> in (F^-1) gives us <t_2, u_1> in F
+			57. @t [ t in (F^-1) <--> 3u, v [ <v, u> in F & t = <u, v> ] ]													[D2]
+			58. <u_1, t_2> in (F^-1) <--> 3u, v [ <v, u> in F & <u_1, t_2> = <u, v> ]								[57 UI/<u_1, t_2>]
+			59. 3u, v [ <v, u> in F & <u_1, t_2> = <u, v> ]																					[58 BC 56 SL MP]
+			60. <v_3, u_3> in F & <u_1, t_2> = <u_3, v_3>																						[59 EI/u_3 EI/v_3]
+			61. <u_1, t_2> = <u_3, v_3>				[60 SR]
+			62. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]				[Theorem 3A]
+			63. <u_1, t_2> = <u_3, v_3>  <-->  u_1 = u_3 & t_2 = v_3				[62 UI/u_1, t_2, u_3, v_3]
+			64. u_1 = u_3 & t_2 = v_3					[63 BC 61 MP]
+			65. <v_3, u_3> in F								[60 SL]
+			66. <v_3, u_1> in F								[64 SL 65 LL]
+			67. <t_2, u_1> in F								[64 SR 66 LL]
+
+			// Showing <t_2, v_1> in (G^-1) gives us <v_1, t_2> in G
+			68. @t [ t in (G^-1) <--> 3u, v [ <v, u> in G & t = <u, v> ] ]									[D1]
+			69. <t_2, v_1> in (G^-1) <--> 3u, v [ <v, u> in G & <t_2, v_1> = <u, v> ]				[68 UI/<t_2, v_1>]
+			70. 3u, v [ <v, u> in G & <t_2, v_1> = <u, v> ]																	[69 BC 56 SR MP]
+			71. <v_4, u_4> in G & <t_2, v_1> = <u_4, v_4>																		[70 EI/u_4 EI/v_4]
+			72. <t_2, v_1> = <u_4, v_4>				[71 SR]
+			73. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]				[Theorem 3A]
+			74. <t_2, v_1> = <u_4, v_4>  <-->  t_2 = u_4 & v_1 = v_4				[73 UI/t_2, v_1, u_4, v_4]
+			75. t_2 = u_4 & v_1 = v_4																				[74 BC 72 MP]
+			76. <v_4, u_4> in G																							[71 SL]
+			77. <v_4, t_2> in G																							[75 SL 76 LL]
+			78. <v_1, t_2> in G																							[75 SR 77 LL]
+
+
+			79. @t [ t in ((F o G)^-1) <--> 3u, v [ <v, u> in F o G & t = <u, v> ] ]				[D5]
+			80. x in ((F o G)^-1) <--> 3u, v [ <v, u> in F o G & x = <u, v> ]								[79 UI/x]
+			81. Show 3u, v [ <v, u> in F o G & x = <u, v> ]
+				82. @w [ w in F o G <--> 3u, v [ w = <u, v> & 3t [ <u, t> in G & <t, v> in F ] ] ]												[D4]
+				83. <v_1, u_1> in F o G <--> 3u, v [ <v_1, u_1> = <u, v> & 3t [ <u, t> in G & <t, v> in F ] ]							[82 UI/<v_1, u_1>]
+				84. <v_1, u_1> = <v_1, u_1>														[SID/<v_1, u_1>]
+				85. <v_1, t_2> in G & <t_2, u_1> in F									[78 67 ADJ]
+				86. 3t [ <v_1, t> in G & <t, u_1> in F ]							[85 EG/t_2->t]
+				87. <v_1, u_1> = <v_1, u_1> & 3t [ <v_1, t> in G & <t, u_1> in F ]								[84 86 ADJ]
+				88. 3u, v [ <v_1, u_1> = <u, v> & 3t [ <u, t> in G & <t, v> in F ] ]							[87 EG/v_1->u EG/u_1->v]
+				89. <v_1, u_1> in F o G																														[83 BC 88 MP]
+				90. x = <u_1, v_1>														[54 SL]
+				91. <v_1, u_1> in F o G & x = <u_1, v_1>			[89 90 ADJ]
+				92. 3u, v [ <v, u> in F o G & x = <u, v> ]		[91 EG/u_1->u EG/v_1->v]
+				93. 	[92 DD]
+
+			94. x in ((F o G)^-1)					[80 BC 81 MP]
+			95. 	[94 CD]
+		96. x in ((F o G)^-1) <--> x in (G^-1) o (F^-1)			[7 49 CB]
+		97.		[96 UD]
+	98. ((F o G)^-1) = (G^-1) o (F^-1)		[4 5 MP]
+	99.		[98 UD]

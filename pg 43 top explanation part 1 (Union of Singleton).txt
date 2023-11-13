@@ -1,0 +1,35 @@
+Axioms:
+	Union Axiom:
+	@A [ 3B [ @x [ x in B <--> 3b [ b in A & x in b ] ] ] ]
+		Definition:
+		For any set A, the union of A  U(A)     is the set whose members are exactly the members of the members of A
+		[You can think of U(A) as a 1-ary operator. It refer to one set and one set only based on the set A!]
+
+Consider the singleton {w}, we will show w = U({w}):
+	@x [ x in U({w}) <--> 3b [ b in {w} & x in b ] ]		
+
+	@A, B [ @x [ x in A <--> x in B ] --> A = B ]			[Ext. Axiom]
+	@x [ x in w <--> x in U({w}) ] --> w = U({w})
+
+	Show @x [ x in w <--> x in U({w}) ]
+		let x be a set
+		Show x in w --> x in U({w})
+			x in w
+			x in U({w}) <--> 3b [ b in {w} & x in b ]
+			w in {w}
+		
+			w in {w} & x in w
+			3b [ b in {w} & x in b ]
+			x in U({w})
+				[CD]
+
+		Show x in U({w}) --> x in w
+			x in U({w})
+			x in U({w}) <--> 3b [ b in {w} & x in b ]
+			3b [ b in {w} & x in b ]
+			b_1 in {w} & x in b_1
+			b_1 in {w}
+			b_1 = w
+			x in b_1
+			x in w
+				[CD]

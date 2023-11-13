@@ -1,0 +1,68 @@
+
+Axioms and Theorems:
+	Extensionality Axiom:
+	@A, B [ @x [ x in A <--> x in B ] --> A = B ]
+
+	Lemma 3D: 
+	@A, x, y [ <x, y> in A --> x in U(U(A)) & y in U(U(A)) ] 
+
+	Subset Axioms:
+	For each formula __ not containing B, the following is an axiom:
+	@t1 ... @tk @c [ 3B [ @x [ x in B <--> x in c & __ ] ] ]
+		Definition:
+		For any set t­1, ..., tk and c, the subset B = {x in c | __ } is the set whose members are exactly those sets in c and __	
+	
+	Union Axiom:
+	@A [ 3B [ @x [ x in B <--> 3b [ b in A & x in b ] ] ] ]
+		Definition:
+		For any set A, the union of A  U(A)     is the set whose members are exactly the members of the members of A
+		[You can think of U(A) as a 1-ary operator. It refer to one set and one set only based on the set A!]
+
+	Lemma 3D: 
+	@A, x, y [ <x, y> in A --> x in U(U(A)) & y in U(U(A)) ] 
+
+1. Show @R [ 3D [ @x [ x in D <--> 3t [ <t, x> in R ] ] ] ]
+	2. Let R be a set
+	D1. U(R) is the set whose members are exactly the members of the members of R			[Union Axiom UI/R & Ext. Axiom->define U(R)]
+		@w [ w in U(R) <--> 3b [ b in R & w in b ] ]
+
+	D2. U(U(R)) is the set whose members are exactly the members of the members of U(R)		[Union Axiom UI/U(R) & Ext. Axiom->define U(U(R))]
+		@w [ w in U(U(R)) <--> 3b [ b in U(R) & w in b ] ]
+
+	3. Show 3D [ @x [ x in D <--> 3t [ <t, x> in R ] ] ]
+		4. @t1 ... @tk @c [ 3D [ @x [ x in D <--> x in c & __ ] ] ]									[Subset Axiom]
+		5. @t1 ... @tk @c [ 3D [ @x [ x in D <--> x in c & 3t [ <t, x> in R ] ] ] ]					[4 UI_META/ "3t [ <t, x> in R ]"]
+		6. @c [ 3D [ @x [ x in D <--> x in c & 3t [ <t, x> in R ] ] ] ]								[5 UI_META/k=0]
+		7. 3D [ @x [ x in D <--> x in U(U(R)) & 3t [ <t, x> in R ] ] ]								[6 UI/U(U(R))]
+		8. @x [ x in D_1 <--> x in U(U(R)) & 3t [ <t, x> in R ] ]									[7 EI/D_1]
+		
+		9. Show @x [ x in D_1 <--> 3t [ <t, x> in R ] ]
+			10. Let x be a set
+			11. Show x in D_1 <--> 3t [ <t, x> in R ]
+				12. Show x in D_1 --> 3t [ <t, x> in R ]
+					13. x in D_1													[ACD]
+					14. @x [ x in D_1 <--> x in U(U(R)) & 3t [ <t, x> in R ] ]		[8 R]
+					15. x in D_1 <--> x in U(U(R)) & 3t [ <t, x> in R ]				[14 UI/x]
+					16. x in D_1 --> x in U(U(R)) & 3t [ <t, x> in R ]				[15 BC 13 MP]
+					17. x in U(U(R)) & 3t [ <t, x> in R ]							[16 13 MP]
+					18. 3t [ <t, x> in R ]											[17 SR]
+					19. 	[18 CD]
+
+				20. Show 3t [ <t, x> in R ] --> x in D_1
+					21. 3t [ <t, x> in R ]												[ACD]
+					22. <t_1, x> in R													[21 EI/t_1]
+					23. @A, x, y [ <x, y> in A --> x in U(U(A)) & y in U(U(A)) ] 		[Lemma 3D]
+					24. <t_1, x> in R --> t_1 in U(U(R)) & x in U(U(R))					[23 UI/R UI/t_1 UI/x]
+					25. t_1 in U(U(R)) & x in U(U(R))									[24 22 MP]
+					26. x in U(U(R))													[25 SR]
+					27. x in U(U(R)) & 3t [ <t, x> in R ]								[26 21 ADJ]
+					28. @x [ x in D_1 <--> x in U(U(R)) & 3t [ <t, x> in R ] ]			[8 R]
+					29. x in D_1 <--> x in U(U(R)) & 3t [ <t, x> in R ]					[28 UI/x]
+					30. x in D_1														[29 BC 27 MP]
+					31. 	[30 CD]
+				32. x in D_1 <--> 3t [ <t, x> in R ]									[12 20 CB]
+				33. 	[32 DD]
+			34. 	[11 UD]
+		35. 3D [ @x [ x in D <--> 3t [ <t, x> in R ] ] ]				[9 EG/D_1->D]
+		36.		[35 DD]
+	37. 	[3 UD]

@@ -1,0 +1,244 @@
+Axioms and Theorems:
+	Extensionality Axiom:
+	@A, B [ @x [ x in A <--> x in B ] --> A = B ]
+
+	Pairing Axiom:
+	@u, v [ 3B [ @x [ x in B <--> x = u or x = v ] ] ]
+		Definition:
+		For any sets u, v, the pair set {u, v} is the set whose only members are u and v.
+		[You can think of {u, v} as a 2-ary operator. It refer to one set and one set only based on the sets u and v!]
+
+		Definition:
+		Let {x} := {x, x} is the set whose only members are x and x
+
+	Union Axiom (Preliminary Form):
+	@a, b [ 3B [ @x [ x in B <--> x in a or x in b ] ] ]
+		Definition:
+		For any sets a, b, the union a ∪ b is the set whose members are those sets belonging either to a or to b (or both).
+		[You can think of a ∪ b as a 2-ary operator. It refer to one set and one set only based on the sets a and b!]
+
+	Union Axiom:
+	@A [ 3B [ @x [ x in B <--> 3b [ b in A & x in b ] ] ] ]
+		Definition:
+		For any set A, the union of A  U(A)     is the set whose members are exactly the members of the members of A
+		[You can think of U(A) as a 1-ary operator. It refer to one set and one set only based on the set A!]
+
+	Definition:
+		@x, y[ <x, y> := {{x}, {x, y}} ]
+			note {x} exists due to Pairing Axiom & Extensionality
+			note {x, y} exists due to Pairing Axiom & Extensionality
+			finally {{x}, {x, y}} exists due to Pairing Axiom & Extensionality
+
+	Corollary 3C:
+	@A, B [ 3D [ @t[ t in D <--> 3x, y [x in A & y in B & t = <x, y> ] ] ] ]
+		Definition:
+		For any set sets A, B,  {<x, y> | x in A & y in B}    is the set whose members are exactly the sets of the form <x, y> for some x in A & y in B
+		Also known as the Cartesian Product A x B of the sets A and B!
+
+	Lemma 3D: 
+	@A, x, y [ <x, y> in A --> x in U(U(A)) & y in U(U(A)) ] 
+
+	Relation:
+		Definition:
+		A relation R is a set of ordered pairs.
+		@R [ R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ] ]
+
+	dom R: 
+	@R [ 3D [ @x [ x in D <--> 3y [ <x, y> in R ] ] ] ]
+		Definition:
+		For any set sets R,  dom R  is the set whose members are those 1st-coordinate set of some ordered pair in R
+
+	ran R: 
+	@R [ 3D [ @x [ x in D <--> 3t [ <t, x> in R ] ] ] ]
+		Definition:
+		For any set sets R,  ran R  is the set whose members are those 2nd-coordinate set of some ordered pair in R
+
+	fld R: 
+	@R [ fld R := dom R ∪ ran R ]
+		Definition:
+		For any set sets R,  fld R := dom R ∪ ran R
+
+
+
+1. Show @R [ R is a relation --> fld R = U(U(R)) ]
+	2. Let R be a set
+
+	D1. U(R) is the set whose members are exactly the members of the members of R 				[Union Axiom UI/R & Ext. Axiom -> defines U(R)]
+		@t [ t in U(R) <--> 3b [ b in R & t in b ] ]
+
+	D2. U(U(R)) is the set whose members are exactly the members of the members of U(R) 		[Union Axiom UI/U(R) & Ext. Axiom -> defines U(U(R))]
+		@t [ t in U(U(R)) <--> 3b [ b in U(R) & t in b ] ]
+	
+	D3. dom R is the set whose members are those 1st-coordinate set of some ordered pair in R
+		@x [ x in dom R <--> 3y [ <x, y> in R ] ]
+
+	D4. ran R is the set whose members are those 2nd-coordinate set of some ordered pair in R
+		@x [ x in ran R <--> 3t [ <t, x> in R ] ]
+
+	D5. dom R ∪ ran R is the set whose members are those sets belonging either to dom R or to ran R (or both).
+		@x [ x in dom R ∪ ran R <--> x in dom R or x in ran R ]
+
+	D6. fld R := dom R ∪ ran R
+
+	3. Show R is a relation --> fld R = U(U(R))
+		4. R is a relation			[ACD]
+		5. @R [ R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ] ]			[definition of Relation]
+		6. R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ]					[5 UI/R]
+		7. @t [ t in R --> 3x, y[ t = <x, y> ] ]										[6 BC 4 MP]
+
+		8. Show fld R = U(U(R))
+			9. @A, B [ @x [ x in A <--> x in B ] --> A = B ]					[Ext. Axiom]
+			10. @x [ x in fld R <--> x in U(U(R)) ] --> fld R = U(U(R))			[9 UI/fld R   UI/U(U(R))]
+			11. Show @x [ x in fld R <--> x in U(U(R)) ]
+				12. let x be a set
+				13. Show x in fld R <--> x in U(U(R))
+					14. Show x in fld R --> x in U(U(R))
+						15. x in fld R							[ACD]
+						16. fld R := dom R ∪ ran R				[D6]
+						17. x in dom R ∪ ran R					[15 16 EL]
+						18. @x [ x in dom R ∪ ran R <--> x in dom R or x in ran R ]			[D5]
+						19. x in dom R ∪ ran R <--> x in dom R or x in ran R				[18 UI/x]
+						20. x in dom R or x in ran R										[19 BC 17 MP]
+						21. Show x in dom R --> x in U(U(R))								[Case 1 for line 20]
+							22. x in dom R														[ACD]
+							23. @x [ x in dom R <--> 3y [ <x, y> in R ] ]						[D3]
+							24. x in dom R <--> 3y [ <x, y> in R ]								[23 UI/x]
+							25. 3y [ <x, y> in R ]												[24 BC 22 MP]
+							26. <x, y_1> in R													[25 EI/y_1]
+							27. @A, x, y [ <x, y> in A --> x in U(U(A)) & y in U(U(A)) ] 		[Lemma 3D]
+							28. <x, y_1> in R --> x in U(U(R)) & y_1 in U(U(R))					[27 UI/R UI/x UI/y_1]
+							29. x in U(U(R)) & y_1 in U(U(R))									[26 28 MP]
+							30. x in U(U(R))													[29 SL]
+							31.		[30 CD]
+							
+						32. Show x in ran R --> x in U(U(R))								[Case 2 for line 20]
+							33. x in ran R														[ACD]	
+							34. @x [ x in ran R <--> 3t [ <t, x> in R ] ]						[D4]
+							35. x in ran R <--> 3t [ <t, x> in R ]								[34 UI/x]
+							36. 3t [ <t, x> in R ]												[35 BC 33 MP]
+							37. <t_1, x> in R													[36 EI/t_1]
+							38. @A, x, y [ <x, y> in A --> x in U(U(A)) & y in U(U(A)) ] 		[Lemma 3D]
+							39. <t_1, x> in R --> t_1 in U(U(R)) & x in U(U(R))					[38 UI/R UI/t_1 UI/x]
+							40. t_1 in U(U(R)) & x in U(U(R))									[37 39 MP]
+							41. x in U(U(R))													[40 SR]
+							42. 	[41 CD]
+						43. x in dom R or x in ran R --> x in U(U(R))						[21 32 CASE_PROOF for line 20]
+						44. x in U(U(R))													[43 20 MP]
+						45. 	[44 CD]
+
+					46. Show x in U(U(R)) --> x in fld R
+						47. x in U(U(R))						[ACD]
+						48. @t [ t in U(U(R)) <--> 3b [ b in U(R) & t in b ] ]			[D2]
+						49. x in U(U(R)) <--> 3b [ b in U(R) & x in b ]					[48 UI/x]
+						50. 3b [ b in U(R) & x in b ]									[49 BC 47 MP]
+						51. b_1 in U(R) & x in b_1										[50 EI/b_1]
+						52. b_1 in U(R)													[51 SL]
+						53. @t [ t in U(R) <--> 3b [ b in R & t in b ] ]				[D1]
+						54. b_1 in U(R) <--> 3b [ b in R & b_1 in b ]					[53 UI/b_1]
+						55. 3b [ b in R & b_1 in b ]									[54 BC 52 MP]
+						56. c_1 in R & b_1 in c_1										[55 EI/c_1]
+						57. c_1 in R													[56 SL]
+
+						58. @t [ t in R --> 3x, y[ t = <x, y> ] ]						[7 R]
+
+						59. c_1 in R --> 3x, y[ c_1 = <x, y> ]							[58 UI/c_1]
+						60. 3x, y[ c_1 = <x, y> ]										[57 59 MP]
+						61. c_1 = <u_1, v_1>											[60 EI/u_1 EI/v_1]
+						62. c_1 = {{u_1}, {u_1, v_1}}									[61 definition <x, y> := {{x}, {x, y}}]
+
+						D7. {u_1} is the set whose only members are u_1 and u_1			[Pairing Axiom UI/u_1 UI/u_1 & Ext. Axiom]
+							@x [ x in {u_1} <--> x = u_1 or x = u_1 ]
+
+						D7. {u_1, v_1} is the set whose only members are u_1 and v_1	[Pairing Axiom UI/u_1 UI/v_1 & Ext. Axiom]
+							@x [ x in {u_1, v_1} <--> x = u_1 or x = v_1 ]
+						
+						D8. {{u_1}, {u_1, v_1}} is the set whose only members are {u_1} and {u_1, v_1}		[Pairing Axiom UI/{u_1} UI/{u_1, v_1} & Ext. Axiom]
+							@x [ x in {{u_1}, {u_1, v_1}} <--> x = {u_1} or x = {u_1, v_1} ]
+						
+						63. b_1 in c_1																		[56 SR]
+						64. b_1 in {{u_1}, {u_1, v_1}}														[63 62 EL]
+						65. @x [ x in {{u_1}, {u_1, v_1}} <--> x = {u_1} or x = {u_1, v_1} ]				[D8]
+						66. b_1 in {{u_1}, {u_1, v_1}} <--> b_1 = {u_1} or b_1 = {u_1, v_1}					[65 UI/b_1]
+						67. b_1 = {u_1} or b_1 = {u_1, v_1}													[66 BC 64 MP]
+						68. x in b_1																		[51 SR]
+						69. Show b_1 = {u_1} --> x in fld R						[Case 1 for line 67]
+							70. b_1 = {u_1}										[ACD]
+							71. x in {u_1}										[68 70 EL]
+							72. @x [ x in {u_1} <--> x = u_1 or x = u_1 ]		[D7]
+							73. x in {u_1} <--> x = u_1 or x = u_1				[72 UI/x]
+							74. x = u_1 or x = u_1								[73 BC 71 MP]
+
+							75. x = u_1											[74 SIMPLIFY_OR]
+							76. c_1 = <u_1, v_1>								[61 R]
+							77. c_1 in R										[57 R]
+
+							78. @x [ x in dom R ∪ ran R <--> x in dom R or x in ran R ]				[D5]
+							79. x in dom R ∪ ran R <--> x in dom R or x in ran R					[78 UI/x]
+							80. @x [ x in dom R <--> 3y [ <x, y> in R ] ]							[D3]
+							81. x in dom R <--> 3y [ <x, y> in R ]									[75 UI/x]
+							82. <u_1, v_1> in R 													[76 77 EL]
+							83. 3y [ <u_1, y> in R ]												[82 EG/v_1->y]
+							84. 3y [ <x, y> in R ]													[75 83 EL]
+							85. x in dom R															[81 BC 84 MP]
+							86. x in dom R or x in ran R											[85 ADD/...]
+							87. x in dom R ∪ ran R													[79 BC 86 MP]
+							88. fld R := dom R ∪ ran R												[D6]
+							89. x in fld R															[87 88 EL]
+							90.		[89 CD]
+
+						91. Show b_1 = {u_1, v_1} --> x in fld R					[Case 2 for line 67]
+							92. b_1 = {u_1, v_1}									[ACD]
+							93. x in {u_1, v_1}										[68 92 EL]
+							94. @x [ x in {u_1, v_1} <--> x = u_1 or x = v_1 ]		[D7]
+							95. x in {u_1, v_1} <--> x = u_1 or x = v_1				[94 UI/x]
+							96. x = u_1 or x = v_1									[95 BC 93 MP]
+
+							97. Show x = u_1 --> x in fld R							[Case 1 for line 96]
+								98. x = u_1											[ACD]
+								99. c_1 = <u_1, v_1>								[61 R]
+								100. c_1 in R										[57 R]
+								101. @x [ x in dom R ∪ ran R <--> x in dom R or x in ran R ]				[D5]
+								102. x in dom R ∪ ran R <--> x in dom R or x in ran R						[101 UI/x]
+								103. @x [ x in dom R <--> 3y [ <x, y> in R ] ]								[D3]
+								104. x in dom R <--> 3y [ <x, y> in R ]										[104 UI/x]
+								105. <u_1, v_1> in R 														[99 100 EL]
+								106. 3y [ <u_1, y> in R ]													[105 EG/v_1->y]
+								107. 3y [ <x, y> in R ]														[106 98 EL]
+								108. x in dom R																[104 BC 107 MP]
+								109. x in dom R or x in ran R												[108 ADD/...]
+								110. x in dom R ∪ ran R														[102 BC 109 MP]
+								111. fld R := dom R ∪ ran R													[D6]
+								112. x in fld R																[110 111 EL]
+								113. 	[112 CD]
+							114. Show x = v_1 --> x in fld R							[Case 2 for line 96]
+								115. x = v_1											[ACD]
+								116. c_1 = <u_1, v_1>									[61 R]	
+								117. c_1 in R											[57 R]
+								118. @x [ x in dom R ∪ ran R <--> x in dom R or x in ran R ]				[D5]
+								119. x in dom R ∪ ran R <--> x in dom R or x in ran R						[118 UI/x]
+								120. @x [ x in ran R <--> 3t [ <t, x> in R ] ]								[D4]
+								121. x in ran R <--> 3t [ <t, x> in R ]										[120 UI/x]
+								122. <u_1, v_1> in R														[116 117 EL]
+								123. 3t [ <t, v_1> in R ]													[122 EG/u_1->t]
+								124. 3t [ <t, x> in R ]														[123 115 EL]
+								125. x in ran R																[121 BC 124 MP]
+								126. x in dom R or x in ran R												[125 ADD/...]
+								127. x in dom R ∪ ran R														[119 BC 126 MP]
+								128. fld R := dom R ∪ ran R													[D6]
+								129. x in fld R																[127 128 EL]
+								130. 	[129 CD]
+							131. x = u_1 or x = v_1 --> x in fld R									[97 114 CASE_PROOF for line 96]
+							132. x in fld R															[131 96 MP]
+							133. 	[132 CD]
+						134. b_1 = {u_1} or b_1 = {u_1, v_1} --> x in fld R			[69 91 CASE_PROOF for line 67]
+						135. x in fld R												[134 67 MP]
+						136. 	[135 CD]
+					137. x in fld R <--> x in U(U(R))				[14 46 CB]
+					138.	[137 DD]
+				139. 	[13 UD]
+			140. fld R = U(U(R))			[10 11 MP]
+			141. 	[140 DD]
+		142. 	[8 CD]
+	143. 	[3 UD]
+
+

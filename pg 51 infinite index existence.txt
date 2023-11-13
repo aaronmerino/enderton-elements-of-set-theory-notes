@@ -1,0 +1,222 @@
+Axioms and Theorems:
+	Subset Axioms:
+	For each formula __ not containing B, the following is an axiom:
+	@t1 ... @tk @c [ 3B [ @x [ x in B <--> x in c & __ ] ] ]
+		Definition:
+		For any set t­1, ..., tk and c, the subset B = {x in c | __ } is the set whose members are exactly those sets in c and __	
+
+	Subset Axiom (APPLIED) [ORANGE]:
+		@F, I [ @c [ 3D [ @v [ v in D <--> v in c & 3i [ i in I & v = F(i) ] ] ] ] ]			[Subset Axiom UI_META/"@F, I" UI_META/"3i [ i in I & v = F(i) ]"]
+
+	ran R: 
+		@R [ 3D [ @x [ x in D <--> 3t [ <t, x> in R ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets R,	ran R	is the set whose members are those 2nd-coordinate set of some ordered pair in R
+
+	Pg 43 When F is a function and x the dom F, F(x) is y IFF <x, y> in F	 [MARIN]:
+		@F, x [ F is a function & x in dom F -->	@w [ <x, w> in F <--> F(x) = w ] ]
+
+// PROOF ASSUMING F is a function & I ⊆ dom F //
+// SCROLL DOWN FOR OTHER VERSION WITHOUT USING THIS ASSUMPTION //
+1. Show @F, I [ F is a function & I ⊆ dom F --> 3D [ @v [ v in D <--> 3i [ i in I & v = F(i) ] ] ] ]
+	2. let F, I be sets
+
+	========
+	D1. @x [ x in ran F <--> 3t [ <t, x> in F ] ]		 [ran UI/F EI & Ext. Axiom]
+	========
+
+	3. Show F is a function & I ⊆ dom F --> 3D [ @v [ v in D <--> 3i [ i in I & v = F(i) ] ] ]
+		4. F is a function & I ⊆ dom F		[ACD]
+
+		5. Show 3D [ @v [ v in D <--> 3i [ i in I & v = F(i) ] ] ]
+			6. @F, I [ @c [ 3D [ @v [ v in D <--> v in c & 3i [ i in I & v = F(i) ] ] ] ] ]		 [ORANGE]
+			7. @c [ 3D [ @v [ v in D <--> v in c & 3i [ i in I & v = F(i) ] ] ] ]			 [6 UI/F, I]
+			8. 3D [ @v [ v in D <--> v in ran F & 3i [ i in I & v = F(i) ] ] ]				[7 UI/ran F]
+			9. @v [ v in D_1 <--> v in ran F & 3i [ i in I & v = F(i) ] ]		 [8 EI/D_1]
+
+			10. Show @v [ v in D_1 <--> 3i [ i in I & v = F(i) ] ]
+				11. let v be a set
+				12. Show v in D_1 --> 3i [ i in I & v = F(i) ]
+					13. v in D_1		[ACD]
+					14. v in D_1 <--> v in ran F & 3i [ i in I & v = F(i) ]		 [9 UI/v]
+					15. 3i [ i in I & v = F(i) ]			[14 BC 13 MP SR]
+					16.	 [15 CD]
+
+				17. Show 3i [ i in I & v = F(i) ] --> v in D_1
+					18. 3i [ i in I & v = F(i) ]			[ACD]
+					19. i_2 in I & v = F(i_2)			 [18 EI/i_2]
+					20. @F, x [ F is a function & x in dom F -->	@w [ <x, w> in F <--> F(x) = w ] ]				[MARIN]
+					21. F is a function & i_2 in dom F -->	@w [ <i_2, w> in F <--> F(i_2) = w ]						[20 UI/F UI/i_2]
+
+					22. I ⊆ dom F	 [4 SR]
+					23. @t [ t in I --> t in dom F ]			[22 EQUIV.]
+					24. i_2 in I --> i_2 in dom F				 [23 UI/i_2]
+					25. i_2 in I			[19 SL]
+					26. i_2 in dom F			[24 25 MP]
+					27. F is a function	 [4 SL]
+					28. F is a function & i_2 in dom F			[27 28 ADJ]
+					29. @w [ <i_2, w> in F <--> F(i_2) = w ]					[21 28 MP]
+					30. <i_2, F(i_2)> in F <--> F(i_2) = F(i_2)			 [29 UI/F(i_2)]
+					31. F(i_2) = F(i_2)		 [SID/F(i_2)]
+					32. <i_2, F(i_2)> in F			[30 BC 31 MP]
+
+					33. v = F(i_2)				[19 SR]
+					34. <i_2, v> in F		 [32 33 LL]
+
+					35. @x [ x in ran F <--> 3t [ <t, x> in F ] ]		 [D1]
+					36. v in ran F <--> 3t [ <t, v> in F ]			[35 UI/v]
+					37. 3t [ <t, v> in F ]		[34 EG/i_2->t]
+					38. v in ran F			[36 BC 37 MP]
+
+					39. v in D_1 <--> v in ran F & 3i [ i in I & v = F(i) ]			[9 UI/v]
+					40. v in ran F & 3i [ i in I & v = F(i) ]			[38 18 ADJ]
+					41. v in D_1			[39 BC 40 MP]
+					42. 		[41 CD]
+				
+				43. v in D_1 <--> 3i [ i in I & v = F(i) ]			[12 17 CB]
+				44. 		[43 UD]
+			
+			45. 3D [ @v [ v in D <--> 3i [ i in I & v = F(i) ] ] ]		[10 EG/D_1->D]
+			46. 		[45 DD]
+		47.		[5 CD]
+	48.		[3 UD]
+
+	
+
+Axioms and Theorems:
+	Power Set Axiom:
+	@a [ 3B [ @x [ x in B <--> @t [ t in x --> t in a ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set a, the power set  P(a) is the set whose members are exactly the subsets of a.
+		[You can think of P(a) as a 1-ary operator. It refer to one set and one set only based on the sets a!]
+
+	Subset Axioms:
+	For each formula __ not containing B, the following is an axiom:
+	@t1 ... @tk @c [ 3B [ @x [ x in B <--> x in c & __ ] ] ]
+		Definition:
+		For any set t­1, ..., tk and c, the subset B = {x in c | __ } is the set whose members are exactly those sets in c and __	
+
+	Subset Axiom (APPLIED) [ORANGE]:
+		@F, I [ @c [ 3D [ @v [ v in D <--> v in c & 3i [ i in I & v = F(i) ] ] ] ] ]			[Subset Axiom UI_META/"@F, I" UI_META/"3i [ i in I & v = F(i) ]"]
+
+	Union Axiom:
+	@A [ 3B [ @x [ x in B <--> 3b [ b in A & x in b ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set A, the union of A  U(A)     is the set whose members are exactly the members of the members of A
+		[You can think of U(A) as a 1-ary operator. It refer to one set and one set only based on the set A!]
+
+	ran R: 
+		@R [ 3D [ @x [ x in D <--> 3t [ <t, x> in R ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets R,	ran R	is the set whose members are those 2nd-coordinate set of some ordered pair in R
+
+	Pg 43 Existence part		[ALISA]:	
+		@F, x [ 3D [ @y [ y in D <--> <x, y> in F ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			For any F, x, the set {y | <x, y> in F} is the set that contains all 2nd-coordinate sets of all ordered pairs in F where x is the first-coordinate set.
+
+	Definition of F(x): 
+	(We define it like this for the purpose of making sure that F(x) is always defined for any F and x, so that we can always refer to it)
+		@F, x [ F(x) := U({y | <x, y> in F}) ]
+
+	Pg 43 When F is a function and x the dom F, F(x) is y IFF <x, y> in F	 [MARIN]:
+		@F, x [ F is a function & x in dom F -->	@w [ <x, w> in F <--> F(x) = w ] ]
+
+	Monotonicity Properties:
+		@A, B [ @t[ t in A --> t in B ] --> @t[ t in A ∪ C --> t in B ∪ C ] ]
+		@A, B [ @t[ t in A --> t in B ] --> @t[ t in A ∩ C --> t in B ∩ C ] ]
+		@A, B [ @t[ t in A --> t in B ] --> @t[ t in U(A)  --> t in U(B) ] ]
+		
+
+
+
+// PROOF WITHOUT ASSUMING F is a function & I ⊆ dom F //
+idea:
+	F(x) := U{y | <x ,y> in F }
+	notice: 
+	{y | <x, y> in G} ⊆ ran F
+	--> U{y | <x, y> in G} ⊆ U(ran F)		[monotonicity property 3]
+	--> U{y | <x, y> in G} in P(U(ran F))
+	so, {y | <x, y> in G} ⊆ P(U(ran F))
+
+1. Show @F, I [ 3D [ @v [ v in D <--> 3i [ i in I & v = F(i) ] ] ] ]
+	2. let F, I be sets
+
+	========
+	D1. @x [ x in ran F <--> 3t [ <t, x> in F ] ]		 		[ran UI/F EI & Ext. Axiom]
+	D2. @x [ x in U(ran F) <--> 3b [ b in ran F & x in b ] ]				[Union Axiom UI/(ran F) EI & Ext. Axiom]
+	D3. @x [ x in P(U(ran F)) <--> @t [ t in x --> t in U(ran F) ] ]			[Power set Axiom UI/U(ran F) EI & Ext. Axiom]
+	========
+
+	3. Show 3D [ @v [ v in D <--> 3i [ i in I & v = F(i) ] ] ]
+		4. @F, I [ @c [ 3D [ @v [ v in D <--> v in c & 3i [ i in I & v = F(i) ] ] ] ] ]		 [ORANGE]
+		5. @c [ 3D [ @v [ v in D <--> v in c & 3i [ i in I & v = F(i) ] ] ] ]			 			[4 UI/F, I]
+		6. 3D [ @v [ v in D <--> v in P(U(ran F)) & 3i [ i in I & v = F(i) ] ] ]				[5 UI/P(U(ran F))]
+		7. @v [ v in D_1 <--> v in P(U(ran F)) & 3i [ i in I & v = F(i) ] ]		 			[6 EI/D_1]
+
+		8. Show @v [ v in D_1 <--> 3i [ i in I & v = F(i) ] ]
+			9. let v be a set
+			10. Show v in D_1 --> 3i [ i in I & v = F(i) ]
+				11. v in D_1		[ACD]
+				12. v in D_1 <--> v in P(U(ran F)) & 3i [ i in I & v = F(i) ]		[7 UI/v]
+				13. 3i [ i in I & v = F(i) ]			[12 BC 11 MP SR]
+				14. 	[13 CD]
+
+			15. Show 3i [ i in I & v = F(i) ] --> v in D_1
+				16. 3i [ i in I & v = F(i) ]			[ACD]
+				17. i_2 in I & v = F(i_2)				[16 EI/i_2]
+
+				18. v in D_1 <--> v in P(U(ran F)) & 3i [ i in I & v = F(i) ]		[7 UI/v]
+				19. Show v in P(U(ran F))
+					20. @x [ x in P(U(ran F)) <--> @t [ t in x --> t in U(ran F) ] ]		[D3]
+					21. v in P(U(ran F)) <--> @t [ t in v --> t in U(ran F) ]						[20 UI/v]
+					22. Show @t [ t in v --> t in U(ran F) ]
+						23. let t be a set
+						24. Show t in v --> t in U(ran F)
+							25. t in v				[ACD]
+							26. v = F(i_2)		[17 SR]
+							27. t in F(i_2)		[25 26 LL]
+
+							28. @F, x [ F(x) := U({y | <x, y> in F}) ]			[Definition of F(x)]
+							29. F(i_2) := U({y | <i_2, y> in F})
+
+							========
+							D4. @w [ w in {y | <i_2, y> in F} <--> <i_2, w> in F ]			[ALISA UI/F UI/i_2 EI & Ext. Axiom]
+							========
+
+							// Show {y | <i_2, y> in F} ⊆ ran F
+							30. Show @k [ k in {y | <i_2, y> in F} --> k in ran F ]
+								31. let k be a set
+								32. Show k in {y | <i_2, y> in F} --> k in ran F
+									33. k in {y | <i_2, y> in F}			[ACD]
+									34. @w [ w in {y | <i_2, y> in F} <--> <i_2, w> in F ]			[D4]
+									35. k in {y | <i_2, y> in F} <--> <i_2, k> in F			[34 UI/k]
+									36. <i_2, k> in F			[35 BC 33 MP]
+									37. @x [ x in ran F <--> 3t [ <t, x> in F ] ]			[D1]
+									38. k in ran F <--> 3t [ <t, k> in F ]			[37 UI/k]
+									39. 3t [ <t, k> in F ]			[36 EG/i_2->t]
+									40. k in ran F			[38 BC 39 MP]
+									41.			[40 CD]
+								42. 		[32 UD]
+							
+							43. @A, B [ @k [ k in A --> k in B ] --> @k [ k in U(A)  --> k in U(B) ] ]		[Monotonicity Properties (3)]
+							44. @k [ k in {y | <i_2, y> in F} --> k in ran F ] --> @k [ k in U({y | <i_2, y> in F})  --> k in U(ran F) ]			[43 UI/{y | <i_2, y> in F} UI/ran F]
+
+							45. @k [ k in U({y | <i_2, y> in F})  --> k in U(ran F) ]			[44 30 MP]
+							46. t in U({y | <i_2, y> in F})  --> t in U(ran F)			[45 UI/t]
+							47. t in U({y | <i_2, y> in F})			[27 29 LL]
+							48. t in U(ran F)			[46 47 MP]
+							49. 		[48 CD]
+						50. 		[24 UD]
+					51. v in P(U(ran F))			[21 BC 22 MP]
+					52.			[51 DD]
+				
+				53. v in P(U(ran F)) & 3i [ i in I & v = F(i) ]			[19 16 ADJ]
+				54. v in D_1			[18 BC 53 MP]
+				55. 		[54 CD]
+			
+			56. v in D_1 <--> 3i [ i in I & v = F(i) ]			[10 15 CB]
+			57.			[56 UD]
+		58. 3D [ @v [ v in D <--> 3i [ i in I & v = F(i) ] ] ]			[8 EG/D_1->D]
+		59. 		[58 DD]
+	60. 		[3 UD]

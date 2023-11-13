@@ -1,0 +1,230 @@
+Axioms and Theorems:
+	Extensionality Axiom:
+	@A, B [ @x [ x in A <--> x in B ] --> A = B ]
+
+	Definition of Ordered Pair:
+		@x, y[ <x, y> := {{x}, {x, y}} ]
+			note {x} exists due to Pairing Axiom & Extensionality
+			note {x, y} exists due to Pairing Axiom & Extensionality
+			finally {{x}, {x, y}} exists due to Pairing Axiom & Extensionality
+
+	Theorem 3A:
+		@u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]
+
+	Relation:
+		Definition:
+		A relation R is a set of ordered pairs.
+		@R [ R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ] ]
+
+	Function:
+		Definition of F(x): (We define it like this for the purpose of making sure that F(x) is always defined for any F and x, but really its for semantic purposes)
+		@F, x [ F(x) := U({y | <x, y> in F}) ]
+
+		Definition:
+		@F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]
+
+		**IGNORE** Definition of F(x) **THIS IS OLD VERSION**:
+		@F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y->F(x)[ <x, F(x)> in F & @z [ <x, z> in F --> F(x) = z ] ] ] ]    
+
+	Definition of single-rooted:
+		@R [ R is single-rooted <--> 
+				@y [ y in ran R --> 3_1x [ <x, y> in R ] ]
+			]
+
+	Theorem 3E:
+		@F [ dom (F^-1) = ran F & ran (F^-1) = dom F ]
+		@F [ F is a relation --> ((F^-1)^-1) = F ]
+
+
+1. Show @F [ (F^-1) is a function <--> F is single-rooted ]
+	2. let F be a set
+	
+	D1. @t [ t in (F^-1) <--> 3u, v [ <v, u> in F & t = <u, v> ] ]		[Inverse of F UI/F EI & Ext. Axiom]
+
+	3. Show (F^-1) is a function <--> F is single-rooted
+		4. Show (F^-1) is a function --> F is single-rooted
+			5. (F^-1) is a function				[ACD]
+			6. @F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]						[Definition of Function]
+			7. (F^-1) is a function <--> (F^-1) is a relation & @x [ x in dom (F^-1) --> 3_1y [ <x, y> in (F^-1) ] ]		[6 UI/(F^-1)]
+			8. (F^-1) is a relation & @x [ x in dom (F^-1) --> 3_1y [ <x, y> in (F^-1) ] ]
+
+			9. @R [ R is single-rooted <--> @y [ y in ran R --> 3_1x [ <x, y> in R ] ] ]									[definition of single-rooted]
+			10. F is single-rooted <--> @y [ y in ran F --> 3_1x [ <x, y> in F ] ] 											[9 UI/F]
+			11. Show @y [ y in ran F --> 3_1x [ <x, y> in F ] ]
+				12. let y be a set
+				13. Show y in ran F --> 3_1x [ <x, y> in F ]
+					14. y in ran F																							[ACD]
+					15. @F [ dom (F^-1) = ran F & ran (F^-1) = dom F ]														[Theorem 3E (i)]
+					16. dom (F^-1) = ran F & ran (F^-1) = dom F																[15 UI/F]
+					17. dom (F^-1) = ran F																					[16 SL]
+					18. y in dom (F^-1)																						[14 17 LL]
+					19. @x [ x in dom (F^-1) --> 3_1y [ <x, y> in (F^-1) ] ]												[8 SR]
+					20. @x [ x in dom (F^-1) --> 3_1u [ <x, u> in (F^-1) ] ]												[19 EQUIV.]
+					21. y in dom (F^-1) --> 3_1u [ <y, u> in (F^-1) ]														[20 UI/y]
+					22. 3_1u [ <y, u> in (F^-1) ]																			[21 18 MP]
+					23. 3u [ <y, u> in (F^-1) & @v [ <y, v> in (F^-1) --> v = u ] ]											[22 EQUIV.]
+					24. <y, u_1> in (F^-1) & @v [ <y, v> in (F^-1) --> v = u_1 ]											[23 EI/u_1]
+					25. <y, u_1> in (F^-1)																					[24 SL]
+					26. @t [ t in (F^-1) <--> 3u, v [ <v, u> in F & t = <u, v> ] ]											[D1]
+					27. <y, u_1> in (F^-1) <--> 3u, v [ <v, u> in F & <y, u_1> = <u, v> ]									[26 UI/<y, u_1>]
+					28. 3u, v [ <v, u> in F & <y, u_1> = <u, v> ]															[27 BC 25 MP]
+					29. <v_2, u_2> in F & <y, u_1> = <u_2, v_2>																[28 EI/u_2 EI/v_2]
+					30. <y, u_1> = <u_2, v_2>																				[29 SR]
+					31. @u, v, s, t [ <u, v> = <s, t>  <-->  u = s & v = t ]												[Theorem 3A]
+					32. <y, u_1> = <u_2, v_2>  <-->  y = u_2 & u_1 = v_2													[31 UI/y UI/u_1 UI/u_2 UI/v_2]
+					33. y = u_2 & u_1 = v_2																					[32 BC 30 MP]
+					34. <v_2, u_2> in F																						[29 SL]
+					35. <v_2, y> in F																						[33 SL 34 LL]
+
+					36. <u_1, y> in F																						[33 SR 35 LL]
+
+					37. Show @w [ <w, y> in F --> w = u_1 ]
+						38. let w be a set
+						39. Show <w, y> in F --> w = u_1
+							40. <w, y> in F																					[ACD]
+							41. @v [ <y, v> in (F^-1) --> v = u_1 ]															[24 SR]
+							42. <y, w> in (F^-1) --> w = u_1																[41 UI/w]
+
+							43. @t [ t in (F^-1) <--> 3u, v [ <v, u> in F & t = <u, v> ] ]									[D1]
+							44. <y, w> in (F^-1) <--> 3u, v [ <v, u> in F & <y, w> = <u, v> ]								[43 UI/<y, w>]
+							45. <y, w> = <y, w>																				[SID/<y, w>]
+							46. <w, y> in F & <y, w> = <y, w>																[40 45 ADJ]
+							47. 3u, v [ <v, u> in F & <y, w> = <u, v> ]														[46 EG/y->u EG/w->v]
+							48. <y, w> in (F^-1)																			[44 BC 47 MP]
+
+							49. w = u_1																						[48 42 MP]
+							50. 	[49 CD]
+						51.		[39 UD]
+					
+					52. <u_1, y> in F & @w [ <w, y> in F --> w = u_1 ]														[36 37 ADJ]
+					53. 3x [ <x, y> in F & @w [ <w, y> in F --> w = x ] ]													[52 EG/u_1->x]
+					54. 3_1x [ <x, y> in F ]																				[53 EQUIV.]
+					55. 	[54 CD]
+				56. 	[13 UD]
+			57. F is single-rooted																							[10 BC 11 MP]
+			58.		[57 CD]
+
+		59. Show F is single-rooted --> (F^-1) is a function
+			60. F is single-rooted																							[ACD]
+			61. @R [ R is single-rooted <--> @y [ y in ran R --> 3_1x [ <x, y> in R ] ] ]									[definition of single-rooted]
+			62. F is single-rooted <--> @y [ y in ran F --> 3_1x [ <x, y> in F ] ]											[61 UI/F]
+			63. @y [ y in ran F --> 3_1x [ <x, y> in F ] ]
+
+			64. @F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]						[Definition of Function]
+			65. (F^-1) is a function <--> (F^-1) is a relation & @x [ x in dom (F^-1) --> 3_1y [ <x, y> in (F^-1) ] ]		[64 UI/(F^-1)]
+
+			66. Show (F^-1) is a relation
+				67. @R [ R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ] ]										[Definition of Relation]
+				68. (F^-1) is a relation <--> @t [ t in (F^-1) --> 3x, y[ t = <x, y> ] ]									[67 UI/(F^-1)]
+				69. Show  @t [ t in (F^-1) --> 3x, y[ t = <x, y> ] ]
+					70. let t be a set
+					71. Show t in (F^-1) --> 3x, y[ t = <x, y> ]
+						72. t in (F^-1)											[ACD]
+						73. @t [ t in (F^-1) <--> 3u, v [ <v, u> in F & t = <u, v> ] ]		[D1]
+						74. t in (F^-1) <--> 3u, v [ <v, u> in F & t = <u, v> ]				[73 UI/t]
+						75. 3u, v [ <v, u> in F & t = <u, v> ]								[74 BC 72 MP]
+						76. <v_1, u_1> in F & t = <u_1, v_1>								[75 EI/u_1 EI/v_1]
+						77. t = <u_1, v_1>													[76 SR]
+						78. 3x, y[ t = <x, y> ]												[77 EG/u_1->x EG/v_1->y]
+						79. 	[78 CD]
+					80. 	[71 UD]
+				81. (F^-1) is a relation			[68 BC 69 MP]
+				82. 	[81 DD]
+
+			83. Show @x [ x in dom (F^-1) --> 3_1y [ <x, y> in (F^-1) ] ]
+				84.	let x be a set
+				85. Show x in dom (F^-1) --> 3_1y [ <x, y> in (F^-1) ]
+					86. x in dom (F^-1)						[ACD]
+					87. @F [ dom (F^-1) = ran F & ran (F^-1) = dom F ]			[Theorem 3E (i)]
+					88. dom (F^-1) = ran F & ran (F^-1) = dom F					[87 UI/F]
+					89. x in ran F												[88 SL 86 LL]
+					90. @y [ y in ran F --> 3_1x [ <x, y> in F ] ]				[63 R]
+					91. @y [ y in ran F --> 3_1u [ <u, y> in F ] ]				[90 EQUIV.]
+					92. x in ran F --> 3_1u [ <u, x> in F ]						[91 UI/x]
+					93. 3_1u [ <u, x> in F ]									[89 92 MP]
+					94. 3u [ <u, x> in F & @w [ <w, x> in F --> w = u ] ]		[93 EQUIV.]
+					95. <u_1, x> in F & @w [ <w, x> in F --> w = u_1 ]			[94 EI/u_1]
+
+					96. @t [ t in (F^-1) <--> 3u, v [ <v, u> in F & t = <u, v> ] ]				[D1]
+					97. <x, u_1> in (F^-1) <--> 3u, v [ <v, u> in F & <x, u_1> = <u, v> ]		[96 UI/<x, u_1>]
+					98. <x, u_1> = <x, u_1>														[SID/<x, u_1>]
+					99. <u_1, x> in F & <x, u_1> = <x, u_1>										[95 SL 98 ADJ]
+					100. 3u, v [ <v, u> in F & <x, u_1> = <u, v> ]								[99 EG/x->u EG/u_1->v]
+					101. <x, u_1> in (F^-1)														[97 BC 100 MP]
+
+					102. Show @w [ <x, w> in (F^-1) --> w = u_1 ]
+						103. let w be a set
+						104. Show <x, w> in (F^-1) --> w = u_1
+							105. <x, w> in (F^-1)													[ACD]
+							106. @t [ t in (F^-1) <--> 3u, v [ <v, u> in F & t = <u, v> ] ]			[D1]
+							107. <x, w> in (F^-1) <--> 3u, v [ <v, u> in F & <x, w> = <u, v> ]		[106 UI/<x, w>]
+							108. 3u, v [ <v, u> in F & <x, w> = <u, v> ]							[107 BC 105 MP]
+							109. <v_2, u_2> in F & <x, w> = <u_2, v_2>								[108 EI/u_2 EI/v_2]
+							110. <x, w> = <u_2, v_2>												[109 SR]
+							111. @u, v, s, t [ <u, v> = <s, t>  <-->  u = s & v = t ]				[Theorem 3A]
+							112. <x, w> = <u_2, v_2>  <-->  x = u_2 & w = v_2						[111 UI/x UI/w UI/u_2 UI/v_2]
+							113. x = u_2 & w = v_2													[112 BC 110 MP]
+							114. <v_2, u_2> in F													[109 SL]
+							115. <v_2, x> in F														[113 SL 114 LL]
+							116. <w, x> in F														[113 SR 115 LL]
+							117. @w [ <w, x> in F --> w = u_1 ]										[95 SR]
+							118. <w, x> in F --> w = u_1											[117 UI/w]
+							119. w = u_1															[116 118 MP]
+							120. 	[119 CD]
+						105. 	[104 UD]
+					
+					106. <x, u_1> in (F^-1) & @w [ <x, w> in (F^-1) --> w = u_1 ]				[101 102 ADJ]
+					107. 3y [ <x, y> in (F^-1) & @w [ <x, w> in (F^-1) --> w = y ] ]			[106 EG/u_1->y]
+					108. 3_1y [ <x, y> in (F^-1) ]												[107 EQUIV.]
+					109. 		[108 CD]
+				110.	[85 UD]
+			
+			111. (F^-1) is a relation & @x [ x in dom (F^-1) --> 3_1y [ <x, y> in (F^-1) ] ]			[66 83 ADJ]
+			112. (F^-1) is a function																	[65 BC 111 MP]
+			113. 	[112 CD]
+		
+		114. (F^-1) is a function <--> F is single-rooted				[4 59 CB]
+		115. 	[114 DD]
+	116.	[3 UD]
+
+							 
+let APPLE := @F [ (F^-1) is a function <--> F is single-rooted ]
+
+1. Show @F [ F is a relation --> [ F is a function <--> (F^-1) is single-rooted ] ]
+	2. let F be a set
+	3. Show F is a relation --> [ F is a function <--> (F^-1) is single-rooted ]
+		4. F is a relation			[ACD]
+		5. @R [ R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ] ]		[Definition of Relation]
+		6. F is a relation <--> @t [ t in F --> 3x, y[ t = <x, y> ] ]				[5 UI/F]
+		7. @t [ t in F --> 3x, y[ t = <x, y> ] ]									[6 BC 4 MP]
+
+		8. Show F is a function --> (F^-1) is single-rooted
+			9. F is a function 			[ACD]
+			10. @F [ (F^-1) is a function <--> F is single-rooted ]			[APPLE]
+			11. ((F^-1)^-1) is a function <--> (F^-1) is single-rooted		[10 UI/(F^-1)]
+
+			12. @F [ F is a relation --> ((F^-1)^-1) = F ]					[Theorem 3E (ii)]
+			13. F is a relation --> ((F^-1)^-1) = F							[12 UI/F]
+			14. ((F^-1)^-1) = F												[4 13 MP]
+			15. F is a function <--> (F^-1) is single-rooted				[11 14 LL]
+			16. (F^-1) is single-rooted										[15 BC 9 MP]
+			17.		[16 CD]
+		
+		18. Show (F^-1) is single-rooted --> F is a function
+			19. (F^-1) is single-rooted				[ACD]
+			20. @F [ (F^-1) is a function <--> F is single-rooted ]			[APPLE]
+			21. ((F^-1)^-1) is a function <--> (F^-1) is single-rooted		[20 UI/(F^-1)]
+			22. ((F^-1)^-1) is a function									[21 BC 19 MP]
+			23. @F [ F is a relation --> ((F^-1)^-1) = F ]					[Theorem 3E (ii)]
+			24. F is a relation --> ((F^-1)^-1) = F							[23 UI/F]
+			25. ((F^-1)^-1) = F												[4 24 MP]
+			26. F is a function												[22 25 LL]
+			27.		[26 CD]
+		
+		28. F is a function <--> (F^-1) is single-rooted					[8 18 CB]
+		29. 	[28 CD]
+	30. 	[3 UD]
+		
+
+
+

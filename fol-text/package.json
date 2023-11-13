@@ -1,0 +1,25 @@
+{
+  "name": "fol-text",
+  "displayName": "FOL Text",
+  "description": "Syntax highlighting for FOL",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.83.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "fol",
+      "aliases": ["FOL", "fol"],
+      "extensions": [".fol"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "fol",
+      "scopeName": "source.fol",
+      "path": "./syntaxes/fol.tmLanguage.json"
+    }]
+  }
+}

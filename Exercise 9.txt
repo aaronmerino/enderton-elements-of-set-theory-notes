@@ -1,0 +1,199 @@
+Axioms and Theorems:
+	Extensionality Axiom:
+	@A, B [ @x [ x in A <--> x in B ] --> A = B ]
+  
+  	Converse of Extensionality Axiom (Theorem Pg.2):
+	@A, B [ A = B  --> @x [ x in A <--> x in B ]  ]
+
+	Empty Set Axiom:
+	3B [ @x [ ~(x in B) ] ]
+	Definition:
+	{ } is the set having no members
+		[You can think of {} as a 0-ary operator. It refer to one set and one set only!]
+
+	Theorem 2B (Arbitrary Intersection):
+	@A [ A != { } --> 31B [ @x [ x in B <--> @a [ a in A --> x in a ] ] ] ] 
+		Definition:
+		For any set non empty set A, the intersection of A  ∩(A)     is the set whose members are exactly the members of all members of A.
+
+	Definition:
+		@x, y[ <x, y> := {{x}, {x, y}} ]
+			note {x} exists due to Pairing Axiom & Extensionality
+			note {x, y} exists due to Pairing Axiom & Extensionality
+			finally {{x}, {x, y}} exists due to Pairing Axiom & Extensionality
+
+	Theorem 3A:
+		@u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]
+
+	dom R: 
+	@R [ 3D [ @x [ x in D <--> 3y [ <x, y> in R ] ] ] ]
+		Definition:
+		For any set sets R,  dom R  is the set whose members are those 1st-coordinate set of some ordered pair in R
+
+	Exercise 8 part 1:
+	@A [ 3D [ @t [ t in D <--> 3R [ R in A & t = dom R ] ] ] ]
+		Definition:
+		For any set sets A, {dom R | R in A} is the set whose members are exactly the sets of the form dom R for some R in A.
+
+
+
+
+Discuss the result of replacing the union operation by the intersection operation in the preceding problem. 
+We must assume that A != { } because ∩(A) would be undefined.
+
+Example 1:
+A = {R1, R2, ...} = { {<x, y>,... }, {<u, v>,...} } = { {{{x}, {x, y}},... }, {{{u}, {u, v}},...} }
+
+dom(∩(A)) = dom({<x, y> | <x, y> in all Ri}) = {x | 3y[ <x, y> in all Ri]}
+
+∩({dom R | R in A}) = ∩( { dom R1, dom R2, ... } ) = ∩( { {x, ...}, {u, ...}, ... } )
+
+
+Example 2:	
+A = { {<x, a>}, {<x, b>} }
+∩(A) = { }
+dom(∩(A)) = dom( { } ) = { }
+
+{dom R | R in A} = { dom({<x, a>}), dom({<x, b>}) } = { {x}, {x} } = {{x}}
+∩({dom R | R in A}) = ∩({ {x} }) = {x}
+
+A = { {u}, {v} } where u != v
+Show @t [ ~(t in ∩(A)) ]
+	let t be a set
+	Show ~(t in ∩(A))
+		t in ∩(A)		[AID]
+		t in ∩(A) <--> @w [ w in A --> t in w ]
+		@w [ w in A --> t in w ]
+		{u} in A --> t in {u}
+		{u} in A
+		t in {u}
+		t = u or t = u
+		t = u 
+
+		{v} in A --> t in {v}
+		{v} in A
+		t in {v}
+		t = v or t = v
+		t = v
+		
+		u = v
+		but u != v
+		contradiction
+
+Show @t [ ~(t in dom( { } )) ]
+	let t be a set
+	Show ~(t in dom( { } ))
+		t in dom( { } )			[AID]
+		@t [ t in dom( { } ) <--> 3y [ <t, y> in { } ] ]
+		t in dom( { } ) <--> 3y [ <t, y> in { } ]
+		3y [ <t, y> in { } ]
+		<t, y_1> in { }
+		@x [ ~(x in { }) ]
+		~(<t, y_1> in { })
+		contradiction
+
+So it seems that dom(∩(A)) is a subset of ∩({dom R | R in A})
+
+1. Show @A [ A != { } --> dom(∩(A)) ⊆ ∩({dom R | R in A}) ]
+	2. let A be a set
+	3. Show A != { } --> dom(∩(A)) ⊆ ∩({dom R | R in A})
+		4. A != { }
+
+		D0. { } is the set having no members			[Empty Set Axiom]
+			@x [ ~(x in { }) ]
+
+		**IGNORE LINES 5-35**
+		5. Show 3R [ R in A ]
+			6. ~3R [ R in A ]				[AID]
+			7. Show @R [ ~(R in A) ]		
+				8. let R be a set
+				9. Show ~(R in A)
+					10. R in A				[AID]
+					11. 3R [ R in A ] 		[10 EG/R->R]
+					12. 	[6 11 ID]
+				13. 	[9 UD]
+
+			14. @A, B [ @x [ x in A <--> x in B ] --> A = B ]			[Ext. Axiom]
+			15. @x [ x in A <--> x in { } ] --> A = { }					[14 UI/A UI/{ }]
+			16. Show @x [ x in A <--> x in { } ]
+				17. let x be a set
+				18. Show x in A <--> x in { }
+					19. Show x in A --> x in { }
+						20. x in A 					[ACD]
+						21. @R [ ~(R in A) ]		[7 R]
+						22. ~(x in A)				[21 UI/x]
+						23. 	[20 22 ID]
+					24. Show x in { } --> x in A
+						25.	x in { }				[ACD]
+						26. @x [ ~(x in { }) ]		[D0]
+						27. ~(x in { })				[26 UI/x]
+						28.		[25 27 ID]
+					29. x in A <--> x in { }		[19 24 CB]
+					30.		[29 DD]
+				31. 	[18 UD]
+			32. A = { }								[15 16 MP]
+			33. A != { }							[4 R]
+			34.		[32 33 ID]
+			
+		*35. R_1 in A													[5 EI/R_1]
+
+		D1. ∩(A) is the set whose members are exactly the members of all members of A.		[Arb. Union UI/A 4 MP & Ext. Axiom]
+			@t [ t in ∩(A) <--> @w [ w in A --> t in w ] ]
+
+		D2. dom(∩(A)) is the set whose members are those 1st-coordinate set of some ordered pair in ∩(A)
+			@t [ t in dom(∩(A)) <--> 3y [ <t, y> in ∩(A) ] ]
+
+		D3. {dom R | R in A} is the set whose members are exactly the sets of the form dom R for some R in A.		[Exercise 8 part 1 UI/A & Ext. Axiom -> defines {dom R | R in A}]
+			@t [ t in {dom R | R in A} <--> 3R [ R in A & t = dom R ] ] 
+
+		D4. ∩({dom R | R in A}) is the set whose members are exactly the members of all members of {dom R | R in A}.
+			@t [ t in ∩({dom R | R in A}) <--> @w [ w in {dom R | R in A} --> t in w ] ]
+
+		36.
+
+		37. 	
+
+		38. Show @t [ t in dom(∩(A)) --> t in ∩({dom R | R in A}) ]
+			39. let t be a set
+			40. Show t in dom(∩(A)) --> t in ∩({dom R | R in A})
+				41. t in dom(∩(A))			[ACD]
+				42. @t [ t in dom(∩(A)) <--> 3y [ <t, y> in ∩(A) ] ]		[D2]
+				43. t in dom(∩(A)) <--> 3y [ <t, y> in ∩(A) ]				[42 UI/t]
+				44. 3y [ <t, y> in ∩(A) ]									[43 BC 41 MP]
+				45. <t, y_1> in ∩(A)										[44 EI/y_1]
+				46. @t [ t in ∩(A) <--> @w [ w in A --> t in w ] ]			[D1]
+				47. <t, y_1> in ∩(A) <--> @w [ w in A --> <t, y_1> in w ]	[46 UI/<t, y_1>]
+				48. @w [ w in A --> <t, y_1> in w ]							[47 BC 45 MP]
+
+				49. 
+				50.
+				51.
+				52. 
+
+				53. @t [ t in ∩({dom R | R in A}) <--> @w [ w in {dom R | R in A} --> t in w ] ]		[D4]
+				54. t in ∩({dom R | R in A}) <--> @w [ w in {dom R | R in A} --> t in w ]				[53 UI/t]
+				55. Show @w [ w in {dom R | R in A} --> t in w ]
+					56. let w be a set
+					57. Show w in {dom R | R in A} --> t in w	
+						58. w in {dom R | R in A}			[ACD]
+						59. @t [ t in {dom R | R in A} <--> 3R [ R in A & t = dom R ] ]			[D3]
+						60. w in {dom R | R in A} <--> 3R [ R in A & w = dom R ]				[59 UI/w]
+						61. 3R [ R in A & w = dom R ]											[60 BC 58 MP]
+						62. R_2 in A & w = dom R_2												[61 EI/R_2]
+
+						D5. dom R_2 is the set whose members are those 1st-coordinate set of some ordered pair in R_2
+								@t [ t in dom R_2 <--> 3y [ <t, y> in R_2 ] ]
+
+						63. @w [ w in A --> <t, y_1> in w ]										[48 R]
+						64. R_2 in A --> <t, y_1> in R_2										[63 UI/R_2]
+						65. <t, y_1> in R_2														[62 SL 64 MP]
+						66. @t [ t in dom R_2 <--> 3y [ <t, y> in R_2 ] ]						[D5]
+						67. t in dom R_2 <--> 3y [ <t, y> in R_2 ]								[66 UI/t]
+						68. 3y [ <t, y> in R_2 ]												[65 EG/y_1->y]
+						69. t in dom R_2														[67 BC 68 MP]
+						70. w = dom R_2															[62 SR]
+						71. t in w																[69 70 EL]
+						72. 	[71 CD]
+					73. 	[57 UD]
+				74. t in ∩({dom R | R in A})				[54 BC 55 MP]
+				75. 	[74 CD]

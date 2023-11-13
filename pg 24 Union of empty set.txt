@@ -1,0 +1,53 @@
+(Rough idea (scroll down for proof)):
+1. @A [ 3B [ @x [ x in B <--> 3b [ b in A & x in b ] ] ] ]	[Union Axiom]
+2. 3B [ @x [ x in B <--> 3b [ b in A & x in b ] ] ]		[1	 UI/ { }] 
+3. @x [ x in B <--> 3b [ b in { } & x in b ] ]			[2	 EI/B] 
+
+4. @x [ x in B <--> 3b [ FALSE & x in b ] ]			["b in { }" is FALSE by definition of { } (Pg 18), where it states @x [~(x in { })] ]
+5. @x [ x in B <--> 3b [ FALSE ] ]				[by logic, the statement with the main connective "&" is FALSE]
+6. @x [ x in B <--> FALSE ]					[by logic, the statement with the main connective "3" is FALSE]
+7. @x [ FALSE <--> FALSE ]				[In order for the statement @x [ A <--> B ] to be true, both A and B 
+									have to be the same truth value; therefore, "x in B" must be false ]
+8. @x [ ~(x in B)	]
+9. B = { }							[by definition of { } (Pg 18)]
+
+
+
+Premise:
+	@A [ 3B [ @x [ x in B <--> 3b [ b in A & x in b ] ] ] ]	[Union Axiom]
+	
+1. Show U{ } = { }
+	2. @x [ x in U{ } <--> 3b [ b in { } & x in b ] ]			[by definition of U{ } (it is a well-defined name (i.e, a definition) due to Union Axiom + Extensionality Axiom) ] 
+
+	3. Show @x [ ~(x in U{ })	]
+		4. Show ~(x in U{ })					[let x be an arbitrary set]
+			5. x in U{ }					[AID]
+			6. x in U{ } <--> 3b [ b in { } & x in b ]	[2 UI/x]	
+			7. 3b [ b in { } & x in b ]			[6 BC 5 MP]
+			8. b in { } & x in b				[7 EI/b]
+			9. b in { }					[8 SL]
+			10. @x [~(x in { })]				[by definition of { } (Pg 18)]
+			11. ~(b in { })					[10 UI/b]
+			12.						[9 11 ID]
+
+	13. @x [ ~(x in { })	]						[by definition of { } (Pg 18)]
+	14. @A, B [ @x [ x in A <--> x in B ] --> A = B ]	 [Ext. Axiom]
+	15.	@x [ x in U{ } <--> x in { } ] --> U{ } = { }	 [14 UI/x]
+	16. Show @x [ x in U{ } <--> x in { } ]
+		17. let x be a set
+		18. Show x in U{ } --> x in { }
+			19. x in U{ }			 [ACD]
+			20. @x [ ~(x in U{ }) ]			[3 R]
+			21. ~(x in U{ })			[20 UI/x]
+			22.		 [19 21 ID]
+
+		23. Show x in { } --> x in U{ }
+			24. x in { }			[ACD]
+			25. @x [ ~(x in { })	]		 [13 R]
+			26. ~(x in { })		 [25 UI/x]
+			27.		 [24 26 ID]
+		
+		28. x in U{ } <--> x in { }		 [18 23 CB]
+		29.		 [28 UD]
+	30. U{ } = { }			[15 16 MP]
+	31.		 [30 DD]

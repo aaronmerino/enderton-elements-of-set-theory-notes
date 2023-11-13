@@ -1,0 +1,397 @@
+Axioms and Theorems:
+	Relation:
+		Definition:
+		A relation R is a set of ordered pairs.
+		@R [ R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ] ]
+
+	Function:
+		Definition:
+		@F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]
+
+	[APPLE] Pg 43 When F is a function and x the dom F, F(x) is y IFF <x, y> in F:
+		@F, x [ F is a function & x in dom F -->	@w [ <x, w> in F <--> F(x) = w ] ]
+		
+// part(a)
+1. Show @f, g [ f, g are functions --> f ∩ g is a function ]
+	2. let f, g be sets
+	3. Show f, g are functions --> f ∩ g is a function 
+		4. f, g are functions 
+
+		========
+		D1. @x [ x in dom f <--> 3y [ <x, y> in f ] ]			 [dom UI/f EI & Ext. Axiom]
+		D2. @x [ x in dom g <--> 3y [ <x, y> in g ] ]			 [dom UI/g EI & Ext. Axiom]
+		D3. @t [ t in (f ∩ g) <--> t in g & t in f ]				[Subset Axiom (Intersection) UI/f UI/g EI & Ext. Axiom]
+		D4. @x [ x in dom (f ∩ g) <--> 3y [ <x, y> in (f ∩ g) ] ]			 [dom UI/g EI & Ext. Axiom]
+		========
+
+		5. @F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]			[Definition of function]
+		6. f is a function <--> f is a relation & @x [ x in dom f --> 3_1y [ <x, y> in f ] ]			[5 UI/f]
+		7. f is a relation & @x [ x in dom f --> 3_1y [ <x, y> in f ] ]			 [6 BC 4 MP]
+
+		8. @F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]			[Definition of function]
+		9. g is a function <--> g is a relation & @x [ x in dom g --> 3_1y [ <x, y> in g ] ]			[8 UI/g]
+		10. g is a relation & @x [ x in dom g --> 3_1y [ <x, y> in g ] ]			 [9 BC 4 MP] 
+
+		11. @F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]			[Definition of function]
+		12. (f ∩ g) is a function <--> (f ∩ g) is a relation & @x [ x in dom (f ∩ g) --> 3_1y [ <x, y> in (f ∩ g) ] ]			 [11 UI/(f ∩ g)]
+
+
+		13. Show (f ∩ g) is a relation
+			14. @R [ R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ] ]		 [Def. of relation]
+			15. (f ∩ g) is a relation <--> @t [ t in (f ∩ g) --> 3x, y[ t = <x, y> ] ]			[14 UI/(f ∩ g)]
+			16. Show @t [ t in (f ∩ g) --> 3x, y[ t = <x, y> ] ]
+				17. let t be a set
+				18. Show t in (f ∩ g) --> 3x, y[ t = <x, y> ] 
+					19. t in (f ∩ g)			[ACD]
+					20. @t [ t in (f ∩ g) <--> t in g & t in f ]			[D3]
+					21. t in (f ∩ g) <--> t in g & t in f		 [20 UI/t]
+					22. t in g & t in f		 [21 BC]
+					23. t in f		[22 SR]
+					24. f is a relation		 [7 SL]
+					25. @R [ R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ] ]		 [Def. of relation]
+					26. f is a relation <--> @t [ t in f --> 3x, y[ t = <x, y> ] ]			[25 UI/f]
+					27. @t [ t in f --> 3x, y[ t = <x, y> ] ]		 [26 BC 24 MP]
+					28. t in f --> 3x, y[ t = <x, y> ]			[27 UI/t]
+					29. 3x, y[ t = <x, y> ]		 [23 28 MP]
+					30.		 [29 CD]
+				31.		 [18 UD]
+			32. (f ∩ g) is a relation		 [15 BC 16 MP]
+			33.		 [32 DD]
+
+		34. Show @x [ x in dom (f ∩ g) --> 3_1y [ <x, y> in (f ∩ g) ] ]
+			35. let x be a set
+			36. Show x in dom (f ∩ g) --> 3_1y [ <x, y> in (f ∩ g) ]
+				37. x in dom (f ∩ g)			[ACD]
+				38. @x [ x in dom (f ∩ g) <--> 3y [ <x, y> in (f ∩ g) ] ]		 [D4]
+				39. x in dom (f ∩ g) <--> 3y [ <x, y> in (f ∩ g) ]			[38 UI/x]
+				40. 3y [ <x, y> in (f ∩ g) ]			[39 BC 37 MP]
+				41. <x, y_1> in (f ∩ g)		 [40 EI/y_1] 
+
+				42. @t [ t in (f ∩ g) <--> t in g & t in f ]			[D3]
+				43. <x, y_1> in (f ∩ g) <--> <x, y_1> in g & <x, y_1> in f				[42 UI/<x, y_1>]
+				44. <x, y_1> in g & <x, y_1> in f		 [43 BC 41 MP]
+
+				45. Show @w [ <x, w> in (f ∩ g) --> w = y_1 ]
+					46. let w be a set
+					47. Show <x, w> in (f ∩ g) --> w = y_1 
+						48. <x, w> in (f ∩ g)		 [ACD]
+						49. @t [ t in (f ∩ g) <--> t in g & t in f ]			[D3] 
+						50. <x, w> in (f ∩ g) <--> <x, w> in g & <x, w> in f			[49 UI/<x, w>]
+						51. <x, w> in g & <x, w> in f		 [50 BC 48 MP]
+
+						52. @F, x [ F is a function & x in dom F -->	@w [ <x, w> in F <--> F(x) = w ] ]			[APPLE]
+						53. f is a function & x in dom f -->	@w [ <x, w> in f <--> f(x) = w ]				[52 UI/f UI/x]
+						54. @x [ x in dom f <--> 3y [ <x, y> in f ] ]		 [D1]
+						55. x in dom f <--> 3y [ <x, y> in f ]			[54 UI/x]
+						56. <x, w> in f			[51 SR]
+						57. 3y [ <x, y> in f ]			[56 EG/w->y]
+						58. x in dom f			[55 BC 57 MP]
+
+						59. f is a function & x in dom f			 [4 58 ADJ]
+						60. @w [ <x, w> in f <--> f(x) = w ]				[53 59 MP]
+
+						61. <x, y_1> in f <--> f(x) = y_1		 [60 UI/y_1]
+						62. <x, y_1> in f		 [44 SR]
+						63. f(x) = y_1			[61 BC 62 MP]
+
+						64. <x, w> in f <--> f(x) = w		 [60 UI/w]
+						65. <x, w> in f		 [56 R]
+						66. f(x) = w			[64 65 MP]
+
+						67. w = y_1			 [63 66 LL]
+						68.		 [67 CD]
+					69.		 [47 UD]
+				
+				70. <x, y_1> in (f ∩ g) & @w [ <x, w> in (f ∩ g) --> w = y_1 ]				[41 45 ADJ]
+				71. 3y [ <x, y> in (f ∩ g) & @w [ <x, w> in (f ∩ g) --> w = y ] ]		 [70 EG/y_1->y]
+				72. 3_1y [ <x, y> in (f ∩ g) ]			[71 EQUIV.]
+				73.		 [72 CD]
+			
+			74.		 [36 UD]
+		75. (f ∩ g) is a relation & @x [ x in dom (f ∩ g) --> 3_1y [ <x, y> in (f ∩ g) ] ]				[13 34 ADJ]
+		76. (f ∩ g) is a function			 [12 BC 75 MP]
+		77.		 [76 CD]
+	78.		 [3 UD]
+
+
+
+// part(b)
+1. Show @f, g [ f, g are functions --> [ (f ∪ g) is a function <--> @x [ x in (dom f) ∩ (dom g) --> f(x) = g(x) ] ] ]
+	2. let f, g be sets
+
+	========
+	D1. @x [ x in dom f <--> 3y [ <x, y> in f ] ]			 [dom UI/f EI & Ext. Axiom]
+	D2. @x [ x in dom g <--> 3y [ <x, y> in g ] ]			 [dom UI/g EI & Ext. Axiom]
+	D3. @t [ t in (dom f) ∩ (dom g) <--> t in dom g & t in dom f ]				[Subset Axiom (Intersection) UI/dom f UI/dom g EI & Ext. Axiom]
+	D4. @t [ t in (f ∪ g) <--> t in f or t in g ]				[Union Axiom (Preliminary Form) UI/f UI/g EI & Ext. Axiom]
+	D5. @x [ x in dom (f ∪ g) <--> 3y [ <x, y> in (f ∪ g) ] ]			[dom UI/(f ∪ g) EI & Ext. Axiom]
+	========
+
+	3. Show f, g are functions --> [ (f ∪ g) is a function <--> @x [ x in (dom f) ∩ (dom g) --> f(x) = g(x) ] ]
+		4. f, g are functions		 [ACD]
+		5. Show (f ∪ g) is a function --> @x [ x in (dom f) ∩ (dom g) --> f(x) = g(x) ]
+			6. (f ∪ g) is a function			[ACD]
+
+			7. Show @x [ x in (dom f) ∩ (dom g) --> f(x) = g(x) ]
+				8. let x be a set
+				9. Show x in (dom f) ∩ (dom g) --> f(x) = g(x)
+					10. x in (dom f) ∩ (dom g)			[ACD]
+
+					11. @t [ t in (dom f) ∩ (dom g) <--> t in dom g & t in dom f ]			[D3]
+					12. x in (dom f) ∩ (dom g) <--> x in dom g & x in dom f				[11 UI/x]
+					13. x in dom g & x in dom f			[12 BC 10 MP]
+
+					14. @x [ x in dom f <--> 3y [ <x, y> in f ] ]		[D1]
+					15. x in dom f <--> 3y [ <x, y> in f ]			[14 UI/x]
+					16. x in dom f			[13 SR]
+					17. 3y [ <x, y> in f ]		[15 BC 16 MP]
+					18. <x, y_1> in f			[17 EI/y_1]
+
+					19. @x [ x in dom g <--> 3y [ <x, y> in g ] ]			[D2]
+					20. x in dom g <--> 3y [ <x, y> in g ]			[19 UI/x]
+					21. x in dom g			[13 SL]
+					22. 3y [ <x, y> in g ]			[20 BC 21 MP]
+					23. <x, y_2> in g				[22 EI/y_2]
+
+					24. Show y_1 = y_2
+						25. @F, x [ F is a function & x in dom F -->	@w [ <x, w> in F <--> F(x) = w ] ]			[APPLE]
+						26. (f ∪ g) is a function & x in dom (f ∪ g) -->	@w [ <x, w> in (f ∪ g) <--> (f ∪ g)(x) = w ]			[25 UI/(f ∪ g) UI/x]
+
+						27. @x [ x in dom (f ∪ g) <--> 3y [ <x, y> in (f ∪ g) ] ]			[D5]
+						28. x in dom (f ∪ g) <--> 3y [ <x, y> in (f ∪ g) ]			[27 UI/x]
+
+						29. @t [ t in (f ∪ g) <--> t in f or t in g ]			[D4]
+						30. <x, y_1> in (f ∪ g) <--> <x, y_1> in f or <x, y_1> in g			[29 UI/<x, y_1>]
+						31. <x, y_1> in f or <x, y_1> in g			[18 ADD/"<x, y_1> in g"]
+						32. <x, y_1> in (f ∪ g)			[30 BC 31 MP]
+						33. 3y [ <x, y> in (f ∪ g) ]			[32 EG/y_1->y]
+						34. x in dom (f ∪ g)			[28 BC 33 MP]
+						35. (f ∪ g) is a function & x in dom (f ∪ g)			[6 34 ADJ]
+
+						36. @w [ <x, w> in (f ∪ g) <--> (f ∪ g)(x) = w ]			[26 35 MP]
+
+						37. <x, y_1> in (f ∪ g) <--> (f ∪ g)(x) = y_1			[36 UI/y_1]
+						38. (f ∪ g)(x) = y_1			[37 BC 32 MP]
+
+						39. <x, y_2> in (f ∪ g) <--> (f ∪ g)(x) = y_2			[36 UI/y_2]
+						40. @t [ t in (f ∪ g) <--> t in f or t in g ]			[D4]
+						41. <x, y_2> in (f ∪ g) <--> <x, y_2> in f or <x, y_2> in g				[40 UI/<x, y_2>]
+						42. <x, y_2> in f or <x, y_2> in g			[23 ADD/"<x, y_2> in f"]
+						43. <x, y_2> in (f ∪ g)			[41 BC 42 MP]
+						44. (f ∪ g)(x) = y_2			[39 BC 43 MP]
+
+						45. y_1 = y_2			[38 44 LL]
+						46.			[45 DD]
+					
+					47. @F, x [ F is a function & x in dom F -->	@w [ <x, w> in F <--> F(x) = w ] ]			[APPLE]
+					48. f is a function & x in dom f -->	@w [ <x, w> in f <--> f(x) = w ]			[47 UI/f UI/x]
+					49. f is a function & x in dom f			[4 16 ADJ]
+					50. @w [ <x, w> in f <--> f(x) = w ]				[48 49 MP]
+					51. <x, y_1> in f <--> f(x) = y_1				[50 UI/y_1]
+					52. f(x) = y_1			[51 BC 18 MP]
+
+					53. @F, x [ F is a function & x in dom F -->	@w [ <x, w> in F <--> F(x) = w ] ]			[APPLE]
+					54. g is a function & x in dom g -->	@w [ <x, w> in g <--> g(x) = w ]				[53 UI/g UI/x]
+					55. g is a function & x in dom g			[4 21 ADJ]
+					56. @w [ <x, w> in g <--> g(x) = w ]			[54 55 MP]
+					57. <x, y_2> in g <--> g(x) = y_2				[56 UI/y_2]
+					58. g(x) = y_2			[57 BC 23 MP]
+
+					59. f(x) = y_2			[52 24 LL]
+					60. f(x) = g(x)			[58 59 LL]
+					61. 		[60 CD]
+				62. 		[9 UD]
+			63. 		[7 CD]
+
+		64. Show @x [ x in (dom f) ∩ (dom g) --> f(x) = g(x) ] --> f ∪ g is a function
+			65. @x [ x in (dom f) ∩ (dom g) --> f(x) = g(x) ]			[ACD]
+
+			66. @F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]				[Def. of function]
+			67. (f ∪ g) is a function <--> (f ∪ g) is a relation & @x [ x in dom (f ∪ g) --> 3_1y [ <x, y> in (f ∪ g) ] ]				[66 UI/(f ∪ g)]
+
+			68. @R [ R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ] ]			[Def. of relation]
+			69. (f ∪ g) is a relation <--> @t [ t in (f ∪ g) --> 3x, y[ t = <x, y> ] ]		[68 UI/(f ∪ g)]
+			70. Show @t [ t in (f ∪ g) --> 3x, y[ t = <x, y> ] ]
+				71. let t be a set
+				72. Show t in (f ∪ g) --> 3x, y[ t = <x, y> ]
+					73. t in (f ∪ g)			[ACD]
+					74. @t [ t in (f ∪ g) <--> t in f or t in g ]			[D4]
+					75. t in (f ∪ g) <--> t in f or t in g			[74 UI/t]
+					76. t in f or t in g			[75 BC 73 MP]
+
+					77. Show t in f --> 3x, y[ t = <x, y> ]			[CASE 1 using line 76]
+						78. t in f			[ACD]
+						79. ...f is a function
+						80. ...f is a relation			[since 79]
+						81. ...then 3x, y[ t = <x, y> ]			[81 CD]
+
+					82. Show t in g --> 3x, y[ t = <x, y> ]			[CASE 2 using line 76]
+						83. t in g			[ACD]
+						84. ...g is a function
+						85. ...g is a relation			[since 84]
+						86. ...then 3x, y[ t = <x, y> ]			[86 CD]
+					
+					87. t in f or t in g --> 3x, y[ t = <x, y> ]			[77 82 CASE_PROOF]
+					88. 3x, y[ t = <x, y> ]			[76 87 MP]
+					89. 		[88 CD]
+				90. 		[72 UD]
+			
+			91. (f ∪ g) is a relation			[69 BC 70 MP]
+
+			92. Show @x [ x in dom (f ∪ g) --> 3_1y [ <x, y> in (f ∪ g) ] ]
+				93. let x be a set
+				94. Show x in dom (f ∪ g) --> 3_1y [ <x, y> in (f ∪ g) ]
+					95. x in dom (f ∪ g)			[ACD]
+					96. @x [ x in dom (f ∪ g) <--> 3y [ <x, y> in (f ∪ g) ] ]				[D5]
+					97. x in dom (f ∪ g) <--> 3y [ <x, y> in (f ∪ g) ]			[96 UI/x]
+					98. 3y [ <x, y> in (f ∪ g) ]			[97 BC 95 MP]
+					99. <x, y_1> in (f ∪ g)			[98 EI/y_1]
+
+					100. @t [ t in (f ∪ g) <--> t in f or t in g ]			[D4]
+					101. <x, y_1> in (f ∪ g) <--> <x, y_1> in f or <x, y_1> in g				[100 UI/<x, y_1>]
+					102. <x, y_1> in f or <x, y_1> in g				[101 BC 99 MP]
+
+					103. Show @w [ <x, w> in (f ∪ g) --> w = y_1 ]
+						104. let w be a set
+						105. Show <x, w> in (f ∪ g) --> w = y_1
+							106. <x, w> in (f ∪ g)			[ACD]
+							107. @t [ t in (f ∪ g) <--> t in f or t in g ]			[D4]
+							108. <x, w> in (f ∪ g) <--> <x, w> in f or <x, w> in g			[107 UI/<x, w>]
+							109. <x, w> in f or <x, w> in g			[108 BC 106 MP]
+
+							110. Show <x, w> in f --> w = y_1			[CASE 1 for line 109]
+								111. <x, w> in f			[ACD]
+
+								112. @F, x [ F is a function & x in dom F -->	@w [ <x, w> in F <--> F(x) = w ] ]			[APPLE]
+								113. f is a function & x in dom f -->	@w [ <x, w> in f <--> f(x) = w ]				[112 UI/f UI/x]
+								114. @x [ x in dom f <--> 3y [ <x, y> in f ] ]			[D1]
+								115. x in dom f <--> 3y [ <x, y> in f ]			[114 UI/x]
+								116. 3y [ <x, y> in f ]			[111 EG/w->y]
+								117. x in dom f			[115 BC 116 MP]
+								118. f is a function & x in dom f					[4 117 ADJ]
+								119. @w [ <x, w> in f <--> f(x) = w ]			[113 118 MP]
+
+								120. Show <x, y_1> in f --> w = y_1			[CASE 1 for line 102]
+									121. <x, y_1> in f			[ACD]
+
+									122. <x, y_1> in f <--> f(x) = y_1			[119 UI/y_1]
+									123. f(x) = y_1			[122 BC 121 MP]
+
+									124. <x, w> in f <--> f(x) = w			[119 UI/w]
+									125. f(x) = w			[124 BC 111 MP]
+
+									126. w = y_1			[123 125 LL]
+									127. 		[126 CD]
+
+								128. Show <x, y_1> in g --> w = y_1			[CASE 2 for line 102]
+									129. <x, y_1> in g			[ACD]
+
+									130. @F, x [ F is a function & x in dom F -->	@w [ <x, w> in F <--> F(x) = w ] ]			[APPLE]
+									131. g is a function & x in dom g -->	@w [ <x, w> in g <--> g(x) = w ]				[130 UI/g UI/x]
+									132. @x [ x in dom g <--> 3y [ <x, y> in g ] ]			[D2]
+									133. x in dom g <--> 3y [ <x, y> in g ]			[132 UI/x]
+									134. 3y [ <x, y> in g ]			[129 EG/y_1->y]
+									135. x in dom g			[133 BC 134 MP]
+									136. g is a function & x in dom g					[4 135 ADJ]
+									137. @w [ <x, w> in g <--> g(x) = w ]			[131 136 MP]
+
+									138. <x, y_1> in g <--> g(x) = y_1			[137 UI/y_1]
+									139. g(x) = y_1			[138 BC 129 MP]
+
+									140. <x, w> in f <--> f(x) = w			[119 UI/w]
+									141. f(x) = w			[140 BC 111 MP]
+
+									142. @x [ x in (dom f) ∩ (dom g) --> f(x) = g(x) ]			[65 R]
+									143. x in (dom f) ∩ (dom g) --> f(x) = g(x)			[142 UI/x]
+									144. @t [ t in (dom f) ∩ (dom g) <--> t in dom g & t in dom f ]			[D3]
+									145. x in (dom f) ∩ (dom g) <--> x in dom g & x in dom f			[144 UI/x]
+									146. x in dom g & x in dom f				[135 117 ADJ]
+									147. x in (dom f) ∩ (dom g)			[145 BC 146 MP]
+									148. f(x) = g(x)			[143 147 MP]
+
+									149. g(x) = w			[141 148 LL]
+									150. w = y_1			[149 139 LL]
+									151.		[150 CD]
+								
+								152. <x, y_1> in f or <x, y_1> in g --> w = y_1			[120 128 CASE_PROOF for line 102]
+								153. w = y_1			[152 102 MP]
+								154. 		[153 CD]
+								
+							155. Show <x, w> in g --> w = y_1			[CASE 2 for line 109]
+								154. <x, w> in g				[ACD]
+
+								155. @F, x [ F is a function & x in dom F -->	@w [ <x, w> in F <--> F(x) = w ] ]			[APPLE]
+								156. g is a function & x in dom g -->	@w [ <x, w> in g <--> g(x) = w ]				[155 UI/g UI/x]
+								157. @x [ x in dom g <--> 3y [ <x, y> in g ] ]			[D2]
+								158. x in dom g <--> 3y [ <x, y> in g ]			[157 UI/x]
+								159. 3y [ <x, y> in g ]			[154 EG/w->y]
+								160. x in dom g			[158 BC 159 MP]
+								161. g is a function & x in dom g					[4 160 ADJ]
+								162. @w [ <x, w> in g <--> g(x) = w ]			[156 161 MP]
+
+								163. Show <x, y_1> in f --> w = y_1			[CASE 1 for line 102]
+									164. <x, y_1> in f				[ACD]
+
+									165. @F, x [ F is a function & x in dom F -->	@w [ <x, w> in F <--> F(x) = w ] ]			[APPLE]
+									166. f is a function & x in dom f -->	@w [ <x, w> in f <--> f(x) = w ]				[165 UI/f UI/x]
+									167. @x [ x in dom f <--> 3y [ <x, y> in f ] ]			[D1]
+									168. x in dom f <--> 3y [ <x, y> in f ]			[167 UI/x]
+									169. 3y [ <x, y> in f ]			[164 EG/y_1->y]
+									170. x in dom f			[168 BC 169 MP]
+									171. f is a function & x in dom f					[4 170 ADJ]
+									172. @w [ <x, w> in f <--> f(x) = w ]			[166 171 MP]
+									
+									
+									173. <x, y_1> in f <--> f(x) = y_1			[172 UI/y_1]
+									174. f(x) = y_1			[173 BC 164 MP]
+
+									175. <x, w> in g <--> g(x) = w			[162 UI/w]
+									176. g(x) = w			[175 BC 154 MP]
+
+									177. @x [ x in (dom f) ∩ (dom g) --> f(x) = g(x) ]			[65 R]
+									178. x in (dom f) ∩ (dom g) --> f(x) = g(x)			[177 UI/x]
+									179. @t [ t in (dom f) ∩ (dom g) <--> t in dom g & t in dom f ]			[D3]
+									180. x in (dom f) ∩ (dom g) <--> x in dom g & x in dom f			[179 UI/x]
+									181. x in dom g & x in dom f				[160 170 ADJ]
+									182. x in (dom f) ∩ (dom g)			[180 BC 181 MP]
+									183. f(x) = g(x)			[178 182 MP]
+
+									184. g(x) = y_1			[174 183 LL]
+									185. w = y_1			[176 184 LL]
+									186.		[185 CD]
+
+								187. Show <x, y_1> in g --> w = y_1			[CASE 2 for line 102]
+									188. <x, y_1> in g			[ACD]
+
+									189. <x, y_1> in g <--> g(x) = y_1			[162 UI/y_1]
+									190. g(x) = y_1			[189 BC 188 MP]
+
+									191. <x, w> in g <--> g(x) = w			[162 UI/w]
+									192. g(x) = w			[191 BC 154 MP]
+
+									193. w = y_1			[190 192 LL]
+									194. 		[193 CD]
+								
+								188. <x, y_1> in f or <x, y_1> in g --> w = y_1			[163 187 CASE_PROOF for line 102]
+								189. w = y_1			[188 102 MP]
+								190. 		[189 CD] 
+							
+							191. <x, w> in f or <x, w> in g --> w = y_1			[110 155 CASE_PROOF for line 109]
+							192. w = y_1				[191 109 MP]
+
+							193. 		[192 CD]
+						194. 			[105 UD]
+					
+					195. <x, y_1> in (f ∪ g) & @w [ <x, w> in (f ∪ g) --> w = y_1 ]			[99 103 ADJ]
+					196. 3y [ <x, y> in (f ∪ g) & @w [ <x, w> in (f ∪ g) --> w = y ] ]			[195 EG/y_1->y]
+					197. 3_1y [ <x, y> in (f ∪ g) ]			[196 EQUIV.]
+					198. 			[197 CD]
+				199. 		[94 UD]
+			
+			200. (f ∪ g) is a relation & @x [ x in dom (f ∪ g) --> 3_1y [ <x, y> in (f ∪ g) ] ]			[91 92 ADJ]
+
+			201. (f ∪ g) is a function			[67 BC 200 MP]	
+			202.			[201 CD]
+		
+		203. ...
+

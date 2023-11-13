@@ -1,0 +1,141 @@
+Rough notes:
+	A = {R1, R2, ...} = { {{{x}, {x, y}},... }, {{{u}, {u, v}},...} }
+	U(A) = {{{x}, {x, y}}, {{u}, {u, v}}, ...}
+	U(U(A)) = {{x}, {x, y}, {u}, {u, v}, ...}
+	U(U(U(A))) = {x, y, u, v}
+	t = dom R1 = {x | 3y [ <x, y> in R1 ]}
+	dom R1 is a subset of U(U(U(A)))
+
+	so {dom R | R in A & t = dom R} is a subset of P(U(U(U(A))))
+
+1. Show @A [ 3D [ @t [ t in D <--> 3R [ R in A & t = dom R ] ] ] ]
+	2. let A be a set
+
+	D1. U(A) is the set whose members are exactly the members of the members of A					[Union Axiom UI/A & Ext. Axiom -> defines U(A)]
+		@t [ t in U(A) <--> 3b [ b in A & t in b ] ]
+
+	D2. U(U(A)) is the set whose members are exactly the members of the members of U(A)				[Union Axiom UI/U(A) & Ext. Axiom -> defines U(U(A))]
+		@t [ t in U(U(A)) <--> 3b [ b in U(A) & t in b ] ]
+
+	D3. U(U(U(A))) is the set whose members are exactly the members of the members of U(U(A))		[Union Axiom UI/U(U(A)) & Ext. Axiom -> defines U(U(U(A)))]
+		@t [ t in U(U(U(A))) <--> 3b [ b in U(U(A)) & t in b ] ]
+
+	D4. P(U(U(U(A)))) is the set whose members are exactly the subsets of U(U(U(A)))			[Power Axiom UI/U(U(U(A))) & Ext. Axiom -> defines P(U(U(U(A))))]
+			@x [ x in P(U(U(U(A)))) <--> @w [ w in x --> w in U(U(U(A))) ] ]
+
+	3. Show 3D [ @t [ t in D <--> 3R [ R in A & t = dom R ] ] ]
+		4. @t1 ... @tk @c [ 3D [ @t [ t in D <--> t in c & __ ] ] ]												[Subset Axiom; note __ cannot contain D]
+		5. @t1 ... @tk @c [ 3D [ @t [ t in D <--> t in c & 3R [ R in A & t = dom R ] ] ] ]						[4 UI_META/"3R [ R in A & t = dom R ]"]
+		6. @c [ 3D [ @t [ t in D <--> t in c & 3R [ R in A & t = dom R ] ] ] ]									[5 UI_META/k=0]
+		7. 3D [ @t [ t in D <--> t in P(U(U(U(A)))) & 3R [ R in A & t = dom R ] ] ]								[6 UI/P(U(U(U(A))))]
+		8. @t [ t in D_1 <--> t in P(U(U(U(A)))) & 3R [ R in A & t = dom R ] ]									[7 EI/D_1]
+
+		9. Show @t [ t in D_1 <--> 3R [ R in A & t = dom R ] ]
+			10. let t be a set
+			11. Show t in D_1 <--> 3R [ R in A & t = dom R ]
+				12. Show t in D_1 --> 3R [ R in A & t = dom R ]
+					13. t in D_1				[ACD]
+					14. @t [ t in D_1 <--> t in P(U(U(U(A)))) & 3R [ R in A & t = dom R ] ]		[8 R]
+					15. t in D_1 <--> t in P(U(U(U(A)))) & 3R [ R in A & t = dom R ]			[14 UI/t]
+					16. 3R [ R in A & t = dom R ]												[15 BC 13 MP SR]
+					17.		[16 CD]
+
+				18. Show 3R [ R in A & t = dom R ] --> t in D_1
+					19. 3R [ R in A & t = dom R ]					[ACD]
+					*20. R_1 in A & t = dom R_1						[19 EI/R_1]
+
+					D5. dom R_1  is the set whose members are those 1st-coordinate set of some ordered pair in R_1
+						@x [ x in dom R_1 <--> 3y [ <x, y> in R_1 ] ]
+						
+					21. @t [ t in D_1 <--> t in P(U(U(U(A)))) & 3R [ R in A & t = dom R ] ]		[8 R]
+					22. t in D_1 <--> t in P(U(U(U(A)))) & 3R [ R in A & t = dom R ]			[21 UI/t]
+
+					23. Show t in P(U(U(U(A))))
+						24. @x [ x in P(U(U(U(A)))) <--> @w [ w in x --> w in U(U(U(A))) ] ]		[D4]
+						25. t in P(U(U(U(A)))) <--> @w [ w in t --> w in U(U(U(A))) ]				[24 UI/t]
+						26. Show @w [ w in t --> w in U(U(U(A))) ]
+							27. let w bet a set
+							28. Show w in t --> w in U(U(U(A)))
+								29. w in t 			[ACD]
+								30. t = dom R_1		[20 SR]
+								31. w in dom R_1	[29 30 EL]
+								32. @x [ x in dom R_1 <--> 3y [ <x, y> in R_1 ] ]		[D5]
+								33. w in dom R_1 <--> 3y [ <w, y> in R_1 ]				[32 UI/w]
+								34. 3y [ <w, y> in R_1 ]								[33 BC 31 MP]
+								35. <w, y_1> in R_1										[34 UI/y_1]
+								36. <w, y_1> := {{w}, {w, y_1}}							[definition of <x, y>]
+
+
+								D6. {w} is the set whose only members are w and w			[Pairing Axiom UI/w UI/w & Ext. Axiom]
+									@x [ x in {w} <--> x = w or x = w ]
+
+								D7. {w, y_1} is the set whose only members are w and y_1	[Pairing Axiom UI/w UI/y_1 & Ext. Axiom]
+									@x [ x in {w, y_1} <--> x = w or x = y_1 ]
+								
+								D8. {{w}, {w, y_1}} is the set whose only members are {w} and {w, y_1}		[Pairing Axiom UI/{w} UI/{w, y_1} & Ext. Axiom]
+									@x [ x in {{w}, {w, y_1}} <--> x = {w} or x = {w, y_1} ]
+
+								
+
+								37. {{w}, {w, y_1}} in R_1								[35 36 EL]
+								38. R_1 in A											[20 SL]
+
+
+								39. @t [ t in U(U(U(A))) <--> 3b [ b in U(U(A)) & t in b ] ]		[D3]
+								40. w in U(U(U(A))) <--> 3b [ b in U(U(A)) & w in b ]				[39 UI/w]
+								41. Show 3b [ b in U(U(A)) & w in b ]
+									42. Show {w} in U(U(A))
+										43. @t [ t in U(U(A)) <--> 3b [ b in U(A) & t in b ] ]		[D2]
+										44. {w} in U(U(A)) <--> 3b [ b in U(A) & {w} in b ]			
+								 		45. Show 3b [ b in U(A) & {w} in b ]
+											46. Show {{w}, {w, y_1}} in U(A)
+												47. @t [ t in U(A) <--> 3b [ b in A & t in b ] ]							[D1]
+												48. {{w}, {w, y_1}} in U(A) <--> 3b [ b in A & {{w}, {w, y_1}} in b ]		[47 UI/{{w}, {w, y_1}}]
+												49. Show 3b [ b in A & {{w}, {w, y_1}} in b ]
+													50. R_1 in A					[38 R]
+													51. {{w}, {w, y_1}} in R_1		[37 R]
+													52. R_1 in A & {{w}, {w, y_1}} in R_1			[50 51 ADJ]
+													53. 3b [ b in A & {{w}, {w, y_1}} in b ]		[52 EG/R_1->b]
+													54. 	[53 DD]
+												55. {{w}, {w, y_1}} in U(A)							[48 BC 49 MP]
+												56. 	[55 DD]
+												
+											57. Show {w} in {{w}, {w, y_1}}
+												58. @x [ x in {{w}, {w, y_1}} <--> x = {w} or x = {w, y_1} ]		[D8]
+												59. {w} in {{w}, {w, y_1}} <--> {w} = {w} or {w} = {w, y_1}			[58 UI/{w}]
+												60. {w} = {w}							[SID/{w}]
+												61. {w} = {w} or {w} = {w, y_1}			[60 ADD/...]
+												62. {w} in {{w}, {w, y_1}}				[59 BC 61 MP]
+												63. 		[62 DD]
+
+											64. {{w}, {w, y_1}} in U(A) & {w} in {{w}, {w, y_1}}			[46 57 ADJ]
+											65. 3b [ b in U(A) & {w} in b ]									[64 EG/{{w}, {w, y_1}}->b]
+											66. 	[65 DD]
+										67. {w} in U(U(A))		[44 BC 45 MP]
+										68.		[67 DD]
+									69. Show w in {w}
+										70. @x [ x in {w} <--> x = w or x = w ]			[D6]
+										71. w in {w} <--> w = w or w = w				[70 UI/w]
+										72. w = w										[SID/w]
+										73. w = w or w = w								[72 ADD/...]
+										74. w in {w}									[71 BC 73 MP]
+										75.		[74 DD]
+									76. {w} in U(U(A)) & w in {w}						[42 69 ADJ]
+									77. 3b [ b in U(U(A)) & w in b ]					[76 EG/{w}->b]
+									78. 		[77 DD]
+								79. w in U(U(U(A)))										[40 BC 41 MP]
+								80. 	[79 CD]
+							81. 	[28 UD]
+						82. t in P(U(U(U(A))))										[25 BC 26 MP]
+						83. 	[82 DD]
+					84. t in P(U(U(U(A)))) & 3R [ R in A & t = dom R ]				[23 19 ADJ]
+					85. t in D_1													[22 BC 84 MP]
+					86. 	[85 CD]
+
+				87. t in D_1 <--> 3R [ R in A & t = dom R ]				[12 18 CB]
+				88. 		[87 DD]
+			89.		[11 UD]
+
+		90. 3D [ @t [ t in D <--> 3R [ R in A & t = dom R ] ] ]			[9 EG/D_1->D]
+		91. 	[90 DD]
+	92. 	[3 UD]

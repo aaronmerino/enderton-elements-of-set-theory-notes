@@ -1,0 +1,118 @@
+Axioms/Theorems/Definitions:
+	Extensionality Axiom:
+	@A, B [ @x [ x in A <--> x in B ] --> A = B ]
+
+	Union Axiom:
+	@A [ 3B [ @x [ x in B <--> 3b [ b in A & x in b ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set A, the union of A  U(A)     is the set whose members are exactly the members of the members of A
+		[You can think of U(A) as a 1-ary operator. It refer to one set and one set only based on the set A!]
+
+	Pg 43 Existence part:	
+	@F, x [ 3D [ @y [ y in D <--> <x, y> in F ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			For any F, x, the set {y | <x, y> in F} is the set that contains all 2nd-coordinate sets of all ordered pairs in F where x is the first-coordinate set.
+
+	Function:
+		Definition of F(x): (We define it like this for the purpose of making sure that F(x) is always defined for any F and x, but really its for semantic purposes)
+		@F, x [ F(x) := U({y | <x, y> in F}) ]
+
+		Definition:
+		@F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]
+
+		**IGNORE** Definition of F(x) **THIS IS OLD VERSION**:
+		@F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y->F(x)[ <x, F(x)> in F & @z [ <x, z> in F --> F(x) = z ] ] ] ]  
+
+
+
+1. Show @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]
+	2. let F, x be sets
+
+	D1. {y | <x, y> in F} is the set that contains all 2nd-coordinate sets of all ordered pairs in F where x is the first-coordinate set.
+		@w [ w in {y | <x, y> in F} <--> <x, w> in F ]
+
+	D2. U({y | <x, y> in F}) is the set whose members are exactly the members of the members of {y | <x, y> in F}
+		@w [ w in U({y | <x, y> in F}) <--> 3b [ b in {y | <x, y> in F} & w in b ] ]
+
+	3. Show F is a function & x in dom F --> @w [ <x, w> in F <--> F(x) = w ]
+		4. F is a function & x in dom F
+		5. @F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]		[Definition of a Function]
+		6. F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] 			[5 UI/F]
+		7. F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ]									[6 BC 4 SL MP]
+		8. @x [ x in dom F --> 3_1y [ <x, y> in F ] ]													[7 SR]
+		9. x in dom F --> 3_1y [ <x, y> in F ]															[8 UI/x]
+		10. 3_1y [ <x, y> in F ]																		[4 SR 9 MP]
+
+		11. <x, y_1> in F & @z [ <x, z> in F --> z = y_1 ]  											[10 EI_UNIQUE/y_1]
+
+		12. @F, x [ F(x) := U({y | <x, y> in F}) ]														[Definition of F(x)]
+		13. F(x) := U({y | <x, y> in F})																[12 UI/F UI/x]
+
+
+		14. Show U({y | <x, y> in F}) = y_1
+			15. @A, B [ @w [ w in A <--> w in B ] --> A = B ]												[Ext. Axiom]
+			16. @w [ w in U({y | <x, y> in F}) <--> w in y_1 ] --> U({y | <x, y> in F}) = y_1				[15 UI/U({y | <x, y> in F}) UI/y_1]
+			17. Show @w [ w in U({y | <x, y> in F}) <--> w in y_1 ]
+				18. let w be a set
+				19. Show w in U({y | <x, y> in F}) <--> w in y_1
+					20. Show w in U({y | <x, y> in F}) --> w in y_1
+						21. w in U({y | <x, y> in F})															[ACD]
+						22. @w [ w in U({y | <x, y> in F}) <--> 3b [ b in {y | <x, y> in F} & w in b ] ]		[D2]
+						23. w in U({y | <x, y> in F}) <--> 3b [ b in {y | <x, y> in F} & w in b ]				[22 UI/w]
+
+						24. 3b [ b in {y | <x, y> in F} & w in b ]												[23 BC 21 MP]
+						25. b_1 in {y | <x, y> in F} & w in b_1													[24 EI/b_1]
+						26. @w [ w in {y | <x, y> in F} <--> <x, w> in F ]										[D1]
+						27. b_1 in {y | <x, y> in F} <--> <x, b_1> in F											[26 UI/b_1]
+						28. <x, b_1> in F																		[27 BC 25 MP]
+						29. @z [ <x, z> in F --> z = y_1 ]														[11 SR]
+						30. <x, b_1> in F --> b_1 = y_1															[29 UI/b_1]
+						31. b_1 = y_1																			[28 30 MP]
+						32. w in b_1																			[25 SR]
+						33. w in y_1																			[31 32 LL]
+						34. 	[33 CD]
+
+					35. Show w in y_1 --> w in U({y | <x, y> in F})
+						36. w in y_1																			[ACD]
+						37. @w [ w in U({y | <x, y> in F}) <--> 3b [ b in {y | <x, y> in F} & w in b ] ]		[D2]
+						38. w in U({y | <x, y> in F}) <--> 3b [ b in {y | <x, y> in F} & w in b ]				[37 UI/w]
+						39. Show 3b [ b in {y | <x, y> in F} & w in b ]
+							40. Show y_1 in {y | <x, y> in F}
+								41. @w [ w in {y | <x, y> in F} <--> <x, w> in F ]								[D1]
+								42. y_1 in {y | <x, y> in F} <--> <x, y_1> in F									[41 UI/y_1]
+								43. <x, y_1> in F																[11 SL]
+								44. y_1 in {y | <x, y> in F}													[42 BC 43 MP]
+								45. 	[44 DD]
+							46. y_1 in {y | <x, y> in F} & w in y_1												[40 36 ADJ]
+							47. 3b [ b in {y | <x, y> in F} & w in b ]											[46 EG/y_1->b]
+							48. 	[47 DD]
+						49. w in U({y | <x, y> in F})															[38 BC 39 MP]
+						50. 		[49 CD]
+					51. w in U({y | <x, y> in F}) <--> w in y_1						[20 35 CB]
+					52. 	[51 DD]
+				53. 	[19 UD]
+			54. U({y | <x, y> in F}) = y_1							[16 17 MP]
+			55. 	[54 DD]
+
+		56. F(x) = y_1																						[14 13 LL]
+		57. Show @w [ <x, w> in F <--> F(x) = w ]
+			58. let w be a set
+			59. Show <x, w> in F --> F(x) = w
+				60. <x, w> in F									[ACD]
+				61. @z [ <x, z> in F --> z = y_1 ]  			[11 SR]
+				62. <x, w> in F --> w = y_1						[61 UI/w]
+				63. w = y_1										[60 62 MP]
+				64.	F(x) = w									[56 63 LL]
+				65.		[64 CD]
+			66. Show F(x) = w --> <x, w> in F
+				67. F(x) = w									[ACD]
+				68. Show <x, w> in F
+					69. <x, y_1> in F							[11 SL]
+					70. w = y_1									[56 67 LL]
+					71. <x, w> in F								[69 70 LL]
+					72. 	[71 DD]
+				73. 	[68 CD]
+			74. <x, w> in F <--> F(x) = w						[59 66 CB]
+			75.		[74 UD]
+		76. 	[57 CD]
+	77.		[3 UD]

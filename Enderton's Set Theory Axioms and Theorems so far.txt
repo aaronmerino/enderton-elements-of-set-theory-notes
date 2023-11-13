@@ -1,0 +1,397 @@
+Axioms and Theorems:
+	Extensionality Axiom:
+	@A, B [ @x [ x in A <--> x in B ] --> A = B ]
+
+	Converse of Extensionality Axiom (Theorem Pg.2):
+	@A, B [ A = B  --> @x [ x in A <--> x in B ]  ]
+
+	Empty Set Axiom:
+	3B [ @x [ ~(x in B) ] ]
+	Definition (its uniqueness is always due to Ext. Axiom):
+	{ } is the set having no members
+		[You can think of {} as a 0-ary operator. It refer to one set and one set only!]
+
+	LEMMA - NON-EMPTY:
+		@A [ A != {} --> 3t [ t in A ] ]
+		
+	Pairing Axiom:
+	@u, v [ 3B [ @x [ x in B <--> x = u or x = v ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any sets u, v, the pair set {u, v} is the set whose only members are u and v.
+		[You can think of {u, v} as a 2-ary operator. It refer to one set and one set only based on the sets u and v!]
+
+		Definition:
+		Let {x} := {x, x} is the set whose only members are x and x
+
+	Union Axiom (Preliminary Form):
+	@a, b [ 3B [ @x [ x in B <--> x in a or x in b ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any sets a, b, the union a ∪ b is the set whose members are those sets belonging either to a or to b (or both).
+		[You can think of a ∪ b as a 2-ary operator. It refer to one set and one set only based on the sets a and b!]
+
+	Power Set Axiom:
+	@a [ 3B [ @x [ x in B <--> @t [ t in x --> t in a ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set a, the power set  P(a) is the set whose members are exactly the subsets of a.
+		[You can think of P(a) as a 1-ary operator. It refer to one set and one set only based on the sets a!]
+
+	Subset Axioms:
+	For each formula __ not containing B, the following is an axiom:
+	@t1 ... @tk @c [ 3B [ @x [ x in B <--> x in c & __ ] ] ]
+		Definition:
+		For any set t­1, ..., tk and c, the subset B = {x in c | __ } is the set whose members are exactly those sets in c and __	
+
+	
+		Example of a subset Axiom (intersection):
+		@a, c [ 3B [ @x [ x in B <--> x in c & x in a ] ] ]
+			Definition (its uniqueness is always due to Ext. Axiom):
+			For any set a, c, the intersection set  a ∩ c is the set whose members are exactly those sets in a and c
+			[You can think of a ∩ c as a 2-ary operator. It refer to one set and one set only based on the sets a and b!]
+
+		Example of a subset Axiom (relative complement):
+		@A, B [ 3S [ @t [ t in S <--> t in A & ~(t in B) ] ] ]
+			Definition (its uniqueness is always due to Ext. Axiom):
+			For any set A, B, the relative complement of B in A     A - B     is the set whose members are exactly those sets in A and but not in B
+			[You can think of A - B as a 2-ary operator. It refer to one set and one set only based on the sets A and B!]
+
+	Theorem 2A:
+	~3V [ @x [ x in V ] ]
+
+	Union Axiom:
+	@A [ 3B [ @x [ x in B <--> 3b [ b in A & x in b ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set A, the union of A  U(A)     is the set whose members are exactly the members of the members of A
+		[You can think of U(A) as a 1-ary operator. It refer to one set and one set only based on the set A!]
+
+	Theorem 2B (Arbitrary Intersection):
+	@A [ A != { } --> 3_1B [ @x [ x in B <--> @a [ a in A --> x in a ] ] ] ] 
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set non empty set A, the intersection of A  ∩(A)     is the set whose members are exactly the members of all members of A.
+
+
+	Theorem Pg.31 (A): 
+	@A, D [ 3B [ @t [ t in B <--> 3X [ X in D & t = A ∪ X ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets A, D,  {A ∪ X | X in D}    is the set whose members are exactly the sets of the form A ∪ X for some X in D.
+
+	Theorem Pg.31 (B): 
+	@A, D [ 3B [ @t [ t in B <--> 3X [ X in D & t = A ∩ X ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets A, D,  {A ∩ X | X in D}    is the set whose members are exactly the sets of the form A ∩ X for some X in D.
+
+	Theorem Pg.31 (C): 
+	@C, A [ 3B [ @t [ t in B <--> 3X [ X in A & t = C - X ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets C, A,  {C - X | X in A}    is the set whose members are exactly the sets of the form C - X for some X in A.
+
+	
+	Definition of Ordered Pair:
+		@x, y[ <x, y> := {{x}, {x, y}} ]
+			note {x} exists due to Pairing Axiom & Extensionality
+			note {x, y} exists due to Pairing Axiom & Extensionality
+			finally {{x}, {x, y}} exists due to Pairing Axiom & Extensionality
+	
+	Theorem 3A:
+		@u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]
+
+	Lemma 3B:
+    		@C, x, y [ x in C & y in C --> <x, y> in P(P(C)) ]
+
+	Corollary 3C:
+		@A, B [ 3D [ @t[ t in D <--> 3x, y [x in A & y in B & t = <x, y> ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets A, B,  {<x, y> | x in A & y in B}    is the set whose members are exactly the sets of the form <x, y> for some x in A & y in B
+		Also known as the Cartesian Product A x B of the sets A and B!
+
+	Pg 38 Exercise 3 Part 1:
+		@A, B [ 3D [ @t [ t in D <--> 3X [ X in B & t = A x X ] ] ] ]	
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets C, A,  {A x X | X in B}    is the set whose members are exactly the sets of the form A x X for some X in B.
+
+	Pg 38 Exercise 5a:	
+		@A, B [ 3C [ @y [ y in C <--> 3x [ x in A & y = {x} x B ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets A, B,  {{x} x B | x in A}    is the set whose members are exactly the sets of the form {x} x B for some x in A.
+		
+	Lemma 3D: 
+		@A, x, y [ <x, y> in A --> x in U(U(A)) & y in U(U(A)) ] 
+
+	Relation:
+		Definition:
+		A relation R is a set of ordered pairs.
+		@R [ R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ] ]
+
+	Identity Relation on S:
+		@S [ 3D [ @x [ x in D <--> 3u [ x = <u, u> & u in S ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets S,  I_S := {<u, u> | u in S}    is the set whose members are exactly the sets of the form <u, u> for some u in S.
+				
+	dom R: 
+		@R [ 3D [ @x [ x in D <--> 3y [ <x, y> in R ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets R,  dom R  is the set whose members are those 1st-coordinate set of some ordered pair in R
+
+	ran R: 
+		@R [ 3D [ @x [ x in D <--> 3t [ <t, x> in R ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets R,  ran R  is the set whose members are those 2nd-coordinate set of some ordered pair in R
+
+	fld R: 
+		@R [ fld R := dom R ∪ ran R ]
+		Definition:
+		For any set sets R,  fld R := dom R ∪ ran R
+
+	Pg 41 Exercise 8 part 1:
+		@A [ 3D [ @t [ t in D <--> 3R [ R in A & t = dom R ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets A, {dom R | R in A} is the set whose members are exactly the sets of the form dom R for some R in A.
+
+	Pg 43 Existence part:	
+		@F, x [ 3D [ @y [ y in D <--> <x, y> in F ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			For any F, x, the set {y | <x, y> in F} is the set that contains all 2nd-coordinate sets of all ordered pairs in F where x is the first-coordinate set.
+
+	Definition of F(x): 
+	(We define it like this for the purpose of making sure that F(x) is always defined for any F and x, so that we can always refer to it)
+		@F, x [ F(x) := U({y | <x, y> in F}) ]
+
+	Union of singleton (Pg 43):
+		@w [ w = U({w}) ]	
+
+	Function:
+		Definition:
+		@F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]
+
+	
+	Pg 43 When F is a function and x the dom F, F(x) is y IFF <x, y> in F:
+		@F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]
+		
+
+	Identity relation is a function:
+		@S [ I_S is a function ]
+
+	Definition of into:
+		@F, A, B [ F maps A into B (F: A->B) <--> 
+						F is a function &
+						dom F = A &
+						ran F ⊆ B 
+					]
+	
+	Definition of onto:
+		@F, A, B [ F maps A onto B <--> 
+						F is a function &
+						dom F = A &
+						ran F = B 
+					]
+
+	Definition of one-to-one:
+		@F [ F is a function --> 
+			[ F is one-to-one <--> @y [ y in ran F --> 3_1x[ <x, y> in F ] ] ] ]
+	
+	
+	Definition of single-rooted:
+		@R [ R is single-rooted <--> 
+				@y [ y in ran R --> 3_1x [ <x, y> in R ] ]
+			]
+
+	The inverse of F set:
+		@F [ 3D [ @t [ t in D <--> 3u, v [ <v, u> in F & t = <u, v> ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			For any sets F, F^-1 is the set known as the inverse of F
+			AKA: F^-1 := {<u, v> | <v, u> in F}
+
+	The composition of F and G set:
+		@F, G [ 3D [ @w [ w in D <--> 3u, v [ w = <u, v> & 3t [ <u, t> in G & <t, v> in F ] ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			For any sets F, G, F o G is the set known as the composition of F and G
+			AKA: F o G := {<u, v> | 3t[<u, t> in G & <t, v> in F]}
+
+	The restriction of F to A set:
+		@F, A [ 3D [ @w [ w in D <--> 3u, v [ w = <u, v> & <u, v> in F & u in A ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			For any sets F, A, F | A is the set known as the restriction of F to A
+			AKA: F | A := {<u, v> | <u, v> in F & u in A}
+
+	The Image of A under F set:
+		@F, A [ 3D [ @v [ v in D <--> 3u [ u in A & <u, v> in F ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			For any sets F, A, F[A] is the set known as the Image of A under F
+			AKA: F[A] := {F(u) | u in A} when F is a function & A ⊆ dom F
+			
+	The Inverse image of A under F set:
+		@F, A [ 3D [ @x [ x in D <--> x in dom F & F(x) in A ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			For any sets F, A, {x in dom F | F(x) in A} is the set known as the Inverse Image of A under F
+			
+	Theorem 3E:
+		@F [ dom (F^-1) = ran F & ran (F^-1) = dom F ]
+		@F [ F is a relation --> ((F^-1)^-1) = F ]
+
+	Theorem 3F:
+		@F [ (F^-1) is a function <--> F is single-rooted ]
+		@F [ F is a relation --> [ F is a function <--> (F^-1) is single-rooted ] ]
+		
+	Theorem 3G:
+		@F [ F is a function & F is single-rooted --> @x [ x in dom F --> (F^-1)(F(x)) = x ] ]
+		@F [ F is a function & F is single-rooted --> @y [ y in ran F --> F((F^-1)(y)) = y ] ]
+
+	Lemma - PEAR (from Theorem 3H):
+		@F, G [ 3D [ @x [ x in D <--> x in dom G & G(x) in dom F ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			For any sets F, G, {a in dom G | G(a) in dom F} is the subset of dom G where G(a) is in dom F
+
+	Theorem 3H:
+		@F, G [ F, G are functions -->  F o G is a function ]
+		@F, G [ F, G are functions --> dom F o G = {a in dom G | G(a) in dom F} ]
+		@F, G [ F, G are functions --> @x [ x in dom F o G --> (F o G)(x) = F(G(x)) ] ]
+
+	Theorem 3I:
+		@F, G [ ((F o G)^-1) = (G^-1) o (F^-1) ]
+	
+	Axiom of Choice (first form):
+ 		@R [ R is a relation --> 3H [ H is a function & H ⊆ R & dom H = dom R ] ]
+
+	LEMMA - NON-EMPTY:
+		@A [ A != {} --> 3t [ t in A ] ]
+
+	Theorem 3J:
+		"Left-Inverse Existence"
+		(a): @F, A, B [ (F maps A into B) & A != {} --> [ 3G [ (G maps B into A) & G o F = I_A ] <--> F is single-rooted ] ]
+
+		"Right-Inverse Existence"
+		(b): @F, A, B [ (F maps A into B) & A != {} --> [ 3H [ (H maps B into A) & F o H = I_B ] <--> F maps A onto B ] ]
+
+	Theorem 3K(a) Part1:
+		@F, A, B [ F[A ∪ B] = F[A] ∪ F[B] ]
+
+	Theorem 3K(a), 3K(b) Part2 Existence:
+		@F, Z [ 3D [ @t [ t in D <--> 3A [ A in Z & t = F[A] ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			For any F, Z, the unique set {F[A] | A in Z } is the set that contains all sets of the form F[A] for some A in Z
+
+	Theorem 3K(a) Part2:
+		@F, Z [ F[U(Z)] = U({F[A] | A in Z }) ]
+			
+	Theorem 3K(b) Part1:
+		@F, A, B [ @t[ t in F[A ∩ B] --> t in F[A] ∩ F[B] ] ]
+
+	Theorem 3K(b) Part2:
+		@F, Z [ Z != {} --> @t [ t in F[∩(Z)] --> t in ∩({F[A] | A in Z }) ] ]
+	
+	Theorem 3K(b) Part2 Single-rooted:
+		@F, Z [ F is single-rooted & Z != {} --> F[∩(Z)] = ∩({F[A] | A in Z }) ]
+				
+	Theorem 3K(c):
+		@F, A, B [ @t [ t in F[A] - F[B] --> t in F[A - B] ] ]
+	
+	Theorem 3K(c) Single-rooted:
+		@F, A, B [ F is single-rooted --> F[A] - F[B] = F[A - B] ]
+
+	Corollary 3L:
+		@G [ G is a function --> @Z [ (G^-1)[U(Z)] = U({(G^-1)[A] | A in Z }) ] ]
+		@G [ G is a function --> @Z [ Z != {} --> (G^-1)[∩(Z)] = ∩({(G^-1)[A] | A in Z }) ] ]
+		@G [ G is a function --> @A, B [ (G^-1)[A - B] = (G^-1)[A] - (G^-1)[B] ] ]
+		
+	Pg 51 infinite index existence:
+		@F, I [ F is a function & I ⊆ dom F --> 3D [ @v [ v in D <--> 3i [ i in I & v = F(i) ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			For any F, I, where F is a function & I ⊆ dom F, the unique set {F(i) | i in I} is the set of sets of the form F(i) where i in I.
+
+		@F, I [ 3D [ @v [ v in D <--> 3i [ i in I & v = F(i) ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			For any F, I, the unique set {F(i) | i in I} is the set of sets of the form F(i) where i in I.
+			
+		
+	Pg 52. B-pre-A existence:
+		@A, B [ 3D [ @t [ t in D <--> t: A->B ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			For any A, B, the unique set B-pre-A is the set that contains all functions F from A into B (F: A->B)
+	
+	Pg 52 example 2 part 1:
+		@A [ A != {} -->  {}-pre-A = {} ]
+	
+	Pg 52 example 2 part 2:
+		@A [ A-pre-{} = {{}} ]
+
+	Infinite Cartesiona Product:
+		@I, H [ H is a function & I ⊆ dom H --> 3D [ @f [ f in D <--> f is a function & dom f = I & @i [  i in I --> f(i) in H(i) ] ] ] ]
+
+		Definition (its uniqueness is due to Ext. Axiom):
+			For any I, H, where H is a function & I ⊆ dom H, then X_{i in I}(H(i)) is the product of the H(i)'s for all i in I.
+
+	Axiom of Choice (second form):
+		@I, H [ H is a function & dom H = I --> [ @i [ i in I --> H(i) != {} ] --> X_{i in I}(H(i)) != {} ] ]
+
+Algebra of Sets:
+	Pg 24 Union of empty set:
+		U({}) = ({})
+
+	Commutative laws:
+		@A, B [ A ∪ B = B ∪ A ]
+
+		@A, B [ A ∩ B = B ∩ A ]
+
+	Associative laws:
+		@A, B [ A ∪ (B ∪ C) = (A ∪ B) ∪ C ]
+
+		@A, B [ A ∩ (B ∩ C) = (A ∩ B) ∩ C ]
+
+	Distributive laws:
+		@A, B [ A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C) ]
+
+		@A, B [ A ∪ (B ∩ C) = (A ∪ B) ∩ (A ∪ C) ]
+
+	De Morgan's laws:
+		@A, B, C [ C - (A ∪ B) = (C - A) ∩ (C - B) ]
+
+		@A, B, C [ C - (A ∩ B) = (C - A) ∪ (C - B) ]
+
+	De Morgan's laws abbreviation (assuming A, B are subset of C):
+		@A, B [ - (A ∪ B) =  - A ∩ - B ]
+
+		@A, B [ - (A ∩ B) = - A ∪ - B ]
+
+	Identities involving empty set { }:
+		@A [ A ∪ { } = A ]
+
+		@A [ A ∩ { } = { } ]
+
+		@A, C [ A ∩ (C - A) = { } ]
+
+	@A, S [ A is a subset of S -->  A ∪ S = S ]
+	@A, S [ A is a subset of S -->  A ∪ -A = S ]
+	@A, S [ A is a subset of S -->  A ∩ S = A ]
+	@A, S [ A is a subset of S -->  A ∩ -A = { } ]	
+		
+	Monotonicity Properties:
+		@A, B [ @t[ t in A --> t in B ] --> @t[ t in A ∪ C --> t in B ∪ C ] ]
+		@A, B [ @t[ t in A --> t in B ] --> @t[ t in A ∩ C --> t in B ∩ C ] ]
+		@A, B [ @t[ t in A --> t in B ] --> @t[ t in U(A)  --> t in U(B) ] ]
+
+	Anti-monotonicity Properties:
+		@A, B, C [ @t [ t in A --> t in B ] --> @t [ t in C - B --> t in C - A ] ]
+		@A, B [ @t [ t in A --> t in B ] --> @t [ t in ∩B --> t in ∩A ] ]
+
+	Distributive Laws (Arbitrary intersections/unions):
+		@A, B [ B != { } --> A ∪ ∩(B) = ∩({A ∪ X | X in B}) ]
+
+		@A, B [ A ∩ U(B) = U({A ∩ X | X in B}) ]
+
+	De Morgan's laws (Arbitrary intersections/unions):
+		@C, A [ A != { } --> C - U(A) = ∩({C - X | X in A}) ]
+		@C, A [ A != { } --> C - ∩(A) = U({C - X | X in A}) ]
+
+		@C, A [ A != { } & @t [ t in U(A) --> t in C ] --> -U(A) = ∩({-X | X in A}) ]
+		@C, A [ A != { } & @t [ t in U(A) --> t in C ] --> -∩(A) = U({-X | X in A}) ]
+
+	Pg 38 Exercise 3:
+		@A, B [ A x U(B) = U({A x X | X in B}) ]
+
+	Pg 38 Exercise 5b:
+		@A, B, C [ A x B = U( {{x} x B | x in A} ) ]
+
+	Pg 41 Exercise 8 part 2:
+		@A [ dom(U(A)) = U({dom R | R in A}) ]
+
+	Pg 41 Exercise 9:
+	 @A [ A != { } --> dom(∩(A)) ⊆ ∩({dom R | R in A}) ]

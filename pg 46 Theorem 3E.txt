@@ -1,0 +1,184 @@
+Axioms and Theorems:
+	Extensionality Axiom:
+	@A, B [ @x [ x in A <--> x in B ] --> A = B ]	
+
+	Definition of Ordered Pair:
+		@x, y[ <x, y> := {{x}, {x, y}} ]
+			note {x} exists due to Pairing Axiom & Extensionality
+			note {x, y} exists due to Pairing Axiom & Extensionality
+			finally {{x}, {x, y}} exists due to Pairing Axiom & Extensionality
+
+	Theorem 3A:
+		@u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]
+
+	dom R: 
+		@R [ 3D [ @x [ x in D <--> 3y [ <x, y> in R ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets R,  dom R  is the set whose members are those 1st-coordinate set of some ordered pair in R
+
+	ran R: 
+		@R [ 3D [ @x [ x in D <--> 3t [ <t, x> in R ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets R,  ran R  is the set whose members are those 2nd-coordinate set of some ordered pair in R
+
+
+	The inverse of F set:
+		@F [ 3D [ @t [ t in D <--> 3u, v [ <v, u> in F & t = <u, v> ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			For any sets F, F^-1 is the set known as the inverse of F
+			AKA: F^-1 := {<u, v> | <v, u> in F}
+
+1. Show @F [ dom (F^-1) = ran F & ran (F^-1) = dom F ]
+	2. let F be a set
+	D1. @t [ t in (F^-1) <--> 3u, v [ <v, u> in F & t = <u, v> ] ]		[Inverse of F UI/F EI & Ext. Axiom]
+
+	D2. @x [ x in dom (F^-1) <--> 3y [ <x, y> in (F^-1) ] ]				[dom UI/(F^-1) EI & Ext. Axiom]
+	D3. @x [ x in ran F <--> 3t [ <t, x> in F ] ]						[ran UI/F EI & Ext. Axiom]
+
+	D4. @x [ x in dom F <--> 3y [ <x, y> in F ] ]						[dom UI/F EI & Ext. Axiom]
+	D5. @x [ x in ran (F^-1) <--> 3t [ <t, x> in (F^-1) ] ] 			[ran UI/(F^-1) EI & Ext. Axiom]
+
+	3. Show dom (F^-1) = ran F & ran (F^-1) = dom F
+		4. @A, B [ @x [ x in A <--> x in B ] --> A = B ]						[Ext. Axiom]
+		5. @x [ x in dom (F^-1) <--> x in ran F ] --> dom (F^-1) = ran F		[4 UI/dom (F^-1) UI/ran F]
+		6. Show @x [ x in dom (F^-1) <--> x in ran F ]
+			7. let x be a set
+			8. Show x in dom (F^-1) <--> x in ran F
+				9. Show x in dom (F^-1) --> x in ran F
+					10. x in dom (F^-1)															[ACD]
+					11. @x [ x in dom (F^-1) <--> 3y [ <x, y> in (F^-1) ] ]						[D2]
+					12. x in dom (F^-1) <--> 3y [ <x, y> in (F^-1) ]							[11 UI/x]
+					13. 3y [ <x, y> in (F^-1) ]													[12 BC 10 MP]
+					14. <x, y_1> in (F^-1)														[13 EI/y_1]
+					15. @t [ t in (F^-1) <--> 3u, v [ <v, u> in F & t = <u, v> ] ]				[D1]
+					16. <x, y_1> in (F^-1) <--> 3u, v [ <v, u> in F & <x, y_1> = <u, v> ]		[15 UI/<x, y_1>]
+					17. 3u, v [ <v, u> in F & <x, y_1> = <u, v> ]								[16 BC 14 MP]
+					18. <v_2, u_2> in F & <x, y_1> = <u_2, v_2>									[17 EI/u_2 EI/v_2]
+					19. @u, v, s, t [ <u, v> = <s, t>  <-->  u = s & v = t ]					[Theorem 3A]
+					20. <x, y_1> = <u_2, v_2>  <-->  x = u_2 & y_1 = v_2						[19 UI/x, y_1, u_2, v_2]
+					21. <x, y_1> = <u_2, v_2>													[18 SR]
+					22. x = u_2 & y_1 = v_2														[20 BC 21 MP]
+					23. <v_2, u_2> in F															[18 SL]
+					24. x = u_2																	[22 SL]
+					25. <v_2, x> in F															[23 24 EL]
+					26. @x [ x in ran F <--> 3t [ <t, x> in F ] ] 								[D3]
+					27. x in ran F <--> 3t [ <t, x> in F ]										[26 UI/x]
+					28. 3t [ <t, x> in F ]														[25 EG/v_2->t]
+					29. x in ran F																[27 BC 28 MP]
+					30. 		[29 CD]
+
+				31. Show x in ran F --> x in dom (F^-1)
+					32. x in ran F																[ACD]
+					33. @x [ x in ran F <--> 3t [ <t, x> in F ] ]								[D3]
+					34. x in ran F <--> 3t [ <t, x> in F ]										[33 UI/x]
+					35. 3t [ <t, x> in F ]														[34 BC 32 MP]
+					36. <t_1, x> in F															[35 EI/t_1]
+					37. @x [ x in dom (F^-1) <--> 3y [ <x, y> in (F^-1) ] ]						[D2]
+					38. x in dom (F^-1) <--> 3y [ <x, y> in (F^-1) ]							[37 UI/x]
+					39. Show 3y [ <x, y> in (F^-1) ]
+						40. @t [ t in (F^-1) <--> 3u, v [ <v, u> in F & t = <u, v> ] ]						[D1]
+						41. <x, t_1> in (F^-1) <--> 3u, v [ <v, u> in F & <x, t_1> = <u, v> ]				[40 UI/<x, t_1>]
+						42. Show 3u, v [ <v, u> in F & <x, t_1> = <u, v> ]
+							43. <t_1, x> in F											[36 R]
+							44. <x, t_1> = <x, t_1>										[SID/<x, t_1>]
+							45. <t_1, x> in F & <x, t_1> = <x, t_1>						[43 44 ADJ]
+							46. 3u, v [ <v, u> in F & <x, t_1> = <u, v> ]				[45 EG/x->u EG/t_1->v]
+							47. 	[46 DD]
+						48. <x, t_1> in (F^-1)											[41 BC 42 MP]
+						49. 3y [ <x, y> in (F^-1) ]										[48 EG/t_1->y]
+						50.		[49 DD]
+					51. x in dom (F^-1)													[38 BC 39 MP]
+					52.		[51 CD]
+
+
+
+Axioms and Theorems:
+	Extensionality Axiom:
+	@A, B [ @x [ x in A <--> x in B ] --> A = B ]	
+	
+	Definition of Ordered Pair:
+		@x, y[ <x, y> := {{x}, {x, y}} ]
+			note {x} exists due to Pairing Axiom & Extensionality
+			note {x, y} exists due to Pairing Axiom & Extensionality
+			finally {{x}, {x, y}} exists due to Pairing Axiom & Extensionality
+
+	Theorem 3A:
+		@u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]
+
+	Relation:
+		Definition:
+		A relation R is a set of ordered pairs.
+		@R [ R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ] ]
+
+	The inverse of F set:
+		@F [ 3D [ @t [ t in D <--> 3u, v [ <v, u> in F & t = <u, v> ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			For any sets F, F^-1 is the set known as the inverse of F
+			AKA: F^-1 := {<u, v> | <v, u> in F}
+
+
+1. Show @F [ F is a relation --> ((F^-1)^-1) = F ]
+	2. let F be a set
+	3. Show F is a relation --> ((F^-1)^-1) = F
+		4. F is a relation						[ACD]
+		5. @R [ R is a relation <--> @t [ t in R --> 3u, v[ t = <u, v> ] ] ]		[Definition of Relation]
+		6. F is a relation <--> @t [ t in F --> 3u, v[ t = <u, v> ] ]
+		7. @t [ t in F --> 3u, v[ t = <u, v> ] ]
+
+		D1. @t [ t in (F^-1) <--> 3u, v [ <v, u> in F & t = <u, v> ] ]				[Inverse of a set UI/F EI & Ext. Axiom]
+		D2. @t [ t in ((F^-1)^-1) <--> 3u, v [ <v, u> in (F^-1) & t = <u, v> ] ]	[Inverse of a set UI/(F^-1) EI & Ext. Axiom]
+
+		8. @A, B [ @x [ x in A <--> x in B ] --> A = B ]							[Ext. Axiom]
+		9. @x [ x in ((F^-1)^-1) <--> x in F ] --> ((F^-1)^-1) = F					[8 UI/((F^-1)^-1) UI/F]
+		10. Show @x [ x in ((F^-1)^-1) <--> x in F ]
+			11. let x be a set
+			12. Show  x in ((F^-1)^-1) <--> x in F
+				13. Show x in ((F^-1)^-1) --> x in F
+					14. x in ((F^-1)^-1)																	[ACD]
+					15. @t [ t in ((F^-1)^-1) <--> 3u, v [ <v, u> in (F^-1) & t = <u, v> ] ]				[D2]
+					16. x in ((F^-1)^-1) <--> 3u, v [ <v, u> in (F^-1) & x = <u, v> ]						[15 UI/x]
+					17. 3u, v [ <v, u> in (F^-1) & x = <u, v> ]
+					18. <v_1, u_1> in (F^-1) & x = <u_1, v_1>												[17 EI/u_1 EI/v_1]
+					19. <v_1, u_1> in (F^-1)			[18 SL]
+					20. @t [ t in (F^-1) <--> 3u, v [ <v, u> in F & t = <u, v> ] ]							[D1]
+					21. <v_1, u_1> in (F^-1) <--> 3u, v [ <v, u> in F & <v_1, u_1> = <u, v> ]				[20 UI/<v_1, u_1>]
+					22. 3u, v [ <v, u> in F & <v_1, u_1> = <u, v> ]											[21 BC 19 MP]
+					23. <v_2, u_2> in F & <v_1, u_1> = <u_2, v_2>											[22 EI/v_2 EI/u_2]
+					24. <v_1, u_1> = <u_2, v_2>																[23 SR]
+					25. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]								[Theorem 3A]
+					26. <v_1, u_1> = <u_2, v_2>	 <-->  v_1 = u_2 & u_1 = v_2								[25 UI/v_1 UI/u_1 UI/u_2 UI/v_2]
+
+					27. v_1 = u_2 & u_1 = v_2																[26 BC 24 MP]
+
+					28. <v_2, u_2> in F																		[23 SL]
+					29. <u_1, u_2> in F																		[27 SR 28 EL]
+					30. <u_1, v_1> in F																		[27 SL 29 EL]
+					31. x = <u_1, v_1>																		[18 SR]
+					32.	x in F																				[30 31 EL]
+					33. 	[32 CD]
+
+				34. Show x in F --> x in ((F^-1)^-1)
+					35. x in F																				[ACD]
+					36. @t [ t in F --> 3u, v[ t = <u, v> ] ]												[7 R]
+					37. x in F --> 3u, v[ x = <u, v> ]														[36 UI/x]
+					38. 3u, v[ x = <u, v> ]																	[35 37 MP]
+					39. x = <u_1, v_1>																		[38 EI/u_1 EI/v_1]
+
+					40. <u_1, v_1> in F																		[35 39 EL]
+
+					41. @t [ t in (F^-1) <--> 3u, v [ <v, u> in F & t = <u, v> ] ]							[D1]
+					42. <v_1, u_1> in (F^-1) <--> 3u, v [ <v, u> in F & <v_1, u_1> = <u, v> ]				[41 UI/<v_1, u_1>]
+					43. <v_1, u_1> = <v_1, u_1>																[SID/<v_1, u_1>]
+					44. <u_1, v_1> in F & <v_1, u_1> = <v_1, u_1>											[40 43 ADJ]
+					45. 3u, v [ <v, u> in F & <v_1, u_1> = <u, v> ]											[44 EG/u_1->v EG/v_1->u]
+
+					46. <v_1, u_1> in (F^-1)																[42 BC 45 MP]
+
+					47. @t [ t in ((F^-1)^-1) <--> 3u, v [ <v, u> in (F^-1) & t = <u, v> ] ]				[D2]
+					48. <u_1, v_1> in ((F^-1)^-1) <--> 3u, v [ <v, u> in (F^-1) & <u_1, v_1> = <u, v> ]		[47 UI/<u_1, v_1>]
+					49. <u_1, v_1> = <u_1, v_1>																[SID/<u_1, v_1>]
+					50. <v_1, u_1> in (F^-1) & <u_1, v_1> = <u_1, v_1>										[46 49 ADJ]
+					51. 3u, v [ <v, u> in (F^-1) & <u_1, v_1> = <u, v> ]									[50 EG/u_1->u EG/v_1->v]
+					52. <u_1, v_1> in ((F^-1)^-1)															[48 BC 51 MP]
+					53. x in ((F^-1)^-1)																	[52 39 EL]
+					54. 	[53 CD]

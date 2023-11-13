@@ -1,0 +1,155 @@
+Axioms and Theorems:
+	Extensionality Axiom:
+	@A, B [ @x [ x in A <--> x in B ] --> A = B ]
+
+	Relation:
+		Definition:
+		A relation R is a set of ordered pairs.
+		@R [ R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ] ]
+
+	dom R: 
+		@R [ 3D [ @x [ x in D <--> 3y [ <x, y> in R ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets R,  dom R  is the set whose members are those 1st-coordinate set of some ordered pair in R
+
+	Definition of F(x): 
+	(We define it like this for the purpose of making sure that F(x) is always defined for any F and x, so that we can always refer to it)
+		@F, x [ F(x) := U({y | <x, y> in F}) ]
+
+	Function:
+		Definition:
+		@F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]
+
+	[MARIN] Pg 43 When F is a function and x the dom F, F(x) is y IFF <x, y> in F:
+		@F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]
+
+// LEMMA (BRUNO)
+1. Show @F, G [ F, G are functions & dom F = dom G & @x [ x in dom F --> F(x) = G(x) ] --> F ⊆ G ]
+	2. let F, G be sets
+
+	========
+	D1. @x [ x in dom F <--> 3y [ <x, y> in F ] ]				[dom UI/F EI & Ext. Axiom]
+	========
+
+	3. Show F, G are functions & dom F = dom G & @x [ x in dom F --> F(x) = G(x) ] --> F ⊆ G
+		4. F, G are functions & 
+				dom F = dom G & 
+				@x [ x in dom F --> F(x) = G(x) ]     [ACD]
+		
+		// Show F ⊆ G
+		5. Show @t [ t in F --> t in G ]
+			6. let t be a set
+			7.
+			8.
+			9. Show t in F --> t in G
+				10. t in F		[ACD]
+				11. @F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]		[Definition of function]
+				12. F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ]			[11 UI/F]
+				13. F is a function				[4 SL SL]
+				14. F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ]			[12 BC 13 MP]
+				15. F is a relation				[14 SL]
+				16. @R [ R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ] ]			[Definition of relation]
+				17. F is a relation <--> @t [ t in F --> 3x, y[ t = <x, y> ] ]				[16 UI/F]
+				18. @t [ t in F --> 3x, y[ t = <x, y> ] ]			[17 BC 15 MP]
+				19. t in F --> 3x, y[ t = <x, y> ]			[18 UI/t]
+				20. 3x, y[ t = <x, y> ]			[19 10 MP]
+				21. t = <x_1, y_1>			[20 EI/x_1 EI/y_1]
+
+				22. @x [ x in dom F <--> 3y [ <x, y> in F ] ]			[D1]
+				23. x_1 in dom F <--> 3y [ <x_1, y> in F ]				[22 UI/x_1]
+				24. <x_1, y_1> in F				[10 21 LL]
+				25. 3y [ <x_1, y> in F ]				[24 EG/y_1->y]
+				26. x_1 in dom F			[23 BC 25 MP]
+
+				27. @x [ x in dom F --> F(x) = G(x) ]			[4 SR]
+				28. x_1 in dom F --> F(x_1) = G(x_1)			[27 UI/x_1]
+				29. F(x_1) = G(x_1)				[26 28 MP]
+
+				30. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]			[MARIN]
+				31. F is a function & x_1 in dom F -->  @w [ <x_1, w> in F <--> F(x_1) = w ]				[30 UI/F UI/x_1]
+				32. F is a function		[4 SL SL]
+				33. x_1 in dom F			[26 R]
+				34. F is a function & x_1 in dom F			[32 33 ADJ]
+				35. @w [ <x_1, w> in F <--> F(x_1) = w ]				[31 34 MP]
+				36. <x_1, F(x_1)> in F <--> F(x_1) = F(x_1)			[35 UI/F(x_1)]
+				37. F(x_1) = F(x_1)			[SID/F(x_1)]
+				38. <x_1, F(x_1)> in F		[36 BC 37 MP]
+
+				39. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]			[MARIN]
+				40. G is a function & x_1 in dom G -->  @w [ <x_1, w> in G <--> G(x_1) = w ]				[30 UI/G UI/x_1]
+				41. G is a function			[4 SL SL]
+				42. x_1 in dom F			[26 R]
+				43. dom F = dom G			[4 SL SR]
+				44. x_1 in dom G			[42 43 LL]
+				45. G is a function & x_1 in dom G			[41 44 ADJ]
+				46. @w [ <x_1, w> in G <--> G(x_1) = w ]					[40 45 MP]
+				47. <x_1, G(x_1)> in G <--> G(x_1) = G(x_1)				[46 UI/G(x_1)]
+				48. G(x_1) = G(x_1)			[SID/G(x_1)]
+				49. <x_1, G(x_1)> in G			[47 BC 48 MP]
+
+				50. <x_1, F(x_1)> in G			[29 49 LL]
+
+				51. @w [ <x_1, w> in F <--> F(x_1) = w ]			[35 R]
+				52. <x_1, y_1> in F <--> F(x_1) = y_1				[51 UI/y_1]
+				53. F(x_1) = y_1						[52 BC 24 MP]
+				54. t = <x_1, F(x_1)>				[53 21 LL]
+				55. t in G			[50 54 LL]
+				56. 		[55 CD]
+			57. 		[9 UD]
+		58. F ⊆ G			[5 EQUIV.]
+		59. 		[58 CD]
+	60. 		[3 UD]
+
+
+
+
+1. Show @F, G [ F, G are functions & dom F = dom G & @x [ x in dom F --> F(x) = G(x) ] --> F = G ]
+	2. let F, G be sets
+
+	========
+	D1. @x [ x in dom F <--> 3y [ <x, y> in F ] ]				[dom UI/F EI & Ext. Axiom]
+	========
+
+	3. Show F, G are functions & dom F = dom G & @x [ x in dom F --> F(x) = G(x) ] --> F = G
+		4. F, G are functions & dom F = dom G & @x [ x in dom F --> F(x) = G(x) ]     [ACD]
+		
+		5. @A, B [ @t [ t in A <--> t in B ] --> A = B ]			[Ext. Axiom]
+		6. @t [ t in F <--> t in G ] --> F = G			[5 UI/F UI/G]
+		7. Show @t [ t in F <--> t in G ]
+			8. let t be a set
+			9. @M, N [ M, N are functions & dom M = dom N & @x [ x in dom M --> M(x) = N(x) ] --> M ⊆ N ]			[BRUNO]
+			10. F, G are functions & dom F = dom G & @x [ x in dom F --> F(x) = G(x) ] --> F ⊆ G			[9 UI/F UI/G]
+			11. F, G are functions & dom F = dom G & @x [ x in dom F --> F(x) = G(x) ]			[4 R]
+			12. F ⊆ G			[10 11 MP]
+
+			13. G, F are functions & dom G = dom F & @x [ x in dom G --> G(x) = F(x) ] --> G ⊆ F			[9 UI/G UI/F]
+			14. Show @x [ x in dom G --> G(x) = F(x) ]
+				15. let x be a set
+				16. Show x in dom G --> G(x) = F(x)
+					17. x in dom G			[ACD]
+					18. dom F = dom G			[4 SL SR]
+					19. x in dom F				[17 18 LL]
+					20. @x [ x in dom F --> F(x) = G(x) ]			[4 SR]
+					21. x in dom F --> F(x) = G(x)			[20 UI/x]
+					22. F(x) = G(x)			[19 21 MP]
+					23. G(x) = F(x)			[22 EQUAL_IS_COMMUTATIVE]
+					24. 		[23 CD]
+				25. 		[16 UD]
+			26. G, F are functions			[4 SL SL]
+			27. dom F = dom G				[4 SL SR]
+			28. dom G = dom F				[27 EQUAL_IS_COMMUTATIVE]
+			29. G, F are functions & dom G = dom F & @x [ x in dom G --> G(x) = F(x) ]			[26 28 14 ADJ]
+			30. G ⊆ F				[13 29 MP]
+
+
+			31. @t [ t in F --> t in G ]			[12 EQUIV.]
+			32. t in F --> t in G			[31 UI/t]
+
+			33. @t [ t in G --> t in F ]			[30 EQUIV.]
+			34. t in G --> t in F			[33 UI/t]
+
+			35. t in F <--> t in G			[32 34 CB]
+			36.			[35 UD]
+		37. F = G				[6 7 MP]
+		38.			[37 CD]
+	40. 		[3 UD]

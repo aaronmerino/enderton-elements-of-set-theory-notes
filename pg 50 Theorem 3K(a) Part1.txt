@@ -1,0 +1,97 @@
+
+
+
+
+
+
+
+1. Show @F, A, B [ F[A ∪ B] = F[A] ∪ F[B] ]
+	2. let F, A, B be sets
+
+	========
+	D1. @x [ x in A ∪ B <--> x in A or x in B ]			[Union Axiom UI/A UI/B EI & Ext. Axiom]
+	D2. @v [ v in F[A ∪ B] <--> 3u [ u in A ∪ B & <u, v> in F ] ]			[Image Under UI/F UI/A ∪ B EI & Ext. Axiom]
+	D3. @v [ v in F[A] <--> 3u [ u in A & <u, v> in F ] ]			[Image Under UI/F UI/A EI & Ext. Axiom]
+	D4. @v [ v in F[B] <--> 3u [ u in B & <u, v> in F ] ]			[Image Under UI/F UI/B EI & Ext. Axiom]
+	D5. @x [ x in F[A] ∪ F[B] <--> x in F[A] or x in F[B] ]			[Union Axiom UI/F[A] UI/F[B] EI & Ext. Axiom]
+	========
+
+	3. @A, B [ @x [ x in A <--> x in B ] --> A = B ]			[Ext. Axiom]
+	4. @x [ x in F[A ∪ B] <--> x in F[A] ∪ F[B] ] --> F[A ∪ B] = F[A] ∪ F[B]			[3 UI/F[A ∪ B] UI/F[A] ∪ F[B]]
+	5. Show @x [ x in F[A ∪ B] <--> x in F[A] ∪ F[B] ]
+		6. let x be a set
+		7. Show x in F[A ∪ B] --> x in F[A] ∪ F[B]
+			8. x in F[A ∪ B]		[ACD]
+			9. @v [ v in F[A ∪ B] <--> 3u [ u in A ∪ B & <u, v> in F ] ]		[D2]
+			10. x in F[A ∪ B] <--> 3u [ u in A ∪ B & <u, x> in F ]			[9 UI/x]
+			11. 3u [ u in A ∪ B & <u, x> in F ]				[10 BC 8 MP]
+			12. u_1 in A ∪ B & <u_1, x> in F					[11 EI/u_1]
+			13. u_1 in A ∪ B		[12 SL]
+			14. @x [ x in A ∪ B <--> x in A or x in B ]		[D1]
+			15. u_1 in A ∪ B <--> u_1 in A or u_1 in B		[14 UI/u_1]
+			16. u_1 in A or u_1 in B			[15 BC 13 MP]
+
+			17. Show u_1 in A --> x in F[A] ∪ F[B]			[Case 1 using line 16]
+				18. u_1 in A			[ACD]
+				19. @v [ v in F[A] <--> 3u [ u in A & <u, v> in F ] ]			[D3]
+				20. x in F[A] <--> 3u [ u in A & <u, x> in F ]		[19 UI/x]
+				21. <u_1, x> in F		[12 SR]
+				22. u_1 in A & <u_1, x> in F			[18 21 ADJ]
+				23. 3u [ u in A & <u, x> in F ]		[22 EG/u_1->u]
+				24. x in F[A]			[20 BC 23 MP]
+
+				25. @x [ x in F[A] ∪ F[B] <--> x in F[A] or x in F[B] ]		[D5]
+				26. x in F[A] ∪ F[B] <--> x in F[A] or x in F[B]			[25 UI/x]
+				27. x in F[A] or x in F[B]			[24 ADD/x in F[B]]
+				28. x in F[A] ∪ F[B]		[26 BC 27 MP]
+				29. 		[28 CD]
+			30. Show u_1 in B --> x in F[A] ∪ F[B]					[Case 2 using line 16]
+				31. u_1 in B		[ACD]
+				32. @v [ v in F[B] <--> 3u [ u in B & <u, v> in F ] ]		[D4]
+				33. x in F[B] <--> 3u [ u in B & <u, x> in F ]			[32 UI/x]
+				34. <u_1, x> in F		[12 SR]
+				35. u_1 in B & <u_1, x> in F			[31 34 ADJ]
+				36. 3u [ u in B & <u, x> in F ]		[35 EG/u_1->u]
+				37. x in F[B]			[33 BC 36 MP]
+
+				38. @x [ x in F[A] ∪ F[B] <--> x in F[A] or x in F[B] ]		[D5]
+				39. x in F[A] ∪ F[B] <--> x in F[A] or x in F[B]					[38 UI/x]
+				40. x in F[A] or x in F[B]			[37 ADD/x in F[A]]
+				41. x in F[A] ∪ F[B]			[39 BC 40 MP]
+				42.		[41 CD]
+			43. u_1 in A or u_1 in B --> x in F[A] ∪ F[B]			[17 30 CASE_PROOF using line 16]
+			44. x in F[A] ∪ F[B]			[43 16 MP]
+			45. 		[44 CD]
+
+		46. Show x in F[A] ∪ F[B] --> x in F[A ∪ B]
+			47. x in F[A] ∪ F[B]		[ACD]
+			48. @x [ x in F[A] ∪ F[B] <--> x in F[A] or x in F[B] ]		[D5]
+			49. x in F[A] ∪ F[B] <--> x in F[A] or x in F[B]					[48 UI/x]
+			50. x in F[A] or x in F[B]			[49 BC 47 MP]
+
+			51. Show x in F[A] --> x in F[A ∪ B]
+				52. x in F[A]			[ACD]
+				53. @v [ v in F[A] <--> 3u [ u in A & <u, v> in F ] ]		[D3]
+				54. x in F[A] <--> 3u [ u in A & <u, x> in F ]					[53 UI/x]
+				55. 3u [ u in A & <u, x> in F ]		[54 BC 52 MP]
+				56. u_1 in A & <u_1, x> in F			[55 EI/u_1]
+				
+				57. @v [ v in F[A ∪ B] <--> 3u [ u in A ∪ B & <u, v> in F ] ]			[D2]
+				58. x in F[A ∪ B] <--> 3u [ u in A ∪ B & <u, x> in F ]						[57 UI/x]
+
+				59. @x [ x in A ∪ B <--> x in A or x in B ]			[D1]
+				60. u_1 in A ∪ B <--> u_1 in A or u_1 in B			[59 UI/u_1]
+				61. u_1 in A		[56 SL]
+				62. u_1 in A or u_1 in B		[61 ADD/u_1 in B]
+				63. u_1 in A ∪ B			[60 BC 62 MP]
+				64. <u_1, x> in F			[56 SR]
+				65. u_1 in A ∪ B & <u_1, x> in F			[63 64 ADJ] 
+				66. 3u [ u in A ∪ B & <u, x> in F ]		[65 EG/u_1->u]
+
+				67. x in F[A ∪ B]		[58 BC 66 MP]
+				68.		[67 CD]
+				
+			69. Show x in F[B] --> x in F[A ∪ B]
+				70.	x in F[B]		[ACD]
+				71. // SAME STEPS AS 51-68
+				...

@@ -1,0 +1,31 @@
+[From pg48 Theorem 3J]
+LEMMA - NON-EMPTY:
+1. Show @A [ A != {} --> 3t [ t in A ] ]
+	2. let A be a set
+
+	D1. @x [ ~(x in {}) ]			[Empty Set Axiom EI & Ext. Axiom]
+
+	3. Show A != {} --> 3t [ t in A ]
+		4. A != {} 																						[ACD]
+		5. Show 3t [ t in A ]
+			6. ~3t [ t in A ]						[AID]
+			7. @A, B [ @x [ x in A <--> x in B ] --> A = B ]		[Ext. Axiom]
+			8. @x [ x in A <--> x in {} ] --> A = {}						[7 UI/A UI/{}]
+			9. Show @x [ x in A <--> x in {} ]
+				10. let x be a set
+				11. Show x in A --> x in {}
+					12. x in A						[ACD]
+					13. 3t [ t in A ]			[12 EG/x->t]
+					14. ~3t [ t in A ]		[6 R]
+					15.		[13 14 ID]
+				16. Show x in {} --> x in A
+					17. x in {}							[ACD]
+					18. @x [ ~(x in {}) ]		[D1]
+					19. ~(x in {})					[18 UI/x]
+					20.		[17 19 ID]
+				21. x in A <--> x in {}		[11 16 CB]
+				22.		[21 UD]
+			23. A = {}				[8 9 MP]
+			24.	A != {}				[4 R]
+			25.		[23 24 ID]
+		26. 	[5 CD]

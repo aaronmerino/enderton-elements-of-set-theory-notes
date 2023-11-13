@@ -1,0 +1,489 @@
+Axioms and Theorems:
+
+	Theorem 3A:
+		@u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]
+
+	Relation:
+		Definition:
+		A relation R is a set of ordered pairs.
+		@R [ R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ] ]
+
+	dom R: 
+		@R [ 3D [ @x [ x in D <--> 3y [ <x, y> in R ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets R,  dom R  is the set whose members are those 1st-coordinate set of some ordered pair in R
+
+	Definition of F(x): 
+	(We define it like this for the purpose of making sure that F(x) is always defined for any F and x, so that we can always refer to it)
+		@F, x [ F(x) := U({y | <x, y> in F}) ]
+
+	Function:
+		Definition:
+		@F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]
+
+	
+	ORANGE: Pg 43 When F is a function and x the dom F, F(x) is y IFF <x, y> in F:
+		@F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]
+
+	The composition of F and G set:
+		@F, G [ 3D [ @w [ w in D <--> 3u, v [ w = <u, v> & 3t [ <u, t> in G & <t, v> in F ] ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			For any sets F, G, F o G is the set known as the composition of F and G
+			AKA: F o G := {<u, v> | 3t[<u, t> in G & <t, v> in F]}
+
+1. Show @F, G [ F, G are functions -->  F o G is a function ]
+	2. let F, G be sets
+
+	D1. @w [ w in F o G <--> 3u, v [ w = <u, v> & 3s [ <u, s> in G & <s, v> in F ] ] ]		[Composition of F and G UI/F, G EI & Ext. Axiom]
+	D2. @x [ x in dom F o G <--> 3y [ <x, y> in F o G ] ]									[dom UI/F o G EI & Ext. Axiom]
+
+	D3. @x [ x in dom G <--> 3y [ <x, y> in G ] ]											[dom UI/G EI & Ext. Axiom]
+	D4. @x [ x in dom F <--> 3y [ <x, y> in F ] ]											[dom UI/F EI & Ext. Axiom]
+	
+	3. Show F, G are functions -->  F o G is a function
+		4. F, G are functions			[ACD]
+		5. @F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]		[Definition of Function]
+		6. F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ]			[5 UI/F]
+		7. G is a function <--> G is a relation & @x [ x in dom G --> 3_1y [ <x, y> in G ] ]			[5 UI/G]
+
+		**8. F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ]									[6 BC 4 SL MP]
+		**9. G is a relation & @x [ x in dom G --> 3_1y [ <x, y> in G ] ]									[7 BC 4 SR MP]
+
+		10. F o G is a function <--> F o G is a relation & @x [ x in dom F o G --> 3_1y [ <x, y> in F o G ] ]		[5 UI/F o G]
+
+		11. Show F o G is a relation
+			12. @R [ R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ] ]			[Definition of Relation]
+			13. F o G is a relation <--> @t [ t in F o G --> 3x, y[ t = <x, y> ] ]			[12 UI/F o G]
+			14. Show @t [ t in F o G --> 3x, y[ t = <x, y> ] ]
+				15. let t be a set
+				16. Show t in F o G --> 3x, y[ t = <x, y> ]
+					17.	t in F o G															[ACD]
+					18. @w [ w in F o G <--> 3u, v [ w = <u, v> & 3s [ <u, s> in G & <s, v> in F ] ] ]		[D1]
+					19. t in F o G <--> 3u, v [ t = <u, v> & 3s [ <u, s> in G & <s, v> in F ] ]				[18 UI/t]
+					20. 3u, v [ t = <u, v> & 3s [ <u, s> in G & <s, v> in F ] ]								[19 BC 17 MP]
+					21. t = <u_1, v_1> & 3s [ <u_1, s> in G & <s, v_1> in F ]								[20 EI/u_1 EI/v_1]
+					22. t = <u_1, v_1>																		[21 SL]
+					23. 3x, y[ t = <x, y> ]																	[22 EG/u_1->x EG/v_1->y]
+					24. 	[23  CD]
+				25. 	[16 UD]
+			26. F o G is a relation			[13 BC 14 MP]
+			27.		[26 DD]
+
+		28. Show @x [ x in dom F o G --> 3_1y [ <x, y> in F o G ] ]
+			29. let x be a set
+			30. Show x in dom F o G --> 3_1y [ <x, y> in F o G ]
+				31. x in dom F o G				[ACD]
+				32. @x [ x in dom F o G <--> 3y [ <x, y> in F o G ] ]		[D2]
+				33. x in dom F o G <--> 3y [ <x, y> in F o G ]				[32 UI/x]
+				34. 3y [ <x, y> in F o G ]									[33 BC 31 MP]
+
+				35. <x, y_1> in F o G										[34 EI/y_1]
+
+				36. Show @w [ <x, w> in F o G --> w = y_1 ]
+					37. let w be a set
+					38. Show <x, w> in F o G --> w = y_1
+						39. <x, w> in F o G							[ACD]
+
+						40. @w [ w in F o G <--> 3u, v [ w = <u, v> & 3s [ <u, s> in G & <s, v> in F ] ] ]			[D1]
+
+						41. <x, y_1> in F o G <--> 3u, v [ <x, y_1> = <u, v> & 3s [ <u, s> in G & <s, v> in F ] ]	[40 UI/<x, y_1>]
+						42. 3u, v [ <x, y_1> = <u, v> & 3s [ <u, s> in G & <s, v> in F ] ]							[41 BC 35 MP]
+						43. <x, y_1> = <u_2, v_2> & 3s [ <u_2, s> in G & <s, v_2> in F ]							[42 EI/u_2 EI/v_2]
+
+						44. <x, w> in F o G <--> 3u, v [ <x, w> = <u, v> & 3s [ <u, s> in G & <s, v> in F ] ]		[40 UI/<x, w>]
+						45. 3u, v [ <x, w> = <u, v> & 3s [ <u, s> in G & <s, v> in F ] ]							[44 BC 39 MP]
+						46. <x, w> = <u_3, v_3> & 3s [ <u_3, s> in G & <s, v_3> in F ]								[45 EI/u_3 EI/v_3]
+
+						47. 3s [ <u_2, s> in G & <s, v_2> in F ]													[43 SR]
+						48. 3s [ <u_3, s> in G & <s, v_3> in F ]													[46 SR]
+
+						49. <u_2, s_4> in G & <s_4, v_2> in F														[47 EI/s_4]
+						50. <u_3, s_5> in G & <s_5, v_3> in F														[48 EI/s_5]
+
+						51. <x, y_1> = <u_2, v_2>			[43 SL]
+						52. <x, w> = <u_3, v_3>				[46 SL]
+						53. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]						[Theorem 3A]
+
+						54. <x, y_1> = <u_2, v_2>  <-->  x = u_2 & y_1 = v_2							[53 UI/x, y_1, u_2, v_2]
+						55. x = u_2 & y_1 = v_2															[54 BC 51 MP]
+
+						56. <x, w> = <u_3, v_3>  <-->  x = u_3 & w = v_3								[53 UI/x, w, u_3, v_3]
+						57. x = u_3 & w = v_3															[56 BC 52 MP]
+						
+						58. u_2 = u_3																	[55 SL 57 SL LL]
+						59. 
+						60. 
+
+						61. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]				[ORANGE]
+						62. G is a function & u_2 in dom G -->  @w [ <u_2, w> in G <--> G(u_2) = w ]					[61 UI/G UI/u_2]
+						63. @x [ x in dom G <--> 3y [ <x, y> in G ] ]													[D3]
+						64. u_2 in dom G <--> 3y [ <u_2, y> in G ]														[63 UI/u_2]
+						65. <u_2, s_4> in G																				[49 SL]
+						66. 3y [ <u_2, y> in G ]																		[65 EG/s_4->y]
+						67. u_2 in dom G																				[64 BC 66 MP]
+						68. G is a function & u_2 in dom G																[4 SR 67 ADJ]
+
+						69. @w [ <u_2, w> in G <--> G(u_2) = w ]														[62 68 MP]
+						70. <u_2, s_4> in G <--> G(u_2) = s_4			[69 UI/s_4]
+						71. <u_2, s_5> in G <--> G(u_2) = s_5			[69 UI/s_5]
+						72. <u_2, s_4> in G 							[49 SL]
+						73. <u_3, s_5> in G								[50 SL]
+						74. <u_2, s_5> in G								[73 58 LL]
+
+						75. G(u_2) = s_4								[70 BC 72 MP] 
+						76. G(u_2) = s_5								[71 BC 74 MP]
+						77. s_4 = s_5									[75 76 LL]
+
+						78. F is a function & s_4 in dom F -->  @w [ <s_4, w> in F <--> F(s_4) = w ]					[61 UI/F UI/s_4]
+						79. @x [ x in dom F <--> 3y [ <x, y> in F ] ]													[D4]
+						80. s_4 in dom F <--> 3y [ <s_4, y> in F ]														[79 UI/s_4]
+						81. <s_4, v_2> in F																				[49 SR]
+						82. 3y [ <s_4, y> in F ]																		[81 EG/v_2->y]
+						83. s_4 in dom F																				[80 BC 82 MP]
+						84. F is a function & s_4 in dom F																[4 SL 83 ADJ]
+
+						85. @w [ <s_4, w> in F <--> F(s_4) = w ]														[84 78 MP]
+						86. <s_4, v_2> in F <--> F(s_4) = v_2															[85 UI/v_2]
+						87. <s_4, v_3> in F <--> F(s_4) = v_3															[85 UI/v_3]
+						88. <s_4, v_2> in F																				[49 SR]
+						89. <s_5, v_3> in F																				[50 SR]
+						90. <s_4, v_3> in F																				[89 77 LL]
+
+						91. F(s_4) = v_2																				[86 BC 88 MP]
+						92. F(s_4) = v_3																				[87 BC 90 MP]
+						93. v_2 = v_3																					[91 92 LL]
+
+						94. y_1 = v_2		[55 SR]
+						95. w = v_3			[57 SR]
+						96. w = v_2			[95 93 LL]
+						97. w = y_1			[96 94 LL]
+						98. 	[97 CD]
+					99. 	[38 UD]
+
+				100. <x, y_1> in F o G & @w [ <x, w> in F o G --> w = y_1 ]		[35 36 ADJ]
+				101. 3y [ <x, y> in F o G & @w [ <x, w> in F o G --> w = y ] ]	[100 EG/y_1->y]
+				102. 3_1y [ <x, y> in F o G ]									[101 EQUIV.]
+				103.		[102 CD]
+			104.		[30 UD]
+
+		105. F o G is a relation & @x [ x in dom F o G --> 3_1y [ <x, y> in F o G ] ]		[11 28 ADJ]
+		106. F o G is a function															[10 BC 105 MP]
+		107.		[106 CD]
+	108. 	[3 UD]
+
+
+
+
+
+
+--------------------
+Axioms and Theorems:
+
+	Subset Axioms:
+	For each formula __ not containing B, the following is an axiom:
+	@t1 ... @tk @c [ 3B [ @x [ x in B <--> x in c & __ ] ] ]
+		Definition:
+		For any set t­1, ..., tk and c, the subset B = {x in c | __ } is the set whose members are exactly those sets in c and __
+
+	dom R: 
+		@R [ 3D [ @x [ x in D <--> 3y [ <x, y> in R ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets R,  dom R  is the set whose members are those 1st-coordinate set of some ordered pair in R
+
+	Definition of F(x): 
+	(We define it like this for the purpose of making sure that F(x) is always defined for any F and x, so that we can always refer to it)
+		@F, x [ F(x) := U({y | <x, y> in F}) ]
+
+	APPLE - Subset Axiom Applied:
+	@F, G [ @c [ 3B [ @x [ x in B <--> x in c & G(x) in dom F ] ] ] ]					[Subset Axiom UI_META/"@F, G" UI_META/"G(x) in dom F"]
+
+
+[Lemma - PEAR]
+1. Show @F, G [ 3D [ @x [ x in D <--> x in dom G & G(x) in dom F ] ] ]
+	2. let F, G be sets
+
+	D1. @x [ x in dom G <--> 3y [ <x, y> in G ] ]								[dom UI/G EI & Ext. Axiom]
+
+	3. @F, G [ @c [ 3B [ @x [ x in B <--> x in c & G(x) in dom F ] ] ] ]		[APPLE]
+	4. @c [ 3B [ @x [ x in B <--> x in c & G(x) in dom F ] ] ]					[3 UI/F, G]
+	5. 3B [ @x [ x in B <--> x in dom G & G(x) in dom F ] ]						[4 UI/dom G]
+	6. 3D [ @x [ x in D <--> x in dom G & G(x) in dom F ] ]						[5 EQUIV.]
+	7. 		[6 UD]
+
+
+
+
+
+
+--------------------
+Axioms and Theorems:
+	Extensionality Axiom:
+	@A, B [ @x [ x in A <--> x in B ] --> A = B ]
+
+	Theorem 3A:
+		@u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]
+
+	dom R: 
+		@R [ 3D [ @x [ x in D <--> 3y [ <x, y> in R ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets R,  dom R  is the set whose members are those 1st-coordinate set of some ordered pair in R
+
+	Definition of F(x): 
+	(We define it like this for the purpose of making sure that F(x) is always defined for any F and x, so that we can always refer to it)
+		@F, x [ F(x) := U({y | <x, y> in F}) ]
+
+	Function:
+		Definition:
+		@F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]
+
+	ORANGE: Pg 43 When F is a function and x the dom F, F(x) is y IFF <x, y> in F:
+		@F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]
+
+	Lemma - PEAR (from Theorem 3H):
+		@F, G [ 3D [ @x [ x in D <--> x in dom G & G(x) in dom F ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			For any sets F, G, {a in dom G | G(a) in dom F} is the subset of dom G where G(a) is in dom F
+
+1. Show @F, G [ F, G are functions --> dom F o G = {a in dom G | G(a) in dom F} ]
+	2. let F, G be sets
+
+	D0. @w [ w in F o G <--> 3u, v [ w = <u, v> & 3s [ <u, s> in G & <s, v> in F ] ] ]		[Composition of F and G UI/F, G EI & Ext. Axiom]
+	D1. @x [ x in dom G <--> 3y [ <x, y> in G ] ]											[dom UI/G EI & Ext. Axiom]
+	D2. @x [ x in dom F <--> 3y [ <x, y> in F ] ]											[dom UI/F EI & Ext. Axiom]
+
+	D3. @x [ x in dom F o G <--> 3y [ <x, y> in F o G ] ]									[dom UI/F o G EI & Ext. Axiom]
+	D4. @u [ u in {a in dom G | G(a) in dom F} <--> u in dom G & G(u) in dom F ]			[Lemma Pear UI/F, G EI & Ext. Axiom]
+	
+
+	3. Show F, G are functions --> dom F o G = {a in dom G | G(a) in dom F}
+		4. F, G are functions									[ACD]
+		5. @A, B [ @x [ x in A <--> x in B ] --> A = B ]		[Ext. Axiom]
+		6. @x [ x in dom F o G <--> x in {a in dom G | G(a) in dom F} ] --> dom F o G = {a in dom G | G(a) in dom F}			[5 UI/dom F o G   UI/{a in dom G | G(a) in dom F}]
+		
+		7. Show @x [ x in dom F o G <--> x in {a in dom G | G(a) in dom F} ]
+			8. let x be a set
+			9. Show x in dom F o G --> x in {a in dom G | G(a) in dom F}
+				10. x in dom F o G											[ACD]
+				11. @x [ x in dom F o G <--> 3y [ <x, y> in F o G ] ]		[D3]
+				12. x in dom F o G <--> 3y [ <x, y> in F o G ]				[11 UI/x]
+				13. 3y [ <x, y> in F o G ]									[12 BC 10 MP]
+				14. <x, y_1> in F o G										[13 EI/y_1]
+
+				15. @w [ w in F o G <--> 3u, v [ w = <u, v> & 3s [ <u, s> in G & <s, v> in F ] ] ]				[D0]
+				16. <x, y_1> in F o G <--> 3u, v [ <x, y_1> = <u, v> & 3s [ <u, s> in G & <s, v> in F ] ]		[15 UI/<x, y_1>]
+				17. 3u, v [ <x, y_1> = <u, v> & 3s [ <u, s> in G & <s, v> in F ] ]								[16 BC 14 MP]
+				18. <x, y_1> = <u_2, v_2> & 3s [ <u_2, s> in G & <s, v_2> in F ]								[17 EI/u_2 EI/v_2]
+
+				19. <x, y_1> = <u_2, v_2>																		[18 SL]
+				20. 3s [ <u_2, s> in G & <s, v_2> in F ]														[18 SR]
+				21. <u_2, s_3> in G & <s_3, v_2> in F															[20 EI/s_3]
+
+				22. @u [ u in {a in dom G | G(a) in dom F} <--> u in dom G & G(u) in dom F ]					[D4]
+				23. x in {a in dom G | G(a) in dom F} <--> x in dom G & G(x) in dom F							[22 UI/x]
+
+				24. @u, v, s, t [ <u, v> = <s, t>  <-->  u = s & v = t ]										[Theorem 3A]
+				25. <x, y_1> = <u_2, v_2>  <-->  x = u_2 & y_1 = v_2											[24 UI/x, y_1, u_2, v_2]
+				26. x = u_2 & y_1 = v_2																			[25 BC 19 MP]
+				27. <u_2, s_3> in G																				[21 SL]
+				28. x = u_2																						[26 SL]
+				29. <x, s_3> in G																				[27 28 LL]
+
+				30. @x [ x in dom G <--> 3y [ <x, y> in G ] ]													[D1]
+				31. x in dom G <--> 3y [ <x, y> in G ]															[30 UI/x]
+				32. 3y [ <x, y> in G ]																			[29 EG/s_3->y]
+				33. x in dom G																					[31 BC 32 MP]
+
+				34. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]				[ORANGE]
+				35. G is a function & x in dom G -->  @w [ <x, w> in G <--> G(x) = w ]							[34 UI/G UI/x]
+				36. G is a function																				[4 SR]
+				37. G is a function & x in dom G																[36 33 ADJ]
+				38. @w [ <x, w> in G <--> G(x) = w ]															[35 37 MP]
+
+				39. <x, s_3> in G <--> G(x) = s_3																[38 UI/s_3]
+				40. G(x) = s_3																					[39 BC 29 MP]
+
+				41. <s_3, v_2> in F																				[21 SR]
+				42. <G(x), v_2> in F																			[41 40 LL]
+				43. @x [ x in dom F <--> 3y [ <x, y> in F ] ]													[D2]
+				44. G(x) in dom F <--> 3y [ <G(x), y> in F ]													[43 UI/G(x)]
+				45. 3y [ <G(x), y> in F ]																		[42 EG/v_2->y]
+				46. G(x) in dom F																				[44 BC 45 MP]
+
+				47. x in dom G & G(x) in dom F																	[33 46 ADJ]
+				48. x in {a in dom G | G(a) in dom F}															[23 BC 47 MP]
+				49.		[48 CD]
+
+			50. Show x in {a in dom G | G(a) in dom F} --> x in dom F o G
+				51. x in {a in dom G | G(a) in dom F}			[ACD]
+				52. @u [ u in {a in dom G | G(a) in dom F} <--> u in dom G & G(u) in dom F ]		[D4]
+				53. x in {a in dom G | G(a) in dom F} <--> x in dom G & G(x) in dom F				[52 UI/x]
+				54. x in dom G & G(x) in dom F														[53 BC 51 MP]
+
+				55. @x [ x in dom G <--> 3y [ <x, y> in G ] ]			[D1]
+				56. x in dom G <--> 3y [ <x, y> in G ]					[55 UI/x]
+				57. 3y [ <x, y> in G ]									[56 BC 54 SL MP]
+				58. <x, y_1> in G										[57 EI/y_1]
+
+				59. @x [ x in dom F <--> 3y [ <x, y> in F ] ]			[D2]
+				60. G(x) in dom F <--> 3y [ <G(x), y> in F ]			[59 UI/G(x)]
+				61. 3y [ <G(x), y> in F ]								[60 BC 54 SR MP]
+				62. <G(x), y_2> in F									[61 EI/y_2]
+
+				63. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]		[ORANGE]
+				64. G is a function & x in dom G -->  @w [ <x, w> in G <--> G(x) = w ]					[63 UI/G UI/x]
+				65. G is a function & x in dom G														[4 SR 54 SL ADJ]
+				66. @w [ <x, w> in G <--> G(x) = w ]													[64 65 MP]
+				67. <x, y_1> in G <--> G(x) = y_1														[66 UI/y_1]
+				68. G(x) = y_1																			[67 BC 58 MP]
+
+				69. <x, G(x)> in G																		[58 68 LL]
+
+				70. @x [ x in dom F o G <--> 3y [ <x, y> in F o G ] ]									[D3]
+				71. x in dom F o G <--> 3y [ <x, y> in F o G ]											[70 UI/x]
+
+				72. @w [ w in F o G <--> 3u, v [ w = <u, v> & 3s [ <u, s> in G & <s, v> in F ] ] ]				[D0]
+				73. <x, y_2> in F o G <--> 3u, v [ <x, y_2> = <u, v> & 3s [ <u, s> in G & <s, v> in F ] ]		[72 UI/<x, y_2>]
+				74. <x, y_2> = <x, y_2>																			[SID/<x, y_2>]
+				75. <x, G(x)> in G & <G(x), y_2> in F															[69 62 ADJ]
+				76. 3s [ <x, s> in G & <s, y_2> in F ]															[75 EG/G(x)->s]
+				77. <x, y_2> = <x, y_2> & 3s [ <x, s> in G & <s, y_2> in F ]									[74 76 ADJ]
+				78. 3u, v [ <x, y_2> = <u, v> & 3s [ <u, s> in G & <s, v> in F ] ]								[77 EG/x->u EG/y_2->v]
+
+				79. <x, y_2> in F o G																			[73 BC 78 MP]
+				80. 3y [ <x, y> in F o G ]																		[79 EG/y_2->y]
+				81. x in dom F o G																				[71 BC 80 MP]
+				82. 	[81 CD]
+			
+			83. x in dom F o G <--> x in {a in dom G | G(a) in dom F}			[9 50 CB]
+			84. 	[83 UD]
+
+		85. dom F o G = {a in dom G | G(a) in dom F}							[6 7 MP]
+		86.		[85 CD]
+	87. 	[3 UD]
+
+
+
+
+
+
+
+
+
+
+
+
+
+--------------------
+Axioms and Theorems:
+	Extensionality Axiom:
+	@A, B [ @x [ x in A <--> x in B ] --> A = B ]
+
+	Theorem 3A:
+		@u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]
+
+	dom R: 
+		@R [ 3D [ @x [ x in D <--> 3y [ <x, y> in R ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets R,  dom R  is the set whose members are those 1st-coordinate set of some ordered pair in R
+
+	Definition of F(x): 
+	(We define it like this for the purpose of making sure that F(x) is always defined for any F and x, so that we can always refer to it)
+		@F, x [ F(x) := U({y | <x, y> in F}) ]
+
+	Function:
+		Definition:
+		@F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]
+
+	ORANGE: Pg 43 When F is a function and x the dom F, F(x) is y IFF <x, y> in F:
+		@F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]
+	
+	Theorem 3H (i):
+		@F, G [ F, G are functions -->  F o G is a function ]
+
+1. Show @F, G [ F, G are functions --> @x [ x in dom F o G --> (F o G)(x) = F(G(x)) ] ]
+	2. let F, G be sets
+
+	D1. @w [ w in F o G <--> 3u, v [ w = <u, v> & 3s [ <u, s> in G & <s, v> in F ] ] ]		[Composition of F and G UI/F, G EI & Ext. Axiom]
+	D2. @x [ x in dom F o G <--> 3y [ <x, y> in F o G ] ]									[dom UI/F o G EI & Ext. Axiom]
+	D3. @x [ x in dom F <--> 3y [ <x, y> in F ] ]									[dom UI/F EI & Ext. Axiom]
+	D4. @x [ x in dom G <--> 3y [ <x, y> in G ] ]									[dom UI/G EI & Ext. Axiom]
+
+	3. Show F, G are functions --> @x [ x in dom F o G --> (F o G)(x) = F(G(x)) ]
+		4. F, G are functions																[ACD]
+		5. Show @x [ x in dom F o G --> (F o G)(x) = F(G(x)) ]
+			6. let x be a set
+			7. Show x in dom F o G --> (F o G)(x) = F(G(x))
+				8. x in dom F o G			[ACD]
+				9. @x [ x in dom F o G <--> 3y [ <x, y> in F o G ] ]		[D2]
+				10. x in dom F o G <--> 3y [ <x, y> in F o G ]				[9 UI/x]
+				11. 3y [ <x, y> in F o G ]									[10 BC 8 MP]
+				12. <x, y_1> in F o G										[11 EI/y_1]
+				
+				13. @F, G [ F, G are functions -->  F o G is a function ]			[Theorem 3H (i)]
+				14. F, G are functions -->  F o G is a function				[13 UI/F, G]
+				15. F o G is a function				[14 4 MP]
+
+				16. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]					[Orange]
+				17. F o G is a function & x in dom F o G -->  @w [ <x, w> in F o G <--> (F o G)(x) = w ]		[16 UI/F o G]
+				18. F o G is a function & x in dom F o G						[15 8 ADJ]
+				19.	@w [ <x, w> in F o G <--> (F o G)(x) = w ]				[17 18 MP]
+				20. <x, y_1> in F o G <--> (F o G)(x) = y_1						[19 UI/y_1]
+				21. (F o G)(x) = y_1					[20 BC 12 MP]
+
+				
+				22. @w [ w in F o G <--> 3u, v [ w = <u, v> & 3s [ <u, s> in G & <s, v> in F ] ] ]					[D1]
+				23. <x, y_1> in F o G <--> 3u, v [ <x, y_1> = <u, v> & 3s [ <u, s> in G & <s, v> in F ] ]		[22 UI/<x, y_1>]
+				24. 3u, v [ <x, y_1> = <u, v> & 3s [ <u, s> in G & <s, v> in F ] ]													[23 BC 12 MP]
+				25. <x, y_1> = <u_2, v_2> & 3s [ <u_2, s> in G & <s, v_2> in F ]														[24 EI/u_2 EI/v_2]
+
+				26. 3s [ <u_2, s> in G & <s, v_2> in F ]
+				27. <u_2, s_3> in G & <s_3, v_2> in F																												[26 EI/s_3]
+
+				28. <x, y_1> = <u_2, v_2>				[25 SL]
+				29. @u, v, s, t [ <u, v> = <s, t>  <-->  u = s & v = t ]		[Theorem 3A]
+				30. <x, y_1> = <u_2, v_2>  <-->  x = u_2 & y_1 = v_2				[29 UI/x, y_1, u_2, v_2]
+				31. x = u_2 & y_1 = v_2																			[30 BC 28 MP]
+
+				32. <u_2, s_3> in G			[27 SL]
+				33. x = u_2							[31 SL]
+				34. <x, s_3> in G				[32 33 LL]
+
+				35. <s_3, v_2> in F			[27 SR]
+				36. y_1 = v_2						[31 SR]
+				37. <s_3, y_1> in F			[35 36 LL]
+
+				38. @x [ x in dom G <--> 3y [ <x, y> in G ] ]		[D4]
+				39. x in dom G <--> 3y [ <x, y> in G ]					[38 UI/x]
+				40. 3y [ <x, y> in G ]			[34 EG/s_3->y]
+				41. x in dom G							[39 BC 40 MP]
+				
+				42. @x [ x in dom F <--> 3y [ <x, y> in F ] ]		[D3]
+				43. s_3 in dom F <--> 3y [ <s_3, y> in F ]			[42 UI/s_3]
+				44. 3y [ <s_3, y> in F ]												[37 EG/y_1->y]
+				45. s_3 in dom F			[43 BC 44 MP]
+
+				46. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]		[ORANGE]
+				47. G is a function & x in dom G -->  @w [ <x, w> in G <--> G(x) = w ]							[46 UI/G UI/x]
+				48. G is a function & x in dom G 					[4 SR 41 ADJ]
+				49. @w [ <x, w> in G <--> G(x) = w ]			[47 48 MP]
+				50. <x, s_3> in G <--> G(x) = s_3					[49 UI/s_3]
+				51. G(x) = s_3				[50 BC 34 MP]
+
+				52. F is a function & s_3 in dom F -->  @w [ <s_3, w> in F <--> F(s_3) = w ]							[46 UI/F UI/s_3]
+				53. F is a function & s_3 in dom F						[4 SL 45 ADJ]
+				54. @w [ <s_3, w> in F <--> F(s_3) = w ]			[52 53 MP]
+				55. <s_3, y_1> in F <--> F(s_3) = y_1					[54 UI/y_1]
+
+				56. F(s_3) = y_1															[55 BC 37 MP]
+				57. F(G(x)) = y_1					[56 51 LL]
+
+				58. (F o G)(x) = y_1			[21 R]
+				59.	(F o G)(x) = F(G(x))	[57 58 LL]
+				60.		[59 CD]
+			61. 	[7 UD]
+		62.		[5 CD]
+	63.		[3 UD]
+
+				
+
+				

@@ -1,0 +1,45 @@
+Axioms and Theorems:
+	
+	Subset Axioms:
+	For each formula __ not containing B, the following is an axiom:
+	@t1 ... @tk @c [ 3B [ @x [ x in B <--> x in c & __ ] ] ]
+		Definition:
+		For any set t­1, ..., tk and c, the subset B = {x in c | __ } is the set whose members are exactly those sets in c and __	
+
+	dom R: 
+		@R [ 3D [ @x [ x in D <--> 3y [ <x, y> in R ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets R,  dom R  is the set whose members are those 1st-coordinate set of some ordered pair in R
+
+	Function:
+		Definition of F(x): (We define it like this for the purpose of making sure that F(x) is always defined for any F and x, but really its for semantic purposes)
+		@F, x [ F(x) := U({y | <x, y> in F}) ]
+
+		Definition:
+		@F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]
+
+		**IGNORE** Definition of F(x) **THIS IS OLD VERSION**:
+		@F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y->F(x)[ <x, F(x)> in F & @z [ <x, z> in F --> F(x) = z ] ] ] ]    
+		
+
+	Subset Axiom Applied (ID: APPLE):
+	@F, A [ @c [ 3B [ @v [ v in B <--> v in c & F(v) in A ] ] ] ]					[Subset Axiom UI_META/"@F, A" UI_META/"F(v) in A"]
+
+1. Show @F, A [ 3D [ @x [ x in D <--> x in dom F & F(x) in A ] ] ]
+	2. let F, A be a set 
+
+    D1. dom F is the set whose members are those 1st-coordinate set of some ordered pair in F       [dom R UI/F EI & Ext. Axiom]
+        @x [ x in dom F <--> 3y [ <x, y> in F ] ]
+
+	3. Show 3D [ @x [ x in D <--> x in dom F & F(x) in A ] ]
+		4. //////////////////////
+		5. Show 3D [ @x [ x in D <--> x in dom F & F(x) in A ] ]
+			6. @F, A [ @c [ 3B [ @v [ v in B <--> v in c & F(v) in A ] ] ] ]			[APPLE]
+			7. @c [ 3B [ @v [ v in B <--> v in c & F(v) in A ] ] ]						[6 UI/F UI/A]
+			8. 3B [ @v [ v in B <--> v in dom F & F(v) in A ] ]							[7 UI/dom F]
+			9. @v [ v in B_1 <--> v in dom F & F(v) in A ]								[8 EI/B_1]
+			10.	@x [ x in B_1 <--> x in dom F & F(x) in A ]								[9 EQUIV. v->x]
+			11. 3D [ @x [ x in D <--> x in dom F & F(x) in A ] ]						[10 EG/B_1->D]
+			12. 		[11 DD]
+		13. 		[5 CD]
+	14.		[3 UD]

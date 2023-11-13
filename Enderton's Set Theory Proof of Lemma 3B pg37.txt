@@ -1,0 +1,107 @@
+Axioms and Theorems:
+	Extensionality Axiom:
+	@A, B [ @x [ x in A <--> x in B ] --> A = B ]
+
+	Pairing Axiom:
+	@u, v [ 3B [ @x [ x in B <--> x = u or x = v ] ] ]
+		Definition:
+		For any sets u, v, the pair set {u, v} is the set whose only members are u and v.
+		[You can think of {u, v} as a 2-ary operator. It refer to one set and one set only based on the sets u and v!]
+
+	Power Set Axiom:
+	@a [ 3B [ @x [ x in B <--> @t [ t in x --> t in a ] ] ] ]
+		Definition:
+		For any set a, the power set  P(a) is the set whose members are exactly the subsets of a.
+		[You can think of P(a) as a 1-ary operator. It refer to one set and one set only based on the sets a!]
+
+	Definition:
+		@x, y[ <x, y> := {{x}, {x, y}} ]
+		@x, y[
+			note {x} exists due to Pairing Axiom & Extensionality
+			note {x, y} exists due to Pairing Axiom & Extensionality
+			finally {{x}, {x, y}} exists due to Pairing Axiom & Extensionality
+
+			define: 
+				<x, y> := {{x}, {x, y}}
+		]
+
+	Theorem 3A:
+		@u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]
+
+
+1. Show @C, x, y [ x in C & y in C --> <x, y> in P(P(C)) ]
+	2. let C, x, y be sets
+
+	D1. @t [t in P(C) <--> @w[w in t --> w in C]]				[2 Power Set Axiom UI/C & Ext. Axiom]
+	D2. @t [t in P(P(C)) <--> @z[z in t --> z in P(C)]]			[2 Power Set Axiom UI/P(C) & Ext. Axiom]
+
+	D3. @t [ t in {x} <--> t = x or t = x ]						[2 Pairing Axiom UI/x UI/x & Ext. Axiom]
+	D4. @t [ t in {x, y} <--> t = x or t = y ]					[2 Pairing Axiom UI/x UI/y & Ext. Axiom]
+	D5. @t [ t in {{x}, {x, y}} <--> t = {x} or t = {x, y} ]	[2 Pairing Axiom UI/{x} UI/{x, y} & Ext. Axiom] 
+
+	4. Show x in C & y in C --> <x, y> in P(P(C))
+		5. x in C & y in C										[ACD]
+		6. @t [t in P(P(C)) <--> @z[z in t --> z in P(C)]]		[D2]
+		7. {{x}, {x, y}} in P(P(C)) <--> @z[z in {{x}, {x, y}} --> z in P(C)]		[6 UI/{{x}, {x, y}}]
+		8. Show @z[z in {{x}, {x, y}} --> z in P(C)]
+			9. Show z in {{x}, {x, y}} --> z in P(C)
+				10. z in {{x}, {x, y}}		[ACD]
+				11. @t [ t in {{x}, {x, y}} <--> t = {x} or t = {x, y} ]		[D5]
+				12. z in {{x}, {x, y}} <--> z = {x} or z = {x, y}				[11 UI/z]
+				13. z = {x} or z = {x, y}										[12 BC 10 MP]
+				14. Show z = {x} --> z in P(C)					[CASE 1 for line 13]
+					15. z = {x}									[ACD]
+					16. @t [t in P(C) <--> @w[w in t --> w in C]]		[D1]
+					17. z in P(C) <--> @w[w in z --> w in C]			[16 UI/z]
+					18. Show @w[w in z --> w in C]
+						19. Show w in z --> w in C
+							20. w in z				[ACD]
+							21. w in {x}			[20 15 LL]
+							22. @t [ t in {x} <--> t = x or t = x ]		[D3]
+							23. w in {x} <--> w = x or w = x			[22 UI/w]
+							24. w = x or w = x							[23 BC 21 MP]
+							25. w = x									[24 SAME_OR_SIMPLIFY]
+							26. x in C									[5 SL]
+							27. w in C									[25 26 LL]
+							28.		[27 CD]
+						29.		[19 UD]
+					30. z in P(C)		[17 BC 18 MP]
+					31. 	[30 CD]
+
+				32. Show z = {x, y} --> z in P(C)				[CASE 2 for line 13]
+					33. z = {x, y}		[ACD]
+					34. @t [t in P(C) <--> @w[w in t --> w in C]]		[D1]
+					35. z in P(C) <--> @w[w in z --> w in C]			[16 UI/z]
+					36. Show @w[w in z --> w in C]
+						37. Show w in z --> w in C
+							38. w in z				[ACD]
+							39. w in {x, y}			[38 33 LL]
+							40. @t [ t in {x, y} <--> t = x or t = y ]			[D4]
+							41. w in {x, y} <--> w = x or w = y					[40 UI/w]
+							42. w = x or w = y									[41 BC 39 MP]
+							43. Show w = x --> w in C				[CASE 1 for line 42]
+								44. w = x							[ACD]
+								45. x in C							[5 SL]
+								46. w in C							[44 45 LL]
+								47. 	[46 CD]
+
+							48. Show w = y --> w in C				[CASE 2 for line 42]
+								49. w = y							[ACD]
+								50. y in C							[5 SR]
+								51. w in C							[49 50 LL]
+								52. 	[51 CD]
+							53. w = x or w = y --> w in C			[43 48 CASE_PROOF for line 42]
+							54. w in C								[53 42 MP]
+							55. 	[54 CD]
+						56. 	[37 UD]
+					57. z in P(C)						[35 BC 36 MP]
+					58. 		[57 CD]
+				59. z = {x} or z = {x, y} --> z in P(C)				[14 32 CASE_PROOF for line 13]
+				60. z in P(C)										[59 13 MP]
+				61.		[60 CD]
+			62. 	[9 UD]
+
+		63. {{x}, {x, y}} in P(P(C))			[7 BC 8 MP]
+		64. <x, y> in P(P(C))					[63 DEFINITION OF <x, y>]
+		65.		[64 CD]
+	66.		[4 UD]

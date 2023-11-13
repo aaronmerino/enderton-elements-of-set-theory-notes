@@ -1,0 +1,70 @@
+Axioms and Theorems:	
+	Power Set Axiom:
+	@a [ 3B [ @x [ x in B <--> @t [ t in x --> t in a ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set a, the power set  P(a) is the set whose members are exactly the subsets of a.
+		[You can think of P(a) as a 1-ary operator. It refer to one set and one set only based on the sets a!]
+
+	Subset Axioms:
+	For each formula __ not containing B, the following is an axiom:
+	@t1 ... @tk @c [ 3B [ @x [ x in B <--> x in c & __ ] ] ]
+		Definition:
+		For any set t­1, ..., tk and c, the subset B = {x in c | __ } is the set whose members are exactly those sets in c and __	
+	
+	Definition of Ordered Pair:
+		@x, y[ <x, y> := {{x}, {x, y}} ]
+			note {x} exists due to Pairing Axiom & Extensionality
+			note {x, y} exists due to Pairing Axiom & Extensionality
+			finally {{x}, {x, y}} exists due to Pairing Axiom & Extensionality
+	
+	Theorem 3A:
+		@u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]
+
+	Lemma 3B:
+		@C, x, y [ x in C & y in C --> <x, y> in P(P(C)) ]
+
+	APPLE: Subset Axiom (APPLIED):
+		@S [ @c [ 3B [ @x [ x in B <--> x in c & 3u [ x = <u, u> & u in S ] ] ] ] ]   [Subset Axiom UI_META/"@S"   UI_META/"3u [ x = <u, u> & u in S ]"]
+
+1. Show @S [ 3D [ @x [ x in D <--> 3u [ x = <u, u> & u in S ] ] ] ]
+	2. let S be a set
+
+	D1. @x [ x in P(S) <--> @t [ t in x --> t in S ] ]            [Power Set Axiom UI/S EI & Ext. Axiom]
+	D2. @x [ x in P(P(S)) <--> @t [ t in x --> t in P(S) ] ]      [Power Set Axiom UI/P(S) EI & Ext. Axiom]
+
+
+	3. @S [ @c [ 3B [ @x [ x in B <--> x in c & 3u [ x = <u, u> & u in S ] ] ] ] ]      [APPLE]
+	4. @c [ 3B [ @x [ x in B <--> x in c & 3u [ x = <u, u> & u in S ] ] ] ]             [3 UI/S]
+	5. 3B [ @x [ x in B <--> x in P(P(S)) & 3u [ x = <u, u> & u in S ] ] ]              [4 UI/P(P(S))]
+
+	6. @x [ x in B_1 <--> x in P(P(S)) & 3u [ x = <u, u> & u in S ] ]                   [5 EI/B_1]
+	7. Show @x [ x in B_1 <--> 3u [ x = <u, u> & u in S ] ]
+		8. let x be a set
+		9. Show x in B_1 --> 3u [ x = <u, u> & u in S ]
+			10. x in B_1				[ACD]
+			11. x in B_1 <--> x in P(P(S)) & 3u [ x = <u, u> & u in S ]			[6 UI/x]
+			12. x in P(P(S)) & 3u [ x = <u, u> & u in S ]										[11 BC 10 MP]
+			13. 3u [ x = <u, u> & u in S ]		[12 SR]
+			14.		[13 CD]
+		15. Show 3u [ x = <u, u> & u in S ] --> x in B_1
+			16. 3u [ x = <u, u> & u in S ]			[ACD]
+			17. x = <u_1, u_1> & u_1 in S				[16 EI/u_1]
+			18. x in B_1 <--> x in P(P(S)) & 3u [ x = <u, u> & u in S ]			[6 UI/x]
+			19. Show x in P(P(S))
+				20. @C, x, y [ x in C & y in C --> <x, y> in P(P(C)) ]				[Lemma 3B]
+				21. u_1 in S & u_1 in S --> <u_1, u_1> in P(P(S))							[20 UI/S UI/u_1 UI/u_1]
+				22. u_1 in S								[17 SR]
+				23. u_1 in S & u_1 in S			[22 22 ADJ]
+				24. <u_1, u_1> in P(P(S))		[21 23 MP]
+				25.	x = <u_1, u_1>					[17 SL]
+				26. x in P(P(S))						[24 25 LL]
+				27. 		[26 DD]
+			
+			28.	x in P(P(S)) & 3u [ x = <u, u> & u in S ]										[19 16 ADJ]
+			29. x in B_1																										[18 BC 28 MP]
+			30. 		[29 CD]
+		31. x in B_1 <--> 3u [ x = <u, u> & u in S ]			[9 15 CB]
+		32.		[31 UD]
+
+	33.	3D [ @x [ x in D <--> 3u [ x = <u, u> & u in S ] ] ]			[7 EG/B_1->D]
+	34. 		[33 UD]

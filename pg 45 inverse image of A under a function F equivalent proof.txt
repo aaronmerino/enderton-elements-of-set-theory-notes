@@ -1,0 +1,162 @@
+Axioms and Theorems:
+	Extensionality Axiom:
+	@A, B [ @x [ x in A <--> x in B ] --> A = B ]
+
+	Definition of Ordered Pair:
+		@x, y[ <x, y> := {{x}, {x, y}} ]
+			note {x} exists due to Pairing Axiom & Extensionality
+			note {x, y} exists due to Pairing Axiom & Extensionality
+			finally {{x}, {x, y}} exists due to Pairing Axiom & Extensionality
+	
+	Theorem 3A:
+		@u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]
+
+	dom R: 
+		@R [ 3D [ @x [ x in D <--> 3y [ <x, y> in R ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets R,  dom R  is the set whose members are those 1st-coordinate set of some ordered pair in R
+
+	ran R: 
+		@R [ 3D [ @x [ x in D <--> 3t [ <t, x> in R ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets R,  ran R  is the set whose members are those 2nd-coordinate set of some ordered pair in R
+
+	Function:
+		Definition of F(x): (We define it like this for the purpose of making sure that F(x) is always defined for any F and x, but really its for semantic purposes)
+		@F, x [ F(x) := U({y | <x, y> in F}) ]
+
+		Definition:
+		@F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]
+
+		**IGNORE** Definition of F(x) **THIS IS OLD VERSION**:
+		@F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y->F(x)[ <x, F(x)> in F & @z [ <x, z> in F --> F(x) = z ] ] ] ]    
+
+	
+	Pg 43 When F is a function and x the dom F, F(x) is y IFF <x, y> in F:
+		@F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]
+
+
+	The inverse of F set:
+		@F [ 3D [ @t [ t in D <--> 3u, v [ <v, u> in F & t = <u, v> ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			For any sets F, F^-1 is the set known as the inverse of F
+			AKA: F^-1 := {<u, v> | <v, u> in F}
+
+	The Image of A under F set:
+		@F, A [ 3D [ @v [ v in D <--> 3u [ u in A & <u, v> in F ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			For any sets F, A, F[A] is the set known as the Image of A under F
+			AKA: F[A] := {F(u) | u in A}
+
+	The Inverse image of A under F set:
+		@F, A [ 3D [ @x [ x in D <--> x in dom F & F(x) in A ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			For any sets F, A, {x in dom F | F(x) in A} is the set known as the Inverse Image of A under F
+
+1. Show @F, A [ F is a function --> (F^-1)[A] = {x in dom F | F(x) in A} ]
+	2. let F, A be sets
+
+	D1. @t [ t in (F^-1) <--> 3u, v [ <v, u> in F & t = <u, v> ] ]				[Inverse of F UI/F EI & Ext. Axiom]
+	D2. @v [ v in (F^-1)[A] <--> 3u [ u in A & <u, v> in (F^-1) ] ]				[The Image of {1} under {2} UI/(F^-1) UI/A EI & Ext. Axiom]
+	D3. @t [ t in {x in dom F | F(x) in A} <--> t in dom F & F(t) in A ]		[The Inverse image of A under F UI/F UI/A EI & Ext. Axiom]
+	D4. @x [ x in dom F <--> 3y [ <x, y> in F ] ]								[dom F UI/F EI & Ext. Axiom]
+
+
+	3. Show F is a function --> (F^-1)[A] = {x in dom F | F(x) in A}
+		4. F is a function			[ACD]
+		5. @A, B [ @w [ w in A <--> w in B ] --> A = B ]			[Ext. Axiom]
+		6. @w [ w in (F^-1)[A] <--> w in {x in dom F | F(x) in A} ] --> (F^-1)[A] = {x in dom F | F(x) in A}				[5 UI/... UI/...]
+
+		7. Show @w [ w in (F^-1)[A] <--> w in {x in dom F | F(x) in A} ]
+			8. let w be a set
+			9. Show w in (F^-1)[A] <--> w in {x in dom F | F(x) in A}
+				10. Show w in (F^-1)[A] --> w in {x in dom F | F(x) in A}
+					11. w in (F^-1)[A]																		[ACD]
+					12. @v [ v in (F^-1)[A] <--> 3u [ u in A & <u, v> in (F^-1) ] ]							[D2]
+					13. w in (F^-1)[A] <--> 3u [ u in A & <u, w> in (F^-1) ]								[12 UI/w]
+					14. 3u [ u in A & <u, w> in (F^-1) ]													[13 BC 11 MP]
+
+					15. u_1 in A & <u_1, w> in (F^-1)														[14 EI/u_1]
+
+					16. @t [ t in (F^-1) <--> 3u, v [ <v, u> in F & t = <u, v> ] ]							[D1]
+					17. <u_1, w> in (F^-1) <--> 3u, v [ <v, u> in F & <u_1, w> = <u, v> ]					[16 UI/<u_1, w>]
+					18. 3u, v [ <v, u> in F & <u_1, w> = <u, v> ]											[15 SR 17 BC MP]
+
+					19. <v_2, u_2> in F & <u_1, w> = <u_2, v_2>												[18 EI/u_2 EI/v_2]
+
+					20. Show w in {x in dom F | F(x) in A}
+						21. @t [ t in {x in dom F | F(x) in A} <--> t in dom F & F(t) in A ]				[D3]
+						22. w in {x in dom F | F(x) in A} <--> w in dom F & F(w) in A						[21 UI/w]
+
+						23. @x [ x in dom F <--> 3y [ <x, y> in F ] ]										[D4]
+						24. w in dom F <--> 3y [ <w, y> in F ]												[23 UI/w]
+
+						25. <u_1, w> = <u_2, v_2>															[19 SR]
+						26. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]							[Theorem 3A]
+						27. <u_1, w> = <u_2, v_2>  <-->  u_1 = u_2 & w = v_2								[26 UI/u_1, w, u_2, v_2]
+						28. u_1 = u_2 & w = v_2																[27 BC 25 MP]
+						29. w = v_2					[28 SR]
+						30. <v_2, u_2> in F			[19 SL]
+						31. <w, u_2> in F			[30 29 EL]
+						32. 3y [ <w, y> in F ]		[31 EG/u_2->y]
+						33. w in dom F				[24 BC 32 MP]
+
+						34. @F, x [ F is a function & x in dom F -->  @z [ <x, z> in F <--> F(x) = z ] ]		[Definition of F(x) when F is a func. & x in dom F]
+						35. F is a function & w in dom F -->  @z [ <w, z> in F <--> F(w) = z ]					[34 UI/F UI/w]
+						36. F is a function & w in dom F														[4 33 ADJ]
+						37. @z [ <w, z> in F <--> F(w) = z ]													[35 36 MP]
+						38. <w, u_2> in F <--> F(w) = u_2														[37 UI/u_2]
+						39. F(w) = u_2																			[38 BC 31 MP]
+						40. u_1 = u_2																			[28 SL]
+						41. F(w) = u_1																			[39 40 EL]
+						42. u_1 in A																			[15 SL]
+						43. F(w) in A																			[41 42 EL]
+
+						44. w in dom F & F(w) in A																[33 43 ADJ]
+						45. w in {x in dom F | F(x) in A}														[22 BC 44 MP]
+						46.		[45 DD]
+					47. 	[20 CD]
+
+				48. Show w in {x in dom F | F(x) in A} --> w in (F^-1)[A]
+					49. w in {x in dom F | F(x) in A}								[ACD]
+					50. @t [ t in {x in dom F | F(x) in A} <--> t in dom F & F(t) in A ]		[D3]
+					51. w in {x in dom F | F(x) in A} <--> w in dom F & F(w) in A				[50 UI/w]
+					52. w in dom F & F(w) in A													[51 BC 49 MP]
+					53. @x [ x in dom F <--> 3y [ <x, y> in F ] ]								[D4]
+					55. w in dom F <--> 3y [ <w, y> in F ]										[53 UI/w]
+					56. 3y [ <w, y> in F ]														[55 BC 52 SL MP]
+					
+					57. <w, y_1> in F															[56 EI/y_1]
+
+					D5. <y_1, w> is the ordered pair of y_1 and w in that order					[Ordered Pair UI/y_1 UI/w & Ext. Axiom]
+
+					58. @F, x [ F is a function & x in dom F -->  @z [ <x, z> in F <--> F(x) = z ] ]		[Definition of F(x) when F is a func. & x in dom F]
+					59. F is a function & w in dom F -->  @z [ <w, z> in F <--> F(w) = z ]			[58 UI/F UI/w]
+					60. F is a function & w in dom F			[4 52 SL ADJ]
+					61. @z [ <w, z> in F <--> F(w) = z ]		[59 60 MP]
+					62. <w, y_1> in F <--> F(w) = y_1			[61 UI/y_1]
+					63. F(w) = y_1								[62 BC 57 MP]
+
+					64. @v [ v in (F^-1)[A] <--> 3u [ u in A & <u, v> in (F^-1) ] ]		[D2]
+					65. w in (F^-1)[A] <--> 3u [ u in A & <u, w> in (F^-1) ]			[64 UI/w]
+					66. Show 3u [ u in A & <u, w> in (F^-1) ]
+						67. @t [ t in (F^-1) <--> 3u, v [ <v, u> in F & t = <u, v> ] ]		[D1]
+						68. <y_1, w> in (F^-1) <--> 3u, v [ <v, u> in F & <y_1, w> = <u, v> ]		[67 UI/<y_1, w>]
+						69. <y_1, w> = <y_1, w>														[SID/<y_1, w>]
+						70. <w, y_1> in F & <y_1, w> = <y_1, w>										[57 69 ADJ]
+						71. 3u, v [ <v, u> in F & <y_1, w> = <u, v> ]								[70 EG/y_1->u EGw->v]
+						72. <y_1, w> in (F^-1)														[68 BC 71 MP]
+						73. F(w) in A																[52 SR]
+						74. y_1 in A																[73 63 EL]
+						75. y_1 in A & <y_1, w> in (F^-1)											[74 72 ADJ]
+						76. 3u [ u in A & <u, w> in (F^-1) ]										[75 EG/y_1->u]
+						77. 	[76 DD]
+					78. w in (F^-1)[A]									[65 BC 66 MP]
+					79. 		[78 CD]
+				80. w in (F^-1)[A] <--> w in {x in dom F | F(x) in A}		[10 48 CB]
+				81.		[80 DD]
+			82.		[9 UD]
+		83. (F^-1)[A] = {x in dom F | F(x) in A}				[6 7 MP]
+		84.		[83 CD]
+	85.		[3 UD]
+	

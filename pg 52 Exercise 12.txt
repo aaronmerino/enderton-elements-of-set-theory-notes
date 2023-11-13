@@ -1,0 +1,163 @@
+Axioms and Theorems:
+	Extensionality Axiom:
+	@A, B [ @x [ x in A <--> x in B ] --> A = B ]
+
+	Relation:
+		Definition:
+		A relation R is a set of ordered pairs.
+		@R [ R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ] ]
+
+	dom R: 
+		@R [ 3D [ @x [ x in D <--> 3y [ <x, y> in R ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets R,  dom R  is the set whose members are those 1st-coordinate set of some ordered pair in R
+
+	Definition of F(x): 
+	(We define it like this for the purpose of making sure that F(x) is always defined for any F and x, so that we can always refer to it)
+		@F, x [ F(x) := U({y | <x, y> in F}) ]
+
+	Function:
+		Definition:
+		@F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]
+
+	[MARIN] Pg 43 When F is a function and x the dom F, F(x) is y IFF <x, y> in F:
+		@F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]
+
+
+
+1. Show @F, G [ F, G are functions --> [ F ⊆ G <--> dom F ⊆ dom G & @x [ x in dom F --> F(x) = G(x) ] ] ]
+	2. let F, G be sets
+
+	========
+	D1. @x [ x in dom F <--> 3y [ <x, y> in F ] ]				[dom UI/F EI & Ext. Axiom]
+	D2. @x [ x in dom G <--> 3y [ <x, y> in G ] ]				[dom UI/G EI & Ext. Axiom]
+	========
+
+	3. Show F, G are functions --> [ F ⊆ G <--> dom F ⊆ dom G & @x [ x in dom F --> F(x) = G(x) ] ]
+		4. F, G are functions 			[ACD]
+		5. Show F ⊆ G <--> dom F ⊆ dom G & @x [ x in dom F --> F(x) = G(x) ]
+			6. Show F ⊆ G --> dom F ⊆ dom G & @x [ x in dom F --> F(x) = G(x) ]
+				7. F ⊆ G			[ACD]
+				8. @t [ t in F --> t in G ]			[7 EQUIV.]
+
+				9. Show dom F ⊆ dom G
+					10. Show @t [ t in dom F --> t in dom G ]
+						11. let t be a set
+						12. Show t in dom F --> t in dom G
+							13. t in dom F			[ACD]
+							14. @x [ x in dom F <--> 3y [ <x, y> in F ] ]			[D1]
+							15. t in dom F <--> 3y [ <t, y> in F ]			[14 UI/t]
+							16. 3y [ <t, y> in F ]			[15 BC 13 MP]
+							17. <t, y_1> in F				[16 EI/y_1]
+
+							18. @t [ t in F --> t in G ]						[8 R]
+							19. <t, y_1> in F --> <t, y_1> in G			[18 UI/<t, y_1>]
+							20. <t, y_1> in G				[19 17 MP]
+
+							21. @x [ x in dom G <--> 3y [ <x, y> in G ] ]			[D1]
+							22. t in dom G <--> 3y [ <t, y> in G ]				[21 UI/t]
+							23. 3y [ <t, y> in G ]			[20 EG/y_1->y]
+							24. t in dom G			[22 BC 23 MP]
+
+							25. 		[24 CD]
+						26. 		[12 UD]
+					27. dom F ⊆ dom G			[10 EQUIV.]
+					28.			[27 DD]
+				
+				29. Show @x [ x in dom F --> F(x) = G(x) ]
+					30. let x be a set
+					31. Show x in dom F --> F(x) = G(x)
+						32. x in dom F			[ACD]
+						33. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]			[MARIN]
+						34. F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ]				[33 UI/F UI/x]
+						35. F is a function & x in dom F					[4 32 ADJ]
+						36. @w [ <x, w> in F <--> F(x) = w ]			[34 35 MP]
+						37. <x, F(x)> in F <--> F(x) = F(x)				[36 UI/F(x)]
+						38. F(x) = F(x)			[SID/F(x)]
+						39. <x, F(x)> in F			[37 BC 38 MP]
+
+						40. dom F ⊆ dom G			[9 R]
+						41. @t [ t in dom F --> t in dom G ]
+						42. x in dom F --> x in dom G			[41 UI/x]
+						43. x in dom G			[32 42 MP]
+
+						44. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]			[MARIN]
+						45. G is a function & x in dom G -->  @w [ <x, w> in G <--> G(x) = w ]				[44 UI/G UI/x]
+						46. G is a function & x in dom G			[4 43 ADJ]
+						47. @w [ <x, w> in G <--> G(x) = w ]			[45 46 MP]
+
+						48. @t [ t in F --> t in G ]			[8 R]
+						49. <x, F(x)> in F --> <x, F(x)> in G			[48 UI/<x, F(x)>]
+						50. <x, F(x)> in G			[49 39 MP]
+
+						51. <x, F(x)> in G <--> G(x) = F(x)			[47 UI/F(x)]
+						52. G(x) = F(x)				[51 BC 50 MP]
+						53. F(x) = G(x)				[52 EQUIV.]
+						54.			[53 CD]
+					55. 		[31 UD]
+				
+				56. dom F ⊆ dom G & @x [ x in dom F --> F(x) = G(x) ]			[9 29 ADJ]
+				57. 		[56 CD]
+			
+
+			58. Show dom F ⊆ dom G & @x [ x in dom F --> F(x) = G(x) ] --> F ⊆ G
+				59. dom F ⊆ dom G & @x [ x in dom F --> F(x) = G(x) ]			[ACD]
+
+				60. Show F ⊆ G
+					61. Show @t [ t in F --> t in G ]
+						62. let t be a set
+						63. Show t in F --> t in G
+							64. t in F			[ACD]
+							65. @F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]		[Definition of function]
+							66. F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ]		[65 UI/F]
+							67. F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ]			[66 BC 4 MP]
+							68. F is a relation			[67 SL]
+							69. @R [ R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ] ]		[Definition of relation]
+							70. F is a relation <--> @t [ t in F --> 3x, y[ t = <x, y> ] ]			[69 UI/F]
+							71. @t [ t in F --> 3x, y[ t = <x, y> ] ]			[70 BC 68 MP]
+							72. t in F --> 3x, y[ t = <x, y> ]			[71 UI/t]
+							73. 3x, y[ t = <x, y> ]			[72 64 MP]
+							74. t = <x_1, y_1>			[74 EI/x_1 EI/y_1]
+
+							75. @x [ x in dom F <--> 3y [ <x, y> in F ] ]				[D1]
+							76. x_1 in dom F <--> 3y [ <x_1, y> in F ]			[75 UI/x_1]
+							77. <x_1, y_1> in F				[64 74 LL]
+							78. 3y [ <x_1, y> in F ]			[77 EG/y_1->y]
+							79. x_1 in dom F			[76 BC 78 MP]
+
+							80. @x [ x in dom F --> F(x) = G(x) ]			[59 SR]
+							81. x_1 in dom F --> F(x_1) = G(x_1)			[80 UI/x_1]
+							82. F(x_1) = G(x_1)			[81 79 MP]
+
+							83. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]			[MARIN]
+							84. F is a function & x_1 in dom F -->  @w [ <x_1, w> in F <--> F(x_1) = w ]				[83 UI/x_1]
+							85. F is a function & x_1 in dom F			[4 79 ADJ]
+							86. @w [ <x_1, w> in F <--> F(x_1) = w ]			[84 85 MP]
+							87. <x_1, y_1> in F <--> F(x_1) = y_1				[86 UI/y_1]
+							88. F(x_1) = y_1			[87 BC 77 MP]
+
+							89. dom F ⊆ dom G			[59 SL]
+							90. @t [ t in dom F --> t in dom G ]
+							91. x_1 in dom F --> x_1 in dom G				[90 UI/x_1]
+							92. x_1 in dom G			[91 79 MP]
+
+							93. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]			[MARIN]
+							94. G is a function & x_1 in dom G -->  @w [ <x_1, w> in G <--> G(x_1) = w ]				[93 UI/G UI/x_1]
+							95. G is a function & x_1 in dom G			[4 92 ADJ]
+							96. @w [ <x_1, w> in G <--> G(x_1) = w ]			[94 95 MP]
+							97. <x_1, y_1> in G <--> G(x_1) = y_1			[96 UI/y_1]
+							98. y_1 = G(x_1)			[82 88 LL]
+							99. G(x_1) = y_1			[98 EQUIV.]
+							100. <x_1, y_1> in G			[97 BC 99 MP]
+							101. t in G			[100 74 LL]
+							102.		[101 CD]
+						103. 		[63 UD]
+					104. F ⊆ G			[61 EQUIV.]
+					105.		[104 DD]
+				106. 		[60 CD]
+			
+			107. F ⊆ G <--> dom F ⊆ dom G & @x [ x in dom F --> F(x) = G(x) ]			[6 58 CB]
+
+			108.		[107 DD]
+		109. 		[5 CD]
+	110.		[3 UD]

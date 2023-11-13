@@ -1,0 +1,118 @@
+First we prove that 
+	for any A, B, {A x X | X in B} is a set that exists!
+
+	A x X = {<a, x> | a in A & x in X }
+	note that <a, x> in P(P(A ∪ U(B)))
+	Hence A x X is a subset of P(P(A ∪ U(B)))
+
+	Hence {A x X | X in B} is a subset of P(P(P(A ∪ U(B))))
+
+Axioms/Theorems:
+	Lemma 3B:
+    		@C, x, y [ x in C & y in C --> <x, y> in P(P(C)) ]
+			
+	Corollary 3C:
+	@A, B [ 3D [ @t[ t in D <--> 3x, y [x in A & y in B & t = <x, y> ] ] ] ]
+		Definition:
+		For any set sets A, B,  {<x, y> | x in A & x in B}    is the set whose members are exactly the sets of the form <x, y> for some x in A & y in B
+		Also known as the Cartesian Product A x B of the sets A and B!
+
+1. Show @A, B [ 3D [ @t [ t in D <--> 3X [ X in B & t = A x X ] ] ] ]
+
+	2. Let A, B be sets
+
+	3. Show 3D [ @t [ t in D <--> 3X [ X in B & t = A x X ] ] ]
+		4. @t1 ... @tk @c [ 3D [ @t [ t in D <--> t in c & __ ] ] ]											[Subset Axiom; note __ cannot contain D]
+		5. @t1 ... @tk @c [ 3D [ @t [ t in D <--> t in c & 3X [ X in B & t = A x X ] ] ] ]					[4 UI_META/ "3X [ X in B & t = A x X ]"]
+		6. @c [ 3D [ @t [ t in D <--> t in c & 3X [ X in B & t = A x X ] ] ] ]								[5 UI_META/k=0]
+
+		D1. U(B) is the set whose members are exactly the members of the members of B
+			@x [ x in U(B) <--> 3b [ b in B & x in b ] ]
+
+		D2. A ∪ U(B) is the set whose members are those sets belonging either to A or to U(B) (or both)
+			@x [ x in A ∪ U(B) <--> x in A or x in U(B) ]
+
+		D3. P(A ∪ U(B)) is the set whose members are exactly the subsets of A ∪ U(B)
+			@x [ x in P(A ∪ U(B)) <--> @w [ w in x --> w in (A ∪ U(B)) ] ]
+
+		D4. P(P(A ∪ U(B))) is the set whose members are exactly the subsets of P(A ∪ U(B))
+			@x [ x in P(P(A ∪ U(B))) <--> @w [ w in x --> w in P(A ∪ U(B)) ] ]
+
+		D5. P(P(P(A ∪ U(B)))) is the set whose members are exactly the subsets of P(P(A ∪ U(B)))
+			@x [ x in P(P(P(A ∪ U(B)))) <--> @w [ w in x --> w in P(P(A ∪ U(B))) ] ]
+
+		7. 3D [ @t [ t in D <--> t in P(P(P(A ∪ U(B)))) & 3X [ X in B & t = A x X ] ] ]					[6 UI/P(P(P(A ∪ U(B))))]
+
+		8. @t [ t in D1 <--> t in P(P(P(A ∪ U(B)))) & 3X [ X in B & t = A x X ] ]						[7 EI/D1]
+
+		9. Show @t [ t in D1 <--> 3X [ X in B & t = A x X ] ]
+
+			10. Let t be a set
+
+			11. Show t in D1 <--> 3X [ X in B & t = A x X ]
+				12. Show t in D1 --> 3X [ X in B & t = A x X ]
+					13. t in D1			[ACD]
+					14. t in D1 <--> t in P(P(P(A ∪ U(B)))) & 3X [ X in B & t = A x X ]		[8 UI/t]
+					15. t in P(P(P(A ∪ U(B)))) & 3X [ X in B & t = A x X ]						[14 BC 13 MP]
+					16. 3X [ X in B & t = A x X ]											[15 SR]
+					17. 	[16 CD]
+
+				18. Show 3X [ X in B & t = A x X ] --> t in D1
+					19. 3X [ X in B & t = A x X ]			[ACD]
+					20. X1 in B & t = A x X1				[19 EI/X1 "Let X1 be a set"]
+					21. t in D1 <--> t in P(P(P(A ∪ U(B)))) & 3X [ X in B & t = A x X ]		[8 UI/t]
+					22. Show t in P(P(P(A ∪ U(B))))
+						23. @x [ x in P(P(P(A ∪ U(B)))) <--> @w [ w in x --> w in P(P(A ∪ U(B))) ] ]		[D5]
+						24. t in P(P(P(A ∪ U(B)))) <--> @w [ w in t --> w in P(P(A ∪ U(B))) ]
+						25. Show @w [ w in t --> w in P(P(A ∪ U(B))) ]
+							26. Let w be a set
+							27. Show w in t --> w in P(P(A ∪ U(B)))
+								28. w in t
+								29. t = A x X1			[20 SR]
+								30. @w[ w in A x X1 <--> 3x, y [x in A & y in X1 & w = <x, y> ] ]		[2 20 Corollary 3C & Ext. Axiom]
+								31. w in A x X1 <--> 3x, y [x in A & y in X1 & w = <x, y> ]				[30 UI/w]
+								32. w in A x X1															[28 29 LL]
+								33. 3x, y [x in A & y in X1 & w = <x, y> ]								[31 BC 32 MP]
+								34. v1 in A & u1 in X1 & w = <v1, u1>									[33 EI/v1 EI/u1]
+								35. @C, x, y [ x in C & y in C --> <x, y> in P(P(C)) ]					[Lemma 3B]
+								36. v1 in A ∪ U(B) & u1 in A ∪ U(B) --> <v1, u1> in P(P(A ∪ U(B)))				[35 UI/A ∪ U(B) UI/v1 UI/u1]
+								37. Show v1 in A ∪ U(B)
+									38. @x [ x in A ∪ U(B) <--> x in A or x in U(B) ]		[D2]
+									39. v1 in A ∪ U(B) <--> v1 in A or v1 in U(B)			[38 UI/v1]
+									40. v1 in A						[34 SL SL]
+									41. v1 in A or v1 in U(B)		[40 ADD/...]
+									42. v1 in A ∪ U(B)				[39 BC 41 MP]
+									43. 	[42 DD]
+								44. Show u1 in A ∪ U(B)
+									45. @x [ x in A ∪ U(B) <--> x in A or x in U(B) ]		[D2]
+									46. u1 in A ∪ U(B) <--> u1 in A or u1 in U(B)			[38 UI/v1]
+									47. u1 in X1					[34 SL SR]
+									48. Show u1 in U(B)
+										49. @x [ x in U(B) <--> 3b [ b in B & x in b ] ]		[D1]
+										50. u1 in U(B) <--> 3b [ b in B & u1 in b ]				[49 UI/u1]
+										51. X1 in B							[20 SL]
+										52. X1 in B & u1 in X1				[51 47 ADJ]
+										53. 3b [ b in B & u1 in b ]			[52 EG/X1->b]
+										54. u1 in U(B)						[50 BC 53 MP]
+										55. 	[54 DD]
+									56. u1 in A or u1 in U(B)		[48 ADD/...]
+									57. u1 in A ∪ U(B)				[46 BC 56 MP]
+									58. 	[57 DD]
+
+								59. v1 in A ∪ U(B) & u1 in A ∪ U(B)			[37 44 ADJ]
+								60. <v1, u1> in P(P(A ∪ U(B)))				[36 59 MP]
+								61. w = <v1, u1>							[34 SR]
+								62. w in P(P(A ∪ U(B)))						[60 61 LL]
+								63. 	[62 CD]
+							64. 	[27 UD]
+						65. t in P(P(P(A ∪ U(B))))		[24 BC 25 MP]
+						66. 	[65 DD]
+					67. t in P(P(P(A ∪ U(B)))) & 3X [ X in B & t = A x X ]		[22 19 ADJ]
+					68. t in D1				[21 BC 67 MP]
+					69. 	[68 CD]
+				70. t in D1 <--> 3X [ X in B & t = A x X ]		[12 18 CB]
+				71.		[70 DD]
+			72.		[11 UD]
+		73. 3D [ @t [ t in D <--> 3X [ X in B & t = A x X ] ] ]			[9 EG/D1->D]
+		74. 	[73 DD]
+	75. 	[3 UD]

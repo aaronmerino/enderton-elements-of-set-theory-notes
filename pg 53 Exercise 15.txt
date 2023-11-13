@@ -1,0 +1,190 @@
+Axioms and Theorems:
+	Union Axiom:
+	@A [ 3B [ @x [ x in B <--> 3b [ b in A & x in b ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set A, the union of A  U(A)     is the set whose members are exactly the members of the members of A
+		[You can think of U(A) as a 1-ary operator. It refer to one set and one set only based on the set A!]
+
+	Relation:
+		Definition:
+		A relation R is a set of ordered pairs.
+		@R [ R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ] ]
+
+	dom R: 
+		@R [ 3D [ @x [ x in D <--> 3y [ <x, y> in R ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets R,  dom R  is the set whose members are those 1st-coordinate set of some ordered pair in R
+
+	Definition of F(x): 
+	(We define it like this for the purpose of making sure that F(x) is always defined for any F and x, so that we can always refer to it)
+		@F, x [ F(x) := U({y | <x, y> in F}) ]
+
+	Function:
+		Definition:
+		@F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]
+
+	[APPLE] Pg 43 When F is a function and x the dom F, F(x) is y IFF <x, y> in F:
+		@F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]
+		
+1. Show @A [ @t [ t in A --> t is a function ] & @f, g [ f, g in A --> f ⊆ g or g ⊆ f ] --> U(A) is a function ]
+	2. let A be a set
+
+	========
+	D1. @t [ t in U(A) <--> 3b [ b in A & t in b ] ]			[Union Axiom UI/A EI & Ext. Axiom]
+	D2. @x [ x in dom U(A) <--> 3y [ <x, y> in U(A) ] ]		[Dom UI/U(A) EI & Ext. Axiom]
+	========
+
+	3. Show @t [ t in A --> t is a function ] & @f, g [ f, g in A --> f ⊆ g or g ⊆ f ] --> U(A) is a function
+		4. @t [ t in A --> t is a function ] & @f, g [ f, g in A --> f ⊆ g or g ⊆ f ]			[ACD]
+
+		5. @t [ t in A --> t is a function ]						[4 SL]
+		6. @f, g [ f, g in A --> f ⊆ g or g ⊆ f ]				[4 SR]
+
+		7. @F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]			[Def. of function]
+		8. U(A) is a function <--> U(A) is a relation & @x [ x in dom U(A) --> 3_1y [ <x, y> in U(A) ] ]			[7 UI/U(A)]
+
+		9. Show @x [ x in dom U(A) --> 3_1y [ <x, y> in U(A) ] ]
+			10. let x be a set
+			11. Show x in dom U(A) --> 3_1y [ <x, y> in U(A) ]
+				12. x in dom U(A)			[ACD]
+				13. @x [ x in dom U(A) <--> 3y [ <x, y> in U(A) ] ]			[D2]
+				14. x in dom U(A) <--> 3y [ <x, y> in U(A) ]			[13 UI/x]
+				15. 3y [ <x, y> in U(A) ]				[14 BC 12 MP]
+				16. <x, y_1> in U(A)			[15 EI/y_1]
+
+				17. @t [ t in U(A) <--> 3b [ b in A & t in b ] ]			[D1]
+				18. <x, y_1> in U(A) <--> 3b [ b in A & <x, y_1> in b ]				[17 UI/<x, y_1>]
+				19. 3b [ b in A & <x, y_1> in b ]			[18 BC 16 MP]
+				20. b_2 in A & <x, y_1> in b_2			[19 EI/b_2]
+
+				========
+				D3. @x [ x in dom b_2 <--> 3y [ <x, y> in b_2 ] ]		[Dom UI/b_2 EI & Ext. Axiom]
+				========
+
+				21. @t [ t in A --> t is a function ]			[5 R]
+				22. b_2 in A --> b_2 is a function				[21 UI/b_2]
+				23. b_2 in A			[20 SL]
+				24. b_2 is a function			[22 23 MP]
+
+				25. Show @w [ <x, w> in U(A) --> w = y_1 ]
+					26. let w be a set
+					27. Show <x, w> in U(A) --> w = y_1
+						28. <x, w> in U(A)			[ACD]
+
+						29. @t [ t in U(A) <--> 3b [ b in A & t in b ] ]			[D1]
+						30. <x, w> in U(A) <--> 3b [ b in A & <x, w> in b ]				[17 UI/<x, w>]
+						31. 3b [ b in A & <x, w> in b ]						[30 BC 28 MP]
+						32. b_3 in A & <x, w> in b_3									[31 EI/b_3]
+
+						========
+						D4. @x [ x in dom b_3 <--> 3y [ <x, y> in b_3 ] ]		[Dom UI/b_3 EI & Ext. Axiom]
+						========
+
+						33. @t [ t in A --> t is a function ]			[5 R]
+						34. b_3 in A --> b_3 is a function			[33 UI/b_3]
+						35. b_3 in A			[32 SL]
+						36. b_3 is a function				[34 35 MP]
+
+						37. @f, g [ f, g in A --> f ⊆ g or g ⊆ f ]			[6 R]
+						38. b_2, b_3 in A --> b_2 ⊆ b_3 or b_3 ⊆ b_2			[37 UI/b_2 UI/b_3]
+						39. b_2 in A & b_3 in A				[23 35 ADJ]
+						40. b_2 ⊆ b_3 or b_3 ⊆ b_2			[38 39 MP]
+
+						41. Show b_2 ⊆ b_3 --> w = y_1			[CASE 1 for line 40]
+							42. b_2 ⊆ b_3				[ACD]
+							43. @t [ t in b_2 --> t in b_3 ]			[42 EQUIV.]
+							44. <x, y_1> in b_2 --> <x, y_1> in b_3				[43 UI/<x, y_1>]
+							45. <x, y_1> in b_2				[20 SR]
+
+							46. <x, y_1> in b_3				[44 45 MP]
+							47. <x, w> in b_3			[32 SR]
+
+							48. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]			[APPLE]
+							49. b_3 is a function & x in dom b_3 -->  @w [ <x, w> in b_3 <--> b_3(x) = w ]				[48 UI/b_3 UI/x]
+							50. @x [ x in dom b_3 <--> 3y [ <x, y> in b_3 ] ]			[D4]
+							51. x in dom b_3 <--> 3y [ <x, y> in b_3 ]			[50 UI/x]
+							52. 3y [ <x, y> in b_3 ]				[46 EG/y_1->y]
+							53. x in dom b_3			[51 BC 52 MP]
+							54. b_3 is a function & x in dom b_3			[36 53 ADJ]
+							55. @w [ <x, w> in b_3 <--> b_3(x) = w ]			[49 54 MP]
+							56. <x, y_1> in b_3 <--> b_3(x) = y_1			[55 UI/y_1]
+							57. b_3(x) = y_1			[56 BC 46 MP]
+
+							58. <x, w> in b_3 <--> b_3(x) = w			[55 UI/w]
+							59. b_3(x) = w			[58 BC 47 MP]
+							60. w = y_1				[57 59 LL]
+							61. 			[60 CD]
+
+						62. Show b_3 ⊆ b_2 --> w = y_1			[CASE 2 for line 40]
+							63. b_3 ⊆ b_2				[ACD]
+							64. @t [ t in b_3 --> t in b_2 ]			[63 EQUIV.]
+							65. <x, w> in b_3 --> <x, w> in b_2				[64 UI/<x, w>]
+							66. <x, w> in b_3				[32 SR]
+
+							67. <x, w> in b_2				[65 66 MP]
+							68. <x, y_1> in b_2			[20 SR]
+
+							69. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]			[APPLE]
+							70. b_2 is a function & x in dom b_2 -->  @w [ <x, w> in b_2 <--> b_2(x) = w ]				[69 UI/b_2 UI/x]
+							71. @x [ x in dom b_2 <--> 3y [ <x, y> in b_2 ] ]			[D3]
+							72. x in dom b_2 <--> 3y [ <x, y> in b_2 ]			[71 UI/x]
+							73. 3y [ <x, y> in b_2 ]				[67 EG/w->y]
+							74. x in dom b_2			[72 BC 73 MP]
+							75. b_2 is a function & x in dom b_2			[24 74 ADJ]
+							76. @w [ <x, w> in b_2 <--> b_2(x) = w ]			[70 75 MP]
+							77. <x, w> in b_2 <--> b_2(x) = w			[76 UI/w]
+							78. b_2(x) = w			[77 BC 67 MP]
+
+							79. <x, y_1> in b_2 <--> b_2(x) = y_1			[76 UI/y_1]
+							80. b_2(x) = y_1			[79 BC 68 MP]
+							81. w = y_1				[78 80 LL]
+							82. 			[81 CD]
+						
+						83. b_2 ⊆ b_3 or b_3 ⊆ b_2 --> w = y_1				[41 62 CASE_PROOF for line 40]
+						84. w = y_1				[83 40 MP]
+						85. 			[84 CD]
+					86. 		[27 UD]
+				
+				87. <x, y_1> in U(A) & @w [ <x, w> in U(A) --> w = y_1 ]			[16 25 ADJ]
+				88. 3y [ <x, y> in U(A) & @w [ <x, w> in U(A) --> w = y ] ]		[87 EG/y_1->y]
+				89. 3_1y [ <x, y> in U(A) ]				[88 EQUIV.]
+				90.			[89 CD]
+			91. 		[11 UD]
+		
+		92. Show U(A) is a relation
+			93. @R [ R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ] ]			[Def. of relation]
+			94. U(A) is a relation <--> @t [ t in U(A) --> 3x, y[ t = <x, y> ] ]			[93 UI/U(A)]
+			95. Show @t [ t in U(A) --> 3x, y[ t = <x, y> ] ]
+				96.	let t be a set
+				97. Show t in U(A) --> 3x, y[ t = <x, y> ]
+					98. t in U(A)			[ACD]
+					99. @t [ t in U(A) <--> 3b [ b in A & t in b ] ]			[D1]
+					100. t in U(A) <--> 3b [ b in A & t in b ]			[99 UI/t]
+					101. 3b [ b in A & t in b ]			[100 BC 98 MP]
+					102. b_1 in A & t in b_1			[101 EI/b_1]
+
+					103. @t [ t in A --> t is a function ]			[5 R]
+					104. b_1 in A --> b_1 is a function				[103 UI/b_1]
+					105. b_1 in A			[102 SL]
+					106. b_1 is a function			[104 105 MP]
+
+					107. @F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]			[Def. of function]
+					108. b_1 is a function <--> b_1 is a relation & @x [ x in dom b_1 --> 3_1y [ <x, y> in b_1 ] ]		[107 UI/b_1]
+					109. b_1 is a relation & @x [ x in dom b_1 --> 3_1y [ <x, y> in b_1 ] ]			[108 BC 106 MP]
+					110. b_1 is a relation			[109 SL]
+					111. @R [ R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ] ]			[Defintion of relation]
+					112. b_1 is a relation <--> @t [ t in b_1 --> 3x, y[ t = <x, y> ] ]				[111 UI/b_1]
+					113. @t [ t in b_1 --> 3x, y[ t = <x, y> ] ]			[112 BC 110 MP]
+					114. t in b_1 --> 3x, y[ t = <x, y> ]				[113 UI/t]
+					115. t in b_1			[102 SR]
+					116. 3x, y[ t = <x, y> ]			[114 115 MP]
+					117. 		[116 CD]
+				118. 		[97 UD]
+			119. U(A) is a relation			[94 BC 95 MP]
+			120. 			[119 DD]
+		
+		121. U(A) is a relation & @x [ x in dom U(A) --> 3_1y [ <x, y> in U(A) ] ]			[92 9 ADJ]
+		122. U(A) is a function			[8 BC 121 MP]
+		123.		[122 CD]
+	124. 			[3 UD]
+		

@@ -1,0 +1,99 @@
+Axioms and Theorems:
+	Extensionality Axiom:
+	@A, B [ @x [ x in A <--> x in B ] --> A = B ]
+
+	Pairing Axiom:
+	@u, v [ 3B [ @x [ x in B <--> x = u or x = v ] ] ]
+		Definition:
+		For any sets u, v, the pair set {u, v} is the set whose only members are u and v.
+		[You can think of {u, v} as a 2-ary operator. It refer to one set and one set only based on the sets u and v!]
+
+	Union Axiom (Preliminary Form):
+	@a, b [ 3B [ @x [ x in B <--> x in a or x in b ] ] ]
+		Definition:
+		For any sets a, b, the union a ∪ b is the set whose members are those sets belonging either to a or to b (or both).
+		[You can think of a ∪ b as a 2-ary operator. It refer to one set and one set only based on the sets a and b!]
+
+	Power Set Axiom:
+	@a [ 3B [ @x [ x in B <--> @t [ t in x --> t in a ] ] ] ]
+		Definition:
+		For any set a, the power set  P(a) is the set whose members are exactly the subsets of a.
+		[You can think of P(a) as a 1-ary operator. It refer to one set and one set only based on the sets a!]
+
+	Definition:
+		@x, y[ <x, y> := {{x}, {x, y}} ]
+		@x, y[
+			note {x} exists due to Pairing Axiom & Extensionality
+			note {x, y} exists due to Pairing Axiom & Extensionality
+			finally {{x}, {x, y}} exists due to Pairing Axiom & Extensionality
+
+			define: 
+				<x, y> := {{x}, {x, y}}
+		]
+
+	Theorem 3A:
+		@u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]
+
+	Lemma 3B:
+    @C, x, y [ x in C & y in C --> <x, y> in P(P(C)) ]
+
+1. Show @A, B [ 3D [ @t[ t in D <--> 3x, y [x in A & y in B & t = <x, y> ] ] ] ]
+	2. let A, B be sets
+	D1. A ∪ B is the set whose members are those sets belonging either to a or to b (or both).		[2 Union Axiom and Ext. Axiom]
+		@x [ x in A ∪ B <--> x in A or x in B ]
+
+	D2. P(A ∪ B) is the set whose members are exactly the subsets of A ∪ B							[2 Power Set Axiom and Ext. Axiom]
+		@x [ x in P(A ∪ B) <--> @t [ t in x --> t in (A ∪ B) ] ]
+
+	D3. P(P(A ∪ B)) is the set whose members are exactly the subsets of P(A ∪ B)					[2 Power Set Axiom and Extensionality Axiom]
+		@x [ x in P(P(A ∪ B)) <--> @t [ t in x --> t in P(A ∪ B) ] ]
+
+	3. Show 3C [ @t[ t in C <--> 3x, y [x in A & y in B & t = <x, y> ] ] ]
+		4. @t1 ... @tk @c [ 3D [ @t [ t in D <--> t in c & __ ] ] ]																				[Subset Axiom]
+		5. @t1 ... @tk @c [ 3D [ @t [ t in D <--> t in c & 3x, y [x in A & y in B & t = <x, y> ] ] ] ]		[4 UI_META/ "3x, y [x in A & y in B & t = <x, y> ]"]
+		6. @c [ 3D [ @t [ t in D <--> t in c & 3x, y [x in A & y in B & t = <x, y> ] ] ] ]					[5 UI_META/k=0]
+		7. 3D [ @t [ t in D <--> t in P(P(A ∪ B)) & 3x, y [x in A & y in B & t = <x, y> ] ] ]				[6 UI/ P(P(A ∪ B))]
+		8. @t [ t in D_1 <--> t in P(P(A ∪ B)) & 3x, y [x in A & y in B & t = <x, y> ] ]					[7 UI/D_1]
+
+		9. Show @t[ t in D_1 <--> 3x, y [x in A & y in B & t = <x, y> ] ]
+			10. Show t in D_1 <--> 3x, y [x in A & y in B & t = <x, y> ]
+				11. Show t in D_1 --> 3x, y [x in A & y in B & t = <x, y> ]
+					12. t in D_1		[ACD]
+					13. t in D_1 <--> t in P(P(A ∪ B)) & 3x, y [x in A & y in B & t = <x, y> ]		[8 UI/t]
+					14. t in P(P(A ∪ B)) & 3x, y [x in A & y in B & t = <x, y> ]					[13 BC 12 MP]
+					15. 3x, y [x in A & y in B & t = <x, y> ]										[14 SR]
+					16. 	[15 CD]
+
+				17. Show 3x, y [x in A & y in B & t = <x, y> ] --> t in D_1
+					18. 3x, y [x in A & y in B & t = <x, y> ]			[ACD]
+					19. t in D_1 <--> t in P(P(A ∪ B)) & 3x, y [x in A & y in B & t = <x, y> ]		[8 UI/t]
+					20. Show t in P(P(A ∪ B))
+						21. x in A & y in B & t = <x, y> 								[18 EI/x EI/y]
+						22. t = <x ,y>													[21 SR]
+						23. @C, x, y [ x in C & y in C --> <x, y> in P(P(C)) ]			[Lemma 3B]
+						24. x in A ∪ B & y in A ∪ B --> <x, y> in P(P(A ∪ B))			[24 UI/A ∪ B]
+						
+						25. @x [ x in A ∪ B <--> x in A or x in B ]						[D1]
+						26. x in A ∪ B <--> x in A or x in B							[25 UI/x]
+						27. x in A														[21 SL SL]
+						28. x in A or x in B											[27 ADD/...]
+						29. x in A ∪ B													[26 BC 28 MP]
+
+						30. y in A ∪ B <--> y in A or y in B							[25 UI/y]
+						31. y in A														[21 SL SR]
+						32. y in A or y in B											[31 ADD/...]
+						33. y in A ∪ B													[30 BC 32 MP]
+
+						34. x in A ∪ B & y in A ∪ B										[29 33 ADJ]
+						35. <x, y> in P(P(A ∪ B))										[34 24 MP]
+						36. t in P(P(A ∪ B))											[35 22 LL]
+						37. 	[36 DD]
+					38. t in P(P(A ∪ B)) & 3x, y [x in A & y in B & t = <x, y> ]		[20 18 ADJ]
+					39. t in D_1														[19 BC 38 MP]
+					40. 	[39 CD]
+				41. t in D_1 <--> 3x, y [x in A & y in B & t = <x, y> ]					[11 17 CB]
+				42. 	[41 DD]
+			43.	[10 UD]
+		44. 3C [ @t[ t in C <--> 3x, y [x in A & y in B & t = <x, y> ] ] ]	 			[9 EG/D_1 --> C]
+		45. 	[44 DD]
+	46.		[3 UD]

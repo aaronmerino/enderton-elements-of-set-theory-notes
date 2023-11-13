@@ -1,0 +1,98 @@
+Axioms and Theorems:
+
+	Subset Axioms:
+	For each formula __ not containing B, the following is an axiom:
+	@t1 ... @tk @c [ 3B [ @x [ x in B <--> x in c & __ ] ] ]
+		Definition:
+		For any set t­1, ..., tk and c, the subset B = {x in c | __ } is the set whose members are exactly those sets in c and __	
+
+	Corollary 3C:
+	@A, B [ 3D [ @t[ t in D <--> 3x, y [x in A & y in B & t = <x, y> ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets A, B,  {<x, y> | x in A & y in B}    is the set whose members are exactly the sets of the form <x, y> for some x in A & y in B
+		Also known as the Cartesian Product A x B of the sets A and B!
+
+	Relation:
+		Definition:
+		A relation R is a set of ordered pairs.
+		@R [ R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ] ]
+
+	dom R: 
+	@R [ 3D [ @x [ x in D <--> 3y [ <x, y> in R ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets R,  dom R  is the set whose members are those 1st-coordinate set of some ordered pair in R
+
+	ran R: 
+	@R [ 3D [ @x [ x in D <--> 3t [ <t, x> in R ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets R,  ran R  is the set whose members are those 2nd-coordinate set of some ordered pair in R
+
+
+1. Show @F, G [ 3D [ @w [ w in D <--> 3u, v [ w = <u, v> & 3t [ <u, t> in G & <t, v> in F ] ] ] ] ]
+	2. let F, G be sets
+
+	D1. dom G is the set whose members are those 1st-coordinate set of some ordered pair in G		[dom UI/G EI & Ext. Axiom -> defines dom F]
+		@t [ t in dom G <--> 3y [ <t, y> in G ] ]
+	
+	D2. ran F is the set whose members are those 2nd-coordinate set of some ordered pair in F		[ran UI/F EI & Ext. Axiom -> defines ran F]
+		@t [ t in ran F <--> 3x [ <x, t> in F ] ]
+	
+	D3. dom G x ran F is the set whose members are exactly the sets of the form <x, y> for some x in dom G & y in ran F			[Corollary 3C UI/dom G UI/ran F EI & Ext. Axiom -> defines dom G x ran F]
+		@t[ t in dom G x ran F <--> 3x, y [x in dom G & y in ran F & t = <x, y> ] ]
+	
+	3. Show 3D [ @w [ w in D <--> 3u, v [ w = <u, v> & 3t [ <u, t> in G & <t, v> in F ] ] ] ]
+		4. @t1 ... @tk @c [ 3B [ @w [ w in B <--> w in c & __ ] ] ]															[Subset Axiom]
+		5. @c [ 3B [ @w [ w in B <--> w in c & 3u, v [ w = <u, v> & 3t [ <u, t> in G & <t, v> in F ] ] ] ] ]				[4 UI_META/"3u, v [ w = <u, v> & 3t [ <u, t> in G & <t, v> in F ] ]"]
+		6. 3B [ @w [ w in B <--> w in dom G x ran F & 3u, v [ w = <u, v> & 3t [ <u, t> in G & <t, v> in F ] ] ] ]			[5 UI/dom G x ran F]
+		7. @w [ w in B_1 <--> w in dom G x ran F & 3u, v [ w = <u, v> & 3t [ <u, t> in G & <t, v> in F ] ] ]				[6 EI/B_1]
+		
+		8. Show @w [ w in B_1 <--> 3u, v [ w = <u, v> & 3t [ <u, t> in G & <t, v> in F ] ] ]
+			9. let w be a set
+			10. Show w in B_1 <--> 3u, v [ w = <u, v> & 3t [ <u, t> in G & <t, v> in F ] ]
+				11. Show w in B_1 --> 3u, v [ w = <u, v> & 3t [ <u, t> in G & <t, v> in F ] ]
+					12. w in B_1			[ACD]
+					13. w in B_1 <--> w in dom G x ran F & 3u, v [ w = <u, v> & 3t [ <u, t> in G & <t, v> in F ] ]		[7 UI/w]
+					14. w in dom G x ran F & 3u, v [ w = <u, v> & 3t [ <u, t> in G & <t, v> in F ] ]					[13 BC 12 MP]
+					15. 3u, v [ w = <u, v> & 3t [ <u, t> in G & <t, v> in F ] ]											[14 SR]
+					16. 	[15 CD]
+
+				17. Show 3u, v [ w = <u, v> & 3t [ <u, t> in G & <t, v> in F ] ] --> w in B_1
+					18. 3u, v [ w = <u, v> & 3t [ <u, t> in G & <t, v> in F ] ]			[ACD]
+					19. w = <u_1, v_1> & 3t [ <u_1, t> in G & <t, v_1> in F ]			[18 EI/u_1 EI/v_1]
+					20. 3t [ <u_1, t> in G & <t, v_1> in F ]							[19 SR]
+					21. <u_1, t_1> in G & <t_1, v_1> in F								[20 EI/t_1]
+					22. w in B_1 <--> w in dom G x ran F & 3u, v [ w = <u, v> & 3t [ <u, t> in G & <t, v> in F ] ]		[7 UI/w]
+
+					23. Show w in dom G x ran F
+						24. @t[ t in dom G x ran F <--> 3x, y [x in dom G & y in ran F & t = <x, y> ] ]			[D3]
+						25. w in dom G x ran F <--> 3x, y [x in dom G & y in ran F & w = <x, y> ]				[24 UI/w]
+						26. Show u_1 in dom G
+							27. @t [ t in dom G <--> 3y [ <t, y> in G ] ]										[D1]
+							28. u_1 in dom G <--> 3y [ <u_1, y> in G ]											[27 UI/u_1]
+							29. <u_1, t_1> in G																	[21 SL]
+							30. 3y [ <u_1, y> in G ]															[29 EG/t_1->y]
+							31. u_1 in dom G																	[28 BC 30 MP]
+							32. 	[31 DD]
+
+						33. Show v_1 in ran F
+							34. @t [ t in ran F <--> 3x [ <x, t> in F ] ]										[D2]
+							35. v_1 in ran F <--> 3x [ <x, v_1> in F ]											[34 UI/v_1]
+							36. <t_1, v_1> in F																	[21 SR]
+							37. 3x [ <x, v_1> in F ]															[36 EG/t_1->x]
+							38. v_1 in ran F																	[35 BC 37 MP]
+							39.		[38 DD]
+						40. w = <u_1, v_1>																		[19 SL]
+						41.	u_1 in dom G & v_1 in ran F & w = <u_1, v_1>										[26 33 40 ADJ]
+						42. 3x, y [x in dom G & y in ran F & w = <x, y> ]										[41 EG/u_1->x EG/v_1->y]
+						43. w in dom G x ran F																	[25 BC 42 MP]
+						44.		[43 DD]
+					45. w in dom G x ran F & 3u, v [ w = <u, v> & 3t [ <u, t> in G & <t, v> in F ] ]					[23 18 ADJ]
+					46. w in B_1																						[22 BC 45 MP]
+					47.		[46 CD]
+				48. w in B_1 <--> 3u, v [ w = <u, v> & 3t [ <u, t> in G & <t, v> in F ] ]								[11 17 CB]
+				49. 	[48 DD]
+			50.		[10 UD]
+		51. 3D [ @w [ w in D <--> 3u, v [ w = <u, v> & 3t [ <u, t> in G & <t, v> in F ] ] ] ]
+		52.		[51 DD]
+	53.		[3 UD]
+						 

@@ -1,0 +1,889 @@
+Axioms and Theorems:
+	Extensionality Axiom:
+	@A, B [ @x [ x in A <--> x in B ] --> A = B ]
+
+	Empty Set Axiom:
+	3B [ @x [ ~(x in B) ] ]
+	Definition (its uniqueness is always due to Ext. Axiom):
+	{ } is the set having no members
+		[You can think of {} as a 0-ary operator. It refer to one set and one set only!]
+
+	Subset Axioms:
+	For each formula __ not containing B, the following is an axiom:
+	@t1 ... @tk @c [ 3B [ @x [ x in B <--> x in c & __ ] ] ]
+		Definition:
+		For any set t­1, ..., tk and c, the subset B = {x in c | __ } is the set whose members are exactly those sets in c and __	
+
+		Example of a subset Axiom (relative complement):
+		@A, B [ 3S [ @t [ t in S <--> t in A & ~(t in B) ] ] ]
+			Definition (its uniqueness is always due to Ext. Axiom):
+			For any set A, B, the relative complement of B in A     A - B     is the set whose members are exactly those sets in A and but not in B
+			[You can think of A - B as a 2-ary operator. It refer to one set and one set only based on the sets A and B!]
+
+	Definition of Ordered Pair:
+		@x, y[ <x, y> := {{x}, {x, y}} ]
+			note {x} exists due to Pairing Axiom & Extensionality
+			note {x, y} exists due to Pairing Axiom & Extensionality
+			finally {{x}, {x, y}} exists due to Pairing Axiom & Extensionality
+	
+	Theorem 3A:
+		@u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]
+
+	Corollary 3C:
+		@A, B [ 3D [ @t[ t in D <--> 3x, y [x in A & y in B & t = <x, y> ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets A, B,  {<x, y> | x in A & y in B}    is the set whose members are exactly the sets of the form <x, y> for some x in A & y in B
+		Also known as the Cartesian Product A x B of the sets A and B!
+
+	Relation:
+		Definition:
+		A relation R is a set of ordered pairs.
+		@R [ R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ] ]
+
+	Identity Relation on S:
+		@S [ 3D [ @x [ x in D <--> 3u [ x = <u, u> & u in S ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets S,  I_S := {<u, u> | u in S}    is the set whose members are exactly the sets of the form <u, u> for some u in S.
+
+	dom R: 
+		@R [ 3D [ @x [ x in D <--> 3y [ <x, y> in R ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets R,  dom R  is the set whose members are those 1st-coordinate set of some ordered pair in R
+
+	ran R: 
+		@R [ 3D [ @x [ x in D <--> 3t [ <t, x> in R ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets R,  ran R  is the set whose members are those 2nd-coordinate set of some ordered pair in R
+
+	Definition of F(x): 
+	(We define it like this for the purpose of making sure that F(x) is always defined for any F and x, so that we can always refer to it)
+		@F, x [ F(x) := U({y | <x, y> in F}) ]
+
+	Function:
+		Definition:
+		@F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]
+
+	[ORANGE] Pg 43 When F is a function and x the dom F, F(x) is y IFF <x, y> in F:
+		@F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]
+
+	Identity relation is a function:
+		@S [ I_S is a function ]
+
+	Definition of into:
+		@F, A, B [ F maps A into B (F: A->B) <--> 
+						F is a function &
+						dom F = A &
+						ran F ⊆ B 
+					]
+
+	Definition of single-rooted:
+		@R [ R is single-rooted <--> 
+				@y [ y in ran R --> 3_1x [ <x, y> in R ] ]
+			]
+
+	The inverse of F set:
+		@F [ 3D [ @t [ t in D <--> 3u, v [ <v, u> in F & t = <u, v> ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			For any sets F, F^-1 is the set known as the inverse of F
+			AKA: F^-1 := {<u, v> | <v, u> in F}
+
+	The composition of F and G set:
+		@F, G [ 3D [ @w [ w in D <--> 3u, v [ w = <u, v> & 3t [ <u, t> in G & <t, v> in F ] ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			For any sets F, G, F o G is the set known as the composition of F and G
+			AKA: F o G := {<u, v> | 3t[<u, t> in G & <t, v> in F]}
+
+	Theorem 3E:
+		@F [ dom (F^-1) = ran F & ran (F^-1) = dom F ]
+		@F [ F is a relation --> ((F^-1)^-1) = F ]
+
+	Theorem 3F:
+		@F [ (F^-1) is a function <--> F is single-rooted ]
+		@F [ F is a relation --> [ F is a function <--> (F^-1) is single-rooted ] ]
+
+	Theorem 3G:
+		@F [ F is a function & F is single-rooted --> @x [ x in dom F --> (F^-1)(F(x)) = x ] ]
+		@F [ F is a function & F is single-rooted --> @y [ y in ran F --> F((F^-1)(y)) = y ] ]
+		
+	Theorem 3H:
+		@F, G [ F, G are functions -->  F o G is a function ]
+		@F, G [ F, G are functions --> dom F o G = {a in dom G | G(a) in dom F} ]
+		@F, G [ F, G are functions --> @x [ x in dom F o G --> (F o G)(x) = F(G(x)) ] ]
+
+LEMMA - NON-EMPTY:
+1. Show @A [ A != {} --> 3t [ t in A ] ]
+	2. let A be a set
+
+	D1. @x [ ~(x in {}) ]			[Empty Set Axiom EI & Ext. Axiom]
+
+	3. Show A != {} --> 3t [ t in A ]
+		4. A != {} 																						[ACD]
+		5. Show 3t [ t in A ]
+			6. ~3t [ t in A ]						[AID]
+			7. @A, B [ @x [ x in A <--> x in B ] --> A = B ]		[Ext. Axiom]
+			8. @x [ x in A <--> x in {} ] --> A = {}						[7 UI/A UI/{}]
+			9. Show @x [ x in A <--> x in {} ]
+				10. let x be a set
+				11. Show x in A --> x in {}
+					12. x in A						[ACD]
+					13. 3t [ t in A ]			[12 EG/x->t]
+					14. ~3t [ t in A ]		[6 R]
+					15.		[13 14 ID]
+				16. Show x in {} --> x in A
+					17. x in {}							[ACD]
+					18. @x [ ~(x in {}) ]		[D1]
+					19. ~(x in {})					[18 UI/x]
+					20.		[17 19 ID]
+				21. x in A <--> x in {}		[11 16 CB]
+				22.		[21 UD]
+			23. A = {}				[8 9 MP]
+			24.	A != {}				[4 R]
+			25.		[23 24 ID]
+		26. 	[5 CD]
+		
+Part (a)
+1. Show @F, A, B [ (F maps A into B) & A != {} --> [ 3G [ (G maps B into A) & G o F = I_A ] <--> F is single-rooted ] ]
+	2. let F, A, B be sets
+
+	Da1. @t [ t in (F^-1) <--> 3u, v [ <v, u> in F & t = <u, v> ] ]		[Inverse UI/F EI & Ext. Axiom]
+	Da2. @x [ x in dom (F^-1) <--> 3y [ <x, y> in (F^-1) ] ]					[dom UI/(F^-1) EI & Ext. Axiom]
+
+	D1. @x [ ~(x in {}) ]																					[Empty Set Axiom EI & Ext. Axiom]
+	D2. @x [ x in I_A <--> 3u [ x = <u, u> & u in A ] ]						[Id. Relation UI/A EI & Ext. Axiom] 
+	D3. @x [ x in ran F <--> 3t [ <t, x> in F ] ]									[ran UI/F EI & Ext. Axiom]
+
+	
+
+	3. Show (F maps A into B) & A != {} --> [ 3G [ (G maps B into A) & G o F = I_A ] <--> F is single-rooted ]
+		4. (F maps A into B) & A != {}																																	[ACD]
+		5. @F, A, B [ F maps A into B (F: A->B) <--> F is a function & dom F = A & ran F ⊆ B ]					[Definition of into]
+		6. F maps A into B (F: A->B) <--> F is a function & dom F = A & ran F ⊆ B												[5 UI/F, A, B]
+
+		7. F is a function & 
+				dom F = A & 
+				ran F ⊆ B																										[6 BC 4 SL MP]
+
+		8. @A [ A != {} --> 3t [ t in A ] ]			[LEMMA - NON-EMPTY]
+		9. A != {} --> 3t [ t in A ]						[8 UI/A]
+		10. 3t [ t in A ]												[4 SR 9 MP]
+		11. t_1 in A														[10 EI/t_1]
+		
+
+		12. Show 3G [ (G maps B into A) & G o F = I_A ] --> F is single-rooted
+			13. 3G [ (G maps B into A) & G o F = I_A ]			[ACD]
+			14. (G_2 maps B into A) & G_2 o F = I_A					[13 EI/G_2]
+
+			D4. @w [ w in G_2 o F <--> 3u, v [ w = <u, v> & 3t [ <u, t> in F & <t, v> in G_2 ] ] ]					[Composition UI/G_2 UI/F EI & Ext. Axiom]
+			D5. @x [ x in dom G_2 <--> 3t [ <x, t> in G_2 ] ]				[dom UI/G_2 EI & Ext. Axiom]
+			D6. @x [ x in ran G_2 <--> 3t [ <t, x> in G_2 ] ]				[ran UI/G_2 EI & Ext. Axiom]
+
+			15. @F, A, C [ F maps A into C (F: A->C) <--> F is a function & dom F = A & ran F ⊆ C ]					[Definition of into]
+			16. G_2 maps B into A (G_2: B->A) <--> G_2 is a function & dom G_2 = B & ran G_2 ⊆ A						[15 UI/G_2, B, A]
+			17. G_2 is a function & 
+						dom G_2 = B & 
+						ran G_2 ⊆ A																								[16 BC 14 SL MP]
+
+			18. @R [ R is single-rooted <--> @y [ y in ran R --> 3_1x [ <x, y> in R ] ] ] 			[Definition of single-rooted]
+			19. F is single-rooted <--> @y [ y in ran F --> 3_1x [ <x, y> in F ] ]							[18 UI/F]
+			20. Show @y [ y in ran F --> 3_1x [ <x, y> in F ] ]
+				21. let y be a set
+				22. Show y in ran F --> 3_1x [ <x, y> in F ]
+					23. y in ran F			[ACD]
+					24. @x [ x in ran F <--> 3t [ <t, x> in F ] ]			[D3]
+					25. y in ran F <--> 3t [ <t, y> in F ]						[25 UI/y]
+					26. 3t [ <t, y> in F ]			[25 BC 23 MP]
+					27. <t_3, y> in F						[26 EI/t_3]
+
+					28. Show @w [ <w, y> in F --> w = t_3 ]
+						29. let w be a set
+						30. Show <w, y> in F --> w = t_3
+							31. <w, y> in F			[ACD]
+
+							32. ran F ⊆ B			[7 SR]
+							33. @t [ t in ran F --> t in B ]		[32 EQUIV.]
+							34. y in ran F --> y in B						[33 UI/y]
+							35. y in B													[34 23 MP]
+							36. dom G_2 = B											[17 SL SR]
+							37. y in dom G_2										[35 36 LL]
+							38. @x [ x in dom G_2 <--> 3t [ <x, t> in G_2 ] ]			[D5]
+							39. y in dom G_2 <--> 3t [ <y, t> in G_2 ]						[38 UI/y]
+							40. 3t [ <y, t> in G_2 ]			[39 BC 37 MP]
+							41. <y, t_4> in G_2						[40 EI/t_4]
+
+
+							42. @w [ w in G_2 o F <--> 3u, v [ w = <u, v> & 3t [ <u, t> in F & <t, v> in G_2 ] ] ]								[D4]
+							43. <t_3, t_4> in G_2 o F <--> 3u, v [ <t_3, t_4> = <u, v> & 3t [ <u, t> in F & <t, v> in G_2 ] ]			[42 UI/<t_3, t_4>]
+							44. <t_3, t_4> = <t_3, t_4>							[SID/<t_3, t_4>]
+							45. <t_3, y> in F & <y, t_4> in G_2			[27 41 ADJ]
+							46. 3t [ <t_3, t> in F & <t, t_4> in G_2 ]		[45 EG/y->t]
+							47. <t_3, t_4> = <t_3, t_4> & 3t [ <t_3, t> in F & <t, t_4> in G_2 ]			[44 46 ADJ]
+							48. 3u, v [ <t_3, t_4> = <u, v> & 3t [ <u, t> in F & <t, v> in G_2 ] ]		[47 EG/t_3->u EG/t_4->v]
+							49. <t_3, t_4> in G_2 o F								[43 BC 48 MP]
+							50. G_2 o F = I_A				[14 SR]
+							51. <t_3, t_4> in I_A		[49 50 LL]
+
+							52. @x [ x in I_A <--> 3u [ x = <u, u> & u in A ] ]								[D2]
+							53. <t_3, t_4> in I_A <--> 3u [ <t_3, t_4> = <u, u> & u in A ]		[52 UI/<t_3, t_4>]
+							54. 3u [ <t_3, t_4> = <u, u> & u in A ]														[53 BC 51 MP]
+							55. <t_3, t_4> = <u_5, u_5> & u_5 in A														[54 EI/u_5]
+							56. <t_3, t_4> = <u_5, u_5>							[55 SL]
+
+							57. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]			[Theorem 3A]
+							58. <t_3, t_4> = <u_5, u_5>  <-->  t_3 = u_5 & t_4 = u_5			[57 UI/t_3, t_4, u_5, u_5]
+							59. t_3 = u_5 & t_4 = u_5				[58 BC 56 MP]
+							60. t_3 = t_4										[59 SL 59 SR LL]
+
+
+							61. @w [ w in G_2 o F <--> 3u, v [ w = <u, v> & 3t [ <u, t> in F & <t, v> in G_2 ] ] ]								[D4]
+							62. <w, t_4> in G_2 o F <--> 3u, v [ <w, t_4> = <u, v> & 3t [ <u, t> in F & <t, v> in G_2 ] ]					[61 UI/<w, t_4>]
+							63. <w, t_4> = <w, t_4>							[SID/<w, t_4>]
+							64. <w, y> in F & <y, t_4> in G_2		[31 41 ADJ]
+							65. 3t [ <w, t> in F & <t, t_4> in G_2 ]		[64 EG/y->t]
+							66. <w, t_4> = <w, t_4> & 3t [ <w, t> in F & <t, t_4> in G_2 ]		[63 65 ADJ]
+							67. 3u, v [ <w, t_4> = <u, v> & 3t [ <u, t> in F & <t, v> in G_2 ] ]		[66 EG/w->u EG/t_4->v]
+							68. <w, t_4> in G_2 o F				[62 BC 67 MP]
+							69. G_2 o F = I_A				[14 SR]
+							70. <w, t_4> in I_A			[68 69 LL]
+
+							71. @x [ x in I_A <--> 3u [ x = <u, u> & u in A ] ]								[D2]
+							72. <w, t_4> in I_A <--> 3u [ <w, t_4> = <u, u> & u in A ]				[71 UI/<w, t_4>]
+							73. 3u [ <w, t_4> = <u, u> & u in A ]					[72 BC 70 MP]
+							74. <w, t_4> = <u_6, u_6> & u_6 in A					[73 EI/u_6]
+							75. <w, t_4> = <u_6, u_6>											[74 SL]
+
+							76. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]			[Theorem 3A]
+							77. <w, t_4> = <u_6, u_6>  <-->  w = u_6 & t_4 = u_6					[76 UI/w, t_4, u_6, u_6]
+							78. w = u_6 & t_4 = u_6			[77 BC 75 MP]
+							79. w = t_4									[78 SL 78 SR LL]
+
+
+							80. w = t_3				[79 60 LL]
+							81.		[80 CD]
+						82. 	[30 UD]
+					83. <t_3, y> in F & @w [ <w, y> in F --> w = t_3 ]				[27 28 ADJ]
+
+					84. 3x [ <x, y> in F & @w [ <w, y> in F --> w = x ] ]			[83 EG/t_3->x]
+					85. 3_1x [ <x, y> in F ]									[84 EQUIV.]
+					86. 	[85 CD]
+				87. 	[22 UD]
+
+			88. F is single-rooted			[19 BC 20 MP]
+			89. 		[88 CD]
+    
+    Da3. @t [ t in (B - ran F) <--> t in B & ~(t in ran F) ]						[Subset Axiom (relative complement) UI/B UI/ran F & Ext. Axiom]
+    Da4. @x [ x in {t_1} <--> x = t_1 or x = t_1 ]      [Pairing Axiom UI/t_1, t_1 EI & Ext. Axiom]
+    Da5. @t [ t in ((B - ran F) x {t_1}) <--> 3x, y [x in (B - ran F) & y in {t_1} & t = <x, y> ] ]        						[Corollary 3C UI/(B - ran F), {t_1}   EI & Ext. Axiom]
+    Da6. @t [ t in ((F^-1) ∪ ((B - ran F) x {t_1})) <--> t in (F^-1) or t in ((B - ran F) x {t_1}) ]     							[Union Axiom (Pre. Lim) UI/(F^-1), ((B - ran F) x {t_1}) EI & Ext. Axiom]
+		Da7. @x [ x in dom ((F^-1) ∪ ((B - ran F) x {t_1})) <--> 3y [ <x, y> in ((F^-1) ∪ ((B - ran F) x {t_1})) ] ]					[dom UI/((F^-1) ∪ ((B - ran F) x {t_1})) EI & Ext. Axiom]
+		Da8. @x [ x in ran ((F^-1) ∪ ((B - ran F) x {t_1})) <--> 3t [ <t, x> in ((F^-1) ∪ ((B - ran F) x {t_1})) ] ]					[ran UI/((F^-1) ∪ ((B - ran F) x {t_1})) EI & Ext. Axiom]
+		Da9. @x [ x in ran (F^-1) <--> 3u [ <u, x> in (F^-1) ] ]				[ran UI/(F^-1) EI & Ext. Axiom]
+		Da10. @w [ w in ((F^-1) ∪ ((B - ran F) x {t_1})) o F <--> 3u, v [ w = <u, v> & 3t [ <u, t> in F & <t, v> in ((F^-1) ∪ ((B - ran F) x {t_1})) ] ] ]		[Composition UI/((F^-1) ∪ ((B - ran F) x {t_1})) UI/F EI & Ext. Axiom]
+
+		Da11. @x [ x in dom F <--> 3y [ <x, y> in F ] ]						[dom UI/F EI & Ext. Axiom]
+
+    90. Show F is single-rooted --> 3G [ (G maps B into A) & G o F = I_A ]
+      91. F is single-rooted      [ACD]
+      
+      92. @F, A, C [ F maps A into C (F: A->C) <--> F is a function & dom F = A & ran F ⊆ C ]     [Definition of Into]
+      93. ((F^-1) ∪ ((B - ran F) x {t_1})) maps B into A <--> ((F^-1) ∪ ((B - ran F) x {t_1})) is a function & dom ((F^-1) ∪ ((B - ran F) x {t_1})) = B & ran ((F^-1) ∪ ((B - ran F) x {t_1})) ⊆ A
+
+      94. Show ((F^-1) ∪ ((B - ran F) x {t_1})) is a function
+        95. @F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]   [Definition of Function]
+        96. ((F^-1) ∪ ((B - ran F) x {t_1})) is a function <--> ((F^-1) ∪ ((B - ran F) x {t_1})) is a relation & @x [ x in dom ((F^-1) ∪ ((B - ran F) x {t_1})) --> 3_1y [ <x, y> in ((F^-1) ∪ ((B - ran F) x {t_1})) ] ]     [95 UI/((F^-1) ∪ ((B - ran F) x {t_1}))]
+
+        97. Show ((F^-1) ∪ ((B - ran F) x {t_1})) is a relation
+					98. @R [ R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ] ]				[Definition of Relation]
+					99. ((F^-1) ∪ ((B - ran F) x {t_1})) is a relation <--> @t [ t in ((F^-1) ∪ ((B - ran F) x {t_1})) --> 3x, y[ t = <x, y> ] ]			[98 UI/((F^-1) ∪ ((B - ran F) x {t_1}))]
+
+					100. Show @t [ t in ((F^-1) ∪ ((B - ran F) x {t_1})) --> 3x, y[ t = <x, y> ] ]
+						101. let t be a set
+						102. Show t in ((F^-1) ∪ ((B - ran F) x {t_1})) --> 3x, y[ t = <x, y> ]
+							103. t in ((F^-1) ∪ ((B - ran F) x {t_1}))			[ACD]
+							104. @t [ t in ((F^-1) ∪ ((B - ran F) x {t_1})) <--> t in (F^-1) or t in ((B - ran F) x {t_1}) ]		[Da6]
+							105. t in ((F^-1) ∪ ((B - ran F) x {t_1})) <--> t in (F^-1) or t in ((B - ran F) x {t_1})						[104 UI/t]
+							106. t in (F^-1) or t in ((B - ran F) x {t_1})						[105 BC 103 MP]
+							107. Show t in (F^-1) --> 3x, y[ t = <x, y> ]							[CASE 1 for line 106]
+								108. t in (F^-1)		[ACD]
+								109. @t [ t in (F^-1) <--> 3u, v [ <v, u> in F & t = <u, v> ] ]		[Da1]
+								110. t in (F^-1) <--> 3u, v [ <v, u> in F & t = <u, v> ]					[109 UI/t]
+								111. 3u, v [ <v, u> in F & t = <u, v> ]				[110 BC 108 MP]
+								112. <v_2, u_2> in F & t = <u_2, v_2>					[111 EI/u_2 EI/v_2]
+								113. t = <u_2, v_2>														[112 SR]
+								114. 3x, y[ t = <x, y> ]				[113 EG/u_2->x EG/v_2->y]
+								115. 		[114 CD]
+
+							116. Show t in ((B - ran F) x {t_1}) --> 3x, y[ t = <x, y> ]		[CASE 2 for line 106]
+								117. t in ((B - ran F) x {t_1})			[ACD]
+								118. @t [ t in (B - ran F) x {t_1} <--> 3x, y [x in (B - ran F) & y in {t_1} & t = <x, y> ] ]		[Da5]
+								119. t in (B - ran F) x {t_1} <--> 3x, y [x in (B - ran F) & y in {t_1} & t = <x, y> ]					[118 UI/t]
+								120. 3x, y [x in (B - ran F) & y in {t_1} & t = <x, y> ]					[119 BC 117 MP]
+								121. x_2 in (B - ran F) & y_2 in {t_1} & t = <x_2, y_2> 					[120 EI/x_2  EI/y_2]
+								122. t = <x_2, y_2>			[121 SR]
+								123. 3x, y[ t = <x, y> ]		[122 EG/x_2->x EG/y_2->y]
+								124.		[123 CD]
+							
+							125. t in (F^-1) or t in ((B - ran F) x {t_1}) --> 3x, y[ t = <x, y> ]			[107 116 CASE_PROOF for line 106]
+							126. 3x, y[ t = <x, y> ]							[125 106 MP]
+							127.		[126 CD]
+						128. 		[102 UD]
+					
+					129. ((F^-1) ∪ ((B - ran F) x {t_1})) is a relation			[99 BC 100 MP]
+					130. 		[129 DD]
+				
+				 
+				131. Show @x [ x in dom ((F^-1) ∪ ((B - ran F) x {t_1})) --> 3_1y [ <x, y> in ((F^-1) ∪ ((B - ran F) x {t_1})) ] ]
+					132. let x be a set
+					133. Show x in dom ((F^-1) ∪ ((B - ran F) x {t_1})) --> 3_1y [ <x, y> in ((F^-1) ∪ ((B - ran F) x {t_1})) ]
+						134. x in dom ((F^-1) ∪ ((B - ran F) x {t_1}))			[ACD]
+						135. @x [ x in dom ((F^-1) ∪ ((B - ran F) x {t_1})) <--> 3y [ <x, y> in ((F^-1) ∪ ((B - ran F) x {t_1})) ] ]			[Da7]
+						136. x in dom ((F^-1) ∪ ((B - ran F) x {t_1})) <--> 3y [ <x, y> in ((F^-1) ∪ ((B - ran F) x {t_1})) ]							[135 UI/x]
+						137. 3y [ <x, y> in ((F^-1) ∪ ((B - ran F) x {t_1})) ]			[136 BC 134 MP]
+
+						138. <x, y_2> in ((F^-1) ∪ ((B - ran F) x {t_1}))						[137 EI/y_2]
+
+						139. Show @w [ <x, w> in ((F^-1) ∪ ((B - ran F) x {t_1})) --> w = y_2 ]
+							140. let w be a set
+							141. Show <x, w> in ((F^-1) ∪ ((B - ran F) x {t_1})) --> w = y_2
+								142. <x, w> in ((F^-1) ∪ ((B - ran F) x {t_1}))				[ACD]
+								143. @t [ t in ((F^-1) ∪ ((B - ran F) x {t_1})) <--> t in (F^-1) or t in ((B - ran F) x {t_1}) ]							[Da6]
+
+								144. <x, w> in ((F^-1) ∪ ((B - ran F) x {t_1})) <--> <x, w> in (F^-1) or <x, w> in ((B - ran F) x {t_1})			[143 UI/<x, w>]
+								145. <x, w> in (F^-1) or <x, w> in ((B - ran F) x {t_1})			[144 BC 142 MP]
+
+								146. <x, y_2> in ((F^-1) ∪ ((B - ran F) x {t_1})) <--> <x, y_2> in (F^-1) or <x, y_2> in ((B - ran F) x {t_1})			[143 UI/<x, y_2>]
+								147. <x, y_2> in (F^-1) or <x, y_2> in ((B - ran F) x {t_1})			[146 BC 138 MP]
+
+								148. Show <x, w> in (F^-1) --> w = y_2								[CASE 1 for line 145]
+									149. <x, w> in (F^-1)			[ACD]
+									150. @x [ x in dom (F^-1) <--> 3y [ <x, y> in (F^-1) ] ]		[Da2]
+									151. x in dom (F^-1) <--> 3y [ <x, y> in (F^-1) ]						[150 UI/x]
+									152. 3y [ <x, y> in (F^-1) ]			[149 EG/w->y]
+									153. x in dom (F^-1)			[151 BC 152 MP]
+
+									154. Show ~(<x, y_2> in ((B - ran F) x {t_1}))
+										155. <x, y_2> in ((B - ran F) x {t_1})			[AID]
+										156. @t [ t in ((B - ran F) x {t_1}) <--> 3u, v [u in (B - ran F) & v in {t_1} & t = <u, v> ] ]						[Da5]
+										157. <x, y_2> in ((B - ran F) x {t_1}) <--> 3u, v [u in (B - ran F) & v in {t_1} & <x, y_2> = <u, v> ]		[156 UI/<x, y_2>]
+										158. 3u, v [u in (B - ran F) & v in {t_1} & <x, y_2> = <u, v> ]							[157 BC 155 MP]
+										159. u_3 in (B - ran F) & v_3 in {t_1} & <x, y_2> = <u_3, v_3>							[158 EI/u_3, v_3]
+										
+										160. @t [ t in (B - ran F) <--> t in B & ~(t in ran F) ]						[Da3]
+										161. u_3 in (B - ran F) <--> u_3 in B & ~(u_3 in ran F)							[160 UI/u_3]
+										162. u_3 in (B - ran F)					[159 SL SL]
+										163. u_3 in B & ~(u_3 in ran F)			[161 BC 162 MP]
+										164. ~(u_3 in ran F)			[163 SR]
+
+										165. <x, y_2> = <u_3, v_3>			[159 SR]
+										166. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]		[Theorem 3A]
+										167. <x, y_2> = <u_3, v_3>  <-->  x = u_3 & y_2 = v_3				[166 UI/x, y_2, u_3, v_3]
+										168. x = u_3 & y_2 = v_3			[167 BC 165 MP]
+										169. x = u_3			[168 SL]
+										170. ~(x in ran F)				[164 169 LL]
+
+										171. x in dom (F^-1)		[153 R]
+										172. @F [ dom (F^-1) = ran F & ran (F^-1) = dom F ]		[Theorem 3E (i)]
+										173. dom (F^-1) = ran F & ran (F^-1) = dom F					[172 UI/F]
+										174. dom (F^-1) = ran F		[173 SL]
+										175. x in ran F						[174 171 LL]
+
+										176.		[170 175 LL]
+									
+									177. <x, y_2> in (F^-1)			[147 154 MTP]
+									178. @F [ (F^-1) is a function <--> F is single-rooted ]			[Theorem 3F (i)]
+									179. (F^-1) is a function <--> F is single-rooted				[178 UI/F]
+									180. (F^-1) is a function			[179 BC 91 MP]
+
+									181. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]							[ORANGE]
+									182. (F^-1) is a function & x in dom (F^-1) -->  @w [ <x, w> in (F^-1) <--> (F^-1)(x) = w ]		[181 UI/(F^-1) UI/x]
+
+									183. 
+									184. 
+									185. 
+									186. 
+
+									187. (F^-1) is a function & x in dom (F^-1)					[180 153 ADJ]
+									188. @w [ <x, w> in (F^-1) <--> (F^-1)(x) = w ]			[182 187 MP]
+
+									189. <x, w> in (F^-1) <--> (F^-1)(x) = w			[188 UI/w]
+									189. (F^-1)(x) = w		[189 BC 149 MP]
+
+									190. <x, y_2> in (F^-1) <--> (F^-1)(x) = y_2		[188 UI/y_2]
+									191. (F^-1)(x) = y_2			[190 BC 177 MP]
+									192. w = y_2			[189 191 LL]
+									193.		[192 CD]
+								
+								194. Show <x, w> in ((B - ran F) x {t_1}) --> w = y_2			[CASE 2 for line 145]
+									195. <x, w> in ((B - ran F) x {t_1})		[ACD]
+
+									196. @t [ t in ((B - ran F) x {t_1}) <--> 3u, v [u in (B - ran F) & v in {t_1} & t = <u, v> ] ]						[Da5]
+									197. <x, w> in ((B - ran F) x {t_1}) <--> 3u, v [u in (B - ran F) & v in {t_1} & <x, w> = <u, v> ]				[196 UI/]
+									198. 3u, v [u in (B - ran F) & v in {t_1} & <x, w> = <u, v> ]				[197 BC 195 MP]
+									199. u_3 in (B - ran F) & v_3 in {t_1} & <x, w> = <u_3, v_3>				[198 EI/u_3, v_3]
+
+									200. u_3 in (B - ran F)			[199 SL]
+									201. @t [ t in (B - ran F) <--> t in B & ~(t in ran F) ]			[Da3]
+									202. u_3 in (B - ran F) <--> u_3 in B & ~(u_3 in ran F)				[201 UI/u_3]
+									203. u_3 in B & ~(u_3 in ran F)																[202 BC 200 MP]
+									204. ~(u_3 in ran F)									[203 SR]
+									205. <x, w> = <u_3, v_3>							[199 SR]
+									206. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]		[Theorem 3A]
+									207. <x, w> = <u_3, v_3>  <-->  x = u_3 & w = v_3						[206 UI/x, w, u_3, v_3]
+									208. x = u_3 & w = v_3			[207 BC 205 MP]
+									209. x = u_3						[208 SL]
+									210. ~(x in ran F)			[204 209 LL]
+
+									211. Show ~(<x, y_2> in (F^-1))
+										212. <x, y_2> in (F^-1)			[AID]
+										213. @x [ x in dom (F^-1) <--> 3y [ <x, y> in (F^-1) ] ]		[Da2]
+										214. x in dom (F^-1) <--> 3y [ <x, y> in (F^-1) ]						[213 UI/x]
+										215. 3y [ <x, y> in (F^-1) ]			[212 EG/y_2->y]
+										216. x in dom (F^-1)		[214 BC 215 MP]
+
+										217. @F [ dom (F^-1) = ran F & ran (F^-1) = dom F ]		[Theorem 3E (i)]
+										218. dom (F^-1) = ran F & ran (F^-1) = dom F					[217 UI/F]
+										219. dom (F^-1) = ran F		[218 SL]
+										220. x in ran F						[216 219 LL]
+										221. ~(x in ran F)				[210 R]
+										222.		[220 221 ID]
+									
+									223. <x, y_2> in ((B - ran F) x {t_1})			[211 147 MTP]
+									224. @t [ t in ((B - ran F) x {t_1}) <--> 3u, v [u in (B - ran F) & v in {t_1} & t = <u, v> ] ]							[Da5]
+									225. <x, y_2> in ((B - ran F) x {t_1}) <--> 3u, v [u in (B - ran F) & v in {t_1} & <x, y_2> = <u, v> ]			[224 UI/<x, y_2>]
+									226. 3u, v [u in (B - ran F) & v in {t_1} & <x, y_2> = <u, v> ]			[225 BC 223 MP]
+									227. u_4 in (B - ran F) & v_4 in {t_1} & <x, y_2> = <u_4, v_4>							[226 EI/u_4, v_4]
+
+									228. v_4 in {t_1}		[227 SL SR]
+									229. <x, y_2> = <u_4, v_4>		[227 SR]
+									230. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]		[Theorem 3A]
+									231. <x, y_2> = <u_4, v_4>  <-->  x = u_4 & y_2 = v_4				[230 UI/x, y_2, u_4, v_4]
+									232. x = u_4 & y_2 = v_4				[231 BC 229 MP]
+									233. y_2 = v_4							[232 SR]
+									234. y_2 in {t_1}						[228 233 LL]
+
+									235. v_3 in {t_1}				[199 SL SR]
+									236. w = v_3						[208 SR]
+									237. w in {t_1}					[235 236 LL]
+
+									238. @x [ x in {t_1} <--> x = t_1 or x = t_1 ]		[Da4]
+									239. y_2 in {t_1} <--> y_2 = t_1 or y_2 = t_1			[238 UI/y_2]
+									240. y_2 = t_1 or y_2 = t_1				[239 BC 234 MP]
+
+									241. w in {t_1} <--> w = t_1 or w = t_1			[238 UI/w]
+									242. w = t_1 or w = t_1			[241 BC 237 MP]
+									243. y_2 = t_1		[240 SIMPLIFY_OR]
+									244. w = t_1			[242 SIMPLIFY_OR]
+									245. w = y_2
+									246.		[245 CD]
+								
+								247. <x, w> in (F^-1) or <x, w> in ((B - ran F) x {t_1})	--> w = y_2			[148 194 CASE_PROOF for line 145]
+								248. w = y_2			[247 145 MP]
+								249.		[248 CD]
+							250. 		[141 UD]
+
+						251. <x, y_2> in ((F^-1) ∪ ((B - ran F) x {t_1})) & @w [ <x, w> in ((F^-1) ∪ ((B - ran F) x {t_1})) --> w = y_2 ]						[138 139 ADJ]
+						252. 3y [ <x, y> in ((F^-1) ∪ ((B - ran F) x {t_1})) & @w [ <x, w> in ((F^-1) ∪ ((B - ran F) x {t_1})) --> w = y ] ]				[251 EG/y_2->y]
+						253. 3_1y [ <x, y> in ((F^-1) ∪ ((B - ran F) x {t_1})) ]		[252 EQUIV.]
+						254.		[253 CD]
+					255.		[133 UD]
+
+				256. ((F^-1) ∪ ((B - ran F) x {t_1})) is a relation & @x [ x in dom ((F^-1) ∪ ((B - ran F) x {t_1})) --> 3_1y [ <x, y> in ((F^-1) ∪ ((B - ran F) x {t_1})) ] ]		[97 131 ADJ]
+				257. ((F^-1) ∪ ((B - ran F) x {t_1})) is a function				[96 BC 256 MP]
+				258.		[257 DD]
+			
+			259. Show dom ((F^-1) ∪ ((B - ran F) x {t_1})) = B
+				260. Show @x [ x in B --> x in ran F or x in (B - ran F) ]
+					261. let x be a set
+					262. Show x in B --> x in ran F or x in (B - ran F)
+						263. x in B			[ACD]
+						264. x in ran F or ~(x in ran F)			[TAUTOLOGY/"x in ran F"]
+						265. Show x in ran F --> x in ran F or x in (B - ran F)			[CASE 1 for line 264]
+							266. x in ran F				[ACD]
+							267. x in ran F or x in (B - ran F)			[266 ADD/x in (B - ran F)]
+							268.		[267 CD]
+
+						269. Show ~(x in ran F) --> x in ran F or x in (B - ran F)				[CASE 2 for line 264]
+							270. ~(x in ran F)			[ACD]
+							271. x in B							[263 R]
+							272. @t [ t in (B - ran F) <--> t in B & ~(t in ran F) ]		[Da3]
+							273. x in (B - ran F) <--> x in B & ~(x in ran F)						[272 UI/x]
+							274. x in B & ~(x in ran F)																	[271 270 ADJ]
+							275. x in (B - ran F)									[273 BC 274 MP]
+							276. x in ran F or x in (B - ran F)		[275 ADD/x in ran F]
+							277. 		[276 CD]
+						278. x in ran F or ~(x in ran F) --> x in ran F or x in (B - ran F)			[265 269 CASE_PROOF for line 264]
+						279. x in ran F or x in (B - ran F)			[278 264 MP]
+						280.		[279 CD]
+					281. 	[262 UD]
+				
+				282. @A, B [ @x [ x in A <--> x in B ] --> A = B ]		[Ext. Axiom]
+				283. @x [ x in dom ((F^-1) ∪ ((B - ran F) x {t_1})) <--> x in B ] --> dom ((F^-1) ∪ ((B - ran F) x {t_1})) = B			[282 UI/dom ((F^-1) ∪ ((B - ran F) x {t_1})) UI/B]
+				284. Show @x [ x in dom ((F^-1) ∪ ((B - ran F) x {t_1})) <--> x in B ]
+					285. let x be a set
+					286. Show x in dom ((F^-1) ∪ ((B - ran F) x {t_1})) --> x in B
+						287. x in dom ((F^-1) ∪ ((B - ran F) x {t_1}))		[ACD]
+						289. @x [ x in dom ((F^-1) ∪ ((B - ran F) x {t_1})) <--> 3y [ <x, y> in ((F^-1) ∪ ((B - ran F) x {t_1})) ] ]			[Da7]
+						290. x in dom ((F^-1) ∪ ((B - ran F) x {t_1})) <--> 3y [ <x, y> in ((F^-1) ∪ ((B - ran F) x {t_1})) ]							[289 UI/x]
+						291. 3y [ <x, y> in ((F^-1) ∪ ((B - ran F) x {t_1})) ]				[290 BC 287 MP]
+						292. <x, y_2> in ((F^-1) ∪ ((B - ran F) x {t_1}))							[291 EI/y_2]
+						293. @t [ t in ((F^-1) ∪ ((B - ran F) x {t_1})) <--> t in (F^-1) or t in ((B - ran F) x {t_1}) ]														[Da6]
+						294. <x, y_2> in ((F^-1) ∪ ((B - ran F) x {t_1})) <--> <x, y_2> in (F^-1) or <x, y_2> in ((B - ran F) x {t_1})							[293 UI/<x, y_2>]
+
+						295. <x, y_2> in (F^-1) or <x, y_2> in ((B - ran F) x {t_1})						[294 BC 292 MP]
+						
+						296. Show <x, y_2> in (F^-1) --> x in B																	[CASE 1 for line 295]
+							297. <x, y_2> in (F^-1)			[ACD]
+							298. @x [ x in dom (F^-1) <--> 3y [ <x, y> in (F^-1) ] ]		[Da2]
+							299. x in dom (F^-1) <--> 3y [ <x, y> in (F^-1) ]						[298 UI/x]
+							300. 3y [ <x, y> in (F^-1) ]			[297 EG/y_2->y]
+							301. x in dom (F^-1)							[299 BC 300 MP]
+							302. @F [ dom (F^-1) = ran F & ran (F^-1) = dom F ]			[Theorem 3E (i)]
+							303. dom (F^-1) = ran F & ran (F^-1) = dom F						[302 UI/F]
+							304. dom (F^-1) = ran F									[303 SL]
+							305. x in ran F													[301 304 LL]
+							306. ran F ⊆ B													[7 SR]
+							307. @t [ t in ran F --> t in B ]				[306 EQUIV.]
+							308. x in ran F --> x in B							[307 UI/x]
+							309. x in B															[308 305 MP]
+							310. 		[309 CD]
+
+						311. Show <x, y_2> in ((B - ran F) x {t_1}) --> x in B									[CASE 2 for line 295]
+							312. <x, y_2> in ((B - ran F) x {t_1})				[ACD]
+							313. @t [ t in ((B - ran F) x {t_1}) <--> 3u, v [u in (B - ran F) & v in {t_1} & t = <u, v> ] ]										[Da5]
+							314. <x, y_2> in ((B - ran F) x {t_1}) <--> 3u, v [u in (B - ran F) & v in {t_1} & <x, y_2> = <u, v> ]						[313 UI/<x, y_2>]
+							315. 3u, v [u in (B - ran F) & v in {t_1} & <x, y_2> = <u, v> ]								[314 BC 312 MP]
+							316. u_3 in (B - ran F) & v_3 in {t_1} & <x, y_2> = <u_3, v_3>								[315 EI/u_3, v_3]
+
+							317. u_3 in (B - ran F)			[316 SL]
+							318. @t [ t in (B - ran F) <--> t in B & ~(t in ran F) ]			[Da3]
+							319. u_3 in (B - ran F) <--> u_3 in B & ~(u_3 in ran F)				[318 UI/u_3]
+							320. u_3 in B & ~(u_3 in ran F)			[319 BC 317 MP]
+							321. u_3 in B			[320 SL]
+							322. <x, y_2> = <u_3, v_3>			[316 SR]
+							323. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]			[Theorem 3A]
+							324. <x, y_2> = <u_3, v_3>  <-->  x = u_3 & y_2 = v_3					[323 UI/x, y_2, u_3, v_3]
+							325. x = u_3 & y_2 = v_3								[324 BC 322 MP]
+							326. x = u_3			[325 SL]
+							327. x in B				[321 326 LL]
+							328. 		[327 CD]
+						
+						329. <x, y_2> in (F^-1) or <x, y_2> in ((B - ran F) x {t_1}) --> x in B			[296 311 CASE_PROOF for line 295]
+						330. x in B					[329 295 MP]
+						331.		[330 CD]
+					
+					332. Show x in B --> x in dom ((F^-1) ∪ ((B - ran F) x {t_1}))
+						333. x in B					[ACD]
+						334. @x [ x in B --> x in ran F or x in (B - ran F) ]			[260 R]
+						335. x in B --> x in ran F or x in (B - ran F)						[334 UI/x]
+						336. x in ran F or x in (B - ran F)												[335 333 MP]
+
+						337. @x [ x in dom ((F^-1) ∪ ((B - ran F) x {t_1})) <--> 3y [ <x, y> in ((F^-1) ∪ ((B - ran F) x {t_1})) ] ]		[Da7]
+						338. x in dom ((F^-1) ∪ ((B - ran F) x {t_1})) <--> 3y [ <x, y> in ((F^-1) ∪ ((B - ran F) x {t_1})) ]						[337 UI/x]
+
+						339. Show x in ran F --> 3y [ <x, y> in ((F^-1) ∪ ((B - ran F) x {t_1})) ]			[CASE1 using line 336]
+							340. x in ran F			[ACD]
+							341. @F [ dom (F^-1) = ran F & ran (F^-1) = dom F ]			[Theorem 3E (i)]
+							342. dom (F^-1) = ran F & ran (F^-1) = dom F						[341 UI/F]
+							343. dom (F^-1) = ran F			[342 SL]
+							344. x in dom (F^-1)				[340 343 LL]
+							345. @x [ x in dom (F^-1) <--> 3y [ <x, y> in (F^-1) ] ]		[Da2]
+							346. x in dom (F^-1) <--> 3y [ <x, y> in (F^-1) ]						[345 UI/x]
+							347. 3y [ <x, y> in (F^-1) ]			[346 BC 344 MP]
+							348. <x, y_2> in (F^-1)							[347 EI/y_2]
+							349. @t [ t in ((F^-1) ∪ ((B - ran F) x {t_1})) <--> t in (F^-1) or t in ((B - ran F) x {t_1}) ]									[Da6]
+							350. <x, y_2> in ((F^-1) ∪ ((B - ran F) x {t_1})) <--> <x, y_2> in (F^-1) or <x, y_2> in ((B - ran F) x {t_1})		[349 UI/<x, y_2>]
+							351. <x, y_2> in (F^-1) or <x, y_2> in ((B - ran F) x {t_1})			[348 ADD/<x, y_2> in ((B - ran F) x {t_1})]
+							352. <x, y_2> in ((F^-1) ∪ ((B - ran F) x {t_1}))			[350 BC 351 MP]
+							353. 3y [ <x, y> in ((F^-1) ∪ ((B - ran F) x {t_1})) ]		[352 EG/y_2->y]
+							354. 		[353 CD]
+
+						355. Show x in (B - ran F) --> 3y [ <x, y> in ((F^-1) ∪ ((B - ran F) x {t_1})) ]			[CASE2 using line 336]
+							356. x in (B - ran F)			[ACD]
+							357. @t [ t in ((F^-1) ∪ ((B - ran F) x {t_1})) <--> t in (F^-1) or t in ((B - ran F) x {t_1}) ]		[Da6]
+							358. <x, t_1> in ((F^-1) ∪ ((B - ran F) x {t_1})) <--> <x, t_1> in (F^-1) or <x, t_1> in ((B - ran F) x {t_1})			[357 UI/<x, t_1>]
+							359. @t [ t in ((B - ran F) x {t_1}) <--> 3u, v [u in (B - ran F) & v in {t_1} & t = <u, v> ] ]							[Da5]
+							360. <x, t_1> in ((B - ran F) x {t_1}) <--> 3u, v [u in (B - ran F) & v in {t_1} & <x, t_1> = <u, v> ]			[359 UI/<x, t_1>]
+
+							361. @x [ x in {t_1} <--> x = t_1 or x = t_1 ]		[Da4]
+							362. t_1 in {t_1} <--> t_1 = t_1 or t_1 = t_1			[361 UI/t_1]
+							363. t_1 = t_1		[SID/t_1]
+							364. t_1 = t_1 or t_1 = t_1				[363 ADD/t_1 = t_1]
+							365. t_1 in {t_1}				[362 BC 364 MP]
+
+							366. <x, t_1> = <x, t_1> 		[SID/<x, t_1>]
+
+							367. x in (B - ran F) & t_1 in {t_1} & <x, t_1> = <x, t_1> 					[356 365 366 ADJ]
+							368. 3u, v [u in (B - ran F) & v in {t_1} & <x, t_1> = <u, v> ]			[367 EG/x->u, t_1->v]
+							369. <x, t_1> in ((B - ran F) x {t_1})			[360 BC 368 MP]
+							370. <x, t_1> in (F^-1) or <x, t_1> in ((B - ran F) x {t_1})			[360 ADD/<x, t_1> in (F^-1)]
+							371. <x, t_1> in ((F^-1) ∪ ((B - ran F) x {t_1}))			[358 BC 370 MP]
+							372. 3y [ <x, y> in ((F^-1) ∪ ((B - ran F) x {t_1})) ]		[371 EG/t_1->y]
+							373.		[372 CD]
+						
+						374. x in ran F or x in (B - ran F) --> 3y [ <x, y> in ((F^-1) ∪ ((B - ran F) x {t_1})) ]			[339 355 CASE_PROOF using line 336]
+						375. 3y [ <x, y> in ((F^-1) ∪ ((B - ran F) x {t_1})) ]			[374 336 MP]
+						376. x in dom ((F^-1) ∪ ((B - ran F) x {t_1}))							[338 BC 375 MP]
+						377.		[376 CD]
+					
+					378. x in dom ((F^-1) ∪ ((B - ran F) x {t_1})) <--> x in B		[286 332 CB]
+					379.		[378 UD]
+				
+				380. dom ((F^-1) ∪ ((B - ran F) x {t_1})) = B			[283 284 MP]
+				381.		[380 DD]
+			
+			382. Show ran ((F^-1) ∪ ((B - ran F) x {t_1})) ⊆ A 
+				383. Show @t [ t in ran ((F^-1) ∪ ((B - ran F) x {t_1})) --> t in A ]
+					384. let t be a set
+					385. Show t in ran ((F^-1) ∪ ((B - ran F) x {t_1})) --> t in A
+						386. t in ran ((F^-1) ∪ ((B - ran F) x {t_1}))			[ACD]
+						387. @x [ x in ran ((F^-1) ∪ ((B - ran F) x {t_1})) <--> 3u [ <u, x> in ((F^-1) ∪ ((B - ran F) x {t_1})) ] ]			[Da8]
+						388. t in ran ((F^-1) ∪ ((B - ran F) x {t_1})) <--> 3u [ <u, t> in ((F^-1) ∪ ((B - ran F) x {t_1})) ]			[387 UI/t]
+						389. 3u [ <u, t> in ((F^-1) ∪ ((B - ran F) x {t_1})) ]			[388 BC 386 MP]
+						390. <u_2, t> in ((F^-1) ∪ ((B - ran F) x {t_1}))			[389 EI/u_2]
+
+						391. @t [ t in ((F^-1) ∪ ((B - ran F) x {t_1})) <--> t in (F^-1) or t in ((B - ran F) x {t_1}) ]						[Da6]
+						392. <u_2, t> in ((F^-1) ∪ ((B - ran F) x {t_1})) <--> <u_2, t> in (F^-1) or <u_2, t> in ((B - ran F) x {t_1})					[391/<u_2, t>]
+						393. <u_2, t> in (F^-1) or <u_2, t> in ((B - ran F) x {t_1})			[392 BC 390 MP]
+						394. Show <u_2, t> in (F^-1) --> t in A								[CASE1 using line 393]
+							395. <u_2, t> in (F^-1)			[ACD]
+							396. @x [ x in ran (F^-1) <--> 3u [ <u, x> in (F^-1) ] ]			[Da9]
+							397. t in ran (F^-1) <--> 3u [ <u, t> in (F^-1) ]							[396 UI/t]
+							398. 3u [ <u, t> in (F^-1) ]			[395 EG/u_2->u]
+							399. t in ran (F^-1)			[397 BC 398 MP]
+							400. @F [ dom (F^-1) = ran F & ran (F^-1) = dom F ]			[Theorem 3E (i)]
+							401. dom (F^-1) = ran F & ran (F^-1) = dom F						[400 UI/F]
+							402. ran (F^-1) = dom F			[401 SR]
+							403. t in dom F							[399 402 LL]
+							404. dom F = A							[7 SL SR]
+							405. t in A									[403 404 LL]
+							406.		[405 CD]
+
+						407. Show <u_2, t> in ((B - ran F) x {t_1}) --> t in A			[CASE2 using line 393]
+							408. <u_2, t> in ((B - ran F) x {t_1})										[ACD]
+							409. @t [ t in ((B - ran F) x {t_1}) <--> 3x, y [x in (B - ran F) & y in {t_1} & t = <x, y> ] ]								[Da5]
+							410. <u_2, t> in ((B - ran F) x {t_1}) <--> 3x, y [x in (B - ran F) & y in {t_1} & <u_2, t> = <x, y> ]				[409 UI/<u_2, t>]
+							411. 3x, y [x in (B - ran F) & y in {t_1} & <u_2, t> = <x, y> ]				[410 BC 408 MP]
+							412. x_3 in (B - ran F) & y_3 in {t_1} & <u_2, t> = <x_3, y_3>				[411 EI/x_3, y_3]
+
+							413. y_3 in {t_1}			[412 SL SR]
+							414. @x [ x in {t_1} <--> x = t_1 or x = t_1 ]		[Da4]
+							415. y_3 in {t_1} <--> y_3 = t_1 or y_3 = t_1			[414 UI/y_3]
+							416. y_3 = t_1 or y_3 = t_1			[415 BC 413 MP]
+							417. y_3 = t_1			[416 SIMPLIFY_OR]
+
+							418. <u_2, t> = <x_3, y_3>		[412 SR]
+							419. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]			[Theorem 3A]
+							420. <u_2, t> = <x_3, y_3>  <-->  u_2 = x_3 & t = y_3					[419 UI/u_2, t, x_3, y_3]
+							421. u_2 = x_3 & t = y_3			[420 BC 418 MP]
+							422. t = y_3			[421 SR]
+							423. t = t_1			[422 417 LL]
+
+							424. t_1 in A			[11 R]
+							425. t in A				[423 424 LL]
+							426. 		[425 CD]
+						
+						427. <u_2, t> in (F^-1) or <u_2, t> in ((B - ran F) x {t_1}) --> t in A 		[394 407 CASE_PROOF using line 393]
+						428. t in A			[427 393 MP]
+						429.		[428 CD]
+					430. 		[385 UD]
+				431. ran ((F^-1) ∪ ((B - ran F) x {t_1})) ⊆ A			[383 EQUIV.]
+				432.		[431 DD]
+			
+			433. ((F^-1) ∪ ((B - ran F) x {t_1})) is a function & dom ((F^-1) ∪ ((B - ran F) x {t_1})) = B & ran ((F^-1) ∪ ((B - ran F) x {t_1})) ⊆ A			[94 259 382 ADJ]
+			434. ((F^-1) ∪ ((B - ran F) x {t_1})) maps B into A				[93 BC 433 MP]
+
+			435. Show ((F^-1) ∪ ((B - ran F) x {t_1})) o F = I_A
+				436. @A, B [ @z [ z in A <--> z in B ] --> A = B ]		[Ext. Axiom]
+				437. @z [ z in ((F^-1) ∪ ((B - ran F) x {t_1})) o F <--> z in I_A ] --> ((F^-1) ∪ ((B - ran F) x {t_1})) o F = I_A			[436 UI/... UI/...]
+				438. Show @z [ z in ((F^-1) ∪ ((B - ran F) x {t_1})) o F <--> z in I_A ]
+					439. let z be a set
+					440. Show z in ((F^-1) ∪ ((B - ran F) x {t_1})) o F --> z in I_A
+						441. z in ((F^-1) ∪ ((B - ran F) x {t_1})) o F			[ACD]
+						442. @w [ w in ((F^-1) ∪ ((B - ran F) x {t_1})) o F <--> 3u, v [ w = <u, v> & 3t [ <u, t> in F & <t, v> in ((F^-1) ∪ ((B - ran F) x {t_1})) ] ] ]		[Da10]
+						443. z in ((F^-1) ∪ ((B - ran F) x {t_1})) o F <--> 3u, v [ z = <u, v> & 3t [ <u, t> in F & <t, v> in ((F^-1) ∪ ((B - ran F) x {t_1})) ] ]		[442 UI/z]
+						444. 3u, v [ z = <u, v> & 3t [ <u, t> in F & <t, v> in ((F^-1) ∪ ((B - ran F) x {t_1})) ] ]							[443 BC 441 MP]
+						445. z = <u_2, v_2> & 3t [ <u_2, t> in F & <t, v_2> in ((F^-1) ∪ ((B - ran F) x {t_1})) ]								[444 EI/u_2 EI/v_2]
+
+						446. 3t [ <u_2, t> in F & <t, v_2> in ((F^-1) ∪ ((B - ran F) x {t_1})) ]			[445 SR]
+						447. <u_2, t_3> in F & <t_3, v_2> in ((F^-1) ∪ ((B - ran F) x {t_1}))					[446 EI/t_3]
+						448. Show u_2 = v_2
+							449. <u_2, t_3> in F				[447 SL]
+							450. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]				[ORANGE]
+							451. F is a function & u_2 in dom F -->  @w [ <u_2, w> in F <--> F(u_2) = w ]						[450 UI/F UI/u_2]
+							452. @x [ x in dom F <--> 3y [ <x, y> in F ] ]		[Da11]
+							453. u_2 in dom F <--> 3y [ <u_2, y> in F ]				[452 UI/u_2]
+							454. 3y [ <u_2, y> in F ]				[449 EG/t_3->y]
+							455. u_2 in dom F			[453 BC 454 MP]
+							456. F is a function		[7 SL SL]
+							457. F is a function & u_2 in dom F						[456 455 ADJ]
+
+							458. @w [ <u_2, w> in F <--> F(u_2) = w ]			[457 451 MP]
+							459. <u_2, t_3> in F <--> F(u_2) = t_3				[458 UI/t_3]
+							460. F(u_2) = t_3			[459 BC 449 MP]
+
+							461. <t_3, v_2> in ((F^-1) ∪ ((B - ran F) x {t_1}))			[447 SR]
+							462. @t [ t in ((F^-1) ∪ ((B - ran F) x {t_1})) <--> t in (F^-1) or t in ((B - ran F) x {t_1}) ]				[Da6]
+							463. <t_3, v_2> in ((F^-1) ∪ ((B - ran F) x {t_1})) <--> <t_3, v_2> in (F^-1) or <t_3, v_2> in ((B - ran F) x {t_1})			[462 UI/<t_3, v_2>]
+							464. <t_3, v_2> in (F^-1) or <t_3, v_2> in ((B - ran F) x {t_1})			[463 BC 461 MP]
+							465. Show ~(<t_3, v_2> in ((B - ran F) x {t_1}))
+								466. <t_3, v_2> in ((B - ran F) x {t_1})			[AID]
+								467. @t [ t in ((B - ran F) x {t_1}) <--> 3x, y [x in (B - ran F) & y in {t_1} & t = <x, y> ] ]			[Da5]
+								468. <t_3, v_2> in ((B - ran F) x {t_1}) <--> 3x, y [x in (B - ran F) & y in {t_1} & <t_3, v_2> = <x, y> ]						[467 UI/<t_3, v_2>]
+								469. 3x, y [x in (B - ran F) & y in {t_1} & <t_3, v_2> = <x, y> ]							[468 BC 466 MP]
+								470. x_4 in (B - ran F) & y_4 in {t_1} & <t_3, v_2> = <x_4, y_4>							[469 EI/x_4, y_4]\
+								471. @t [ t in (B - ran F) <--> t in B & ~(t in ran F) ]					[Da3]
+								472. x_4 in (B - ran F) <--> x_4 in B & ~(x_4 in ran F)						[471 UI/x_4]
+								473. x_4 in (B - ran F)			[470 SL]
+								474. x_4 in B & ~(x_4 in ran F)			[472 BC 473 MP]
+								475. ~(x_4 in ran F)			[474 SR]
+
+								476. <t_3, v_2> = <x_4, y_4>		[470 SR]
+								477. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]			[Theorem 3A]
+								478. <t_3, v_2> = <x_4, y_4>  <-->  t_3 = x_4 & v_2 = y_4			[477 UI/t_3, v_2, x_4, y_4]
+								479. t_3 = x_4 & v_2 = y_4			[478 BC 476 MP]
+								480. t_3 = x_4		[479 SL]
+								481. ~(t_3 in ran F)			[480 475 LL]
+
+								482. <u_2, t_3> in F			[449 R]
+								483. @x [ x in ran F <--> 3t [ <t, x> in F ] ]		[D3]
+								484. t_3 in ran F <--> 3t [ <t, t_3> in F ]				[483 UI/t_3]
+								485. 3t [ <t, t_3> in F ]			[482 EG/u_2->t]
+								486. t_3 in ran F			[484 BC 485 MP]
+
+								487. 			[481 486 ID]
+							
+							488. <t_3, v_2> in (F^-1)				[464 465 MTP]
+							489. @F [ (F^-1) is a function <--> F is single-rooted ]		[Theorem 3F]
+							490. (F^-1) is a function <--> F is single-rooted						[489 UI/F]
+							491. F is single-rooted		[91 R]
+							492. (F^-1) is a function			[490 BC 491 MP]
+							493. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]			[ORANGE]
+							494. (F^-1) is a function & t_3 in dom (F^-1) -->  @w [ <t_3, w> in (F^-1) <--> (F^-1)(t_3) = w ]			[493 UI/(F^-1) UI/t_3]
+							
+							495. @x [ x in dom (F^-1) <--> 3y [ <x, y> in (F^-1) ] ]			[Da2]
+							496. t_3 in dom (F^-1) <--> 3y [ <t_3, y> in (F^-1) ]					[495 UI/t_3]
+							497. 3y [ <t_3, y> in (F^-1) ]			[488 EG/v_2->y]
+							498. t_3 in dom (F^-1)			[496 BC 497 MP]
+
+							499. (F^-1) is a function & t_3 in dom (F^-1)			[492 498 ADJ]
+							500. @w [ <t_3, w> in (F^-1) <--> (F^-1)(t_3) = w ]			[494 499 MP]
+
+							501. <t_3, v_2> in (F^-1) <--> (F^-1)(t_3) = v_2				[500 UI/v_2]
+							502. (F^-1)(t_3) = v_2			[501 BC 488 MP]
+
+							503. @F [ F is a function & F is single-rooted --> @x [ x in dom F --> (F^-1)(F(x)) = x ] ]		[Theorem 3G (i)]
+							504. F is a function & F is single-rooted --> @x [ x in dom F --> (F^-1)(F(x)) = x ]					[503 UI/F]
+							505. F is a function & F is single-rooted							[456 491 ADJ]
+							506. @x [ x in dom F --> (F^-1)(F(x)) = x ]						[504 505 MP]
+							507. u_2 in dom F --> (F^-1)(F(u_2)) = u_2						[506 UI/u_2]
+							508. u_2 in dom F								[455 R]
+							509. (F^-1)(F(u_2)) = u_2				[507 508 MP]
+
+							510. F(u_2) = t_3					[460 R]
+							511. (F^-1)(t_3) = u_2		[509 510 LL]
+							512. (F^-1)(t_3) = v_2		[502 R]
+							513. u_2 = v_2						[511 512 LL]
+							514. 		[513 CD]
+						
+						515. @x [ x in I_A <--> 3u [ x = <u, u> & u in A ] ]		[D2]
+						516. z in I_A <--> 3u [ z = <u, u> & u in A ]				[515 UI/z]
+
+						517. @x [ x in dom F <--> 3y [ <x, y> in F ] ]			[Da11]
+						518. u_2 in dom F <--> 3y [ <u_2, y> in F ]					[517 UI/u_2]
+						519. <u_2, t_3> in F						[447 SL]
+						520. 3y [ <u_2, y> in F ]				[519 EG/t_3->y]
+						521. u_2 in dom F			[518 BC 520 MP]
+						522. dom F = A				[7 SL SR]
+						523. u_2 in A					[521 522 LL]
+
+						524. z = <u_2, v_2>			[445 SL]
+						525. z = <u_2, u_2>			[448 524 LL]
+						526. z = <u_2, u_2> & u_2 in A			[525 523 ADJ]
+
+						527. 3u [ z = <u, u> & u in A ]			[526 EG/u_2->u]
+						528. z in I_A			[516 BC 527 MP]
+						529.		[528 CD]
+					 
+					530. Show z in I_A --> z in ((F^-1) ∪ ((B - ran F) x {t_1})) o F
+						531. z in I_A			[ACD]
+						532. @x [ x in I_A <--> 3u [ x = <u, u> & u in A ] ]			[D2]
+						533. z in I_A <--> 3u [ z = <u, u> & u in A ]		[532 UI/z]
+						534. 3u [ z = <u, u> & u in A ]				[533 BC 531 MP]
+						535. z = <u_2, u_2> & u_2 in A				[534 EI/u_2]
+
+						534. @w [ w in ((F^-1) ∪ ((B - ran F) x {t_1})) o F <--> 3u, v [ w = <u, v> & 3t [ <u, t> in F & <t, v> in ((F^-1) ∪ ((B - ran F) x {t_1})) ] ] ]			[Da10]
+						535. z in ((F^-1) ∪ ((B - ran F) x {t_1})) o F <--> 3u, v [ z = <u, v> & 3t [ <u, t> in F & <t, v> in ((F^-1) ∪ ((B - ran F) x {t_1})) ] ]						[534 UI/z]
+
+						536. Show 3u, v [ z = <u, v> & 3t [ <u, t> in F & <t, v> in ((F^-1) ∪ ((B - ran F) x {t_1})) ] ]
+							537. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]			[ORANGE]
+							538. F is a function & u_2 in dom F -->  @w [ <u_2, w> in F <--> F(u_2) = w ]					[537 UI/u_2]
+							539. u_2 in A				[535 SR]
+							540. dom F = A 			[7 SL SR]
+							541. u_2 in dom F		[539 540 LL]
+							542. F is a function		[7 SL SL]
+							543. F is a function & u_2 in dom F			[542 541 ADJ]
+
+							545. @w [ <u_2, w> in F <--> F(u_2) = w ]						[538 543 MP]
+							546. <u_2, F(u_2)> in F <--> F(u_2) = F(u_2)				[545 UI/F(u_2)]
+							547. F(u_2) = F(u_2)			[SID/F(u_2)]
+							548. <u_2, F(u_2)> in F		[546 BC 547 MP]
+
+							549. @t [ t in ((F^-1) ∪ ((B - ran F) x {t_1})) <--> t in (F^-1) or t in ((B - ran F) x {t_1}) ]			[Da6]
+							550. <F(u_2), u_2> in ((F^-1) ∪ ((B - ran F) x {t_1})) <--> <F(u_2), u_2> in (F^-1) or <F(u_2), u_2> in ((B - ran F) x {t_1})			[549 UI/<F(u_2), u_2>]
+							
+							551. @F [ F is a function & F is single-rooted --> @x [ x in dom F --> (F^-1)(F(x)) = x ] ]			[Theorem 3G (i)]
+							552. F is a function & F is single-rooted --> @x [ x in dom F --> (F^-1)(F(x)) = x ]						[551 UI/F]
+							553. F is a function & F is single-rooted					[542 91 ADJ]
+							554. @x [ x in dom F --> (F^-1)(F(x)) = x ]				[552 553 MP]
+							555. u_2 in dom F --> (F^-1)(F(u_2)) = u_2				[554 UI/u_2]
+							556. (F^-1)(F(u_2)) = u_2			[541 555 MP]
+
+							557. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]									[ORANGE]
+							558. (F^-1) is a function & F(u_2) in dom (F^-1) -->  @w [ <F(u_2), w> in (F^-1) <--> (F^-1)(F(u_2)) = w ]				[557 UI/(F^-1) UI/F(u_2)]
+
+							559. @F [ (F^-1) is a function <--> F is single-rooted ]					[Theorem 3F (i)]
+							560. (F^-1) is a function <--> F is single-rooted									[559 UI/F]
+							561. (F^-1) is a function				[560 BC 91 MP]
+
+							562. @F [ dom (F^-1) = ran F & ran (F^-1) = dom F ]			[Theorem 3E (i)]
+							563. dom (F^-1) = ran F & ran (F^-1) = dom F						[562 UI/F]
+							564. dom (F^-1) = ran F			[563 SL]
+							565. @x [ x in ran F <--> 3t [ <t, x> in F ] ]				[D3]
+							566. F(u_2) in ran F <--> 3t [ <t, F(u_2)> in F ]			[565 UI/F(u_2)]
+							567. 3t [ <t, F(u_2)> in F ]			[548 EG/u_2->t]
+							568. F(u_2) in ran F					[566 BC 567 MP]
+							569. F(u_2) in dom (F^-1)			[568 564 LL]
+
+							570. (F^-1) is a function & F(u_2) in dom (F^-1)							[561 569 ADJ]
+							571. @w [ <F(u_2), w> in (F^-1) <--> (F^-1)(F(u_2)) = w ]			[558 570 MP]
+							572. <F(u_2), u_2> in (F^-1) <--> (F^-1)(F(u_2)) = u_2				[571 UI/u_2]
+							573. <F(u_2), u_2> in (F^-1)					[572 BC 556 MP]
+
+							574. <F(u_2), u_2> in (F^-1) or <F(u_2), u_2> in ((B - ran F) x {t_1})			[573 ADD/<F(u_2), u_2> in ((B - ran F) x {t_1})]
+							575. <F(u_2), u_2> in ((F^-1) ∪ ((B - ran F) x {t_1}))				[550 BC 574 MP]
+							
+							576. <u_2, F(u_2)> in F & <F(u_2), u_2> in ((F^-1) ∪ ((B - ran F) x {t_1}))							[548 575 ADJ]
+							577. 3t [ <u_2, t> in F & <t, u_2> in ((F^-1) ∪ ((B - ran F) x {t_1})) ]								[576 EG/F(u_2->t)]
+							578. z = <u_2, u_2>			[535 SL]
+
+							579. z = <u_2, u_2> & 3t [ <u_2, t> in F & <t, u_2> in ((F^-1) ∪ ((B - ran F) x {t_1})) ]								[578 577 ADJ]
+							580. 3v [ z = <u_2, v> & 3t [ <u_2, t> in F & <t, v> in ((F^-1) ∪ ((B - ran F) x {t_1})) ] ]						[579 EG/u_2->v]
+							581. 3u [ 3v [ z = <u, v> & 3t [ <u, t> in F & <t, v> in ((F^-1) ∪ ((B - ran F) x {t_1})) ] ] ]					[580 EG/u_2->u]
+							582. 3u, v [ z = <u, v> & 3t [ <u, t> in F & <t, v> in ((F^-1) ∪ ((B - ran F) x {t_1})) ] ]							[581 EQUIV.]
+							583. 		[582 DD]
+						
+						584. z in ((F^-1) ∪ ((B - ran F) x {t_1})) o F				[535 BC 536 MP]
+						585.			[584 CD]
+					586. z in ((F^-1) ∪ ((B - ran F) x {t_1})) o F <--> z in I_A			[440 530 CB]
+					587. 		[586 UD]
+
+				588. ((F^-1) ∪ ((B - ran F) x {t_1})) o F = I_A			[437 438 MP]
+				589. 		[588 DD]
+			
+			590. (((F^-1) ∪ ((B - ran F) x {t_1})) maps B into A) & ((F^-1) ∪ ((B - ran F) x {t_1})) o F = I_A			[434 435 ADJ]
+			591. 3G [ (G maps B into A) & G o F = I_A ]			[590 EG/((F^-1) ∪ ((B - ran F) x {t_1}))->G]
+			592.		[591 CD]
+		
+		593. 3G [ (G maps B into A) & G o F = I_A ] <--> F is single-rooted			[12 90 CB]
+		594.		[593 CD]
+	595. 	[3 UD]
+	

@@ -1,0 +1,122 @@
+First we prove that 
+	for any A, B, {{x} x B | x in A} is a set that exists!
+
+	since x in A, then {x} is a subset of A
+
+	{x} x B = {<u, v> | u in {x} & v in B }
+	note that <u, v> in P(P(A ∪ B))
+	Hence {x} x B is a subset of P(P(A ∪ B))
+
+	Hence {{x} x B | x in A} is a subset of P(P(P(A ∪ B)))
+
+Axioms/Theorems:
+	Lemma 3B:
+    		@C, x, y [ x in C & y in C --> <x, y> in P(P(C)) ]
+			
+	Corollary 3C:
+	@A, B [ 3D [ @t[ t in D <--> 3x, y [x in A & y in B & t = <x, y> ] ] ] ]
+		Definition:
+		For any set sets A, B,  {<x, y> | x in A & y in B}    is the set whose members are exactly the sets of the form <x, y> for some x in A & y in B
+		Also known as the Cartesian Product A x B of the sets A and B!
+
+
+1. Show @A, B [ 3C [ @y [ y in C <--> 3x [ x in A & y = {x} x B ] ] ] ]
+
+	2. Let A, B be sets
+
+	3. Show 3C [ @y [ y in C <--> 3x [ x in A & y = {x} x B ] ] ]
+		4. @t1 ... @tk @c [ 3C [ @y [ y in C <--> y in c & __ ] ] ]									[Subset Axiom; note __ cannot contain C]
+		5. @t1 ... @tk @c [ 3C [ @y [ y in C <--> y in c & 3x [ x in A & y = {x} x B ] ] ] ]		[4 UI_META/ "3x [ x in A & y = {x} x B ]"]
+		6. @c [ 3C [ @y [ y in C <--> y in c & 3x [ x in A & y = {x} x B ] ] ] ]					[5 UI_META/k=0]
+		
+		D1. A ∪ B is the set whose members are those sets belonging either to A or to B (or both)
+			@x [ x in A ∪ B <--> x in A or x in B ]
+
+		D2. P(A ∪ B) is the set whose members are exactly the subsets of A ∪ B
+			@x [ x in P(A ∪ B) <--> @w [ w in x --> w in (A ∪ B) ] ]
+
+		D3. P(P(A ∪ B)) is the set whose members are exactly the subsets of P(A ∪ B)
+			@x [ x in P(P(A ∪ B)) <--> @w [ w in x --> w in P(A ∪ B) ] ]
+		
+		D4. P(P(P(A ∪ B))) is the set whose members are exactly the subsets of P(P(A ∪ B))
+			@x [ x in P(P(P(A ∪ B))) <--> @w [ w in x --> w in P(P(A ∪ B)) ] ]
+
+		7. 3C [ @y [ y in C <--> y in P(P(P(A ∪ B))) & 3x [ x in A & y = {x} x B ] ] ]		[6 UI/P(P(P(A ∪ B)))]
+
+		8. @y [ y in C_1 <--> y in P(P(P(A ∪ B))) & 3x [ x in A & y = {x} x B ] ]			[7 EI/C_1]
+
+		9. Show @y [ y in C_1 <--> 3x [ x in A & y = {x} x B ] ]
+			Let y be a set
+			10. Show y in C_1 <--> 3x [ x in A & y = {x} x B ]
+				11. Show y in C_1 --> 3x [ x in A & y = {x} x B ]
+					12. y in C_1		[ACD]
+					13. y in C_1 <--> y in P(P(P(A ∪ B))) & 3x [ x in A & y = {x} x B ]		[8 UI/y]
+					14. y in P(P(P(A ∪ B))) & 3x [ x in A & y = {x} x B ]					[13 BC 12 MP]
+					15. 3x [ x in A & y = {x} x B ]											[14 SR]
+					16. 	[15 CD]
+
+				17. Show 3x [ x in A & y = {x} x B ] --> y in C_1
+					18. 3x [ x in A & y = {x} x B ]		[ACD]
+					19. x_1 in A & y = {x_1} x B		[18 EI/x_1]
+					20. {x_1} is the set whose only members are x_1 and x_1					[Pairing Axiom UI/x_1 UI/x_1 & Ext. Axiom defines {x_1}]
+							@w [ w in {x_1} <--> w = x_1 or w = x_1 ]
+
+					21. {x_1} x B is the set whose members are exactly the sets of the form <u, v> for some u in {x_1} & v in B		 [By Corollary 3C UI/{x_1} UI/B & Ext. Axiom -> defines the symbol {x_1} x B]
+						@t[ t in {x_1} x B <--> 3u, v [u in {x_1} & v in B & t = <u, v> ] ]
+
+					22. y in C_1 <--> y in P(P(P(A ∪ B))) & 3x [ x in A & y = {x} x B ]		[8 UI/y]
+					23. Show y in P(P(P(A ∪ B)))
+						24. @x [ x in P(P(P(A ∪ B))) <--> @w [ w in x --> w in P(P(A ∪ B)) ] ]		[D4]
+						25. y in P(P(P(A ∪ B))) <--> @w [ w in y --> w in P(P(A ∪ B)) ]				[24 UI/y]
+						26. Show @w [ w in y --> w in P(P(A ∪ B)) ]
+							Let w be a set
+							27. Show w in y --> w in P(P(A ∪ B))
+								28. w in y				[ACD]
+								29. y = {x_1} x B		[19 SR]
+								30. w in {x_1} x B		[28 29 LL]
+								31. w in {x_1} x B <--> 3u, v [u in {x_1} & v in B & w = <u, v> ]		[21 UI/w]
+								32. 3u, v [u in {x_1} & v in B & w = <u, v> ]							[31 BC 30 MP]
+								33. u_1 in {x_1} & v_1 in B & w = <u_1, v_1>							[32 EI/u_1 EI/v_1]
+								34. @C, x, y [ x in C & y in C --> <x, y> in P(P(C)) ]					[Lemma 3B]
+								35. u_1 in A ∪ B & v_1 in A ∪ B --> <u_1, v_1> in P(P(A ∪ B))			[34 UI/A ∪ B  UI/u_1  UI/v_1]
+								36. Show u_1 in A ∪ B
+									37. u_1 in {x_1}		[33 SL SL]
+									38. @w [ w in {x_1} <--> w = x_1 or w = x_1 ]		[20 R]
+									39. u_1 in {x_1} <--> u_1 = x_1 or u_1 = x_1		[38 UI/u_1]
+									40. u_1 = x_1 or u_1 = x_1							[39 BC 37 MP]
+									41. u_1 = x_1										[40 SIMPLIFY_OR]
+									42. x_1 in A										[19 SL]
+									43. @x [ x in A ∪ B <--> x in A or x in B ]			[D1]
+									44. u_1 in A ∪ B <--> u_1 in A or u_1 in B			[43 UI/u_1]
+									45. u_1 in A										[41 42 LL]
+									46. u_1 in A or u_1 in B							[45 ADD/...]
+									47. u_1 in A ∪ B									[44 BC 46 MP]
+									48. 	[47 DD]
+
+								49. Show v_1 in A ∪ B
+									50. v_1 in B			[33 SL SR]
+									51. @x [ x in A ∪ B <--> x in A or x in B ]			[D1]
+									52. v_1 in A ∪ B <--> v_1 in A or v_1 in B			[51 UI/v_1]
+									53. v_1 in A or v_1 in B							[50 ADD/...]
+									54. v_1 in A ∪ B									[52 BC 53 MP]
+									55. 	[54 DD]
+								
+								56. u_1 in A ∪ B & v_1 in A ∪ B					[36 49 ADJ]
+								57. <u_1, v_1> in P(P(A ∪ B))					[56 35 MP]
+								58. w = <u_1, v_1>								[33 SR]
+								59. w in P(P(A ∪ B))							[57 58 LL]
+								60. 		[59 CD]
+							61. 	[27 UD]
+						62. y in P(P(P(A ∪ B)))		[25 BC 26 MP]
+						63. 	[62 DD]
+					64. y in P(P(P(A ∪ B))) & 3x [ x in A & y = {x} x B ]			[23 18 ADJ]
+					65. y in C_1					[22 BC 64 MP]
+					66. 	[65 CD]
+				67. y in C_1 <--> 3x [ x in A & y = {x} x B ]		[11 17 CB]
+				68. 	[67 DD]
+			69.		[10 UD]
+		70. 3C [ @y [ y in C <--> 3x [ x in A & y = {x} x B ] ] ]		[9 EG/C_1->C]
+		71. 		[70 DD]
+	72.		[3 UD]
+	
+

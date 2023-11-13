@@ -1,0 +1,98 @@
+Axioms and Theorems:
+	Extensionality Axiom:
+		@A, B [ @x [ x in A <--> x in B ] --> A = B ]
+
+	dom R: 
+		@R [ 3D [ @x [ x in D <--> 3y [ <x, y> in R ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets R,  dom R  is the set whose members are those 1st-coordinate set of some ordered pair in R
+
+	ran R: 
+		@R [ 3D [ @x [ x in D <--> 3t [ <t, x> in R ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets R,  ran R  is the set whose members are those 2nd-coordinate set of some ordered pair in R
+
+	Definition of F(x): 
+	(We define it like this for the purpose of making sure that F(x) is always defined for any F and x, so that we can always refer to it)
+		@F, x [ F(x) := U({y | <x, y> in F}) ]
+
+	Function:
+		Definition:
+		@F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]
+
+	ORANGE: Pg 43 When F is a function and x the dom F, F(x) is y IFF <x, y> in F:
+		@F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]
+
+	Definition of one-to-one:
+		@F [ F is a function --> 
+			[ F is one-to-one <--> @y [ y in ran F --> 3_1x[ <x, y> in F ] ] ] ]
+	
+	Definition of single-rooted:
+		@R [ R is single-rooted <--> 
+				@y [ y in ran R --> 3_1x [ <x, y> in R ] ]
+			]
+
+	The inverse of F set:
+		@F [ 3D [ @t [ t in D <--> 3u, v [ <v, u> in F & t = <u, v> ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			For any sets F, F^-1 is the set known as the inverse of F
+			AKA: F^-1 := {<u, v> | <v, u> in F}
+
+	Theorem 3E:
+		@F [ dom (F^-1) = ran F & ran (F^-1) = dom F ]
+		@F [ F is a relation --> ((F^-1)^-1) = F ]
+
+	Lemma - PEAR (from Theorem 3H):
+		@F, G [ 3D [ @x [ x in D <--> x in dom G & G(x) in dom F ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			For any sets F, G, {a in dom G | G(a) in dom F} is the subset of dom G where G(a) is in dom F
+
+1. Show @G [ G is a function & G is single-rooted --> {a in dom G | G(a) in dom (G^-1)} = dom G ]
+	2. let G be a set 
+	D0. @t [ t in (G^-1) <--> 3u, v [ <v, u> in F & t = <u, v> ] ]							[Inverse UI/G EI & Ext. Axiom]
+	D1. @x [ x in dom G <--> 3y [ <x, y> in G ] ]																[dom UI/G EI & Ext. Axiom]
+	D2. @x [ x in dom (G^-1) <--> 3y [ <x, y> in (G^-1) ] ]											[dom UI/G EI & Ext. Axiom]
+	D3. @x [ x in ran G <--> 3t [ <t, x> in G ] ]																[ran UI/G EI & Ext. Axiom]
+	D4. @x [ x in {a in dom G | G(a) in dom (G^-1)} <--> x in dom G & G(x) in dom (G^-1) ]			[Lemma - PEAR UI/(G^-1) UI/G]
+	
+	3. Show G is a function & G is single-rooted --> {a in dom G | G(a) in dom (G^-1)} = dom G
+		4. G is a function & G is single-rooted									[ACD]
+
+		5. Show {a in dom G | G(a) in dom (G^-1)} = dom G
+			6. @A, B [ @x [ x in A <--> x in B ] --> A = B ]			[Ext. Axiom]
+			7. @x [ x in {a in dom G | G(a) in dom (G^-1)} <--> x in dom G ] --> {a in dom G | G(a) in dom (G^-1)} = dom G		[6 UI/...]
+			8. Show @x [ x in {a in dom G | G(a) in dom (G^-1)} <--> x in dom G ]
+				9. let x be a set
+				10. Show x in {a in dom G | G(a) in dom (G^-1)} --> x in dom G
+					11. x in {a in dom G | G(a) in dom (G^-1)}			[ACD]
+					12. @x [ x in {a in dom G | G(a) in dom (G^-1)} <--> x in dom G & G(x) in dom (G^-1) ]		[D4]
+					13. x in {a in dom G | G(a) in dom (G^-1)} <--> x in dom G & G(x) in dom (G^-1)						[12 UI/x]
+					14. x in dom G & G(x) in dom (G^-1)					[13 BC 11 MP]
+					15. x in dom G					[14 SL]
+					16. 		[15 CD]
+
+				17. Show x in dom G --> x in {a in dom G | G(a) in dom (G^-1)}
+					18. x in dom G			[ACD]
+					19. @x [ x in {a in dom G | G(a) in dom (G^-1)} <--> x in dom G & G(x) in dom (G^-1) ]		[D4]
+					20. x in {a in dom G | G(a) in dom (G^-1)} <--> x in dom G & G(x) in dom (G^-1)						[19 UI/x]
+					21. Show G(x) in dom (G^-1)
+						22. @F [ dom (F^-1) = ran F & ran (F^-1) = dom F ]		[Theorem 3E (i)]
+						23. dom (G^-1) = ran G & ran (G^-1) = dom G						[22 UI/G]
+						24. Show G(x) in ran G
+							25. @x [ x in ran G <--> 3t [ <t, x> in G ] ]				[D3]
+							26. G(x) in ran G <--> 3t [ <t, G(x)> in G ]				[25 UI/G(x)]
+							27. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]			[ORANGE]
+							28. G is a function & x in dom G -->  @w [ <x, w> in G <--> G(x) = w ]								[27 UI/G UI/x]
+							29. G is a function & x in dom G						[4 SL 18 ADJ]
+							30.	@w [ <x, w> in G <--> G(x) = w ]				[28 29 MP]
+							31. <x, G(x)> in G <--> G(x) = G(x)					[30 UI/G(x)]
+							32. G(x) = G(x)				[SID/G(x) = G(x)]
+							33. <x, G(x)> in G		[31 BC 32 MP]
+							34. 3t [ <t, G(x)> in G ]			[33 EG/x->t]
+							35. G(x) in ran G							[26 BC 34 MP]
+							36. 	[35 DD]
+						37.	G(x) in dom (G^-1)		[23 SL 24 LL]
+						38. 	[21 DD]
+					39. x in dom G & G(x) in dom (G^-1)						[18 21 ADJ]
+					40. x in {a in dom G | G(a) in dom (G^-1)}		[20 BC 39 MP]
+					41.			[40 CD]

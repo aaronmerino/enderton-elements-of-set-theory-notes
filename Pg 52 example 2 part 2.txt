@@ -1,0 +1,212 @@
+Axioms and Theorems:
+	Extensionality Axiom:
+	@A, B [ @x [ x in A <--> x in B ] --> A = B ]
+
+	Empty Set Axiom:
+	3B [ @x [ ~(x in B) ] ]
+	Definition (its uniqueness is always due to Ext. Axiom):
+	{ } is the set having no members
+		[You can think of {} as a 0-ary operator. It refer to one set and one set only!]
+
+	Pairing Axiom:
+	@u, v [ 3B [ @x [ x in B <--> x = u or x = v ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any sets u, v, the pair set {u, v} is the set whose only members are u and v.
+		[You can think of {u, v} as a 2-ary operator. It refer to one set and one set only based on the sets u and v!]
+
+		Definition:
+		Let {x} := {x, x} is the set whose only members are x and x
+
+	Relation:
+		Definition:
+		A relation R is a set of ordered pairs.
+		@R [ R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ] ]
+
+	Function:
+		Definition:
+		@F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]
+
+	Definition of into:
+		@F, A, B [ F maps A into B (F: A->B) <--> 
+						F is a function &
+						dom F = A &
+						ran F ⊆ B 
+					]
+
+	LEMMA - NON-EMPTY:
+		@A [ A != {} --> 3t [ t in A ] ]
+
+	Pg 52. B-pre-A existence:
+		@A, B [ 3D [ @t [ t in D <--> t: A->B ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			For any A, B, the unique set B-pre-A is the set that contains all functions F from A into B (F: A->B)
+
+
+1. Show @A [ A-pre-{} = {{}} ]
+	2. let A be a set
+	
+	========
+	D1. @x [ ~(x in {}) ]				[Empty Axiom EI & Ext. Axiom]
+	D2. @x [ x in {{}} <--> x = {} or x = {} ]				[Pairing Axiom UI/{} UI/{} EI & Ext. Axiom]
+	D3. @t [ t in A-pre-{} <--> t: {}->A ]				[B-pre-A UI/{} UI/B EI & Ext. Axiom]
+	========
+
+	3. @A, B [ @x [ x in A <--> x in B ] --> A = B ]								[Ext. Axiom]
+	4. @x [ x in A-pre-{} <--> x in {{}} ] --> A-pre-{} = {{}}			[3 UI/A-pre-{} UI/{{}}]
+	5. Show @x [ x in A-pre-{} <--> x in {{}} ]
+		6. let x be a set
+
+		========
+		D4. @m [ m in dom x <--> 3y [ <m, y> in x ] ]			[dom UI/x EI & Ext. Axiom]
+		D5. @p [ p in ran x <--> 3m [ <m, p> in x ] ]			[ran UI/x EI & Ext. Axiom]
+		========
+
+		7. Show x in A-pre-{} <--> x in {{}}
+			8. Show x in A-pre-{} --> x in {{}}
+				9. x in A-pre-{}			[ACD]
+				10. @t [ t in A-pre-{} <--> t: {}->A ]			[D3]
+				11. x in A-pre-{} <--> x: {}->A				[10 UI/x]
+				12. x: {}->A				[11 BC 9 MP]
+				13. @F, A, B [ F maps A into B (F: A->B) <--> F is a function & dom F = A &	ran F ⊆ B ]			[Definition of into]
+				14. x maps {} into A (x: {}->A) <--> x is a function & dom x = {} &	ran x ⊆ A				[13 UI/x UI/{} UI/A]
+				15. x is a function & dom x = {} & ran x ⊆ A			[14 BC 12 MP]
+
+				16. @x [ x in {{}} <--> x = {} or x = {} ]			[D2]
+				17. x in {{}} <--> x = {} or x = {}			[16 UI/x]
+
+				18. Show x = {}
+					19. x != {}				[AID]
+					20. @A [ A != {} --> 3t [ t in A ] ]			[LEMMA - NON-EMPTY]
+					21. x != {} --> 3t [ t in x ]				[20 UI/x]
+					22. 3t [ t in x ]				[21 19 MP]
+					23. t_1 in x			[22 EI/t_1]
+
+					24. @F [F is a function <--> F is a relation & @w [ w in dom F --> 3_1y [ <w, y> in F ] ] ]		[Definition of a function]
+					25. x is a function <--> x is a relation & @w [ w in dom x --> 3_1y [ <w, y> in x ] ]					[24 UI/x]
+					26. x is a function			[15 SL SL]
+
+					27. x is a relation & @w [ w in dom x --> 3_1y [ <w, y> in x ] ]				[25 BC 26 MP]
+					28. x is a relation			[27 SL]
+					29. @R [ R is a relation <--> @t [ t in R --> 3u, v[ t = <u, v> ] ] ]			[Definition of relation]
+					30. x is a relation <--> @t [ t in x --> 3u, v[ t = <u, v> ] ]				[29 UI/x]
+					31. @t [ t in x --> 3u, v[ t = <u, v> ] ]			[30 BC 28 MP]
+					32. t_1 in x --> 3u, v[ t_1 = <u, v> ]			[31 UI/t_1]
+					33. 3u, v[ t_1 = <u, v> ]			[32 23 MP]
+					34. t_1 = <u_2, v_2>			[33 EI/u_2 EI/v_2]
+
+					35. @m [ m in dom x <--> 3y [ <m, y> in x ] ]			[D4]
+					36. u_2 in dom x <--> 3y [ <u_2, y> in x ]				[35 UI/u_2]
+					37. <u_2, v_2> in x				[23 34 LL]
+					38. 3y [ <u_2, y> in x ]			[37 EG/v_2->y]
+					39. u_2 in dom x			[36 BC 38 MP]
+					40. dom x = {}			[15 SL SR]
+					41. u_2 in {}				[39 40 LL]
+					42. @x [ ~(x in {}) ]			[D1]
+					43. ~(u_2 in {})			[42 UI/u_2]
+					44. 		[41 43 ID]
+				
+				45. x = {} or x = {}			[18 ADD/x = {}]
+				46. x in {{}}			[17 BC 45 MP]
+				47. 		[46 CD]
+				
+			48. Show x in {{}} --> x in A-pre-{}
+				49. x in {{}}			[ACD]
+				50. @x [ x in {{}} <--> x = {} or x = {} ]			[D2]
+				51. x in {{}} <--> x = {} or x = {}					[49 UI/x]
+				52. x = {} or x = {}			[51 BC 49 MP]
+				53. x = {}			[52 SIMPLIFY_OR]
+
+				54. @t [ t in A-pre-{} <--> t: {}->A ]			[D3]
+				55. x in A-pre-{} <--> x: {}->A				[54 UI/x]
+
+				56. @F, A, B [ F maps A into B (F: A->B) <--> F is a function & dom F = A &	ran F ⊆ B ]			[Definition of into]
+				57. x maps {} into A (x: {}->A) <--> x is a function & dom x = {} &	ran x ⊆ A				[56 UI/x UI/{} UI/A]
+
+				// Show dom x = {}
+				58. Show dom x = {}
+					59.	dom x != {}			[AID]
+					60. @A [ A != {} --> 3t [ t in A ] ]			[LEMMA - NON-EMPTY]
+					61. dom x != {} --> 3t [ t in dom x ]			[60 UI/dom x]
+					62. 3t [ t in dom x ]			[61 59 MP]
+					63. t_1 in dom x			[62 EI/t_1]
+					64. @m [ m in dom x <--> 3y [ <m, y> in x ] ]			[D4]
+					65. t_1 in dom x <--> 3y [ <t_1, y> in x ]			[64 UI/t_1]
+					66. 3y [ <t_1, y> in x ]				[65 BC 63 MP]
+					67. <t_1, y_2> in x				[66 EI/y_2]
+					68. x = {}			[53 R]
+					69. <t_1, y_2> in {}			[67 68 LL]
+					70. @x [ ~(x in {}) ]			[D1]
+					71. ~(<t_1, y_2> in {})		[70 UI/<t_1, y_2>]
+					72.			[69 71 ID]
+
+
+				// Show x is a function
+				73. @F [F is a function <--> F is a relation & @u [ u in dom F --> 3_1y [ <u, y> in F ] ] ]			[Definition of function]
+				74. x is a function <--> x is a relation & @u [ u in dom x --> 3_1y [ <u, y> in x ] ]				[73 UI/x]
+				75. @R [ R is a relation <--> @t [ t in R --> 3u, v[ t = <u, v> ] ] ]				[Definition of relation]
+				76. x is a relation <--> @t [ t in x --> 3u, v[ t = <u, v> ] ]				[75 UI/x]
+				77. Show @t [ t in x --> 3u, v[ t = <u, v> ] ]
+					78. let t be a set
+					79. Show t in x --> 3u, v[ t = <u, v> ]
+						80. t in x			[ACD]
+						81. x = {}			[53 R]
+						82. t in {}			[80 81 LL]
+						83. @x [ ~(x in {}) ]				[D1]
+						84. ~(t in {})			[83 UI/t]
+						85.		[82 84 ID]
+					86. 		[79 UD]
+				
+				87. x is a relation			[76 BC 77 MP]
+				88. Show @u [ u in dom x --> 3_1y [ <u, y> in x ] ]
+					89. let u be a set
+					90. Show u in dom x --> 3_1y [ <u, y> in x ]
+						91. u in dom x			[ACD]
+						92. dom x = {}			[58 R]
+						93. u in {}			[91 92 LL]
+						94. @x [ ~(x in {}) ]			[D1]
+						95.	~(u in {})			[94 UI/u]
+						96.		[93 95 ID]
+					97. 		[90 UD]
+				98. x is a relation & @u [ u in dom x --> 3_1y [ <u, y> in x ] ]			[87 88 ADJ]
+				99. x is a function			[74 BC 98 MP]
+				
+	
+				// Show ran x ⊆ A
+				100. Show @g [ g in ran x --> g in A ]
+					101. let g be a set
+					102. Show g in ran x --> g in A
+						103. g in ran x			[ACD]
+						104. Show ran x = {}
+							105. ran x != {}			[AID]
+							106. @A [ A != {} --> 3t [ t in A ] ]			[LEMMA - NON-EMPTY]
+							107. ran x != {} --> 3t [ t in ran x ]		[106 UI/ran x]
+							108. 3t [ t in ran x ]		[105 107 MP]
+							109. t_1 in ran x			[108 EI/t_1]
+							110. @p [ p in ran x <--> 3m [ <m, p> in x ] ]			[D5]
+							111. t_1 in ran x <--> 3m [ <m, t_1> in x ]				[110 UI/t_1]
+							112. 3m [ <m, t_1> in x ]				[111 BC 109 MP]
+							113. <m_2, t_1> in x				[112 EI/m_2]
+							114. x = {}			[53 R]
+							115. <m_2, t_1> in {}				[113 114 LL]
+							116. @x [ ~(x in {}) ]			[D1]
+							117. ~(<m_2, t_1> in {})		[116 UI/<m_2, t_1>]
+							118.		[115 117 ID]
+						119. g in {}			[103 104 LL]
+						120. @x [ ~(x in {}) ]			[D1]
+						121. ~(g in {})			[120 UI/g]
+						122.		[119 121 ID]
+					123. 		[102 UD]
+				
+				124. ran x ⊆ A			[100 EQUIV.]
+
+				125. x is a function & dom x = {} &	ran x ⊆ A			[99 58 124 ADJ]
+				126. x: {}->A			[57 BC 125 MP]
+
+				127. x in A-pre-{}			[55 BC 126 MP]
+				128.		[127 CD]
+			
+			129. x in A-pre-{} <--> x in {{}}			[8 48 CB]
+			130.		[129 DD]
+		131. 		[7 UD]
+	132. A-pre-{} = {{}}		[4 5 MP]
+	133. 		[132 UD]

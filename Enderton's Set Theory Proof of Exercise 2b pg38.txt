@@ -1,0 +1,98 @@
+Axioms and Theorems:
+	Extensionality Axiom:
+	@A, B [ @x [ x in A <--> x in B ] --> A = B ]
+
+	Converse of Extensionality Axiom (Theorem Pg.2):
+	@A, B [ A = B  --> @x [ x in A <--> x in B ]  ]
+
+	Empty Set Axiom:
+	3B [ @x [ ~(x in B) ] ]
+	Definition:
+	{ } is the set having no members
+		[You can think of {} as a 0-ary operator. It refer to one set and one set only!]
+
+	Definition of <x ,y>:
+		@x, y[ <x, y> := {{x}, {x, y}} ]
+			note {x} exists due to Pairing Axiom & Extensionality
+			note {x, y} exists due to Pairing Axiom & Extensionality
+			finally {{x}, {x, y}} exists due to Pairing Axiom & Extensionality
+
+	Theorem 3A:
+		@u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]
+
+	Corollary 3C:
+	@A, B [ 3D [ @t[ t in D <--> 3x, y [x in A & y in B & t = <x, y> ] ] ] ]
+		Definition:
+		For any set sets A, B,  {<x, y> | x in A & x in B}    is the set whose members are exactly the sets of the form <x, y> for some x in A & y in B
+		Also known as the Cartesian Product A x B of the sets A and B!
+
+
+0. Show @A, B, C [ A x B = A x C  &  A != {} --> B = C ]
+	1. Let A, B, C be sets
+	D1. @t[ t in A x B <--> 3x, y [x in A & y in B & t = <x, y> ] ]			[1 Corollary 3C & Ext. Axiom]
+	D2. @t[ t in A x C <--> 3x, y [x in A & y in C & t = <x, y> ] ]			[1 Corollary 3C & Ext. Axiom]
+
+	2. Show A x B = A x C  &  A != {} --> B = C
+		3. A x B = A x C  &  A != {}			[ACD]
+		4. Show 3x [ x in A ]
+			5. ~3x [ x in A ]		[AID]
+			6. @x [ ~(x in A) ]		[5 EQUIV.]
+			7. @x [ ~(x in {}) ]	[Empty Set Axiom & Ext. Axiom]
+			8. @A, B [ @x [ x in A <--> x in B ] --> A = B ]		[Ext. Axioom]
+			9. @x [ x in A <--> x in {} ] --> A = {}			[8 UI/A UI/{}]
+			10. Show @x [ x in A <--> x in {} ]
+				11. Show x in A <--> x in {}
+					12. Show x in A --> x in {}
+						13. x in A				[ACD]
+						14. @x [ ~(x in A) ]	[6 R]
+						15. ~(x in A)			[14 UI/x]
+						16.		[13 15 ID]
+
+					17. Show x in {} --> x in A
+						18. x in {}				[ACD]
+						19. @x [ ~(x in {}) ]	[7 R]
+						20. ~(x in {})			[19 UI/x]
+						21. 	[18 20 ID]
+						
+					22. x in A <--> x in {}		[12 17 CB]
+					23.		[22 DD]
+				24.		[11 UD]
+			25. A = {}							[10 9 MP]
+			26. A != {}							[3 SR]
+			27. 	[25 26 ID]
+
+		28. @A, B [ @x [ x in A <--> x in B ] --> A = B ]		[Ext. Axiom]
+		29. @x [ x in B <--> x in C ] --> B = C					[28 UI/B UI/C]
+		30. Show @x [ x in B <--> x in C ]
+			Let x be a set
+			31. Show x in B <--> x in C
+				32. Show x in B --> x in C
+					33. x in B				[ACD]
+					34. A x B = A x C		[3 SL]
+					35. @A, B [ A = B  --> @x [ x in A <--> x in B ]  ]				[Converse of Ext. Axiom]
+					36. A x B = A x C  --> @x [ x in A x B <--> x in A x C ]		[35 UI/A x B UI/A x C]
+					37. @x [ x in A x B <--> x in A x C ]							[36 34 MP]
+					38. 3x [ x in A ]				[4 R]
+					39. a_1 in A					[38 EI/a_1]
+					40. <a_1, x> in A x B <--> <a_1, x> in A x C 								[37 UI/<a_1, x> & Definition of <_, _>]
+					41. @t[ t in A x B <--> 3v, u [v in A & u in B & t = <v, u> ] ]				[D1]
+					42. <a_1, x> in A x B <--> 3v, u [v in A & u in B & <a_1, x> = <v, u> ]		[41 UI/<a_1, x> & Definition of <_, _>]
+					43. <a_1, x> = <a_1, x>														[SID]
+					44. a_1 in A & x in B & <a_1, x> = <a_1, x>  								[39 33 43 ADJ]
+					45. 3v, u [v in A & u in B & <a_1, x> = <v, u> ]							[44 EG/a_1->v  EG/x->u]
+					46. <a_1, x> in A x B														[42 BC 45 MP]					
+					47. <a_1, x> in A x C														[40 BC 46 MP]
+					48. @t[ t in A x C <--> 3v, u [v in A & u in C & t = <v, u> ] ]				[D2]
+					49. <a_1, x> in A x C <--> 3v, u [v in A & u in C & <a_1, x> = <v, u> ]		[48 UI/<a_1, x>]
+					50. 3v, u [v in A & u in C & <a_1, x> = <v, u> ]							[49 BC 47 MP]
+					51. v_1 in A & u_1 in C & <a_1, x> = <v_1, u_1>								[50 EI/v_1  EI/u_1]
+					52. <a_1, x> = <v_1, u_1>			[51 SR]
+					53. u_1 in C			[51 SL SR]
+					54. @u, v, a, b [ <u, v> = <a, b>  <-->  u = a & v = b ]		[Theorem 3A]
+					55. <a_1, x> = <v_1, u_1>  <-->  a_1 = v_1 & x = u_1			[54 UI/a_1 UI/x UI/v_1 UI/u_1]
+					56. a_1 = v_1 & x = u_1			[55 BC 52 MP]
+					57. x = u_1						[56 SR]
+					58. x in C						[53 57 LL]
+					59. 	[58 CD]
+
+				60. Show x in C --> x in B

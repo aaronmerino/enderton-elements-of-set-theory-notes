@@ -1,0 +1,101 @@
+Axioms and Theorems:
+	Extensionality Axiom:
+	@A, B [ @x [ x in A <--> x in B ] --> A = B ]
+
+	Pairing Axiom:
+	@u, v [ 3B [ @x [ x in B <--> x = u or x = v ] ] ]
+		Definition:
+		For any sets u, v, the pair set {u, v} is the set whose only members are u and v.
+		[You can think of {u, v} as a 2-ary operator. It refer to one set and one set only based on the sets u and v!]
+
+		Definition:
+		Let {x} := {x, x} is the set whose only members are x and x
+
+	Union Axiom:
+	@A [ 3B [ @x [ x in B <--> 3b [ b in A & x in b ] ] ] ]
+		Definition:
+		For any set A, the union of A  U(A)     is the set whose members are exactly the members of the members of A
+		[You can think of U(A) as a 1-ary operator. It refer to one set and one set only based on the set A!]
+
+	Definition:
+		@x, y[ <x, y> := {{x}, {x, y}} ]
+			note {x} exists due to Pairing Axiom & Extensionality
+			note {x, y} exists due to Pairing Axiom & Extensionality
+			finally {{x}, {x, y}} exists due to Pairing Axiom & Extensionality		
+
+
+1. Show @A, x, y [<x, y> in A --> x in U(U(A)) & y in U(U(A))] 
+	2. Let A, x, y be sets
+	D1. {x} is the set whose only members are x and x.				[Pairing Axiom UI/x UI/x & Ext. Axiom -> defines {x}]
+		@t [ t in {x} <--> t = x or t = x ]
+
+	D2. {x, y} is the set whose only members are x and y.			[Pairing Axiom UI/x UI/y & Ext. Axiom -> defines {x, y}]
+		@t [ t in {x, y} <--> t = x or t = y ]
+
+	D3. {{x}, {x, y}} is the set whose only members are {x} and {x, y}.			[Pairing Axiom UI/{x} UI/{x, y} & Ext. Axiom -> defines {{x}, {x, y}}]
+		Let <x, y> := {{x}, {x, y}}
+		@t [ t in {{x}, {x, y}} <--> t = {x} or t = {x, y} ]	
+	
+	D4. U(A) is the set whose members are exactly the members of the members of A 		[Union Axiom UI/A & Ext. Axiom -> defines U(A)]
+		@t [ t in U(A) <--> 3b [ b in A & t in b ] ]
+
+	D5. U(U(A)) is the set whose members are exactly the members of the members of U(A) 		[Union Axiom UI/U(A) & Ext. Axiom -> defines U(U(A))]
+		@t [ t in U(U(A)) <--> 3b [ b in U(A) & t in b ] ]
+
+	3. Show <x, y> in A --> x in U(U(A)) & y in U(U(A))
+		4. <x, y> in A																[ACD]
+		5. <x, y> := {{x}, {x, y}}													[D3 Defintion]
+		6. {{x}, {x, y}} in A														[4 5 EL]
+		7. @t [ t in U(U(A)) <--> 3b [ b in U(A) & t in b ] ]						[D5]
+		8. x in U(U(A)) <--> 3b [ b in U(A) & x in b ]								[7 UI/x]
+		9. Show 3b [ b in U(A) & x in b ]
+			10. @t [ t in U(A) <--> 3b [ b in A & t in b ] ]						[D4]
+			11. {x} in U(A) <--> 3b [ b in A & {x} in b ]							[10 UI/{x}]
+			12. Show 3b [ b in A & {x} in b ]
+				13. {{x}, {x, y}} in A			[6 R]
+				14. @t [ t in {{x}, {x, y}} <--> t = {x} or t = {x, y} ]		[D3]
+				15. {x} in {{x}, {x, y}} <--> {x} = {x} or {x} = {x, y}			[14 UI/{x}]
+				16. {x} = {x}													[SID/{x}]
+				17. {x} = {x} or {x} = {x, y}									[16 ADD/...]
+				18. {x} in {{x}, {x, y}}										[15 BC 17 MP]
+				19. {{x}, {x, y}} in A & {x} in {{x}, {x, y}}					[13 18 ADJ]
+				20. 3b [ b in A & {x} in b ]									[19 EG/{{x}, {x, y}}->b]
+				21. 	[20 DD]
+			22. {x} in U(A)				[11 BC 12 MP]
+			23. @t [ t in {x} <--> t = x or t = x ]			[D1]
+			24. x in {x} <--> x = x or x = x				[23 UI/x]
+			25. x = x										[SID/x]
+			26. x = x or x = x								[25 ADD/...]
+			27. x in {x}									[24 BC 26 MP]
+			28. {x} in U(A)	& x in {x}						[22 27 ADJ]
+			29. 3b [ b in U(A) & x in b ]					[28 EG/{x}->b]
+			30. 	[29 DD]
+		31. x in U(U(A))							[8 BC 9 MP]
+
+		32. y in U(U(A)) <--> 3b [ b in U(A) & y in b ]								[7 UI/y]
+		33. Show 3b [ b in U(A) & y in b ]
+			34. @t [ t in U(A) <--> 3b [ b in A & t in b ] ]						[D4]
+			35. {x, y} in U(A) <--> 3b [ b in A & {x, y} in b ]						[34 UI/{x, y}]
+			36. Show 3b [ b in A & {x, y} in b ]
+				37. {{x}, {x, y}} in A			[6 R]
+				38. @t [ t in {{x}, {x, y}} <--> t = {x} or t = {x, y} ]				[D3]
+				39. {x, y} in {{x}, {x, y}} <--> {x, y} = {x} or {x, y} = {x, y}		[38 UI/{x, y}]
+				40. {x, y} = {x, y}														[SID/{x, y}]
+				41. {x, y} = {x} or {x, y} = {x, y}										[40 ADD/...]
+				42. {x, y} in {{x}, {x, y}}												[39 BC 41 MP]
+				43. {{x}, {x, y}} in A & {x, y} in {{x}, {x, y}}						[37 42 ADJ]
+				44. 3b [ b in A & {x, y} in b ]											[43 EG/{{x}, {x, y}}->b]
+				45. 	[44 DD]
+			46. {x, y} in U(A)									[35 BC 36 MP]
+			47. @t [ t in {x, y} <--> t = x or t = y ]			[D2]
+			48. y in {x, y} <--> y = x or y = y					[47 UI/y]
+			49. y = y											[SID/y]
+			50. y = x or y = y									[49 ADD/...]
+			51. y in {x, y}										[48 BC 50 MP]
+			52. {x, y} in U(A) & y in {x, y}					[46 51 ADJ]
+			53. 3b [ b in U(A) & y in b ]						[52 EG/{x, y}->b]
+			54. 	[53 DD]
+		55. y in U(U(A))								[32 BC 33 MP]
+		56. x in U(U(A)) & y in U(U(A))					[31 55 ADJ]
+		57. 		[56 CD]
+	58. 	[3 UD]
