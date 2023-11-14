@@ -511,7 +511,7 @@ idea:
 		// Given R is relation, we use [TEXAS-361] @I, R [ 3D [ @t [ t in D <--> 3i [ i in I & t = <i, R[{i}]> ] ] ] ]  with I = dom R to build a set D
 		// Then use this D on the second form of the axiom of choice @I, H [ H is a function & dom H = I --> [ @i [ i in I --> H(i) != {} ] --> X_{i in I}(H(i)) != {} ] ]
 		// to do this, we first show that D is a function and dom D = I
-		// then prove @i [ i in I --> D(i) != {} ] (this is true because I = dom R and and so i in dom R, so H(i) = R[{i}] != {})
+		// then prove @i [ i in I --> D(i) != {} ] (this is true because I = dom R and and so i in dom R, so D(i) = R[{i}] != {})
 		// then we have X_{i in I}(D(i)) != {}
 		// since X_{i in I}(D(i)) != {}, then theres an element in it
 		// call this element f
@@ -614,5 +614,66 @@ idea:
 				
 				219. D_1 is a relation & @x [ x in dom D_1 --> 3_1y [ <x, y> in D_1 ] ]				[180 181 ADJ]
 				220. D_1 is a function				[165 BC 219 MP]
+
+				221. Show dom D_1 = dom R
+					222. @A, B [ @x [ x in A <--> x in B ] --> A = B ]			[Ext. Axiom]
+					223. @x [ x in dom D_1 <--> x in dom R ] --> dom D_1 = dom R				[222 UI/dom D_1 UI/dom R]
+					224. Show @x [ x in dom D_1 <--> x in dom R ]
+						225. let x be a set
+						226. Show x in dom D_1 --> x in dom R
+							227. x in dom D_1			[ACD]
+							228. @x [ x in dom D_1 <--> 3y [ <x, y> in D_1 ] ]			[D2]
+							229. x in dom D_1 <--> 3y [ <x, y> in D_1 ]			[228 UI/x]
+							230. 3y [ <x, y> in D_1 ]				[229 BC 227 MP]
+							231. <x, y_2> in D_1				[230 EI/y_2]
+							232. @t [ t in D_1 <--> 3i [ i in dom R & t = <i, R[{i}]> ] ]			[161 R]
+							234. <x, y_2> in D_1 <--> 3i [ i in dom R & <x, y_2> = <i, R[{i}]> ]			[232 UI/<x, y_2>]
+							235. 3i [ i in dom R & <x, y_2> = <i, R[{i}]> ]				[234 BC 231 MP]
+
+							236. i_3 in dom R & <x, y_2> = <i_3, R[{i_3}]>			[235 EI/i_3]
+							237. <x, y_2> = <i_3, R[{i_3}]>			[236 SR]
+							238. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]				[Theorem 3A]
+							239. <x, y_2> = <i_3, R[{i_3}]>  <-->  x = i_3 & y_2 = R[{i_3}]				[238 UI/x, y_2, i_3, R[{i_3}]]
+							240. x = i_3 & y_2 = R[{i_3}]				[239 BC 237 MP]
+
+							241. i_3 in dom R			[236 SL]
+							242. x = i_3			[240 SL]
+							243. x in dom R			[241 242 LL]
+							244. 			[243 CD]
+						
+						245. Show x in dom R --> x in dom D_1
+							246. x in dom R			[ACD]
+							247. @x [ x in dom R <--> 3y [ <x, y> in R ] ]			[D1]
+							248. x in dom R <--> 3y [ <x, y> in R ]			[247 UI/x]
+							249. 3y [ <x, y> in R ]			[248 BC 246 MP]
+							250. <x, y_2> in R			[249 EI/y_2]
+
+							251. @t [ t in D_1 <--> 3i [ i in dom R & t = <i, R[{i}]> ] ]				[161 R]
+
+							// consider <x, R[{x}]> 
+							252. <x, R[{x}]> in D_1 <--> 3i [ i in dom R & <x, R[{x}]> = <i, R[{i}]> ]				[251 UI/<x, R[{x}]>]
+							253. <x, R[{x}]> = <x, R[{x}]>			[SID/<x, R[{x}]>]
+							254. x in dom R & <x, R[{x}]> = <x, R[{x}]>			[246 253 ADJ]
+							255. 3i [ i in dom R & <x, R[{x}]> = <i, R[{i}]> ]			[254 EG/x->i]
+							256. <x, R[{x}]> in D_1			[252 BC 255 MP]
+
+							257. @x [ x in dom D_1 <--> 3y [ <x, y> in D_1 ] ]			[D2]
+							258. x in dom D_1 <--> 3y [ <x, y> in D_1 ]				[257 UI/x]
+							259. 3y [ <x, y> in D_1 ]			[256 EG/R[{x}]->y]
+							260. x in dom D_1			[258 BC 259 MP]
+							261.			[260 CD]
+						
+						262. x in dom D_1 <--> x in dom R			[226 245 CB]
+						263. 			[262 UD]
+					
+					264. dom D_1 = dom R			[223 224 MP]
+					265. 		[264 DD]
 				
-				221. 
+				266. D_1 is a function & dom D_1 = dom R			[220 221 ADJ]
+
+				267. @i [ i in dom R --> D_1(i) != {} ] --> X_{i in dom R}(D_1(i)) != {}				[163 266 MP]
+
+				268. Show @i [ i in dom R --> D_1(i) != {} ]
+					269. let i be a set
+					270. Show i in dom R --> D_1(i) != {}
+
