@@ -511,16 +511,108 @@ idea:
 		// Given R is relation, we use [TEXAS-361] @I, R [ 3D [ @t [ t in D <--> 3i [ i in I & t = <i, R[{i}]> ] ] ] ]  with I = dom R to build a set D
 		// Then use this D on the second form of the axiom of choice @I, H [ H is a function & dom H = I --> [ @i [ i in I --> H(i) != {} ] --> X_{i in I}(H(i)) != {} ] ]
 		// to do this, we first show that D is a function and dom D = I
-		// then prove @i [ i in I --> H(i) != {} ] (this is true because I = dom R and and so i in dom R, so H(i) = R[{i}] != {})
-		// then we have X_{i in I}(H(i)) != {}
-		// since X_{i in I}(H(i)) != {}, then theres an element in it
+		// then prove @i [ i in I --> D(i) != {} ] (this is true because I = dom R and and so i in dom R, so H(i) = R[{i}] != {})
+		// then we have X_{i in I}(D(i)) != {}
+		// since X_{i in I}(D(i)) != {}, then theres an element in it
 		// call this element f
 		// then we can show that f is a function, f ⊆ R, and dom f = I. note that I = dom R.
 
+		///SECOND FORM of AXIOM OF CHOICE///
 		154. @I, H [ H is a function & dom H = I --> [ @i [ i in I --> H(i) != {} ] --> X_{i in I}(H(i)) != {} ] ]			[ACD]
 		
 		155. Show @R [ R is a relation --> 3H [ H is a function & H ⊆ R & dom H = dom R ] ]
 			156. let R be a set
 			157. Show R is a relation --> 3H [ H is a function & H ⊆ R & dom H = dom R ]
 				158. R is a relation			[ACD]
-				159. 
+
+				========
+				D1. @x [ x in dom R <--> 3y [ <x, y> in R ] ]			[dom UI/R EI & Ext. Axiom]
+				========
+
+				159. @I, R [ 3D [ @t [ t in D <--> 3i [ i in I & t = <i, R[{i}]> ] ] ] ]			[TEXAS-361]
+				160. 3D [ @t [ t in D <--> 3i [ i in dom R & t = <i, R[{i}]> ] ] ]			[159 UI/dom R UI/R]
+
+				////D_1////
+				161. @t [ t in D_1 <--> 3i [ i in dom R & t = <i, R[{i}]> ] ]				[160 EI/D_1]
+				////D_1////
+
+				========
+				D2. @x [ x in dom D_1 <--> 3y [ <x, y> in D_1 ] ]			[dom UI/D_1 EI & Ext. Axiom]
+				========				
+
+				///SECOND FORM of AXIOM OF CHOICE///
+				162. @I, H [ H is a function & dom H = I --> [ @i [ i in I --> H(i) != {} ] --> X_{i in I}(H(i)) != {} ] ]			[154 R]
+
+				163. D_1 is a function & dom D_1 = dom R --> [ @i [ i in dom R --> D_1(i) != {} ] --> X_{i in dom R}(D_1(i)) != {} ]			[162 UI/dom R UI/D_1]
+				164. @F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]			[Def. of function]
+				165. D_1 is a function <--> D_1 is a relation & @x [ x in dom D_1 --> 3_1y [ <x, y> in D_1 ] ]			[164 UI/D_1]
+
+				166. @R [ R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ] ]			[Def. of relation]
+				167. D_1 is a relation <--> @t [ t in D_1 --> 3x, y[ t = <x, y> ] ]				[166 UI/D_1]
+				168. Show @t [ t in D_1 --> 3x, y[ t = <x, y> ] ]
+					169. let t be a set
+					170. Show t in D_1 --> 3x, y[ t = <x, y> ]
+						171. t in D_1			[ACD]
+						172. @t [ t in D_1 <--> 3i [ i in dom R & t = <i, R[{i}]> ] ]			[161 R]
+						173. t in D_1 <--> 3i [ i in dom R & t = <i, R[{i}]> ]				[172 UI/t]
+						174. 3i [ i in dom R & t = <i, R[{i}]> ]			[173 BC 171 MP]
+						175. i_2 in dom R & t = <i_2, R[{i_2}]>				[174 EI/i_2]
+						176. t = <i_2, R[{i_2}]>			[175 SR]
+						177. 3x, y[ t = <x, y> ]			[176 EG/i_2->x EG/R[{i_2}]->y]
+						178. 			[177 CD]
+					179. 			[170 UD]
+				180. D_1 is a relation			[167 BC 168 MP]
+				
+				181. Show @x [ x in dom D_1 --> 3_1y [ <x, y> in D_1 ] ]
+					182. let x be a set
+					183. Show x in dom D_1 --> 3_1y [ <x, y> in D_1 ]
+						184. x in dom D_1			[ACD]
+						185. @x [ x in dom D_1 <--> 3y [ <x, y> in D_1 ] ]			[D2]
+						186. x in dom D_1 <--> 3y [ <x, y> in D_1 ]				[185 UI/x]
+						187. 3y [ <x, y> in D_1 ]				[186 BC 184 MP]
+						188. <x, y_2> in D_1				[187 EI/y_2]
+
+						189. @t [ t in D_1 <--> 3i [ i in dom R & t = <i, R[{i}]> ] ]				[161 R]
+						190. <x, y_2> in D_1 <--> 3i [ i in dom R & <x, y_2> = <i, R[{i}]> ]				[189 UI/<x, y_2>]
+						191. 3i [ i in dom R & <x, y_2> = <i, R[{i}]> ]				[190 BC 188 MP]
+
+						192. i_3 in dom R & <x, y_2> = <i_3, R[{i_3}]>				[191 EI/i_3]
+
+
+						193. Show @w [ <x, w> in D_1 --> w = y_2 ]
+							194. let w be a set
+							195. Show <x, w> in D_1 --> w = y_2
+								196. <x, w> in D_1			[ACD]
+								197. @t [ t in D_1 <--> 3i [ i in dom R & t = <i, R[{i}]> ] ]				[161 R]
+								198. <x, w> in D_1 <--> 3i [ i in dom R & <x, w> = <i, R[{i}]> ]				[197 UI/<x, w>]
+								199. 3i [ i in dom R & <x, w> = <i, R[{i}]> ]				[198 BC 196 MP]
+								200. i_4 in dom R & <x, w> = <i_4, R[{i_4}]>				[199 EI/i_4]
+
+
+								201. <x, y_2> = <i_3, R[{i_3}]>			[192 SR]
+								202. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]			[Theorem 3A]
+								203. <x, y_2> = <i_3, R[{i_3}]>  <-->  x = i_3 & y_2 = R[{i_3}]				[202 UI/x, y_2, i_3, R[{i_3}]]
+								204. x = i_3 & y_2 = R[{i_3}]			[203 BC 201 MP]
+
+								205. <x, w> = <i_4, R[{i_4}]>			[200 SR]
+								206. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]			[Theorem 3A]
+								207. <x, w> = <i_4, R[{i_4}]>  <-->  x = i_4 & w = R[{i_4}]				[202 UI/x, w, i_4, R[{i_4}]]
+								208. x = i_4 & w = R[{i_4}]			[207 BC 205 MP]
+
+								209. i_3 = i_4				[(204 SL) (208 SL) LL]
+								210. w = R[{i_3}]			[(208 SR) 209 LL]
+								211. w = y_2					[(204 SR) 210 LL]
+								212. 		[211 CD]
+
+							213. 		[195 UD]
+
+						214. <x, y_2> in D_1 & @w [ <x, w> in D_1 --> w = y_2 ]				[188 193 ADJ]
+						215. 3y [ <x, y> in D_1 & @w [ <x, w> in D_1 --> w = y ] ]				[214 EG/y_2->y]
+						216. 3_1y [ <x, y> in D_1 ]			[215 EQUIV.]
+						217. 			[216 CD]
+					218. 			[183 UD]
+				
+				219. D_1 is a relation & @x [ x in dom D_1 --> 3_1y [ <x, y> in D_1 ] ]				[180 181 ADJ]
+				220. D_1 is a function				[165 BC 219 MP]
+				
+				221. 
