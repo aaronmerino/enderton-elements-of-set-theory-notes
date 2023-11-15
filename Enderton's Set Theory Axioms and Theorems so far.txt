@@ -322,6 +322,9 @@ Axioms and Theorems:
 	Axiom of Choice (second form):
 		@I, H [ H is a function & dom H = I --> [ @i [ i in I --> H(i) != {} ] --> X_{i in I}(H(i)) != {} ] ]
 
+	Pg 55 Exercise 31:
+		@R [ R is a relation --> 3H [ H is a function & H ⊆ R & dom H = dom R ] ] <--> @I, H [ H is a function & dom H = I --> [ @i [ i in I --> H(i) != {} ] --> X_{i in I}(H(i)) != {} ] ]
+
 Algebra of Sets:
 	Pg 24 Union of empty set:
 		U({}) = ({})
