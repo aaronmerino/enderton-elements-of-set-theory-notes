@@ -2,6 +2,9 @@ Axiom and Theorems:
 	Extensionality Axiom:
 	@A, B [ @x [ x in A <--> x in B ] --> A = B ]
 
+	Converse of Extensionality Axiom (Theorem Pg.2):
+	@A, B [ A = B  --> @x [ x in A <--> x in B ]  ]
+
 	Empty Set Axiom:
 	3B [ @x [ ~(x in B) ] ]
 	Definition (its uniqueness is always due to Ext. Axiom):
@@ -526,6 +529,7 @@ idea:
 				158. R is a relation			[ACD]
 
 				========
+				D0. @x [ ~(x in {}) ]				[Empty Set Axiom EI & Ext. Axiom]
 				D1. @x [ x in dom R <--> 3y [ <x, y> in R ] ]			[dom UI/R EI & Ext. Axiom]
 				========
 
@@ -544,6 +548,8 @@ idea:
 				162. @I, H [ H is a function & dom H = I --> [ @i [ i in I --> H(i) != {} ] --> X_{i in I}(H(i)) != {} ] ]			[154 R]
 
 				163. D_1 is a function & dom D_1 = dom R --> [ @i [ i in dom R --> D_1(i) != {} ] --> X_{i in dom R}(D_1(i)) != {} ]			[162 UI/dom R UI/D_1]
+
+
 				164. @F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]			[Def. of function]
 				165. D_1 is a function <--> D_1 is a relation & @x [ x in dom D_1 --> 3_1y [ <x, y> in D_1 ] ]			[164 UI/D_1]
 
@@ -671,9 +677,200 @@ idea:
 				
 				266. D_1 is a function & dom D_1 = dom R			[220 221 ADJ]
 
+				========
+				E1. @I, H [ H is a function & I ⊆ dom H --> 3D [ @f [ f in D <--> f is a function & dom f = I & @i [ i in I --> f(i) in H(i) ] ] ] ]			[Infinite Cartesiona Product]
+				E2. D_1 is a function & dom R ⊆ dom D_1 --> 3D [ @f [ f in D <--> f is a function & dom f = dom R & @i [ i in dom R --> f(i) in D_1(i) ] ] ]			[E1 UI/dom D_1  UI/D_1]
+				E3. @f [ f in X_{i in dom R}(D_1(i)) <--> f is a function & dom f = dom R & @i [ i in dom R --> f(i) in D_1(i) ] ]			[E2 266*(dom D_1 = dom R implies dom R ⊆ dom D_1) MP EI & Ext. Axiom]
+				========
+
 				267. @i [ i in dom R --> D_1(i) != {} ] --> X_{i in dom R}(D_1(i)) != {}				[163 266 MP]
 
 				268. Show @i [ i in dom R --> D_1(i) != {} ]
 					269. let i be a set
 					270. Show i in dom R --> D_1(i) != {}
+						271. i in dom R			[ACD]
+						272. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]				[CH'EN]
+						273. D_1 is a function & i in dom D_1 -->  @w [ <i, w> in D_1 <--> D_1(i) = w ]				[272 UI/D_1 UI/i]
+						274. i in dom D_1				[271 221 LL]
+						275. D_1 is a function & i in dom D_1				[220 274 ADJ]
+						276. @w [ <i, w> in D_1 <--> D_1(i) = w ]			[273 275 MP]
+						277. <i, D_1(i)> in D_1 <--> D_1(i) = D_1(i)			[276 UI/D_1(i)]
+						278. D_1(i) = D_1(i)			[SID/D_1(i)]
+						279. <i, D_1(i)> in D_1			[277 BC 278 MP]
+
+						280. @t [ t in D_1 <--> 3i [ i in dom R & t = <i, R[{i}]> ] ]			[161 R]
+						281. @t [ t in D_1 <--> 3m [ m in dom R & t = <m, R[{m}]> ] ]			[280 EQUIV.]
+						282. <i, D_1(i)> in D_1 <--> 3m [ m in dom R & <i, D_1(i)> = <m, R[{m}]> ]			[281 UI/<i, D_1(i)>]
+						283. 3m [ m in dom R & <i, D_1(i)> = <m, R[{m}]> ]			[282 BC 279 MP]
+						284. m_2 in dom R & <i, D_1(i)> = <m_2, R[{m_2}]>				[283 EI/m_2]
+
+						========
+						D3. @x [ x in {m_2} <--> x = m_2 or x = m_2 ]				[Pairing Axiom UI/m_2 UI/m_2 EI & Ext. Axiom]
+						D4. @v [ v in R[{m_2}] <--> 3u [ u in {m_2} & <u, v> in R ] ]				[Image of {m_2} under R UI/R UI/{m_2} EI & Ext. Axiom]
+						========
+
+						285. <i, D_1(i)> = <m_2, R[{m_2}]>			[284 SR]
+						286. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]			[Theorem 3A]
+						287. <i, D_1(i)> = <m_2, R[{m_2}]>  <-->  i = m_2 & D_1(i) = R[{m_2}]				[286 UI/i, D_1(i), m_2, R[{m_2}]]
+						288. i = m_2 & D_1(i) = R[{m_2}]			[287 BC 285 MP]
+						289. D_1(i) = R[{m_2}]			[288 SR]
+
+						290. Show R[{m_2}] != {}
+							291. R[{m_2}] = {}			[AID]
+							292. m_2 in dom R			[284 SL]
+							293. @x [ x in dom R <--> 3y [ <x, y> in R ] ]			[D1]
+							294. m_2 in dom R <--> 3y [ <m_2, y> in R ]					[293 UI/m_2]
+							295. 3y [ <m_2, y> in R ]			[294 BC 292 MP]
+							296. <m_2, y_3> in R			[295 EI/y_3]
+
+							297. @v [ v in R[{m_2}] <--> 3u [ u in {m_2} & <u, v> in R ] ]			[D4]
+							298. y_3 in R[{m_2}] <--> 3u [ u in {m_2} & <u, y_3> in R ]				[297 UI/y_3]
+
+							299. @x [ x in {m_2} <--> x = m_2 or x = m_2 ]			[D3]
+							300. m_2 in {m_2} <--> m_2 = m_2 or m_2 = m_2				[299 UI/m_2]
+							301. m_2 = m_2			[SID/m_2]
+							302. m_2 = m_2 or m_2 = m_2			[301 ADD/"m_2 = m_2"]
+							303. m_2 in {m_2}			[300 BC 302 MP]
+
+							304. m_2 in {m_2} & <m_2, y_3> in R			[303 296 ADJ]
+							305. 3u [ u in {m_2} & <u, y_3> in R ]			[304 EG/m_2->u]
+							306. y_3 in R[{m_2}]			[298 BC 305 MP]
+							307. y_3 in {}			[291 306 LL]
+
+							308. @x [ ~(x in {}) ]			[D0]
+							309. ~(y_3 in {})				[308 UI/y_3]
+							310. 			[307 309 ID]
+						
+						311. D_1(i) != {} 		[289 290 LL]
+						312. 			[311 CD]
+					313. 			[270 UD]
+				
+				314. X_{i in dom R}(D_1(i)) != {}				[267 268 MP]
+				
+				315. @A [ A != {} --> 3t [ t in A ] ]				[LEMMA - NON-EMPTY]
+				316. X_{i in dom R}(D_1(i)) != {} --> 3t [ t in X_{i in dom R}(D_1(i)) ]				[315 UI/]
+
+				317. 3t [ t in X_{i in dom R}(D_1(i)) ]			[314 316 MP]
+				318. t_2 in X_{i in dom R}(D_1(i))			[317 EI/t_2]
+
+				========
+				G1. @x [ x in dom t_2 <--> 3y [ <x, y> in t_2 ] ]			[dom UI/t_2 EI & Ext. Axiom]
+				========
+
+				319. @f [ f in X_{i in dom R}(D_1(i)) <--> f is a function & dom f = dom R & @i [ i in dom R --> f(i) in D_1(i) ] ]			[E3]
+
+				320. t_2 in X_{i in dom R}(D_1(i)) <--> t_2 is a function & dom t_2 = dom R & @i [ i in dom R --> t_2(i) in D_1(i) ]			[319 UI/t_2]
+
+				321. t_2 is a function & dom t_2 = dom R & @i [ i in dom R --> t_2(i) in D_1(i) ]				[320 BC 318 MP]
+
+				322. Show 3H [ H is a function & H ⊆ R & dom H = dom R ]
+					323. t_2 is a function			[321 SL SL]
+
+					324. Show t_2 ⊆ R
+						325. Show @p [ p in t_2 --> p in R ]
+							326. let p be a set
+							327. Show p in t_2 --> p in R
+								328. p in t_2			[ACD]
+								
+								329. @F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]				[Def. of function]
+								330. t_2 is a function <--> t_2 is a relation & @x [ x in dom t_2 --> 3_1y [ <x, y> in t_2 ] ]				[329 UI/t_2]
+								331. t_2 is a relation & @x [ x in dom t_2 --> 3_1y [ <x, y> in t_2 ] ]				[330 BC 323 MP]
+								332. t_2 is a relation			[331 SL]
+								333. @R [ R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ] ]			[Def. of relation]
+								334. t_2 is a relation <--> @t [ t in t_2 --> 3x, y[ t = <x, y> ] ]			[333 UI/t_2]
+								335. @t [ t in t_2 --> 3x, y[ t = <x, y> ] ]			[334 BC 332 MP]
+								336. p in t_2 --> 3x, y[ p = <x, y> ]				[335 UI/p]
+								337. 3x, y[ p = <x, y> ]			[336 328 MP]
+								338. p = <x_3, y_4>				[337 EI/x_3 EI/y_4]
+
+								339. @x [ x in dom t_2 <--> 3y [ <x, y> in t_2 ] ]			[G1]
+								340. x_3 in dom t_2 <--> 3y [ <x_3, y> in t_2 ]				[339 UI/x_3]
+
+								341. <x_3, y_4> in t_2				[328 338 LL]
+								342. 3y [ <x_3, y> in t_2 ]					[341 EG/y_4->y]
+								343. x_3 in dom t_2			[340 BC 342 MP]
+
+								344. dom t_2 = dom R			[321 SL SR]
+								345. x_3 in dom R				[343 344 LL]
+
+								346. @i [ i in dom R --> t_2(i) in D_1(i) ]				[321 SR]
+								347. x_3 in dom R --> t_2(x_3) in D_1(x_3)				[346 UI/x_3]
+								348. t_2(x_3) in D_1(x_3)			[347 345 MP]
+
+								349. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]			[CH'EN]
+								350. D_1 is a function & x_3 in dom D_1 -->  @w [ <x_3, w> in D_1 <--> D_1(x_3) = w ]			[349 UI/D_1 UI/x_3]
+								351. x_3 in dom D_1			[345 221 LL]
+								352. D_1 is a function & x_3 in dom D_1				[220 351 ADJ]
+
+								353. @w [ <x_3, w> in D_1 <--> D_1(x_3) = w ]				[350 352 MP]
+								354. <x_3, D_1(x_3)> in D_1 <--> D_1(x_3) = D_1(x_3)			[353 UI/D_1(x_3)]
+								355. D_1(x_3) = D_1(x_3)			[SID/D_1(x_3)]
+
+								356. <x_3, D_1(x_3)> in D_1			[354 BC 355 MP]
+								357. @t [ t in D_1 <--> 3i [ i in dom R & t = <i, R[{i}]> ] ]			[161 R]
+								358. <x_3, D_1(x_3)> in D_1 <--> 3i [ i in dom R & <x_3, D_1(x_3)> = <i, R[{i}]> ]			[357 UI/<x_3, D_1(x_3)>]
+
+								359. 3i [ i in dom R & <x_3, D_1(x_3)> = <i, R[{i}]> ]			[358 BC 356 MP]
+								360. i_5 in dom R & <x_3, D_1(x_3)> = <i_5, R[{i_5}]>				[359 EI/i_5]
+
+								========
+								M1. @x [ x in {i_5} <--> x = i_5 or x = i_5 ]				[Pairing Axiom UI/i_5 UI/i_5 EI & Ext. Axiom]
+								M2. @v [ v in R[{i_5}] <--> 3u [ u in {i_5} & <u, v> in R ] ]				[Image of {i_5} under R UI/R UI/{i_5} EI & Ext. Axiom]
+								========
+
+								361. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]			[Theorem 3A]
+								362. <x_3, D_1(x_3)> = <i_5, R[{i_5}]>  <-->  x_3 = i_5 & D_1(x_3) = R[{i_5}]				[361 UI/...]
+								363. <x_3, D_1(x_3)> = <i_5, R[{i_5}]>			[360 SR]
+								364. x_3 = i_5 & D_1(x_3) = R[{i_5}]			[362 BC 363 MP]
+
+								365. D_1(x_3) = R[{i_5}]			[364 SR]
+								366. t_2(x_3) in R[{i_5}]				[348 365 LL]
+
+								367. @v [ v in R[{i_5}] <--> 3u [ u in {i_5} & <u, v> in R ] ]			[M2]
+								368. t_2(x_3) in R[{i_5}] <--> 3u [ u in {i_5} & <u, t_2(x_3)> in R ]			[367 UI/t_2(x_3)]
+								369. 3u [ u in {i_5} & <u, t_2(x_3)> in R ]			[368 BC 366 MP]
+
+								370. u_6 in {i_5} & <u_6, t_2(x_3)> in R			[369 EI/u_6]
+								371. u_6 in {i_5}			[370 SL]
+								372. @x [ x in {i_5} <--> x = i_5 or x = i_5 ]			[M1]
+								373. u_6 in {i_5} <--> u_6 = i_5 or u_6 = i_5			[372 UI/u_6]
+								374. u_6 = i_5 or u_6 = i_5			[373 BC 371 MP]
+								375. u_6 = i_5			[374 SIMPLIFY_OR]
+
+								376. x_3 = i_5			[364 SL]
+								377. u_6 = x_3			[375 376 LL]
+
+								378. <u_6, t_2(x_3)> in R			[370 SR]
+								379. <x_3, t_2(x_3)> in R			[378 377 LL]
+
+								380. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]			[CH'EN]
+								381. t_2 is a function & x_3 in dom t_2 -->  @w [ <x_3, w> in t_2 <--> t_2(x_3) = w ]			[380 UI/t_2 UI/x_3]
+								382. t_2 is a function & x_3 in dom t_2			[323 343 ADJ]
+								383. @w [ <x_3, w> in t_2 <--> t_2(x_3) = w ]			[381 382 MP]
+								384. <x_3, y_4> in t_2 <--> t_2(x_3) = y_4			[383 UI/y_4]
+
+								385. t_2(x_3) = y_4			[384 BC 341 MP]
+								386. <x_3, y_4> in R			[385 379 LL]
+								387. p in R			[338 386 LL]
+								388. 			[387 CD]
+							389. 		[327 UD]
+						390. t_2 ⊆ R			[325 EQUIV.]
+						391.		[390 DD]
+					
+					392. dom t_2 = dom R			[321 SL SR]
+
+					393. t_2 is a function & t_2 ⊆ R & dom t_2 = dom R				[323 324 392 ADJ]
+
+					394. 3H [ H is a function & H ⊆ R & dom H = dom R ]				[393 EG/t_2->H]
+
+					395. 		[394 DD]
+				
+				396. 		[322 CD]
+			
+			397. 		[157 UD]
+		
+		398.		[155 CD]
+	
+	399. @R [ R is a relation --> 3H [ H is a function & H ⊆ R & dom H = dom R ] ] <--> @I, H [ H is a function & dom H = I --> [ @i [ i in I --> H(i) != {} ] --> X_{i in I}(H(i)) != {} ] ]			[2 153 CB]
+	400.		[399 UD]
 
