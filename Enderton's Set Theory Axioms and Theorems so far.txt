@@ -146,6 +146,27 @@ Axioms and Theorems:
 		Definition (its uniqueness is always due to Ext. Axiom):
 		For any set sets A, {dom R | R in A} is the set whose members are exactly the sets of the form dom R for some R in A.
 
+
+	Recall definition of ordered pair (2-tuple):
+		@x, y[ <x, y> := {{x}, {x, y}} ]
+			note {x} exists due to Pairing Axiom & Extensionality
+			note {x, y} exists due to Pairing Axiom & Extensionality
+			finally {{x}, {x, y}} exists due to Pairing Axiom & Extensionality	
+	
+	Definition of ordered 3-tuples:
+		<x1, x2, x3> := <<x1, x2>, x3> 
+	
+	Definition of ordered 1-tuple:
+		@x [ <x> := x ]
+
+	Definition of a binary (2-ary) relation on A:
+		@A [ 3D [ @t [ t in D <--> 3x, y [ x, y in A & t = <x, y> ] ] ] ]
+		note: this set is simply a subset of A x A, so we can use the subset axiom to be able to say that such a set exists.
+	
+	Definition of an n-ary relation on A:
+		@A [ 3D [ @t [ t in D <--> 3x1, x2, ..., xn [ x1, x2, ..., xn in A & t = <x1, x2, ..., xn> ] ] ] ]
+		note: this set is simply a subset of (((A x A) x A) x ... ) x A, so we can use the subset axiom to be able to say that such a set exists.
+
 	Pg 43 Existence part:	
 		@F, x [ 3D [ @y [ y in D <--> <x, y> in F ] ] ]
 		Definition (its uniqueness is always due to Ext. Axiom):
@@ -324,6 +345,22 @@ Axioms and Theorems:
 
 	Pg 55 Exercise 31:
 		@R [ R is a relation --> 3H [ H is a function & H ⊆ R & dom H = dom R ] ] <--> @I, H [ H is a function & dom H = I --> [ @i [ i in I --> H(i) != {} ] --> X_{i in I}(H(i)) != {} ] ]
+	
+	Definition:
+		@R, A [ R is a relation --> 
+						[ R is reflexive on A <--> @x [ x in A --> <x, x> in R ] ]
+		]
+	
+		@R [ R is a relation --> 
+					R is symmetric <--> @x, y [ <x, y> in R --> <y, x> in R ]
+		]
+
+		@R [ R is a relation --> 
+					R is transitive <--> @x, y, z [ <x, y> in R & <y, z> in R --> <x, z> in R ]
+		]
+
+	Defintion:
+		@R, A [ R is an equivalence relation on A <--> R is a binary relation on A & R is reflexive on A & R is symmetric & R is transitive ]	
 
 Algebra of Sets:
 	Pg 24 Union of empty set:
