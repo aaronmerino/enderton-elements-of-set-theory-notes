@@ -355,15 +355,15 @@ Axioms and Theorems:
 		@R [ R is a relation --> 3H [ H is a function & H ⊆ R & dom H = dom R ] ] <--> @I, H [ H is a function & dom H = I --> [ @i [ i in I --> H(i) != {} ] --> X_{i in I}(H(i)) != {} ] ]
 	
 	Definition:
-		@R, A [ R is a relation --> 
+		@R, A [ R is a binary relation on A --> 
 						[ R is reflexive on A <--> @x [ x in A --> <x, x> in R ] ]
 		]
 	
-		@R [ R is a relation --> 
+		@R, A [ R is a binary relation on A --> 
 					R is symmetric <--> @x, y [ <x, y> in R --> <y, x> in R ]
 		]
 
-		@R [ R is a relation --> 
+		@R, A [ R is a binary relation on A --> 
 					R is transitive <--> @x, y, z [ <x, y> in R & <y, z> in R --> <x, z> in R ]
 		]
 
