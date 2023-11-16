@@ -1,7 +1,7 @@
 Axioms and Theorems:
 	Definition of a binary (2-ary) relation on A:
 		@A [ @D [ D is a binary relation on A <--> 
-								@t [ t in D <--> 3x, y [ x, y in A & t = <x, y> ] ] ] ] 
+								@t [ t in D --> 3x, y [ x, y in A & t = <x, y> ] ] ] ] 
 		note: D is a subset of A x A
 
 	Definition:
