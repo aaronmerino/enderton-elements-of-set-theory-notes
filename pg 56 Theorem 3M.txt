@@ -2,7 +2,10 @@ Axioms and Theorems:
 	Definition of a binary (2-ary) relation on A:
 		@A [ @D [ D is a binary relation on A <--> 
 								@t [ t in D --> 3x, y [ x, y in A & t = <x, y> ] ] ] ] 
-		note: D is a subset of A x A
+
+		note: D is a subset of A x A, so we can define it like this:
+		@A [ @D [ D is a binary relation on A <--> 
+								D ⊆ (A x A) ] ] 		
 
 	Definition:
 		@R, A [ R is a relation --> 
