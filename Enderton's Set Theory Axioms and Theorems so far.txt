@@ -160,11 +160,13 @@ Axioms and Theorems:
 		@x [ <x> := x ]
 
 	Definition of a binary (2-ary) relation on A:
-		@A [ @D [ D is a binary relation on A <--> 3x, y [ x, y in A & t = <x, y> ] ] ] 
+		@A [ @D [ D is a binary relation on A <--> 
+								@t [ t in D <--> 3x, y [ x, y in A & t = <x, y> ] ] ] ] 
 		note: D is a subset of A x A
 	
 	Definition of an n-ary relation on A:
-		@A [ @D [ D is an n-ary relation on A <--> 3x1, x2, ..., xn [ x1, x2, ..., xn in A & t = <x1, x2, ..., xn> ] ] ] 
+		@A [ @D [ D is an n-ary relation on A <--> 
+								@t [ t in D <--> 3x1, x2, ..., xn [ x1, x2, ..., xn in A & t = <x1, x2, ..., xn> ] ] ] ]
 		note: D is a subset of (((A x A) x A) x ... ) x A (n times)
 
 	Pg 43 Existence part:	
