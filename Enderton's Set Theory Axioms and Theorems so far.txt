@@ -354,18 +354,26 @@ Axioms and Theorems:
 	Pg 55 Exercise 31:
 		@R [ R is a relation --> 3H [ H is a function & H ⊆ R & dom H = dom R ] ] <--> @I, H [ H is a function & dom H = I --> [ @i [ i in I --> H(i) != {} ] --> X_{i in I}(H(i)) != {} ] ]
 	
-	Definition:
+	Definition [FROM PROOF WIKI]:
+	NOTE: (I PREFER THE ONE BELOW USING THE TEXTBOOK)
 		@R, A [ R is a binary relation on A --> 
 						[ R is reflexive on A <--> @x [ x in A --> <x, x> in R ] ]
 		]
 	
 		@R, A [ R is a binary relation on A --> 
-					R is symmetric <--> @x, y [ <x, y> in R --> <y, x> in R ]
+						[ R is symmetric <--> @x, y [ <x, y> in R --> <y, x> in R ] ]
 		]
 
 		@R, A [ R is a binary relation on A --> 
-					R is transitive <--> @x, y, z [ <x, y> in R & <y, z> in R --> <x, z> in R ]
+						[ R is transitive <--> @x, y, z [ <x, y> in R & <y, z> in R --> <x, z> in R ] ]
 		]
+
+	Definition [FROM TEXTBOOK (my guess based on their proof of Theorem 3M)]:
+		@R, A [ R is reflexive on A <--> @x [ x in A --> <x, x> in R ] ]
+	
+		@R [ R is symmetric <--> @x, y [ <x, y> in R --> <y, x> in R ] ]
+
+		@R [ R is transitive <--> @x, y, z [ <x, y> in R & <y, z> in R --> <x, z> in R ] ]
 
 	Defintion:
 		@R, A [ R is an equivalence relation on A <--> R is a binary relation on A & R is reflexive on A & R is symmetric & R is transitive ]	

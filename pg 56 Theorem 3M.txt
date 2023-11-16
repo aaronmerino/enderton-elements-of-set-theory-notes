@@ -1,4 +1,25 @@
 Axioms and Theorems:
+	Union Axiom (Preliminary Form):
+	@a, b [ 3B [ @x [ x in B <--> x in a or x in b ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any sets a, b, the union a ∪ b is the set whose members are those sets belonging either to a or to b (or both).
+		[You can think of a ∪ b as a 2-ary operator. It refer to one set and one set only based on the sets a and b!]
+
+	dom R: 
+		@R [ 3D [ @x [ x in D <--> 3y [ <x, y> in R ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets R,  dom R  is the set whose members are those 1st-coordinate set of some ordered pair in R
+
+	ran R: 
+		@R [ 3D [ @x [ x in D <--> 3t [ <t, x> in R ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets R,  ran R  is the set whose members are those 2nd-coordinate set of some ordered pair in R
+
+	fld R: 
+		@R [ fld R := dom R ∪ ran R ]
+		Definition:
+		For any set sets R,  fld R := dom R ∪ ran R
+
 	Definition of a binary (2-ary) relation on A:
 		@A [ @D [ D is a binary relation on A <--> 
 								@t [ t in D --> 3x, y [ x, y in A & t = <x, y> ] ] ] ] 
@@ -7,21 +28,133 @@ Axioms and Theorems:
 		@A [ @D [ D is a binary relation on A <--> 
 								D ⊆ (A x A) ] ] 		
 
-	Definition:
+	Definition [FROM PROOF WIKI]:
+	NOTE: (I PREFER THE ONE BELOW USING THE TEXTBOOK)
 		@R, A [ R is a binary relation on A --> 
 						[ R is reflexive on A <--> @x [ x in A --> <x, x> in R ] ]
 		]
 	
 		@R, A [ R is a binary relation on A --> 
-					R is symmetric <--> @x, y [ <x, y> in R --> <y, x> in R ]
+						[ R is symmetric <--> @x, y [ <x, y> in R --> <y, x> in R ] ]
 		]
 
 		@R, A [ R is a binary relation on A --> 
-					R is transitive <--> @x, y, z [ <x, y> in R & <y, z> in R --> <x, z> in R ]
+						[ R is transitive <--> @x, y, z [ <x, y> in R & <y, z> in R --> <x, z> in R ] ]
 		]
+
+	Definition [FROM TEXTBOOK (my guess based on their proof of Theorem 3M)]:
+		@R, A [ R is reflexive on A <--> @x [ x in A --> <x, x> in R ] ]
+	
+		@R [ R is symmetric <--> @x, y [ <x, y> in R --> <y, x> in R ] ]
+
+		@R [ R is transitive <--> @x, y, z [ <x, y> in R & <y, z> in R --> <x, z> in R ] ]
+			
 
 	Defintion:
 		@R, A [ R is an equivalence relation on A <--> R is a binary relation on A & R is reflexive on A & R is symmetric & R is transitive ]
 
 
+[ASSUMING DEFINITIONS FROM PROOF-WIKI]
 1. Show @R [ R is a binary relation on fld R --> [ R is symmetric & R is transitive --> R is an equivalence relation on fld R ] ]
+	2. let R be a set
+
+	========
+	D1. @x [ x in dom R <--> 3y [ <x, y> in R ] ]			[dom UI/R EI & Ext. Axiom]
+	D2. @y [ y in ran R <--> 3x [ <x, y> in R ] ]			[ran UI/R EI & Ext. Axiom]
+	D3. @t [ t in dom R ∪ ran R <--> t in dom R or t in ran R ]			[Union Axiom UI/dom R UI/ran R EI & Ext. Axiom]
+	D4. fld R := dom R ∪ ran R			[Definition of fld R]
+	========
+
+	3. Show R is a binary relation on fld R --> [ R is symmetric & R is transitive --> R is an equivalence relation on fld R ]
+		4. R is a binary relation on fld R			[ACD]
+
+		5. @R, A [ R is a binary relation on A --> [ R is symmetric <--> @x, y [ <x, y> in R --> <y, x> in R ] ] ]				[Def. of Symmetry]
+		6. R is a binary relation on fld R --> [ R is symmetric <--> @x, y [ <x, y> in R --> <y, x> in R ] ]			[5 UI/R UI/fld R]
+
+		7. @R, A [ R is a binary relation on A --> [ R is transitive <--> @x, y, z [ <x, y> in R & <y, z> in R --> <x, z> in R ] ] ]			[Def. of Transitivity]
+		8. R is a binary relation on fld R --> [ R is transitive <--> @x, y, z [ <x, y> in R & <y, z> in R --> <x, z> in R ] ]				[7 UI/R UI/fld R]
+
+		9. @R, A [ R is a binary relation on A --> [ R is reflexive on A <--> @t [ t in A --> <t, t> in R ] ] ]				[Def. of Reflexivity]
+		10. R is a binary relation on fld R --> [ R is reflexive on fld R <--> @t [ t in fld R --> <t, t> in R ] ]			[9 UI/R UI/fld R]
+
+		========
+		D5. R is symmetric <--> @x, y [ <x, y> in R --> <y, x> in R ]			[6 4 MP]
+		D6. R is transitive <--> @x, y, z [ <x, y> in R & <y, z> in R --> <x, z> in R ]				[8 4 MP]
+		D7. R is reflexive on fld R <--> @t [ t in fld R --> <t, t> in R ]				[10 4 MP]
+		========
+
+		11. Show R is symmetric & R is transitive --> R is an equivalence relation on fld R
+			12. R is symmetric & R is transitive			[ACD]
+			13. @R, A [ R is an equivalence relation on A <--> R is a binary relation on A & R is reflexive on A & R is symmetric & R is transitive ]		[Def. of Equivalence relation]
+			14. R is an equivalence relation on fld R <--> R is a binary relation on fld R & R is reflexive on fld R & R is symmetric & R is transitive			[13 UI/R UI/fld R]
+
+			15. R is reflexive on fld R <--> @t [ t in fld R --> <t, t> in R ]			[D7]
+			16. Show @t [ t in fld R --> <t, t> in R ]
+				17. let t be a set
+				18. Show t in fld R --> <t, t> in R
+					19. t in fld R			[ACD]
+					20. fld R := dom R ∪ ran R			[D4]
+					21. t in dom R ∪ ran R				[19 29 LL]
+					22. @t [ t in dom R ∪ ran R <--> t in dom R or t in ran R ]			[D3]
+					23. t in dom R ∪ ran R <--> t in dom R or t in ran R			[22 UI/t]
+					24. t in dom R or t in ran R			[23 BC 21 MP]
+
+					25. Show t in dom R --> <t, t> in R				[CASE 1 using line 24]
+						26. t in dom R			[ACD]
+						27. @x [ x in dom R <--> 3y [ <x, y> in R ] ]			[D1]
+						28. t in dom R <--> 3y [ <t, y> in R ]			[27 UI/t]
+						29. 3y [ <t, y> in R ]			[28 BC 26 MP]
+						30. <t, y_1> in R				[29 EI/y_1]
+
+						31. R is symmetric <--> @x, y [ <x, y> in R --> <y, x> in R ]			[D5]
+						32. R is symmetric			[12 SL]
+						33. @x, y [ <x, y> in R --> <y, x> in R ]			[31 BC 32 MP]
+						34. <t, y_1> in R --> <y_1, t> in R				[33 UI/t UI/y_1]
+						35. <y_1, t> in R				[30 34 MP]
+
+						36. R is transitive <--> @x, y, z [ <x, y> in R & <y, z> in R --> <x, z> in R ]			[D6]
+						37. R is transitive			[12 SR]
+						38. @x, y, z [ <x, y> in R & <y, z> in R --> <x, z> in R ]			[36 BC 37 MP]
+						39. <t, y_1> in R & <y_1, t> in R --> <t, t> in R			[38 UI/t UI/y_1 UI/t]
+						40. <t, y_1> in R & <y_1, t> in R			[30 35 ADJ]
+						41. <t, t> in R			[39 40 MP]
+						42.		[41 CD]
+
+					43. Show t in ran R --> <t, t> in R				[CASE 2 using line 24]
+						44. t in ran R			[ACD]
+						45. @y [ y in ran R <--> 3x [ <x, y> in R ] ]			[D2]
+						46. t in ran R <--> 3x [ <x, t> in R ]			[45 UI/t]
+						47. 3x [ <x, t> in R ]			[46 BC 44 MP]
+						48. <x_1, t> in R			[47 EI/x_1]
+
+						49. R is symmetric <--> @x, y [ <x, y> in R --> <y, x> in R ]			[D5]
+						50. R is symmetric			[12 SL]
+						51. @x, y [ <x, y> in R --> <y, x> in R ]			[49 BC 50 MP]
+						52. <x_1, t> in R --> <t, x_1> in R				[51 UI/x_1 UI/t]
+						53. <t, x_1> in R			[52 48 MP]
+
+						54. R is transitive <--> @x, y, z [ <x, y> in R & <y, z> in R --> <x, z> in R ]			[D6]
+						55. R is transitive			[12 SR]
+						56. @x, y, z [ <x, y> in R & <y, z> in R --> <x, z> in R ]			[54 BC 55 MP]
+						57. <t, x_1> in R & <x_1, t> in R --> <t, t> in R			[56 UI/t UI/x_1 UI/t]
+						58. <t, x_1> in R & <x_1, t> in R			[53 48 ADJ]
+						59. <t, t> in R				[57 58 MP]
+						60.		[59 CD]
+					
+					61. t in dom R or t in ran R --> <t, t> in R			[25 43 CASE_PROOF]
+					62. <t, t> in R			[24 61 MP]
+					63.		[62 CD]
+				64. 		[18 UD]
+			
+			65. R is reflexive on fld R			[15 BC 16 MP]
+			66. R is a binary relation on fld R & R is reflexive on fld R & R is symmetric & R is transitive			[4 65 12 ADJ]
+			67. R is an equivalence relation on fld R			[14 BC 66 MP]
+			68.		[67 CD]
+		
+		69. 		[11 CD]
+	
+	70. 		[3 UD]
+
+
+[ASSUMING DEFINITIONS FROM TEXTBOOK]
+1. Show @R [ R is a relation --> [ R is symmetric & R is transitive --> R is an equivalence relation on fld R ] ]
