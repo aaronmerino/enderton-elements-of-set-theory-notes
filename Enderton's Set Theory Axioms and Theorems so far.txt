@@ -376,7 +376,10 @@ Axioms and Theorems:
 		@R [ R is transitive <--> @x, y, z [ <x, y> in R & <y, z> in R --> <x, z> in R ] ]
 
 	Defintion:
-		@R, A [ R is an equivalence relation on A <--> R is a binary relation on A & R is reflexive on A & R is symmetric & R is transitive ]	
+		@R, A [ R is an equivalence relation on A <--> R is a binary relation on A & R is reflexive on A & R is symmetric & R is transitive ]
+
+	Theorem 3M:
+		Show @R [ R is a relation --> [ R is symmetric & R is transitive --> R is an equivalence relation on fld R ] ]	
 
 Algebra of Sets:
 	Pg 24 Union of empty set:
