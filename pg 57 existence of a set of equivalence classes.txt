@@ -1,0 +1,97 @@
+Axiom and Theorems:
+	Power Set Axiom:
+	@a [ 3B [ @x [ x in B <--> @t [ t in x --> t in a ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set a, the power set  P(a) is the set whose members are exactly the subsets of a.
+		[You can think of P(a) as a 1-ary operator. It refer to one set and one set only based on the sets a!]
+
+	Subset Axioms:
+	For each formula __ not containing B, the following is an axiom:
+	@t1 ... @tk @c [ 3B [ @x [ x in B <--> x in c & __ ] ] ]
+		Definition:
+		For any set t­1, ..., tk and c, the subset B = {x in c | __ } is the set whose members are exactly those sets in c and __	
+
+	ran R: 
+		@R [ 3D [ @x [ x in D <--> 3t [ <t, x> in R ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets R,  ran R  is the set whose members are those 2nd-coordinate set of some ordered pair in R
+
+	Equivalence Relation on A:
+		@R, A [ R is an equivalence relation on A <--> R is a binary relation on A & R is reflexive on A & R is symmetric & R is transitive ]
+
+	Theorem 3M:
+		Show @R [ R is a relation --> [ R is symmetric & R is transitive --> R is an equivalence relation on fld R ] ]	
+
+	Equivalence Class of x (modulo R):
+		@R, x [ 3D [ @t [ t in D <--> <x, t> in R ] ] ]
+		Definition:
+			For any set R, x, [x]_{R} is the set of sets t such that <x, t> in R
+	
+	[MARIN]
+	Subset Axiom (applied):
+	@R, A [ @c [ 3D [ @t [ t in D <--> t in c & 3x [ x in A & t = [x]_{R} ] ] ] ] ]     [Subset Axiom UI_META/'@R, A' UI_META/'3x [ x in A & t = [x]_{R} ]']	
+
+1. Show @R, A [ 3D [ @t [ t in D <--> 3x [ x in A & t = [x]_{R} ] ] ] ]
+	2. let R, A be sets
+
+	========
+  D1. @y [ y in ran R <--> 3x [ <x, y> in R ] ]   	[ran UI/R EI & Ext. Axiom]
+	D2. @x [ x in P(ran R) <--> @w [ w in x --> w in ran R ] ]			[Power Set Axiom UI/ran R EI & Ext. Axiom]
+	========
+
+	3. Show 3D [ @t [ t in D <--> 3x [ x in A & t = [x]_{R} ] ] ]
+		4. @R, A [ @c [ 3D [ @t [ t in D <--> t in c & 3x [ x in A & t = [x]_{R} ] ] ] ] ]			[MARIN]
+		5. @c [ 3D [ @t [ t in D <--> t in c & 3x [ x in A & t = [x]_{R} ] ] ] ]			[4 UI/R UI/A]
+		6. 3D [ @t [ t in D <--> t in P(ran R) & 3x [ x in A & t = [x]_{R} ] ] ]			[5 UI/P(ran R)]
+		7. @t [ t in D_1 <--> t in P(ran R) & 3x [ x in A & t = [x]_{R} ] ]			[6 EI/D_1]
+
+		8. Show @t [ t in D_1 <--> 3x [ x in A & t = [x]_{R} ] ]
+			9. let t be a set
+			10. Show t in D_1 --> 3x [ x in A & t = [x]_{R} ]
+				11. t in D_1			[ACD]
+				12. t in D_1 <--> t in P(ran R) & 3x [ x in A & t = [x]_{R} ]			[7 UI/t]
+				13. t in P(ran R) & 3x [ x in A & t = [x]_{R} ]		[12 BC 11 MP]
+				14. 3x [ x in A & t = [x]_{R} ]		[13 SR]
+				15.		[14 CD]
+			
+			16. Show 3x [ x in A & t = [x]_{R} ] --> t in D_1
+				17. 3x [ x in A & t = [x]_{R} ]
+				18. x_1 in A & t = [x_1]_{R}			[17 EI/x_1]
+
+				========
+				D3. @t [ t in [x_1]_{R} <--> <x_1, t> in R ]		[Equivalence Class UI/R UI/x_1 EI & Ext. Axiom]		
+				========
+
+				19. t in D_1 <--> t in P(ran R) & 3x [ x in A & t = [x]_{R} ]			[7 UI/t]
+
+				20. @x [ x in P(ran R) <--> @w [ w in x --> w in ran R ] ]			[D2]
+				21. t in P(ran R) <--> @w [ w in t --> w in ran R ]			[20 UI/t]
+				22. Show @w [ w in t --> w in ran R ]
+					23. let w be a set
+					24. Show w in t --> w in ran R
+						25. w in t			[ACD]
+						26. t = [x_1]_{R}			[18 SR]
+						27. w in [x_1]_{R}				[25 26 LL]
+						28. @t [ t in [x_1]_{R} <--> <x_1, t> in R ]			[D3]
+						29. w in [x_1]_{R} <--> <x_1, w> in R			[28 UI/w]
+						30. <x_1, w> in R			[29 BC 27 MP]
+						31. @y [ y in ran R <--> 3x [ <x, y> in R ] ]			[D1]
+						32. w in ran R <--> 3x [ <x, w> in R ]			[31 UI/w]
+						33. 3x [ <x, w> in R ]			[30 EG/x_1->x]
+						34. w in ran R			[32 BC 33 MP]
+						35.		[34 CD]
+					36. 		[24 UD]
+				
+				37. t in P(ran R)			[21 BC 22 MP]
+				38. t in P(ran R) & 3x [ x in A & t = [x]_{R} ]			[37 17 ADJ]
+				39. t in D_1			[19 BC 38 MP]
+				40.		[39 CD]
+			
+			41. t in D_1 <--> 3x [ x in A & t = [x]_{R} ]			[10 16 CB]
+			42. 		[41 UD]
+		43. 3D [ @t [ t in D <--> 3x [ x in A & t = [x]_{R} ] ] ]			[8 EG/D_1->D]
+		44. 		[43 DD]
+	
+	45. 		[3 UD]
+
+
