@@ -1,4 +1,7 @@
 Axioms and Theorems:
+	Extensionality Axiom:
+	@A, B [ @x [ x in A <--> x in B ] --> A = B ]
+
 	Definition of a binary (2-ary) relation on A:
 		@A [ @D [ D is a binary relation on A <--> 
 								@t [ t in D --> 3x, y [ x, y in A & t = <x, y> ] ] ] ] 
@@ -15,9 +18,92 @@ Axioms and Theorems:
 		@R [ R is transitive <--> @x, y, z [ <x, y> in R & <y, z> in R --> <x, z> in R ] ]
 			
 
-	Defintion:
+	Equivalence Relation on A:
 		@R, A [ R is an equivalence relation on A <--> R is a binary relation on A & R is reflexive on A & R is symmetric & R is transitive ]
 
-1. Show @R, A [ R is an equivalence relation on A --> @x, y [ [x]_{R} = [y]_{R} <--> <x, y> in R ] ]
+1. Show @R, A [ R is an equivalence relation on A --> @x, y [ x, y in A --> [ [x]_{R} = [y]_{R} <--> <x, y> in R ] ] ]
 	2. let R, A be sets
-	3. 
+	3. Show R is an equivalence relation on A --> @x, y [ [x]_{R} = [y]_{R} <--> <x, y> in R ]
+		4. R is an equivalence relation on A			[ACD]
+		5. @R, A [ R is an equivalence relation on A <--> R is a binary relation on A & R is reflexive on A & R is symmetric & R is transitive ]		[Def. of Equivalence relation on A]
+		6. R is an equivalence relation on A <--> R is a binary relation on A & R is reflexive on A & R is symmetric & R is transitive			[5 UI/R UI/A]
+		
+		7. R is a binary relation on A & R is reflexive on A & R is symmetric & R is transitive			[6 BC 4 MP]
+
+		8. Show @x, y [ x, y in A --> [ [x]_{R} = [y]_{R} <--> <x, y> in R ] ]
+			9. let x, y be sets
+			10. Show x, y in A --> [ [x]_{R} = [y]_{R} <--> <x, y> in R ]
+				11. x, y in A		[ACD]
+
+				========
+				D1. @t [ t in [x]_{R} <--> <x, t> in R ]		[Equivalence Class UI/R UI/x EI & Ext. Axiom]	
+				D2. @t [ t in [y]_{R} <--> <y, t> in R ]		[Equivalence Class UI/R UI/y EI & Ext. Axiom]	
+				========
+
+				12. Show [x]_{R} = [y]_{R} <--> <x, y> in R
+					13. Show [x]_{R} = [y]_{R} --> <x, y> in R
+						14. [x]_{R} = [y]_{R}		[ACD]
+
+						15. R is reflexive on A			[7 SL SL SR]
+						16. @R, A [ R is reflexive on A <--> @x [ x in A --> <x, x> in R ] ]			[Def. of Reflexive]
+						17. R is reflexive on A <--> @x [ x in A --> <x, x> in R ]			[16 UI/R UI/A]
+						18. @x [ x in A --> <x, x> in R ]			[17 BC 15 MP]
+						19. x in A --> <x, x> in R			[18 UI/x]
+						20. x in A			[11 SL]
+						21. <x, x> in R			[19 20 MP]
+
+						22. @t [ t in [x]_{R} <--> <x, t> in R ]		[D1]
+						23. x in [x]_{R} <--> <x, x> in R			[22 UI/x]
+						24. x in [x]_{R}			[23 BC 21 MP]
+						25. x in [y]_{R}			[24 14 LL]
+
+						26. @t [ t in [y]_{R} <--> <y, t> in R ]			[D2]
+						27. x in [y]_{R} <--> <y, x> in R				[26 UI/x]
+						28. <y, x> in R			[27 BC 25 MP]
+
+						29. R is symmetric			[7 SL SR]
+						30. @R [ R is symmetric <--> @x, y [ <x, y> in R --> <y, x> in R ] ]			[Def. of Symmetry]
+						31. R is symmetric <--> @x, y [ <x, y> in R --> <y, x> in R ]			[30 UI/R]
+						32. @x, y [ <x, y> in R --> <y, x> in R ]			[31 BC 29 MP]
+
+						33. @u, v [ <u, v> in R --> <v, u> in R ]			[32 EQUIV.]
+						34. <y, x> in R --> <x, y> in R			[33 UI/x, y]
+						35. <x, y> in R			[34 28 MP]
+						36. 		[35 CD]
+
+					37. Show <x, y> in R --> [x]_{R} = [y]_{R}
+						38. <x, y> in R			[ACD]
+						39. @A, B [ @q [ q in A <--> q in B ] --> A = B ]			[Ext. Axiom]
+						40. @q [ q in [x]_{R} <--> q in [y]_{R} ] --> [x]_{R} = [y]_{R}			[39 UI/[x]_{R} UI/[y]_{R}]
+						41. Show @q [ q in [x]_{R} <--> q in [y]_{R} ]
+							42. let q be a set
+							43. Show q in [x]_{R} --> q in [y]_{R}
+								44. q in [x]_{R}		[ACD]
+								45. @t [ t in [x]_{R} <--> <x, t> in R ]		[D1]
+								46. q in [x]_{R} <--> <x, q> in R			[45 UI/q]
+								47. <x, q> in R			[46 BC 44 MP]
+
+								48. R is symmetric			[7 SL SR]
+								49. @R [ R is symmetric <--> @x, y [ <x, y> in R --> <y, x> in R ] ]			[Def. of symmetry]
+								50. R is symmetric <--> @x, y [ <x, y> in R --> <y, x> in R ]			[49 UI/R]
+								51. @x, y [ <x, y> in R --> <y, x> in R ]			[50 BC 48 MP]
+								52. <x, y> in R --> <y, x> in R			[51 UI/x UI/y]
+								53. <y, x> in R			[38 52 MP]
+
+								54. R is transitive			[7 SR]
+								55. @R [ R is transitive <--> @x, y, z [ <x, y> in R & <y, z> in R --> <x, z> in R ] ]			[Def. of Transitivity]
+								56. R is transitive <--> @x, y, z [ <x, y> in R & <y, z> in R --> <x, z> in R ]			[55 UI/R]
+								57. @x, y, z [ <x, y> in R & <y, z> in R --> <x, z> in R ]			[56 BC 54 MP]
+								58. @u, v, w [ <u, v> in R & <v, w> in R --> <u, w> in R ]			[57 EQUIV.]
+								59. <y, x> in R & <x, q> in R --> <y, q> in R			[58 UI/y, x, q]
+								60. <y, x> in R & <x, q> in R			[53 47 ADJ]
+								61. <y, q> in R			[59 60 MP]
+
+								62. @t [ t in [y]_{R} <--> <y, t> in R ]				[D2]
+								63. q in [y]_{R} <--> <y, q> in R				[62 UI/q]
+								64. q in [y]_{R}			[63 BC 61 MP]
+								65. 		[64 CD]
+							
+							66. Show q in [y]_{R} --> q in [x]_{R}
+								67. q in [y]_{R}		[ACD]
+								68. 
