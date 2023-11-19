@@ -1,0 +1,56 @@
+Axiom and Theorems:
+	Subset Axioms:
+	For each formula __ not containing B, the following is an axiom:
+	@t1 ... @tk @c [ 3B [ @x [ x in B <--> x in c & __ ] ] ]
+		Definition:
+		For any set t­1, ..., tk and c, the subset B = {x in c | __ } is the set whose members are exactly those sets in c and __	
+
+  [MARIN]
+  Subset Axiom (applied):
+  @R, x [ @c [ 3D [ @t [ t in D <--> t in c & <x, t> in R ] ] ] ]     [Subset Axiom UI_META/'@R, x' UI_META/'<x, t> in R']
+
+	ran R: 
+		@R [ 3D [ @x [ x in D <--> 3t [ <t, x> in R ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets R,  ran R  is the set whose members are those 2nd-coordinate set of some ordered pair in R
+
+1. Show @R, x [ 3D [ @t [ t in D <--> <x, t> in R ] ] ]
+  2. let R, x be a set
+
+  ========
+  D1. @y [ y in ran R <--> 3x [ <x, y> in R ] ]   [ran UI/R EI & Ext. Axiom]
+  ========
+
+  3. Show 3D [ @t [ t in D <--> <x, t> in R ] ]
+    4. @R, x [ @c [ 3D [ @t [ t in D <--> t in c & <x, t> in R ] ] ] ]    [MARIN]
+    5. @c [ 3D [ @t [ t in D <--> t in c & <x, t> in R ] ] ]      [4 UI/R UI/x]
+    6. 3D [ @t [ t in D <--> t in ran R & <x, t> in R ] ]     [5 UI/ran R]
+    7. @t [ t in D_1 <--> t in ran R & <x, t> in R ]      [6 EI/D_1]
+
+    8. Show @t [ t in D_1 <--> <x, t> in R ]
+      9. let t be a set
+      10. Show t in D_1 --> <x, t> in R
+        11. t in D_1      [ACD]
+        12. t in D_1 <--> t in ran R & <x, t> in R      [7 UI/t]
+        13. t in ran R & <x, t> in R      [12 BC 11 MP]
+        14. <x, t> in R     [13 SR]
+        15.     [14 CD]
+        
+      16. Show <x, t> in R --> t in D_1
+        17. <x, t> in R     [ACD]
+        18. t in D_1 <--> t in ran R & <x, t> in R      [7 UI/t]
+        19. @y [ y in ran R <--> 3x [ <x, y> in R ] ]     [D1]
+        20. t in ran R <--> 3x [ <x, t> in R ]      [19 UI/t]
+        21. 3x [ <x, t> in R ]      [17 EG/x->x]
+        22. t in ran R      [20 BC 21 MP]
+        23. t in ran R & <x, t> in R      [22 17 ADJ]
+        24. t in D_1      [18 BC 23 MP]
+        25.     [24 CD]
+
+      26. t in D_1 <--> <x, t> in R     [10 16 CB]
+      27.     [26 UD]
+    
+    28. 3D [ @t [ t in D <--> <x, t> in R ] ]     [8 EG/D_1->D]
+    29.     [28 DD]
+  
+  30.     [3 UD]
