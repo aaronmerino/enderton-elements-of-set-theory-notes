@@ -381,6 +381,9 @@ Axioms and Theorems:
 	Theorem 3M:
 		Show @R [ R is a relation --> [ R is symmetric & R is transitive --> R is an equivalence relation on fld R ] ]	
 
+	Definition:
+		Equivalence Class of x (modulo R):
+		@R, x [ 3D [ @t [ t in D <--> <x, t> in R ] ] ]
 Algebra of Sets:
 	Pg 24 Union of empty set:
 		U({}) = ({})
