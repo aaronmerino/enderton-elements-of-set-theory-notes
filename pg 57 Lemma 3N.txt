@@ -23,7 +23,7 @@ Axioms and Theorems:
 
 1. Show @R, A [ R is an equivalence relation on A --> @x, y [ x, y in A --> [ [x]_{R} = [y]_{R} <--> <x, y> in R ] ] ]
 	2. let R, A be sets
-	3. Show R is an equivalence relation on A --> @x, y [ [x]_{R} = [y]_{R} <--> <x, y> in R ]
+	3. Show R is an equivalence relation on A --> @x, y [ x, y in A --> [ [x]_{R} = [y]_{R} <--> <x, y> in R ] ]
 		4. R is an equivalence relation on A			[ACD]
 		5. @R, A [ R is an equivalence relation on A <--> R is a binary relation on A & R is reflexive on A & R is symmetric & R is transitive ]		[Def. of Equivalence relation on A]
 		6. R is an equivalence relation on A <--> R is a binary relation on A & R is reflexive on A & R is symmetric & R is transitive			[5 UI/R UI/A]
@@ -106,4 +106,32 @@ Axioms and Theorems:
 							
 							66. Show q in [y]_{R} --> q in [x]_{R}
 								67. q in [y]_{R}		[ACD]
-								68. 
+								68. @t [ t in [y]_{R} <--> <y, t> in R ]			[D2]
+								69. q in [y]_{R} <--> <y, q> in R				[68 UI/q]
+								70. <y, q> in R			[69 BC 67 MP]
+
+								71. R is transitive			[7 SR]
+								72. @R [ R is transitive <--> @x, y, z [ <x, y> in R & <y, z> in R --> <x, z> in R ] ]			[Def. of Transitivity]
+								73. R is transitive <--> @x, y, z [ <x, y> in R & <y, z> in R --> <x, z> in R ]			[72 UI/R]
+								74. @x, y, z [ <x, y> in R & <y, z> in R --> <x, z> in R ]			[73 BC 71 MP]
+								75. @u, v, w [ <u, v> in R & <v, w> in R --> <u, w> in R ]			[74 EQUIV.]
+								76. <x, y> in R & <y, q> in R --> <x, q> in R			[75 UI/x, y, q]
+								77. <x, y> in R & <y, q> in R			[38 70 ADJ]
+								78. <x, q> in R			[76 77 MP]
+
+								79. @t [ t in [x]_{R} <--> <x, t> in R ]			[D1]
+								80. q in [x]_{R} <--> <x, q> in R			[79 UI/q]
+								81. q in [x]_{R}			[80 BC 78 MP]
+								82. 		[81 CD]
+							
+							83. q in [x]_{R} <--> q in [y]_{R}		[43 66 CB]
+							84. 		[83 UD]
+						85. [x]_{R} = [y]_{R}			[40 41 MP]
+						86. 		[85 CD]
+					
+					87. [x]_{R} = [y]_{R} <--> <x, y> in R			[13 37 CB]
+					88. 		[87 DD]
+				89. 		[12 CD]
+			90. 		[10 UD]
+		91. 		[8 CD]
+	92.		[3 UD]
