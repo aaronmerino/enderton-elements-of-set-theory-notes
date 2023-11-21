@@ -164,15 +164,26 @@ Axioms and Theorems:
 					70.			[69 CD]
 				71. 			[18 UD]
 			
+
 			// idea: use lemma 3N
 			72. Show @a, b [ a, b in {[x]_{R} | x in A} & a != b --> ~3u [ u in a & u in b ] ]
 				73. let a, b be sets
 				74. Show a, b in {[x]_{R} | x in A} & a != b --> ~3u [ u in a & u in b ]
 					75. a, b in {[x]_{R} | x in A} & a != b			[ACD]
 					76. a, b in {[x]_{R} | x in A}			[75 SL]
+					77. a in {[x]_{R} | x in A}			[76 SL]
+					78. b in {[x]_{R} | x in A}			[76 SR]
 
-					77. 
+					79. @t [ t in {[x]_{R} | x in A} <--> 3x [ x in A & t = [x]_{R} ] ]			[D1]
+					80. a in {[x]_{R} | x in A} <--> 3x [ x in A & a = [x]_{R} ]			[79 UI/a]
+					81. 3x [ x in A & a = [x]_{R} ]			[81 BC 77 MP]
+					82. x_1 in A & a = [x_1]_{R}			[82 EI/x_1]
+					83. 
 
 					Show ~3u [ u in a & u in b ]
 						3u [ u in a & u in b ]			[AID]
+			
+
+			// idea: use refelxivity of R on A which means <w, w> in R. then show that [w]_{R} is in {[x]_{R} | x in A}. it is clear w in [w]_{R}
+			Show @w [ w in A --> 3t [ t in {[x]_{R} | x in A} & w in t ] ]
 						
