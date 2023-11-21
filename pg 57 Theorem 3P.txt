@@ -1,0 +1,178 @@
+Axioms and Theorems:
+	Empty Set Axiom:
+	3B [ @x [ ~(x in B) ] ]
+	Definition (its uniqueness is always due to Ext. Axiom):
+	{ } is the set having no members
+		[You can think of {} as a 0-ary operator. It refer to one set and one set only!]
+
+	Theorem 3A:
+		@u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]
+
+	Definition of a binary (2-ary) relation on A:
+		@A [ @D [ D is a binary relation on A <--> 
+								@t [ t in D --> 3x, y [ x, y in A & t = <x, y> ] ] ] ] 
+
+		note: D is a subset of A x A, so we can define it like this:
+		@A [ @D [ D is a binary relation on A <--> 
+								D ⊆ (A x A) ] ] 		
+
+	Definition [FROM TEXTBOOK (my guess based on their proof of Theorem 3M)]:
+		@R, A [ R is reflexive on A <--> @x [ x in A --> <x, x> in R ] ]
+	
+		@R [ R is symmetric <--> @x, y [ <x, y> in R --> <y, x> in R ] ]
+
+		@R [ R is transitive <--> @x, y, z [ <x, y> in R & <y, z> in R --> <x, z> in R ] ]
+
+	Equivalence Relation on A:
+		@R, A [ R is an equivalence relation on A <--> R is a binary relation on A & R is reflexive on A & R is symmetric & R is transitive ]
+
+	Theorem 3M:
+		Show @R [ R is a relation --> [ R is symmetric & R is transitive --> R is an equivalence relation on fld R ] ]	
+
+	Equivalence Class of x (modulo R):
+		@R, x [ 3D [ @t [ t in D <--> <x, t> in R ] ] ]
+		Definition:
+			For any set R, x, [x]_{R} is the set of sets t such that <x, t> in R.
+			For any set R, x, and if R is an equivalence relation on the fld R, then [x]_{R} is called the equivalence class of x (modulo R).
+
+	[APPLE] Sets of equivalence classes:
+		@R, A [ 3D [ @t [ t in D <--> 3x [ x in A & t = [x]_{R} ] ] ] ]
+		Definition:
+			For any set R, A, and if R is an equivalence relation on A, then {[x]_{R} | x in A} is the set of equivalence classes under R.
+
+	Lemma 3N:
+		@R, A [ R is an equivalence relation on A --> @x, y [ x, y in A --> [ [x]_{R} = [y]_{R} <--> <x, y> in R ] ] ]
+
+	Partition Definition:
+		@A, B [ B is a partition of A <--> 
+			@x [ x in B --> x != {} & x ⊆ A ] &
+			@x, y [ x, y in B & x != y --> ~3u [ u in x & u in y ] ] &
+			@w [ w in A --> 3x [ x in B & w in x ] ] ]
+
+
+1. Show @R, A [ R is an equivalence relation on A --> {[x]_{R} | x in A} is a partition of A ]
+	2. let R, A be sets
+	
+	========
+	D1. @t [ t in {[x]_{R} | x in A} <--> 3x [ x in A & t = [x]_{R} ] ]				[APPLE UI/R UI/A]
+	D2. @x [ ~(x in {}) ]			[Empty Set Axiom EI & Ext. Axiom]
+	========
+
+	3. Show R is an equivalence relation on A --> {[x]_{R} | x in A} is a partition of A
+		4. R is an equivalence relation on A			[ACD]
+
+		5. @R, A [ R is an equivalence relation on A <--> R is a binary relation on A & R is reflexive on A & R is symmetric & R is transitive ]			[Def. of Equiv. Relation]
+		6. R is an equivalence relation on A <--> R is a binary relation on A & R is reflexive on A & R is symmetric & R is transitive			[5 UI/R UI/A]
+		7. R is a binary relation on A & 
+				R is reflexive on A & 
+				R is symmetric & 
+				R is transitive				[6 BC 4 MP]
+
+		8. @R, A [ R is an equivalence relation on A --> @x, y [ x, y in A --> [ [x]_{R} = [y]_{R} <--> <x, y> in R ] ] ]			[Lemma 3N]
+		9. R is an equivalence relation on A --> @x, y [ x, y in A --> [ [x]_{R} = [y]_{R} <--> <x, y> in R ] ]			[8 UI/R UI/A]
+		10. @x, y [ x, y in A --> [ [x]_{R} = [y]_{R} <--> <x, y> in R ] ]			[4 9 MP]
+
+		11. Show {[x]_{R} | x in A} is a partition of A
+			12. @A, B [ B is a partition of A <--> 
+						@x [ x in B --> x != {} & x ⊆ A ] &
+						@x, y [ x, y in B & x != y --> ~3u [ u in x & u in y ] ] &
+						@w [ w in A --> 3x [ x in B & w in x ] ] ]			[Def. of Partition]
+
+			13. @A, B [ B is a partition of A <--> 
+						@t [ t in B --> t != {} & t ⊆ A ] &
+						@a, b [ a, b in B & a != b --> ~3u [ u in a & u in b ] ] &
+						@w [ w in A --> 3t [ t in B & w in t ] ] ] 			[12 EQUIV.]
+
+			// this is so no capturing happens (just in case)
+			14. @H, J [ J is a partition of H <--> 
+						@t [ t in J --> t != {} & t ⊆ H ] &
+						@a, b [ a, b in J & a != b --> ~3u [ u in a & u in b ] ] &
+						@w [ w in H --> 3t [ t in J & w in t ] ] ]
+			
+			15. {[x]_{R} | x in A} is a partition of A <--> 
+						@t [ t in {[x]_{R} | x in A} --> t != {} & t ⊆ A ] &
+						@a, b [ a, b in {[x]_{R} | x in A} & a != b --> ~3u [ u in a & u in b ] ] &
+						@w [ w in A --> 3t [ t in {[x]_{R} | x in A} & w in t ] ]
+			
+			// idea: R is reflexive on A, so <x, x> in R which means [x]_{R} != {}
+			16. Show @t [ t in {[x]_{R} | x in A} --> t != {} & t ⊆ A ]
+				17. let t be a set
+				18. Show t in {[x]_{R} | x in A} --> t != {} & t ⊆ A
+					19. t in {[x]_{R} | x in A}				[ACD]
+					20. @t [ t in {[x]_{R} | x in A} <--> 3x [ x in A & t = [x]_{R} ] ]			[D1]
+					21. t in {[x]_{R} | x in A} <--> 3x [ x in A & t = [x]_{R} ]			[20 UI/t]
+					22. 3x [ x in A & t = [x]_{R} ]			[21 BC 19 MP]
+					23. x_1 in A & t = [x_1]_{R}			[22 EI/x_1]
+
+					========
+					18.D1. @t [ t in [x_1]_{R} <--> <x_1, t> in R ]			[Equivalence Class UI/R UI/x_1]
+					========
+
+					24. t = [x_1]_{R}			[23 SR]
+					25. Show t != {}
+						26. t = {}			[AID]
+						27. [x_1]_{R} = {}			[26 24 LL]
+
+						28. R is reflexive on A			[7 SL SL SR]
+						29. @R, A [ R is reflexive on A <--> @x [ x in A --> <x, x> in R ] ]			[Def. of Reflexive]
+						30. R is reflexive on A <--> @x [ x in A --> <x, x> in R ]			[29 UI/R UI/A]
+						31. @x [ x in A --> <x, x> in R ]			[30 BC 28 MP]
+						32. x_1 in A --> <x_1, x_1> in R			[31 UI/x_1]
+						33. x_1 in A			[23 SL]
+						34. <x_1, x_1> in R			[32 33 MP]
+
+						35. @t [ t in [x_1]_{R} <--> <x_1, t> in R ]			[18.D1]
+						36. x_1 in [x_1]_{R} <--> <x_1, x_1> in R			[35 UI/x_1]
+						37. x_1 in [x_1]_{R}			[36 BC 34 MP]
+						38. x_1 in {}			[37 27 LL]
+						39. @x [ ~(x in {}) ]			[D2]
+						40. ~(x_1 in {})			[39 UI/x_1]
+						41.			[38 40 LL]
+					
+					42. Show t ⊆ A
+						43. Show @j [ j in t --> j in A ]
+							44. let j be a set
+							45. Show j in t --> j in A
+								46. j in t		[ACD]
+								47. j in [x_1]_{R}			[46 24 LL]
+								48. @t [ t in [x_1]_{R} <--> <x_1, t> in R ]			[18.D1]
+								49. j in [x_1]_{R} <--> <x_1, j> in R			[48 UI/j]
+								50. <x_1, j> in R			[49 BC 47 MP]
+
+								51. R is a binary relation on A			[7 SL SL SL]
+								52. @A [ @D [ D is a binary relation on A <--> @t [ t in D --> 3x, y [ x, y in A & t = <x, y> ] ] ] ]			[Def. of Binary Relation on A]
+								53. R is a binary relation on A <--> @t [ t in R --> 3x, y [ x, y in A & t = <x, y> ] ]			[52 UI/A UI/R]
+								54. @t [ t in R --> 3x, y [ x, y in A & t = <x, y> ] ]			[53 BC 51 MP]
+								55. <x_1, j> in R --> 3x, y [ x, y in A & <x_1, j> = <x, y> ]			[54 UI/<x_1, j>]
+								56. 3x, y [ x, y in A & <x_1, j> = <x, y> ]			[55 50 MP]
+								57. x_2, y_2 in A & <x_1, j> = <x_2, y_2>			[56 EI/x_2 EI/y_2]
+
+								58. <x_1, j> = <x_2, y_2>			[57 SR]
+								59. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]			[Theorem 3A]
+								60. <x_1, j> = <x_2, y_2>  <-->  x_1 = x_2 & j = y_2				[59 UI/x_1, j, x_2, y_2]
+								61. x_1 = x_2 & j = y_2			[60 BC 58 MP]
+
+								62. y_2 in A			[57 SL]
+								63. j = y_2			[61 SR]
+								64. j in A			[62 63 LL]
+								65. 		[64 CD]
+							66. 		[45 UD]
+						67. t ⊆ A			[43 EQUIV.]
+						68. 		[67 DD]
+					
+					69. t != {} & t ⊆ A			[25 42 ADJ]
+					70.			[69 CD]
+				71. 			[18 UD]
+			
+			// idea: use lemma 3N
+			72. Show @a, b [ a, b in {[x]_{R} | x in A} & a != b --> ~3u [ u in a & u in b ] ]
+				73. let a, b be sets
+				74. Show a, b in {[x]_{R} | x in A} & a != b --> ~3u [ u in a & u in b ]
+					75. a, b in {[x]_{R} | x in A} & a != b			[ACD]
+					76. a, b in {[x]_{R} | x in A}			[75 SL]
+
+					77. 
+
+					Show ~3u [ u in a & u in b ]
+						3u [ u in a & u in b ]			[AID]
+						

@@ -25,7 +25,8 @@ Axiom and Theorems:
 	Equivalence Class of x (modulo R):
 		@R, x [ 3D [ @t [ t in D <--> <x, t> in R ] ] ]
 		Definition:
-			For any set R, x, [x]_{R} is the set of sets t such that <x, t> in R
+			For any set R, x, [x]_{R} is the set of sets t such that <x, t> in R.
+			For any set R, x, and if R is an equivalence relation on the fld R, then [x]_{R} is called the equivalence class of x (modulo R).
 	
 	[MARIN]
 	Subset Axiom (applied):

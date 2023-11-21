@@ -384,7 +384,22 @@ Axioms and Theorems:
 	Equivalence Class of x (modulo R):
 		@R, x [ 3D [ @t [ t in D <--> <x, t> in R ] ] ]
 		Definition:
-			For any set R, x, [x]_{R} is the set of sets t such that <x, t> in R
+			For any set R, x, [x]_{R} is the set of sets t such that <x, t> in R.
+			For any set R, x, and if R is an equivalence relation on the fld R, then [x]_{R} is called the equivalence class of x (modulo R).
+
+	Sets of equivalence classes:
+		@R, A [ 3D [ @t [ t in D <--> 3x [ x in A & t = [x]_{R} ] ] ] ]
+		Definition:
+			For any set R, A, and if R is an equivalence relation on A, then {[x]_{R} | x in A} is the set of equivalence classes under R.
+
+	Lemma 3N:
+		@R, A [ R is an equivalence relation on A --> @x, y [ x, y in A --> [ [x]_{R} = [y]_{R} <--> <x, y> in R ] ] ]
+
+	Partition Definition:
+		@A, B [ B is a partition of A <--> 
+			@x [ x in B --> x != {} & x ⊆ A ] &
+			@x, y [ x, y in B & x != y --> ~3u [ u in x & u in y ] ] &
+			@w [ w in A --> 3x [ x in B & w in x ] ] ]
 
 Algebra of Sets:
 	Pg 24 Union of empty set:
