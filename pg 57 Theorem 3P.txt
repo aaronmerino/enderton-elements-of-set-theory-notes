@@ -27,7 +27,7 @@ Axioms and Theorems:
 		@R, A [ R is an equivalence relation on A <--> R is a binary relation on A & R is reflexive on A & R is symmetric & R is transitive ]
 
 	Theorem 3M:
-		Show @R [ R is a relation --> [ R is symmetric & R is transitive --> R is an equivalence relation on fld R ] ]	
+		@R [ R is a relation --> [ R is symmetric & R is transitive --> R is an equivalence relation on fld R ] ]	
 
 	Equivalence Class of x (modulo R):
 		@R, x [ 3D [ @t [ t in D <--> <x, t> in R ] ] ]
