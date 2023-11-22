@@ -68,6 +68,7 @@ Axioms and Theorems:
 				R is symmetric & 
 				R is transitive				[6 BC 4 MP]
 
+		// Lemma 3N
 		8. @R, A [ R is an equivalence relation on A --> @x, y [ x, y in A --> [ [x]_{R} = [y]_{R} <--> <x, y> in R ] ] ]			[Lemma 3N]
 		9. R is an equivalence relation on A --> @x, y [ x, y in A --> [ [x]_{R} = [y]_{R} <--> <x, y> in R ] ]			[8 UI/R UI/A]
 		10. @x, y [ x, y in A --> [ [x]_{R} = [y]_{R} <--> <x, y> in R ] ]			[4 9 MP]
@@ -178,10 +179,75 @@ Axioms and Theorems:
 					80. a in {[x]_{R} | x in A} <--> 3x [ x in A & a = [x]_{R} ]			[79 UI/a]
 					81. 3x [ x in A & a = [x]_{R} ]			[81 BC 77 MP]
 					82. x_1 in A & a = [x_1]_{R}			[82 EI/x_1]
-					83. 
 
-					Show ~3u [ u in a & u in b ]
-						3u [ u in a & u in b ]			[AID]
+					========
+					74.D1. @t [ t in [x_1]_{R} <--> <x_1, t> in R ]				[Equiv. Class UI/R UI/x_1 EI & Ext. Axiom]
+					========
+
+					83. @t [ t in {[x]_{R} | x in A} <--> 3x [ x in A & t = [x]_{R} ] ]				[D1]
+					84. b in {[x]_{R} | x in A} <--> 3x [ x in A & b = [x]_{R} ]			[83 UI/b]
+					85. 3x [ x in A & b = [x]_{R} ]				[84 BC 78 MP]
+					86. x_2 in A & b = [x_2]_{R}				[85 EI/x_2]
+
+					========
+					74.D2. @t [ t in [x_2]_{R} <--> <x_2, t> in R ]				[Equiv. Class UI/R UI/x_2 EI & Ext. Axiom]
+					========
+					 
+					87. Show ~3u [ u in a & u in b ]
+						88. 3u [ u in a & u in b ]			[AID]
+						89. u_3 in a & u_3 in b				[88 EI/u_3]
+
+						90. u_3 in a			[89 SL]
+						91. a = [x_1]_{R}				[82 SR]
+						92. u_3 in [x_1]_{R}			[90 91 LL]
+						93. @t [ t in [x_1]_{R} <--> <x_1, t> in R ]			[74.D1]
+						94. u_3 in [x_1]_{R} <--> <x_1, u_3> in R				[93 UI/u_3]
+						95. <x_1, u_3> in R			[94 BC 92 MP]
+
+						96. u_3 in b			[89 SR]
+						97. b = [x_2]_{R}				[86 SR]
+						98. u_3 in [x_2]_{R}			[96 97 LL]
+						99. @t [ t in [x_2]_{R} <--> <x_2, t> in R ]			[74.D2]
+						100. u_3 in [x_2]_{R} <--> <x_2, u_3> in R				[99 UI/u_3]
+						101. <x_2, u_3> in R			[100 BC 98 MP] 
+
+						102. @R [ R is symmetric <--> @x, y [ <x, y> in R --> <y, x> in R ] ]				[Def. of Symmetric]
+						103. R is symmetric <--> @x, y [ <x, y> in R --> <y, x> in R ]			[102 UI/R]
+						104. R is symmetric				[7 SL SR]
+						105. @x, y [ <x, y> in R --> <y, x> in R ]				[103 BC 104 MP]
+						106. <x_2, u_3> in R --> <u_3, x_2> in R				[105 UI/x_2, u_3]
+						107. <u_3, x_2> in R			[106 101 MP]
+
+						108. @R [ R is transitive <--> @x, y, z [ <x, y> in R & <y, z> in R --> <x, z> in R ] ]			[Def. of Transitivity]
+						109. R is transitive <--> @x, y, z [ <x, y> in R & <y, z> in R --> <x, z> in R ]			[108 UI/R]
+						110. R is transitive			[7 SR]
+						111. @x, y, z [ <x, y> in R & <y, z> in R --> <x, z> in R ]				[109 BC 110 MP]
+						112. <x_1, u_3> in R & <u_3, x_2> in R --> <x_1, x_2> in R			[111 UI/x_1, u_3, x_2]
+						113. <x_1, u_3> in R & <u_3, x_2> in R			[95 107 ADJ]
+						114. <x_1, x_2> in R			[112 113 MP]
+
+						// we now use lemma 3N
+						115. @x, y [ x, y in A --> [ [x]_{R} = [y]_{R} <--> <x, y> in R ] ]			[10 R]
+						116. x_1, x_2 in A --> [ [x_1]_{R} = [x_2]_{R} <--> <x_1, x_2> in R ]			[115 UI/x_1 UI/x_2]
+						117. x_1 in A			[82 SL]
+						118. x_2 in A			[86 SL]
+						119. x_1, x_2 in A			[117 118 ADJ]
+						120. [x_1]_{R} = [x_2]_{R} <--> <x_1, x_2> in R				[116 119 MP]
+						121. [x_1]_{R} = [x_2]_{R}			[120 BC 114 MP]
+
+						122. a != b			[75 SR]
+						123. a = [x_1]_{R}			[91 R]
+						124. [x_1]_{R} != b			[122 123 LL]
+						125. b = [x_2]_{R}			[97 R]
+						126. [x_1]_{R} != [x_2]_{R}			[124 125 LL]
+
+						127. 			[121 126 ID]
+
+					128. 		[87 CD]
+				
+				129. 		[74 UD]
+			
+			130. 
 			
 
 			// idea: use refelxivity of R on A which means <w, w> in R. then show that [w]_{R} is in {[x]_{R} | x in A}. it is clear w in [w]_{R}
