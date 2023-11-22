@@ -247,9 +247,53 @@ Axioms and Theorems:
 				
 				129. 		[74 UD]
 			
-			130. 
 			
-
 			// idea: use refelxivity of R on A which means <w, w> in R. then show that [w]_{R} is in {[x]_{R} | x in A}. it is clear w in [w]_{R}
-			Show @w [ w in A --> 3t [ t in {[x]_{R} | x in A} & w in t ] ]
-						
+			130. Show @w [ w in A --> 3t [ t in {[x]_{R} | x in A} & w in t ] ]
+				131. let w be a set
+				132. Show w in A --> 3t [ t in {[x]_{R} | x in A} & w in t ]
+					133. w in A			[ACD]
+					134. @R, A [ R is reflexive on A <--> @x [ x in A --> <x, x> in R ] ]			[Def. of Reflexive]
+					135. R is reflexive on A <--> @x [ x in A --> <x, x> in R ]			[134 UI/R UI/A]
+					136. R is reflexive on A			[7 SL SL SR]
+					137. @x [ x in A --> <x, x> in R ]			[135 BC 136 MP]
+					138. w in A --> <w, w> in R				[137 UI/w]
+					139. <w, w> in R			[138 133 MP]
+
+					// consider the set [w]_{R}
+					========
+					132.D1. @t [ t in [w]_{R} <--> <w, t> in R ]			[Equiv. Class UI/R UI/w EI & Ext. Axiom]
+					========
+					
+					// we show that [w]_{R} in {[x]_{R} | x in A}
+
+					140. @t [ t in {[x]_{R} | x in A} <--> 3x [ x in A & t = [x]_{R} ] ]			[D1]
+					141. [w]_{R} in {[x]_{R} | x in A} <--> 3x [ x in A & [w]_{R} = [x]_{R} ]				[140 UI/[w]_{R}]
+					142. Show 3x [ x in A & [w]_{R} = [x]_{R} ]
+						143. w in A			[133 R]
+						144. [w]_{R} = [w]_{R}			[SID/[w]_{R}]
+						145. w in A & [w]_{R} = [w]_{R}			[143 144 ADJ]
+						146. 3x [ x in A & [w]_{R} = [x]_{R} ]			[145 EG/w->x]
+						147. 			[146 DD]
+					
+					148. [w]_{R} in {[x]_{R} | x in A}			[141 BC 142 MP]
+
+					// we show w in [w]_{R}
+					149. @t [ t in [w]_{R} <--> <w, t> in R ]			[132.D1]
+					150. w in [w]_{R} <--> <w, w> in R			[149 UI/w]
+					151. <w, w> in R			[139 R]
+					152. w in [w]_{R}			[150 BC 151 MP]
+
+					153. [w]_{R} in {[x]_{R} | x in A} & w in [w]_{R}			[148 152 ADJ]
+					154. 3t [ t in {[x]_{R} | x in A} & w in t ]			[153 EG/[w]_{R} -> t]
+					155. 			[154 CD]
+				156. 		[132 UD]
+			
+			157. @t [ t in {[x]_{R} | x in A} --> t != {} & t ⊆ A ] &
+						@a, b [ a, b in {[x]_{R} | x in A} & a != b --> ~3u [ u in a & u in b ] ] &
+						@w [ w in A --> 3t [ t in {[x]_{R} | x in A} & w in t ] ]				[16 72 130 ADJ]
+			
+			158. {[x]_{R} | x in A} is a partition of A			[15 BC 157 MP]
+			159. 			[158 DD]
+		160. 			[11 CD]
+	161. 			[3 UD]
