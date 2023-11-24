@@ -1,0 +1,106 @@
+Axioms and Theorems:
+	Subset Axioms:
+	For each formula __ not containing B, the following is an axiom:
+	@t1 ... @tk @c [ 3B [ @x [ x in B <--> x in c & __ ] ] ]
+		Definition:
+		For any set t­1, ..., tk and c, the subset B = {x in c | __ } is the set whose members are exactly those sets in c and __	
+
+	Corollary 3C:
+		@A, B [ 3D [ @t[ t in D <--> 3x, y [x in A & y in B & t = <x, y> ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets A, B,  {<x, y> | x in A & y in B}    is the set whose members are exactly the sets of the form <x, y> for some x in A & y in B
+		Also known as the Cartesian Product A x B of the sets A and B!
+
+	Equivalence Class of x (modulo R):
+		@R, x [ 3D [ @t [ t in D <--> <x, t> in R ] ] ]
+		Definition:
+			For any set R, x, [x]_{R} is the set of sets t such that <x, t> in R.
+			For any set R, x, and if R is an equivalence relation on the fld R, then [x]_{R} is called the equivalence class of x (modulo R).
+
+	[ORANGES] Sets of equivalence classes:
+		@R, A [ 3D [ @t [ t in D <--> 3x [ x in A & t = [x]_{R} ] ] ] ]
+		Definition:
+			For any set R, A, [and if R is an equivalence relation on A], then {[x]_{R} | x in A} is the set of sets of the form [x]_{R} [and is called the set of equivalence classes under R].
+		
+		Definition of the quotient set:
+			For any set R, A, [and if R is an equivalence relation on A], then A/R := {[x]_{R} | x in A} 
+
+	[CH'EN] Subset Axiom (applied):
+		@A, R [ @c [ 3D [ @t [ t in D <--> t in c & 3x [ x in A & t = <x, [x]_{R}> ] ] ] ] ]		[Subset Axiom UI_META/"@A, R" UI_META/"3x [ x in A & t = <x, [x]_{R}> ]"]
+
+Ideas:
+	We can prove that such a set exists using a subset axiom, by noticing how this set is a subset of (A x (A/R)) or (A x {[x]_{R} | x in A}).
+	We can then prove that this set is a function from A into A/R.
+
+[Natural_Map_{A,R}]
+1. Show @A, R [ 3D [ @t [ t in D <--> 3x [ x in A & t = <x, [x]_{R}> ] ] ] ]
+	2. let A, R be sets
+
+	// im worried about potential capturing, so i will rename the variables
+	3. @A, B [ 3D [ @t [ t in D <--> 3x, y [x in A & y in B & t = <x, y> ] ] ] ]			[Corollary 3C]
+	4. @M, K [ 3D [ @t [ t in D <--> 3u, v [u in M & v in K & t = <u, v> ] ] ] ]			[3 EQUIV.]
+
+	========
+	1.D1. @t [ t in {[x]_{R} | x in A} <--> 3x [ x in A & t = [x]_{R} ] ]			[ORANGES UI/R UI/A & Ext. Axiom]
+	1.D2. @t [ t in (A x {[x]_{R} | x in A}) <--> 3u, v [u in A & v in {[x]_{R} | x in A} & t = <u, v> ] ]			[4 UI/A UI/{[x]_{R} | x in A} & Ext. Axiom]
+	========
+
+
+	// time to use [CH'EN] a subset axiom
+	5. @A, R [ @c [ 3D [ @t [ t in D <--> t in c & 3x [ x in A & t = <x, [x]_{R}> ] ] ] ] ]			[CH'EN]
+	6. @c [ 3D [ @t [ t in D <--> t in c & 3x [ x in A & t = <x, [x]_{R}> ] ] ] ]			[5 UI/A UI/R]
+	7. 3D [ @t [ t in D <--> t in (A x {[x]_{R} | x in A}) & 3x [ x in A & t = <x, [x]_{R}> ] ] ]			[6 UI/(A x {[x]_{R} | x in A})]
+	8. @t [ t in D_1 <--> t in (A x {[x]_{R} | x in A}) & 3x [ x in A & t = <x, [x]_{R}> ] ]			[7 EI/D_1]
+	
+	9. Show @t [ t in D_1 <--> 3x [ x in A & t = <x, [x]_{R}> ] ]
+		10. let t be a set
+		11. Show t in D_1 <--> 3x [ x in A & t = <x, [x]_{R}> ]	
+			12. Show t in D_1 --> 3x [ x in A & t = <x, [x]_{R}> ]
+				13. t in D_1			[ACD]
+				14. t in D_1 <--> t in (A x {[x]_{R} | x in A}) & 3x [ x in A & t = <x, [x]_{R}> ]			[8 UI/t]
+				15. t in (A x {[x]_{R} | x in A}) & 3x [ x in A & t = <x, [x]_{R}> ]			[14 BC 13 MP]
+				16. 3x [ x in A & t = <x, [x]_{R}> ]			[15 SR]
+				17. 		[16 CD]
+
+			18. Show 3x [ x in A & t = <x, [x]_{R}> ] --> t in D_1
+				19. 3x [ x in A & t = <x, [x]_{R}> ]			[ACD]
+				20. x_1 in A & t = <x_1, [x_1]_{R}>				[19 EI/x_1]
+
+				21. t in D_1 <--> t in (A x {[x]_{R} | x in A}) & 3x [ x in A & t = <x, [x]_{R}> ]			[8 UI/t]
+				22. Show t in (A x {[x]_{R} | x in A})
+					23. @t [ t in (A x {[x]_{R} | x in A}) <--> 3u, v [u in A & v in {[x]_{R} | x in A} & t = <u, v> ] ]			[1.D2]
+					24. t in (A x {[x]_{R} | x in A}) <--> 3u, v [u in A & v in {[x]_{R} | x in A} & t = <u, v> ]				[23 UI/t]
+
+					25. Show 3u, v [u in A & v in {[x]_{R} | x in A} & t = <u, v> ]
+						26. x_1 in A			[20 SL]
+						27. t = <x_1, [x_1]_{R}>			[20 SR]
+
+						28. @t [ t in {[x]_{R} | x in A} <--> 3x [ x in A & t = [x]_{R} ] ]			[1.D1]
+						29. [x_1]_{R} in {[x]_{R} | x in A} <--> 3x [ x in A & [x_1]_{R} = [x]_{R} ]			[28 UI/[x_1]_{R}]
+
+						30. [x_1]_{R} = [x_1]_{R}		[SID/[x_1]_{R}]
+						31. x_1 in A & [x_1]_{R} = [x_1]_{R}			[26 30 ADJ]
+						32. 3x [ x in A & [x_1]_{R} = [x]_{R} ]				[31 EG/x_1->x]
+						33. [x_1]_{R} in {[x]_{R} | x in A}				[29 BC 32 MP]
+
+						34. x_1 in A & [x_1]_{R} in {[x]_{R} | x in A} & t = <x_1, [x_1]_{R}>			[26 33 27 ADJ]
+						35. 3v [ x_1 in A & v in {[x]_{R} | x in A} & t = <x_1, v> ]			[34 EG/[x_1]_{R}->v]
+						36. 3u [ 3v [ u in A & v in {[x]_{R} | x in A} & t = <u, v> ] ]				[35 EG/x_1->u]
+						37. 3u, v [u in A & v in {[x]_{R} | x in A} & t = <u, v> ]				[36 EQUIV.]
+						38. 		[37 DD]
+					
+					39. t in (A x {[x]_{R} | x in A})			[24 BC 25 MP]
+					40. 		[39 DD]
+				
+				41. t in (A x {[x]_{R} | x in A}) & 3x [ x in A & t = <x, [x]_{R}> ]			[22 19 ADJ]
+				42. t in D_1			[21 BC 41 MP]
+				43.			[42 CD]
+			
+			44. t in D_1 <--> 3x [ x in A & t = <x, [x]_{R}> ]			[12 18 CB]
+			45.			[44 DD]
+		46. 			[11 UD]
+	47. 3D [ @t [ t in D <--> 3x [ x in A & t = <x, [x]_{R}> ] ] ]			[9 EG/D_1->D]
+	48. 		[47 UD]
+
+
+

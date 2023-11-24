@@ -1,0 +1,268 @@
+Axioms and Theorems:
+	Extensionality Axiom:
+		@A, B [ @x [ x in A <--> x in B ] --> A = B ]
+
+	Definition of Ordered Pair:
+		@x, y[ <x, y> := {{x}, {x, y}} ]
+			note {x} exists due to Pairing Axiom & Extensionality
+			note {x, y} exists due to Pairing Axiom & Extensionality
+			finally {{x}, {x, y}} exists due to Pairing Axiom & Extensionality
+
+	Theorem 3A:
+		@u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]
+
+	Relation:
+		Definition:
+		A relation R is a set of ordered pairs.
+		@R [ R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ] ]
+
+	dom R: 
+		@R [ 3D [ @x [ x in D <--> 3y [ <x, y> in R ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets R,  dom R  is the set whose members are those 1st-coordinate set of some ordered pair in R
+
+	ran R: 
+		@R [ 3D [ @x [ x in D <--> 3t [ <t, x> in R ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets R,  ran R  is the set whose members are those 2nd-coordinate set of some ordered pair in R
+
+	Function:
+		Definition:
+		@F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]
+
+	Definition of into:
+		@F, A, B [ F maps A into B (F: A->B) <--> 
+						F is a function &
+						dom F = A &
+						ran F ⊆ B 
+					]
+
+	Equivalence Class of x (modulo R):
+		@R, x [ 3D [ @t [ t in D <--> <x, t> in R ] ] ]
+		Definition:
+			For any set R, x, [x]_{R} is the set of sets t such that <x, t> in R.
+			For any set R, x, and if R is an equivalence relation on the fld R, then [x]_{R} is called the equivalence class of x (modulo R).
+
+	[ORANGES] Sets of equivalence classes:
+		@R, A [ 3D [ @t [ t in D <--> 3x [ x in A & t = [x]_{R} ] ] ] ]
+		Definition:
+			For any set R, A, [and if R is an equivalence relation on A], then {[x]_{R} | x in A} is the set of sets of the form [x]_{R} [and is called the set of equivalence classes under R].
+		
+		Definition of the quotient set:
+			For any set R, A, [and if R is an equivalence relation on A], then A/R := {[x]_{R} | x in A} 
+
+	Definition of Natural Map:
+		@A, R [ 3D [ @t [ t in D <--> 3x [ x in A & t = <x, [x]_{R}> ] ] ] ]
+		Definition:
+			For any A, R, [and if R is an equivalence relation on A], then φ_{A, R} is the set of ordered pairs <x, [x]_{R}> where x in A.
+
+1. Show @A, R [ φ_{A, R} maps A into {[x]_{R} | x in A} ]
+	2. let A, R be sets
+
+	========
+	1.D1. @t [ t in {[x]_{R} | x in A} <--> 3x [ x in A & t = [x]_{R} ] ]			[ORANGES UI/R UI/A & Ext. Axiom]
+	1.D2. @t [ t in φ_{A, R} <--> 3x [ x in A & t = <x, [x]_{R}> ] ]			[Natural Map UI/A UI/R & Ext. Axiom]
+	1.D3. @x [ x in dom(φ_{A, R}) <--> 3y [ <x, y> in φ_{A, R} ] ]			[dom UI/φ_{A, R} & Ext. Axiom]
+	1.D4. @y [ y in ran(φ_{A, R}) <--> 3x [ <x, y> in φ_{A, R} ] ]			[ran UI/φ_{A, R} & Ext. Axiom]
+	========
+	
+	3. @F, A, B [ F maps A into B (F: A->B) <--> 
+										F is a function &
+										dom F = A &
+										ran F ⊆ B ]			[Def. of Into]'
+
+	4. @F, M, K [ F maps M into K (F: M->K) <--> 
+										F is a function &
+										dom F = M &
+										ran F ⊆ K ]			[3 EQUIV.]
+								
+	5. φ_{A, R} maps A into {[x]_{R} | x in A} (φ_{A, R}: A->{[x]_{R} | x in A}) <--> 
+										φ_{A, R} is a function &
+										dom(φ_{A, R}) = A &
+										ran(φ_{A, R}) ⊆ {[x]_{R} | x in A}				[4 UI/φ_{A, R} UI/A UI/{[x]_{R} | x in A}]
+
+	6. Show φ_{A, R} is a function
+		7. @F [ F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]			[Def. of Function]
+		8. φ_{A, R} is a function <--> φ_{A, R} is a relation & @x [ x in dom(φ_{A, R}) --> 3_1y [ <x, y> in φ_{A, R} ] ]				[7 UI/φ_{A, R}]
+
+		9. @R [ R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ] ]			[Def. of relation]
+		10. φ_{A, R} is a relation <--> @t [ t in φ_{A, R} --> 3x, y[ t = <x, y> ] ]			[9 UI/φ_{A, R}]
+		11. Show @t [ t in φ_{A, R} --> 3x, y[ t = <x, y> ] ]
+			12. let t be a set 
+			13. Show t in φ_{A, R} --> 3x, y[ t = <x, y> ]
+				14. t in φ_{A, R}			[ACD]
+				15. @t [ t in φ_{A, R} <--> 3x [ x in A & t = <x, [x]_{R}> ] ]				[1.D2]
+				16. t in φ_{A, R} <--> 3x [ x in A & t = <x, [x]_{R}> ]				[15 UI/t]
+				17. 3x [ x in A & t = <x, [x]_{R}> ]			[16 BC 14 MP]
+				18. x_1 in A & t = <x_1, [x_1]_{R}>			[17 EI/x_1]
+				19. t = <x_1, [x_1]_{R}>			[18 SR]
+				20. 3x, y[ t = <x, y> ]				[19 EG/[x_1]_{R}->y EG/x_1->x]
+				21. 		[20 CD]
+			22. 		[13 UD]
+		
+		23. φ_{A, R} is a relation			[10 BC 11 MP]
+
+		24. Show @x [ x in dom(φ_{A, R}) --> 3_1y [ <x, y> in φ_{A, R} ] ]
+			25. let x be a set
+			26. Show x in dom(φ_{A, R}) --> 3_1y [ <x, y> in φ_{A, R} ]
+				27. x in dom(φ_{A, R})			[ACD]
+				28. @x [ x in dom(φ_{A, R}) <--> 3y [ <x, y> in φ_{A, R} ] ]			[1.D3]
+				29. x in dom(φ_{A, R}) <--> 3y [ <x, y> in φ_{A, R} ]				[28 UI/x]
+				30. 3y [ <x, y> in φ_{A, R} ]			[29 BC 27 MP]
+				31. <x, y_1> in φ_{A, R}			[30 EI/y_1]
+
+				32. @t [ t in φ_{A, R} <--> 3x [ x in A & t = <x, [x]_{R}> ] ]			[1.D2]
+				33. @t [ t in φ_{A, R} <--> 3u [ u in A & t = <u, [u]_{R}> ] ]			[32 EQUIV.]
+
+				34. <x, y_1> in φ_{A, R} <--> 3u [ u in A & <x, y_1> = <u, [u]_{R}> ]				[33 UI/<x, y_1>]
+				35. 3u [ u in A & <x, y_1> = <u, [u]_{R}> ]				[34 BC 31 MP]
+				36. u_2 in A & <x, y_1> = <u_2, [u_2]_{R}>				[35 EI/u_2]
+
+				37. <x, y_1> = <u_2, [u_2]_{R}>				[36 SR]
+
+				38. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]			[Theorem 3A]
+				39. @a, b, s, t [ <a, b> = <s, t>  <-->  a = s & b = t ]			[38 EQUIV.]
+				40. <x, y_1> = <u_2, [u_2]_{R}>  <-->  x = u_2 & y_1 = [u_2]_{R}			[39 UI/x, y_1, u_2, [u_2]_{R}]
+				41. x = u_2 & y_1 = [u_2]_{R}			[40 BC 37 MP]
+
+				42. Show @w [ <x, w> in φ_{A, R} --> w = y_1 ]
+					43. let w be a set
+					44. Show <x, w> in φ_{A, R} --> w = y_1
+						45. <x, w> in φ_{A, R}			[ACD]
+						46. @t [ t in φ_{A, R} <--> 3u [ u in A & t = <u, [u]_{R}> ] ]			[33 R (1.D2)]
+						47. <x, w> in φ_{A, R} <--> 3u [ u in A & <x, w> = <u, [u]_{R}> ]				[46 UI/<x, w>]
+
+						48. 3u [ u in A & <x, w> = <u, [u]_{R}> ]			[47 BC 45 MP]
+						49. u_3 in A & <x, w> = <u_3, [u_3]_{R}>			[48 EI/u_3]
+						50. <x, w> = <u_3, [u_3]_{R}>			[49 SR]
+						51. @a, b, s, t [ <a, b> = <s, t>  <-->  a = s & b = t ]			[39 R (Theorem 3A)]
+						52. <x, w> = <u_3, [u_3]_{R}>  <-->  x = u_3 & w = [u_3]_{R}			[51 UI/x, w, u_3, [u_3]_{R}]
+						53. x = u_3 & w = [u_3]_{R}				[52 BC 50 MP]
+
+						54. x = u_2			[41 SL]
+						55. x = u_3			[53 SL]
+
+						56. u_2 = u_3			[54 55 LL]
+						57. w = [u_3]_{R}			[53 SR]
+						58. w = [u_2]_{R}			[57 56 LL]
+						59. y_1 = [u_2]_{R}				[41 SR]
+						// note: the use of LL on line 58 only works because the symbol [x]_{R} for any R and x, is well-defined due to Ext. Axiom
+						60. w = y_1			[58 59 LL]
+						61. 		[60 CD]
+					62. 		[44 UD]
+				
+				63. <x, y_1> in φ_{A, R} & @w [ <x, w> in φ_{A, R} --> w = y_1 ]			[31 42 ADJ]
+				64. 3y [ <x, y> in φ_{A, R} & @w [ <x, w> in φ_{A, R} --> w = y ] ]				[63 EG/y_1->y]
+				65. 3_1y [ <x, y> in φ_{A, R} ]				[64 EQUIV.]
+				66. 		[65 CD]
+			67. 		[26 UD]
+		
+		68. φ_{A, R} is a relation & @x [ x in dom(φ_{A, R}) --> 3_1y [ <x, y> in φ_{A, R} ] ]			[23 24 ADJ]
+		69. φ_{A, R} is a function				[8 BC 68 MP]
+		70. 			[69 DD]
+	
+	71. Show dom(φ_{A, R}) = A
+		72. @A, B [ @x [ x in A <--> x in B ] --> A = B ]			[Ext. Axiom]
+		73. @S, T [ @x [ x in S <--> x in T ] --> S = T ]			[72 EQUIV.]
+		74. @x [ x in dom(φ_{A, R}) <--> x in A ] --> dom(φ_{A, R}) = A				[73 UI/dom(φ_{A, R}) UI/A]
+		75. Show @x [ x in dom(φ_{A, R}) <--> x in A ]
+			76. let x be a set
+			77. Show x in dom(φ_{A, R}) <--> x in A
+				78. Show x in dom(φ_{A, R}) --> x in A
+					79. x in dom(φ_{A, R})			[ACD]
+					80. @x [ x in dom(φ_{A, R}) <--> 3y [ <x, y> in φ_{A, R} ] ]		[1.D3]
+					81. x in dom(φ_{A, R}) <--> 3y [ <x, y> in φ_{A, R} ]			[80 UI/x]
+					82. 3y [ <x, y> in φ_{A, R} ]			[81 BC 79 MP]
+					83. <x, y_1> in φ_{A, R}			[82 EI/y_1]
+					84. @t [ t in φ_{A, R} <--> 3x [ x in A & t = <x, [x]_{R}> ] ]			[1.D2]
+					85. @t [ t in φ_{A, R} <--> 3u [ u in A & t = <u, [u]_{R}> ] ]			[84 EQUIV.]
+					86. <x, y_1> in φ_{A, R} <--> 3u [ u in A & <x, y_1> = <u, [u]_{R}> ]				[85 UI/<x, y_1>]
+					87. 3u [ u in A & <x, y_1> = <u, [u]_{R}> ]			[86 BC 83 MP]
+					88. u_2 in A & <x, y_1> = <u_2, [u_2]_{R}>				[87 EI/u_2]
+					89. <x, y_1> = <u_2, [u_2]_{R}>			[88 SR]
+
+					90. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]			[Theorem 3A]
+					91. @a, b, s, t [ <a, b> = <s, t>  <-->  a = s & b = t ]			[90 EQUIV.]
+					92. <x, y_1> = <u_2, [u_2]_{R}>  <-->  x = u_2 & y_1 = [u_2]_{R}				[91 UI/x, y_1, u_2, [u_2]_{R}] 
+					93. x = u_2 & y_1 = [u_2]_{R}			[92 BC 89 MP]
+					94. x = u_2			[93 SL]
+					95. u_2 in A		[88 SL]
+					96. x in A			[94 95 LL]
+					97. 		[96 CD]
+				 
+				98. Show x in A --> x in dom(φ_{A, R})
+					99. x in A 			[ACD]
+
+					// consider the set [x]_{R}
+					========
+					98.D1. @t [ t in [x]_{R} <--> <x, t> in R ]				[Equiv. Class UI/R UI/x & Ext. Axiom]
+					========
+
+					100. <x, [x]_{R}> = <x, [x]_{R}>				[SID/<x, [x]_{R}>]
+					101. x in A & <x, [x]_{R}> = <x, [x]_{R}>			[99 100 ADJ]
+
+					102. @t [ t in φ_{A, R} <--> 3x [ x in A & t = <x, [x]_{R}> ] ]			[1.D2]
+					103. @t [ t in φ_{A, R} <--> 3u [ u in A & t = <u, [u]_{R}> ] ]			[102 EQUIV.]
+					104. <x, [x]_{R}> in φ_{A, R} <--> 3u [ u in A & <x, [x]_{R}> = <u, [u]_{R}> ]			[103 UI/<x, [x]_{R}>]
+					105. 3u [ u in A & <x, [x]_{R}> = <u, [u]_{R}> ]			[101 EG/x->u]
+					106. <x, [x]_{R}> in φ_{A, R}			[104 BC 105 MP]
+
+					107. @x [ x in dom(φ_{A, R}) <--> 3y [ <x, y> in φ_{A, R} ] ]			[1.D3]
+					108. x in dom(φ_{A, R}) <--> 3y [ <x, y> in φ_{A, R} ]			[107 UI/x]
+					109. 3y [ <x, y> in φ_{A, R} ]			[106 EG/[x]_{R}->y]
+					110. x in dom(φ_{A, R})			[108 BC 109 MP]
+					111. 		[110 CD]
+				
+				112. x in dom(φ_{A, R}) <--> x in A			[78 98 CB]
+				113. 		[112 DD]
+			114. 		[77 UD]
+		
+		115. dom(φ_{A, R}) = A				[74 75 MP]
+		116.		[115 DD]
+	
+	117. Show ran(φ_{A, R}) ⊆ {[x]_{R} | x in A}
+		118. Show @w [ w in ran(φ_{A, R}) --> w in {[x]_{R} | x in A} ]
+			119. let w be a set
+			120. Show w in ran(φ_{A, R}) --> w in {[x]_{R} | x in A}
+				121. w in ran(φ_{A, R})			[ACD]
+				122. @y [ y in ran(φ_{A, R}) <--> 3x [ <x, y> in φ_{A, R} ] ]			[1.D4]
+				123. w in ran(φ_{A, R}) <--> 3x [ <x, w> in φ_{A, R} ]			[122 UI/w]
+				124. 3x [ <x, w> in φ_{A, R} ]			[123 BC 121 MP]
+				125. <x_1, w> in φ_{A, R}				[124 EI/x_1]
+
+				126. @t [ t in φ_{A, R} <--> 3x [ x in A & t = <x, [x]_{R}> ] ]			[1.D2]
+				127. @t [ t in φ_{A, R} <--> 3u [ u in A & t = <u, [u]_{R}> ] ]			[126 EQUIV.]
+				128. <x_1, w> in φ_{A, R} <--> 3u [ u in A & <x_1, w> = <u, [u]_{R}> ]			[127 UI/<x_1, w>]
+				129. 3u [ u in A & <x_1, w> = <u, [u]_{R}> ]			[128 BC 125 MP]
+				130. u_2 in A & <x_1, w> = <u_2, [u_2]_{R}>				[129 EI/u_2]
+				// i wonder if im wasting my time doing these proofs
+
+				131. <x_1, w> = <u_2, [u_2]_{R}>			[130 SR]
+				132. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]				[Theorem 3A]
+				133. @a, b, s, t [ <a, b> = <s, t>  <-->  a = s & b = t ]				[132 EQUIV.]
+				134. <x_1, w> = <u_2, [u_2]_{R}>  <-->  x_1 = u_2 & w = [u_2]_{R}				[133 UI/x_1, w, u_2, [u_2]_{R}]
+				135. x_1 = u_2 & w = [u_2]_{R}			[134 BC 131 MP]
+
+				136. w = [u_2]_{R}			[135 SR]
+				137. x_1 = u_2			[135 SL]
+
+				138. @t [ t in {[x]_{R} | x in A} <--> 3x [ x in A & t = [x]_{R} ] ]			[1.D1]
+				139. w in {[x]_{R} | x in A} <--> 3x [ x in A & w = [x]_{R} ]			[138 UI/w]
+
+				140. u_2 in A			[130 SL]
+				141. x_1 in A			[137 140 LL]
+				142. w = [x_1]_{R}			[136 137 LL]
+
+				143. x_1 in A	& w = [x_1]_{R}			[141 142 ADJ]
+				144. 3x [ x in A & w = [x]_{R} ]			[143 EG/x_1->x]
+				145. w in {[x]_{R} | x in A}			[139 BC 144 MP]
+				146.		[145 CD]
+			147. 			[120 UD]
+		148. ran(φ_{A, R}) ⊆ {[x]_{R} | x in A}			[118 EQUIV.]
+		
+		149. 		[148 DD]
+	
+	150. φ_{A, R} is a function & dom(φ_{A, R}) = A & ran(φ_{A, R}) ⊆ {[x]_{R} | x in A}				[6 71 117 ADJ]
+	151. φ_{A, R} maps A into {[x]_{R} | x in A} (φ_{A, R}: A->{[x]_{R} | x in A})			[5 BC 150 MP]
+	152. 		[151 UD]
+

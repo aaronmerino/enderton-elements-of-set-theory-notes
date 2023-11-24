@@ -1,88 +1,88 @@
 Axioms and Theorems:
 	Extensionality Axiom:
-	@A, B [ @x [ x in A <--> x in B ] --> A = B ]
+		@A, B [ @x [ x in A <--> x in B ] --> A = B ]
 
 	Converse of Extensionality Axiom (Theorem Pg.2):
-	@A, B [ A = B  --> @x [ x in A <--> x in B ]  ]
+		@A, B [ A = B  --> @x [ x in A <--> x in B ]  ]
 
 	Empty Set Axiom:
-	3B [ @x [ ~(x in B) ] ]
-	Definition (its uniqueness is always due to Ext. Axiom):
-	{ } is the set having no members
-		[You can think of {} as a 0-ary operator. It refer to one set and one set only!]
+		3B [ @x [ ~(x in B) ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		{ } is the set having no members
+			[You can think of {} as a 0-ary operator. It refer to one set and one set only!]
 
 	LEMMA - NON-EMPTY:
 		@A [ A != {} --> 3t [ t in A ] ]
 		
 	Pairing Axiom:
-	@u, v [ 3B [ @x [ x in B <--> x = u or x = v ] ] ]
-		Definition (its uniqueness is always due to Ext. Axiom):
-		For any sets u, v, the pair set {u, v} is the set whose only members are u and v.
-		[You can think of {u, v} as a 2-ary operator. It refer to one set and one set only based on the sets u and v!]
+		@u, v [ 3B [ @x [ x in B <--> x = u or x = v ] ] ]
+			Definition (its uniqueness is always due to Ext. Axiom):
+			For any sets u, v, the pair set {u, v} is the set whose only members are u and v.
+			[You can think of {u, v} as a 2-ary operator. It refer to one set and one set only based on the sets u and v!]
 
-		Definition:
-		Let {x} := {x, x} is the set whose only members are x and x
+			Definition:
+			Let {x} := {x, x} is the set whose only members are x and x
 
 	Union Axiom (Preliminary Form):
-	@a, b [ 3B [ @x [ x in B <--> x in a or x in b ] ] ]
-		Definition (its uniqueness is always due to Ext. Axiom):
-		For any sets a, b, the union a ∪ b is the set whose members are those sets belonging either to a or to b (or both).
-		[You can think of a ∪ b as a 2-ary operator. It refer to one set and one set only based on the sets a and b!]
+		@a, b [ 3B [ @x [ x in B <--> x in a or x in b ] ] ]
+			Definition (its uniqueness is always due to Ext. Axiom):
+			For any sets a, b, the union a ∪ b is the set whose members are those sets belonging either to a or to b (or both).
+			[You can think of a ∪ b as a 2-ary operator. It refer to one set and one set only based on the sets a and b!]
 
 	Power Set Axiom:
-	@a [ 3B [ @x [ x in B <--> @t [ t in x --> t in a ] ] ] ]
-		Definition (its uniqueness is always due to Ext. Axiom):
-		For any set a, the power set  P(a) is the set whose members are exactly the subsets of a.
-		[You can think of P(a) as a 1-ary operator. It refer to one set and one set only based on the sets a!]
+		@a [ 3B [ @x [ x in B <--> @t [ t in x --> t in a ] ] ] ]
+			Definition (its uniqueness is always due to Ext. Axiom):
+			For any set a, the power set  P(a) is the set whose members are exactly the subsets of a.
+			[You can think of P(a) as a 1-ary operator. It refer to one set and one set only based on the sets a!]
 
 	Subset Axioms:
-	For each formula __ not containing B, the following is an axiom:
-	@t1 ... @tk @c [ 3B [ @x [ x in B <--> x in c & __ ] ] ]
-		Definition:
-		For any set t­1, ..., tk and c, the subset B = {x in c | __ } is the set whose members are exactly those sets in c and __	
+		For each formula __ not containing B, the following is an axiom:
+		@t1 ... @tk @c [ 3B [ @x [ x in B <--> x in c & __ ] ] ]
+			Definition:
+			For any set t­1, ..., tk and c, the subset B = {x in c | __ } is the set whose members are exactly those sets in c and __	
 
 	
 		Example of a subset Axiom (intersection):
-		@a, c [ 3B [ @x [ x in B <--> x in c & x in a ] ] ]
-			Definition (its uniqueness is always due to Ext. Axiom):
-			For any set a, c, the intersection set  a ∩ c is the set whose members are exactly those sets in a and c
-			[You can think of a ∩ c as a 2-ary operator. It refer to one set and one set only based on the sets a and b!]
+			@a, c [ 3B [ @x [ x in B <--> x in c & x in a ] ] ]
+				Definition (its uniqueness is always due to Ext. Axiom):
+				For any set a, c, the intersection set  a ∩ c is the set whose members are exactly those sets in a and c
+				[You can think of a ∩ c as a 2-ary operator. It refer to one set and one set only based on the sets a and b!]
 
 		Example of a subset Axiom (relative complement):
-		@A, B [ 3S [ @t [ t in S <--> t in A & ~(t in B) ] ] ]
-			Definition (its uniqueness is always due to Ext. Axiom):
-			For any set A, B, the relative complement of B in A     A - B     is the set whose members are exactly those sets in A and but not in B
-			[You can think of A - B as a 2-ary operator. It refer to one set and one set only based on the sets A and B!]
+			@A, B [ 3S [ @t [ t in S <--> t in A & ~(t in B) ] ] ]
+				Definition (its uniqueness is always due to Ext. Axiom):
+				For any set A, B, the relative complement of B in A     A - B     is the set whose members are exactly those sets in A and but not in B
+				[You can think of A - B as a 2-ary operator. It refer to one set and one set only based on the sets A and B!]
 
 	Theorem 2A:
-	~3V [ @x [ x in V ] ]
+		~3V [ @x [ x in V ] ]
 
 	Union Axiom:
-	@A [ 3B [ @x [ x in B <--> 3b [ b in A & x in b ] ] ] ]
-		Definition (its uniqueness is always due to Ext. Axiom):
-		For any set A, the union of A  U(A)     is the set whose members are exactly the members of the members of A
-		[You can think of U(A) as a 1-ary operator. It refer to one set and one set only based on the set A!]
+		@A [ 3B [ @x [ x in B <--> 3b [ b in A & x in b ] ] ] ]
+			Definition (its uniqueness is always due to Ext. Axiom):
+			For any set A, the union of A  U(A)     is the set whose members are exactly the members of the members of A
+			[You can think of U(A) as a 1-ary operator. It refer to one set and one set only based on the set A!]
 
 	Theorem 2B (Arbitrary Intersection):
-	@A [ A != { } --> 3_1B [ @x [ x in B <--> @a [ a in A --> x in a ] ] ] ] 
-		Definition (its uniqueness is always due to Ext. Axiom):
-		For any set non empty set A, the intersection of A  ∩(A)     is the set whose members are exactly the members of all members of A.
+		@A [ A != { } --> 3_1B [ @x [ x in B <--> @a [ a in A --> x in a ] ] ] ] 
+			Definition (its uniqueness is always due to Ext. Axiom):
+			For any set non empty set A, the intersection of A  ∩(A)     is the set whose members are exactly the members of all members of A.
 
 
 	Theorem Pg.31 (A): 
-	@A, D [ 3B [ @t [ t in B <--> 3X [ X in D & t = A ∪ X ] ] ] ]
-		Definition (its uniqueness is always due to Ext. Axiom):
-		For any set sets A, D,  {A ∪ X | X in D}    is the set whose members are exactly the sets of the form A ∪ X for some X in D.
+		@A, D [ 3B [ @t [ t in B <--> 3X [ X in D & t = A ∪ X ] ] ] ]
+			Definition (its uniqueness is always due to Ext. Axiom):
+			For any set sets A, D,  {A ∪ X | X in D}    is the set whose members are exactly the sets of the form A ∪ X for some X in D.
 
 	Theorem Pg.31 (B): 
-	@A, D [ 3B [ @t [ t in B <--> 3X [ X in D & t = A ∩ X ] ] ] ]
-		Definition (its uniqueness is always due to Ext. Axiom):
-		For any set sets A, D,  {A ∩ X | X in D}    is the set whose members are exactly the sets of the form A ∩ X for some X in D.
+		@A, D [ 3B [ @t [ t in B <--> 3X [ X in D & t = A ∩ X ] ] ] ]
+			Definition (its uniqueness is always due to Ext. Axiom):
+			For any set sets A, D,  {A ∩ X | X in D}    is the set whose members are exactly the sets of the form A ∩ X for some X in D.
 
 	Theorem Pg.31 (C): 
-	@C, A [ 3B [ @t [ t in B <--> 3X [ X in A & t = C - X ] ] ] ]
-		Definition (its uniqueness is always due to Ext. Axiom):
-		For any set sets C, A,  {C - X | X in A}    is the set whose members are exactly the sets of the form C - X for some X in A.
+		@C, A [ 3B [ @t [ t in B <--> 3X [ X in A & t = C - X ] ] ] ]
+			Definition (its uniqueness is always due to Ext. Axiom):
+			For any set sets C, A,  {C - X | X in A}    is the set whose members are exactly the sets of the form C - X for some X in A.
 
 	
 	Definition of Ordered Pair:
@@ -390,7 +390,10 @@ Axioms and Theorems:
 	Sets of equivalence classes:
 		@R, A [ 3D [ @t [ t in D <--> 3x [ x in A & t = [x]_{R} ] ] ] ]
 		Definition:
-			For any set R, A, and if R is an equivalence relation on A, then {[x]_{R} | x in A} is the set of equivalence classes under R.
+			For any set R, A, [and if R is an equivalence relation on A], then {[x]_{R} | x in A} is the set of sets of the form [x]_{R} [and is called the set of equivalence classes under R].
+		
+		Definition of the quotient set:
+			For any set R, A, [and if R is an equivalence relation on A], then A/R := {[x]_{R} | x in A} 
 
 	Lemma 3N:
 		@R, A [ R is an equivalence relation on A --> @x, y [ x, y in A --> [ [x]_{R} = [y]_{R} <--> <x, y> in R ] ] ]
@@ -400,6 +403,11 @@ Axioms and Theorems:
 			@x [ x in B --> x != {} & x ⊆ A ] &
 			@x, y [ x, y in B & x != y --> ~3u [ u in x & u in y ] ] &
 			@w [ w in A --> 3x [ x in B & w in x ] ] ]
+
+	Definition of Natural Map:
+		@A, R [ 3D [ @t [ t in D <--> 3x [ x in A & t = <x, [x]_{R}> ] ] ] ]
+		Definition:
+			For any A, R, [and if R is an equivalence relation on A], then φ_{A, R} is the set of ordered pairs <x, [x]_{R}> where x in A.
 
 Algebra of Sets:
 	Pg 24 Union of empty set:
