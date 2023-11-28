@@ -1,0 +1,220 @@
+Axioms and Theorems:
+	Corollary 3C:
+		@A, B [ 3D [ @t[ t in D <--> 3x, y [x in A & y in B & t = <x, y> ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets A, B,  {<x, y> | x in A & y in B}    is the set whose members are exactly the sets of the form <x, y> for some x in A & y in B
+		Also known as the Cartesian Product A x B of the sets A and B!
+
+	Subset Axioms:
+		For each formula __ not containing B, the following is an axiom:
+		@t1 ... @tk @c [ 3B [ @x [ x in B <--> x in c & __ ] ] ]
+			Definition:
+			For any set t­1, ..., tk and c, the subset B = {x in c | __ } is the set whose members are exactly those sets in c and __	
+
+	Power Set Axiom:
+		@a [ 3B [ @x [ x in B <--> @t [ t in x --> t in a ] ] ] ]
+			Definition (its uniqueness is always due to Ext. Axiom):
+			For any set a, the power set  P(a) is the set whose members are exactly the subsets of a.
+			[You can think of P(a) as a 1-ary operator. It refer to one set and one set only based on the sets a!]
+
+	Union Axiom:
+		@A [ 3B [ @x [ x in B <--> 3b [ b in A & x in b ] ] ] ]
+			Definition (its uniqueness is always due to Ext. Axiom):
+			For any set A, the union of A  U(A)     is the set whose members are exactly the members of the members of A
+			[You can think of U(A) as a 1-ary operator. It refer to one set and one set only based on the set A!]
+
+	ran R: 
+		@R [ 3D [ @x [ x in D <--> 3t [ <t, x> in R ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets R,  ran R  is the set whose members are those 2nd-coordinate set of some ordered pair in R
+
+	[ZZZ] Pg 43 Existence part:	
+		@F, x [ 3D [ @y [ y in D <--> <x, y> in F ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			For any F, x, the set {y | <x, y> in F} is the set that contains all 2nd-coordinate sets of all ordered pairs in F where x is the first-coordinate set.
+
+	Definition of F(x): 
+	(We define it like this for the purpose of making sure that F(x) is always defined for any F and x, so that we can always refer to it)
+		@F, x [ F(x) := U({y | <x, y> in F}) ]
+
+	Function:
+		Definition:
+		@F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]
+
+	[Lappland] Pg 43 When F is a function and x the dom F, F(x) is y IFF <x, y> in F:
+		@F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]
+
+	Definition of into:
+		@F, A, B [ F maps A into B (F: A->B) <--> 
+						F is a function &
+						dom F = A &
+						ran F ⊆ B 
+					]
+
+	[ORANGE] Sets of equivalence classes:
+		@R, A [ 3D [ @t [ t in D <--> 3x [ x in A & t = [x]_{R} ] ] ] ]
+		Definition:
+			For any set R, A, [and if R is an equivalence relation on A], then {[x]_{R} | x in A} is the set of sets of the form [x]_{R} [and is called the set of equivalence classes under R].
+		
+		Definition of the quotient set:
+			For any set R, A, and if R is an equivalence relation on A, then A/R := {[x]_{R} | x in A} 
+
+	Definition of Natural Map:
+		@A, R [ 3D [ @t [ t in D <--> 3x [ x in A & t = <x, [x]_{R}> ] ] ] ]
+		Definition:
+			For any A, R, [and if R is an equivalence relation on A], then φ_{A, R} is the set of ordered pairs <x, [x]_{R}> where x in A.
+
+	Natural Map is a function from {1} into {2}:
+		@A, R [ φ_{A, R} maps A into {[x]_{R} | x in A} ]
+
+	[APPLE] Subset Axiom (applied):
+		@F, A, B, R [ @c [ 3D [ @t [ t in D <--> t in c & 3x, y [ t = <x, y> & 3u [ u in A & φ_{A, R}(u) = x & F(u) = y ] ] ] ] ] ]         [Subset Axiom UI_META/"@A, B, R" UI_META/"..."]
+
+		idea: this set is a subset of (A/R) x P(U(ran F))
+					recall that @F, x [ F(x) := U({y | <x, y> in F}) ]
+					we see that {y | <x, y> in F} is a subset of ran F
+					by one of the monotonicity properties, U({y | <x, y> in F}) is a subset of U(ran F)
+					therefore, U({y | <x, y> in F}) in P(U(ran F))
+
+	Monotonicity Properties:
+		@A, B [ @t[ t in A --> t in B ] --> @t[ t in A ∪ C --> t in B ∪ C ] ]
+		@A, B [ @t[ t in A --> t in B ] --> @t[ t in A ∩ C --> t in B ∩ C ] ]
+		@A, B [ @t[ t in A --> t in B ] --> @t[ t in U(A)  --> t in U(B) ] ]
+
+1. Show @F, A, B, R [ 3D [ @t [ t in D <--> 3x, y [ t = <x, y> & 3u [ u in A & φ_{A, R}(u) = x & F(u) = y ] ] ] ] ]
+	2. let F, A, B, R be sets
+
+	========
+	// im gonna use (A/R) instead of {[x]_{R} | x in A} cuz its shorter
+	1.D1. @t [ t in (A/R) <--> 3x [ x in A & t = [x]_{R} ] ]			[ORANGE UI/R UI/A & Ext. Axiom]
+	1.D2. @y [ y in ran F <--> 3x [ <x, y> in F ] ]			[ran UI/F & Ext. Axiom]
+	1.D3. @x [ x in U(ran F) <--> 3b [ b in ran F & x in b ] ]			[Union Axiom UI/ran F & Ext. Axiom]
+	1.D4. @x [ x in P(U(ran F)) <--> @t [ t in x --> t in U(ran F) ] ]			[Power Set Axiom UI/U(ran F) & Ext. Axiom]
+	1.D5. @t [ t in (A/R) x P(U(ran F)) <--> 3x, y [ x in (A/R) & y in P(U(ran F)) & t = <x, y> ] ]			[Corollary 3C UI/(A/R) UI/P(U(ran F)) & Ext. Axiom]
+	========
+
+	3. Show 3D [ @t [ t in D <--> 3x, y [ t = <x, y> & 3u [ u in A & φ_{A, R}(u) = x & F(u) = y ] ] ] ]
+		4. @F, A, B, R [ @c [ 3D [ @t [ t in D <--> t in c & 3x, y [ t = <x, y> & 3u [ u in A & φ_{A, R}(u) = x & F(u) = y ] ] ] ] ] ]			[APPLE]
+		5. @c [ 3D [ @t [ t in D <--> t in c & 3x, y [ t = <x, y> & 3u [ u in A & φ_{A, R}(u) = x & F(u) = y ] ] ] ] ]			[4 UI/F, A, B, R]
+		6. 3D [ @t [ t in D <--> t in (A/R) x P(U(ran F)) & 3x, y [ t = <x, y> & 3u [ u in A & φ_{A, R}(u) = x & F(u) = y ] ] ] ]				[5 UI/(A/R) x P(U(ran F))]
+
+		//
+		7. @t [ t in D_1 <--> t in (A/R) x P(U(ran F)) & 3x, y [ t = <x, y> & 3u [ u in A & φ_{A, R}(u) = x & F(u) = y ] ] ]				[6 EI/D_1]
+		//
+
+		8. Show @t [ t in D_1 <--> 3x, y [ t = <x, y> & 3u [ u in A & φ_{A, R}(u) = x & F(u) = y ] ] ]
+			9. let t be a set
+			10. Show t in D_1 <--> 3x, y [ t = <x, y> & 3u [ u in A & φ_{A, R}(u) = x & F(u) = y ] ]
+				11. Show t in D_1 --> 3x, y [ t = <x, y> & 3u [ u in A & φ_{A, R}(u) = x & F(u) = y ] ]
+					12. t in D_1			[ACD]
+					13. t in D_1 <--> t in (A/R) x P(U(ran F)) & 3x, y [ t = <x, y> & 3u [ u in A & φ_{A, R}(u) = x & F(u) = y ] ]			[7 UI/t]
+					14. t in (A/R) x P(U(ran F)) & 3x, y [ t = <x, y> & 3u [ u in A & φ_{A, R}(u) = x & F(u) = y ] ]			[13 BC 12 MP]
+					15. 3x, y [ t = <x, y> & 3u [ u in A & φ_{A, R}(u) = x & F(u) = y ] ]				[14 SR]
+					16.			[15 CD]
+
+				17. Show 3x, y [ t = <x, y> & 3u [ u in A & φ_{A, R}(u) = x & F(u) = y ] ] --> t in D_1
+					18. 3x, y [ t = <x, y> & 3u [ u in A & φ_{A, R}(u) = x & F(u) = y ] ]			[ACD]
+
+					19. t = <x_2, y_2> & 3u [ u in A & φ_{A, R}(u) = x_2 & F(u) = y_2 ]			[19 EI/x_2, y_2]
+					20. 3u [ u in A & φ_{A, R}(u) = x_2 & F(u) = y_2 ]			[19 SR]
+
+					////////
+					21. u_3 in A & φ_{A, R}(u_3) = x_2 & F(u_3) = y_2				[20 EI/u_3]
+					22. t = <x_2, y_2>			[19 SL]
+					////////
+
+					========
+					17.D1. @t [ t in φ_{A, R} <--> 3x [ x in A & t = <x, [x]_{R}> ] ]			[Natural Map Def. UI/A UI/R & Ext. Axiom] 
+					17.D2. @y [ y in ran φ_{A, R} <--> 3x [ <x, y> in φ_{A, R} ] ]			[ran UI/φ_{A, R} & Ext. Axiom]
+					17.D3. @w [ w in {y | <u_3, y> in F} <--> <x, w> in F ]			[ZZZ UI/F, u_3]
+					========
+
+					// original was @A, R [ φ_{A, R} maps A into {[x]_{R} | x in A} ]
+					23. @A, R [ φ_{A, R} maps A into (A/R) ] 			[Natural Map is a function from _ into _]
+					24. φ_{A, R} maps A into (A/R)			[23 UI/A UI/R]
+
+					25. @F, A, B [ F maps A into B (F: A->B) <--> F is a function & dom F = A & ran F ⊆ B ]			[Def. of into]
+					26. @F, M, T [ F maps M into T (F: M->T) <--> F is a function & dom F = M & ran F ⊆ T ]			[25 EQUIV.]
+					27. φ_{A, R} maps A into (A/R) (φ_{A, R}: A->(A/R)) <--> φ_{A, R} is a function & dom φ_{A, R} = A & ran φ_{A, R} ⊆ (A/R)			[26 UI/φ_{A, R}, A, (A/R)]
+
+					28. φ_{A, R} is a function & 
+								dom φ_{A, R} = A & 
+								ran φ_{A, R} ⊆ (A/R)				[27 BC 24 MP]
+
+					//// current goal is to show that x_2 in (A/R)
+					29. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]			[Lappland]
+					30. φ_{A, R} is a function & u_3 in dom φ_{A, R} -->  @w [ <u_3, w> in φ_{A, R} <--> φ_{A, R}(u_3) = w ]			[29 UI/φ_{A, R} UI/]
+					31. u_3 in A			[21 SL SL]
+					32. dom φ_{A, R} = A			[28 SL SR]
+					33. u_3 in dom φ_{A, R}			[31 32 LL]
+					34. φ_{A, R} is a function 			[28 SL SL]
+
+					35. φ_{A, R} is a function & u_3 in dom φ_{A, R}			[34 33 ADJ]
+					36. @w [ <u_3, w> in φ_{A, R} <--> φ_{A, R}(u_3) = w ]			[30 35 MP]
+					37. <u_3, x_2> in φ_{A, R} <--> φ_{A, R}(u_3) = x_2				[36 UI/x_2]
+					38. φ_{A, R}(u_3) = x_2				[21 SL SR]
+					39. <u_3, x_2> in φ_{A, R}			[37 BC 38 MP]
+
+					40. @y [ y in ran φ_{A, R} <--> 3x [ <x, y> in φ_{A, R} ] ]			[17.D2]
+					41. x_2 in ran φ_{A, R} <--> 3x [ <x, x_2> in φ_{A, R} ]			[40 UI/x_2]
+					42. 3x [ <x, x_2> in φ_{A, R} ]			[39 EG/u_3->x]			
+					43. x_2 in ran φ_{A, R}			[41 BC 42 MP]
+					44. ran φ_{A, R} ⊆ (A/R)			[28 SR]
+					45. @t [ t in ran φ_{A, R} --> t in (A/R) ]			[44 EQUIV.]
+					46. x_2 in ran φ_{A, R} --> x_2 in (A/R)			[45 UI/x_2]
+					47. x_2 in (A/R)			[43 46 MP]
+
+
+					//// new current goal is to show y_2 in P(U(ran F))
+					48. @x [ x in P(U(ran F)) <--> @t [ t in x --> t in U(ran F) ] ]			[1.D4]
+					49. y_2 in P(U(ran F)) <--> @t [ t in y_2 --> t in U(ran F) ]			[48 UI/y_2]
+
+					50. F(u_3) = y_2			[21 SR]
+					51. @F, x [ F(x) := U({y | <x, y> in F}) ]			[Def. of F(x)]
+					52. F(u_3) := U({y | <u_3, y> in F})			[51 UI/F UI/u_3]
+
+					53. Show @a [ a in {y | <u_3, y> in F} --> a in ran F ]
+						54. let a be a set
+						55. Show a in {y | <u_3, y> in F} --> a in ran F
+							56. a in {y | <u_3, y> in F}			[ACD]
+							57. @w [ w in {y | <u_3, y> in F} <--> <x, w> in F ]			[17.D3]
+							58. a in {y | <u_3, y> in F} <--> <x, a> in F				[57 UI/a]
+							59. <x, a> in F			[58 BC 56 MP]
+
+							60. @y [ y in ran F <--> 3x [ <x, y> in F ] ]			[1.D2]
+							61. a in ran F <--> 3x [ <x, a> in F ]			[60 UI/a]
+							62. 3x [ <x, a> in F ]			[59 EG/x->x]
+							63. a in ran F			[61 BC 62 MP]
+							64. 		[63 CD]
+						65. 		[55 UD]
+					
+					66. @A, B [ @t [ t in A --> t in B ] --> @t [ t in U(A) --> t in U(B) ] ]		[Monotonicity Properties (iii)]
+					67. @t [ t in {y | <u_3, y> in F} --> t in ran F ] --> @t [ t in U({y | <u_3, y> in F}) --> t in U(ran F) ]			[66 UI/{y | <u_3, y> in F} UI/ran F]
+					68. @t [ t in {y | <u_3, y> in F} --> t in ran F ]				[53 EQUIV.]
+					69. @t [ t in U({y | <u_3, y> in F}) --> t in U(ran F) ]			[67 68 MP]
+
+					70. @x [ x in P(U(ran F)) <--> @t [ t in x --> t in U(ran F) ] ]			[1.D4]
+					71. y_2 in P(U(ran F)) <--> @t [ t in y_2 --> t in U(ran F) ]			[70 UI/y_2]
+
+					72. y_2 = U({y | <u_3, y> in F})			[50 52 LL]
+					73. @t [ t in y_2 --> t in U(ran F) ]			[69 72 LL]
+					74. y_2 in P(U(ran F))			[71 BC 73 MP]
+
+
+ 
+
+					75. t in D_1 <--> t in (A/R) x P(U(ran F)) & 3x, y [ t = <x, y> & 3u [ u in A & φ_{A, R}(u) = x & F(u) = y ] ]			[7 UI/t]
+
+					76. Show t in (A/R) x P(U(ran F))
+						77. @t [ t in (A/R) x P(U(ran F)) <--> 3x, y [ x in (A/R) & y in P(U(ran F)) & t = <x, y> ] ]			[1.D5]
+						78. t in (A/R) x P(U(ran F)) <--> 3x, y [ x in (A/R) & y in P(U(ran F)) & t = <x, y> ]			[77 UI/t]
+						79. x_2 in (A/R) & y_2 in P(U(ran F)) & t = <x_2, y_2>			[47 74 22 ADJ]
+						80. 3x, y [ x in (A/R) & y in P(U(ran F)) & t = <x, y> ]				[79 EG/x_2->x EG/y_2->y]
+						81. t in (A/R) x P(U(ran F))			[78 BC 80 MP]
+						82. 		[81 DD]
+					
+					83.
+					...
+					// the rest should be straightforward from here
+					...
+						

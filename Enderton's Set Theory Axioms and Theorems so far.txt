@@ -393,7 +393,7 @@ Axioms and Theorems:
 			For any set R, A, [and if R is an equivalence relation on A], then {[x]_{R} | x in A} is the set of sets of the form [x]_{R} [and is called the set of equivalence classes under R].
 		
 		Definition of the quotient set:
-			For any set R, A, [and if R is an equivalence relation on A], then A/R := {[x]_{R} | x in A} 
+			For any set R, A, and if R is an equivalence relation on A, then A/R := {[x]_{R} | x in A} 
 
 	Lemma 3N:
 		@R, A [ R is an equivalence relation on A --> @x, y [ x, y in A --> [ [x]_{R} = [y]_{R} <--> <x, y> in R ] ] ]
@@ -408,6 +408,9 @@ Axioms and Theorems:
 		@A, R [ 3D [ @t [ t in D <--> 3x [ x in A & t = <x, [x]_{R}> ] ] ] ]
 		Definition:
 			For any A, R, [and if R is an equivalence relation on A], then φ_{A, R} is the set of ordered pairs <x, [x]_{R}> where x in A.
+
+	Natural Map is a function from {1} into {2}:
+		@A, R [ φ_{A, R} maps A into {[x]_{R} | x in A} ]
 
 Algebra of Sets:
 	Pg 24 Union of empty set:
