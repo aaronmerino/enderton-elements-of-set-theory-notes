@@ -406,11 +406,21 @@ Axioms and Theorems:
 
 	Definition of Natural Map:
 		@A, R [ 3D [ @t [ t in D <--> 3x [ x in A & t = <x, [x]_{R}> ] ] ] ]
-		Definition:
+		Definition (its uniqueness is always due to Ext. Axiom):
 			For any A, R, [and if R is an equivalence relation on A], then φ_{A, R} is the set of ordered pairs <x, [x]_{R}> where x in A.
 
 	Natural Map is a function from {1} into {2}:
 		@A, R [ φ_{A, R} maps A into {[x]_{R} | x in A} ]
+
+	F-hat definition:
+		@F, A, R [ 3D [ @t [ t in D <--> 3x, y [ t = <x, y> & 3u [ u in A & φ_{A, R}(u) = x & F(u) = y ] ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			For any F, A, R, F-hat_{F, A, R} is the set that contains sets t where t = <x, y> for some sets x, y, and that φ_{A, R}(u) = x & F(u) = y for some u in A.
+
+	Pg 58 Example 4 (existence of tilde relation):
+		@F, A [ 3R [ @t [ t in R <--> 3x, y [ x, y in A & t = <x, y> & F(x) = F(y) ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			For any F, A, the set '~_{F, A}' contains all sets of the form <x, y> for some x, y in A & F(x) = F(y)
 
 Algebra of Sets:
 	Pg 24 Union of empty set:

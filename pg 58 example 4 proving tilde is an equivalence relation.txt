@@ -1,0 +1,135 @@
+Axioms and Theorems:
+    Theorem 3A:
+        @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]
+
+    Definition of a binary (2-ary) relation on A:
+        @A [ @D [ D is a binary relation on A <--> 
+                                @t [ t in D --> 3x, y [ x, y in A & t = <x, y> ] ] ] ] 
+
+    Pg 43 Existence part:	
+        @F, x [ 3D [ @y [ y in D <--> <x, y> in F ] ] ]
+        Definition (its uniqueness is always due to Ext. Axiom):
+            For any F, x, the set {y | <x, y> in F} is the set that contains all 2nd-coordinate sets of all ordered pairs in F where x is the first-coordinate set.
+
+    Definition of F(x): 
+    (We define it like this for the purpose of making sure that F(x) is always defined for any F and x, so that we can always refer to it)
+        @F, x [ F(x) := U({y | <x, y> in F}) ]                                
+
+    Definition [FROM TEXTBOOK (my guess based on their proof of Theorem 3M)]:
+        @R, A [ R is reflexive on A <--> @x [ x in A --> <x, x> in R ] ]
+    
+        @R [ R is symmetric <--> @x, y [ <x, y> in R --> <y, x> in R ] ]
+
+        @R [ R is transitive <--> @x, y, z [ <x, y> in R & <y, z> in R --> <x, z> in R ] ]
+
+
+    Equivalence Relation on A:
+        @R, A [ R is an equivalence relation on A <--> R is a binary relation on A & R is reflexive on A & R is symmetric & R is transitive ]
+
+    [TILDE] Pg 58 Example 4 (existence of tilde relation):
+        @F, A [ 3R [ @t [ t in R <--> 3x, y [ x, y in A & t = <x, y> & F(x) = F(y) ] ] ] ]
+        Definition (its uniqueness is always due to Ext. Axiom):
+            For any F, A, the set '~_{F, A}' contains all sets of the form <x, y> for some x, y in A & F(x) = F(y)
+
+1. Show @F, A [ ~_{F, A} is an equivalence relation on A ]
+    2. let F, A be sets
+
+    ========
+    1.D1. @t [ t in ~_{F, A} <--> 3x, y [ x, y in A & t = <x, y> & F(x) = F(y) ] ]      [TILDE UI/F UI/A & Ext. Axiom]
+    ========
+
+    3. @R, B [ R is an equivalence relation on B <--> R is a binary relation on B & R is reflexive on B & R is symmetric & R is transitive ]        [Def. of Equiv. Relation]
+
+    4. ~_{F, A} is an equivalence relation on A <--> ~_{F, A} is a binary relation on A & ~_{F, A} is reflexive on A & ~_{F, A} is symmetric & ~_{F, A} is transitive
+
+    5. Show ~_{F, A} is a binary relation on A
+        6. @A [ @D [ D is a binary relation on A <-->  @t [ t in D --> 3x, y [ x, y in A & t = <x, y> ] ] ] ]      [Def. of Binary Relation]
+
+        7. ~_{F, A} is a binary relation on A <-->  @t [ t in ~_{F, A} --> 3x, y [ x, y in A & t = <x, y> ] ]         [6 UI/A UI/~_{F, A}]
+
+        8. Show @t [ t in ~_{F, A} --> 3x, y [ x, y in A & t = <x, y> ] ]
+            9. let t be a set
+            10. Show t in ~_{F, A} --> 3x, y [ x, y in A & t = <x, y> ]
+                11. t in ~_{F, A}           [ACD]
+                12. @t [ t in ~_{F, A} <--> 3x, y [ x, y in A & t = <x, y> & F(x) = F(y) ] ]            [1.D1]
+                13. t in ~_{F, A} <--> 3x, y [ x, y in A & t = <x, y> & F(x) = F(y) ]           [12 UI/t]
+                14. 3x, y [ x, y in A & t = <x, y> & F(x) = F(y) ]          [13 BC 11 MP]
+                15. x_1, y_1 in A & t = <x_1, y_1> & F(x_1) = F(y_1)        [14 EI/x_1 EI/y_1]
+                16. x_1, y_1 in A & t = <x_1, y_1>          [15 SL]
+                17. 3x, y [ x, y in A & t = <x, y> ]            [16 EG/x_1->x EG/y_1->y]
+                18.     [17 CD]
+            
+            19.     [10 UD]
+        
+        20. ~_{F, A} is a binary relation on A          [7 BC 8 MP]
+        21.     [20 DD]
+     
+    22. Show ~_{F, A} is reflexive on A
+        23. @R, B [ R is reflexive on B <--> @x [ x in B --> <x, x> in R ] ]        [Def. of Reflexivity]
+        24. ~_{F, A} is reflexive on A <--> @x [ x in A --> <x, x> in ~_{F, A} ]        [23 UI/~_{F, A} UI/A]
+        25. Show @x [ x in A --> <x, x> in ~_{F, A} ]
+            26. let x be a set
+            27. Show x in A --> <x, x> in ~_{F, A}
+                28. x in A      [ACD]
+                29. @t [ t in ~_{F, A} <--> 3x, y [ x, y in A & t = <x, y> & F(x) = F(y) ] ]        [1.D1]
+                30. @t [ t in ~_{F, A} <--> 3u, v [ u, v in A & t = <u, v> & F(u) = F(v) ] ]        [29 EQUIV.]
+
+                // consider the set <x, x>
+                31. <x, x> in ~_{F, A} <--> 3u, v [ u, v in A & <x, x> = <u, v> & F(u) = F(v) ]         [30 UI/<x, x>]
+                32. x, x in A       [28 28 ADJ]
+                33. <x, x> = <x, x>         [SID/<x, x>]
+                34. F(x) = F(x)         [SID/F(x)]
+                35. x, x in A & <x, x> = <x, x> & F(x) = F(x)       [32 33 34 ADJ]
+                36. 3v [ x, v in A & <x, x> = <x, v> & F(x) = F(v) ]        [35 EG/x->v]
+                37. 3u [ 3v [ u, v in A & <x, x> = <u, v> & F(u) = F(v) ] ]         [36 EG/x->u]
+                38. 3u, v [ u, v in A & <x, x> = <u, v> & F(u) = F(v) ]         [37 EQUIV.]
+                39. <x, x> in ~_{F, A}        [31 BC 38 MP]
+                40.     [39 CD]
+            41.     [27 UD]
+        42. ~_{F, A} is reflexive on A      [24 BC 25 MP]
+        43.     [42 DD]
+    
+    44. Show ~_{F, A} is symmetric
+        45. @R [ R is symmetric <--> @x, y [ <x, y> in R --> <y, x> in R ] ]
+        46. ~_{F, A} is symmetric <--> @x, y [ <x, y> in ~_{F, A} --> <y, x> in ~_{F, A} ]         [45 UI/~_{F, A}]
+        47. Show @x, y [ <x, y> in ~_{F, A} --> <y, x> in ~_{F, A} ]
+            48. let x, y be sets
+            49. Show <x, y> in ~_{F, A} --> <y, x> in ~_{F, A}
+                50. <x, y> in ~_{F, A}      [ACD]
+                51. @t [ t in ~_{F, A} <--> 3x, y [ x, y in A & t = <x, y> & F(x) = F(y) ] ]        [1.D1]
+                52. @t [ t in ~_{F, A} <--> 3u, v [ u, v in A & t = <u, v> & F(u) = F(v) ] ]        [51 EQUIV.]
+                53. <x, y> in ~_{F, A} <--> 3u, v [ u, v in A & <x, y> = <u, v> & F(u) = F(v) ]         [52 UI/<x, y>]
+                54. 3u, v [ u, v in A & <x, y> = <u, v> & F(u) = F(v) ]     [53 BC 50 MP]
+                55. u_1, v_1 in A & <x, y> = <u_1, v_1> & F(u_1) = F(v_1)       [54 EI/u_1 EI/v_1]
+
+                56. @a, b, c, d [ <a, b> = <c, d>  <-->  a = c & b = d ]        [Theorem 3A]
+                57. <x, y> = <u_1, v_1>  <-->  x = u_1 & y = v_1        [57 UI/x, y, u_1, v_1]
+                58. <x, y> = <u_1, v_1>         [55 SL SR]
+                59. x = u_1 & y = v_1       [57 BC 58 MP]
+
+                // we now show <y, x> in ~_{F, A}
+                60. @t [ t in ~_{F, A} <--> 3x, y [ x, y in A & t = <x, y> & F(x) = F(y) ] ]        [1.D1]
+                61. @t [ t in ~_{F, A} <--> 3u, v [ u, v in A & t = <u, v> & F(u) = F(v) ] ]        [60 EQUIV.]
+                62. <y, x> in ~_{F, A} <--> 3u, v [ u, v in A & <y, x> = <u, v> & F(u) = F(v) ]         [61 UI/<y, x>]
+
+                63. u_1, v_1 in A       [55 SL SL]
+                64. x, v_1 in A         [59 SL 63 LL]
+                65. x, y in A           [59 SR 64 LL]
+                66. y, x in A           [65 EQUIV]
+
+                67. <y, x> = <y, x>     [SID/<y, x>]
+
+                68. F(u_1) = F(v_1)     [55 SR]
+                69. F(x) = F(v_1)       [59 SL 68 LL]
+                70. F(x) = F(y)         [59 SR 69 LL]
+                71. F(y) = F(x)         [70 EQUIV.]
+
+                72. y, x in A & <y, x> = <y, x> & F(y) = F(x)       [66 67 71 ADJ]
+                73. 3v [ y, v in A & <y, x> = <y, v> & F(y) = F(v) ]        [72 EG/x->v]
+                74. 3u [ 3v [ u, v in A & <y, x> = <u, v> & F(u) = F(v) ] ]         [73 EG/y->u]
+                75. 3u, v [ u, v in A & <y, x> = <u, v> & F(u) = F(v) ]         [74 EQUIV.]
+                76. 
+
+
+
+    Show ~_{F, A} is transitive

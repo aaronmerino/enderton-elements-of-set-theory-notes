@@ -1,0 +1,62 @@
+Axioms and Theorems:
+    Corollary 3C:
+        @A, B [ 3D [ @t[ t in D <--> 3x, y [x in A & y in B & t = <x, y> ] ] ] ]
+        Definition (its uniqueness is always due to Ext. Axiom):
+        For any set sets A, B,  {<x, y> | x in A & y in B}    is the set whose members are exactly the sets of the form <x, y> for some x in A & y in B
+        Also known as the Cartesian Product A x B of the sets A and B!
+
+    Subset Axioms:
+        For each formula __ not containing B, the following is an axiom:
+        @t1 ... @tk @c [ 3B [ @x [ x in B <--> x in c & __ ] ] ]
+            Definition:
+            For any set t­1, ..., tk and c, the subset B = {x in c | __ } is the set whose members are exactly those sets in c and __    
+
+
+  [ORANGE] Subset Axiom (applied):
+    @F, A [ @c [ 3R [ @t [ t in R <--> t in c & 3x, y [ x, y in A & t = <x, y> & F(x) = F(y) ] ] ] ] ]
+
+
+
+
+
+// idea: this is a subset of A x A
+1. Show @F, A [ 3R [ @t [ t in R <--> 3x, y [ x, y in A & t = <x, y> & F(x) = F(y) ] ] ] ]
+    2. let F, A be sets
+
+    ========
+    1.D1. @t [ t in A x A <--> 3x, y [ x in A & y in A & t = <x, y> ] ]      [Corollary 3C UI/A UI/A & Ext. Axiom]
+    ========
+
+    3. Show 3R [ @t [ t in R <--> 3x, y [ x, y in A & t = <x, y> & F(x) = F(y) ] ] ]
+        4. @F, A [ @c [ 3R [ @t [ t in R <--> t in c & 3x, y [ x, y in A & t = <x, y> & F(x) = F(y) ] ] ] ] ]       [ORANGE]
+        5. @c [ 3R [ @t [ t in R <--> t in c & 3x, y [ x, y in A & t = <x, y> & F(x) = F(y) ] ] ] ]         [4 UI/F, A]
+        6. 3R [ @t [ t in R <--> t in A x A & 3x, y [ x, y in A & t = <x, y> & F(x) = F(y) ] ] ]        [5 UI/A x A]
+        7. @t [ t in R_1 <--> t in A x A & 3x, y [ x, y in A & t = <x, y> & F(x) = F(y) ] ]         [6 EI/R_1]
+
+        8. Show @t [ t in R_1 <--> 3x, y [ x, y in A & t = <x, y> & F(x) = F(y) ] ]
+            9. let t be a set
+            10. Show t in R_1 <--> 3x, y [ x, y in A & t = <x, y> & F(x) = F(y) ]
+                11. Show t in R_1 --> 3x, y [ x, y in A & t = <x, y> & F(x) = F(y) ]
+                    12. t in R_1            [ACD]
+                    13. t in R_1 <--> t in A x A & 3x, y [ x, y in A & t = <x, y> & F(x) = F(y) ]        [7 UI/t]
+                    14. t in A x A & 3x, y [ x, y in A & t = <x, y> & F(x) = F(y) ]         [13 BC 12 MP]
+                    15. 3x, y [ x, y in A & t = <x, y> & F(x) = F(y) ]          [14 SR]
+                    16.         [15 CD]
+
+                17. Show 3x, y [ x, y in A & t = <x, y> & F(x) = F(y) ] --> t in R_1
+                    18. 3x, y [ x, y in A & t = <x, y> & F(x) = F(y) ]          [ACD]
+                    19. x_2, y_2 in A & t = <x_2, y_2> & F(x_2) = F(y_2)            [18 EI/x_2, y_2]
+                    20. t in R_1 <--> t in A x A & 3x, y [ x, y in A & t = <x, y> & F(x) = F(y) ]       [7 UI/t]
+
+                    21. Show t in A x A
+                        22. @t [ t in A x A <--> 3x, y [ x in A & y in A & t = <x, y> ] ]        [1.D1]
+                        23. t in A x A <--> 3x, y [ x in A & y in A & t = <x, y> ]           [22 UI/t]
+                        24. x_2, y_2 in A & t = <x_2, y_2>          [19 SL]
+                        25. x_2 in A & y_2 in A & t = <x_2, y_2>            [24 EQUIV.]
+                        26. 3x, y [ x in A & y in A & t = <x, y> ]        [25 EG/x_2->x EG/y_2->y]
+                        27. t in A x A          [23 BC 26 MP]
+                        28.        [27 DD]
+                    
+                    ...
+                    // the rest should be straightforward from here
+                    ...

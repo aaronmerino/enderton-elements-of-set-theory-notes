@@ -1,0 +1,50 @@
+Axioms and Theorems:
+	Function:
+		Definition:
+		@F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]
+
+	Pg 43 When F is a function and x the dom F, F(x) is y IFF <x, y> in F:
+		@F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]
+		
+	Definition of one-to-one:
+		@F [ F is a function --> 
+			[ F is one-to-one <--> @y [ y in ran F --> 3_1x[ <x, y> in F ] ] ] ]
+	
+	Definition of single-rooted:
+		@R [ R is single-rooted <--> 
+				@y [ y in ran R --> 3_1x [ <x, y> in R ] ]
+			]
+
+	Lemma 3N:
+		@R, A [ R is an equivalence relation on A --> @x, y [ x, y in A --> [ [x]_{R} = [y]_{R} <--> <x, y> in R ] ] ]
+
+    Definition of Natural Map:
+        @A, R [ 3D [ @t [ t in D <--> 3x [ x in A & t = <x, [x]_{R}> ] ] ] ]
+        Definition (its uniqueness is always due to Ext. Axiom):
+            For any A, R, [and if R is an equivalence relation on A], then φ_{A, R} is the set of ordered pairs <x, [x]_{R}> where x in A.
+
+    Natural Map is a function from {1} into {2}:
+        @A, R [ φ_{A, R} maps A into {[x]_{R} | x in A} ]
+
+    F-hat definition:
+        @F, A, R [ 3D [ @t [ t in D <--> 3x, y [ t = <x, y> & 3u [ u in A & φ_{A, R}(u) = x & F(u) = y ] ] ] ] ]
+        Definition (its uniqueness is always due to Ext. Axiom):
+            For any F, A, R, F-hat_{F, A, R} is the set that contains sets t where t = <x, y> for some sets x, y, and that φ_{A, R}(u) = x & F(u) = y for some u in A.
+
+    [TILDE] Pg 58 Example 4 (existence of tilde relation):
+        @F, A [ 3R [ @t [ t in R <--> 3x, y [ x, y in A & t = <x, y> & F(x) = F(y) ] ] ] ]
+        Definition (its uniqueness is always due to Ext. Axiom):
+            For any F, A, the set '~_{F, A}' contains all sets of the form <x, y> for some x, y in A & F(x) = F(y)
+
+
+1. Show @F, A [ F-hat_{F, A, ~_{F, A}} is single-rooted ]
+    2. let F, A be sets
+
+    ========
+    1.D1. @t [ t in ~_{F, A} <--> 3x, y [ x, y in A & t = <x, y> & F(x) = F(y) ] ]      [TILDE UI/F UI/A & Ext. Axiom]
+    1.D2. @t [ t in F-hat_{F, A, ~_{F, A}} <--> 3x, y [ t = <x, y> & 3u [ u in A & φ_{A, ~_{F, A}}(u) = x & F(u) = y ] ] ]      [F-hat UI/F UI/A UI/~_{F, A} & Ext. Axiom]
+    1.D3. @t [ t in φ_{A, ~_{F, A}} <--> 3x [ x in A & t = <x, [x]_{~_{F, A}}> ] ]      [Natural Map UI/A UI/~_{F, A}]
+    ========
+
+    3. Show F-hat_{F, A, ~_{F, A}} is single-rooted
+        4. 
