@@ -128,8 +128,86 @@ Axioms and Theorems:
                 73. 3v [ y, v in A & <y, x> = <y, v> & F(y) = F(v) ]        [72 EG/x->v]
                 74. 3u [ 3v [ u, v in A & <y, x> = <u, v> & F(u) = F(v) ] ]         [73 EG/y->u]
                 75. 3u, v [ u, v in A & <y, x> = <u, v> & F(u) = F(v) ]         [74 EQUIV.]
-                76. 
+                76. <y, x> in ~_{F, A}          [62 BC 75 MP]
+                77.     [76 CD]
+            78.     [49 UD]
+        79. ~_{F, A} is symmetric       [46 BC 47 MP]
+        80.     [79 DD]
+    
+    81. Show ~_{F, A} is transitive
+        82. @R [ R is transitive <--> @x, y, z [ <x, y> in R & <y, z> in R --> <x, z> in R ] ]      [Def. of Transitivity]
+        83. @R [ R is transitive <--> @u, v, w [ <u, v> in R & <v, w> in R --> <u, w> in R ] ]      [82 EQUIV.]
+        84. ~_{F, A} is transitive <--> @u, v, w [ <u, v> in ~_{F, A} & <v, w> in ~_{F, A} --> <u, w> in ~_{F, A} ]     [83 UI/~_{F, A}]
+        85. Show @u, v, w [ <u, v> in ~_{F, A} & <v, w> in ~_{F, A} --> <u, w> in ~_{F, A} ]
+            86. let u, v, w be sets
+            87. Show <u, v> in ~_{F, A} & <v, w> in ~_{F, A} --> <u, w> in ~_{F, A}
+                88. <u, v> in ~_{F, A} & <v, w> in ~_{F, A}         [ACD]
+
+                89. <u, v> in ~_{F, A}      [88 SL]
+                90. <v, w> in ~_{F, A}      [88 SR]
+
+                91. @t [ t in ~_{F, A} <--> 3x, y [ x, y in A & t = <x, y> & F(x) = F(y) ] ]        [1.D1]
+                92. <u, v> in ~_{F, A} <--> 3x, y [ x, y in A & <u, v> = <x, y> & F(x) = F(y) ]         [91 UI/<u, v>]
+                93. 3x, y [ x, y in A & <u, v> = <x, y> & F(x) = F(y) ]         [92 BC 89 MP]
+                94. x_1, y_1 in A & <u, v> = <x_1, y_1> & F(x_1) = F(y_1)       [93 EI/x_1 EI/y_1]
+
+                95. @t [ t in ~_{F, A} <--> 3x, y [ x, y in A & t = <x, y> & F(x) = F(y) ] ]        [1.D1]
+                96. <v, w> in ~_{F, A} <--> 3x, y [ x, y in A & <v, w> = <x, y> & F(x) = F(y) ]         [95 UI/<v, w>]
+                97. 3x, y [ x, y in A & <v, w> = <x, y> & F(x) = F(y) ]         [96 BC 90 MP]
+                98. x_2, y_2 in A & <v, w> = <x_2, y_2> & F(x_2) = F(y_2)       [97 EI/x_2 EI/y_2] 
+
+                99. @a, b, c, d [ <a, b> = <c, d>  <-->  a = c & b = d ]        [Theorem 3A]
+                100. <u, v> = <x_1, y_1>  <-->  u = x_1 & v = y_1       [99 UI/u, v, x_1, y_1]
+                101. <u, v> = <x_1, y_1>        [94 SL SR]
+                102. u = x_1 & v = y_1          [100 BC 101 MP]
 
 
+                103. @a, b, c, d [ <a, b> = <c, d>  <-->  a = c & b = d ]        [Theorem 3A]
+                104. <v, w> = <x_2, y_2>  <-->  v = x_2 & w = y_2       [103 UI/v, w, x_2, y_2]
+                105. <v, w> = <x_2, y_2>        [98 SL SR]
+                106. v = x_2 & w = y_2      [104 BC 105 MP]
 
-    Show ~_{F, A} is transitive
+
+                107. F(x_1) = F(y_1)        [94 SR]
+                108. F(x_2) = F(y_2)        [98 SR]
+
+                109. v = y_1        [102 SR]
+                110. v = x_2        [106 SL]
+
+                111. y_1 = x_2      [109 110 LL]
+                112. F(x_1) = F(x_2)        [107 111 LL]
+
+                113. F(x_1) = F(y_2)        [112 108 LL]
+
+                114. u = x_1        [102 SL]
+                115. w = y_2        [106 SR]
+
+                116. F(u) = F(y_2)      [113 114 LL]
+                *117. F(u) = F(w)        [116 115 LL]
+
+                118. x_1, y_1 in A      [94 SL SL]
+                119. x_1 in A           [118 SL]
+                120. u in A             [114 119 LL]
+
+                121. x_2, y_2 in A      [98 SL SL]
+                122. y_2 in A           [121 SR]
+                123. w in A             [115 122 LL]
+
+                *124. u, w in A          [120 123 ADJ]
+
+                *125. <u, w> = <u, w>        [SID/<u, w>]
+
+                126. @t [ t in ~_{F, A} <--> 3x, y [ x, y in A & t = <x, y> & F(x) = F(y) ] ]        [1.D1]
+                127. <u, w> in ~_{F, A} <--> 3x, y [ x, y in A & <u, w> = <x, y> & F(x) = F(y) ]        [126 UI/<u, w>]
+                128. u, w in A & <u, w> = <u, w> & F(u) = F(w)      [124 125 117 ADJ]
+                129. 3x, y [ x, y in A & <u, w> = <x, y> & F(x) = F(y) ]        [128 EG/u->x EG/w->y]
+                130. <u, w> in ~_{F, A}         [127 BC 129 MP]
+                131.    [130 CD]
+            
+            132.    [87 UD]
+        133. ~_{F, A} is transitive         [84 BC 85 MP]
+        134.    [133 DD]
+    
+    135. ~_{F, A} is a binary relation on A & ~_{F, A} is reflexive on A & ~_{F, A} is symmetric & ~_{F, A} is transitive       [5 22 44 81 ADJ]
+    136. ~_{F, A} is an equivalence relation on A       [4 BC 135 MP]
+    137.        [136 UD]
