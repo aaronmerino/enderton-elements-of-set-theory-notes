@@ -1,29 +1,44 @@
 Axioms and Theorems:
-	Function:
-		Definition:
-		@F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]
+    Theorem 3A:
+        @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]
 
-	Pg 43 When F is a function and x the dom F, F(x) is y IFF <x, y> in F:
-		@F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]
-		
-	Definition of one-to-one:
-		@F [ F is a function --> 
-			[ F is one-to-one <--> @y [ y in ran F --> 3_1x[ <x, y> in F ] ] ] ]
-	
-	Definition of single-rooted:
-		@R [ R is single-rooted <--> 
-				@y [ y in ran R --> 3_1x [ <x, y> in R ] ]
-			]
+    ran R: 
+        @R [ 3D [ @x [ x in D <--> 3t [ <t, x> in R ] ] ] ]
+        Definition (its uniqueness is always due to Ext. Axiom):
+        For any set sets R,  ran R  is the set whose members are those 2nd-coordinate set of some ordered pair in R
 
-	Lemma 3N:
-		@R, A [ R is an equivalence relation on A --> @x, y [ x, y in A --> [ [x]_{R} = [y]_{R} <--> <x, y> in R ] ] ]
+    Function:
+        Definition:
+        @F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]
+
+    [TEA] Pg 43 When F is a function and x the dom F, F(x) is y IFF <x, y> in F:
+        @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]
+        
+    Definition of into:
+        @F, A, B [ F maps A into B (F: A->B) <--> 
+                        F is a function &
+                        dom F = A &
+                        ran F ⊆ B 
+                    ]
+
+    Definition of one-to-one:
+        @F [ F is a function --> 
+            [ F is one-to-one <--> @y [ y in ran F --> 3_1x[ <x, y> in F ] ] ] ]
+    
+    Definition of single-rooted:
+        @R [ R is single-rooted <--> 
+                @y [ y in ran R --> 3_1x [ <x, y> in R ] ]
+            ]
+
+    Lemma 3N:
+        @R, A [ R is an equivalence relation on A --> @x, y [ x, y in A --> [ [x]_{R} = [y]_{R} <--> <x, y> in R ] ] ]
 
     Definition of Natural Map:
         @A, R [ 3D [ @t [ t in D <--> 3x [ x in A & t = <x, [x]_{R}> ] ] ] ]
         Definition (its uniqueness is always due to Ext. Axiom):
             For any A, R, [and if R is an equivalence relation on A], then φ_{A, R} is the set of ordered pairs <x, [x]_{R}> where x in A.
 
-    Natural Map is a function from {1} into {2}:
+    [EGG] Natural Map is a function from {1} into {2}:
         @A, R [ φ_{A, R} maps A into {[x]_{R} | x in A} ]
 
     F-hat definition:
@@ -36,6 +51,8 @@ Axioms and Theorems:
         Definition (its uniqueness is always due to Ext. Axiom):
             For any F, A, the set '~_{F, A}' contains all sets of the form <x, y> for some x, y in A & F(x) = F(y)
 
+    [YUIPEN] Pg 58 Example 4 tilde is an equivalence relation:
+        @F, A [ ~_{F, A} is an equivalence relation on A ]
 
 1. Show @F, A [ F-hat_{F, A, ~_{F, A}} is single-rooted ]
     2. let F, A be sets
@@ -43,8 +60,250 @@ Axioms and Theorems:
     ========
     1.D1. @t [ t in ~_{F, A} <--> 3x, y [ x, y in A & t = <x, y> & F(x) = F(y) ] ]      [TILDE UI/F UI/A & Ext. Axiom]
     1.D2. @t [ t in F-hat_{F, A, ~_{F, A}} <--> 3x, y [ t = <x, y> & 3u [ u in A & φ_{A, ~_{F, A}}(u) = x & F(u) = y ] ] ]      [F-hat UI/F UI/A UI/~_{F, A} & Ext. Axiom]
-    1.D3. @t [ t in φ_{A, ~_{F, A}} <--> 3x [ x in A & t = <x, [x]_{~_{F, A}}> ] ]      [Natural Map UI/A UI/~_{F, A}]
+    1.D3. @t [ t in φ_{A, ~_{F, A}} <--> 3x [ x in A & t = <x, [x]_{~_{F, A}}> ] ]      [Natural Map UI/A UI/~_{F, A} & Ext. Axiom]
+    1.D4. @y [ y in ran F-hat_{F, A, ~_{F, A}} <--> 3x [ <x, y> in F-hat_{F, A, ~_{F, A}} ] ]       [ran UI/F-hat_{F, A, ~_{F, A}} & Ext. Axiom]
     ========
 
     3. Show F-hat_{F, A, ~_{F, A}} is single-rooted
-        4. 
+        4. @R [ R is single-rooted <--> @y [ y in ran R --> 3_1x [ <x, y> in R ] ] ]        [Def. of Single-rooted]
+        5. F-hat_{F, A, ~_{F, A}} is single-rooted <--> @y [ y in ran F-hat_{F, A, ~_{F, A}} --> 3_1x [ <x, y> in F-hat_{F, A, ~_{F, A}} ] ]        [4 UI/F-hat_{F, A, ~_{F, A}}]
+
+        6. Show @y [ y in ran F-hat_{F, A, ~_{F, A}} --> 3_1x [ <x, y> in F-hat_{F, A, ~_{F, A}} ] ]
+            7. let y be a set
+            8. Show y in ran F-hat_{F, A, ~_{F, A}} --> 3_1x [ <x, y> in F-hat_{F, A, ~_{F, A}} ]
+                9. y in ran F-hat_{F, A, ~_{F, A}}      [ACD]
+                10. @y [ y in ran F-hat_{F, A, ~_{F, A}} <--> 3x [ <x, y> in F-hat_{F, A, ~_{F, A}} ] ]         [1.D4]
+                11. y in ran F-hat_{F, A, ~_{F, A}} <--> 3x [ <x, y> in F-hat_{F, A, ~_{F, A}} ]        [10 UI/y]
+                12. 3x [ <x, y> in F-hat_{F, A, ~_{F, A}} ]         [11 BC 9 MP]
+                13. <x_1, y> in F-hat_{F, A, ~_{F, A}}          [12 EI/x_1]
+
+                14. @t [ t in F-hat_{F, A, ~_{F, A}} <--> 3x, y [ t = <x, y> & 3u [ u in A & φ_{A, ~_{F, A}}(u) = x & F(u) = y ] ] ]        [1.D1]
+                15. @t [ t in F-hat_{F, A, ~_{F, A}} <--> 3q, w [ t = <q, w> & 3u [ u in A & φ_{A, ~_{F, A}}(u) = q & F(u) = w ] ] ]        [10 EQUIV.]
+                16. <x_1, y> in F-hat_{F, A, ~_{F, A}} <--> 3q, w [ <x_1, y> = <q, w> & 3u [ u in A & φ_{A, ~_{F, A}}(u) = q & F(u) = w ] ]         [15 UI/<x_1, y>]
+
+                17. 3q, w [ <x_1, y> = <q, w> & 3u [ u in A & φ_{A, ~_{F, A}}(u) = q & F(u) = w ] ]         [16 BC 13 MP]
+                18. <x_1, y> = <q_2, w_2> & 3u [ u in A & φ_{A, ~_{F, A}}(u) = q_2 & F(u) = w_2 ]       [17 EI/q_2 EI/w_2]
+                19. 3u [ u in A & φ_{A, ~_{F, A}}(u) = q_2 & F(u) = w_2 ]       [18 SR]
+
+
+                ////////
+                20. u_3 in A & φ_{A, ~_{F, A}}(u_3) = q_2 & F(u_3) = w_2        [19 EI/u_3]
+                21. <x_1, y> = <q_2, w_2>       [18 SL]
+                ////////
+
+
+                22. Show @k [ <k, y> in F-hat_{F, A, ~_{F, A}} --> k = x_1 ]
+                    23. let k be a set
+                    24. Show <k, y> in F-hat_{F, A, ~_{F, A}} --> k = x_1
+                        25. <k, y> in F-hat_{F, A, ~_{F, A}}        [ACD]
+                        26. @t [ t in F-hat_{F, A, ~_{F, A}} <--> 3q, w [ t = <q, w> & 3u [ u in A & φ_{A, ~_{F, A}}(u) = q & F(u) = w ] ] ]        [15 R (1.D1)]
+                        27. <k, y> in F-hat_{F, A, ~_{F, A}} <--> 3q, w [ <k, y> = <q, w> & 3u [ u in A & φ_{A, ~_{F, A}}(u) = q & F(u) = w ] ]         [26 UI/<k, y>]
+                        28. 3q, w [ <k, y> = <q, w> & 3u [ u in A & φ_{A, ~_{F, A}}(u) = q & F(u) = w ] ]       [27 BC 25 MP]
+                        29. <k, y> = <q_4, w_4> & 3u [ u in A & φ_{A, ~_{F, A}}(u) = q_4 & F(u) = w_4 ]         [28 EI/q_4 EI/w_4]
+                        30. 3u [ u in A & φ_{A, ~_{F, A}}(u) = q_4 & F(u) = w_4 ]        [29 SR]
+
+
+                        ////////
+                        31. u_5 in A & φ_{A, ~_{F, A}}(u_5) = q_4 & F(u_5) = w_4        [30 EI/u_5]
+                        32. <k, y> = <q_4, w_4>         [29 SL]
+                        ////////
+
+
+                        33. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]        [Theorem 3A]
+                        34. <x_1, y> = <q_2, w_2>  <-->  x_1 = q_2 & y = w_2        [33 UI/x_1, y, q_2, w_2]
+                        35. <x_1, y> = <q_2, w_2>       [21 R]
+                        36. x_1 = q_2 & y = w_2         [34 BC 35 MP]
+
+                        37. <k, y> = <q_4, w_4>  <-->  k = q_4 & y = w_4        [33 UI/k, y, q_4, w_4]
+                        38. <k, y> = <q_4, w_4>         [32 R]
+                        39. k = q_4 & y = w_4           [37 BC 38 MP]
+
+
+                        40. φ_{A, ~_{F, A}}(u_3) = q_2      [20 SL SR]
+                        41. φ_{A, ~_{F, A}}(u_3) = x_1      [(36 SL) 40 LL]
+
+
+                        42. φ_{A, ~_{F, A}}(u_5) = q_4      [31 SL SR]
+                        43. φ_{A, ~_{F, A}}(u_5) = k        [(39 SL) 42 LL]
+
+
+                        44. Show φ_{A, ~_{F, A}}(u_5) = φ_{A, ~_{F, A}}(u_3)        [Showing k = x_1]
+                            45. 
+                            46. @F, A [ ~_{F, A} is an equivalence relation on A ]      [YUIPEN]
+                            47. ~_{F, A} is an equivalence relation on A        [46 UI/F, A]
+
+                            48. @R, A [ R is an equivalence relation on A --> @x, y [ x, y in A --> [ [x]_{R} = [y]_{R} <--> <x, y> in R ] ] ]      [Lemma 3N]
+                            49. @R, B [ R is an equivalence relation on B --> @x, y [ x, y in B --> [ [x]_{R} = [y]_{R} <--> <x, y> in R ] ] ]      [48 EQUIV.]
+                            50. ~_{F, A} is an equivalence relation on A --> @x, y [ x, y in A --> [ [x]_{~_{F, A}} = [y]_{~_{F, A}} <--> <x, y> in ~_{F, A} ] ]        [49 UI/~_{F, A} UI/A]
+
+                            51. @x, y [ x, y in A --> [ [x]_{~_{F, A}} = [y]_{~_{F, A}} <--> <x, y> in ~_{F, A} ] ]         [50 BC 47 MP]
+                            52. u_5, u_3 in A --> [ [u_5]_{~_{F, A}} = [u_3]_{~_{F, A}} <--> <u_5, u_3> in ~_{F, A} ]       [51 UI/u_5 UI/u_3]
+                            53. u_5, u_3 in A       [(31 SL SL) (20 SL SL) ADJ]
+
+                            54. [u_5]_{~_{F, A}} = [u_3]_{~_{F, A}} <--> <u_5, u_3> in ~_{F, A}         [52 53 MP]
+
+                            55. F(u_3) = w_2        [20 SR]
+                            56. y = w_2         [36 SR]
+                            57. F(u_3) = y      [55 56 LL]
+                            
+                            58. F(u_5) = w_4        [31 SR]
+                            59. y = w_4         [39 SR]
+                            60. F(u_5) = y      [58 59 LL]
+
+                            61. F(u_5) = F(u_3)         [60 57 LL]
+
+
+                            62. @t [ t in ~_{F, A} <--> 3x, y [ x, y in A & t = <x, y> & F(x) = F(y) ] ]        [1.D1]
+                            63. <u_5, u_3> in ~_{F, A} <--> 3x, y [ x, y in A & <u_5, u_3> = <x, y> & F(x) = F(y) ]         [62 UI/<u_5, u_3>]
+
+                            64. u_5, u_3 in A       [53 R]
+                            65. <u_5, u_3> = <u_5, u_3>         [SID/<u_5, u_3>]
+                            66. F(u_5) = F(u_3)     [61 R]
+                            67. u_5, u_3 in A & <u_5, u_3> = <u_5, u_3> & F(u_5) = F(u_3)       [64 65 66 ADJ]
+                            68. 3x, y [ x, y in A & <u_5, u_3> = <x, y> & F(x) = F(y) ]         [67 EG/u_5->x EG/u_3->y]
+                            69. <u_5, u_3> in ~_{F, A}      [63 BC 68 MP]
+
+                            ////////
+                            70. [u_5]_{~_{F, A}} = [u_3]_{~_{F, A}}         [54 BC 69 MP]
+                            ////////
+
+                            71. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]        [TEA]
+                            72. φ_{A, ~_{F, A}} is a function & u_5 in dom φ_{A, ~_{F, A}} -->  @w [ <u_5, w> in φ_{A, ~_{F, A}} <--> φ_{A, ~_{F, A}}(u_5) = w ]      [71 UI/φ_{A, ~_{F, A}} UI/u_5]
+                                
+                            73. @A, R [ φ_{A, R} maps A into {[x]_{R} | x in A} ]       [EGG]
+                            74. @R [ φ_{A, R} maps A into {[x]_{R} | x in A} ]         [73 UI/A]
+                            75. φ_{A, ~_{F, A}} maps A into {[x]_{~_{F, A}} | x in A}           [74 UI/~_{F, A}]
+
+                            76. @F, A, B [ F maps A into B (F: A->B) <--> F is a function & dom F = A & ran F ⊆ B ]         [Def. of into]
+                            77. @F, H, P [ F maps H into P (F: H->P) <--> F is a function & dom F = H & ran F ⊆ P ]         [76 EQUIV.]
+                            78. φ_{A, ~_{F, A}} maps A into {[x]_{~_{F, A}} | x in A} <--> φ_{A, ~_{F, A}} is a function & dom φ_{A, ~_{F, A}} = A & ran φ_{A, ~_{F, A}} ⊆ {[x]_{~_{F, A}} | x in A}        [78 UI/φ_{A, ~_{F, A}} UI/A UI/{[x]_{~_{F, A}} | x in A}]
+                            79. φ_{A, ~_{F, A}} is a function & dom φ_{A, ~_{F, A}} = A & ran φ_{A, ~_{F, A}} ⊆ {[x]_{~_{F, A}} | x in A}       [78 BC 75 MP]
+                            
+                            80. φ_{A, ~_{F, A}} is a function       [79 SL SL]
+                            81. dom φ_{A, ~_{F, A}} = A         [79 SL SR]
+
+
+                            82. u_5 in A        [31 SL SL]
+                            83. u_5 in dom φ_{A, ~_{F, A}}      [82 81 LL]
+
+                            84. φ_{A, ~_{F, A}} is a function & u_5 in dom φ_{A, ~_{F, A}}      [80 83 ADJ]
+                            85. @w [ <u_5, w> in φ_{A, ~_{F, A}} <--> φ_{A, ~_{F, A}}(u_5) = w ]        [72 84 MP]
+                            86. <u_5, φ_{A, ~_{F, A}}(u_5)> in φ_{A, ~_{F, A}} <--> φ_{A, ~_{F, A}}(u_5) = φ_{A, ~_{F, A}}(u_5)         [85 UI/φ_{A, ~_{F, A}}(u_5)]
+                            87. φ_{A, ~_{F, A}}(u_5) = φ_{A, ~_{F, A}}(u_5)         [SID/φ_{A, ~_{F, A}}(u_5)]
+                            88. <u_5, φ_{A, ~_{F, A}}(u_5)> in φ_{A, ~_{F, A}}      [86 BC 87 MP]
+
+                            89. @t [ t in φ_{A, ~_{F, A}} <--> 3x [ x in A & t = <x, [x]_{~_{F, A}}> ] ]        [1.D3]
+                            90. <u_5, φ_{A, ~_{F, A}}(u_5)> in φ_{A, ~_{F, A}} <--> 3x [ x in A & <u_5, φ_{A, ~_{F, A}}(u_5)> = <x, [x]_{~_{F, A}}> ]       [89 UI/<u_5, φ_{A, ~_{F, A}}(u_5)>]
+                            91. 3x [ x in A & <u_5, φ_{A, ~_{F, A}}(u_5)> = <x, [x]_{~_{F, A}}> ]       [90 BC 88 MP]
+                            92. x_6 in A & <u_5, φ_{A, ~_{F, A}}(u_5)> = <x_6, [x_6]_{~_{F, A}}>        [91 EI/x_6]
+
+                            93. <u_5, φ_{A, ~_{F, A}}(u_5)> = <x_6, [x_6]_{~_{F, A}}>       [92 SR]
+                            94. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]        [Theorem 3A]
+                            95. <u_5, φ_{A, ~_{F, A}}(u_5)> = <x_6, [x_6]_{~_{F, A}}>  <-->  u_5 = x_6 & φ_{A, ~_{F, A}}(u_5) = [x_6]_{~_{F, A}}        [94 UI/u_5, φ_{A, ~_{F, A}}(u_5), x_6, [x_6]_{~_{F, A}}]
+                            96. u_5 = x_6 & φ_{A, ~_{F, A}}(u_5) = [x_6]_{~_{F, A}}         [95 BC 93 MP]
+                            
+                            97. φ_{A, ~_{F, A}}(u_5) = [x_6]_{~_{F, A}}         [96 SR]
+                            98. u_5 = x_6       [96 SL]
+
+                            ////////
+                            99. φ_{A, ~_{F, A}}(u_5) = [u_5]_{~_{F, A}}         [97 98 LL]
+                            ////////
+
+                            100. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]        [TEA]
+                            101. φ_{A, ~_{F, A}} is a function & u_3 in dom φ_{A, ~_{F, A}} -->  @w [ <u_3, w> in φ_{A, ~_{F, A}} <--> φ_{A, ~_{F, A}}(u_3) = w ]      [71 UI/φ_{A, ~_{F, A}} UI/u_3]
+                            
+                            102. u_3 in A       [20 SL SL]
+                            103. u_3 in dom φ_{A, ~_{F, A}}         [102 81 LL]
+                            104. φ_{A, ~_{F, A}} is a function & u_3 in dom φ_{A, ~_{F, A}}         [80 103 ADJ]
+
+                            105. @w [ <u_3, w> in φ_{A, ~_{F, A}} <--> φ_{A, ~_{F, A}}(u_3) = w ]           [101 104 MP]
+                            106. <u_3, φ_{A, ~_{F, A}}(u_3)> in φ_{A, ~_{F, A}} <--> φ_{A, ~_{F, A}}(u_3) = φ_{A, ~_{F, A}}(u_3)          [105 UI/φ_{A, ~_{F, A}}(u_3)]
+                            107. φ_{A, ~_{F, A}}(u_3) = φ_{A, ~_{F, A}}(u_3)        [SID/φ_{A, ~_{F, A}}(u_3)]
+                            108. <u_3, φ_{A, ~_{F, A}}(u_3)> in φ_{A, ~_{F, A}}         [106 BC 107 MP]
+
+                            109. @t [ t in φ_{A, ~_{F, A}} <--> 3x [ x in A & t = <x, [x]_{~_{F, A}}> ] ]        [1.D3]
+                            110. <u_3, φ_{A, ~_{F, A}}(u_3)> in φ_{A, ~_{F, A}} <--> 3x [ x in A & <u_3, φ_{A, ~_{F, A}}(u_3)> = <x, [x]_{~_{F, A}}> ]          [109 UI/<u_3, φ_{A, ~_{F, A}}(u_3)>]
+                            111. 3x [ x in A & <u_3, φ_{A, ~_{F, A}}(u_3)> = <x, [x]_{~_{F, A}}> ]          [110 BC 108 MP]
+                            112. x_7 in A & <u_3, φ_{A, ~_{F, A}}(u_3)> = <x_7, [x_7]_{~_{F, A}}>           [111 EI/x_7]
+
+                            113. <u_3, φ_{A, ~_{F, A}}(u_3)> = <x_7, [x_7]_{~_{F, A}}>          [112 SR]
+                            114. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]        [Theorem 3A]
+                            115. <u_3, φ_{A, ~_{F, A}}(u_3)> = <x_7, [x_7]_{~_{F, A}}>  <-->  u_3 = x_7 & φ_{A, ~_{F, A}}(u_3) = [x_7]_{~_{F, A}}           [114 UI/u_3, φ_{A, ~_{F, A}}(u_3), x_7, [x_7]_{~_{F, A}}]
+                            116. u_3 = x_7 & φ_{A, ~_{F, A}}(u_3) = [x_7]_{~_{F, A}}            [115 BC 113 MP]
+                            
+                            117. φ_{A, ~_{F, A}}(u_3) = [x_7]_{~_{F, A}}        [116 SR]
+                            118. u_3 = x_7          [116 SL]
+
+                            ////////
+                            119. φ_{A, ~_{F, A}}(u_3) = [u_3]_{~_{F, A}}        [117 118 LL]
+                            ////////
+
+                            120. [u_5]_{~_{F, A}} = [u_3]_{~_{F, A}}        [70 R]
+                            121. φ_{A, ~_{F, A}}(u_5) = [u_3]_{~_{F, A}}        [120 99 LL]
+                            122. φ_{A, ~_{F, A}}(u_5) = φ_{A, ~_{F, A}}(u_3)        [121 119 LL]
+                            123.        [122 DD]
+                       
+                        124. k = φ_{A, ~_{F, A}}(u_3)       [44 43 LL]
+                        125. k = x_1        [124 41 LL]
+                        126.        [125 CD]
+                    127.        [24 UD]
+                
+                128. <x_1, y> in F-hat_{F, A, ~_{F, A}} & @k [ <k, y> in F-hat_{F, A, ~_{F, A}} --> k = x_1 ]       [13 22 ADJ]
+                129. 3x [ <x, y> in F-hat_{F, A, ~_{F, A}} & @k [ <k, y> in F-hat_{F, A, ~_{F, A}} --> k = x ] ]        [128 EG/x_1->x]
+                130. 3_1x [ <x, y> in F-hat_{F, A, ~_{F, A}} ]      [129 EQUIV.]
+                131.        [130 CD]
+            132.        [8 UD]
+        
+        133. F-hat_{F, A, ~_{F, A}} is single-rooted        [5 BC 6 MP]
+        134.        [133 DD]
+    
+    135.    [3 UD]
+                
+ 
+// NOTES on how to prove F = F-hat o φ:
+    Definition of Natural Map:
+        @A, R [ 3D [ @t [ t in D <--> 3x [ x in A & t = <x, [x]_{R}> ] ] ] ]
+        Definition (its uniqueness is always due to Ext. Axiom):
+            For any A, R, [and if R is an equivalence relation on A], then φ_{A, R} is the set of ordered pairs <x, [x]_{R}> where x in A.
+
+    Natural Map is a function from {1} into {2}:
+        @A, R [ φ_{A, R} maps A into {[x]_{R} | x in A} ]
+
+    F-hat:
+        @F, A, R [ 3D [ @t [ t in D <--> 3x, y [ t = <x, y> & 3u [ u in A & φ_{A, R}(u) = x & F(u) = y ] ] ] ] ]
+
+
+    - we can prove that F = F-hat o φ
+    - so i think we need to use exercse 11 on pg 52
+    - @F, G [ F, G are functions & dom F = dom G & @x [ x in dom F --> F(x) = G(x) ] --> F = G ]
+
+    - first we show F, (F-hat o φ) are functions
+    - it is clear F is a function (given)
+    - to show that (F-hat o φ) is a function, we can use Theorem 3H (i)
+    - @F, G [ F, G are functions -->  F o G is a function ]
+    - We know φ is a function
+    - we now just show F-hat is a function 
+    - ...
+    - need to prove this using the definition of function directly (not sure of any shortcut)
+        - use the fact that ~ is an equivalence relation 
+
+
+    - second we show that dom (F-hat o φ) = dom F
+    - we know dom F = A
+    - so we need to show dom (F-hat o φ) = A
+    - we know that the dom (F-hat o φ) = { x in dom φ | φ(x) in dom F-hat }
+    - it is clear that { x in dom φ | φ(x) in dom F-hat } is a subset of A
+
+    - now show that for all things in A then it is in { x in dom φ | φ(x) in dom F-hat }
+    - suppose i in A
+    - then we must show that i in dom φ AND φ(i) in dom F-hat
+    - since dom φ = A, then i in dom φ.
+    - now we show φ(i) in dom F-hat
+    - show that 3y [ <φ(i), y> in F-hat ]
+    - consider <φ(i), F(i)>
+    - we show <φ(i), F(i)> in F-hat
+    - ...
+
+
+    - finally we show @x [ x in dom F --> F(x) = (F-hat o φ)(x) ]
+        - use the fact that ~ is an equivalence relation 
