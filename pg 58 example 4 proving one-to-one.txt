@@ -30,6 +30,20 @@ Axioms and Theorems:
                 @y [ y in ran R --> 3_1x [ <x, y> in R ] ]
             ]
 
+    Equivalence Class of x (modulo R):
+        @R, x [ 3D [ @t [ t in D <--> <x, t> in R ] ] ]
+        Definition:
+            For any set R, x, [x]_{R} is the set of sets t such that <x, t> in R.
+            For any set R, x, and if R is an equivalence relation on the fld R, then [x]_{R} is called the equivalence class of x (modulo R).
+
+    Sets of equivalence classes:
+        @R, A [ 3D [ @t [ t in D <--> 3x [ x in A & t = [x]_{R} ] ] ] ]
+        Definition:
+            For any set R, A, [and if R is an equivalence relation on A], then {[x]_{R} | x in A} is the set of sets of the form [x]_{R} [and is called the set of equivalence classes under R].
+        
+        Definition of the quotient set:
+            For any set R, A, and if R is an equivalence relation on A, then A/R := {[x]_{R} | x in A} 
+
     Lemma 3N:
         @R, A [ R is an equivalence relation on A --> @x, y [ x, y in A --> [ [x]_{R} = [y]_{R} <--> <x, y> in R ] ] ]
 
@@ -286,6 +300,37 @@ Axioms and Theorems:
     - ...
     - need to prove this using the definition of function directly (not sure of any shortcut)
         - use the fact that ~ is an equivalence relation 
+        - it is clear F-hat is a relation
+        - we need to now show @x [ x in dom F-hat --> 3_1y [ <x, y> in F-hat ] ]
+            - let x be in dom F-hat
+            - 3y [ <x, y> in F-hat ]
+            - <x, y_1> in F-hat
+            - 1.D2. @t [ t in F-hat_{F, A, ~_{F, A}} <--> 3x, y [ t = <x, y> & 3u [ u in A & φ_{A, ~_{F, A}}(u) = x & F(u) = y ] ] ]
+            - there is some u in A such that x = φ_{A, ~_{F, A}}(u) AND y_1 = F(u)
+            - u_2 in A such that x = φ_{A, ~_{F, A}}(u_2) AND y_1 = F(u_2)
+            - now we show @w [ <x, w> in F-hat --> w = y_1 ]
+                - let w be a set
+                - let <x, w> in F-hat
+                - there is some u in A such that x = φ_{A, ~_{F, A}}(u) AND w = F(u)
+                - u_3 in A such that x = φ_{A, ~_{F, A}}(u_3) AND w = F(u_3)
+
+                - Show w = y_1
+                    - x = φ_{A, ~_{F, A}}(u_3)
+                    - x = φ_{A, ~_{F, A}}(u_2)
+                    - φ_{A, ~_{F, A}}(u_3) = φ_{A, ~_{F, A}}(u_2)
+                    - [u_3]_{~_{F, A}} = [u_2]_{~_{F, A}}
+
+                    - @F, A [ ~_{F, A} is an equivalence relation on A ]        [YUIPEN]
+                    - @R, A [ R is an equivalence relation on A --> @x, y [ x, y in A --> [ [x]_{R} = [y]_{R} <--> <x, y> in R ] ] ]        [Lemma 3N]
+
+                    - [u_3]_{~_{F, A}} = [u_2]_{~_{F, A}} <--> <u_3, u_2> in ~_{F, A}
+                    - <u_3, u_2> in ~_{F, A}
+                    - @t [ t in ~_{F, A} <--> 3x, y [ x, y in A & t = <x, y> & F(x) = F(y) ] ]      [TILDE]
+                    - F(u_3) = F(u_2)
+                    - w = F(u_3)
+                    - y_1 = F(u_2)
+                    - w = y_1         as required
+
 
 
     - second we show that dom (F-hat o φ) = dom F
@@ -307,3 +352,39 @@ Axioms and Theorems:
 
     - finally we show @x [ x in dom F --> F(x) = (F-hat o φ)(x) ]
         - use the fact that ~ is an equivalence relation 
+        - let x be a set 
+        - let x in dom F
+        - Show F(x) = (F-hat o φ)(x)
+            - since dom (F-hat o φ) = dom F
+            - x in dom (F-hat o φ)
+            - @F, G [ F, G are functions --> @x [ x in dom F o G --> (F o G)(x) = F(G(x)) ] ]       [Thm 3H]
+            - (F-hat o φ)(x) = F-hat(φ(x))
+
+            - @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]
+            - F-hat is a function & φ(x) in dom F-hat -->  @w [ <φ(x), w> in F-hat <--> F-hat(φ(x)) = w ]
+            - we show φ(x) in dom F-hat
+                - i.e show 3y [ <φ(x), y> in F-hat ]
+
+                - 1.D2. @t [ t in F-hat_{F, A, ~_{F, A}} <--> 3x, y [ t = <x, y> & 3u [ u in A & φ_{A, ~_{F, A}}(u) = x & F(u) = y ] ] ]
+
+                - consider <φ(x), F(x)>
+                - we can show that <φ(x), F(x)> in F-hat
+                - ...
+            
+            - we get @w [ <φ(x), w> in F-hat <--> F-hat(φ(x)) = w ]
+            - <φ(x), F-hat(φ(x))> in F-hat <--> F-hat(φ(x)) = F-hat(φ(x))
+            - we get <φ(x), F-hat(φ(x))> in F-hat
+
+            - 1.D2. @t [ t in F-hat_{F, A, ~_{F, A}} <--> 3x, y [ t = <x, y> & 3u [ u in A & φ_{A, ~_{F, A}}(u) = x & F(u) = y ] ] ]
+
+            - <φ(x), F-hat(φ(x))> in F-hat_{F, A, ~_{F, A}} <--> 3x, y [ <φ(x), F-hat(φ(x))> = <x, y> & 3u [ u in A & φ_{A, ~_{F, A}}(u) = x & F(u) = y ] ]
+
+            // note φ := φ_{A, ~_{F, A}}
+            - φ_{A, ~_{F, A}}(u_4) = φ(x)
+            - F(u_4) = F-hat(φ(x))
+ 
+            - [u_4] = [x]
+            - <u_4, x> in ~
+            - F(u_4) = F(x)     (def. of ~)
+            - F-hat(φ(x)) = F(x)        (from prev. line F(u_4) = F-hat(φ(x)))
+            - (F-hat o φ)(x) = F(x)     (froim prev. line (F-hat o φ)(x) = F-hat(φ(x)))
