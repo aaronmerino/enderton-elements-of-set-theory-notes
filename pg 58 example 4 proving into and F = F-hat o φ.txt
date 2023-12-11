@@ -590,5 +590,35 @@ Axioms and Theorems:
 
 
 
+Helpful results:
+
+    [緋月ゆい] Pg 52 Exercise 11:
+    @F, G [ F, G are functions & dom F = dom G & @x [ x in dom F --> F(x) = G(x) ] --> F = G ]
 
 1. Show @F, A, B [ F maps A into B --> F = F-hat_{F, A, ~_{F, A}} o φ_{A, ~_{F, A}} ]
+
+    2. let F, A, B be sets
+
+    3. Show F maps A into B --> F = F-hat_{F, A, ~_{F, A}} o φ_{A, ~_{F, A}}
+
+        4. F maps A into B      [ACD]
+        
+        5. @F, A, B [ F maps A into B <--> 
+                        F is a function &
+                        dom F = A &
+                        ran F ⊆ B 
+                    ]       [def. of. into]
+
+        6. F maps A into B <--> 
+                        F is a function &
+                        dom F = A &
+                        ran F ⊆ B       [5 UI/F, A, B]
+        
+        7. F is a function &
+           dom F = A &
+           ran F ⊆ B      [6 BC 4 MP]
+
+
+        8. @F, G [ F, G are functions & dom F = dom G & @x [ x in dom F --> F(x) = G(x) ] --> F = G ]       [緋月ゆい]
+
+        9. F, F-hat_{F, A, ~_{F, A}} o φ_{A, ~_{F, A}} are functions & dom F = dom F-hat_{F, A, ~_{F, A}} o φ_{A, ~_{F, A}} & @x [ x in dom F --> F(x) = F-hat_{F, A, ~_{F, A}} o φ_{A, ~_{F, A}}(x) ] --> F = F-hat_{F, A, ~_{F, A}} o φ_{A, ~_{F, A}}         [8 UI/F UI/F-hat_{F, A, ~_{F, A}} o φ_{A, ~_{F, A}}]
