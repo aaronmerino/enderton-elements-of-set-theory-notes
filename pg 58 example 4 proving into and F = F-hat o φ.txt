@@ -43,6 +43,11 @@ Axioms and Theorems:
                 @y [ y in ran R --> 3_1x [ <x, y> in R ] ]
             ]
 
+	Theorem 3H:
+		@F, G [ F, G are functions -->  F o G is a function ]
+		@F, G [ F, G are functions --> dom F o G = {a in dom G | G(a) in dom F} ]
+		@F, G [ F, G are functions --> @x [ x in dom F o G --> (F o G)(x) = F(G(x)) ] ]
+
     Equivalence Class of x (modulo R):
         @R, x [ 3D [ @t [ t in D <--> <x, t> in R ] ] ]
         Definition:
@@ -152,6 +157,8 @@ Axioms and Theorems:
     34.     [3 UD]
 
 
+
+[SHROUD]
 1. Show @F, A, B [ F maps A into B -->  F-hat_{F, A, ~_{F, A}} maps {[x]_{~_{F, A}} | x in A} into B ]
     2. let F, A, B be sets
 
@@ -591,13 +598,34 @@ Axioms and Theorems:
 
 
 Helpful results:
-
     [緋月ゆい] Pg 52 Exercise 11:
     @F, G [ F, G are functions & dom F = dom G & @x [ x in dom F --> F(x) = G(x) ] --> F = G ]
+    
+	Lemma - PEAR (from Theorem 3H):
+		@F, G [ 3D [ @x [ x in D <--> x in dom G & G(x) in dom F ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			For any sets F, G, {a in dom G | G(a) in dom F} is the subset of dom G where G(a) is in dom F
+
 
 1. Show @F, A, B [ F maps A into B --> F = F-hat_{F, A, ~_{F, A}} o φ_{A, ~_{F, A}} ]
 
     2. let F, A, B be sets
+
+    ========
+    1.D1. @t [ t in ~_{F, A} <--> 3x, y [ x, y in A & t = <x, y> & F(x) = F(y) ] ]      [TILDE UI/F UI/A & Ext. Axiom]
+
+
+    1.D2. @t [ t in φ_{A, ~_{F, A}} <--> 3x [ x in A & t = <x, [x]_{~_{F, A}}> ] ]      [Natural Map UI/A UI/~_{F, A} & Ext. Axiom]
+
+
+    1.D3. @t [ t in F-hat_{F, A, ~_{F, A}} <--> 3x, y [ t = <x, y> & 3u [ u in A & φ_{A, ~_{F, A}}(u) = x & F(u) = y ] ] ]      [F-hat UI/F UI/A UI/~_{F, A} & Ext. Axiom]
+
+
+    1.D4. @t [ t in {[x]_{~_{F, A}} | x in A} <--> 3x [ x in A & t = [x]_{~_{F, A}} ] ]     [BOTAN UI/~_{F, A} UI/A & Ext. Axiom]
+
+
+    1.D5. @x [ x in dom F-hat_{F, A, ~_{F, A}} <--> 3y [ <x, y> in F-hat_{F, A, ~_{F, A}} ] ]       [dom UI/F-hat_{F, A, ~_{F, A}} & Ext. Axiom]
+    ========
 
     3. Show F maps A into B --> F = F-hat_{F, A, ~_{F, A}} o φ_{A, ~_{F, A}}
 
@@ -618,7 +646,223 @@ Helpful results:
            dom F = A &
            ran F ⊆ B      [6 BC 4 MP]
 
-
         8. @F, G [ F, G are functions & dom F = dom G & @x [ x in dom F --> F(x) = G(x) ] --> F = G ]       [緋月ゆい]
 
-        9. F, F-hat_{F, A, ~_{F, A}} o φ_{A, ~_{F, A}} are functions & dom F = dom F-hat_{F, A, ~_{F, A}} o φ_{A, ~_{F, A}} & @x [ x in dom F --> F(x) = F-hat_{F, A, ~_{F, A}} o φ_{A, ~_{F, A}}(x) ] --> F = F-hat_{F, A, ~_{F, A}} o φ_{A, ~_{F, A}}         [8 UI/F UI/F-hat_{F, A, ~_{F, A}} o φ_{A, ~_{F, A}}]
+        9. F, F-hat_{F, A, ~_{F, A}} o φ_{A, ~_{F, A}} are functions & dom F = dom F-hat_{F, A, ~_{F, A}} o φ_{A, ~_{F, A}} & @x [ x in dom F --> F(x) = (F-hat_{F, A, ~_{F, A}} o φ_{A, ~_{F, A}})(x) ] --> F = F-hat_{F, A, ~_{F, A}} o φ_{A, ~_{F, A}}         [8 UI/F UI/F-hat_{F, A, ~_{F, A}} o φ_{A, ~_{F, A}}]
+
+
+        // Show F, F-hat_{F, A, ~_{F, A}} o φ_{A, ~_{F, A}} are functions
+
+        10. 
+
+        11. F is a function         [7 SL SL]
+
+        12. @F, G [ F, G are functions -->  F o G is a function ]       [Theorem 3H (i)]
+
+        13. F-hat_{F, A, ~_{F, A}}, φ_{A, ~_{F, A}} are functions -->  F-hat_{F, A, ~_{F, A}} o φ_{A, ~_{F, A}} is a function          [12 UI/F-hat_{F, A, ~_{F, A}} UI/φ_{A, ~_{F, A}}]
+
+        14. @A, R [ φ_{A, R} maps A into {[x]_{R} | x in A} ]       [EGG]
+
+        15. φ_{A, ~_{F, A}} maps A into {[x]_{~_{F, A}} | x in A}       [14 UI/A UI/~_{F, A}]
+
+        16. @F, A, B [ F maps A into B <--> 
+                    F is a function &
+                    dom F = A &
+                    ran F ⊆ B 
+                ]       [Def. of into]
+
+        17. @F, M, B [ F maps M into B <--> 
+                    F is a function &
+                    dom F = M &
+                    ran F ⊆ B 
+                ]       [16 EQUIV.]
+        
+        18. φ_{A, ~_{F, A}} maps A into {[x]_{~_{F, A}} | x in A} <--> 
+                    φ_{A, ~_{F, A}} is a function &
+                    dom φ_{A, ~_{F, A}} = A &
+                    ran φ_{A, ~_{F, A}} ⊆ {[x]_{~_{F, A}} | x in A}         [17 UI/φ_{A, ~_{F, A}} UI/A UI/{[x]_{~_{F, A}} | x in A}]
+        
+        19. φ_{A, ~_{F, A}} is a function &
+            dom φ_{A, ~_{F, A}} = A &
+            ran φ_{A, ~_{F, A}} ⊆ {[x]_{~_{F, A}} | x in A}         [18 BC 15 MP]
+
+        *20. φ_{A, ~_{F, A}} is a function       [19 SL SL]
+
+        21. @F, A, B [ F maps A into B -->  F-hat_{F, A, ~_{F, A}} maps {[x]_{~_{F, A}} | x in A} into B ]      [SHROUD]
+
+        22. F maps A into B -->  F-hat_{F, A, ~_{F, A}} maps {[x]_{~_{F, A}} | x in A} into B       [21 UI/F UI/A UI/B]
+
+        23. F maps A into B         [4 R]
+
+        24. F-hat_{F, A, ~_{F, A}} maps {[x]_{~_{F, A}} | x in A} into B        [22 23 MP]
+
+        25. @F, A, B [ F maps A into B <--> 
+                    F is a function &
+                    dom F = A &
+                    ran F ⊆ B 
+                ]       [Def. of into]
+        
+        26. @F, M, B [ F maps M into B <--> 
+                    F is a function &
+                    dom F = M &
+                    ran F ⊆ B 
+                ]       [25 EQUIV.]
+        
+        27. F-hat_{F, A, ~_{F, A}} maps {[x]_{~_{F, A}} | x in A} into B <--> 
+                    F-hat_{F, A, ~_{F, A}} is a function &
+                    dom F-hat_{F, A, ~_{F, A}} = {[x]_{~_{F, A}} | x in A} &
+                    ran F-hat_{F, A, ~_{F, A}} ⊆ B      [26 UI/F-hat_{F, A, ~_{F, A}} UI/{[x]_{~_{F, A}} | x in A} UI/B]
+        
+        28. F-hat_{F, A, ~_{F, A}} is a function &
+            dom F-hat_{F, A, ~_{F, A}} = {[x]_{~_{F, A}} | x in A} &
+            ran F-hat_{F, A, ~_{F, A}} ⊆ B      [27 BC 24 MP]
+
+        *29. F-hat_{F, A, ~_{F, A}} is a function        [28 SL SL]
+
+        30. @F, G [ F, G are functions -->  F o G is a function ]       [Theorem 3H (i)]
+
+        31. F-hat_{F, A, ~_{F, A}}, φ_{A, ~_{F, A}} are functions -->  F-hat_{F, A, ~_{F, A}} o φ_{A, ~_{F, A}} is a function
+
+        32. F-hat_{F, A, ~_{F, A}}, φ_{A, ~_{F, A}} are functions       [29 20 ADJ]
+
+        33. F-hat_{F, A, ~_{F, A}} o φ_{A, ~_{F, A}} is a function          [31 32 MP]
+
+        34. F, F-hat_{F, A, ~_{F, A}} o φ_{A, ~_{F, A}} are functions       [11 33 ADJ]
+
+        35.
+        ///////////
+         
+        36. Show dom F = dom F-hat_{F, A, ~_{F, A}} o φ_{A, ~_{F, A}}
+
+            37. dom F = A       [7 SL SR]
+
+            38. @F, G [ F, G are functions --> dom F o G = {a in dom G | G(a) in dom F} ]       [Theorem 3H (ii)]
+
+            39. F-hat_{F, A, ~_{F, A}}, φ_{A, ~_{F, A}} are functions --> dom F-hat_{F, A, ~_{F, A}} o φ_{A, ~_{F, A}} = {a in dom φ_{A, ~_{F, A}} | φ_{A, ~_{F, A}}(a) in dom F-hat_{F, A, ~_{F, A}}}      [38 UI/F-hat_{F, A, ~_{F, A}} UI/φ_{A, ~_{F, A}}]
+
+            ========
+            36.D1. @x [ x in {a in dom φ_{A, ~_{F, A}} | φ_{A, ~_{F, A}}(a) in dom F-hat_{F, A, ~_{F, A}}} <--> x in dom φ_{A, ~_{F, A}} & φ_{A, ~_{F, A}}(x) in dom F-hat_{F, A, ~_{F, A}} ]        [LEMMA - PEAR UI/F-hat_{F, A, ~_{F, A}} UI/φ_{A, ~_{F, A}} & Ext. Axiom]
+            ========
+
+            40. F-hat_{F, A, ~_{F, A}}, φ_{A, ~_{F, A}} are functions       [32 R]
+
+            41. dom F-hat_{F, A, ~_{F, A}} o φ_{A, ~_{F, A}} = {a in dom φ_{A, ~_{F, A}} | φ_{A, ~_{F, A}}(a) in dom F-hat_{F, A, ~_{F, A}}}        [40 39 MP]
+
+            42. Show {a in dom φ_{A, ~_{F, A}} | φ_{A, ~_{F, A}}(a) in dom F-hat_{F, A, ~_{F, A}}} = A
+
+                43. @A, B [ @x [ x in A <--> x in B ] --> A = B ]       [Ext. Axiom]
+
+                44. @x [ x in {a in dom φ_{A, ~_{F, A}} | φ_{A, ~_{F, A}}(a) in dom F-hat_{F, A, ~_{F, A}}} <--> x in A ] --> {a in dom φ_{A, ~_{F, A}} | φ_{A, ~_{F, A}}(a) in dom F-hat_{F, A, ~_{F, A}}} = A     [43 UI/...]
+
+                45. Show @x [ x in {a in dom φ_{A, ~_{F, A}} | φ_{A, ~_{F, A}}(a) in dom F-hat_{F, A, ~_{F, A}}} <--> x in A ]
+
+                    46. let x be a set
+
+                    47. Show x in {a in dom φ_{A, ~_{F, A}} | φ_{A, ~_{F, A}}(a) in dom F-hat_{F, A, ~_{F, A}}} --> x in A
+                    
+                        48. x in {a in dom φ_{A, ~_{F, A}} | φ_{A, ~_{F, A}}(a) in dom F-hat_{F, A, ~_{F, A}}}     [ACD]
+
+                        49. @x [ x in {a in dom φ_{A, ~_{F, A}} | φ_{A, ~_{F, A}}(a) in dom F-hat_{F, A, ~_{F, A}}} <--> x in dom φ_{A, ~_{F, A}} & φ_{A, ~_{F, A}}(x) in dom F-hat_{F, A, ~_{F, A}} ]      [36.D1]
+
+                        50. x in {a in dom φ_{A, ~_{F, A}} | φ_{A, ~_{F, A}}(a) in dom F-hat_{F, A, ~_{F, A}}} <--> x in dom φ_{A, ~_{F, A}} & φ_{A, ~_{F, A}}(x) in dom F-hat_{F, A, ~_{F, A}}     [49 UI/x]
+
+                        51. x in dom φ_{A, ~_{F, A}} & φ_{A, ~_{F, A}}(x) in dom F-hat_{F, A, ~_{F, A}}     [50 BC 48 MP]
+
+                        52. x in dom φ_{A, ~_{F, A}}        [51 SL]
+
+                        53. dom φ_{A, ~_{F, A}} = A     [19 SL SR]
+
+                        54. x in A      [52 53 LL]
+
+                        55.     [54 CD]
+
+                    56. Show x in A --> x in {a in dom φ_{A, ~_{F, A}} | φ_{A, ~_{F, A}}(a) in dom F-hat_{F, A, ~_{F, A}}}
+
+                        57. x in A      [ACD]
+
+                        58. @x [ x in {a in dom φ_{A, ~_{F, A}} | φ_{A, ~_{F, A}}(a) in dom F-hat_{F, A, ~_{F, A}}} <--> x in dom φ_{A, ~_{F, A}} & φ_{A, ~_{F, A}}(x) in dom F-hat_{F, A, ~_{F, A}} ]      [36.D1]
+
+                        59. x in {a in dom φ_{A, ~_{F, A}} | φ_{A, ~_{F, A}}(a) in dom F-hat_{F, A, ~_{F, A}}} <--> x in dom φ_{A, ~_{F, A}} & φ_{A, ~_{F, A}}(x) in dom F-hat_{F, A, ~_{F, A}}         [58 UI//x]
+
+                        // we show x in dom φ_{A, ~_{F, A}}
+
+                        60. dom φ_{A, ~_{F, A}} = A     [19 SL SR]
+
+                        *61. x in dom φ_{A, ~_{F, A}}        [57 60 LL]
+
+                        // we show φ_{A, ~_{F, A}}(x) in dom F-hat_{F, A, ~_{F, A}}
+
+                        62. @x [ x in dom F-hat_{F, A, ~_{F, A}} <--> 3y [ <x, y> in F-hat_{F, A, ~_{F, A}} ] ]     [1.D5]
+
+                        63. φ_{A, ~_{F, A}}(x) in dom F-hat_{F, A, ~_{F, A}} <--> 3y [ <φ_{A, ~_{F, A}}(x), y> in F-hat_{F, A, ~_{F, A}} ]      [62 UI/φ_{A, ~_{F, A}}(x)]
+
+                        64. Show 3y [ <φ_{A, ~_{F, A}}(x), y> in F-hat_{F, A, ~_{F, A}} ]
+
+                            // consider <φ_{A, ~_{F, A}}(x), F(x)>
+
+                            65. @t [ t in F-hat_{F, A, ~_{F, A}} <--> 3x, y [ t = <x, y> & 3u [ u in A & φ_{A, ~_{F, A}}(u) = x & F(u) = y ] ] ]        [1.D3]
+
+                            66. @t [ t in F-hat_{F, A, ~_{F, A}} <--> 3q, w [ t = <q, w> & 3u [ u in A & φ_{A, ~_{F, A}}(u) = q & F(u) = w ] ] ]        [65 EQUIV.]
+
+                            67. <φ_{A, ~_{F, A}}(x), F(x)> in F-hat_{F, A, ~_{F, A}} <--> 3q, w [ <φ_{A, ~_{F, A}}(x), F(x)> = <q, w> & 3u [ u in A & φ_{A, ~_{F, A}}(u) = q & F(u) = w ] ]     [66 UI/<φ_{A, ~_{F, A}}(x), F(x)>]
+
+                            68. Show 3q, w [ <φ_{A, ~_{F, A}}(x), F(x)> = <q, w> & 3u [ u in A & φ_{A, ~_{F, A}}(u) = q & F(u) = w ] ]
+
+                                69. <φ_{A, ~_{F, A}}(x), F(x)> = <φ_{A, ~_{F, A}}(x), F(x)>     [SID]
+
+                                70. x in A      [57 R]
+
+                                71. φ_{A, ~_{F, A}}(x) = φ_{A, ~_{F, A}}(x)     [SID]
+
+                                72. F(x) = F(x)     [SID]
+
+                                73. x in A & φ_{A, ~_{F, A}}(x) = φ_{A, ~_{F, A}}(x) & F(x) = F(x)      [70 71 72 ADJ]
+
+                                74. 3u [ u in A & φ_{A, ~_{F, A}}(u) = φ_{A, ~_{F, A}}(x) & F(u) = F(x) ]       [73 EG/x->u]
+
+                                75. <φ_{A, ~_{F, A}}(x), F(x)> = <φ_{A, ~_{F, A}}(x), F(x)> & 3u [ u in A & φ_{A, ~_{F, A}}(u) = φ_{A, ~_{F, A}}(x) & F(u) = F(x) ]     [69 74 ADJ]
+
+                                76. 3q, w [ <φ_{A, ~_{F, A}}(x), F(x)> = <q, w> & 3u [ u in A & φ_{A, ~_{F, A}}(u) = q & F(u) = w ] ]       [75 EG/φ_{A, ~_{F, A}}(x)->q EG/F(x)->w]
+
+                                77.     [76 DD]
+                            
+                            78. <φ_{A, ~_{F, A}}(x), F(x)> in F-hat_{F, A, ~_{F, A}}        [67 BC 68 MP]
+
+                            79. 3y [ <φ_{A, ~_{F, A}}(x), y> in F-hat_{F, A, ~_{F, A}} ]     [78 EG/F(x)->y]
+
+                            80.     [79 DD]
+
+                        *81. φ_{A, ~_{F, A}}(x) in dom F-hat_{F, A, ~_{F, A}}        [63 BC 64 MP]
+
+                        82. x in dom φ_{A, ~_{F, A}} & φ_{A, ~_{F, A}}(x) in dom F-hat_{F, A, ~_{F, A}}     [61 81 ADJ]
+
+                        83. x in {a in dom φ_{A, ~_{F, A}} | φ_{A, ~_{F, A}}(a) in dom F-hat_{F, A, ~_{F, A}}}      [59 BC 82 MP]
+
+                        84.     [83 CD]
+
+                    85. x in {a in dom φ_{A, ~_{F, A}} | φ_{A, ~_{F, A}}(a) in dom F-hat_{F, A, ~_{F, A}}} <--> x in A      [47 56 CB]
+
+                    86.     [85 UD]
+                
+                87. {a in dom φ_{A, ~_{F, A}} | φ_{A, ~_{F, A}}(a) in dom F-hat_{F, A, ~_{F, A}}} = A       [44 45 MP]
+
+                88.     [87 DD]
+            
+            89. dom F-hat_{F, A, ~_{F, A}} o φ_{A, ~_{F, A}} = A        [42 41 LL]
+
+            90. dom F-hat_{F, A, ~_{F, A}} o φ_{A, ~_{F, A}} = dom F        [89 37 LL]
+
+            91. dom F = dom F-hat_{F, A, ~_{F, A}} o φ_{A, ~_{F, A}}        [90 EQUIV.]
+
+            92.     [91 DD]
+
+        
+        93. Show @x [ x in dom F --> F(x) = (F-hat_{F, A, ~_{F, A}} o φ_{A, ~_{F, A}})(x) ]
+
+            94. let x be a set
+
+            95. Show x in dom F --> F(x) = (F-hat_{F, A, ~_{F, A}} o φ_{A, ~_{F, A}})(x)
+
+                96. x in dom F      [ACD]
+
+                97. 
