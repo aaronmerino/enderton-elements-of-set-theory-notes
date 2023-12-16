@@ -1,0 +1,11 @@
+Axioms and Theorems:
+
+
+
+ideas:
+    -its subset of (A/R) x (A/R)
+
+1. Show @F, A, R [ R is an equivalence relation on A & F: A->A --> 3D [ @t [ t in D <--> 3u [ u in A & t = <[u]_{R}, [F(u)]_{R}> ] ] ] ]
+
+
+1. Show @F, A, R [ R is an equivalence relation on A & F: A->A --> [ F is compatible with R <--> F-hat_{F, A, R}: A/R -> A/R ] ]

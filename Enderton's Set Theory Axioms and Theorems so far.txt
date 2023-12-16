@@ -146,7 +146,6 @@ Axioms and Theorems:
 		Definition (its uniqueness is always due to Ext. Axiom):
 		For any set sets A, {dom R | R in A} is the set whose members are exactly the sets of the form dom R for some R in A.
 
-
 	Recall definition of ordered pair (2-tuple):
 		@x, y[ <x, y> := {{x}, {x, y}} ]
 			note {x} exists due to Pairing Axiom & Extensionality
@@ -412,10 +411,12 @@ Axioms and Theorems:
 	Natural Map is a function from {1} into {2}:
 		@A, R [ φ_{A, R} maps A into {[x]_{R} | x in A} ]
 
-	F-hat definition:
+	F-hat definition (Pg 58 Example):
 		@F, A, R [ 3D [ @t [ t in D <--> 3x, y [ t = <x, y> & 3u [ u in A & φ_{A, R}(u) = x & F(u) = y ] ] ] ] ]
+		@F, A, R [ 3D [ @t [ t in D <--> 3u [ u in A & t = <[u]_{R}, F(u)> ] ] ] ]
 		Definition (its uniqueness is always due to Ext. Axiom):
 			For any F, A, R, F-hat_{F, A, R} is the set that contains sets t where t = <x, y> for some sets x, y, and that φ_{A, R}(u) = x & F(u) = y for some u in A.
+	
 
 	Pg 58 Example 4 (existence of tilde relation):
 		@F, A [ 3R [ @t [ t in R <--> 3x, y [ x, y in A & t = <x, y> & F(x) = F(y) ] ] ] ]
