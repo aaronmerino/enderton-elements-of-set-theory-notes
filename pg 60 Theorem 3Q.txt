@@ -1,11 +1,193 @@
 Axioms and Theorems:
+	Power Set Axiom:
+		@a [ 3B [ @x [ x in B <--> @t [ t in x --> t in a ] ] ] ]
+			Definition (its uniqueness is always due to Ext. Axiom):
+			For any set a, the power set  P(a) is the set whose members are exactly the subsets of a.
+			[You can think of P(a) as a 1-ary operator. It refer to one set and one set only based on the sets a!]
+
+	Corollary 3C:
+		@A, B [ 3D [ @t[ t in D <--> 3x, y [x in A & y in B & t = <x, y> ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets A, B,  {<x, y> | x in A & y in B}    is the set whose members are exactly the sets of the form <x, y> for some x in A & y in B
+		Also known as the Cartesian Product A x B of the sets A and B!
+
+	dom R: 
+		@R [ 3D [ @x [ x in D <--> 3y [ <x, y> in R ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets R,  dom R  is the set whose members are those 1st-coordinate set of some ordered pair in R
+
+	Function:
+		Definition:
+		@F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]
+
+	Definition of into:
+		@F, A, B [ F maps A into B (F: A->B) <--> 
+						F is a function &
+						dom F = A &
+						ran F ⊆ B 
+					]
+
+	Equivalence Relation on A:
+		@R, A [ R is an equivalence relation on A <--> R is a binary relation on A & R is reflexive on A & R is symmetric & R is transitive ]
+
+	Equivalence Class of x (modulo R):
+		@R, x [ 3D [ @t [ t in D <--> <x, t> in R ] ] ]
+		Definition:
+			For any set R, x, [x]_{R} is the set of sets t such that <x, t> in R.
+			For any set R, x, and if R is an equivalence relation on the fld R, then [x]_{R} is called the equivalence class of x (modulo R).
+
+	Sets of equivalence classes:
+		@R, A [ 3D [ @t [ t in D <--> 3x [ x in A & t = [x]_{R} ] ] ] ]
+		Definition:
+			For any set R, A, [and if R is an equivalence relation on A], then {[x]_{R} | x in A} is the set of sets of the form [x]_{R} [and is called the set of equivalence classes under R].
+		
+		Definition of the quotient set:
+			For any set R, A, and if R is an equivalence relation on A, then A/R := {[x]_{R} | x in A} 
+
+    Definition of Compatible:
+        @F, R [ F is compatible with R <--> @x, y [ x, y in A --> [ <x, y> in R --> <F(x), F(y)> in R ] ] ]
 
 
 
 ideas:
-    -its subset of (A/R) x (A/R)
+    -note we use A/R := {[x]_{R} | x in A}  even if R isn't an equivalence relation on A for shorter writing
+    -if assuming F:A->A then its subset of (A/R) x (A/R)
+    -if not assuming F:A->A, then its subset of (A/R) x P(ran R)
+    
 
-1. Show @F, A, R [ R is an equivalence relation on A & F: A->A --> 3D [ @t [ t in D <--> 3u [ u in A & t = <[u]_{R}, [F(u)]_{R}> ] ] ] ]
+1. Show @F, A, R [ 3D [ @t [ t in D <--> 3u [ u in A & t = <[u]_{R}, [F(u)]_{R}> ] ] ] ]
+    rough:
+    show @t [ t in D <--> 3u [ u in A & t = <[u]_{R}, [F(u)]_{R}> ] ]
+        show 3u [ u in A & t = <[u]_{R}, [F(u)]_{R}> ] --> t in D
+            3u [ u in A & t = <[u]_{R}, [F(u)]_{R}> ]
+            u in A & t = <[u]_{R}, [F(u)]_{R}>
+
+            show t in (A/R) x P(ran R)
+                @t[ t in (A/R) x P(ran R) <--> 3x, y [x in (A/R) & y in P(ran R) & t = <x, y> ] ]
+
+                show 3x, y [x in (A/R) & y in P(ran R) & t = <x, y> ]
+                    [u]_{R} in A/R since u in A
+
+                    show [F(u)]_{R} in P(ran R)
+                        @x [ x in P(ran R) <--> @w [ w in x --> w in ran R ] ]
+                        [F(u)]_{R} in P(ran R) <--> @w [ w in [F(u)]_{R} --> w in ran R ]
+
+                        show @w [ w in [F(u)]_{R} --> w in ran R ]
+                            w in [F(u)]_{R}
+                            @t [ t in [F(u)]_{R} <--> <F(u), t> in R ]
+                            <F(u), w> in R
+
+                            @x [ x in ran R <--> 3t [ <t, x> in R ] ]
+                            w in ran R <--> 3t [ <t, w> in R ]
+                            3t [ <t, w> in R ]
+
+                            w in ran R
+
+
+
+Axioms and Theorems:
+    F-hat pg 59 (This will be proven above):
+        @F, A, R [ 3D [ @t [ t in D <--> 3u [ u in A & t = <[u]_{R}, [F(u)]_{R}> ] ] ] ]
+
+		Definition (its uniqueness is always due to Ext. Axiom):
+			For any F, A, R, F-hat_{F, A, R} is the set that contains sets t where t = <[u]_{R}, [F(u)]_{R}> for some u in A.
 
 
 1. Show @F, A, R [ R is an equivalence relation on A & F: A->A --> [ F is compatible with R <--> F-hat_{F, A, R}: A/R -> A/R ] ]
+    2. let F, A, R be sets
+
+    ========
+    1.D1. @t [ t in F-hat_{F, A, R} <--> 3u [ u in A & t = <[u]_{R}, [F(u)]_{R}> ] ]        [F-hat pg 59 UI/F, A, R & Ext. Axiom]
+    
+    1.D2. @x [ x in dom F-hat_{F, A, R} <--> 3y [ <x, y> in F-hat_{F, A, R} ] ]         [dom UI/F-hat_{F, A, R} & Ext. Axiom]
+    ========
+
+    3. Show R is an equivalence relation on A & F: A->A --> [ F is compatible with R <--> F-hat_{F, A, R}: A/R -> A/R ]
+        4. R is an equivalence relation on A & F: A->A      [ACD]
+
+        5. R is an equivalence relation on A        [4 SL]
+
+        *6. F: A->A      [4 SR]
+
+        6. @R, A [ R is an equivalence relation on A <--> R is a binary relation on A & R is reflexive on A & R is symmetric & R is transitive ]        [Def. of Equivalence relation on A]
+
+
+        *7. R is a binary relation on A & 
+           R is reflexive on A & 
+           R is symmetric & 
+           R is transitive      [(6 UI/R, A) BC 5 MP]
+
+
+        8. Show F is compatible with R <--> F-hat_{F, A, R}: A/R -> A/R
+
+            9. Show F is compatible with R --> F-hat_{F, A, R}: A/R -> A/R
+
+                10. F is compatible with R      [ACD]
+
+                11. @F, R [ F is compatible with R <--> @x, y [ x, y in A --> [ <x, y> in R --> <F(x), F(y)> in R ] ] ]     [Def. of Compatible]
+
+                *12. @x, y [ x, y in A --> [ <x, y> in R --> <F(x), F(y)> in R ] ]       [(11 UI/F, R) BC 10 MP]
+
+                13. Show F-hat_{F, A, R}: A/R -> A/R
+                
+                    14. @F, A, B [ F maps A into B (F: A->B) <--> 
+						                F is a function &
+						                dom F = A &
+						                ran F ⊆ B 
+					            ]               [Def of into]
+                    
+                    15. @F, M, B [ F maps M into B (F: M->B) <--> 
+						                F is a function &
+						                dom F = M &
+						                ran F ⊆ B 
+					            ]               [14 EQUIV.]
+                    
+                    16. F-hat_{F, A, R}: A/R -> A/R <--> 
+                            F-hat_{F, A, R} is a function &
+                            dom F-hat_{F, A, R} = A/R &
+                            ran F-hat_{F, A, R} ⊆ A/R
+
+
+                    17. Show F-hat_{F, A, R} is a function
+                        18. @F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]         [Def of Func.]
+
+                        19. F-hat_{F, A, R} is a function <--> F-hat_{F, A, R} is a relation & @x [ x in dom F-hat_{F, A, R} --> 3_1y [ <x, y> in F-hat_{F, A, R} ] ]       [18 UI/F-hat_{F, A, R}]
+
+                        20. Show @x [ x in dom F-hat_{F, A, R} --> 3_1y [ <x, y> in F-hat_{F, A, R} ] ]
+
+                            21. let x be a set
+
+                            22. Show x in dom F-hat_{F, A, R} --> 3_1y [ <x, y> in F-hat_{F, A, R} ]
+
+                                23. x in dom F-hat_{F, A, R}        [ACD]
+
+                                24. @x [ x in dom F-hat_{F, A, R} <--> 3y [ <x, y> in F-hat_{F, A, R} ] ]       [1.D2]
+
+                                25. x in dom F-hat_{F, A, R} <--> 3y [ <x, y> in F-hat_{F, A, R} ]      [23 UI/x]
+
+                                26. 3y [ <x, y> in F-hat_{F, A, R} ]        [25 BC 23 MP]
+
+                                27. <x, y_1> in F-hat_{F, A, R}         [26 EI/y_1]
+
+                                28. Show 3_1y [ <x, y> in F-hat_{F, A, R} ]
+
+                                    29. Show @w [ <x, w> in F-hat_{F, A, R} --> w = y_1 ]
+
+                                        30. let w be a set
+
+                                        31. Show <x, w> in F-hat_{F, A, R} --> w = y_1
+
+                                            32. 
+                                    
+
+                        Show F-hat_{F, A, R} is a relation
+
+                        
+
+                    Show dom F-hat_{F, A, R} = A/R
+
+                    Show ran F-hat_{F, A, R} ⊆ A/R
+
+
+            Show F-hat_{F, A, R}: A/R -> A/R --> F is compatible with R
+
