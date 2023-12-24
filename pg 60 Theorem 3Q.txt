@@ -5,6 +5,9 @@ Axioms and Theorems:
 			For any set a, the power set  P(a) is the set whose members are exactly the subsets of a.
 			[You can think of P(a) as a 1-ary operator. It refer to one set and one set only based on the sets a!]
 
+	Theorem 3A:
+		@u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]
+
 	Corollary 3C:
 		@A, B [ 3D [ @t[ t in D <--> 3x, y [x in A & y in B & t = <x, y> ] ] ] ]
 		Definition (its uniqueness is always due to Ext. Axiom):
@@ -16,9 +19,19 @@ Axioms and Theorems:
 		Definition (its uniqueness is always due to Ext. Axiom):
 		For any set sets R,  dom R  is the set whose members are those 1st-coordinate set of some ordered pair in R
 
+	ran R: 
+		@R [ 3D [ @x [ x in D <--> 3t [ <t, x> in R ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets R,  ran R  is the set whose members are those 2nd-coordinate set of some ordered pair in R
+
 	Function:
 		Definition:
 		@F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]
+
+
+	[緋月ゆい] Pg 43 When F is a function and x the dom F, F(x) is y IFF <x, y> in F:
+		@F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]
+
 
 	Definition of into:
 		@F, A, B [ F maps A into B (F: A->B) <--> 
@@ -43,6 +56,9 @@ Axioms and Theorems:
 		
 		Definition of the quotient set:
 			For any set R, A, and if R is an equivalence relation on A, then A/R := {[x]_{R} | x in A} 
+
+	Lemma 3N:
+		@R, A [ R is an equivalence relation on A --> @x, y [ x, y in A --> [ [x]_{R} = [y]_{R} <--> <x, y> in R ] ] ]
 
     Definition of Compatible:
         @F, R [ F is compatible with R <--> @x, y [ x, y in A --> [ <x, y> in R --> <F(x), F(y)> in R ] ] ]
@@ -100,6 +116,8 @@ Axioms and Theorems:
     1.D1. @t [ t in F-hat_{F, A, R} <--> 3u [ u in A & t = <[u]_{R}, [F(u)]_{R}> ] ]        [F-hat pg 59 UI/F, A, R & Ext. Axiom]
     
     1.D2. @x [ x in dom F-hat_{F, A, R} <--> 3y [ <x, y> in F-hat_{F, A, R} ] ]         [dom UI/F-hat_{F, A, R} & Ext. Axiom]
+
+    1.D3. @y [ y in ran F <--> 3x [ <x, y> in F ] ]         [ran UI/F & Ext. Axiom]
     ========
 
     3. Show R is an equivalence relation on A & F: A->A --> [ F is compatible with R <--> F-hat_{F, A, R}: A/R -> A/R ]
@@ -167,7 +185,7 @@ Axioms and Theorems:
 
                                 26. 3y [ <x, y> in F-hat_{F, A, R} ]        [25 BC 23 MP]
 
-                                27. <x, y_1> in F-hat_{F, A, R}         [26 EI/y_1]
+                                *27. <x, y_1> in F-hat_{F, A, R}         [26 EI/y_1]
 
                                 28. Show 3_1y [ <x, y> in F-hat_{F, A, R} ]
 
@@ -177,10 +195,171 @@ Axioms and Theorems:
 
                                         31. Show <x, w> in F-hat_{F, A, R} --> w = y_1
 
-                                            32. 
-                                    
+                                            *32. <x, w> in F-hat_{F, A, R}       [ACD]
 
-                        Show F-hat_{F, A, R} is a relation
+                                            33. @t [ t in F-hat_{F, A, R} <--> 3u [ u in A & t = <[u]_{R}, [F(u)]_{R}> ] ]      [1.D1]
+
+                                            34. <x, y_1> in F-hat_{F, A, R} <--> 3u [ u in A & <x, y_1> = <[u]_{R}, [F(u)]_{R}> ]       [33 UI/<x, y_1>]
+
+                                            35. 3u [ u in A & <x, y_1> = <[u]_{R}, [F(u)]_{R}> ]        [34 BC 27 MP]
+
+                                            *36. u_2 in A & <x, y_1> = <[u_2]_{R}, [F(u_2)]_{R}>         [35 EI/u_2]
+
+
+                                            37. <x, w> in F-hat_{F, A, R} <--> 3u [ u in A & <x, w> = <[u]_{R}, [F(u)]_{R}> ]     [33 UI/<x, w>]
+
+                                            38. 3u [ u in A & <x, w> = <[u]_{R}, [F(u)]_{R}> ]      [37 BC 32 MP]
+
+                                            *39. u_3 in A & <x, w> = <[u_3]_{R}, [F(u_3)]_{R}>       [38 EI/u_3]
+
+
+                                            40. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]        [Theorem 3A]
+
+                                            41. <x, y_1> = <[u_2]_{R}, [F(u_2)]_{R}>  <-->  x = [u_2]_{R} & y_1 = [F(u_2)]_{R}      [40 UI/...]
+
+                                            42. <x, y_1> = <[u_2]_{R}, [F(u_2)]_{R}>    [36 SR]
+
+                                            *43. x = [u_2]_{R} & y_1 = [F(u_2)]_{R}      [41 BC 42 MP]
+
+
+                                            44. <x, w> = <[u_3]_{R}, [F(u_3)]_{R}>  <-->  x = [u_3]_{R} & w = [F(u_3)]_{R}      [40 UI/...]
+
+                                            45. <x, w> = <[u_3]_{R}, [F(u_3)]_{R}>      [39 SR]
+
+                                            *46. x = [u_3]_{R} & w = [F(u_3)]_{R}        [44 BC 45 MP]
+
+
+                                            47. x = [u_2]_{R}       [43 SL]
+
+                                            48. x = [u_3]_{R}       [46 SL]
+
+                                            49. [u_2]_{R} = [u_3]_{R}       [47 48 LL]
+
+                                            50. @R, A [ R is an equivalence relation on A --> @x, y [ x, y in A --> [ [x]_{R} = [y]_{R} <--> <x, y> in R ] ] ]      [Lemma 3N]
+
+                                            51. R is an equivalence relation on A --> @x, y [ x, y in A --> [ [x]_{R} = [y]_{R} <--> <x, y> in R ] ]        [50 UI/R, A]
+
+                                            52. R is an equivalence relation on A       [5 R]
+
+                                            53. @x, y [ x, y in A --> [ [x]_{R} = [y]_{R} <--> <x, y> in R ] ]          [51 52 MP]
+
+                                            54. u_2, u_3 in A --> [ [u_2]_{R} = [u_3]_{R} <--> <u_2, u_3> in R ]        [53 UI/u_2 UI/u_3]
+
+                                            55. u_2, u_3 in A       [(36 SL) (39 SL) ADJ]
+
+                                            56. [u_2]_{R} = [u_3]_{R} <--> <u_2, u_3> in R      [54 55 MP]
+
+                                            57. <u_2, u_3> in R     [56 BC 49 MP]
+
+                                            58. @x, y [ x, y in A --> [ <x, y> in R --> <F(x), F(y)> in R ] ]       [12  R]
+
+                                            59. u_2, u_3 in A --> [ <u_2, u_3> in R --> <F(u_2), F(u_3)> in R ]         [58 UI/u_2, u_3]
+
+                                            60. <u_2, u_3> in R --> <F(u_2), F(u_3)> in R       [55 59 MP]
+
+                                            61. <F(u_2), F(u_3)> in R       [60 57 MP]
+
+
+                                            62. @x, y [ x, y in A --> [ [x]_{R} = [y]_{R} <--> <x, y> in R ] ]      [53 R]
+
+                                            63. F(u_2), F(u_3) in A --> [ [F(u_2)]_{R} = [F(u_3)]_{R} <--> <F(u_2), F(u_3)> in R ]      [62 UI/F(u_2), F(u_3)]
+
+                                            64. F: A->A     [6 R]      
+
+                                            65. @F, A, B [ F: A->B <--> 
+                                                    F is a function &
+                                                    dom F = A &
+                                                    ran F ⊆ B 
+                                                ]       [Def. of into]
+
+                                            66. F: A->A <--> 
+                                                    F is a function &
+                                                    dom F = A &
+                                                    ran F ⊆ A       [65 UI/F, A, A]
+                                            
+                                            67. F is a function &
+                                                dom F = A &
+                                                ran F ⊆ A       [66 BC 64 MP]
+                                            
+                                            68. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]        [緋月ゆい]
+
+                                            69. F is a function & u_2 in dom F -->  @w [ <u_2, w> in F <--> F(u_2) = w ]        [68 UI/F UI/u_2]
+
+                                            70. u_2 in A        [36 SL]
+
+                                            71. dom F = A       [67 SL SR]
+
+                                            72. u_2 in dom F        [70 71 LL]
+
+                                            73. F is a function     [67 SL SL]
+
+                                            74. F is a function & u_2 in dom F      [73 72 ADJ]
+
+                                            75. @w [ <u_2, w> in F <--> F(u_2) = w ]        [69 74 MP]
+
+                                            76. <u_2, F(u_2)> in F <--> F(u_2) = F(u_2)         [75 UI/F(u_2)]
+
+                                            77. F(u_2) = F(u_2)     [SID]
+
+                                            78. <u_2, F(u_2)> in F      [76 BC 77 MP]
+
+                                            79. @y [ y in ran F <--> 3x [ <x, y> in F ] ]       [1.D3]
+
+                                            80. F(u_2) in ran F <--> 3x [ <x, F(u_2)> in F ]        [79 UI/F(u_2)]
+
+                                            81. 3x [ <x, F(u_2)> in F ]         [78 EG/u_2->x]
+
+                                            82. F(u_2) in ran F     [80 BC 81 MP]
+
+                                            83. ran F ⊆ A       [67 SR]
+
+                                            84. @t [ t in ran F --> t in A ]        [83 EQUIV.]
+
+                                            85. F(u_2) in ran F --> F(u_2) in A     [83 UI/F(u_2)]
+
+                                            86. F(u_2) in A     [82 85 MP]
+
+                                            // same steps to get F(u_3) in A
+
+                                            87. F(u_3) in A     [same steps as lines 70-86]
+
+                                            88. F(u_2), F(u_3) in A --> [ [F(u_2)]_{R} = [F(u_3)]_{R} <--> <F(u_2), F(u_3)> in R ]      [63 R]
+
+                                            89. F(u_2), F(u_3) in A     [86 87 ADJ]
+
+                                            90. [F(u_2)]_{R} = [F(u_3)]_{R} <--> <F(u_2), F(u_3)> in R      [88 89 MP]
+
+                                            91. <F(u_2), F(u_3)> in R       [61 R]
+
+                                            92. [F(u_2)]_{R} = [F(u_3)]_{R}         [90 BC 91 MP]
+
+                                            93. y_1 = [F(u_2)]_{R}      [43 SR]
+
+                                            94. w = [F(u_3)]_{R}        [46 SR]
+
+                                            95. y_1 = [F(u_3)]_{R}      [92 93 LL]
+
+                                            96. y_1 = w             [94 95 LL]
+
+                                            97. w = y_1         [96 EQUIV.]
+
+                                            98.     [97 CD]
+
+                                        99.     [31 UD]
+
+                                    100. <x, y_1> in F-hat_{F, A, R} & @w [ <x, w> in F-hat_{F, A, R} --> w = y_1 ]     [27 29 ADJ]
+
+                                    101. 3y[ <x, y> in F-hat_{F, A, R} & @w [ <x, w> in F-hat_{F, A, R} --> w = y ] ]       [100 EG/y_1->y]
+
+                                    102. 3_1y [ <x, y> in F-hat_{F, A, R} ]     [101 EQUIV.]
+
+                                    103.    [102 DD]
+
+                                104.    [28 CD]
+                            
+                            105.    [22 UD]
+                        
+                        106. Show F-hat_{F, A, R} is a relation
 
                         
 
