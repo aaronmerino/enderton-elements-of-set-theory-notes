@@ -1,9 +1,18 @@
 Axioms and Theorems:
+	Extensionality Axiom:
+		@A, B [ @x [ x in A <--> x in B ] --> A = B ]
+
 	Power Set Axiom:
 		@a [ 3B [ @x [ x in B <--> @t [ t in x --> t in a ] ] ] ]
 			Definition (its uniqueness is always due to Ext. Axiom):
 			For any set a, the power set  P(a) is the set whose members are exactly the subsets of a.
 			[You can think of P(a) as a 1-ary operator. It refer to one set and one set only based on the sets a!]
+
+	Subset Axioms:
+		For each formula __ not containing B, the following is an axiom:
+		@t1 ... @tk @c [ 3B [ @x [ x in B <--> x in c & __ ] ] ]
+			Definition:
+			For any set t­1, ..., tk and c, the subset B = {x in c | __ } is the set whose members are exactly those sets in c and __	
 
 	Theorem 3A:
 		@u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]
@@ -14,6 +23,11 @@ Axioms and Theorems:
 		For any set sets A, B,  {<x, y> | x in A & y in B}    is the set whose members are exactly the sets of the form <x, y> for some x in A & y in B
 		Also known as the Cartesian Product A x B of the sets A and B!
 
+	Relation:
+		Definition:
+		A relation R is a set of ordered pairs.
+		@R [ R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ] ]
+
 	dom R: 
 		@R [ 3D [ @x [ x in D <--> 3y [ <x, y> in R ] ] ] ]
 		Definition (its uniqueness is always due to Ext. Axiom):
@@ -23,6 +37,13 @@ Axioms and Theorems:
 		@R [ 3D [ @x [ x in D <--> 3t [ <t, x> in R ] ] ] ]
 		Definition (its uniqueness is always due to Ext. Axiom):
 		For any set sets R,  ran R  is the set whose members are those 2nd-coordinate set of some ordered pair in R
+
+	Definition of F(x): 
+	(We define it like this for the purpose of making sure that F(x) is always defined for any F and x, so that we can always refer to it)
+		@F, x [ F(x) := U({y | <x, y> in F}) ]
+
+	Union of singleton (Pg 43):
+		@w [ w = U({w}) ]	
 
 	Function:
 		Definition:
@@ -67,16 +88,21 @@ Axioms and Theorems:
 
 ideas:
     -note we use A/R := {[x]_{R} | x in A}  even if R isn't an equivalence relation on A for shorter writing
-    -if assuming F:A->A then its subset of (A/R) x (A/R)
-    -if not assuming F:A->A, then its subset of (A/R) x P(ran R)
+    -if assuming F:A->A then its a subset of (A/R) x (A/R)
+    -if not assuming F:A->A, then its a subset of (A/R) x P(ran R)
     
 
 1. Show @F, A, R [ 3D [ @t [ t in D <--> 3u [ u in A & t = <[u]_{R}, [F(u)]_{R}> ] ] ] ]
     rough:
+    @c [ 3D [ @t [ t in D <--> t in c & 3u [ u in A & t = <[u]_{R}, [F(u)]_{R}> ] ] ] ]     [subset axiom applied]
+    @t [ t in D <--> t in (A/R) x P(ran R) & 3u [ u in A & t = <[u]_{R}, [F(u)]_{R}> ] ]
+
     show @t [ t in D <--> 3u [ u in A & t = <[u]_{R}, [F(u)]_{R}> ] ]
         show 3u [ u in A & t = <[u]_{R}, [F(u)]_{R}> ] --> t in D
             3u [ u in A & t = <[u]_{R}, [F(u)]_{R}> ]
             u in A & t = <[u]_{R}, [F(u)]_{R}>
+
+            
 
             show t in (A/R) x P(ran R)
                 @t[ t in (A/R) x P(ran R) <--> 3x, y [x in (A/R) & y in P(ran R) & t = <x, y> ] ]
@@ -118,6 +144,10 @@ Axioms and Theorems:
     1.D2. @x [ x in dom F-hat_{F, A, R} <--> 3y [ <x, y> in F-hat_{F, A, R} ] ]         [dom UI/F-hat_{F, A, R} & Ext. Axiom]
 
     1.D3. @y [ y in ran F <--> 3x [ <x, y> in F ] ]         [ran UI/F & Ext. Axiom]
+
+    1.D5. @t [ t in A/R <--> 3x [ x in A & t = [x]_{R} ] ]      [Sets of Equiv. Classes UI/R UI/A & Ext. Axiom]
+
+    1.D6. @y [ y in ran F-hat_{F, A, R} <--> 3x [ <x, y> in F-hat_{F, A, R} ] ]         [ran UI/F-hat_{F, A, R} & Ext. Axiom]
     ========
 
     3. Show R is an equivalence relation on A & F: A->A --> [ F is compatible with R <--> F-hat_{F, A, R}: A/R -> A/R ]
@@ -361,12 +391,550 @@ Axioms and Theorems:
                         
                         106. Show F-hat_{F, A, R} is a relation
 
+                            107. @R [ R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ] ]      [Def. of Relation]
+
+                            108. F-hat_{F, A, R} is a relation <--> @t [ t in F-hat_{F, A, R} --> 3x, y[ t = <x, y> ] ]     [107 UI/F-hat_{F, A, R}]
+
+                            109. Show @t [ t in F-hat_{F, A, R} --> 3x, y[ t = <x, y> ] ]
+
+                                110. let t be a set
+
+                                111. Show t in F-hat_{F, A, R} --> 3x, y[ t = <x, y> ]
+
+                                    112. t in F-hat_{F, A, R}       [ACD]
+
+                                    113. @t [ t in F-hat_{F, A, R} <--> 3u [ u in A & t = <[u]_{R}, [F(u)]_{R}> ] ]     [1.D1]
+
+                                    114. t in F-hat_{F, A, R} <--> 3u [ u in A & t = <[u]_{R}, [F(u)]_{R}> ]        [113 UI/t]
+
+                                    115. 3u [ u in A & t = <[u]_{R}, [F(u)]_{R}> ]      [114 BC 112 MP]
+
+                                    116. u_1 in A & t = <[u_1]_{R}, [F(u_1)]_{R}>       [115 EI/u_1]
+
+                                    117. t = <[u_1]_{R}, [F(u_1)]_{R}>      [116 SR]
+
+                                    118. 3x, y[ t = <x, y> ]        [117 EG/[u_1]_{R}->x EG/[F(u_1)]_{R}->y]
+
+                                    119.    [118 CD]
+
+                                120.    [111 UD]
+
+                            121. F-hat_{F, A, R} is a relation      [108 BC 109 MP]
+
+                            122.    [121 DD]
                         
+                        123. F-hat_{F, A, R} is a relation & @x [ x in dom F-hat_{F, A, R} --> 3_1y [ <x, y> in F-hat_{F, A, R} ] ]     [106 20 ADJ]
 
-                    Show dom F-hat_{F, A, R} = A/R
+                        124. F-hat_{F, A, R} is a function      [19 BC 123 MP]
 
-                    Show ran F-hat_{F, A, R} ⊆ A/R
+                        125.    [124 DD]
+                    
+                    126. Show dom F-hat_{F, A, R} = A/R
+
+                        127. @A, B [ @x [ x in A <--> x in B ] --> A = B ]      [Ext. Axiom]
+
+                        128. @x [ x in dom F-hat_{F, A, R} <--> x in A/R ] --> dom F-hat_{F, A, R} = A/R     [127 UI/...]
+
+                        129. Show @x [ x in dom F-hat_{F, A, R} <--> x in A/R ]
+
+                            130. let x be a set
+
+                            131. Show x in dom F-hat_{F, A, R} --> x in A/R
+
+                                132. x in dom F-hat_{F, A, R}       [ACD]
+
+                                133. @x [ x in dom F-hat_{F, A, R} <--> 3y [ <x, y> in F-hat_{F, A, R} ] ]      [1.D2]
+
+                                134. x in dom F-hat_{F, A, R} <--> 3y [ <x, y> in F-hat_{F, A, R} ]     [133 UI/x]
+
+                                135. 3y [ <x, y> in F-hat_{F, A, R} ]       [134 BC 132 MP]
+
+                                136. <x, y_1> in F-hat_{F, A, R}        [135 EI/y_1]
+
+                                137. @t [ t in F-hat_{F, A, R} <--> 3u [ u in A & t = <[u]_{R}, [F(u)]_{R}> ] ]     [1.D1]
+
+                                138. <x, y_1> in F-hat_{F, A, R} <--> 3u [ u in A & <x, y_1> = <[u]_{R}, [F(u)]_{R}> ]      [137 UI/<x, y_1>]
+
+                                139. 3u [ u in A & <x, y_1> = <[u]_{R}, [F(u)]_{R}> ]       [138 BC 136 MP]
+
+                                140. u_2 in A & <x, y_1> = <[u_2]_{R}, [F(u_2)]_{R}>        [139 EI/u_2]
+
+                                141. <x, y_1> = <[u_2]_{R}, [F(u_2)]_{R}>       [140 SR]
+
+                                142. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]       [Theorem 3A]
+
+                                143. <x, y_1> = <[u_2]_{R}, [F(u_2)]_{R}>  <-->  x = [u_2]_{R} & y_1 = [F(u_2)]_{R}     [142 UI/x, y_1, [u_2]_{R}, [F(u_2)]_{R}]
+
+                                144. x = [u_2]_{R} & y_1 = [F(u_2)]_{R}     [143 BC 141 MP]
+
+                                145. x = [u_2]_{R}      [144 SL]
+
+                                146. u_2 in A       [140 SL]
+
+                                147. @t [ t in A/R <--> 3x [ x in A & t = [x]_{R} ] ]       [1.D5]
+
+                                148. @t [ t in A/R <--> 3w [ w in A & t = [w]_{R} ] ]       [147 EQUIV.]
+
+                                149. x in A/R <--> 3w [ w in A & x = [w]_{R} ]      [148 UI/x]
+
+                                150. u_2 in A & x = [u_2]_{R}       [146 145 ADJ]
+
+                                151. 3w [ w in A & x = [w]_{R} ]        [150 EG/u_2->w]
+
+                                152. x in A/R       [149 BC 151 MP]
+
+                                153.    [152 CD]
+                            
+                            154. Show x in A/R --> x in dom F-hat_{F, A, R}
+
+                                155. x in A/R       [ACD]
+
+                                156. @t [ t in A/R <--> 3x [ x in A & t = [x]_{R} ] ]       [1.D5]
+
+                                157. @t [ t in A/R <--> 3w [ w in A & t = [w]_{R} ] ]       [156 EQUIV.]
+
+                                158. x in A/R <--> 3w [ w in A & x = [w]_{R} ]      [157 UI/x]
+
+                                159. 3w [ w in A & x = [w]_{R} ]        [158 BC 155 MP]
+                                
+                                *160. w_1 in A & x = [w_1]_{R}       [159 EI/w_1]
 
 
-            Show F-hat_{F, A, R}: A/R -> A/R --> F is compatible with R
+                                161. @x [ x in dom F-hat_{F, A, R} <--> 3y [ <x, y> in F-hat_{F, A, R} ] ]      [1.D2]
+
+                                162. x in dom F-hat_{F, A, R} <--> 3y [ <x, y> in F-hat_{F, A, R} ]     [161 UI/x]
+
+
+                                // consider [F(w_1)]_{R}
+
+                                163. Show <[w_1]_{R}, [F(w_1)]_{R}> in F-hat_{F, A, R}
+
+                                    164. @t [ t in F-hat_{F, A, R} <--> 3u [ u in A & t = <[u]_{R}, [F(u)]_{R}> ] ]     [1.D1]
+
+                                    165. <[w_1]_{R}, [F(w_1)]_{R}> in F-hat_{F, A, R} <--> 3u [ u in A & <[w_1]_{R}, [F(w_1)]_{R}> = <[u]_{R}, [F(u)]_{R}> ]        [164 UI/<[w_1]_{R}, [F(w_1)]_{R}>]
+
+                                    166. w_1 in A       [160 SL]
+
+                                    167. <[w_1]_{R}, [F(w_1)]_{R}> = <[w_1]_{R}, [F(w_1)]_{R}>      [SID]
+
+                                    168. w_1 in A & <[w_1]_{R}, [F(w_1)]_{R}> = <[w_1]_{R}, [F(w_1)]_{R}>       [166 167 ADJ]
+
+                                    169. 3u [ u in A & <[w_1]_{R}, [F(w_1)]_{R}> = <[u]_{R}, [F(u)]_{R}> ]      [168 EG/w_1->u]
+
+                                    170. <[w_1]_{R}, [F(w_1)]_{R}> in F-hat_{F, A, R}       [165 BC 169 MP]
+
+                                    171.    [170 DD]
+                                
+                                172. 3y [ <[w_1]_{R}, y> in F-hat_{F, A, R} ]       [163 EG/[F(w_1)]_{R}->y]
+
+                                173. x = [w_1]_{R}      [160 SR]
+
+                                174. 3y [ <x, y> in F-hat_{F, A, R} ]       [172 173 LL]
+
+                                175. x in dom F-hat_{F, A, R}       [162 BC 174 MP]
+
+                                176.        [175 CD]
+                            
+                            177. x in dom F-hat_{F, A, R} <--> x in A/R     [131 154 CB]
+
+                            178.    [177 UD]
+
+                        179. dom F-hat_{F, A, R} = A/R      [128 129 MP]
+
+                        180.    [179 DD]
+
+                    181. Show ran F-hat_{F, A, R} ⊆ A/R
+
+                        182. Show @t [ t in ran F-hat_{F, A, R} --> t in A/R ]
+
+                            183. let t be a set
+
+                            184. Show t in ran F-hat_{F, A, R} --> t in A/R
+
+                                185. t in ran F-hat_{F, A, R}       [ACD]
+
+                                186. @y [ y in ran F-hat_{F, A, R} <--> 3x [ <x, y> in F-hat_{F, A, R} ] ]      [1.D6]
+
+                                187. t in ran F-hat_{F, A, R} <--> 3x [ <x, t> in F-hat_{F, A, R} ]     [186 UI/t]
+
+                                188. 3x [ <x, t> in F-hat_{F, A, R} ]       [187 BC 185 MP]
+
+                                189. <x_1, t> in F-hat_{F, A, R}        [188 EI/x_1]
+
+                                190. @t [ t in F-hat_{F, A, R} <--> 3u [ u in A & t = <[u]_{R}, [F(u)]_{R}> ] ]     [1.D1]
+
+                                191. <x_1, t> in F-hat_{F, A, R} <--> 3u [ u in A & <x_1, t> = <[u]_{R}, [F(u)]_{R}> ]      [190 UI/<x_1, t>]
+
+                                192. 3u [ u in A & <x_1, t> = <[u]_{R}, [F(u)]_{R}> ]       [191 BC 189 MP]
+
+                                193. u_2 in A & <x_1, t> = <[u_2]_{R}, [F(u_2)]_{R}>        [192 EI/u_2]
+
+                                194. <x_1, t> = <[u_2]_{R}, [F(u_2)]_{R}>       [193 SR]
+
+                                195. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]       [Theorem 3A]
+
+                                196. <x_1, t> = <[u_2]_{R}, [F(u_2)]_{R}>  <-->  x_1 = [u_2]_{R} & t = [F(u_2)]_{R}     [195 UI/x_1, t, [u_2]_{R}, [F(u_2)]_{R}]
+
+                                197. x_1 = [u_2]_{R} & t = [F(u_2)]_{R}     [196 BC 194 MP]
+
+                                198. t = [F(u_2)]_{R}       [197 SR]
+
+                                199. @t [ t in A/R <--> 3x [ x in A & t = [x]_{R} ] ]       [1.D5]
+
+                                200. t in A/R <--> 3x [ x in A & t = [x]_{R} ]      [199 UI/t]
+
+                                201. Show 3x [ x in A & t = [x]_{R} ]
+
+                                    202. F: A->A        [6 R]
+
+                                    203. @F, A, B [ F: A->B <--> 
+                                                F is a function &
+                                                dom F = A &
+                                                ran F ⊆ B 
+                                            ]       [Def. of into]
+
+                                    204. F: A->A <--> 
+                                            F is a function &
+                                            dom F = A &
+                                            ran F ⊆ A       [203 UI/F, A, A]
+
+                                    205. F is a function &
+                                            dom F = A &
+                                            ran F ⊆ A       [204 BC 202 MP]
+                                    
+                                    206. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]       [緋月ゆい]
+
+                                    207. F is a function & u_2 in dom F -->  @w [ <u_2, w> in F <--> F(u_2) = w ]       [206 UI/F UI/u_2]
+
+                                    208. u_2 in A       [193 SL]
+
+                                    209. dom F = A      [205 SL SR]
+
+                                    210. u_2 in dom F   [208 209 LL]
+
+                                    211. F is a function        [205 SL SL]
+
+                                    212. F is a function & u_2 in dom F     [211 210 ADJ]
+
+                                    213. @w [ <u_2, w> in F <--> F(u_2) = w ]       [207 212 MP]
+
+                                    214. <u_2, F(u_2)> in F <--> F(u_2) = F(u_2)        [213 UI/F(u_2)]
+
+                                    215. F(u_2) = F(u_2)        [SID]
+
+                                    216. <u_2, F(u_2)> in F         [214 BC 215 MP]
+
+                                    217. @y [ y in ran F <--> 3x [ <x, y> in F ] ]      [1.D3]
+
+                                    218. F(u_2) in ran F <--> 3x [ <x, F(u_2)> in F ]       [217 UI/F(u_2)]
+
+                                    219. 3x [ <x, F(u_2)> in F ]        [216 EG/u_2->x]
+
+                                    220. F(u_2) in ran F        [218 BC 219 MP]
+
+                                    221. ran F ⊆ A      [205 SR]
+
+                                    222. @t [ t in ran F --> t in A ]       [221 EQUIV.]
+
+                                    223. F(u_2) in ran F --> F(u_2) in A        [222 UI/F(u_2)]
+
+                                    224. F(u_2) in A        [220 223 MP]
+
+                                    225. t = [F(u_2)]_{R}       [198 R]
+
+                                    226. F(u_2) in A & t = [F(u_2)]_{R}     [224 225 ADJ]
+
+                                    227. 3x [ x in A & t = [x]_{R} ]        [226 EG/F(u_2)->x]
+
+                                    228.    [227 DD]
+                                
+                                229. t in A/R       [200 BC 201 MP]
+
+                                230.    [229 CD]
+                            
+                            231.    [184 UD]
+                        
+                        232. ran F-hat_{F, A, R} ⊆ A/R      [182 EQUIV.]
+
+                        234.    [232 DD]
+                    
+                    235. F-hat_{F, A, R} is a function &
+                            dom F-hat_{F, A, R} = A/R &
+                            ran F-hat_{F, A, R} ⊆ A/R       [17 126 181 ADJ]
+
+                    236. F-hat_{F, A, R}: A/R -> A/R        [16 BC 235 MP]
+
+                    237.    [236 DD]
+                
+                238.    [13 CD]
+            
+
+            239. Show F-hat_{F, A, R}: A/R -> A/R --> F is compatible with R
+
+                240. F-hat_{F, A, R}: A/R -> A/R        [ACD]
+
+                241. @F, R [ F is compatible with R <--> @x, y [ x, y in A --> [ <x, y> in R --> <F(x), F(y)> in R ] ] ]        [Def. of Compatible]
+
+                242. F is compatible with R <--> @x, y [ x, y in A --> [ <x, y> in R --> <F(x), F(y)> in R ] ]      [241 UI/F UI/R]
+
+                243. Show @x, y [ x, y in A --> [ <x, y> in R --> <F(x), F(y)> in R ] ]
+
+                    244. let x, y be sets
+
+                    245. Show x, y in A --> [ <x, y> in R --> <F(x), F(y)> in R ]
+
+                        246. x, y in A      [ACD]
+
+                        247. Show <x, y> in R --> <F(x), F(y)> in R
+
+                            248. <x, y> in R        [ACD]
+
+                            249. Show <F(x), F(y)> in R
+
+                                250. @R, A [ R is an equivalence relation on A --> @x, y [ x, y in A --> [ [x]_{R} = [y]_{R} <--> <x, y> in R ] ] ]     [Lemma 3N]
+
+                                251. R is an equivalence relation on A --> @x, y [ x, y in A --> [ [x]_{R} = [y]_{R} <--> <x, y> in R ] ]       [250 UI/R, A]
+
+                                252. R is an equivalence relation on A      [5 R]
+
+                                253. @x, y [ x, y in A --> [ [x]_{R} = [y]_{R} <--> <x, y> in R ] ]     [251 252 MP]
+
+                                254. x, y in A --> [ [x]_{R} = [y]_{R} <--> <x, y> in R ]       [253 UI/x, y]
+
+                                255. [x]_{R} = [y]_{R} <--> <x, y> in R     [246 254 MP]
+
+                                *256. [x]_{R} = [y]_{R}      [255 BC 248 MP]
+
+
+                                257. F-hat_{F, A, R}: A/R -> A/R        [240 R]
+
+                                258. @F, A, B [ F: A->B <--> 
+                                                F is a function &
+                                                dom F = A &
+                                                ran F ⊆ B 
+                                            ]       [Def. of into]
+
+                                259. F-hat_{F, A, R}: A/R -> A/R <--> 
+                                        F-hat_{F, A, R} is a function &
+                                        dom F-hat_{F, A, R} = A/R &
+                                        ran F-hat_{F, A, R} ⊆ A/R       [258 UI/F-hat_{F, A, R} UI/A/R UI/A/R]
+
+                                260. @t [ t in F-hat_{F, A, R} <--> 3u [ u in A & t = <[u]_{R}, [F(u)]_{R}> ] ]         [1.D1]
+
+                                261. <[x]_{R}, [F(x)]_{R}> in F-hat_{F, A, R} <--> 3u [ u in A & <[x]_{R}, [F(x)]_{R}> = <[u]_{R}, [F(u)]_{R}> ]        [260 UI/<[x]_{R}, [F(x)]_{R}>]
+
+                                262. x in A      [246 SL]
+
+                                263. <[x]_{R}, [F(x)]_{R}> = <[x]_{R}, [F(x)]_{R}>      [SID]
+
+                                264. x in A & <[x]_{R}, [F(x)]_{R}> = <[x]_{R}, [F(x)]_{R}>     [262 263 ADJ]
+
+                                265. 3u [ u in A & <[x]_{R}, [F(x)]_{R}> = <[u]_{R}, [F(u)]_{R}> ]      [264 EG/x->u]
+
+                                *266. <[x]_{R}, [F(x)]_{R}> in F-hat_{F, A, R}       [261 BC 265 MP]
+
+
+                                267. <[y]_{R}, [F(y)]_{R}> in F-hat_{F, A, R} <--> 3u [ u in A & <[y]_{R}, [F(y)]_{R}> = <[u]_{R}, [F(u)]_{R}> ]        [260 UI/<[y]_{R}, [F(y)]_{R}>]
+
+                                268. y in A      [246 SR]
+
+                                269. <[y]_{R}, [F(y)]_{R}> = <[y]_{R}, [F(y)]_{R}>      [SID]
+
+                                270. y in A & <[y]_{R}, [F(y)]_{R}> = <[y]_{R}, [F(y)]_{R}>     [268 269 ADJ]
+
+                                271. 3u [ u in A & <[y]_{R}, [F(y)]_{R}> = <[u]_{R}, [F(u)]_{R}> ]      [270 EG/y->u]
+
+                                *272. <[y]_{R}, [F(y)]_{R}> in F-hat_{F, A, R}       [267 BC 271 MP]
+
+
+                                273. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]       [緋月ゆい]
+
+                                274. F-hat_{F, A, R} is a function & [x]_{R} in dom F-hat_{F, A, R} -->  @w [ <[x]_{R}, w> in F-hat_{F, A, R} <--> F-hat_{F, A, R}([x]_{R}) = w ]       [273 UI/...]
+
+                                275. @t [ t in A/R <--> 3x [ x in A & t = [x]_{R} ] ]       [1.D5]
+
+                                276. @t [ t in A/R <--> 3w [ w in A & t = [w]_{R} ] ]       [275 EQUIV.]
+
+                                277. [x]_{R} in A/R <--> 3w [ w in A & [x]_{R} = [w]_{R} ]      [276 UI/[x]_{R}]
+
+                                278. [x]_{R} = [x]_{R}      [SID]
+
+                                279. x in A & [x]_{R} = [x]_{R}       [262 278 ADJ]
+
+                                280. 3w [ w in A & [x]_{R} = [w]_{R} ]      [279 EG/x->w]
+
+                                281. [x]_{R} in A/R     [277 BC 280 MP]
+
+                                282. dom F-hat_{F, A, R} = A/R      [259 SL SR]
+
+                                283. [x]_{R} in dom F-hat_{F, A, R}     [281 282 LL]
+
+                                284. F-hat_{F, A, R} is a function      [259 SL SL]
+
+                                285. F-hat_{F, A, R} is a function & [x]_{R} in dom F-hat_{F, A, R}     [284 283 ADJ]
+
+                                286. @w [ <[x]_{R}, w> in F-hat_{F, A, R} <--> F-hat_{F, A, R}([x]_{R}) = w ]       [274 285 MP]
+
+                                287. <[x]_{R}, [F(x)]_{R}> in F-hat_{F, A, R} <--> F-hat_{F, A, R}([x]_{R}) = [F(x)]_{R}        [286 UI/[F(x)]_{R}]
+
+                                *288. F-hat_{F, A, R}([x]_{R}) = [F(x)]_{R}      [287 BC 266 MP]
+
+
+                                289. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]       [緋月ゆい]
+
+                                290. F-hat_{F, A, R} is a function & [y]_{R} in dom F-hat_{F, A, R} -->  @w [ <[y]_{R}, w> in F-hat_{F, A, R} <--> F-hat_{F, A, R}([y]_{R}) = w ]       [289 UI/...]
+
+                                291. [x]_{R} = [y]_{R}      [256 R]
+
+                                292. [x]_{R} in dom F-hat_{F, A, R}     [283 R]
+
+                                293. [y]_{R} in dom F-hat_{F, A, R}        [292 291 LL]
+
+                                294. F-hat_{F, A, R} is a function & [y]_{R} in dom F-hat_{F, A, R}     [284 293 ADJ]
+
+                                295. @w [ <[y]_{R}, w> in F-hat_{F, A, R} <--> F-hat_{F, A, R}([y]_{R}) = w ]       [290 294 MP]
+
+                                296. <[y]_{R}, [F(y)]_{R}> in F-hat_{F, A, R} <--> F-hat_{F, A, R}([y]_{R}) = [F(y)]_{R}        [295 UI/[F(y)]_{R}]
+
+                                *297. F-hat_{F, A, R}([y]_{R}) = [F(y)]_{R}      [296 BC 272 MP]
+
+
+                                298. F-hat_{F, A, R}([x]_{R}) = [F(y)]_{R}      [297 291 LL]
+
+                                299. F-hat_{F, A, R}([x]_{R}) = [F(x)]_{R}      [288 R]
+
+                                300. [F(x)]_{R} = [F(y)]_{R}        [299 298 LL]
+
+                                // From Lemma 3N
+                                301. @x, y [ x, y in A --> [ [x]_{R} = [y]_{R} <--> <x, y> in R ] ]     [253 R] 
+
+                                302. F(x), F(y) in A --> [ [F(x)]_{R} = [F(y)]_{R} <--> <F(x), F(y)> in R ]     [301 UI/F(x) UI/F(y)]
+
+
+                                303. F: A->A        [6 R]
+
+                                304. @F, A, B [ F: A->B <--> 
+                                        F is a function &
+                                        dom F = A &
+                                        ran F ⊆ B 
+                                    ]       [Def. of into]
+
+                                305. F: A->A <--> 
+                                        F is a function &
+                                        dom F = A &
+                                        ran F ⊆ A       [304 UI/F, A, A]
+
+                                306. F is a function &
+                                        dom F = A &
+                                        ran F ⊆ A       [305 BC 303 MP]
+
+                                307. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]       [緋月ゆい]
+
+                                308. F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ]         [307 UI/F UI/x]
+
+                                309. x in A     [262 R]
+
+                                310. dom F = A      [306 SL SR]
+
+                                311. x in dom F     [309 310 LL]
+
+                                312. F is a function        [306 SL SL]
+
+                                313. F is a function & x in dom F       [312 311 ADJ]
+
+                                314. @w [ <x, w> in F <--> F(x) = w ]       [308 313 MP]
+
+                                315. <x, F(x)> in F <--> F(x) = F(x)        [314 UI/F(x)]
+
+                                316. F(x) = F(x)        [SID]
+
+                                317. <x, F(x)> in F     [315 BC 316 MP]
+
+                                318. @y [ y in ran F <--> 3x [ <x, y> in F ] ]      [1.D3]
+
+                                319. @y [ y in ran F <--> 3w [ <w, y> in F ] ]      [318 EQUIV.]
+
+                                320. F(x) in ran F <--> 3w [ <w, F(x)> in F ]       [319 UI/F(x)]
+
+                                321. 3w [ <w, F(x)> in F ]      [317 EG/x->w]
+
+                                322. F(x) in ran F      [320 BC 321 MP]
+
+                                323. ran F ⊆ A      [306 SR]
+
+                                324. @t [ t in ran F --> t in A ]       [323 EQUIV.]
+
+                                325. F(x) in ran F --> F(x) in A        [324 UI/F(x)]
+
+                                326. F(x) in A      [322 325 MP]
+
+
+                                327. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]       [緋月ゆい]
+
+                                328. F is a function & y in dom F -->  @w [ <y, w> in F <--> F(y) = w ]     [327 UI/F UI/y]
+
+                                329. y in A     [268 R]
+
+                                330. dom F = A      [306 SL SR]
+
+                                331. y in dom F     [329 330 LL]
+
+                                332. F is a function        [312 R]
+
+                                333. F is a function & y in dom F       [332 331 ADJ]
+
+                                334. @w [ <y, w> in F <--> F(y) = w ]       [328 333 MP]
+                                
+                                335. <y, F(y)> in F <--> F(y) = F(y)        [334 UI/F(y)]
+
+                                336. F(y) = F(y)    [SID]
+
+                                337. <y, F(y)> in F     [335 BC 336 MP]
+
+                                338. @y [ y in ran F <--> 3x [ <x, y> in F ] ]      [1.D3]
+
+                                339. F(y) in ran F <--> 3x [ <x, F(y)> in F ]       [338 UI/F(y)]
+
+                                340. 3x [ <x, F(y)> in F ]     [337 EG/y->x]
+
+                                341. F(y) in ran F      [339 BC 340 MP]
+
+                                342. @t [ t in ran F --> t in A ]       [324 R]
+
+                                343. F(y) in ran F --> F(y) in A        [342 UI/F(y)]
+
+                                344. F(y) in A      [341 343 MP]
+
+
+                                345. F(x), F(y) in A        [326 344 ADJ]
+                    
+                                346. [F(x)]_{R} = [F(y)]_{R} <--> <F(x), F(y)> in R     [302 345 MP]
+
+                                347. [F(x)]_{R} = [F(y)]_{R}        [300 R]
+
+                                348. <F(x), F(y)> in R      [346 BC 347 MP]
+
+                                349.    [348 DD]
+
+                            340.    [249 CD]
+
+                        341.    [247 CD]
+                    
+                    342.    [245 UD]
+
+                343. F is compatible with R     [242 BC 243 MP]
+
+                344.    [343 CD]
+            
+
+            345. F is compatible with R <--> F-hat_{F, A, R}: A/R -> A/R        [9 239 CB]
+
+            346.    [345 DD]
+        
+        347.    [8 CD]
+    
+    348.    [3 UD]
+
+
+
 
