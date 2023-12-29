@@ -1,0 +1,168 @@
+Axioms:
+	Extensionality Axiom:
+	@A, B [ @x [ x in A <--> x in B ] --> A = B ]
+
+	Empty Set Axiom:
+	3B [ @x [ ~(x in B) ] ]
+	Definition:
+	{ } is the set having no members
+
+	Pairing Axiom:
+	@u, v [ 3B [ @x [ x in B <--> x = u or x = v ] ] ]
+		Definition:
+		For any sets u, v, the pair set {u, v} is the set whose only members are u and v.
+
+	Union Axiom (Preliminary Form):
+	@a, b [ 3B [ @x [ x in B <--> x in a or x in b ] ] ]
+		Definition:
+		For any sets a, b, the union a u b is the set whose members are those sets belonging either to a or to b (or both).
+
+	Power Set Axiom:
+	@a [ 3B [ @x [ x in B <--> @t [ t in x --> t in a ] ] ] ]
+		Definition:
+		For any set a, the power set  P(a) is the set whose members are exactly the subsets of a.
+
+	Subset Axioms:
+	For each formula __ not containing B, the following is an axiom:
+	@t1 ... @tk @c [ 3B [ @x [ x in B <--> x in c & __ ] ] ]
+		Definition:
+		For any set t­1, ..., tk and c, the subset B = {x in c | __ } is the set whose members are exactly those sets in c and __	
+
+	
+		Example of a subset Axiom (intersection):
+		@a, c [ 3B [ @x [ x in B <--> x in c & x in a ] ] ]
+			Definition:
+			For any set a, c, the intersection set  a n c is the set whose members are exactly those sets in a and c
+		
+
+		Example of a subset Axiom (relative complement):
+		@A, B [ 3S [ @t [ t in S <--> t in A & ~(t in B) ] ] ]
+			Definition:
+			For any set A, B, the relative complement of B in A     A - B     is the set whose members are exactly those sets in A and but not in B
+
+
+	Theorem 2A:
+	~3V [ @x [ x in V ] ]
+
+	Union Axiom:
+	@A [ 3B [ @x [ x in B <--> 3b [ b in A & x in b ] ] ]
+		Definition:
+		For any set A, the union of A  U(A)     is the set whose members are exactly the members of the members of A
+		
+
+
+[looked at solution; but i did come up with using just the subset axiom but i couldn't figure out what c to use cuz i didnt take A != { }
+into consideration: 
+	@c [ 3B [ @x [ x in B <--> x in c & @a [a in A --> x in a] ] ] ]	
+]
+Axioms we might need:
+	Extensionality Axiom:
+	@A, B [ @x [ x in A <--> x in B ] --> A = B ]
+
+	Empty Set Axiom:
+	3B [ @x [ ~(x in B) ] ]
+	Definition:
+	{ } is the set having no members
+	@A [ A = { } <--> @x [ ~(x in A) ] ]			[by definition of definition]
+	@A [ A = { } <--> ~3x [ x in A ] ]		
+
+	Subset Axiom: 
+	@t1 ... @tk @c [ 3B [ @x [ x in B <--> x in c & __ ] ] ] 	where __ doesn't contain "B"
+
+1. Show @A [ A != { } --> 31B [ @x [ x in B <--> @a [ a in A --> x in a ] ] ] ] 
+	2. Show A != { } --> 31B [ @x [ x in B <--> @a [ a in A --> x in a ] ] ]
+		3. A != { }								[ACD]
+	4. @A [ A = { } <--> ~3x [ x in A ] ]					[definition of { } ]
+	5. A = { } <--> ~3x [ x in A ]						[4 UI/A]
+	6. 3x [ x in A ]								[5 BC MT]
+		7. a1 in A								[6 EI/a1]
+		
+		
+		8. @c [ 3B [ @x [ x in B <--> x in c & @a [a in A & a != c --> x in a] ] ] ]				[Subset Axiom UI_META/ k = 0   
+															UI_META/ "@a [a in A & a != c --> x in a]"]
+
+		9. 3B [ @x [ x in B <--> x in a1 & @a [a in A & a != a1 --> x in a] ] ]					[8 UI/a1]
+		10. @x [ x in B1 <--> x in a1 & @a [a in A & a != a1 --> x in a] ] 						[9 EI/B1]
+
+		11. Show @x [ x in B1 <--> @a [a in A --> x in a] ] 	
+			12. Show x in B1 <--> @a [a in A --> x in a]							[let x be an arbitrary object]
+				13. Show x in B1 --> @a [a in A --> x in a]
+					14. x in B1 										[ACD]
+					15. Show @a [a in A --> x in a]
+						16. Show a in A --> x in a							[ACD]
+							17. a in A								[ACD]
+							18. a = a1 OR a != a1						[Tautology (check below for proof)]
+
+							19. Show a = a1 --> x in a								[CASE 1]
+								20. a = a1									[ACD]
+								21. @x [ x in B1 <--> x in a1 & @a [a in A & a != a1 --> x in a] ] 		[10 R]
+								22. x in B1 <--> x in a1 & @a [a in A & a != a1 --> x in a]			[21 UI/x]
+								23. x in a1 & @a [a in A & a != a1 --> x in a]				[22 BC 14 MP]
+								24. x in a1									[23 SL]
+								25. x in a									[24 20 EL]
+								26.										[25 CD]
+	
+							27. Show a != a1 --> x in a								[CASE 2]
+			28. a != a1									[ACD]
+								29. @x [ x in B1 <--> x in a1 & @a [a in A & a != a1 --> x in a] ] 		[10 R]
+								30. x in B1 <--> x in a1 & @a [a in A & a != a1 --> x in a]			[29 UI/x]
+								31. x in a1 & @a [a in A & a != a1 --> x in a]				[30 BC 14 MP]
+								32. @a [a in A & a != a1 --> x in a]						[31 SR]
+								33. a in A & a != a1 --> x in a						[32 UI/a]
+								34. a in A & a != a1								[17 28 ADJ]
+								35. x in a									[34 33 MP]
+								36.										[35 CD]
+					
+							37. a = a1 OR a != a1 --> x in a							[19 27 CASE_PROOF]
+							38. x in a										[18 37 MP]
+							39.											[38 CD]
+
+				40. Show @a [a in A --> x in a] --> x in B1
+					41. @a [a in A --> x in a]										[ACD]
+					42. @x [ x in B1 <--> x in a1 & @a [a in A & a != a1 --> x in a] ] 					[10 R]
+					43. x in B1 <--> x in a1 & @a [a in A & a != a1 --> x in a]						[42 UI/x]
+					44. Show x in a1 & @a [a in A & a != a1 --> x in a]
+						45. a1 in A --> x in a1										[41 UI/a1]
+						46. a1 in A											[7 R]
+						47. x in a1											[45 46  MP]
+
+						48. Show @a [a in A & a != a1 --> x in a]				
+							49. Show a in A & a != a1 --> x in a
+								50. a in A & a != a1				[ACD]
+								51. Show x in a
+									52. a in A --> x in a			[41 UI/a]
+									53. a in A				[50 SL]
+									54. x in a				[52 53 MP]
+									55.					[54 DD]
+														[51 CD]
+						56. x in a1 & @a [a in A & a != a1 --> x in a]		[47 48 ADJ DD]
+					57. x in B­1								[43 BC 44 MP]
+					58.									[57 CD]
+
+				59. x in B1 <--> @a [a in A --> x in a]					[13 40 CB DD]
+
+			60.										[12 UD]
+	
+		61. 3B [ @x [ x in B <--> @a [ a in A --> x in a ] ] ]					[11 EG/B1 --> B]
+		
+		We can show uniqueness using Extensionality Axiom
+		62. Show @C [ @x [ x in C <--> @a [a in A --> x in a] ] --> C = B1]		[Show uniqueness]
+			...
+
+		63. 3B1 [ @x [ x in B <--> @a [ a in A --> x in a ] ] ]				[62 61 UNIQUENESS CD]
+
+
+
+[Tautology Proof]
+1. Show A or ~A
+	2. ~(A or ~A)			[AID]
+	3. Show A
+		4. ~A 			[AID]
+		5. A or ~A		[4 ADD/A]
+		6. 			[2 5 ID]
+	7. Show ~A
+		8. ~~A			[AID]
+		9. A			[8 DN]
+		10. A or ~A		[9 ADD/~A]
+		11. 			[2 10 ID]
+	12.				[3 7 ID]

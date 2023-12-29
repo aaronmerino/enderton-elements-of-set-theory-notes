@@ -1,0 +1,44 @@
+Axioms we might use:
+	Subset Axiom: @t­1, t2, ..., tk, [ @c [ 3B [ @x [ x in B <--> x in c & __ ] ] ]	where __ does not contain "B"
+				the set B = { x in c | __ } is uniquely determined (by Extensionality Axiom) by t1,...,tk and c
+	
+
+1. Show ~3V [ @x [ x in V ] ]
+
+	2. 3V [ @x [ x in V ]  ]									[AID]
+
+	3. let V be an arbitrary set & 
+	    @x [ x in V  ]  									[2 EI/V]
+	
+	4. @t­1, t2, ..., tk, [ @c [ 3B [ @x [ x in B <--> x in c & __ ] ] ]			[Subset Axiom]
+	5. @c [ 3B [ @x [ x in B <--> x in c & __ ] ]	]					[4 META_UI/c]
+	6. @c [ 3B [ @x [ x in B <--> x in c & ~(x in x) ] ] ]				[5 META_UI/"~(x in x)"] 
+	7. 3B [ @x [ x in B <--> x in V & ~(x in x) ]	]					[6 UI/ V]					
+	8. @x [ x in B <--> x in V & ~(x in x) ]						[7 EI/B]
+	9. let B = {x in V | ~(x in x)}								[7 EI/B]
+	10. Show ~(B in V)
+		11. B in V									[AID]
+		12. B in B <--> B in V & ~(B in B)						[8 UI/B]
+		13. Show B in B
+			14. ~(B in B)			[AID]
+			15. B in V & ~(B in B)	[11 14 ADJ]
+			16. B in B			[12 BC 15 MP]
+			17.				[16 DD]
+
+		18. Show ~(B in B)
+			19. B in B 			[AID]
+			20. B in V & ~(B in B)	[12 BC 19 MP]
+			21. ~(B in B)			[20 SR]
+			22.				[21 DD]
+
+		23.					[13 18 ID]
+
+	24. @x [ x in V ]									[3 R]
+	25. B in V										[24 UI/B]
+	26.											[10 25 ID]
+
+
+
+
+
+
