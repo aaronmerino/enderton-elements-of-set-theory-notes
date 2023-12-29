@@ -1,0 +1,116 @@
+Axioms and Theorems:
+	The inverse of F set:
+		@F [ 3D [ @t [ t in D <--> 3u, v [ <v, u> in F & t = <u, v> ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			For any sets F, F^-1 is the set known as the inverse of F
+			AKA: F^-1 := {<u, v> | <v, u> in F}
+
+	Definition [FROM TEXTBOOK (my guess based on their proof of Theorem 3M)]:
+		@R, A [ R is reflexive on A <--> @x [ x in A --> <x, x> in R ] ]
+	
+		@R [ R is symmetric <--> @x, y [ <x, y> in R --> <y, x> in R ] ]
+
+		@R [ R is transitive <--> @x, y, z [ <x, y> in R & <y, z> in R --> <x, z> in R ] ]      
+
+1. Show @R [ R is symmetric <--> @t [ t in R^-1 --> t in R ] ]
+
+  2. let R be a set
+
+  ========
+  1.D1. @t [ t in R^-1 <--> 3u, v [ <v, u> in R & t = <u, v> ] ]    [Inverse UI/R & Ext. Axiom]
+  ========
+
+  3. Show R is symmetric --> @t [ t in R^-1 --> t in R ]
+
+    4. R is symmetric   [ACD]
+
+    5. @R [ R is symmetric <--> @x, y [ <x, y> in R --> <y, x> in R ] ]   [Def. of Symmetric]
+
+    6. R is symmetric <--> @x, y [ <x, y> in R --> <y, x> in R ]    [5 UI/R]
+
+    7. @x, y [ <x, y> in R --> <y, x> in R ]    [6 BC 4 MP]
+
+    8. Show @t [ t in R^-1 --> t in R ]
+
+      9. let t be a set
+
+      10. Show t in R^-1 --> t in R
+
+        11. t in R^-1
+
+        12. @t [ t in R^-1 <--> 3u, v [ <v, u> in R & t = <u, v> ] ]    [1.D1]
+
+        13. t in R^-1 <--> 3u, v [ <v, u> in R & t = <u, v> ]   [12 UI/t]
+
+        14. 3u, v [ <v, u> in R & t = <u, v> ]    [13 BC 11 MP]
+
+        15. <v_1, u_1> in R & t = <u_1, v_1>    [14 EI/u_1 EI/v_1]
+
+        *16. <v_1, u_1> in R   [15 SL]
+
+        *17. t = <u_1, v_1>    [15 SR]
+
+        18. @x, y [ <x, y> in R --> <y, x> in R ]   [7 R]
+
+        19. <v_1, u_1> in R --> <u_1, v_1> in R   [18 UI/v_1 UI/u_1]
+
+        20. <u_1, v_1> in R   [16 19 MP]
+
+        21. t in R    [17 20 LL]
+
+        22.   [21 CD]
+      
+      23.   [10 UD]
+
+    24.   [8 CD]
+
+  25. Show @t [ t in R^-1 --> t in R ] --> R is symmetric
+
+    26. @t [ t in R^-1 --> t in R ]   [ACD]
+
+    27. Show R is symmetric
+
+      28. @R [ R is symmetric <--> @x, y [ <x, y> in R --> <y, x> in R ] ]    [Def. of Symmetric]
+
+      29. R is symmetric <--> @x, y [ <x, y> in R --> <y, x> in R ]   [28 UI/R]
+
+      30. Show @x, y [ <x, y> in R --> <y, x> in R ]
+
+        31. let x, y be sets
+
+        32. Show <x, y> in R --> <y, x> in R
+
+          33. <x, y> in R   [ACD]
+
+          34. @t [ t in R^-1 --> t in R ]   [26 R]
+
+          35. <y, x> in R^-1 --> <y, x> in R    [34 UI/<y, x>]
+
+          36. @t [ t in R^-1 <--> 3u, v [ <v, u> in R & t = <u, v> ] ]    [1.D1]
+
+          37. <y, x> in R^-1 <--> 3u, v [ <v, u> in R & <y, x> = <u, v> ]   [36 UI/<y, x>]
+
+          38. <y, x> = <y, x>   [SID]
+
+          39. <x, y> in R & <y, x> = <y, x>   [33 38 ADJ]
+
+          40. 3u, v [ <v, u> in R & <y, x> = <u, v> ]   [EG/y->u EG/x->v]
+
+          41. <y, x> in R^-1    [37 BC 40 MP]
+
+          42. <y, x> in R   [35 41 MP]
+
+          43.   [42 CD]
+        
+        44.   [32 UD]
+
+      45. R is symmetric    [29 BC 30 MP]
+
+      46.   [45 DD]
+    
+    47.   [27 CD]
+  
+  48. R is symmetric <--> @t [ t in R^-1 --> t in R ]   [3 25 CB]
+
+  49.   [48 UD]
+  
