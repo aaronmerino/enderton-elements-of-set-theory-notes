@@ -10,7 +10,7 @@ Axioms we might use:
 	3. let V be an arbitrary set & 
 	    @x [ x in V  ]  									[2 EI/V]
 	
-	4. @t­1, t2, ..., tk, [ @c [ 3B [ @x [ x in B <--> x in c & __ ] ] ]			[Subset Axiom]
+	4. @t­1, t2, ..., tk, [ @c [ 3B [ @x [ x in B <--> x in c & __ ] ] ] ]			[Subset Axiom]
 	5. @c [ 3B [ @x [ x in B <--> x in c & __ ] ]	]					[4 META_UI/c]
 	6. @c [ 3B [ @x [ x in B <--> x in c & ~(x in x) ] ] ]				[5 META_UI/"~(x in x)"] 
 	7. 3B [ @x [ x in B <--> x in V & ~(x in x) ]	]					[6 UI/ V]					
