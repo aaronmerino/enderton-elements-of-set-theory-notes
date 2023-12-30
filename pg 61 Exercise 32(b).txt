@@ -1,0 +1,16 @@
+Axioms and Theorems:
+	The composition of F and G set:
+		@F, G [ 3D [ @w [ w in D <--> 3u, v [ w = <u, v> & 3t [ <u, t> in G & <t, v> in F ] ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			For any sets F, G, F o G is the set known as the composition of F and G
+			AKA: F o G := {<u, v> | 3t[<u, t> in G & <t, v> in F]}
+
+	Definition [FROM TEXTBOOK (my guess based on their proof of Theorem 3M)]:
+		@R, A [ R is reflexive on A <--> @x [ x in A --> <x, x> in R ] ]
+	
+		@R [ R is symmetric <--> @x, y [ <x, y> in R --> <y, x> in R ] ]
+
+		@R [ R is transitive <--> @x, y, z [ <x, y> in R & <y, z> in R --> <x, z> in R ] ]  
+
+
+1. Show @R [ R is transitive <--> @t [ t in R o R --> t in R ] ]
