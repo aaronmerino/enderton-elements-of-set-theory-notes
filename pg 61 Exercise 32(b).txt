@@ -14,3 +14,108 @@ Axioms and Theorems:
 
 
 1. Show @R [ R is transitive <--> @t [ t in R o R --> t in R ] ]
+
+	2. let R be a set
+
+	========
+	1.D1. @w [ w in R o R <--> 3u, v [ w = <u, v> & 3s [ <u, s> in R & <s, v> in R ] ] ]		[Composition UI/R UI/R & Ext. Axiom]
+	========
+
+	3. Show R is transitive --> @t [ t in R o R --> t in R ]
+
+		4. R is transitive	[ACD]
+
+		5. @R [ R is transitive <--> @x, y, z [ <x, y> in R & <y, z> in R --> <x, z> in R ] ]		[Def. of Transitive]
+
+		6. R is transitive <--> @x, y, z [ <x, y> in R & <y, z> in R --> <x, z> in R ]		[5 UI/R]
+
+		7. @x, y, z [ <x, y> in R & <y, z> in R --> <x, z> in R ]		[6 BC 4 MP]
+
+		8. Show @t [ t in R o R --> t in R ]
+
+			9. let t be a set
+
+			10. Show t in R o R --> t in R
+
+				11. t in R o R 		[ACD]
+
+				12. @w [ w in R o R <--> 3u, v [ w = <u, v> & 3s [ <u, s> in R & <s, v> in R ] ] ]		[1.D1]
+
+				13. t in R o R <--> 3u, v [ t = <u, v> & 3s [ <u, s> in R & <s, v> in R ] ]		[12 UI/t]
+
+				14. 3u, v [ t = <u, v> & 3s [ <u, s> in R & <s, v> in R ] ]		[13 BC 11 MP]
+
+				15. t = <u_1, v_1> & 3s [ <u_1, s> in R & <s, v_1> in R ]		[14 EI/u_1 EI/v_1]
+
+				16. 3s [ <u_1, s> in R & <s, v_1> in R ]		[15 SR]
+
+				17. <u_1, s_2> in R & <s_2, v_1> in R		[16 EI/s_2]
+
+				18. @x, y, z [ <x, y> in R & <y, z> in R --> <x, z> in R ]		[7 R]
+
+				19. <u_1, s_2> in R & <s_2, v_1> in R --> <u_1, v_1> in R		[18 UI/u_1, s_2, v_1]
+
+				20. <u_1, v_1> in R		[19 17 MP]
+
+				21. t = <u_1, v_1>		[15 SL]
+
+				22. t in R		[20 21 LL]
+
+				23.		[22 CD]
+
+			24. 	[10 UD]
+
+		25. 	[8 CD]
+
+	26. Show @t [ t in R o R --> t in R ] --> R is transitive
+
+		27. @t [ t in R o R --> t in R ]		[ACD]
+
+		28. @R [ R is transitive <--> @x, y, z [ <x, y> in R & <y, z> in R --> <x, z> in R ] ] 		[Def. of Transitive]
+
+		29. R is transitive <--> @x, y, z [ <x, y> in R & <y, z> in R --> <x, z> in R ]		[28 UI/R]
+
+		30. Show @x, y, z [ <x, y> in R & <y, z> in R --> <x, z> in R ]
+
+			31. let x, y, z be sets
+
+			32. Show <x, y> in R & <y, z> in R --> <x, z> in R
+
+				33. <x, y> in R & <y, z> in R		[ACD]
+
+				34. @t [ t in R o R --> t in R ]		[27 R]
+
+				// consider <x, z>
+
+				35. <x, z> in R o R --> <x, z> in R		[34 UI/<x, z>]
+
+				// show <x, z> in R o R
+
+				36. @w [ w in R o R <--> 3u, v [ w = <u, v> & 3s [ <u, s> in R & <s, v> in R ] ] ]		[1.D1]
+
+				37. <x, z> in R o R <--> 3u, v [ <x, z> = <u, v> & 3s [ <u, s> in R & <s, v> in R ] ]			[36 UI/<x, z>]
+
+				38. <x, z> = <x, z>		[SID]
+
+				39. 3s [ <x, s> in R & <s, z> in R ]		[33 EG/y->s]
+
+				40. <x, z> = <x, z> & 3s [ <x, s> in R & <s, z> in R ]		[38 39 ADJ]
+
+				41. 3u, v [ <x, z> = <u, v> & 3s [ <u, s> in R & <s, v> in R ] ]		[40 EG/x->u EG/z->v]
+
+				42. <x, z> in R o R		[37 BC 41 MP]
+
+				43. <x, z> in R		[35 42 MP]
+
+				44. 	[43 CD]
+
+			45. 	[32 UD]
+
+		46. R is transitive		[29 BC 30 MP]
+
+		47. 	[46 CD]
+	
+	48. R is transitive <--> @t [ t in R o R --> t in R ]		[3 26 CB]
+
+	49.		[48 UD]
+	
