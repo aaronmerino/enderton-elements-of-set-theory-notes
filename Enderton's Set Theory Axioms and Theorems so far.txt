@@ -417,7 +417,6 @@ Axioms and Theorems:
 		Definition (its uniqueness is always due to Ext. Axiom):
 			For any F, A, R, F-hat_{F, A, R} is the set that contains sets t where t = <x, y> for some sets x, y, and that φ_{A, R}(u) = x & F(u) = y for some u in A.
 	
-
 	Pg 58 Example 4 (existence of tilde relation):
 		@F, A [ 3R [ @t [ t in R <--> 3x, y [ x, y in A & t = <x, y> & F(x) = F(y) ] ] ] ]
 		Definition (its uniqueness is always due to Ext. Axiom):
@@ -425,6 +424,27 @@ Axioms and Theorems:
 	
 	Pg 58 Example 4 tilde is an equivalence relation:
 		@F, A [ ~_{F, A} is an equivalence relation on A ]
+
+	
+	Definition of Trichotomy:
+		@A, R [ R is a trichotomy on A <-->
+							@x, y, z [ 
+								(<x, y> in R & x != y & ~(<y, x> in R)) OR
+
+								(~(<x, y> in R) & x = y & ~(<y, x> in R)) OR
+
+								(~(<x, y> in R) & x != y & <y, x> in R)	
+							 ]
+					]
+
+	Definition of Linear Ordering (AKA Total Ordering):
+		@A, R [ R is a linear ordering on A <--> 
+							R is a binary relation on A & 
+							R is transitive &
+							R is a trichotomy on A
+					]
+
+
 
 Algebra of Sets:
 	Pg 24 Union of empty set:
