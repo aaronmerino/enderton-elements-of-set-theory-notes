@@ -1,0 +1,195 @@
+Theorems and Axioms:
+	Definition of a binary (2-ary) relation on A:
+		@A [ @D [ D is a binary relation on A <--> 
+								@t [ t in D --> 3x, y [ x, y in A & t = <x, y> ] ] ] ] 
+
+		note: D is a subset of A x A, so we can define it like this:
+		@A [ @D [ D is a binary relation on A <--> 
+								D ⊆ (A x A) ] ] 		
+
+
+	Definition [FROM TEXTBOOK (my guess based on their proof of Theorem 3M)]:
+		@R, A [ R is reflexive on A <--> @x [ x in A --> <x, x> in R ] ]
+	
+		@R [ R is symmetric <--> @x, y [ <x, y> in R --> <y, x> in R ] ]
+
+		@R [ R is transitive <--> @x, y, z [ <x, y> in R & <y, z> in R --> <x, z> in R ] ]
+
+
+	Definition of Trichotomy:
+		@A, R [ R is a trichotomy on A <-->
+							@x, y [ 
+								(<x, y> in R & x != y & ~(<y, x> in R)) or
+
+								(~(<x, y> in R) & x = y & ~(<y, x> in R)) or
+
+								(~(<x, y> in R) & x != y & <y, x> in R)	
+							 ]
+					]
+
+	Definition of Linear Ordering (AKA Total Ordering):
+		@A, R [ R is a linear ordering on A <--> 
+							R is a binary relation on A & 
+							R is transitive &
+							R is a trichotomy on A
+					]
+
+
+1. Show @A, R [ R is a linear ordering on A --> 
+									~3x [ <x, x> in R ] & 
+									@x, y [ x, y in A & x != y --> <x, y> in R or <y, x> in R ]
+							]
+
+	2. let A, R be sets
+
+	3. Show R is a linear ordering on A --> ~3x [ <x, x> in R ] & @x, y [ x, y in A & x != y --> <x, y> in R or <y, x> in R ]
+
+		4. R is a linear ordering on A		[ACD]
+
+		5. @A, R [ R is a linear ordering on A <--> 
+							R is a binary relation on A & 
+							R is transitive &
+							R is a trichotomy on A
+						]		[Def. of Linear Ordering]
+
+		6. R is a binary relation on A & 
+				R is transitive &
+				R is a trichotomy on A		[5 UI/A UI/R BC 4 MP]
+
+		7. R is a trichotomy on A		[6 SR]
+
+		8. @A, R [ R is a trichotomy on A <-->
+									@x, y [ 
+										(<x, y> in R & x != y & ~(<y, x> in R)) or
+
+										(~(<x, y> in R) & x = y & ~(<y, x> in R)) or
+
+										(~(<x, y> in R) & x != y & <y, x> in R)	
+									]
+							]		[Def. of Trichotomy]
+
+		9. @x, y [ 
+						(<x, y> in R & x != y & ~(<y, x> in R)) or
+
+						(~(<x, y> in R) & x = y & ~(<y, x> in R)) or
+
+						(~(<x, y> in R) & x != y & <y, x> in R)	
+					]		[8 UI/A UI/R BC 7 MP]
+
+		10. Show ~3x [ <x, x> in R ]
+
+			11. 3x [ <x, x> in R ]		[AID]
+
+			12. <x_1, x_1> in R		[6 EI/x_1]
+
+			13. (<x_1, x_1> in R & x_1 != x_1 & ~(<x_1, x_1> in R)) or
+
+						(~(<x_1, x_1> in R) & x_1 = x_1 & ~(<x_1, x_1> in R)) or
+
+						(~(<x_1, x_1> in R) & x_1 != x_1 & <x_1, x_1> in R)		[9 UI/x_1 UI/x_1]
+
+			14. Show ~(<x_1, x_1> in R & x_1 != x_1 & ~(<x_1, x_1> in R))
+
+				15. <x_1, x_1> in R & x_1 != x_1 & ~(<x_1, x_1> in R)		[AID]
+
+				16. x_1 = x_1		[SID]
+
+				17. x_1 != x_1		[15 SL SR]
+
+				18.		[16 17 ID]
+
+			19. Show ~(~(<x_1, x_1> in R) & x_1 != x_1 & <x_1, x_1> in R)
+
+				20. ~(<x_1, x_1> in R) & x_1 != x_1 & <x_1, x_1> in R		[AID]
+
+				21. x_1 = x_1		[SID]
+
+				22. x_1 != x_1		[20 SL SR]
+
+				23. 	[21 22 ID]
+			
+			24. (~(<x_1, x_1> in R) & x_1 = x_1 & ~(<x_1, x_1> in R)) or
+
+						(~(<x_1, x_1> in R) & x_1 != x_1 & <x_1, x_1> in R)		[13 14 MTP]
+
+			25. ~(<x_1, x_1> in R) & x_1 = x_1 & ~(<x_1, x_1> in R)		[24 19 MTP]
+
+			26. ~(<x_1, x_1> in R)		[25 SR]
+
+			27. <x_1, x_1> in R			[12 R]
+
+			28. 	[26 27 ID]
+		
+		29. Show @x, y [ x, y in A & x != y --> <x, y> in R or <y, x> in R ]
+
+			30. let x, y be sets
+
+			31. Show x, y in A & x != y --> <x, y> in R or <y, x> in R
+
+				32. x, y in A & x != y		[ACD]
+
+				33. x != y		[32 SR]
+
+				34. @x, y [ 
+							(<x, y> in R & x != y & ~(<y, x> in R)) or
+
+							(~(<x, y> in R) & x = y & ~(<y, x> in R)) or
+
+							(~(<x, y> in R) & x != y & <y, x> in R)	
+						]		[9 R]
+
+				35. (<x, y> in R & x != y & ~(<y, x> in R)) or
+
+							(~(<x, y> in R) & x = y & ~(<y, x> in R)) or
+
+							(~(<x, y> in R) & x != y & <y, x> in R)			[34 UI/x, y]
+
+				36. Show ~(~(<x, y> in R) & x = y & ~(<y, x> in R))
+
+					37. ~(<x, y> in R) & x = y & ~(<y, x> in R)		[AID]
+
+					38. x = y		[37 SL SR]
+
+					39. x != y		[33 R]
+
+					40.		[38 39 ID]
+
+				41. (<x, y> in R & x != y & ~(<y, x> in R)) or
+
+							(~(<x, y> in R) & x != y & <y, x> in R)		[35 36 MTP]
+
+
+				42. Show (<x, y> in R & x != y & ~(<y, x> in R)) --> <x, y> in R or <y, x> in R		[CASE 1 for line 41]
+
+					43. (<x, y> in R & x != y & ~(<y, x> in R))		[ACD]
+
+					44. <x, y> in R		[43 SL SL]
+
+					45. <x, y> in R or <y, x> in R		[44 ADD/...]
+
+					46. 	[45 CD]
+
+				47. Show (~(<x, y> in R) & x != y & <y, x> in R) --> <x, y> in R or <y, x> in R		[CASE 2 for line 41]
+
+					48. (~(<x, y> in R) & x != y & <y, x> in R)		[ACD]
+
+					49. <y, x> in R		[48 SR]
+
+					50. <x, y> in R or <y, x> in R		[49 ADD/...]
+
+					51.		[50 CD]
+
+				52. (<x, y> in R & x != y & ~(<y, x> in R)) or (~(<x, y> in R) & x != y & <y, x> in R) --> <x, y> in R or <y, x> in R		[42 47 CASE_PROOF for line 41]
+
+				53. <x, y> in R or <y, x> in R			[52 41 MP]
+
+				54. 	[53 CD]
+
+			55. 	[31 UD]
+
+		56. ~3x [ <x, x> in R ] & 
+				@x, y [ x, y in A & x != y --> <x, y> in R or <y, x> in R ]		[10 29 ADJ]
+
+		57. 	[56 CD]
+
+	58. 	[3 UD]

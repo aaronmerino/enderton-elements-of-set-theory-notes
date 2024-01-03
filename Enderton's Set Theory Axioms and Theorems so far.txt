@@ -428,10 +428,10 @@ Axioms and Theorems:
 	
 	Definition of Trichotomy:
 		@A, R [ R is a trichotomy on A <-->
-							@x, y, z [ 
-								(<x, y> in R & x != y & ~(<y, x> in R)) OR
+							@x, y [ 
+								(<x, y> in R & x != y & ~(<y, x> in R)) or
 
-								(~(<x, y> in R) & x = y & ~(<y, x> in R)) OR
+								(~(<x, y> in R) & x = y & ~(<y, x> in R)) or
 
 								(~(<x, y> in R) & x != y & <y, x> in R)	
 							 ]
@@ -444,6 +444,17 @@ Axioms and Theorems:
 							R is a trichotomy on A
 					]
 
+	Theorem 3R:
+		@A, R [ R is a linear ordering on A --> 
+									~3x [ <x, x> in R ] & 
+									@x, y [ x, y in A & x != y --> <x, y> in R or <y, x> in R ]
+							]
+
+	Definition of irreflexive:
+		@R [ R is irreflexive <--> ~3x [ <x, x> in R ] ]
+
+	Definition of connected:
+		@A, R [ R is connected on A <--> @x, y [ x, y in A & x != y --> <x, y> in R or <y, x> in R ] ]
 
 
 Algebra of Sets:
