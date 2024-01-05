@@ -1,0 +1,45 @@
+we have already proven: 
+	trichotomy --> (i) & (ii) when proving Theorem 3R.
+
+so, this is true since consequent is always true: 
+	transitivity --> (trichotomy --> (i) & (ii) above):
+
+no we prove: transitivity --> ((i) & (ii) --> trichotomy):
+	transitivity	[ACD]
+	(i) & (ii)	[ACD]
+	Show @x, y [ exactly one of xRy, x = y, yRx holds ]
+		let x, y be sets
+		x = y or x != y		[tautology]
+		
+		Show x = y --> exactly one of xRy, x = y, yRx holds	[CASE 1]
+			x = y 	[ACD]
+			we must show ~(xRy) & ~(yRx)
+				@x [ ~(xRx) ]		[from (i)]
+				~(xRx) 	[UI/x]
+				~(xRy)		[since x = y and ~(xRx)]
+				~(yRx)		[since x = y and ~(xRx)]
+				so, ~(xRy) & ~(yRx)
+
+		Show x != y --> exactly one of xRy, x = y, yRx holds	[CASE 2]
+			x != y	[ACD]
+			we must show that exactly one of xRy, yRx holds
+				xRy or yRx		[by (ii)]
+
+				Show xRy --> exactly one of xRy, yRx holds	[CASE 2.1]
+					xRy	[ACD]
+					Show ~(yRx)
+						yRx	[AID]
+						xRx	[by transitivity, xRy and yRx implies xRx]
+						~(xRx)		[by (i)]
+						[ID]
+
+				Show yRx --> exactly one of xRy, yRx holds	[CASE 2.2]
+					yRx		[ACD]
+					Show ~(xRy)
+						xRy	[AID]
+						xRx	[by transitivity, xRy and yRx implies xRx]
+						~(xRx)		[by (i)]
+						[ID]						
+						
+				
+
