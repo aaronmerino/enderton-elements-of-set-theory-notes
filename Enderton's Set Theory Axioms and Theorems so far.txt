@@ -456,6 +456,23 @@ Axioms and Theorems:
 	Definition of connected:
 		@A, R [ R is connected on A <--> @x, y [ x, y in A & x != y --> <x, y> in R or <y, x> in R ] ]
 
+Set of Natural Numbers:
+	Definition of successor:
+		@a [ a+ := a ∪ {a} ]
+		notes:
+			{a} can be constructed using Pairing Axiom (singleton)
+			a ∪ {a} can be constructed using Union Axiom
+
+	Definition of inductive:
+		@A [ A is inductive <--> { } in A & @a [ a in A --> a+ in A ] ]
+
+	Inifinity Axiom:
+		3A [ A is inductive ]
+		3A [ { } in A & @a [ a in A --> a+ in A ] ]
+
+	Definition of a natural number:
+		@b [ b is a natural number <--> @A [ A is inductive --> b in A ] ]
+
 
 Algebra of Sets:
 	Pg 24 Union of empty set:
