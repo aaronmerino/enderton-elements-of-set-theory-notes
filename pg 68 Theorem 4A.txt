@@ -1,0 +1,94 @@
+Axioms and Theorems:
+	Subset Axioms:
+		For each formula __ not containing B, the following is an axiom:
+		@t1 ... @tk @c [ 3B [ @x [ x in B <--> x in c & __ ] ] ]
+			Definition:
+			For any set t­1, ..., tk and c, the subset B = {x in c | __ } is the set whose members are exactly those sets in c and __	
+
+	Definition of successor:
+		@a [ a+ := a ∪ {a} ]
+		notes:
+			{a} can be constructed using Pairing Axiom (singleton)
+			a ∪ {a} can be constructed using Union Axiom
+
+	Definition of inductive:
+		@A [ A is inductive <--> { } in A & @a [ a in A --> a+ in A ] ]
+
+	Inifinity Axiom:
+		3A [ A is inductive ]
+		3A [ { } in A & @a [ a in A --> a+ in A ] ]
+
+	Definition of a natural number:
+		@b [ b is a natural number <--> @A [ A is inductive --> b in A ] ]
+
+ 	[MARIN] Subset Axiom (Applied):
+		For each formula __ not containing D, the following is an axiom:
+		@c [ 3D [ @b [ b in D <--> b in c & b is a natural number ] ] ]    [Subset Axiom UI_META/"b is a natural number"]
+
+idea:
+  let c be the set that infinity axiom claims to exist
+
+1. Show 3D [ @b [ b in D <--> b is a natural number ] ]
+
+  2. 3A [ A is inductive ]    [Infinity Axiom]
+
+  3. S_1 is inductive   [2 EI/S_1]
+
+  4. @c [ 3D [ @b [ b in D <--> b in c & b is a natural number ] ] ]   [MARIN]
+
+  5. 3D [ @b [ b in D <--> b in S_1 & b is a natural number ] ]    [4 UI/S_1]
+
+  6. @b [ b in D_2 <--> b in S_1 & b is a natural number ]   [5 EI/D_2]
+
+  7. Show @b [ b in D_2 <--> b is a natural number ]
+
+    8. let be a set
+
+    9. Show b in D_2 --> b is a natural number
+
+      10. b in D_2    [ACD]
+
+      11. @b [ b in D_2 <--> b in S_1 & b is a natural number ]   [6 R]
+
+      12. b in D_2 <--> b in S_1 & b is a natural number    [11 UI/b]
+
+      13. b in S_1 & b is a natural number    [12 BC 10 MP]
+
+      14. b is a natural number   [13 SR]
+
+      15.   [14 CD]
+
+    16. Show b is a natural number --> b in D_2
+
+      17. b is a natural number   [ACD]
+
+      18. @b [ b is a natural number <--> @A [ A is inductive --> b in A ] ]    [Def. of natural number]
+
+      19. b is a natural number <--> @A [ A is inductive --> b in A ]   [18 UI/b]
+
+      20. @A [ A is inductive --> b in A ]    [19 BC 17 MP]
+
+      21. S_1 is inductive --> b in S_1   [20 UI/S_1]
+
+      22. S_1 is inductive    [3 R]
+
+      23. b in S_1    [21 22 MP]
+
+      24. @b [ b in D_2 <--> b in S_1 & b is a natural number ]   [6 R]
+
+      25. b in D_2 <--> b in S_1 & b is a natural number    [24 UI/b]
+
+      26. b in S_1 & b is a natural number    [23 17 ADJ]
+
+      27. b in D_2    [25 BC 26 MP]
+
+      28.   [27 CD]
+    
+    29. b in D_2 <--> b is a natural number   [9 16 CB]
+
+    30.   [29 UD]
+
+  31. 3D [ @b [ b in D <--> b is a natural number ] ]   [7 EG/D_2->D]
+
+  32.   [31 DD]
+  
