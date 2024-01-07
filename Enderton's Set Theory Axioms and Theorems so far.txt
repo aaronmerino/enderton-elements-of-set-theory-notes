@@ -473,6 +473,14 @@ Set of Natural Numbers:
 	Definition of a natural number:
 		@b [ b is a natural number <--> @A [ A is inductive --> b in A ] ]
 
+	Theorem 4A:
+		3D [ @b [ b in D <--> b is a natural number ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			ω is the set whose members are exactly the natural numbers 
+			@b [ b in ω <--> b is a natural number ]
+
+	Theorem 4B:
+		ω is inductive & @A [ A is inductive & A != ω --> @t [ t in ω --> t in A ] ]
 
 Algebra of Sets:
 	Pg 24 Union of empty set:

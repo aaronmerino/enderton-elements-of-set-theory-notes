@@ -1,0 +1,191 @@
+Axioms and Theorems:
+	Definition of successor:
+		@a [ a+ := a ∪ {a} ]
+		notes:
+			{a} can be constructed using Pairing Axiom (singleton)
+			a ∪ {a} can be constructed using Union Axiom
+
+	Definition of inductive:
+		@A [ A is inductive <--> { } in A & @a [ a in A --> a+ in A ] ]
+
+	Inifinity Axiom:
+		3A [ A is inductive ]
+		3A [ { } in A & @a [ a in A --> a+ in A ] ]
+
+	Definition of a natural number:
+		@b [ b is a natural number <--> @A [ A is inductive --> b in A ] ]
+
+	Theorem 4A:
+		3D [ @b [ b in D <--> b is a natural number ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			ω is the set whose members are exactly the natural numbers 
+			@b [ b in ω <--> b is a natural number ]
+
+1. Show ω is inductive & @A [ A is inductive & A != ω --> @t [ t in ω --> t in A ] ]
+
+	========
+	1.D1. @b [ b in ω <--> b is a natural number ]		[Theorem 4A & Ext. Axiom]
+	========
+
+  2. Show ω is inductive
+
+		3. @A [ A is inductive <--> { } in A & @a [ a in A --> a+ in A ] ]		[Def. of inductive]
+
+		4. ω is inductive <--> { } in ω & @a [ a in ω --> a+ in ω ]		[3 UI/ω]
+
+		5. Show { } in ω
+
+			6. @b [ b in ω <--> b is a natural number ]		[1.D1]
+
+			7. { } in ω <--> { } is a natural number		[6 UI/{ }]
+
+			8. @b [ b is a natural number <--> @A [ A is inductive --> b in A ] ]		[Def. of natural number]
+
+			9. { } is a natural number <--> @A [ A is inductive --> { } in A ]		[8 UI/{ }]
+
+			10. Show @A [ A is inductive --> { } in A ]
+
+				11. let A be a set
+
+				12. Show A is inductive --> { } in A
+
+					13. A is inductive		[ACD]
+
+					14. @A [ A is inductive <--> { } in A & @a [ a in A --> a+ in A ] ]		[Def. of inductive]
+
+					15. A is inductive <--> { } in A & @a [ a in A --> a+ in A ]		[14 UI/A]
+
+					16. { } in A & @a [ a in A --> a+ in A ]		[15 BC 13 MP]
+
+					17. { } in A		[16 SL]
+
+					18. 	[17 CD]
+				
+				19. 	[12 UD]
+
+			20. { } is a natural number		[9 BC 10 MP]
+
+			21. { } in ω		[7 BC 20 MP]
+
+			22. 	[21 DD]
+
+		23. Show @a [ a in ω --> a+ in ω ]
+
+			24. let a be a set
+
+			25. Show a in ω --> a+ in ω
+
+				26. a in ω		[ACD]
+
+				27. @b [ b in ω <--> b is a natural number ]		[1.D1]
+
+				28. a in ω <--> a is a natural number		[27 UI/a]
+
+				29. a is a natural number		[28 BC 26 MP]
+
+				30. @b [ b is a natural number <--> @A [ A is inductive --> b in A ] ]		[Def. of natural number]
+
+				31. a is a natural number <--> @A [ A is inductive --> a in A ]		[30 UI/a]
+
+				32. @A [ A is inductive --> a in A ]		[31 BC 29 MP]
+
+				33. @b [ b in ω <--> b is a natural number ]		[1.D1]
+
+				34. a+ in ω <--> a+ is a natural number			[33 UI/a+]
+
+				35. @b [ b is a natural number <--> @A [ A is inductive --> b in A ] ]		[Def. of natural number]
+
+				36. a+ is a natural number <--> @A [ A is inductive --> a+ in A ]		[35 UI/a+]
+
+				37. Show @A [ A is inductive --> a+ in A ]
+
+					38. let A be a set
+
+					39. Show A is inductive --> a+ in A
+
+						40. A is inductive		[ACD]
+
+						41. @A [ A is inductive <--> { } in A & @a [ a in A --> a+ in A ] ]		[Def. of inductive]
+
+						42. A is inductive <--> { } in A & @a [ a in A --> a+ in A ]		[41 UI/A]
+
+						43. { } in A & @a [ a in A --> a+ in A ]		[42 BC 40 MP]
+
+						44. @a [ a in A --> a+ in A ]		[43 SR]
+
+						45. @A [ A is inductive --> a in A ]		[32 R]
+
+						46. A is inductive --> a in A		[45 UI/A]
+
+						47. a in A		[40 46 MP]
+
+						48. a in A --> a+ in A		[44 UI/a]
+
+						49. a+ in A		[47 48 MP]
+
+						50.		[49 CD]
+					
+					51. 	[39 UD]
+
+				52. a+ is a natural number		[36 BC 37 MP]
+
+				53. a+ in ω		[34 BC 52 MP]
+
+				54. 	[53 CD]
+			
+			55. 	[25 UD]
+
+		56. { } in ω & @a [ a in ω --> a+ in ω ]		[5 23 ADJ]
+
+		57. ω is inductive		[4 BC 56 MP]
+
+		58. 	[57 DD]
+	
+	59. Show @A [ A is inductive & A != ω --> @t [ t in ω --> t in A ] ]
+
+		60. let A be a set
+
+		61. Show A is inductive & A != ω --> @t [ t in ω --> t in A ]
+
+			62. A is inductive & A != ω		[ACD]
+
+			63. Show @t [ t in ω --> t in A ]
+
+				64. let t be a set
+
+				65. Show t in ω --> t in A
+
+					66. t in ω		[ACD]
+
+					67. @b [ b in ω <--> b is a natural number ]		[1.D1]
+
+					68. t in ω <--> t is a natural number		[67 UI/t]
+
+					69. t is a natural number		[68 BC 66 MP]
+
+					70. @b [ b is a natural number <--> @A [ A is inductive --> b in A ] ]		[Def. of natural number]
+
+					71. t is a natural number <--> @A [ A is inductive --> t in A ]		[70 UI/t]
+
+					72. @A [ A is inductive --> t in A ]		[71 BC 69 MP]
+
+					73. A is inductive --> t in A		[72 UI/A]
+
+					74. A is inductive		[62 SL]
+
+					75. t in A		[73 74 MP]
+
+					76. 	[75 CD]
+				
+				77. 	[65 UD]
+			
+			78.		[63 CD]
+		
+		79. 	[61 UD]
+
+	80. ω is inductive & @A [ A is inductive & A != ω --> @t [ t in ω --> t in A ] ]		[2 59 ADJ]
+
+	81.		[80 DD]
+
+	
+
