@@ -42,7 +42,7 @@ idea:
 
   7. Show @b [ b in D_2 <--> b is a natural number ]
 
-    8. let be a set
+    8. let b be a set
 
     9. Show b in D_2 --> b is a natural number
 
