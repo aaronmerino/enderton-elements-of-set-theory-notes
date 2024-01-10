@@ -1,0 +1,282 @@
+Axioms, Definitions, and Theorems:
+	Extensionality Axiom:
+		@A, B [ @x [ x in A <--> x in B ] --> A = B ]
+
+	Subset Axioms:
+		For each formula __ not containing B, the following is an axiom:
+		@t1 ... @tk @c [ 3B [ @x [ x in B <--> x in c & __ ] ] ]
+			Definition:
+			For any set t­1, ..., tk and c, the subset B = {x in c | __ } is the set whose members are exactly those sets in c and __	
+
+	Zero:
+		0 := { }
+    
+	Definition of successor:
+		@a [ a+ := a ∪ {a} ]
+		notes:
+			{a} can be constructed using Pairing Axiom (singleton)
+			a ∪ {a} can be constructed using Union Axiom
+
+	Definition of inductive:
+		@A [ A is inductive <--> { } in A & @a [ a in A --> a+ in A ] ]
+
+	Inifinity Axiom:
+		3A [ A is inductive ]
+		3A [ { } in A & @a [ a in A --> a+ in A ] ]
+
+	Definition of a natural number:
+		@b [ b is a natural number <--> @A [ A is inductive --> b in A ] ]
+
+	Theorem 4A:
+		3D [ @b [ b in D <--> b is a natural number ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			ω is the set whose members are exactly the natural numbers 
+			@b [ b in ω <--> b is a natural number ]
+
+	Theorem 4B:
+		ω is inductive & @A [ A is inductive & A != ω --> @t [ t in ω --> t in A ] ]
+  
+  [MARIN] Subset Axiom (applied):
+		@c [ 3B [ @n [ n in B <--> n in c & [ n != { } --> 3k [ k is a natural number & k+ = n ] ] ] ] ]   [Subset Axiom UI_META/'[ n != { } --> 3k [ k is a natural number & k+ = n ] ]']
+    	Definition:
+			For any set c, the subset B = {x in c | [ n != { } --> 3k [ k is a natural number & k+ = n ] ] } is the set whose members are exactly those sets in c and [ n != { } --> 3k [ k is a natural number & k+ = n ] ]	
+
+1. Show @n [ n is a natural number & n != { } --> 3k [ k is a natural number & k+ = n ] ]
+
+  ////////
+  1.D1. @b [ b in ω <--> b is a natural number ]    [Theorem 4A & Ext. Axiom]
+  ////////
+
+  2. @c [ 3B [ @n [ n in B <--> n in c & [ n != { } --> 3k [ k is a natural number & k+ = n ] ] ] ] ]    [MARIN]
+
+  3. 3B [ @n [ n in B <--> n in ω & [ n != { } --> 3k [ k is a natural number & k+ = n ] ] ] ]   [2 UI/ω]
+
+  ////////
+  4. @n [ n in B_1 <--> n in ω & [ n != { } --> 3k [ k is a natural number & k+ = n ] ] ]    [3 EI/B_1]
+  ////////
+
+
+  // First we show B_1 is inductive, which will allow us to prove B_1 = ω, since B_1 is a subset of ω
+  // then we can show @n [ n is a natural number & n != { } --> 3k [ k is a natural number & k+ = n ] ]
+  // since n is a natural number, n is in ω.
+  // since B_1 = ω, then n is in B_1
+  // since n is in B_1, then n in ω & [ n != { } --> 3k [ k is a natural number & k+ = n ] ]
+  // since n != { } and [ n != { } --> 3k [ k is a natural number & k+ = n ] ], then 3k [ k is a natural number & k+ = n ]
+  // as required...
+
+  5. Show B_1 is inductive
+
+    6. @A [ A is inductive <--> { } in A & @a [ a in A --> a+ in A ] ]    [Def. of inductive]
+
+    7. B_1 is inductive <--> { } in B_1 & @a [ a in B_1 --> a+ in B_1 ]    [6 UI/B_1]
+
+    8. Show { } in B_1
+
+      9. @n [ n in B_1 <--> n in ω & [ n != { } --> 3k [ k is a natural number & k+ = n ] ] ]   [4 R]
+
+      10. { } in B_1 <--> { } in ω & [ { } != { } --> 3k [ k is a natural number & k+ = { } ] ]   [9 UI/{ }]
+
+      11. ω is inductive & @A [ A is inductive & A != ω --> @t [ t in ω --> t in A ] ]    [Theorem 4B]
+
+      12. ω is inductive    [11 SL]
+      
+      13. @A [ A is inductive <--> { } in A & @a [ a in A --> a+ in A ] ]   [Def. of inductive]
+
+      14. ω is inductive <--> { } in ω & @a [ a in ω --> a+ in ω ]    [13 UI/ω]
+
+      15. { } in ω & @a [ a in ω --> a+ in ω ]    [14 BC 12 MP]
+
+      16. { } in ω    [15 SL]
+
+      17. Show { } != { } --> 3k [ k is a natural number & k+ = { } ]
+
+        18. { } != { }    [ACD]
+
+        19. { } = { }     [SID]
+
+        20.   [18 19 ID]
+      
+      21. { } in ω & [ { } != { } --> 3k [ k is a natural number & k+ = { } ] ]   [16 17 ADJ]
+
+      22. { } in B_1    [10 BC 21 MP]
+
+      23.   [22 DD]
+    
+    24. Show @a [ a in B_1 --> a+ in B_1 ]
+
+      25. let a be a set
+
+      26. Show a in B_1 --> a+ in B_1
+
+        27. a in B_1    [ACD]
+
+        28. @n [ n in B_1 <--> n in ω & [ n != { } --> 3k [ k is a natural number & k+ = n ] ] ]    [4 R]
+
+        29. a in B_1 <--> a in ω & [ a != { } --> 3k [ k is a natural number & k+ = a ] ]   [28 UI/a]
+
+        *30. a in ω & [ a != { } --> 3k [ k is a natural number & k+ = a ] ]   [29 BC 27 MP]
+
+        31. Show a+ in B_1
+
+          32. @n [ n in B_1 <--> n in ω & [ n != { } --> 3k [ k is a natural number & k+ = n ] ] ]    [4 R]
+
+          33. a+ in B_1 <--> a+ in ω & [ a+ != { } --> 3k [ k is a natural number & k+ = a+ ] ]   [32 UI/a+]
+
+          34. Show a+ in ω
+
+            35. ω is inductive & @A [ A is inductive & A != ω --> @t [ t in ω --> t in A ] ]    [Theorem 4B]
+
+            36. ω is inductive    [35 SL]
+
+            37. @A [ A is inductive <--> { } in A & @a [ a in A --> a+ in A ] ]   [Def. of inductive]
+
+            38. ω is inductive <--> { } in ω & @a [ a in ω --> a+ in ω ]    [37 UI/ω]
+
+            39. { } in ω & @a [ a in ω --> a+ in ω ]    [38 BC 36 MP]
+
+            40. @a [ a in ω --> a+ in ω ]   [39 SR]
+
+            41. a in ω --> a+ in ω    [40 UI/a]
+
+            42. a in ω    [30 SL]
+
+            43. a+ in ω   [41 42 MP]
+
+            44.   [43 DD]
+          
+          45. Show a+ != { } --> 3k [ k is a natural number & k+ = a+ ]
+
+            46. a+ != { }   [ACD]
+
+            47. Show 3k [ k is a natural number & k+ = a+ ]
+
+              48. @b [ b in ω <--> b is a natural number ]    [1.D1]
+
+              49. a in ω <--> a is a natural number   [48 UI/a]
+
+              50. a in ω    [30 SL]
+
+              51. a is a natural number   [49 BC 50 MP]
+
+              52. a+ = a+   [SID]
+
+              53. a is a natural number & a+ = a+   [51 52 ADJ]
+
+              54. 3k [ k is a natural number & k+ = a+ ]    [53 EG/a->k]
+
+              55.   [54 DD]
+            
+            56.   [47 CD]
+          
+          57. a+ in ω & [ a+ != { } --> 3k [ k is a natural number & k+ = a+ ] ]    [34 45 ADJ]
+
+          58. a+ in B_1   [33 BC 57 MP]
+
+          59.   [58 DD]
+        
+        60.   [31 CD]
+      
+      61.   [26 UD]
+
+    62. { } in B_1 & @a [ a in B_1 --> a+ in B_1 ]    [8 24 ADJ]
+
+    63. B_1 is inductive    [7 BC 62 MP]
+
+    64.   [63 DD]
+  
+  65. Show B_1 = ω
+
+    66. @A, B [ @x [ x in A <--> x in B ] --> A = B ]   [Ext. Axiom]
+
+    67. @x [ x in B_1 <--> x in ω ] --> B_1 = ω   [66 UI/...]
+
+    68. Show @x [ x in B_1 <--> x in ω ]
+
+      69. let x be a set
+
+      70. Show x in B_1 --> x in ω
+
+        71. x in B_1    [ACD]
+
+        72. @n [ n in B_1 <--> n in ω & [ n != { } --> 3k [ k is a natural number & k+ = n ] ] ]    [4 R]
+
+        73. x in B_1 <--> x in ω & [ x != { } --> 3k [ k is a natural number & k+ = x ] ]     [72 UI/x]
+
+        74. x in ω & [ x != { } --> 3k [ k is a natural number & k+ = x ] ]   [73 BC 71 MP]
+
+        75. x in ω    [74 SL]
+
+        76.   [75 CD] 
+
+      77. Show x in ω --> x in B_1
+
+        78. x in ω    [ACD]
+
+        79. @b [ b in ω <--> b is a natural number ]    [1.D1]
+
+        80. x in ω <--> x is a natural number   [79 UI/x]
+
+        81. x is a natural number   [80 BC 78 MP]
+
+        82. @b [ b is a natural number <--> @A [ A is inductive --> b in A ] ]    [Def. of natural number]
+
+        83. x is a natural number <--> @A [ A is inductive --> x in A ]   [82 UI/x]
+
+        84. @A [ A is inductive --> x in A ]    [83 BC 81 MP]
+
+        85. B_1 is inductive --> x in B_1   [84 UI/B_1]
+
+        86. B_1 is inductive    [5 R]
+
+        87. x in B_1    [85 86 MP]
+
+        88.   [87 CD]
+
+      89. x in B_1 <--> x in ω    [70 77 CB]
+
+      90.   [89 UD]
+    
+    91. B_1 = ω   [67 68 MP]
+
+    92.   [91 DD]
+
+  93. Show @n [ n is a natural number & n != { } --> 3k [ k is a natural number & k+ = n ] ]
+
+    94. let n be a set
+
+    95. Show n is a natural number & n != { } --> 3k [ k is a natural number & k+ = n ]
+
+      96. n is a natural number & n != { }    [ACD]
+
+      97. n is a natural number   [96 SL]
+
+      98. @b [ b in ω <--> b is a natural number ]    [1.D1]
+
+      99. n in ω <--> n is a natural number   [98 UI/n]
+
+      100. n in ω   [99 BC 97 MP]
+
+      101. B_1 = ω    [65 R]
+
+      102. n in B_1   [100 101 LL]
+
+      103. @n [ n in B_1 <--> n in ω & [ n != { } --> 3k [ k is a natural number & k+ = n ] ] ]   [4 R]
+
+      104. n in B_1 <--> n in ω & [ n != { } --> 3k [ k is a natural number & k+ = n ] ]    [103 UI/n]
+
+      105. n in ω & [ n != { } --> 3k [ k is a natural number & k+ = n ] ]    [104 BC 102 MP]]
+
+      106. n != { } --> 3k [ k is a natural number & k+ = n ]   [105 SR]
+
+      107. n != { }   [96 SR]
+
+      108. 3k [ k is a natural number & k+ = n ]    [106 107 MP]
+
+      109.    [108 CD]
+
+    110.  [95 UD]
+
+  111.  [93 DD]
+  
+
+
