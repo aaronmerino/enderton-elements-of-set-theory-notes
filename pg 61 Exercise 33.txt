@@ -1,0 +1,249 @@
+Axioms, Definitions, and Theorems:
+	Extensionality Axiom:
+		@A, B [ @x [ x in A <--> x in B ] --> A = B ]
+
+	Theorem 3A:
+		@u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]
+
+	Relation:
+		Definition:
+		A relation R is a set of ordered pairs.
+		@R [ R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ] ]
+
+	The inverse of F set:
+		@F [ 3D [ @t [ t in D <--> 3u, v [ <v, u> in F & t = <u, v> ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			For any sets F, F^-1 is the set known as the inverse of F
+			AKA: F^-1 := {<u, v> | <v, u> in F}
+
+	The composition of F and G set:
+		@F, G [ 3D [ @w [ w in D <--> 3u, v [ w = <u, v> & 3t [ <u, t> in G & <t, v> in F ] ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			For any sets F, G, F o G is the set known as the composition of F and G
+			AKA: F o G := {<u, v> | 3t[<u, t> in G & <t, v> in F]}
+
+	Definition [FROM TEXTBOOK (my guess based on their proof of Theorem 3M)]:
+		@R, A [ R is reflexive on A <--> @x [ x in A --> <x, x> in R ] ]
+	
+		@R [ R is symmetric <--> @x, y [ <x, y> in R --> <y, x> in R ] ]
+
+		@R [ R is transitive <--> @x, y, z [ <x, y> in R & <y, z> in R --> <x, z> in R ] ]
+
+
+1. Show @R [ R is a relation & R is symmetric & R is transitive <--> R = R^-1 o R ]
+
+  2. let R be a set
+
+  /.///////
+  1.D1. @t [ t in R^-1 <--> 3u, v [ <v, u> in R & t = <u, v> ] ]    [Inverse UI/R & Ext. Axiom]
+
+  1.D2. @w [ w in R^-1 o R <--> 3u, v [ w = <u, v> & 3t [ <u, t> in R & <t, v> in R^-1 ] ] ]    [Composition UI/R^-1 UI/R & Ext. Axiom]
+  /.///////
+
+  3. Show R is a relation & R is symmetric & R is transitive --> R = R^-1 o R
+
+    **
+    4. R is a relation & R is symmetric & R is transitive   [ACD]
+    **
+
+    5. Show R = R^-1 o R
+
+      6. @A, B [ @x [ x in A <--> x in B ] --> A = B ]    [Ext. Axiom]
+
+      7. @x [ x in R <--> x in R^-1 o R ] --> R = R^-1 o R    [6 UI/...]
+
+      8. Show @x [ x in R <--> x in R^-1 o R ]
+
+        9. let x be a set
+
+        10. Show x in R --> x in R^-1 o R
+
+          11. x in R    [ACD]
+
+          12. R is a relation   [4 SL SL]
+
+          13. @R [ R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ] ]   [Def. of Relation]
+
+          14. R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ]    [13 UI/R]
+
+          15. @t [ t in R --> 3x, y[ t = <x, y> ] ]   [14 BC 12 MP]
+
+          16. @t [ t in R --> 3a, b[ t = <a, b> ] ]   [15 EQUIV.]
+
+          17. x in R --> 3a, b[ x = <a, b> ]    [16 UI/x]
+
+          18. 3a, b[ x = <a, b> ]   [11 17 MP]
+
+          19. x = <a_1, b_1>    [18 EI/a_1, b_1]
+
+          // <b_1, a_1> in R    [symmetry]
+          // <b_1, b_1> in R    [transitivity]
+          // <b_1, b_1> in R^-1   [since <b_1, b_1> in R then by def. of R^-1]
+          // <a_1, b_1> in R & <b_1, b_1> in R^-1  [ADJ]
+          // 3t [ <a_1, t> in R &  & <t, b_1> in R^-1 ]
+
+          20. <a_1, b_1> in R   [11 19 LL]
+          
+          21. R is symmetric    [4 SL SR]
+
+          22. @R [ R is symmetric <--> @x, y [ <x, y> in R --> <y, x> in R ] ]    [Def. of symmetric]
+
+          23. R is symmetric <--> @x, y [ <x, y> in R --> <y, x> in R ]   [22 UI/R]
+
+          24. @x, y [ <x, y> in R --> <y, x> in R ]   [23 BC 21 MP]
+
+          25. <a_1, b_1> in R --> <b_1, a_1> in R   [24 UI/a_1, b_1]
+
+          26. <b_1, a_1> in R   [20 25 MP]
+
+          27. R is transitive   [4 SR]
+
+          28. @R [ R is transitive <--> @x, y, z [ <x, y> in R & <y, z> in R --> <x, z> in R ] ]    [Def. of transitivity]
+
+          29. R is transitive <--> @x, y, z [ <x, y> in R & <y, z> in R --> <x, z> in R ]   [28 UI/R]
+
+          30. @x, y, z [ <x, y> in R & <y, z> in R --> <x, z> in R ]    [29 BC 27 MP]
+
+          31. <b_1, a_1> in R & <a_1, b_1> in R --> <b_1, b_1> in R   [30 UI/b_1, a_1, b_1]
+
+          32. <b_1, a_1> in R & <a_1, b_1> in R   [26 20 ADJ]
+
+          33. <b_1, b_1> in R   [31 32 MP]
+
+          //. we now show <b_1, b_1> in R^-1
+          
+          34. @t [ t in R^-1 <--> 3u, v [ <v, u> in R & t = <u, v> ] ]    [1.D1]
+
+          35. <b_1, b_1> in R^-1 <--> 3u, v [ <v, u> in R & <b_1, b_1> = <u, v> ]     [35 UI/<b_1, b_1>]
+
+          36. <b_1, b_1> = <b_1, b_1>   [SID]
+
+          37. <b_1, b_1> in R & <b_1, b_1> = <b_1, b_1>   [33 36 ADJ]
+
+          38. 3u, v [ <v, u> in R & <b_1, b_1> = <u, v> ]   [37 EG/b_1->v EG/b_1->u]
+
+          39. <b_1, b_1> in R^-1    [35 BC 38 MP]
+
+          40. <a_1, b_1> in R & <b_1, b_1> in R^-1    [20 39 ADJ]   
+
+          41. @w [ w in R^-1 o R <--> 3u, v [ w = <u, v> & 3t [ <u, t> in R & <t, v> in R^-1 ] ] ]    [1.D2]
+
+          42. <a_1, b_1> in R^-1 o R <--> 3u, v [ <a_1, b_1> = <u, v> & 3t [ <u, t> in R & <t, v> in R^-1 ] ]   [41 UI/<a_1, b_1>]
+
+          43. 3t [ <a_1, t> in R & <t, b_1> in R^-1 ]   [40 EG/b_1->t]
+
+          44. <a_1, b_1> = <a_1, b_1>   [SID]
+
+          45. <a_1, b_1> = <a_1, b_1> & 3t [ <a_1, t> in R & <t, b_1> in R^-1 ]   [44 43 ADJ]
+
+          46. 3u, v [ <a_1, b_1> = <u, v> & 3t [ <u, t> in R & <t, v> in R^-1 ] ]   [45 EG/b_1->v EG/a_1->u]
+
+          47. <a_1, b_1> in R^-1 o R    [42 BC 46 MP]
+
+          48. x = <a_1, b_1>    [19 R]
+
+          49. x in R^-1 o R   [47 48 LL]
+
+          50.   [49 CD]
+        
+        51. Show x in R^-1 o R --> x in R
+
+          52. x in R^-1 o R   [ACD] 
+
+          53. @w [ w in R^-1 o R <--> 3u, v [ w = <u, v> & 3t [ <u, t> in R & <t, v> in R^-1 ] ] ]    [1.D2]
+
+          54. x in R^-1 o R <--> 3u, v [ x = <u, v> & 3t [ <u, t> in R & <t, v> in R^-1 ] ]   [54 UI/x]
+
+          55. 3u, v [ x = <u, v> & 3t [ <u, t> in R & <t, v> in R^-1 ] ]    [54 BC 52 MP]
+
+          56. x = <u_1, v_1> & 3t [ <u_1, t> in R & <t, v_1> in R^-1 ]    [55 EI/u_1 EI/v_1]
+
+          57. 3t [ <u_1, t> in R & <t, v_1> in R^-1 ]   [56 SR]
+
+          58. <u_1, t_2> in R & <t_2, v_1> in R^-1    [57 EI/t_2]
+
+          59. <t_2, v_1> in R^-1    [58 SR]
+
+          60. @t [ t in R^-1 <--> 3u, v [ <v, u> in R & t = <u, v> ] ]    [1.D1]
+
+          61. <t_2, v_1> in R^-1 <--> 3u, v [ <v, u> in R & <t_2, v_1> = <u, v> ]   [60 UI/<t_2, v_1>]
+
+          62. 3u, v [ <v, u> in R & <t_2, v_1> = <u, v> ]   [61 BC 59 MP]
+
+          63. <v_3, u_3> in R & <t_2, v_1> = <u_3, v_3>   [62 EI/u_3 EI/v_3]
+
+          64. <t_2, v_1> = <u_3, v_3>   [63 SR]
+
+          65. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]    [Theorem 3A]
+
+          66. <t_2, v_1> = <u_3, v_3>  <-->  t_2 = u_3 & v_1 = v_3    [65 UI/...]
+
+          67. t_2 = u_3 & v_1 = v_3   [66 BC 64 MP]
+
+          68. <v_3, u_3> in R   [63 SL]
+
+          69. <v_3, t_2> in R   [(67 SL) 68 LL]
+
+          70. <v_1, t_2> in R   [(67 SR) 69 LL]
+
+          71. R is symmetric    [4 SL SR]
+
+          72. @R [ R is symmetric <--> @x, y [ <x, y> in R --> <y, x> in R ] ]    [Def. of Symmetric]
+
+          73. R is symmetric <--> @x, y [ <x, y> in R --> <y, x> in R ]   [72 UI/R]
+
+          74. @x, y [ <x, y> in R --> <y, x> in R ]   [73 BC 71 MP]
+
+          75. <v_1, t_2> in R --> <t_2, v_1> in R   [74 UI/v_1 UI/t_2]
+
+          76. <t_2, v_1> in R   [75 70 MP]
+
+          77. <u_1, t_2> in R   [58 SL]
+
+          78. R is transitive   [4 SR]
+
+          79. @R [ R is transitive <--> @x, y, z [ <x, y> in R & <y, z> in R --> <x, z> in R ] ]    [Def. of transitivity]
+
+          80. R is transitive <--> @x, y, z [ <x, y> in R & <y, z> in R --> <x, z> in R ]   [79 UI/R]
+
+          81. @x, y, z [ <x, y> in R & <y, z> in R --> <x, z> in R ]    [80 BC 78 MP]
+
+          82. <u_1, t_2> in R & <t_2, v_1> in R --> <u_1, v_1> in R   [81 UI/u_1, t_2, v_1]
+
+          83. <u_1, t_2> in R & <t_2, v_1> in R   [77 76 ADJ]
+
+          84. <u_1, v_1> in R   [82 83 MP]
+
+          85. x = <u_1, v_1>    [56 SL]
+
+          86. x in R    [84 85 LL]
+
+          87.   [86 CD]
+
+        88. x in R <--> x in R^-1 o R   [10 51 CB]
+
+        89.   [88 UD]
+      
+      90. R = R^-1 o R    [7 8 MP]
+
+      91.   [90 DD]
+    
+    92.   [5 CD]
+
+  93. Show R = R^-1 o R --> R is a relation & R is symmetric & R is transitive
+
+    94. R = R^-1 o R    [ACD]
+
+    95. Show R is a relation & R is symmetric & R is transitive
+
+      //. show symmetry; assume <x, y> in R, show <y, x> in R
+        //. <x, t> in R & <t, y> in R^-1
+        //. <y, t> in R   [since <t, y> in R^-1]
+        //. <t, x> in R^-1   [since <x, t> in R]
+
+        //. <y, t> in R  & <t, x> in R^-1   [ADJ]
+        //. <y, x> in R
+
+      //. show transitivity; assume <x, y> in R & <y, z> in R, show <x, z> in R
+        //. <x, y> in R & <y, z> in R
+        //. 

@@ -485,6 +485,9 @@ Set of Natural Numbers Chapter:
 	Theorem 4B:
 		ω is inductive & @A [ A is inductive & A != ω --> @t [ t in ω --> t in A ] ]
 
+	Theorem 4C:
+		@n [ n is a natural number & n != { } --> 3k [ k is a natural number & k+ = n ] ]
+		
 Algebra of Sets:
 	Pg 24 Union of empty set:
 		U({}) = ({})
