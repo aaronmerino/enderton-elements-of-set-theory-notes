@@ -235,7 +235,6 @@ Axioms, Definitions, and Theorems:
     94. R = R^-1 o R    [ACD]
 
     95. Show R is a relation & R is symmetric & R is transitive
-
       //. show symmetry; assume <x, y> in R, show <y, x> in R
         //. <x, t> in R & <t, y> in R^-1
         //. <y, t> in R   [since <t, y> in R^-1]
@@ -244,6 +243,163 @@ Axioms, Definitions, and Theorems:
         //. <y, t> in R  & <t, x> in R^-1   [ADJ]
         //. <y, x> in R
 
+      96. Show R is symmetric
+
+        97. @R [ R is symmetric <--> @x, y [ <x, y> in R --> <y, x> in R ] ]    [Def. of Symmetric]
+
+        98. R is symmetric <--> @x, y [ <x, y> in R --> <y, x> in R ]   [96 UI/R]
+
+        99. Show @x, y [ <x, y> in R --> <y, x> in R ]
+
+          100. let x, y be sets
+
+          101. Show <x, y> in R --> <y, x> in R
+
+            102. <x, y> in R    [ACD]
+
+            103. R = R^-1 o R   [94 R]
+
+            104. <x, y> in R^-1 o R   [102 103 LL]
+
+            105. @w [ w in R^-1 o R <--> 3u, v [ w = <u, v> & 3t [ <u, t> in R & <t, v> in R^-1 ] ] ]   [1.D2]
+
+            106. <x, y> in R^-1 o R <--> 3u, v [ <x, y> = <u, v> & 3t [ <u, t> in R & <t, v> in R^-1 ] ]    [105 UI/<x, y>]
+
+            107. 3u, v [ <x, y> = <u, v> & 3t [ <u, t> in R & <t, v> in R^-1 ] ]    [106 BC 104 MP]
+
+            108. <x, y> = <u_1, v_1> & 3t [ <u_1, t> in R & <t, v_1> in R^-1 ]    [107 EI/u_1 EI/v_1]
+
+            109. 3t [ <u_1, t> in R & <t, v_1> in R^-1 ]    [108 SR]
+
+            110. <u_1, t_2> in R & <t_2, v_1> in R^-1   [109 EI/t_2]
+
+            111. <x, y> = <u_1, v_1>    [108 SL]
+
+            112. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]   [Theorem 3A]
+
+            note: there's capturing but we can prevent that with relettering line 112, where we change x, y to a, b...
+            113. <x, y> = <u_1, v_1>  <-->  x = u_1 & y = v_1     [112 UI/...]
+
+            114. x = u_1 & y = v_1    [113 BC 111 MP]
+
+            115. <x, t_2> in R & <t_2, v_1> in R^-1   [(114 SL) 110 LL]
+
+            *116. <x, t_2> in R & <t_2, y> in R^-1   [(114 SR) 115 LL]
+
+            117. @t [ t in R^-1 <--> 3u, v [ <v, u> in R & t = <u, v> ] ]   [1.D1]
+
+            118. <t_2, y> in R^-1 <--> 3u, v [ <v, u> in R & <t_2, y> = <u, v> ]    [117 UI/<t_2, y>]
+
+            119. <t_2, y> in R^-1   [116 SR]
+
+            120. 3u, v [ <v, u> in R & <t_2, y> = <u, v> ]    [118 BC 119 MP]
+
+            121. <v_3, u_3> in R & <t_2, y> = <u_3, v_3>    [120 EI/u_3 EI/v_3]
+
+            122. <t_2, y> = <u_3, v_3>    [121 SR]
+
+            123. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]   [Theorem 3A]
+
+            124. <t_2, y> = <u_3, v_3>  <-->  t_2 = u_3 & y = v_3     [123 UI/...]
+
+            125. t_2 = u_3 & y = v_3    [124 BC 122 MP]
+
+            126. <v_3, u_3> in R    [121 SL]
+
+            127. <v_3, t_2> in R    [(125 SL) 126 LL]
+
+            *128. <y, t_2> in R    [(125 SR) 127 LL]
+
+            129. @t [ t in R^-1 <--> 3u, v [ <v, u> in R & t = <u, v> ] ]   [1.D1]
+
+            // consider <t_2, x>
+            130. <t_2, x> in R^-1 <--> 3u, v [ <v, u> in R & <t_2, x> = <u, v> ]    [129 UI/<t_2, x>]
+
+            131. Show 3u, v [ <v, u> in R & <t_2, x> = <u, v> ]
+
+              132. <x, t_2> in R    [116 SL]
+
+              133. <t_2, x> = <t_2, x>    [SID]
+
+              134. <x, t_2> in R & <t_2, x> = <t_2, x>    [132 133 ADJ]
+
+              135. 3u, v [ <v, u> in R & <t_2, x> = <u, v> ]    [134 EG/x->v EG/t_2->u]
+
+              136.  [135 DD]
+
+            *137. <t_2, x> in R^-1   [130 BC 131 MP]
+
+            138. @w [ w in R^-1 o R <--> 3u, v [ w = <u, v> & 3t [ <u, t> in R & <t, v> in R^-1 ] ] ]   [1.D2]
+
+            139. <y, x> in R^-1 o R <--> 3u, v [ <y, x> = <u, v> & 3t [ <u, t> in R & <t, v> in R^-1 ] ]    [138 UI/<y, x>]
+
+            140. Show 3u, v [ <y, x> = <u, v> & 3t [ <u, t> in R & <t, v> in R^-1 ] ]
+
+              141. <y, x> = <y, x>    [SID]
+
+              142. Show 3t [ <y, t> in R & <t, x> in R^-1 ]
+
+                143. <y, t_2> in R    [128 R]
+
+                144. <t_2, x> in R^-1   [137 R]
+
+                145. <y, t_2> in R & <t_2, x> in R^-1   [143 144 ADJ]
+
+                146. 3t [ <y, t> in R & <t, x> in R^-1 ]    [145 EG/t_2->t]
+
+                147.  [146 DD]
+
+              148. <y, x> = <y, x> & 3t [ <y, t> in R & <t, x> in R^-1 ]    [141 142 ADJ]
+
+              149. 3u, v [ <y, x> = <u, v> & 3t [ <u, t> in R & <t, v> in R^-1 ] ]    [148 EG/x->v EG/y->u]
+
+              150.    [149 DD]
+            
+            151. <y, x> in R^-1 o R   [139 BC 140 MP]
+
+            152. R = R^-1 o R     [94 R]
+
+            153. <y, x> in R    [151 152 LL]
+
+            154.  [153 CD]
+          
+          155.  [101 UD]
+
+        156. R is symmetric   [98 BC 99 MP]
+
+        157.    [156 DD]
+
+
       //. show transitivity; assume <x, y> in R & <y, z> in R, show <x, z> in R
         //. <x, y> in R & <y, z> in R
-        //. 
+        //. <y, z> in R^-1 o R 
+        //. 3b [ <y, b> in R & <b, z> in R^-1 ]
+        //. <y, b> in R & <b, z> in R^-1
+        //. <b, z> in R^-1
+        //. <z, b> in R
+
+        //. <y, b> in R
+        //. <b, y> in R^-1
+
+        //. <z, b> in R & <b, y> in R^-1
+        //. 3b [ <z, b> in R & <b, y> in R^-1 ] 
+        //. <z, y> in R^-1 o R 
+        //. <z, y> in R   [since R = R^-1 o R ]
+        //. <y, z> in R^-1
+        //. <x, y> in R   [R]
+        //. <x, y> in R & <y, z> in R^-1    [ADJ]
+
+        //. 3b [ <x, b> in R & <b, z> in R^-1 ]
+        //. <x, z> in R^-1 o R 
+        //. <x, z> in R   [since R = R^-1 o R ]
+
+      158. Show R is transitive
+
+        159. 
+
+            
+
+
+
+
+      
