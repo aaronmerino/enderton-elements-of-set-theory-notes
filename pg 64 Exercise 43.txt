@@ -1,4 +1,13 @@
 Axioms, Definitions, and Theorems:
+	Theorem 3A:
+		@u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]
+
+	Corollary 3C:
+		@A, B [ 3D [ @t[ t in D <--> 3x, y [x in A & y in B & t = <x, y> ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets A, B,  {<x, y> | x in A & y in B}    is the set whose members are exactly the sets of the form <x, y> for some x in A & y in B
+		Also known as the Cartesian Product A x B of the sets A and B!
+
 	Definition of a binary (2-ary) relation on A:
 		@A [ @D [ D is a binary relation on A <--> 
 								@t [ t in D --> 3x, y [ x, y in A & t = <x, y> ] ] ] ] 
@@ -6,6 +15,12 @@ Axioms, Definitions, and Theorems:
 		note: D is a subset of A x A, so we can define it like this:
 		@A [ @D [ D is a binary relation on A <--> 
 								D ⊆ (A x A) ] ] 	
+
+	The inverse of F set:
+		@F [ 3D [ @t [ t in D <--> 3u, v [ <v, u> in F & t = <u, v> ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			For any sets F, F^-1 is the set known as the inverse of F
+			AKA: F^-1 := {<u, v> | <v, u> in F}
 
 	Definition [FROM TEXTBOOK (my guess based on their proof of Theorem 3M)]:
 		@R, A [ R is reflexive on A <--> @x [ x in A --> <x, x> in R ] ]
@@ -38,9 +53,93 @@ Axioms, Definitions, and Theorems:
 									@x, y [ x, y in A & x != y --> <x, y> in R or <y, x> in R ]
 							]
 
+LEMMA - INVERSE SWAP
+1. Show @F [ @x, y [ <x, y> in F^-1 <--> <y, x> in F ] ]
+	
+	2. let F be a set
+	
+	/.////////
+	1.D1. @t [ t in F^-1 <--> 3u, v [ <v, u> in F & t = <u, v> ] ]		[Inverse UI/F & Ext. Axiom]
+	/.////////
+
+	3. Show @x, y [ <x, y> in F^-1 <--> <y, x> in F ]
+
+		4. let x, y be a set
+
+		5. Show <x, y> in F^-1 <--> <y, x> in F
+
+			6. Show <x, y> in F^-1 --> <y, x> in F
+
+				7. <x, y> in F^-1		[ACD]
+
+				8. @t [ t in F^-1 <--> 3u, v [ <v, u> in F & t = <u, v> ] ]		[1.D1]
+
+				9. <x, y> in F^-1 <--> 3u, v [ <v, u> in F & <x, y> = <u, v> ]		[8 UI/<x, y>]
+
+				10. 3u, v [ <v, u> in F & <x, y> = <u, v> ]		[9 BC 7 MP]
+
+				11. <v_1, u_1> in F & <x, y> = <u_1, v_1>		[10 EI/u_1 EI/v_1]
+
+				12. <x, y> = <u_1, v_1>		[11 SR]
+
+				13. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]		[Theorem 3A]
+
+				14. @u, v, a, b [ <u, v> = <a, b>  <-->  u = a & v = b ]		[13 EQUIV.]
+
+				15. <x, y> = <u_1, v_1>  <-->  x = u_1 & y = v_1		[14 UI/x, y, u_1, v_1]
+
+				16. x = u_1 & y = v_1		[15 BC 12 MP]
+
+				17. <v_1, u_1> in F		[11 SL]
+
+				18. <v_1, x> in F		[(16 SL) 17 LL]
+
+				19. <y, x> in F		[(16 SR) 18 LL]
+
+				20. 	[19 CD]
+
+			21. Show <y, x> in F --> <x, y> in F^-1
+			
+				22. <y, x> in F		[ACD]
+
+				23. @t [ t in F^-1 <--> 3u, v [ <v, u> in F & t = <u, v> ] ]		[1.D1]
+
+				24. <x, y> in F^-1 <--> 3u, v [ <v, u> in F & <x, y> = <u, v> ]		[23 UI/<x, y>]
+
+				25. Show 3u, v [ <v, u> in F & <x, y> = <u, v> ]
+
+					26. <y, x> in F		[22 R]
+
+					27. <x, y> = <x, y>		[SID]
+
+					28. <y, x> in F & <x, y> = <x, y>		[26 27 ADJ]
+
+					29. 3u, v [ <v, u> in F & <x, y> = <u, v> ]		[28 EG/x->u EG/y->v]
+
+					30. 	[29 DD]
+				
+				31. <x, y> in F^-1		[24 BC 25 MP]
+
+				32. 	[31 CD]
+			
+			33. <x, y> in F^-1 <--> <y, x> in F		[6 21 CB]
+
+			34.		[33 DD]
+		
+		35.		[5 UD]
+	
+	36. 	[3 UD]
+
+
+
 1. Show @R, A [ R is a linear ordering on A --> R^-1 is a linear ordering on A ]
 
 	2. let R, A be sets
+
+	/.////////
+	1.D1. @t [ t in R^-1 <--> 3u, v [ <v, u> in R & t = <u, v> ] ]		[Inverse UI/R & Ext. Axiom]
+	1.D2. @t [ t in (A x A) <--> 3x, y [ x in A & y in A & t = <x, y> ] ]		[Corollary 3C UI/A UI/A & Ext. Axiom]
+	/.////////
 
 	3. Show R is a linear ordering on A --> R^-1 is a linear ordering on A
 
@@ -56,4 +155,169 @@ Axioms, Definitions, and Theorems:
 				R is transitive &
 				R is a trichotomy on A		[5 UI/A UI/R]
 
-		7. 
+		7. R^-1 is a linear ordering on A <--> 
+									R^-1 is a binary relation on A & 
+									R^-1 is transitive &
+									R^-1 is a trichotomy on A		[5 UI/A UI/R^-1]
+
+		8. Show R^-1 is a binary relation on A
+
+			9. @A [ @D [ D is a binary relation on A <--> D ⊆ (A x A) ] ] 		[Def. of binary relation on A]
+
+			10. R^-1 is a binary relation on A <--> R^-1 ⊆ (A x A)		[9 UI/A UI/R^-1]
+
+			11. Show R^-1 ⊆ (A x A)
+
+				12. Show @t [ t in R^-1 --> t in (A x A) ]
+
+					13. let t be a set
+
+					14. Show t in R^-1 --> t in (A x A)
+
+						15. t in R^-1		[ACD]
+
+						16. @t [ t in R^-1 <--> 3u, v [ <v, u> in R & t = <u, v> ] ]		[1.D1]
+
+						17. 3u, v [ <v, u> in R & t = <u, v> ]		[(16 UI/t) BC 15 MP]
+
+						18. <v_1, u_1> in R & t = <u_1, v_1>		[17 EI/u_1 EI/v_1]
+
+						19. <v_1, u_1> in R		[18 SL]
+
+						20. R is a binary relation on A		[6 SL SL]
+
+						21. @A [ @D [ D is a binary relation on A <--> D ⊆ (A x A) ] ] 		[Def. of binary relation on A]
+
+						22. R is a binary relation on A <--> R ⊆ (A x A)		[21 UI/A UI/R]
+
+						23. R ⊆ (A x A)		[22 BC 20 MP]
+						
+						24. @t [ t in R --> t in (A x A) ]		[23 EQUIV.]
+
+						25. <v_1, u_1> in R --> <v_1, u_1> in (A x A)		[24 UI/<v_1, u_1>]
+
+						26. <v_1, u_1> in (A x A)		[25 19 MP]
+
+						27. @t [ t in (A x A) <--> 3x, y [ x in A & y in A & t = <x, y> ] ]		[1.D2]
+
+						28. <v_1, u_1> in (A x A) <--> 3x, y [ x in A & y in A & <v_1, u_1> = <x, y> ]		[27 UI/<v_1, u_1>]
+
+						29. 3x, y [ x in A & y in A & <v_1, u_1> = <x, y> ]		[28 BC 26 MP]
+
+						30. x_2 in A & y_2 in A & <v_1, u_1> = <x_2, y_2>		[29 EI/x_2 EI/y_2]
+
+						31. <v_1, u_1> = <x_2, y_2>		[30 SR]
+
+						32. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]		[Theorem 3A]
+
+						33. <v_1, u_1> = <x_2, y_2>  <-->  v_1 = x_2 & u_1 = y_2		[33 UI/...]
+
+						34. v_1 = x_2 & u_1 = y_2		[33 BC 31 MP]
+
+						35. x_2 in A & y_2 in A		[30 SL]
+
+						36. v_1 in A & y_2 in A		[(34 SL) 35 LL]
+
+						*37. v_1 in A & u_1 in A		[(34 SR) 36 LL]
+
+						38. t = <u_1, v_1>		[18 SR]
+
+						39. @t [ t in (A x A) <--> 3x, y [ x in A & y in A & t = <x, y> ] ]		[1.D2]	
+
+						40. t in (A x A) <--> 3x, y [ x in A & y in A & t = <x, y> ]		[38 UI/t]
+
+						41. Show 3x, y [ x in A & y in A & t = <x, y> ]
+
+							42. v_1 in A & u_1 in A		[37 R]
+
+							43. u_1 in A & v_1 in A		[42 EQUIV.]
+
+							44. t = <u_1, v_1>		[38 R]
+
+							45. u_1 in A & v_1 in A & t = <u_1, v_1>		[43 44 ADJ]
+
+							46. 3x, y [ x in A & y in A & t = <x, y> ]		[45 EG/v_1->y EG/u_1->x]
+
+							47. 	[46 DD]
+
+						48. t in (A x A)		[40 BC 41 MP]
+
+						49. 	[48 CD]
+
+					50. 	[14 UD]
+				
+				51. R^-1 ⊆ (A x A)		[12 EQUIV.]
+
+				52. 	[51 DD]
+			
+			53. R^-1 is a binary relation on A		[10 BC 11 MP]
+
+			54.		[53 DD]
+		
+		55. Show R^-1 is transitive
+
+			56. @R [ R is transitive <--> @x, y, z [ <x, y> in R & <y, z> in R --> <x, z> in R ] ]		[Def. of transitive]
+
+			57. R^-1 is transitive <--> @x, y, z [ <x, y> in R^-1 & <y, z> in R^-1 --> <x, z> in R^-1 ]		[56 UI/R^-1]
+
+			58. Show @x, y, z [ <x, y> in R^-1 & <y, z> in R^-1 --> <x, z> in R^-1 ]
+
+				59. let x, y, z		[ACD]
+
+				60. Show <x, y> in R^-1 & <y, z> in R^-1 --> <x, z> in R^-1
+
+					61. <x, y> in R^-1 & <y, z> in R^-1		[ACD]
+
+					62. @F [ @x, y [ <x, y> in F^-1 <--> <y, x> in F ] ]		[LEMMA - INVERSE SWAP]
+
+					63. @x, y [ <x, y> in R^-1 <--> <y, x> in R ]		[62 UI/R]
+
+					64. <x, y> in R^-1 <--> <y, x> in R		[63 UI/x, y]
+
+					65. <x, y> in R^-1		[61 SL]
+
+					*66. <y, x> in R		[64 BC 65 MP]
+
+					67. @x, y [ <x, y> in R^-1 <--> <y, x> in R ]		[63 R]
+
+					68. @x, b [ <x, b> in R^-1 <--> <b, x> in R ]		[67 EQUIV.]
+
+					69. <y, z> in R^-1 <--> <z, y> in R		[68 UI/y UI/z]
+
+					70. <y, z> in R^-1		[61 SR]
+
+					*71. <z, y> in R		[69 BC 70 MP]
+
+					72. R is transitive		[6 SL SR]
+
+					73. @R [ R is transitive <--> @x, y, z [ <x, y> in R & <y, z> in R --> <x, z> in R ] ]		[Def. of Transitive]
+
+					74. R is transitive <--> @x, y, z [ <x, y> in R & <y, z> in R --> <x, z> in R ]		[73 UI/R]
+
+					75. @x, y, z [ <x, y> in R & <y, z> in R --> <x, z> in R ]		[74 BC 72 MP]
+
+					76. @a, b, c [ <a, b> in R & <b, c> in R --> <a, c> in R ]		[75 EQUIV.]
+
+					77. <z, y> in R & <y, x> in R --> <z, x> in R		[76 UI/z, y, x]
+
+					78. <z, y> in R & <y, x> in R		[71 66 ADJ]
+
+					*79. <z, x> in R		[77 78 MP]
+
+					80. @x, y [ <x, y> in R^-1 <--> <y, x> in R ]		[63 R]
+
+					81. @a, b [ <a, b> in R^-1 <--> <b, a> in R ]		[80 EQUIV.]
+
+					82. <x, z> in R^-1 <--> <z, x> in R		[81 UI/x, z]
+
+					83. <x, z> in R^-1		[82 BC 79 MP]
+
+					84. 	[83 CD]
+				
+				85. 	[60 UD]
+			
+			86. R^-1 is transitive		[57 BC 58 MP]
+
+			87. 	[86 DD]
+
+		88. 
