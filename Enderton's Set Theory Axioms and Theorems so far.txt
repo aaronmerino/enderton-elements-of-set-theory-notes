@@ -428,12 +428,12 @@ Axioms, Definitions, and Theorems:
 	
 	Definition of Trichotomy:
 		@A, R [ R is a trichotomy on A <-->
-							@x, y [ 
-								(<x, y> in R & x != y & ~(<y, x> in R)) or
+							@x, y [ x, y in A -->
+												(<x, y> in R & x != y & ~(<y, x> in R)) or
 
-								(~(<x, y> in R) & x = y & ~(<y, x> in R)) or
+												(~(<x, y> in R) & x = y & ~(<y, x> in R)) or
 
-								(~(<x, y> in R) & x != y & <y, x> in R)	
+												(~(<x, y> in R) & x != y & <y, x> in R)	
 							 ]
 					]
 

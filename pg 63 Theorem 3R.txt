@@ -18,12 +18,12 @@ Theorems and Axioms:
 
 	Definition of Trichotomy:
 		@A, R [ R is a trichotomy on A <-->
-							@x, y [ 
-								(<x, y> in R & x != y & ~(<y, x> in R)) or
+							@x, y [ x, y in A -->
+												(<x, y> in R & x != y & ~(<y, x> in R)) or
 
-								(~(<x, y> in R) & x = y & ~(<y, x> in R)) or
+												(~(<x, y> in R) & x = y & ~(<y, x> in R)) or
 
-								(~(<x, y> in R) & x != y & <y, x> in R)	
+												(~(<x, y> in R) & x != y & <y, x> in R)	
 							 ]
 					]
 
@@ -59,16 +59,16 @@ Theorems and Axioms:
 		7. R is a trichotomy on A		[6 SR]
 
 		8. @A, R [ R is a trichotomy on A <-->
-									@x, y [ 
-										(<x, y> in R & x != y & ~(<y, x> in R)) or
+							@x, y [ x, y in A -->
+												(<x, y> in R & x != y & ~(<y, x> in R)) or
 
-										(~(<x, y> in R) & x = y & ~(<y, x> in R)) or
+												(~(<x, y> in R) & x = y & ~(<y, x> in R)) or
 
-										(~(<x, y> in R) & x != y & <y, x> in R)	
-									]
-							]		[Def. of Trichotomy]
+												(~(<x, y> in R) & x != y & <y, x> in R)	
+							 ]
+					]		[Def. of Trichotomy]
 
-		9. @x, y [ 
+		9. @x, y [ x, y in A -->
 						(<x, y> in R & x != y & ~(<y, x> in R)) or
 
 						(~(<x, y> in R) & x = y & ~(<y, x> in R)) or
@@ -86,7 +86,7 @@ Theorems and Axioms:
 
 						(~(<x_1, x_1> in R) & x_1 = x_1 & ~(<x_1, x_1> in R)) or
 
-						(~(<x_1, x_1> in R) & x_1 != x_1 & <x_1, x_1> in R)		[9 UI/x_1 UI/x_1]
+						(~(<x_1, x_1> in R) & x_1 != x_1 & <x_1, x_1> in R)		[(9 UI/x_1 UI/x_1) (x_1 in A since R is a binary relation on A) MP]
 
 			14. Show ~(<x_1, x_1> in R & x_1 != x_1 & ~(<x_1, x_1> in R))
 
@@ -130,7 +130,7 @@ Theorems and Axioms:
 
 				33. x != y		[32 SR]
 
-				34. @x, y [ 
+				34. @x, y [ x, y in A -->
 							(<x, y> in R & x != y & ~(<y, x> in R)) or
 
 							(~(<x, y> in R) & x = y & ~(<y, x> in R)) or
@@ -142,7 +142,7 @@ Theorems and Axioms:
 
 							(~(<x, y> in R) & x = y & ~(<y, x> in R)) or
 
-							(~(<x, y> in R) & x != y & <y, x> in R)			[34 UI/x, y]
+							(~(<x, y> in R) & x != y & <y, x> in R)			[(34 UI/x, y) (32 SL) MP]
 
 				36. Show ~(~(<x, y> in R) & x = y & ~(<y, x> in R))
 

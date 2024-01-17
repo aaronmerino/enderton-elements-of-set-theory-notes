@@ -1,0 +1,59 @@
+Axioms, Definitions, and Theorems:
+	Definition of a binary (2-ary) relation on A:
+		@A [ @D [ D is a binary relation on A <--> 
+								@t [ t in D --> 3x, y [ x, y in A & t = <x, y> ] ] ] ] 
+
+		note: D is a subset of A x A, so we can define it like this:
+		@A [ @D [ D is a binary relation on A <--> 
+								D ⊆ (A x A) ] ] 	
+
+	Definition [FROM TEXTBOOK (my guess based on their proof of Theorem 3M)]:
+		@R, A [ R is reflexive on A <--> @x [ x in A --> <x, x> in R ] ]
+	
+		@R [ R is symmetric <--> @x, y [ <x, y> in R --> <y, x> in R ] ]
+
+		@R [ R is transitive <--> @x, y, z [ <x, y> in R & <y, z> in R --> <x, z> in R ] ]
+
+	Definition of Trichotomy:
+		@A, R [ R is a trichotomy on A <-->
+							@x, y [ x, y in A -->
+											(<x, y> in R & x != y & ~(<y, x> in R)) or
+
+											(~(<x, y> in R) & x = y & ~(<y, x> in R)) or
+
+											(~(<x, y> in R) & x != y & <y, x> in R)	
+							 ]
+					]
+
+	Definition of Linear Ordering (AKA Total Ordering):
+		@A, R [ R is a linear ordering on A <--> 
+							R is a binary relation on A & 
+							R is transitive &
+							R is a trichotomy on A
+					]
+
+	Theorem 3R:
+		@A, R [ R is a linear ordering on A --> 
+									~3x [ <x, x> in R ] & 
+									@x, y [ x, y in A & x != y --> <x, y> in R or <y, x> in R ]
+							]
+
+1. Show @R, A [ R is a linear ordering on A --> R^-1 is a linear ordering on A ]
+
+	2. let R, A be sets
+
+	3. Show R is a linear ordering on A --> R^-1 is a linear ordering on A
+
+		4. R is a linear ordering on A		[ACD]
+
+		5. @A, R [ R is a linear ordering on A <--> 
+									R is a binary relation on A & 
+									R is transitive &
+									R is a trichotomy on A
+							]		[Def. of linear ordering]
+
+		6. R is a binary relation on A & 
+				R is transitive &
+				R is a trichotomy on A		[5 UI/A UI/R]
+
+		7. 
