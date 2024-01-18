@@ -320,4 +320,142 @@ LEMMA - INVERSE SWAP
 
 			87. 	[86 DD]
 
-		88. 
+		88. Show R^-1 is a trichotomy on A
+
+			89. @A, R [ R is a trichotomy on A <-->
+							@x, y [ x, y in A -->
+											(<x, y> in R & x != y & ~(<y, x> in R)) or
+
+											(~(<x, y> in R) & x = y & ~(<y, x> in R)) or
+
+											(~(<x, y> in R) & x != y & <y, x> in R)	
+							 ]
+					]		[Def. of Trichotomy]
+
+			90. R^-1 is a trichotomy on A <-->
+							@x, y [ x, y in A -->
+											(<x, y> in R^-1 & x != y & ~(<y, x> in R^-1)) or
+
+											(~(<x, y> in R^-1) & x = y & ~(<y, x> in R^-1)) or
+
+											(~(<x, y> in R^-1) & x != y & <y, x> in R^-1)	
+							 ]		[89 UI/A UI/R^-1]
+			
+			91. Show @x, y [ x, y in A -->
+											(<x, y> in R^-1 & x != y & ~(<y, x> in R^-1)) or
+
+											(~(<x, y> in R^-1) & x = y & ~(<y, x> in R^-1)) or
+
+											(~(<x, y> in R^-1) & x != y & <y, x> in R^-1)	
+							 ]
+
+				92. let x, y be sets
+
+				93. Show x, y in A -->
+											(<x, y> in R^-1 & x != y & ~(<y, x> in R^-1)) or
+
+											(~(<x, y> in R^-1) & x = y & ~(<y, x> in R^-1)) or
+
+											(~(<x, y> in R^-1) & x != y & <y, x> in R^-1)	
+				
+					94. x, y in A		[ACD]
+
+					// Show at least one <x, y> in R^-1 or x = y or <y, x> in R^-1 is true
+					95. Show <x, y> in R^-1 or x = y or <y, x> in R^-1
+
+						96. x = y or x != y		[Taotology]
+
+						97. Show x = y --> <x, y> in R^-1 or x = y or <y, x> in R^-1		[CASE 1 for line 96]
+
+							98. x = y [ACD]
+
+							99. <x, y> in R^-1 or x = y or <y, x> in R^-1		[998 ADD-L/'<x, y> in R^-1' ADD-R/'<y, x> in R^-1	']
+
+							100.		[99 CD]
+
+						101. Show x != y --> <x, y> in R^-1 or x = y or <y, x> in R^-1		[CASE 2 for line 96]
+
+							102. x != y		[ACD]
+
+							103. R is a linear ordering on A		[4 R]
+
+							104. @A, R [ R is a linear ordering on A --> 
+													~3x [ <x, x> in R ] & 
+													@x, y [ x, y in A & x != y --> <x, y> in R or <y, x> in R ]
+												]		[Theorem 3R]
+							
+							105. R is a linear ordering on A --> 
+													~3x [ <x, x> in R ] & 
+													@x, y [ x, y in A & x != y --> <x, y> in R or <y, x> in R ]		[104 UI/A UI/R]
+
+							106. ~3x [ <x, x> in R ] & 
+										@x, y [ x, y in A & x != y --> <x, y> in R or <y, x> in R ]		[105 103 MP]
+							
+							107. @x, y [ x, y in A & x != y --> <x, y> in R or <y, x> in R ]		[106 SR]
+
+							108. x, y in A & x != y --> <x, y> in R or <y, x> in R		[107 UI/x, y]
+
+							109. x, y in A & x != y		[94 102 ADJ]
+
+							110. <x, y> in R or <y, x> in R		[108 109 MP]
+
+							111. Show <x, y> in R --> <x, y> in R^-1 or <y, x> in R^-1		[CASE 1 for line 109]
+
+								112. <x, y> in R		[ACD]
+
+								113. @F [ @x, y [ <x, y> in F^-1 <--> <y, x> in F ] ]		[LEMMA - INVERSE SWAP]
+
+								114. @x, y [ <x, y> in R^-1 <--> <y, x> in R ]		[113 UI/R]
+
+								115. @a, b [ <a, b> in R^-1 <--> <b, a> in R ]		[114 EQUIV.]
+
+								116. <y, x> in R^-1 <--> <x, y> in R		[115 UI/y UI/x]
+
+								117. <y, x> in R^-1		[116 BC 112 MP]
+
+								118. <x, y> in R^-1 or <y, x> in R^-1		[117 ADD/...]
+
+								119. 		[118 CD]
+							
+							120. Show <y, x> in R --> <x, y> in R^-1 or <y, x> in R^-1		[CASE 2 for line 109]
+
+								121. <y, x> in R		[ACD]
+
+								122. @F [ @x, y [ <x, y> in F^-1 <--> <y, x> in F ] ]		[LEMMA - INVERSE SWAP]
+
+								123. @x, y [ <x, y> in R^-1 <--> <y, x> in R ]		[122 UI/R]
+
+								124. <x, y> in R^-1 <--> <y, x> in R		[123 UI/x UI/y]
+
+								125. <x, y> in R^-1		[124 BC 121 MP]
+
+								126. <x, y> in R^-1 or <y, x> in R^-1		[125 ADD/...]
+
+								127. 		[126 CD]
+
+							128. <x, y> in R or <y, x> in R --> <x, y> in R^-1 or <y, x> in R^-1		[111 120 CASE_PROOF for line 109]
+
+							129. <x, y> in R^-1 or <y, x> in R^-1		[128 110 MP]
+
+							130. <x, y> in R^-1 or x = y or <y, x> in R^-1		[129 ADD/'x = y']
+
+							131.		[130 CD]
+						
+						132. x = y or x != y --> <x, y> in R^-1 or x = y or <y, x> in R^-1		[97 101 CASE_PROOF for line 96]
+
+						133. <x, y> in R^-1 or x = y or <y, x> in R^-1		[132 96 MP]
+
+						134. 		[133 DD]
+					
+					
+					135. 
+
+
+
+					//. Show <x, y> in R^-1 --> x != y & ~(<y, x> in R^-1)
+
+					//. Show <y, x> in R^-1 --> ~(<x, y> in R^-1) & x != y
+
+					//. Show x = y --> ~(<x, y> in R^-1) & ~(<y, x> in R^-1)
+
+					
