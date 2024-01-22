@@ -612,6 +612,53 @@ LEMMA - INVERSE SWAP    [ From Pg 64 Exercise 43]
       
 
       224. Show R is a relation
+
+        225. @R [ R is a relation <--> @t [ t in R --> 3x, y [ t = <x, y> ] ] ]    [Def. of relation]
+
+        226. R is a relation <--> @t [ t in R --> 3x, y [ t = <x, y> ] ]   [225 UI/R]
+
+        227. Show @t [ t in R --> 3x, y [ t = <x, y> ] ]
+
+          228. let t be a set
+
+          229. Show t in R --> 3x, y [ t = <x, y> ]
+
+            230. t in R   [ACD]
+
+            231. R = R^-1 o R   [94 R]
+
+            232. t in R^-1 o R    [230 231 LL]
+
+            233. @w [ w in R^-1 o R <--> 3u, v [ w = <u, v> & 3t [ <u, t> in R & <t, v> in R^-1 ] ] ]   [1.D2]
+
+            234. t in R^-1 o R <--> 3u, v [ t = <u, v> & 3t [ <u, t> in R & <t, v> in R^-1 ] ]    [233 UI/t]
+
+            235. 3u, v [ t = <u, v> & 3t [ <u, t> in R & <t, v> in R^-1 ] ]   [234 BC 232 MP]
+
+            236. t = <u_1, v_1> & 3t [ <u_1, t> in R & <t, v_1> in R^-1 ]   [235 EI/u_1 EI/v_1]
+
+            237. t = <u_1, v_1>   [236 SL]
+
+            238. 3x, y [ t = <x, y> ]   [237 EG/v_1->y EG/u_1->x]
+
+            239.    [238 CD]
+          
+          240.  [229 UD]
+        
+        241. R is a relation    [226 BC 227 MP]
+
+        242.  [241 DD]
+
+
+      243. R is a relation & R is symmetric & R is transitive   [224 96 158 ADJ]
+
+      244.    [243 DD]
+    
+    245.  [95 CD]
+  
+  246. R is a relation & R is symmetric & R is transitive <--> R = R^-1 o R    [3 93 CB]
+
+  247.    [246 UD]
               
 
             
