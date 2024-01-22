@@ -29,6 +29,83 @@ Axioms, Definitions, and Theorems:
 
 		@R [ R is transitive <--> @x, y, z [ <x, y> in R & <y, z> in R --> <x, z> in R ] ]
 
+LEMMA - INVERSE SWAP    [ From Pg 64 Exercise 43]
+1. Show @F [ @x, y [ <x, y> in F^-1 <--> <y, x> in F ] ]
+	
+	2. let F be a set
+	
+	/.////////
+	1.D1. @t [ t in F^-1 <--> 3u, v [ <v, u> in F & t = <u, v> ] ]		[Inverse UI/F & Ext. Axiom]
+	/.////////
+
+	3. Show @x, y [ <x, y> in F^-1 <--> <y, x> in F ]
+
+		4. let x, y be a set
+
+		5. Show <x, y> in F^-1 <--> <y, x> in F
+
+			6. Show <x, y> in F^-1 --> <y, x> in F
+
+				7. <x, y> in F^-1		[ACD]
+
+				8. @t [ t in F^-1 <--> 3u, v [ <v, u> in F & t = <u, v> ] ]		[1.D1]
+
+				9. <x, y> in F^-1 <--> 3u, v [ <v, u> in F & <x, y> = <u, v> ]		[8 UI/<x, y>]
+
+				10. 3u, v [ <v, u> in F & <x, y> = <u, v> ]		[9 BC 7 MP]
+
+				11. <v_1, u_1> in F & <x, y> = <u_1, v_1>		[10 EI/u_1 EI/v_1]
+
+				12. <x, y> = <u_1, v_1>		[11 SR]
+
+				13. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]		[Theorem 3A]
+
+				14. @u, v, a, b [ <u, v> = <a, b>  <-->  u = a & v = b ]		[13 EQUIV.]
+
+				15. <x, y> = <u_1, v_1>  <-->  x = u_1 & y = v_1		[14 UI/x, y, u_1, v_1]
+
+				16. x = u_1 & y = v_1		[15 BC 12 MP]
+
+				17. <v_1, u_1> in F		[11 SL]
+
+				18. <v_1, x> in F		[(16 SL) 17 LL]
+
+				19. <y, x> in F		[(16 SR) 18 LL]
+
+				20. 	[19 CD]
+
+			21. Show <y, x> in F --> <x, y> in F^-1
+			
+				22. <y, x> in F		[ACD]
+
+				23. @t [ t in F^-1 <--> 3u, v [ <v, u> in F & t = <u, v> ] ]		[1.D1]
+
+				24. <x, y> in F^-1 <--> 3u, v [ <v, u> in F & <x, y> = <u, v> ]		[23 UI/<x, y>]
+
+				25. Show 3u, v [ <v, u> in F & <x, y> = <u, v> ]
+
+					26. <y, x> in F		[22 R]
+
+					27. <x, y> = <x, y>		[SID]
+
+					28. <y, x> in F & <x, y> = <x, y>		[26 27 ADJ]
+
+					29. 3u, v [ <v, u> in F & <x, y> = <u, v> ]		[28 EG/x->u EG/y->v]
+
+					30. 	[29 DD]
+				
+				31. <x, y> in F^-1		[24 BC 25 MP]
+
+				32. 	[31 CD]
+			
+			33. <x, y> in F^-1 <--> <y, x> in F		[6 21 CB]
+
+			34.		[33 DD]
+		
+		35.		[5 UD]
+	
+	36. 	[3 UD]
+
 
 1. Show @R [ R is a relation & R is symmetric & R is transitive <--> R = R^-1 o R ]
 
@@ -371,21 +448,21 @@ Axioms, Definitions, and Theorems:
 
 
       //. show transitivity; assume <x, y> in R & <y, z> in R, show <x, z> in R
-        //. <x, y> in R & <y, z> in R
-        //. <y, z> in R^-1 o R 
-        //. 3b [ <y, b> in R & <b, z> in R^-1 ]
-        //. <y, b> in R & <b, z> in R^-1
-        //. <b, z> in R^-1
-        //. <z, b> in R
+        -//. <x, y> in R & <y, z> in R
+        -//. <y, z> in R^-1 o R 
+        -//. 3b [ <y, b> in R & <b, z> in R^-1 ]
+        -//. <y, b> in R & <b, z> in R^-1
+        -//. <b, z> in R^-1
+        -//. <z, b> in R
 
-        //. <y, b> in R
-        //. <b, y> in R^-1
+        -//. <y, b> in R
+        -//. <b, y> in R^-1
 
-        //. <z, b> in R & <b, y> in R^-1
-        //. 3b [ <z, b> in R & <b, y> in R^-1 ] 
-        //. <z, y> in R^-1 o R 
-        //. <z, y> in R   [since R = R^-1 o R ]
-        //. <y, z> in R^-1
+        -//. <z, b> in R & <b, y> in R^-1
+        -//. 3b [ <z, b> in R & <b, y> in R^-1 ] 
+        -//. <z, y> in R^-1 o R 
+        -//. <z, y> in R   [since R = R^-1 o R ]
+        -//. <y, z> in R^-1
         //. <x, y> in R   [R]
         //. <x, y> in R & <y, z> in R^-1    [ADJ]
 
@@ -395,7 +472,147 @@ Axioms, Definitions, and Theorems:
 
       158. Show R is transitive
 
-        159. 
+        159. @R [ R is transitive <--> @x, y, z [ <x, y> in R & <y, z> in R --> <x, z> in R ] ]   [Def. of transitive]
+
+        160. R is transitive <--> @x, y, z [ <x, y> in R & <y, z> in R --> <x, z> in R ]    [159 UI/R]
+
+        161. Show @x, y, z [ <x, y> in R & <y, z> in R --> <x, z> in R ]
+
+          162. let x, y, z be sets
+
+          163. Show <x, y> in R & <y, z> in R --> <x, z> in R
+
+            164. <x, y> in R & <y, z> in R    [ACD]
+
+            165. <y, z> in R    [164 SR]
+
+            166. R = R^-1 o R   [94 R]
+
+            167. <y, z> in R^-1 o R   [165 166 LL]
+
+            168. @w [ w in R^-1 o R <--> 3u, v [ w = <u, v> & 3t [ <u, t> in R & <t, v> in R^-1 ] ] ]   [1.D2]
+
+            169. <y, z> in R^-1 o R <--> 3u, v [ <y, z> = <u, v> & 3t [ <u, t> in R & <t, v> in R^-1 ] ]    [168 UI/<y, z>]
+
+            170. 3u, v [ <y, z> = <u, v> & 3t [ <u, t> in R & <t, v> in R^-1 ] ]    [169 BC 157 MP]
+
+            171. <y, z> = <u_1, v_1> & 3t [ <u_1, t> in R & <t, v_1> in R^-1 ]    [170 EI/u_1 EI/v_1]
+
+            172. 3t [ <u_1, t> in R & <t, v_1> in R^-1 ]    [171 SR]
+
+            173. <u_1, t_2> in R & <t_2, v_1> in R^-1   [172 EI/t_2]
+
+            174. <y, z> = <u_1, v_1>    [171 SL]
+
+            175. @a, b, c, d [ <a, b> = <c, d>  <-->  a = c & b = d ]   [Theorem 3A]
+
+            176. <y, z> = <u_1, v_1>  <-->  y = u_1 & z = v_1   [175 UI/y, z, u_1, v_1]
+
+            177. y = u_1 & z = v_1    [176 BC 174 MP]
+
+            178. <y, t_2> in R & <t_2, v_1> in R^-1   [(177 SL) 173 LL]
+
+            179. <y, t_2> in R & <t_2, z> in R^-1   [(177 SR) 178 LL]
+
+            180. <t_2, z> in R^-1   [179 SR]
+
+            181. @F [ @x, y [ <x, y> in F^-1 <--> <y, x> in F ] ]   [LEMMA - INVERSE SWAP]
+
+            182. @x, y [ <x, y> in R^-1 <--> <y, x> in R ]    [181 UI/R]
+
+            183. <t_2, z> in R^-1 <--> <z, t_2> in R    [182 UI/t_2 UI/z]
+
+            *184. <z, t_2> in R    [183 BC 180 MP]
+
+
+            185. <y, t_2> in R    [179 SL]
+
+            185. @F [ @x, y [ <x, y> in F^-1 <--> <y, x> in F ] ]   [LEMMA - INVERSE SWAP]
+
+            186. @x, y [ <x, y> in R^-1 <--> <y, x> in R ]    [185 UI/R]
+
+            187. @a, b [ <a, b> in R^-1 <--> <b, a> in R ]    [186 UI/a UI/b]
+
+            188. <t_2, y> in R^-1 <--> <y, t_2> in R    [187 UI/t_2 UI/y]
+
+            *189. <t_2, y> in R^-1   [188 BC 185 MP]
+
+
+            190. <z, t_2> in R & <t_2, y> in R^-1       [184 189 ADJ]
+
+            191. @w [ w in R^-1 o R <--> 3u, v [ w = <u, v> & 3t [ <u, t> in R & <t, v> in R^-1 ] ] ]   [1.D2]
+
+            192. <z, y> in R^-1 o R <--> 3u, v [ <z, y> = <u, v> & 3t [ <u, t> in R & <t, v> in R^-1 ] ]    [191 UI/<z, y>]
+
+            193. Show 3u, v [ <z, y> = <u, v> & 3t [ <u, t> in R & <t, v> in R^-1 ] ]
+
+              194. <z, y> = <z, y>    [SID]
+
+              195. 3t [ <z, t> in R & <t, y> in R^-1 ]    [190 EG/t_2->t]
+
+              196. <z, y> = <z, y> & 3t [ <z, t> in R & <t, y> in R^-1 ]    [194 195 ADJ]
+
+              197. 3u, v [ <z, y> = <u, v> & 3t [ <u, t> in R & <t, v> in R^-1 ] ]    [196 EG/y->v EG/z->u]
+
+              198.  [197 DD]
+            
+            199. <z, y> in R^-1 o R   [192 BC 193 MP]
+
+
+            200. R = R^-1 o R   [94 R]
+
+            201. <z, y> in R    [200 199 LL]
+
+            202. @F [ @x, y [ <x, y> in F^-1 <--> <y, x> in F ] ]   [LEMMA - INVERSE SWAP]
+
+            203. @x, y [ <x, y> in R^-1 <--> <y, x> in R ]    [202 UI/R]
+
+            204. @a, b [ <a, b> in R^-1 <--> <b, a> in R ]    [203 EQUIV.]
+
+            205. <y, z> in R^-1 <--> <z, y> in R    [204 UI/y UI/z]
+
+            206. <y, z> in R^-1   [205 BC 201 MP]
+
+
+            207. <x, y> in R    [164 SL]
+
+            *208. <x, y> in R & <y, z> in R^-1   [207 206 ADJ]
+
+
+            209. @w [ w in R^-1 o R <--> 3u, v [ w = <u, v> & 3t [ <u, t> in R & <t, v> in R^-1 ] ] ]   [1.D2]
+
+
+            210. <x, z> in R^-1 o R <--> 3u, v [ <x, z> = <u, v> & 3t [ <u, t> in R & <t, v> in R^-1 ] ]    [209 UI/<x, z>]
+
+            211. Show 3u, v [ <x, z> = <u, v> & 3t [ <u, t> in R & <t, v> in R^-1 ] ]
+
+              212. <x, z> = <x, z>    [SID]
+
+              213. 3t [ <x, t> in R & <t, z> in R^-1 ]    [208 EG/y->t]
+
+              214. <x, z> = <x, z> & 3t [ <x, t> in R & <t, z> in R^-1 ]    [212 213 ADJ]
+
+              215. 3u, v [ <x, z> = <u, v> & 3t [ <u, t> in R & <t, v> in R^-1 ] ]    [215 EG/z->v EG/x->u]
+
+              216.  [215 DD]
+            
+            217. <x, z> in R^-1 o R   [210 BC 211 MP]
+
+            218. R = R^-1 o R   [94 R]
+
+            219. <x, z> in R    [217 218 LL]
+
+            220.    [219 CD]
+          
+          221.  [163 UD]
+        
+        222. R is transitive    [160 BC 161 MP]
+
+        223.    [222 DD]
+      
+
+      224. Show R is a relation
+              
 
             
 
