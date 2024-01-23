@@ -1,0 +1,147 @@
+NOTE: this is for the questions i had on pg.68 (red post-it note) and pg.71
+
+Axioms, Definitions, and Theorems:
+	Pairing Axiom:
+		@u, v [ 3B [ @x [ x in B <--> x = u or x = v ] ] ]
+			Definition (its uniqueness is always due to Ext. Axiom):
+			For any sets u, v, the pair set {u, v} is the set whose only members are u and v.
+			[You can think of {u, v} as a 2-ary operator. It refer to one set and one set only based on the sets u and v!]
+
+			Definition:
+			Let {x} := {x, x} is the set whose only members are x and x
+
+	Union Axiom (Preliminary Form):
+		@a, b [ 3B [ @x [ x in B <--> x in a or x in b ] ] ]
+			Definition (its uniqueness is always due to Ext. Axiom):
+			For any sets a, b, the union a ∪ b is the set whose members are those sets belonging either to a or to b (or both).
+			[You can think of a ∪ b as a 2-ary operator. It refer to one set and one set only based on the sets a and b!]
+
+	Theorem 2A:
+		~3V [ @x [ x in V ] ]
+
+	Union Axiom:
+		@A [ 3B [ @x [ x in B <--> 3b [ b in A & x in b ] ] ] ]
+			Definition (its uniqueness is always due to Ext. Axiom):
+			For any set A, the union of A  U(A)     is the set whose members are exactly the members of the members of A
+			[You can think of U(A) as a 1-ary operator. It refer to one set and one set only based on the set A!]
+
+	Definition of Ordered Pair:
+		@x, y[ <x, y> := {{x}, {x, y}} ]
+			note {x} exists due to Pairing Axiom & Extensionality
+			note {x, y} exists due to Pairing Axiom & Extensionality
+			finally {{x}, {x, y}} exists due to Pairing Axiom & Extensionality
+
+
+Show ~3D[ @x [ <x, x u {x}> in D ] ]
+	assume D exists (for contradiction)
+
+	idea:   we can show @x [ x in U(U(D)) ]
+		but we know ~3V [ @x [ x in V ] ]	(Theorem 2A)
+		(similar to pg 38 exercise 4)
+
+		D would look like 
+			{<x, x u {x}>, <y, y u {y}>, ...}
+			{ {{x}, {x, x ∪ {x}}}, {{y}, {y, y ∪ {y}}}, ... }
+
+		U(D) looks like:
+			{ {x}, {x, x ∪ {x}}, {y}, {y, y ∪ {y}}, ... }
+
+		U(U(D)) looks like:
+			{ x, x, x ∪ {x}, y, y, y ∪ {y}, ... }
+			{ x, x ∪ {x}, y, y ∪ {y}, ... }
+
+
+1. Show ~3D [ @x [ <x, x ∪ {x}> in D ] ]
+
+  2. 3D [ @x [ <x, x ∪ {x}> in D ] ]    [AID]
+
+  3. @x [ <x, x ∪ {x}> in D_1 ]   [2 EI/D_1]
+
+  /.////////
+	1.D1. @x [ x in U(D_1) <--> 3b [ b in D_1 & x in b ] ]      [Union Axiom UI/D_1 & Ext. Axiom]
+  1.D2. @x [ x in U(U(D_1)) <--> 3b [ b in U(D_1) & x in b ] ]	    [Union Axiom UI/U(D_1) & Ext. Axiom]
+  /.////////
+
+  4. Show @x [ x in U(U(D_1)) ]
+
+    5. let x be a set
+
+    6. Show x in U(U(D_1))
+
+      7. @x [ x in U(U(D_1)) <--> 3b [ b in U(D_1) & x in b ] ]   [1.D2]
+
+      8. x in U(U(D_1)) <--> 3b [ b in U(D_1) & x in b ]    [7 UI/x]
+
+      9. Show 3b [ b in U(D_1) & x in b ]
+
+        10. @x [ x in U(D_1) <--> 3b [ b in D_1 & x in b ] ]    [1.D1]
+
+        11. {x} in U(D_1) <--> 3b [ b in D_1 & {x} in b ]   [10 UI/{x}]
+
+        //.////////
+        9.D1. @f [ f in {x} <--> f = x or f = x ]   [Pairing Axiom UI/x UI/x & Ext. Axiom]
+        //.////////
+
+        12. Show 3b [ b in D_1 & {x} in b ]
+
+          13. @x [ <x, x ∪ {x}> in D_1 ]    [3 R]
+
+          14. <x, x ∪ {x}> in D_1   [13 UI/x]
+
+          15. @x, y[ <x, y> := {{x}, {x, y}} ]    [Def. of ordered pair]
+
+          16. <x, x ∪ {x}> := {{x}, {x, x ∪ {x}}}   [15 UI/x UI/x ∪ {x}]
+
+          //.////////
+          12.D1. @f [ f in {{x}, {x, x ∪ {x}}} <--> f = {x} or f = {x, x ∪ {x}} ]    [Pairing Axiom UI/{x} UI/{x, x ∪ {x}} & Ext. Axiom]
+          //.////////
+
+          17. {{x}, {x, x ∪ {x}}} in D_1    [16 14 LL]
+          
+          18. @f [ f in {{x}, {x, x ∪ {x}}} <--> f = {x} or f = {x, x ∪ {x}} ]    [12.D1]
+
+          19. {x} in {{x}, {x, x ∪ {x}}} <--> {x} = {x} or {x} = {x, x ∪ {x}}   [18 UI/{x}]
+
+          20. {x} = {x}   [SID]
+
+          21. {x} = {x} or {x} = {x, x ∪ {x}}   [20 ADD/...]
+
+          22. {x} in {{x}, {x, x ∪ {x}}}    [19 BC 21 MP]
+
+          23. {{x}, {x, x ∪ {x}}} in D_1 & {x} in {{x}, {x, x ∪ {x}}}     [17 22 ADJ]
+
+          24. 3b [ b in D_1 & {x} in b ]    [23 EG/{{x}, {x, x ∪ {x}}}->b]
+
+          25.   [24 DD]
+
+        26. {x} in U(D_1)   [11 BC 12 MP]
+
+        27. @f [ f in {x} <--> f = x or f = x ]   [9.D1]
+
+        28. x in {x} <--> x = x or x = x    [27 UI/x]
+
+        29. x = x   [SID]
+
+        30. x = x or x = x    [29 ADD/...]
+
+        31. x in {x}    [28 BC 30 MP]
+
+        32. {x} in U(D_1) & x in {x}    [26 31 ADJ]
+
+        33. 3b [ b in U(D_1) & x in b ]   [32 EG/{x}->b]
+
+        34.     [33 DD]
+      
+      35. x in U(U(D_1))    [8 BC 9 MP]
+
+      36.   [35 DD]
+
+    37.   [6 UD]
+
+  38. ~3V [ @x [ x in V ] ]   [Theorem 2A]
+
+  39. @V [ ~@x [ x in V ] ]   [38 EQUIV.]
+
+  40. ~@x [ x in U(U(D_1)) ]    [39 UI/U(U(D_1))]
+
+  41.     [40 4 ID]

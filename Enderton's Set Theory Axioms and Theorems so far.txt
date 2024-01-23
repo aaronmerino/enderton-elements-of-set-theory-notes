@@ -244,7 +244,8 @@ Axioms, Definitions, and Theorems:
 		@F, A [ 3D [ @v [ v in D <--> 3u [ u in A & <u, v> in F ] ] ] ]
 		Definition (its uniqueness is always due to Ext. Axiom):
 			For any sets F, A, F[A] is the set known as the Image of A under F
-			AKA: F[A] := {F(u) | u in A} when F is a function & A ⊆ dom F
+			When F is a function & A ⊆ dom F, then we can define like so:
+				F[A] := {F(u) | u in A}
 			
 	The Inverse image of A under F set:
 		@F, A [ 3D [ @x [ x in D <--> x in dom F & F(x) in A ] ] ]
