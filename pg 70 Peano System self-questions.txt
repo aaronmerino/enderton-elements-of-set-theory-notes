@@ -1,0 +1,142 @@
+Axioms, Definitions, and Theorems:
+	Converse of Extensionality Axiom (Theorem Pg.2):
+		@A, B [ A = B  --> @x [ x in A <--> x in B ] ]
+
+	ran R: 
+		@R [ 3D [ @x [ x in D <--> 3t [ <t, x> in R ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets R,  ran R  is the set whose members are those 2nd-coordinate set of some ordered pair in R
+
+	Function:
+		Definition:
+		@F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]
+
+	[MARIN] Pg 43 When F is a function and x the dom F, F(x) is y IFF <x, y> in F:
+		@F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]
+
+	Definition of into:
+		@F, A, B [ F maps A into B (F: A->B) <--> 
+						F is a function &
+						dom F = A &
+						ran F ⊆ B 
+					]
+
+	Definition of Closed Under:
+		@S, A [ S is a function & A ⊆ dom S --> [ A is closed under S <--> @x [ x in A --> S(x) in A ] ] ]
+
+
+1. Show @N, S [ S: N->N --> N is closed under S ]
+  
+  2. let N, S be sets
+
+  /. ////////
+  1.D1. @y [ y in ran S <--> 3t [ <t, y> in S ] ]   [ran UI/S & Ext. Axiom]
+  /. ////////
+
+  3. Show S: N->N --> N is closed under S
+
+    4. S: N->N    [ACD]
+
+    5. @F, A, B [ F: A->B <--> F is a function & dom F = A & ran F ⊆ B ]   [Def. of into]
+
+    6. S: N->N <--> S is a function & dom S = N & ran S ⊆ N     [5 UI/S UI/N UI/N]
+
+    7. S is a function & dom S = N & ran S ⊆ N    [6 BC 4 MP]
+
+    8. @S, A [ S is a function & A ⊆ dom S --> [ A is closed under S <--> @x [ x in A --> S(x) in A ] ] ]   [Def. of Closed Under]
+
+    9. S is a function & N ⊆ dom S --> [ N is closed under S <--> @x [ x in N --> S(x) in N ] ]   [8 UI/S UI/N]
+
+    10. S is a function   [7 SL SL]
+
+    11. @A, B [ A = B  --> @x [ x in A <--> x in B ] ]    [Converse of Ext. Axiom]
+
+    12. dom S = N  --> @x [ x in dom S <--> x in N ]    [11 UI/dom S UI/N]
+
+    13. dom S = N   [7 SL SR]
+
+    14. @x [ x in dom S <--> x in N ]   [12 13 MP]
+
+    15. Show N ⊆ dom S
+
+      16. Show @x [ x in N --> x in dom S ]
+
+        17. let x be a set
+
+        18. x in dom S <--> x in N    [14 UI/x]
+
+        19. x in N --> x in dom S   [18 BC]
+
+        20.   [19 UD]
+
+      21. N ⊆ dom S   [16 EQUIV.]
+
+      22.   [21 DD]
+
+    23. S is a function & N ⊆ dom S   [10 15 ADJ]
+
+    24. N is closed under S <--> @x [ x in N --> S(x) in N ]    [9 23 MP]
+
+    25. Show @x [ x in N --> S(x) in N ]
+
+      26. let x be a set
+
+      27. Show x in N --> S(x) in N
+
+        28. x in N    [ACD]
+
+        29. ran S ⊆ N   [7 SR]
+
+        30. @t [ t in ran S --> t in N ]    [29 EQUIV.]
+
+        31. Show S(x) in ran S
+
+          32. @y [ y in ran S <--> 3t [ <t, y> in S ] ]   [1.D1]
+
+          33. S(x) in ran S <--> 3t [ <t, S(x)> in S ]    [32 UI/S(x)]
+
+          34. Show 3t [ <t, S(x)> in S ]
+
+            35. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]    [MARIN]
+
+            36. S is a function & x in dom S -->  @w [ <x, w> in S <--> S(x) = w ]    [35 UI/S UI/x]
+
+            37. S is a function   [10 R]
+
+            38. x in N    [28 R]
+
+            39. dom S = N   [13 R]
+
+            40. x in dom S    [38 39 LL]
+
+            41. S is a function & x in dom S    [37 40 ADJ]
+
+            42. @w [ <x, w> in S <--> S(x) = w ]    [36 41 MP]
+
+            43. <x, S(x)> in S <--> S(x) = S(x)   [42 UI/S(x)]
+
+            44. S(x) = S(x)   [SID]
+
+            45. <x, S(x)> in S    [43 BC 44 MP]
+
+            46. 3t [ <t, S(x)> in S ]   [45 EG/x->t]
+
+            47.   [46 DD]
+
+          48. S(x) in ran S   [33 BC 34 MP]
+
+          49.     [48 DD]
+
+        50. S(x) in ran S --> S(x) in N   [30 UI/S(x)]
+
+        51. S(x) in N   [50 31 MP]
+
+        52.   [51 CD]
+
+      53.   [27 UD]
+
+    54. N is closed under S   [24 BC 25 MP]
+
+    55.   [54 CD]
+
+  56.   [3 UD]

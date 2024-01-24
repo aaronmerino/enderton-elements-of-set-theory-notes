@@ -488,7 +488,14 @@ Set of Natural Numbers Chapter:
 
 	Theorem 4C:
 		@n [ n is a natural number & n != { } --> 3k [ k is a natural number & k+ = n ] ]
-		
+
+	Definition of Closed Under:
+		@S, A [ S is a function & A ⊆ dom S --> [ A is closed under S <--> @x [ x in A --> S(x) in A ] ] ]
+
+	Definition of Peano System: ***
+		@S [ S is a Peano System <--> 3N, S, e [ S: N->N & e in N ] ]
+
+
 Algebra of Sets:
 	Pg 24 Union of empty set:
 		U({}) = ({})
