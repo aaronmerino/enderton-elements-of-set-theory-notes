@@ -1,0 +1,135 @@
+Axioms, Definitions, and Theorems:
+	Subset Axioms:
+		For each formula __ not containing B, the following is an axiom:
+		@t1 ... @tk @c [ 3B [ @x [ x in B <--> x in c & __ ] ] ]
+			Definition:
+			For any set t­1, ..., tk and c, the subset B = {x in c | __ } is the set whose members are exactly those sets in c and __	
+
+	Corollary 3C:
+		@A, B [ 3D [ @t[ t in D <--> 3x, y [x in A & y in B & t = <x, y> ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets A, B,  {<x, y> | x in A & y in B}    is the set whose members are exactly the sets of the form <x, y> for some x in A & y in B
+		Also known as the Cartesian Product A x B of the sets A and B!
+
+	Definition of successor:
+		@a [ a+ := a ∪ {a} ]
+		notes:
+			{a} can be constructed using Pairing Axiom (singleton)
+			a ∪ {a} can be constructed using Union Axiom  
+
+	Definition of inductive:
+		@A [ A is inductive <--> { } in A & @a [ a in A --> a+ in A ] ]
+
+	Definition of a natural number:
+		@b [ b is a natural number <--> @A [ A is inductive --> b in A ] ]
+
+	Theorem 4A:
+		3D [ @b [ b in D <--> b is a natural number ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			ω is the set whose members are exactly the natural numbers 
+			@b [ b in ω <--> b is a natural number ]              
+
+	Theorem 4B:
+		ω is inductive & @A [ A is inductive & A != ω --> @t [ t in ω --> t in A ] ]  
+  
+	[MARIN] Subset Axiom (APPLIED):
+		@c [ 3B [ @t [ t in B <--> t in c & 3n [ n in ω & t = <n, n+> ] ] ] ] 
+    idea: let c = ω x ω
+
+
+1. Show 3D [ @t [ t in D <--> 3n [ n in ω & t = <n, n+> ] ] ]
+
+  /.////////
+  1.D1. @b [ b in ω <--> b is a natural number ]    [Theorem 4A & Ext. Axiom]
+  1.D2. @t [ t in ω x ω <--> 3x, y [ x in ω & y in ω & t = <x, y> ] ]    [Corollary 3C UI/ω UI/ω & Ext. Axiom]
+  /.////////
+
+  2. @c [ 3B [ @t [ t in B <--> t in c & 3n [ n in ω & t = <n, n+> ] ] ] ]    [MARIN]
+
+  3. 3B [ @t [ t in B <--> t in ω x ω & 3n [ n in ω & t = <n, n+> ] ] ]   [2 UI/ω x ω]
+
+  4. @t [ t in B_1 <--> t in ω x ω & 3n [ n in ω & t = <n, n+> ] ]    [3 EI/B_1]
+
+  5. Show @t [ t in B_1 <--> 3n [ n in ω & t = <n, n+> ] ]
+
+    6. let t be a set
+
+    7. Show t in B_1 --> 3n [ n in ω & t = <n, n+> ]
+    
+      8. t in B_1   [ACD]
+
+      9. @t [ t in B_1 <--> t in ω x ω & 3n [ n in ω & t = <n, n+> ] ]    [4 R]
+
+      10. t in B_1 <--> t in ω x ω & 3n [ n in ω & t = <n, n+> ]    [9 UI/t]
+
+      11. t in ω x ω & 3n [ n in ω & t = <n, n+> ]    [10 BC 8 MP]
+
+      12. 3n [ n in ω & t = <n, n+> ]   [11 SR]
+
+      13.   [12 CD]
+
+    14. Show 3n [ n in ω & t = <n, n+> ] --> t in B_1
+
+      15. 3n [ n in ω & t = <n, n+> ]   [ACD]
+
+      16. n_2 in ω & t = <n_2, n_2+>    [15 EI/n_2]
+
+      17. @t [ t in B_1 <--> t in ω x ω & 3n [ n in ω & t = <n, n+> ] ]   [4 R]
+
+      18. t in B_1 <--> t in ω x ω & 3n [ n in ω & t = <n, n+> ]    [17 UI/t]
+
+      19. Show t in ω x ω
+
+        20. @t [ t in ω x ω <--> 3x, y [ x in ω & y in ω & t = <x, y> ] ]   [1.D2]
+
+        21. t in ω x ω <--> 3x, y [ x in ω & y in ω & t = <x, y> ]    [20 UI/t]
+
+        22. Show 3x, y [ x in ω & y in ω & t = <x, y> ]
+
+          23. n_2 in ω    [16 SL]
+
+          24. t = <n_2, n_2+>   [16 SR]
+
+          25. Show n_2+ in ω
+
+            26. ω is inductive & @A [ A is inductive & A != ω --> @t [ t in ω --> t in A ] ]      [Theorem 4B]
+
+            27. ω is inductive    [26 SL]
+
+            28. @A [ A is inductive <--> { } in A & @a [ a in A --> a+ in A ] ]   [Def. of inductive]
+
+            29. ω is inductive <--> { } in ω & @a [ a in ω --> a+ in ω ]    [28 UI/ω]
+
+            30. { } in ω & @a [ a in ω --> a+ in ω ]    [29 BC 27 MP]
+
+            31. @a [ a in ω --> a+ in ω ]   [30 SR]
+
+            32. n_2 in ω --> n_2+ in ω    [31 UI/n_2]
+
+            33. n_2+ in ω   [32 23 MP]
+
+            34.   [33 DD]
+          
+          35. n_2 in ω & n_2+ in ω & t = <n_2, n_2+>    [23 25 24 ADJ]
+          
+          36. 3x, y [ x in ω & y in ω & t = <x, y> ]    [35 EG/n_2+ -> y  EG/n_2 -> x]
+
+          37.   [36 DD]
+        
+        38. t in ω x ω    [21 BC 22 MP]
+
+        39.   [38 DD]
+      
+      40. t in ω x ω & 3n [ n in ω & t = <n, n+> ]    [19 15 ADJ]
+
+      41. t in B_1    [18 BC 40 MP]
+
+      42.   [41 CD]
+    
+    43. t in B_1 <--> 3n [ n in ω & t = <n, n+> ]   [7 14 CB]
+
+    44.   [43 UD]
+  
+  45. 3D [ @t [ t in D <--> 3n [ n in ω & t = <n, n+> ] ] ]   [5 EG/B_1->D]
+
+  46.   [45 DD]
