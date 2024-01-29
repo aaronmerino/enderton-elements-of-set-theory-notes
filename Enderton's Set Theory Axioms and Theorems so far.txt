@@ -492,8 +492,26 @@ Set of Natural Numbers Chapter:
 	Definition of Closed Under:
 		@S, A [ S is a function & A ⊆ dom S --> [ A is closed under S <--> @x [ x in A --> S(x) in A ] ] ]
 
+	Pg 70 closed under notes (this will help with definition of Peano System):
+		@N, S [ S: N->N --> N is closed under S ]
+
 	Definition of Peano System: ***
-		@S [ S is a Peano System <--> 3N, S, e [ S: N->N & e in N ] ]
+		@S, N, e [ <S, N, e> is a Peano System <--> [ 
+									S: N->N & 				// this implies N is closed under S (as the above statement says)
+									e in N & 					// so, N satisfies "e in N & @x [ x in N --> S(x) in N ]"
+
+									~(e in ran S) &
+									S is single-rooted &
+									@A [ A ⊆ N --> [ e in A & @x [ x in A --> S(x) in A ] --> A = N ] ]			// this is so that N is the "smallest" such set satisfying "e in N & @x [ x in N --> S(x) in N ]"
+									
+									] 
+						]
+
+	Pg 71 existence of successor function that is restricted to ω:
+		3D [ @t [ t in D <--> 3n [ n in ω & t = <n, n+> ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			σ is called the successor function restricted to ω
+			@t [ t in σ <--> 3n [ n in ω & t = <n, n+> ] ]
 
 
 Algebra of Sets:

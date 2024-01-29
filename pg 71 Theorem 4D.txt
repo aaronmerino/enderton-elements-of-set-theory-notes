@@ -1,0 +1,278 @@
+Axioms, Definitions, and Theorems:
+	Extensionality Axiom:
+		@A, B [ @x [ x in A <--> x in B ] --> A = B ]
+
+	Converse of Extensionality Axiom (Theorem Pg.2):
+		@A, B [ A = B  --> @x [ x in A <--> x in B ]  ]
+
+	Empty Set Axiom:
+		3B [ @x [ ~(x in B) ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		{ } is the set having no members
+			[You can think of {} as a 0-ary operator. It refer to one set and one set only!]
+
+	Union Axiom (Preliminary Form):
+		@a, b [ 3B [ @x [ x in B <--> x in a or x in b ] ] ]
+			Definition (its uniqueness is always due to Ext. Axiom):
+			For any sets a, b, the union a ∪ b is the set whose members are those sets belonging either to a or to b (or both).
+			[You can think of a ∪ b as a 2-ary operator. It refer to one set and one set only based on the sets a and b!]
+
+	dom R: 
+		@R [ 3D [ @x [ x in D <--> 3y [ <x, y> in R ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets R,  dom R  is the set whose members are those 1st-coordinate set of some ordered pair in R
+
+	ran R: 
+		@R [ 3D [ @x [ x in D <--> 3t [ <t, x> in R ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets R,  ran R  is the set whose members are those 2nd-coordinate set of some ordered pair in R
+
+	Function:
+		Definition:
+		@F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]
+
+	Pg 43 When F is a function and x the dom F, F(x) is y IFF <x, y> in F:
+		@F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]
+
+	Definition of into:
+		@F, A, B [ F maps A into B (F: A->B) <--> 
+						F is a function &
+						dom F = A &
+						ran F ⊆ B 
+					]
+
+	Definition of single-rooted:
+		@R [ R is single-rooted <--> 
+				@y [ y in ran R --> 3_1x [ <x, y> in R ] ]
+			]
+
+Set of Natural Numbers Chapter:
+	Zero:
+		0 := { }
+
+	Definition of successor:
+		@a [ a+ := a ∪ {a} ]
+		notes:
+			{a} can be constructed using Pairing Axiom (singleton)
+			a ∪ {a} can be constructed using Union Axiom
+
+	Definition of inductive:
+		@A [ A is inductive <--> { } in A & @a [ a in A --> a+ in A ] ]
+
+	Definition of a natural number:
+		@b [ b is a natural number <--> @A [ A is inductive --> b in A ] ]
+
+	Theorem 4A:
+		3D [ @b [ b in D <--> b is a natural number ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			ω is the set whose members are exactly the natural numbers 
+			@b [ b in ω <--> b is a natural number ]
+
+	Theorem 4B:
+		ω is inductive & @A [ A is inductive & A != ω --> @t [ t in ω --> t in A ] ]
+
+	Theorem 4C:
+		@n [ n is a natural number & n != { } --> 3k [ k is a natural number & k+ = n ] ]
+
+	Definition of Closed Under:
+		@S, A [ S is a function & A ⊆ dom S --> [ A is closed under S <--> @x [ x in A --> S(x) in A ] ] ]
+
+	Pg 70 closed under notes (this will help with understanding definition of Peano System):
+		@N, S [ S: N->N --> N is closed under S ]
+
+	Definition of Peano System:
+		@S, N, e [ <S, N, e> is a Peano System <--> [ 
+									S: N->N & 				// this implies N is closed under S (as the above statement says)
+									e in N & 					// so, N satisfies "e in N & @x [ x in N --> S(x) in N ]"
+
+									~(e in ran S) &
+									S is single-rooted &
+									@A [ A ⊆ N --> [ e in A & @x [ x in A --> S(x) in A ] --> A = N ] ]			// this is so that N is the "smallest" such set satisfying "e in N & @x [ x in N --> S(x) in N ]"
+									
+									] 
+						]
+
+	Pg 71 existence of successor function that is restricted to ω:
+		3D [ @t [ t in D <--> 3n [ n in ω & t = <n, n+> ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			σ is called the successor function restricted to ω
+			@t [ t in σ <--> 3n [ n in ω & t = <n, n+> ] ]  
+
+
+1. Show <ω, σ, { }> is a Peano System
+
+  
+  // Show @y [ y in ran σ --> 3_1x [ <x, y> in σ] ]
+    y in ran σ
+
+    3x [ <x, y> in σ ]
+
+    <x, y> in σ
+
+    3n [ n in ω & <x, y> = <n, n+> ]
+
+    n in ω & <x, y> = <n, n+>
+
+    n in ω
+    x = n
+    y = n+
+
+    Show @k [ <k, y> in σ --> k = n ]
+    
+      <k, y> in σ
+
+      3n [ n in ω & <k, y> = <n, n+> ]
+
+      b in ω & <k, y> = <b, b+>
+
+      k = b
+      k in ω
+      y = b+
+
+      b+ = n+   [since y = b+ and y = n+]
+
+      k+ = n+   [since k = b]
+
+      Show k = n
+
+        k != n
+
+        @A, B [ @x [ x in A <--> x in B ] --> A = B ]
+
+        @x [ x in k <--> x in n ] --> k = n
+
+        ~@x [ x in k <--> x in n ]
+        ~@x [ [x in k --> x in n] & [x in n --> x in k] ]
+        3x [ ~[x in k --> x in n] or ~[x in n --> x in k] ]
+        3x [ [ x in k & ~(x in n) ] or [ x in n & ~(x in k) ] ]
+        [ c in k & ~(c in n) ] or [ c in n & ~(c in k) ]
+
+        WLG suppose c in n & ~(c in k)
+
+          c in n 
+          ~(c in k)
+
+          n+ = n U {n}
+
+          c in n+   [since c in n]
+          c in k+   [since k+ = n+]
+          
+          k+ = k U {k}
+
+          c in k or c in {k}
+
+          c in {k}    [since ~(c in k)]
+
+          c = k
+
+          k in n
+
+          Show c+ in n+ & ~(c+ in k+)   [this would imply k+ != n+ (contradiction)]
+            recall: n in ω, k in ω
+
+            n = {} or n != {}
+
+            Show n = {} --> c+ in n+ & ~(c+ in k+)
+              n = {}
+              c in n
+              c in {}
+                contradiction
+
+            Show n != {} --> c+ in n+ & ~(c+ in k+) 
+              3r [ r in ω & r+ = n ]   [Theorem 4C]
+
+              r in ω & r+ = n
+
+              c in r+ 
+
+              c in r or c = r
+
+              Show c+ in n+
+
+                n+ = n U {n}
+                n+ = r+ U {r+}
+                n+ = (r U {r}) U {r U {r}} 
+
+                Show c in r --> c+ in n+
+                  c in r 
+                  
+                  c+ in n+ <--> c+ in n or c+ in {n}
+
+                  Show c+ in n
+
+
+
+                
+
+
+
+
+
+
+
+
+
+
+                
+
+
+
+
+
+
+
+          
+
+          
+
+
+          
+
+
+
+
+
+
+
+
+            
+
+
+
+
+
+
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
+
+
+
+ 
+
+
+          
+
+
+
+
+
+
+
+
