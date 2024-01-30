@@ -17,6 +17,20 @@ Axioms, Definitions, and Theorems:
 			For any sets a, b, the union a ∪ b is the set whose members are those sets belonging either to a or to b (or both).
 			[You can think of a ∪ b as a 2-ary operator. It refer to one set and one set only based on the sets a and b!]
 
+
+	Subset Axioms:
+		For each formula __ not containing B, the following is an axiom:
+		@t1 ... @tk @c [ 3B [ @x [ x in B <--> x in c & __ ] ] ]
+			Definition:
+			For any set t­1, ..., tk and c, the subset B = {x in c | __ } is the set whose members are exactly those sets in c and __	
+
+		Example of a subset Axiom (relative complement):
+			@A, B [ 3S [ @t [ t in S <--> t in A & ~(t in B) ] ] ]
+				Definition (its uniqueness is always due to Ext. Axiom):
+				For any set A, B, the relative complement of B in A     A - B     is the set whose members are exactly those sets in A and but not in B
+				[You can think of A - B as a 2-ary operator. It refer to one set and one set only based on the sets A and B!]
+
+
 	dom R: 
 		@R [ 3D [ @x [ x in D <--> 3y [ <x, y> in R ] ] ] ]
 		Definition (its uniqueness is always due to Ext. Axiom):
@@ -97,6 +111,116 @@ Set of Natural Numbers Chapter:
 		Definition (its uniqueness is always due to Ext. Axiom):
 			σ is called the successor function restricted to ω
 			@t [ t in σ <--> 3n [ n in ω & t = <n, n+> ] ]  
+
+
+// some lemmas i will prove using induction
+
+// lemmas lappland, amiya, and marin will help prove 
+			@n [ n in w --> ~(n in n) ]
+				note: we can use lemma marin to prove transitivity which will help prove with proving this
+
+			which will help prove 
+
+			@n, k [ n, k in ω --> (n+ = k+ --> n = k) ]
+
+			which will help prove
+
+			Show @y [ y in ran σ --> 3_1x [ <x, y> in σ] ]
+
+// lemma lappland  	(induction)
+// Show @n [ n in ω --> @t [ t in n --> t+ in n+ ] ]
+
+	base case: suppose n = 0
+		Show @t [ t in n --> t+ in n+ ]	
+			Show t in n --> t+ in n+
+				t in n
+				t in 0		[contradiction]
+
+	show @t [ t in n --> t+ in n+ ] --> @t [ t in n+ --> t+ in n++ ]
+
+		@t [ t in n --> t+ in n+ ]		[ACD]
+
+		Show @t [ t in n+ --> t+ in n++ ]
+
+			Show t in n+ --> t+ in n++
+			
+				t in n+		[ACD]
+
+				t in n U {n}
+
+				t in n OR t in {n}
+
+				Show t in n --> t+ in n++
+
+					t in n 		[ACD]
+
+					@t [ t in n --> t+ in n+ ]
+
+					t in n --> t+ in n+
+
+					t+ in n+
+
+					n++ = n+ U {n+}
+
+					t+ in n++		
+						[DD]
+				
+				Show t in {n} --> t+ in n++
+					
+					t in {n}		[ACD]
+
+					t = n
+
+					Show t+ in n++
+
+						n++ = n+ U {n+}
+
+						t+ = n+
+
+						n+ in n++
+
+						t+ in n++	
+
+							[DD]
+					
+					[CD]
+
+				
+				t in n OR t in {n} --> t+ in n++
+
+				t+ in n++
+
+				[CD]
+
+
+// lemma amiya
+1. Show @n [ n in ω --> n+ != n ]
+
+
+// lemma marin	(induction)
+1. Show @n [ n in ω --> @x [ x in n --> @t [ t in x --> t in n ] ] ]
+
+	2. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 1. Show <ω, σ, { }> is a Peano System
@@ -199,6 +323,46 @@ Set of Natural Numbers Chapter:
                   c+ in n+ <--> c+ in n or c+ in {n}
 
                   Show c+ in n
+
+
+
+
+
+
+	Show @n, k [ n, k in ω --> (n+ = k+ --> n = k) ]
+		
+		n, k in ω
+
+		Show (n+ = k+ --> n = k)
+
+			n+ = k+		[ACD]
+
+			Show n = k
+
+				n != k		[AID]
+
+				@A, B [ @x [ x in A <--> x in B ] --> A = B ]		[Ext. Axiom]
+
+				@x [ x in n <--> x in k ] --> n = k		[UI/n, k]
+
+				~@x [ x in n <--> x in k ]		[MT]
+
+				~@x [ (x in n --> x in k) & (x in k --> x in n) ]
+
+				3x [ ~(x in n --> x in k) or ~(x in k --> x in n) ]
+
+				~(c in n --> c in k) or ~(c in k --> c in n)		[EI/c]
+
+				(c in n & ~(c in k)) or (c in k & ~(c in n))		
+
+
+				WLG: suppose c in n & ~(c in k)
+
+					Show c+ in n+ & ~(c+ in k+)
+
+						
+
+
 
 
 
