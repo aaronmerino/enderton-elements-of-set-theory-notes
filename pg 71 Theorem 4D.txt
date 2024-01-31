@@ -355,9 +355,174 @@ Axioms, Definitions, and Theorems:
 
 										68. x in {a}		[ACD]
 
-										69. 
+										69. @t [ t in {a} <--> t = a or t = a ]		[30.D1]
 
-									//. Show x in a --> t in a+			[CASE 2 for line 66]
+										70. x in {a} <--> x = a or x = a		[69 UI/x]
+
+										71. x = a or x = a		[70 BC 68 MP]
+
+										72. x = a		[71 SIMPLIFY_OR]
+
+										73. t in x		[60 R]
+
+										74. t in a		[72 73 LL]
+
+										75. @t [ t in a ∪ {a} <--> t in a or t in {a} ]		[30.D2]
+
+										76. t in a ∪ {a} <--> t in a or t in {a}		[75 UI/t]
+
+										77. t in a or t in {a}		[74 ADD/...]
+
+										78. t in a ∪ {a}		[76 BC 77 MP]
+
+										79. a+ := a ∪ {a}		[62 R]
+
+										80. t in a+		[78 79 LL]
+
+										81. 	[80 CD]
+									
+									82. Show x in a --> t in a+			[CASE 2 for line 66]
+
+										83. x in a		[ACD]
+
+										84. @x [ x in a --> @t [ t in x --> t in a ] ]		[38 R]
+
+										85. x in a --> @t [ t in x --> t in a ]		[84 UI/x]
+
+										86. @t [ t in x --> t in a ]		[85 83 MP]
+
+										87. t in x --> t in a		[86 UI/t]
+
+										88. t in x		[60 R]
+
+										89. t in a		[87 88 MP]
+
+										90. @t [ t in a ∪ {a} <--> t in a or t in {a} ]		[30.D2]
+
+										91. t in a ∪ {a} <--> t in a or t in {a}		[90 UI/t]
+
+										92. t in a or t in {a}		[89 ADD/...]
+
+										93. t in a ∪ {a}		[91 BC 92 MP]
+
+										94. a+ := a ∪ {a}		[62 R]
+
+										95. t in a+		[93 94 LL]
+
+										96. 	[95 CD]
+									
+									97. x in a or x in {a} --> t in a+		[67 82 CASE_PROOF for line 66]
+
+									98. t in a+		[97 66 MP]
+
+									99. 	[98 CD]
+								
+								100. 	[59 UD]
+							
+							101. 	[57 CD]
+						
+						102. 	[55 UD]
+
+					103. a+ in ω & @x [ x in a+ --> @t [ t in x --> t in a+ ] ]		[42 53 ADJ]
+
+					104. a+ in B_1		[41 BC 103 MP]
+
+					105. 	[104 DD]
+				
+				106. 	[39 CD]
+
+			107.		[32 UD]
+		
+		108. { } in B_1 & @a [ a in B_1 --> a+ in B_1 ]		[8 30 ADJ]
+
+		109. B_1 is inductive		[7 BC 108 MP]
+
+		110. 	[109 DD]
+
+	111. Show B_1 = ω
+
+    112. @A, B [ @x [ x in A <--> x in B ] --> A = B ]   [Ext. Axiom]
+
+    113. @x [ x in B_1 <--> x in ω ] --> B_1 = ω   [66 UI/...]
+
+    114. Show @x [ x in B_1 <--> x in ω ]
+
+			115. let x be a set
+
+			116. Show x in B_1 --> x in ω
+
+        117. x in B_1    [ACD]
+
+        118. @n [ n in B_1 <--> n in ω & @x [ x in n --> @t [ t in x --> t in n ] ] ]    [4 R]
+
+        119. @n [ n in B_1 <--> n in ω & @u [ u in n --> @t [ t in u --> t in n ] ] ]			[118 EQUIV.]
+
+				120. x in B_1 <--> x in ω & @u [ u in x --> @t [ t in u --> t in x ] ]		[119 UI/x]
+
+				121. x in ω & @u [ u in x --> @t [ t in u --> t in x ] ]		[120 BC 117 MP]
+
+				122. x in ω		[121 SL]
+
+				123. 	[122 CD] 
+
+			124. Show x in ω --> x in B_1
+
+				125. x in ω		[ACD]
+
+        126. @b [ b in ω <--> b is a natural number ]    [Theorem 4A & Ext. Axiom]
+
+        127. x in ω <--> x is a natural number   [126 UI/x]
+
+        128. x is a natural number   [127 BC 125 MP]
+
+        129. @b [ b is a natural number <--> @A [ A is inductive --> b in A ] ]    [Def. of natural number]
+
+        130. x is a natural number <--> @A [ A is inductive --> x in A ]   [129 UI/x]
+
+        131. @A [ A is inductive --> x in A ]    [130 BC 128 MP]
+
+        132. B_1 is inductive --> x in B_1   [131 UI/B_1]
+
+        133. B_1 is inductive    [5 R]
+
+        134. x in B_1    [132 133 MP]
+
+        135.   [134 CD]
+			
+			136. x in B_1 <--> x in ω		[116 124 CB]
+
+			137.	[136 UD]
+		
+		138. B_1 = ω		[113 114 MP]
+
+		139. 	[138 DD]
+	
+	140. Show @n [ n in ω --> @x [ x in n --> @t [ t in x --> t in n ] ] ]
+
+		141. let n be a set
+
+		142. Show n in ω --> @x [ x in n --> @t [ t in x --> t in n ] ]
+
+			143. n in ω		[ACD]
+
+			144. n in B_1		[143 111 LL]
+
+			145. @n [ n in B_1 <--> n in ω & @x [ x in n --> @t [ t in x --> t in n ] ] ]		[4 R]
+
+			146. n in B_1 <--> n in ω & @x [ x in n --> @t [ t in x --> t in n ] ]		[145 UI/n]
+
+			147. n in ω & @x [ x in n --> @t [ t in x --> t in n ] ]		[146 BC 144 MP]
+
+			148. @x [ x in n --> @t [ t in x --> t in n ] ]		[147 SR]
+
+			149.		[148 CD]
+
+		150. 	[142 UD]
+
+	151. 	[140 DD]
+
+
+
 
 
 
