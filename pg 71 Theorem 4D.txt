@@ -1011,7 +1011,87 @@ Axioms, Definitions, and Theorems:
 
 		211. 	[210 DD]
 	
-	212. 
+	212. Show B_1 = ω
+
+		213. @A, B [ @x [ x in A <--> x in B ] --> A = B ]   [Ext. Axiom]
+
+		214. @x [ x in B_1 <--> x in ω ] --> B_1 = ω   [213 UI/...]
+
+		215. Show @x [ x in B_1 <--> x in ω ]
+
+			216. let x be a set
+
+			217. Show x in B_1 --> x in ω
+
+				218. x in B_1    [ACD]
+
+				219. @n [ n in B_1 <--> n in ω & ~(n in n) ]		[4 R]
+
+				220. x in B_1 <--> x in ω & ~(x in x)		[219 UI/x]
+
+				221. x in ω & ~(x in x)		[220 BC 218 MP]
+
+				222. x in ω		[221 SL]
+
+				223. 	[222 CD]
+			
+			224. Show x in ω --> x in B_1
+
+				225. x in ω		[ACD]
+
+				226. @b [ b in ω <--> b is a natural number ]    [Theorem 4A & Ext. Axiom]
+
+				227. x in ω <--> x is a natural number   [226 UI/x]
+
+				228. x is a natural number   [227 BC 225 MP]
+
+				229. @b [ b is a natural number <--> @A [ A is inductive --> b in A ] ]    [Def. of natural number]
+
+				230. x is a natural number <--> @A [ A is inductive --> x in A ]   [229 UI/x]
+
+				231. @A [ A is inductive --> x in A ]		[230 BC 228 MP]
+
+				232. B_1 is inductive --> x in B_1   [231 UI/B_1]
+
+				233. B_1 is inductive    [5 R]
+
+				234. x in B_1		[232 233 MP]
+
+				235. 	[234 CD]
+			
+			236. x in B_1 <--> x in ω		[217 224 CB]
+
+			237. 		[236 UD]
+		
+		238. B_1 = ω 		[214 215 MP]
+
+		239. 	[238 DD]
+
+	240. Show @n [ n in ω --> ~(n in n) ]
+
+		241. let n be a set
+
+		242. Show n in ω --> ~(n in n)
+
+			243. n in ω		[ACD]
+
+			244. n in B_1		[243 212 LL]
+
+			245. @n [ n in B_1 <--> n in ω & ~(n in n) ]		[4 R]
+
+			246. n in B_1 <--> n in ω & ~(n in n)		[245 UI/n]
+
+			247. n in ω & ~(n in n)		[246 BC 244 MP]
+
+			248. ~(n in n)		[247 SR]
+
+			249. 		[248 CD]
+		
+		250. 		[242 UD]
+	
+	251. 		[240 DD]
+
+
 		
 
 
