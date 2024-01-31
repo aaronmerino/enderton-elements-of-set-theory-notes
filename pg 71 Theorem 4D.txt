@@ -136,7 +136,7 @@ Set of Natural Numbers Chapter:
 
 			Show @y [ y in ran σ --> 3_1x [ <x, y> in σ] ]
 
-// lemma lappland  	(induction)
+// lemma lappland  	(rough ver.)
 // Show @n [ n in ω --> @t [ t in n --> t+ in n+ ] ]
 
 	base case: suppose n = 0
@@ -200,6 +200,329 @@ Set of Natural Numbers Chapter:
 				t+ in n++
 
 				[CD]
+
+
+Axioms, Definitions, and Theorems:
+  [TEXAS] Subset Axiom (applied):
+		@c [ 3B [ @n [ n in B <--> n in c & @t [ t in n --> t+ in n+ ] ] ] ]   [Subset Axiom UI_META/'@t [ t in n --> t+ in n+ ]']	
+
+// lemma lappland 	(induction)
+1. Show @n [ n in ω --> @t [ t in n --> t+ in n+ ] ]
+
+	////////
+	1.D1. @x [ ~(x in { }) ]		[Empty set axiom & Ext. Axiom]
+	////////
+
+	2. @c [ 3B [ @n [ n in B <--> n in c & @t [ t in n --> t+ in n+ ] ] ] ]		[TEXAS]
+
+	3. 3B [ @n [ n in B <--> n in ω & @t [ t in n --> t+ in n+ ] ] ]		[2 UI/ω]
+
+	////////
+	4. @n [ n in B_1 <--> n in ω & @t [ t in n --> t+ in n+ ] ]		[3 EI/B_1]
+	////////
+
+	5. Show B_1 is inductive
+
+		6. @A [ A is inductive <--> { } in A & @a [ a in A --> a+ in A ] ]		[Def. of inductive]
+
+		7. B_1 is inductive <--> { } in B_1 & @a [ a in B_1 --> a+ in B_1 ]		[6 UI/B_1]
+
+		8. Show { } in B_1
+
+			9. @n [ n in B_1 <--> n in ω & @t [ t in n --> t+ in n+ ] ]		[4 R]
+
+			10. { } in B_1 <--> { } in ω & @t [ t in { } --> t+ in { }+ ]		[9 UI/{ }]
+
+			11. Show { } in ω
+
+				12. ω is inductive & @A [ A is inductive & A != ω --> @t [ t in ω --> t in A ] ]		[Theorem 4B]
+
+				13. ω is inductive		[12 SL]
+
+				14. @A [ A is inductive <--> { } in A & @a [ a in A --> a+ in A ] ]		[Def. of inductive]
+
+				15. ω is inductive <--> { } in ω & @a [ a in ω --> a+ in ω ]		[14 UI/ω]
+
+				16. { } in ω & @a [ a in ω --> a+ in ω ]		[15 BC 13 MP]
+
+				17. { } in ω		[16 SL]
+
+				18. 	[17 DD]
+
+			19. Show @t [ t in { } --> t+ in { }+ ]
+
+				20. let t be a set
+
+				21. Show t in { } --> t+ in { }+
+
+					22. t in { }		[ACD]
+
+					23. @x [ ~(x in { }) ]		[1.D1]
+
+					24. ~(t in { })		[23 UI/t]
+
+					25. 	[24 22 ID]
+
+				26. 	[21 UD]
+			
+			27. { } in ω & @t [ t in { } --> t+ in { }+ ]		[11 19 ADJ]
+
+			28. { } in B_1		[10 BC 27 MP]
+
+			29.		[28 DD]
+
+		30. Show @a [ a in B_1 --> a+ in B_1 ]
+
+			31. let a be a set
+
+			////////
+			30.D1. @t [ t in {a} <--> t = a or t = a ]		[Pairing axiom UI/a UI/a & Ext. Axiom]
+			30.D2. @t [ t in a ∪ {a} <--> t in a or t in {a} ]		[Union axiom UI/a UI/{a} & Ext. Axiom]
+
+			30.D3. @t [ t in {a+} <--> t = a+ or t = a+ ]		[Pairing axiom UI/a+ UI/a+ & Ext. Axiom]
+			30.D4. @t [ t in a+ ∪ {a+} <--> t in a+ or t in {a+} ]		[Union axiom UI/a+ UI/{a+} & Ext. Axiom]
+			////////
+
+			32. Show a in B_1 --> a+ in B_1
+
+				33. a in B_1		[ACD]
+
+				34. @n [ n in B_1 <--> n in ω & @t [ t in n --> t+ in n+ ] ]		[4 R]
+
+				35. a in B_1 <--> a in ω & @t [ t in a --> t+ in a+ ]		[34 UI/a]
+
+				36. a in ω & @t [ t in a --> t+ in a+ ]		[35 BC 33 MP]
+
+				37. a in ω		[36 SL]
+
+				38. @t [ t in a --> t+ in a+ ]		[36 SR]
+
+				39. Show a+ in B_1
+
+					40. @n [ n in B_1 <--> n in ω & @t [ t in n --> t+ in n+ ] ]		[4 R]
+
+					41. a+ in B_1 <--> a+ in ω & @t [ t in a+ --> t+ in a++ ]		[40 UI/a+]
+
+					42. Show a+ in ω
+
+						43. ω is inductive & @A [ A is inductive & A != ω --> @t [ t in ω --> t in A ] ]		[Theorem 4B]
+
+						44. ω is inductive		[43 SL]
+
+						45. @A [ A is inductive <--> { } in A & @a [ a in A --> a+ in A ] ]		[Def. of inductive]
+
+						46. ω is inductive <--> { } in ω & @a [ a in ω --> a+ in ω ]		[45 UI/ω]
+
+						47. { } in ω & @a [ a in ω --> a+ in ω ]		[46 BC 44 MP]
+
+						48. @a [ a in ω --> a+ in ω ]		[47 SR]
+
+						49. a in ω --> a+ in ω		[48 UI/a]
+
+						50. a in ω		[37 R]
+
+						51. a+ in ω		[49 50 MP]
+
+						52. 	[51 DD]
+
+					53. Show @t [ t in a+ --> t+ in a++ ]
+
+						54. let t be a set
+
+						55. Show t in a+ --> t+ in a++
+
+							56. t in a+		[ACD]
+
+							57. @a [ a+ := a ∪ {a} ]		[Def. of successor]
+
+							58. a+ := a ∪ {a}		[57 UI/a]
+
+							59. t in a ∪ {a}		[56 58 LL]
+
+							60. @t [ t in a ∪ {a} <--> t in a or t in {a} ]		[30.D2]
+
+							61. t in a ∪ {a} <--> t in a or t in {a}		[60 UI/t]
+
+							62. t in a or t in {a}		[61 BC 59 MP]
+
+							63. Show t in a --> t+ in a++		[CASE 1 for line 62]
+
+								64. t in a		[ACD]
+
+								65. @t [ t in a --> t+ in a+ ]		[38 R]
+
+								66. t in a --> t+ in a+		[65 UI/t]
+
+								67. t+ in a+		[66 64 MP]
+
+								68. @a [ a+ := a ∪ {a} ]		[Def. of successor]
+
+								69. a++ := a+ ∪ {a+}		[68 UI/a+]
+
+								70. @t [ t in a+ ∪ {a+} <--> t in a+ or t in {a+} ]		[30.D4]
+
+								71. t+ in a+ ∪ {a+} <--> t+ in a+ or t+ in {a+}		[70 UI/t+]
+
+								72. t+ in a+ or t+ in {a+}		[67 ADD/...]
+
+								73. t+ in a+ ∪ {a+}		[71 BC 72 MP]
+
+								74. t+ in a++		[69 73 LL]
+
+								75. 	[74 CD]
+							
+							76. Show t in {a} --> t+ in a++		[CASE 2 for line 62]
+
+								77. t in {a}		[ACD]
+
+								78. @t [ t in {a} <--> t = a or t = a ]		[30.D1]
+
+								79. t in {a} <--> t = a or t = a		[78 UI/t]
+
+								80. t = a or t = a		[79 BC 77 MP]
+
+								81. t = a		[80 SIMPLIFY_OR]
+
+								82. Show t+ in a++	
+
+									83. a+ = a+		[SID]
+
+									84. t+ = a+		[83 81 LL]
+
+									85. @t [ t in a+ ∪ {a+} <--> t in a+ or t in {a+} ]		[30.D4]
+
+									86. t+ in a+ ∪ {a+} <--> t+ in a+ or t+ in {a+}		[85 UI/t+]
+
+									87. @t [ t in {a+} <--> t = a+ or t = a+ ]		[30.D3]
+
+									88. t+ in {a+} <--> t+ = a+ or t+ = a+		[87 UI/t+]
+
+									89. t+ = a+ or t+ = a+		[84 ADD/...]
+
+									90. t+ in {a+}		[88 BC 89 MP]
+
+									91. t+ in a+ or t+ in {a+}		[90 ADD/...]
+
+									92. t+ in a+ ∪ {a+}		[86 BC 91 MP]
+
+									93. @a [ a+ := a ∪ {a} ]		[Def. of successor]
+
+									94. a++ := a+ ∪ {a+}		[93 UI/a+]
+
+									95. t+ in a++		[92 94 LL]
+
+									96. 	[95 CD]
+								
+								97. 	[82 CD]
+							
+							98. t in a or t in {a} --> t+ in a++		[63 76 CASE_PROOF for line 62]
+
+							99. t+ in a++		[98 62 MP]
+
+							100. 	[99 CD]
+						
+						101. 	[55 UD]
+					
+					102. a+ in ω & @t [ t in a+ --> t+ in a++ ]		[42 53 ADJ]
+
+					103. a+ in B_1		[41 BC 102 MP]
+
+					104. 	[103 DD]
+				
+				105. 	[39 CD]
+			
+			106. 	[32 UD]
+		
+		107. { } in B_1 & @a [ a in B_1 --> a+ in B_1 ]		[8 30 ADJ]
+
+		108. B_1 is inductive		[7 BC 107 MP]
+
+		109. 	[108 DD]
+
+	110. Show B_1 = ω
+
+		111. @A, B [ @x [ x in A <--> x in B ] --> A = B ]   [Ext. Axiom]
+
+		112. @x [ x in B_1 <--> x in ω ] --> B_1 = ω   [111 UI/...]
+
+		113. Show @x [ x in B_1 <--> x in ω ]
+
+			114. let x be a set
+
+			115. Show x in B_1 --> x in ω
+
+				116. x in B_1		[ACD]
+
+				117. @n [ n in B_1 <--> n in ω & @t [ t in n --> t+ in n+ ] ]		[4 R]
+
+				118. x in B_1 <--> x in ω & @t [ t in x --> t+ in x+ ]		[117 UI/x]
+
+				119. x in ω & @t [ t in x --> t+ in x+ ]		[118 BC 116 MP]
+
+				120. x in ω		[119 SL]
+
+				121. 	[120 CD]
+			
+			122. Show x in ω --> x in B_1
+
+				123. x in ω		[ACD]
+
+				124. @b [ b in ω <--> b is a natural number ]		[Theorem 4A]
+
+				125. x in ω <--> x is a natural number		[124 UI/x]
+
+				126. x is a natural number		[125 BC 123 MP]
+
+				127. @b [ b is a natural number <--> @A [ A is inductive --> b in A ] ]		[Def. of natural number]
+
+				128. x is a natural number <--> @A [ A is inductive --> x in A ]		[127 UI/x]
+
+				129. @A [ A is inductive --> x in A ]		[128 BC 126 MP]
+
+				130. B_1 is inductive --> x in B_1		[129 UI/B_1]
+
+				131. B_1 is inductive		[5 R]
+
+				132. x in B_1		[130 131 MP]
+
+				133. 	[132 CD]
+
+			134. x in B_1 <--> x in ω		[115 122 CB]
+
+			135. 	[134 UD]
+
+		136. B_1 = ω		[112 113 MP]
+
+		137. 	[136 DD]
+
+	138. Show @n [ n in ω --> @t [ t in n --> t+ in n+ ] ]
+
+		139. let n be a set
+
+		140. Show n in ω --> @t [ t in n --> t+ in n+ ]
+
+			141. n in ω		[ACD]
+
+			142. B_1 = ω		[110 R]
+
+			143. n in B_1		[141 142 LL]
+
+			144. @n [ n in B_1 <--> n in ω & @t [ t in n --> t+ in n+ ] ]		[4 R]
+
+			145. n in B_1 <--> n in ω & @t [ t in n --> t+ in n+ ]		[144 UI/n]
+
+			146. n in ω & @t [ t in n --> t+ in n+ ]		[145 BC 143 MP]
+
+			147. @t [ t in n --> t+ in n+ ]		[146 SR]
+
+			148.		[147 CD]
+		
+		149. 	[140 UD]
+	
+	150. 	[138 DD]
+
+
+
 
 
 
@@ -443,7 +766,7 @@ Axioms, Definitions, and Theorems:
 
     112. @A, B [ @x [ x in A <--> x in B ] --> A = B ]   [Ext. Axiom]
 
-    113. @x [ x in B_1 <--> x in ω ] --> B_1 = ω   [66 UI/...]
+    113. @x [ x in B_1 <--> x in ω ] --> B_1 = ω   [112 UI/...]
 
     114. Show @x [ x in B_1 <--> x in ω ]
 
@@ -570,6 +893,7 @@ Axioms, Definitions, and Theorems:
 		@c [ 3B [ @n [ n in B <--> n in c & ~(n in n) ] ] ]   [Subset Axiom UI_META/'~(n in n)']	
 
 // use induction here which will allow us to prove n+ != n
+// lemma daydream
 1. Show @n [ n in ω --> ~(n in n) ]
 
 	////////
