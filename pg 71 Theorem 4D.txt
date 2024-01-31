@@ -522,6 +522,44 @@ Axioms, Definitions, and Theorems:
 	151. 	[140 DD]
 
 
+// lemma transitivity of ω
+1. Show @a, b, c [ a, b, c in ω --> [ a in b & b in c --> a in c ] ]
+
+	2. let a, b, c be sets
+
+	3. Show a, b, c in ω --> [ a in b & b in c --> a in c ]
+
+		4. a, b, c in ω		[ACD]
+
+		5. Show a in b & b in c --> a in c
+
+			6. a in b & b in c		[ACD]
+
+			7. @n [ n in ω --> @x [ x in n --> @t [ t in x --> t in n ] ] ]		[lemma marin]
+
+			8. c in ω --> @x [ x in c --> @t [ t in x --> t in c ] ]		[7 UI/c]
+
+			9. c in ω		[4 SR]
+
+			10. @x [ x in c --> @t [ t in x --> t in c ] ]		[8 9 MP]
+
+			11. b in c --> @t [ t in b --> t in c ]		[10 UI/b]
+
+			12. b in c		[6 SR]
+
+			13. @t [ t in b --> t in c ]		[11 12 MP]
+
+			14. a in b --> a in c		[13 UI/a]
+
+			15. a in b		[6 SL]
+
+			16. a in c		[14 15 MP]
+
+			17. 	[16 CD]
+
+		18. 	[5 CD]
+	
+	19. 	[3 UD]
 
 
 
@@ -853,6 +891,127 @@ Axioms, Definitions, and Theorems:
 								150. Show a+ in k_2 --> ~(a+ in a+)			[CASE 2 for line 118]
 
 									151. a+ in k_2
+
+									152. @t [ t in a ∪ {a} <--> t in a or t in {a} ]		[27.D2]
+
+									153. a in a ∪ {a} <--> a in a or a in {a}		[152 UI/a]
+
+									154. @t [ t in {a} <--> t = a or t = a ]		[27.D1]
+
+									155. a in {a} <--> a = a or a = a		[154 UI/a]
+
+									156. a = a		[SID]
+
+									157. a = a or a = a		[156 ADD/...]
+
+									158. a in {a}		[155 BC 157 MP]
+
+									159. a in a or a in {a}		[158 ADD/...]
+
+									160. a in a ∪ {a}		[153 BC 159 MP]
+
+									161. a+ := a ∪ {a}		[53 R]
+
+									162. a in a+		[160 161 LL]
+
+									163. @a, b, c [ a, b, c in ω --> [ a in b & b in c --> a in c ] ]		[lemma transitivity of ω]
+
+									164. a, a+, k_2 in ω --> [ a in a+ & a+ in k_2 --> a in k_2 ]		[163 UI/a, a+, k_2 ]
+
+									165. a in ω		[34 R]
+
+									166. Show a+ in ω
+
+										167. ω is inductive & @A [ A is inductive & A != ω --> @t [ t in ω --> t in A ] ]		[Theorem 4B]
+
+										168. ω is inductive		[167 SL]
+
+										169. @A [ A is inductive <--> { } in A & @a [ a in A --> a+ in A ] ]		[Def. of inductive]
+
+										170. ω is inductive <--> { } in ω & @a [ a in ω --> a+ in ω ]		[169 UI/ω]
+
+										171. { } in ω & @a [ a in ω --> a+ in ω ]		[170 BC 168 MP]
+
+										172. @a [ a in ω --> a+ in ω ]		[171 SR]
+
+										173. a in ω --> a+ in ω		[172 UI/a]
+
+										174. a+ in ω		[173 165 MP]
+
+										175. 	[174 DD]
+									
+									176. k_2 in ω		[109 SL]
+
+									177. a, a+, k_2 in ω		[165 166 176 ADJ]
+
+									178. a in a+ & a+ in k_2 --> a in k_2		[164 177 MP]
+
+									179. a in a+ & a+ in k_2		[162 151 ADJ]
+
+									180. a in k_2		[178 179 MP]
+
+
+									181. ~(a in a)		[35 R]
+
+									182. k_2+ = a		[110 R]
+
+									183. ~(a in k_2+)		[181 182 LL]
+
+									184. k_2+ := k_2 ∪ {k_2}		[112 R]
+
+									185. ~(a in k_2 ∪ {k_2})		[183 184 LL]
+
+									186. @t [ t in k_2 ∪ {k_2} <--> t in k_2 or t in {k_2} ]		[100.D2]
+
+									187. a in k_2 ∪ {k_2} <--> a in k_2 or a in {k_2}		[186 UI/a]
+
+									188. a in k_2 or a in {k_2} --> a in k_2 ∪ {k_2}		[187 BC]
+
+									189. ~(a in k_2 or a in {k_2}) 		[188 185 MT]
+
+									190. ~(a in k_2) & ~(a in {k_2})		[189 DM]
+
+									191. ~(a in k_2)		[190 SL]
+
+									192. a in k_2		[180 R]
+
+									194. 		[191 192 ID]
+
+								195. a+ in k_2 or a+ in {k_2} --> ~(a+ in a+)			[150 119 CASE_PROOF for line 118]
+
+								196. ~(a+ in a+)		[195 118 MP]
+
+								197. 	[196 CD]
+							
+							198. a = { } or a != { } --> ~(a+ in a+)		[93 100 CASE_PROOF for line 92]
+
+							199. ~(a+ in a+)		[198 92 MP]
+
+							200. 	[199 CD]
+						
+						201. a+ in a or a+ in {a}	--> ~(a+ in a+)		[90 58 CASE_PROOF for line 57]
+
+						202. ~(a+ in a+)		[201 57 MP]
+
+						203. 	[202 DD]
+					
+					204. a+ in ω & ~(a+ in a+)		[39 50 ADJ]
+
+					205. a+ in B_1		[38 BC 204 MP]
+
+					206. 	[205 DD]
+				
+				207. 	[36 CD]
+
+			208. 	[29 UD]
+		
+		209. { } in B_1 & @a [ a in B_1 --> a+ in B_1 ]		[8 27 ADJ]
+
+		210. B_1 is inductive		[7 BC 209 MP]
+
+		211. 	[210 DD]
+	
+	212. 
 		
 
 
