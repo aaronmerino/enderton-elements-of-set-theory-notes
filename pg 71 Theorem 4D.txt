@@ -121,6 +121,8 @@ Set of Natural Numbers Chapter:
 			σ is called the successor function restricted to ω
 			@t [ t in σ <--> 3n [ n in ω & t = <n, n+> ] ]  
 
+=================================================================================
+=================================================================================
 
 // some lemmas i will prove using induction
 
@@ -136,7 +138,7 @@ Set of Natural Numbers Chapter:
 
 			Show @y [ y in ran σ --> 3_1x [ <x, y> in σ] ]
 
-// lemma lappland  	(rough ver.)
+// LEMMA lappland  	(rough ver.)
 // Show @n [ n in ω --> @t [ t in n --> t+ in n+ ] ]
 
 	base case: suppose n = 0
@@ -206,7 +208,7 @@ Axioms, Definitions, and Theorems:
   [TEXAS] Subset Axiom (applied):
 		@c [ 3B [ @n [ n in B <--> n in c & @t [ t in n --> t+ in n+ ] ] ] ]   [Subset Axiom UI_META/'@t [ t in n --> t+ in n+ ]']	
 
-// lemma lappland 	(induction)
+// LEMMA lappland 	(induction)
 1. Show @n [ n in ω --> @t [ t in n --> t+ in n+ ] ]
 
 	////////
@@ -523,14 +525,11 @@ Axioms, Definitions, and Theorems:
 
 
 
-
-
-
 Axioms, Definitions, and Theorems:
   [MAKI] Subset Axiom (applied):
 		@c [ 3B [ @n [ n in B <--> n in c & @x [ x in n --> @t [ t in x --> t in n ] ] ] ] ]   [Subset Axiom UI_META/'@x [ x in n --> @t [ t in x --> t in n ] ]']	
 
-// lemma marin	(induction)
+// LEMMA marin	(induction)
 1. Show @n [ n in ω --> @x [ x in n --> @t [ t in x --> t in n ] ] ]
 
 	////////
@@ -845,7 +844,8 @@ Axioms, Definitions, and Theorems:
 	151. 	[140 DD]
 
 
-// lemma transitivity of ω
+
+// LEMMA transitivity of ω
 1. Show @a, b, c [ a, b, c in ω --> [ a in b & b in c --> a in c ] ]
 
 	2. let a, b, c be sets
@@ -886,14 +886,12 @@ Axioms, Definitions, and Theorems:
 
 
 
-
-
 Axioms, Definitions, and Theorems:
   [YAR] Subset Axiom (applied):
 		@c [ 3B [ @n [ n in B <--> n in c & ~(n in n) ] ] ]   [Subset Axiom UI_META/'~(n in n)']	
 
 // use induction here which will allow us to prove n+ != n
-// lemma daydream
+// LEMMA daydream		(induction)
 1. Show @n [ n in ω --> ~(n in n) ]
 
 	////////
@@ -1416,9 +1414,207 @@ Axioms, Definitions, and Theorems:
 	251. 		[240 DD]
 
 
+
+// LEMMA isa (one-to-one of succesor func)
+1. Show @n, k [ n, k in ω --> (n+ = k+ --> n = k) ]
+
+	2. let n, k be sets
+
+	3. Show n, k in ω --> (n+ = k+ --> n = k)
+
+		4. n, k in ω		[ACD]
+
+		////////
+		3.D1. @t [ t in {n} <--> t = n or t = n ]		[Pairing axiom UI/n UI/n & Ext. Axiom]
+		3.D2. @t [ t in n ∪ {n} <--> t in n or t in {n} ]		[Union axiom UI/n UI/{n} & Ext. Axiom]
+
+		3.D3. @t [ t in {k} <--> t = k or t = k ]		[Pairing axiom UI/k UI/k & Ext. Axiom]
+		3.D4. @t [ t in k ∪ {k} <--> t in k or t in {k} ]		[Union axiom UI/k UI/{k} & Ext. Axiom]
+		////////
+
+		5. Show n+ = k+ --> n = k
+
+			6. n+ = k+		[ACD]
+
+			7. Show n = k
+
+				8. n != k		[AID]
+
+				9. @A, B [ @x [ x in A <--> x in B ] --> A = B ]		[Ext. Axiom]
+
+				10. @x [ x in n <--> x in k ] --> n = k		[9 UI/n UI/k]
+
+				11. ~@x [ x in n <--> x in k ]		[10 8 MT]
+
+				12. ~@x [ [x in n --> x in k] & [x in k --> x in n] ]		[11 EQUIV.]
+
+				13. 3x [ ~[ [x in n --> x in k] & [x in k --> x in n] ] ]		[12 EQUIV.]
+
+				14. 3x [ ~[x in n --> x in k] or ~[x in k --> x in n] ]		[13 EQUIV. (DM)]
+
+				15. 3x [ [x in n & ~(x in k)] or [x in k & ~(x in n)] ]		[14 EQUIV.]
+
+				16. [x_1 in n & ~(x_1 in k)] or [x_1 in k & ~(x_1 in n)]	[15 EI/x_1]
+
+
+				17. @A, B [ A = B --> @x [ x in A <--> x in B ] ]		[Converse of Ext. Axiom]
+
+				18. n+ = k+ --> @x [ x in n+ <--> x in k+ ]		[17 UI/n+ UI/k+]
+
+				19. Show ~@x [ x in n+ <--> x in k+ ]
+
+					20. @x [ x in n+ <--> x in k+ ]		[AID]
+
+					21. Show x_1+ in n+ & ~(x_1+ in k+)
+
+						22. Show [x_1 in n & ~(x_1 in k)] --> x_1+ in n+ & ~(x_1+ in k+)		[CASE 1 for line 16]
+
+							23. x_1 in n & ~(x_1 in k)		[ACD]
+
+							24. Show x_1+ in n+
+
+								25. @n [ n in ω --> @t [ t in n --> t+ in n+ ] ]		[LEMMA lappland]
+
+								26. n in ω --> @t [ t in n --> t+ in n+ ]		[25 UI/n]
+
+								27. n in ω		[4 SL]
+
+								28. @t [ t in n --> t+ in n+ ]		[26 27 MP]
+
+								29. x_1 in n --> x_1+ in n+		[28 UI/x_1]
+
+								30. x_1 in n		[23 SL]
+
+								31. x_1+ in n+		[29 30 MP]
+
+								32. 	[31 DD]
+							
+							33. Show ~(x_1+ in k+)
+
+								34. x_1+ in k+		[AID]
+
+								35. x_1 in n		[23 SL]
+
+								36. @t [ t in n ∪ {n} <--> t in n or t in {n} ]		[3.D2]
+
+								37. x_1 in n ∪ {n} <--> x_1 in n or x_1 in {n}		[36 UI/x_1]
+
+								38. x_1 in n or x_1 in {n}		[35 ADD/...]
+
+								39. x_1 in n ∪ {n}		[37 BC 38 MP]
+
+								40. @a [ a+ := a ∪ {a} ]		[Def. of successor]
+
+								41. n+ := n ∪ {n}		[40 UI/n]
+
+								42. x_1 in n+		[39 41 LL]
+
+								43. n+ = k+		[6 R]
+
+								44. x_1 in k+		[42 43 LL]
+
+								45. k+ := k ∪ {k}		[40 UI/k]
+
+								46. x_1 in k ∪ {k}		[44 45 LL]
+
+								47. @t [ t in k ∪ {k} <--> t in k or t in {k} ]		[3.D4]
+
+								48. x_1 in k ∪ {k} <--> x_1 in k or x_1 in {k}		[47 UI/x_1]
+
+								49. x_1 in k or x_1 in {k}		[48 BC 46 MP]
+
+								50. ~(x_1 in k)		[23 SR]
+
+								51. x_1 in {k}		[49 50 MTP]
+
+								52. @t [ t in {k} <--> t = k or t = k ]		[3.D3]
+
+								53. x_1 in {k} <--> x_1 = k or x_1 = k		[52 UI/x_1]
+
+								54. x_1 = k or x_1 = k		[53 BC 51 MP]
+
+								55. x_1 = k		[54 SIMPLIFY_OR]
+
+								56. x_1+ in k+		[34 R]
+
+								57. k+ in k+		[56 55 LL]
+
+
+								58. @n [ n in ω --> ~(n in n) ]		[LEMMA daydream]
+
+								59. k+ in ω --> ~(k+ in k+)		[58 UI/k+]
+
+								60. Show k+ in ω
+
+									61. k in ω		[4 SR]
+
+									62. ω is inductive & @A [ A is inductive & A != ω --> @t [ t in ω --> t in A ] ]		[Theorem 4B]
+
+									63. ω is inductive		[62 SL]
+
+									64. @A [ A is inductive <--> { } in A & @a [ a in A --> a+ in A ] ]		[Def. of inductive]
+
+									65. ω is inductive <--> { } in ω & @a [ a in ω --> a+ in ω ]		[64 UI/ω]
+
+									66. { } in ω & @a [ a in ω --> a+ in ω ]		[65 BC 63 MP]
+
+									67. @a [ a in ω --> a+ in ω ]		[66 SR]
+
+									68. k in ω --> k+ in ω		[67 UI/k]
+
+									69. k+ in ω		[68 61 MP]
+
+									70. 	[69 DD]
+
+								71. ~(k+ in k+)		[59 60 MP]
+
+								72. k+ in k+		[57 R]
+
+								73. 	[71 72 ID]
+
+							74. x_1+ in n+ & ~(x_1+ in k+)		[24 33 ADJ]
+
+							75. 	[74 CD]
+						
+						76. Show [x_1 in k & ~(x_1 in n)] --> x_1+ in n+ & ~(x_1+ in k+)		[CASE 2 for line 16]
+							77. same steps as that of line 22
+						
+						78. [x_1 in n & ~(x_1 in k)] or [x_1 in k & ~(x_1 in n)] --> x_1+ in n+ & ~(x_1+ in k+)		[22 76 CASE_PROOF for line 16]
+
+						79. x_1+ in n+ & ~(x_1+ in k+)		[78 16 MP]
+
+						80. 	[79 DD]
+
+					81. @x [ x in n+ <--> x in k+ ]		[20 R]
+
+					82. x_1+ in n+ <--> x_1+ in k+		[81 UI/x_1+]
+
+					83. x_1+ in n+ --> x_1+ in k+		[82 BC]
+
+					84. x_1+ in n+		[21 SL]
+
+					85. x_1+ in k+		[83 84 MP]
+
+					86. ~(x_1+ in k+)		[21 SR]
+
+					87. 		[85 86 ID]
+				
+				88. n+ != k+		[18 19 MT]
+
+				89. n+ = k+		[6 R]
+
+				90. 		[88 89 ID]
+			
+			91. 	[7 CD]
 		
+		92. 	[5 CD]
+	
+	93. 	[3 UD]
 
 
+
+=================================================================================
+=================================================================================
 
 
 1. Show <ω, σ, { }> is a Peano System
@@ -1522,41 +1718,6 @@ Axioms, Definitions, and Theorems:
 
                   Show c+ in n
 
-
-
-
-
-
-	Show @n, k [ n, k in ω --> (n+ = k+ --> n = k) ]
-		
-		n, k in ω
-
-		Show (n+ = k+ --> n = k)
-
-			n+ = k+		[ACD]
-
-			Show n = k
-
-				n != k		[AID]
-
-				@A, B [ @x [ x in A <--> x in B ] --> A = B ]		[Ext. Axiom]
-
-				@x [ x in n <--> x in k ] --> n = k		[UI/n, k]
-
-				~@x [ x in n <--> x in k ]		[MT]
-
-				~@x [ (x in n --> x in k) & (x in k --> x in n) ]
-
-				3x [ ~(x in n --> x in k) or ~(x in k --> x in n) ]
-
-				~(c in n --> c in k) or ~(c in k --> c in n)		[EI/c]
-
-				(c in n & ~(c in k)) or (c in k & ~(c in n))		
-
-
-				WLG: suppose c in n & ~(c in k)
-
-					Show c+ in n+ & ~(c+ in k+)
 
 						
 
