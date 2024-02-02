@@ -39,6 +39,13 @@ Axioms, Definitions, and Theorems:
 				For any set A, B, the relative complement of B in A     A - B     is the set whose members are exactly those sets in A and but not in B
 				[You can think of A - B as a 2-ary operator. It refer to one set and one set only based on the sets A and B!]
 
+	Theorem 3A:
+		@u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]
+
+	Relation:
+		Definition:
+		A relation R is a set of ordered pairs.
+		@R [ R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ] ]
 
 	dom R: 
 		@R [ 3D [ @x [ x in D <--> 3y [ <x, y> in R ] ] ] ]
@@ -115,7 +122,7 @@ Set of Natural Numbers Chapter:
 									] 
 						]
 
-	Pg 71 existence of successor function that is restricted to ω:
+	[successor function] Pg 71 existence of successor function that is restricted to ω:
 		3D [ @t [ t in D <--> 3n [ n in ω & t = <n, n+> ] ] ]
 		Definition (its uniqueness is always due to Ext. Axiom):
 			σ is called the successor function restricted to ω
@@ -1633,6 +1640,12 @@ Axioms, Definitions, and Theorems:
 
 1. Show <σ, ω, { }> is a Peano System
 
+	////////
+	1.D0. @x [ ~(x in { }) ]		[Empty set axiom & Ext. Axiom]
+	1.D1. @x [ x in dom σ <--> 3y [ <x, y> in σ ] ]		[dom UI/σ & Ext. Axiom]
+	1.D2. @y [ y in ran σ <--> 3x [ <x, y> in σ ] ]		[ran UI/σ & Ext. Axiom]
+	////////
+
 	2. @S, N, e [ <S, N, e> is a Peano System <--> 
 					[ 
 						S: N->N & 				// this implies N is closed under S (as the above statement says)
@@ -1657,11 +1670,405 @@ Axioms, Definitions, and Theorems:
 	
 	4. Show σ: ω->ω
 
-	/. Show { } in ω
+		5. @F, A, B [ F: A->B <--> 
+						F is a function &
+						dom F = A &
+						ran F ⊆ B 
+					]		[Def. of into]
+		
+		6. σ: ω->ω <--> 
+						σ is a function &
+						dom σ = ω &
+						ran σ ⊆ ω 		[5 UI/σ UI/ω UI/ω]
+		
+		7. @t [ t in σ <--> 3n [ n in ω & t = <n, n+> ] ]  		[successor function]
 
-	/. Show ~({ } in ran σ)
+		8. Show σ is a function
 
-	/. Show σ is single-rooted
+			9. @F [ F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]		[Def. of function]
+
+			10. σ is a function <--> σ is a relation & @x [ x in dom σ --> 3_1y [ <x, y> in σ ] ]		[9 UI/ σ]
+
+			11. Show σ is a relation
+
+				12. @R [ R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ] ]		[Def. of relation]
+
+				13. σ is a relation <--> @t [ t in σ --> 3x, y[ t = <x, y> ] ]		[12 UI/σ]
+
+				14. Show @t [ t in σ --> 3x, y[ t = <x, y> ] ]
+
+					15. let t be a set
+
+					16. Show t in σ --> 3x, y[ t = <x, y> ]
+
+						17. t in σ		[ACD]
+
+						18. @t [ t in σ <--> 3n [ n in ω & t = <n, n+> ] ]  		[successor function]
+
+						19. t in σ <--> 3n [ n in ω & t = <n, n+> ]		[18 UI/t]
+
+						20. 3n [ n in ω & t = <n, n+> ]		[19 BC 17 MP]
+
+						21. n_1 in ω & t = <n_1, n_1+>		[20 EI/n_1]
+
+						22. t = <n_1, n_1+>		[21 SR]
+
+						23. 3x, y[ t = <x, y> ]		[22 EG/n_1+ -> y  EG/n_1 -> x]
+
+						24.		[23 CD]
+
+					25. 	[16 UD]
+				
+				26. σ is a relation		[13 BC 14 MP]
+
+				27. 	[26 DD]
+			
+			28. Show @x [ x in dom σ --> 3_1y [ <x, y> in σ ] ]
+
+				29. let x be a set
+
+				30. Show x in dom σ --> 3_1y [ <x, y> in σ ]
+
+					31. x in dom σ		[ACD]
+
+					32. @x [ x in dom σ <--> 3y [ <x, y> in σ ] ]		[1.D1]
+
+					33. x in dom σ <--> 3y [ <x, y> in σ ]		[32 UI/x]
+
+					34. 3y [ <x, y> in σ ]		[33 BC 31 MP]
+
+					35. <x, y_1> in σ		[34 EI/y_1]
+
+					36. @t [ t in σ <--> 3n [ n in ω & t = <n, n+> ] ]  		[successor function]
+
+					37. <x, y_1> in σ <--> 3n [ n in ω & <x, y_1> = <n, n+> ]			[36 UI/<x, y_1>]
+
+					38. 3n [ n in ω & <x, y_1> = <n, n+> ]		[37 BC 35 MP]
+
+					39. n_2 in ω & <x, y_1> = <n_2, n_2+>		[38 EI/n_2]
+
+					40. <x, y_1> = <n_2, n_2+>		[39 SR]
+
+					41. Show @w [ <x, w> in σ --> w = y_1 ]
+
+						42. let w be a set
+
+						43. Show <x, w> in σ --> w = y_1
+
+							44. <x, w> in σ		[ACD]
+
+							45. @t [ t in σ <--> 3n [ n in ω & t = <n, n+> ] ]  		[successor function]
+
+							46. <x, w> in σ <--> 3n [ n in ω & <x, w> = <n, n+> ]			[45 UI/<x, w>]
+
+							47. 3n [ n in ω & <x, w> = <n, n+> ]		[46 BC 44 MP]
+
+							48. n_3 in ω & <x, w> = <n_3, n_3+>		[47 EI/n_3]
+
+							49. <x, w> = <n_3, n_3+>		[48 SR]
+
+							50. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]		[Theorem 3A]
+
+							51. <x, w> = <n_3, n_3+>  <-->  x = n_3 & w = n_3+		[50 UI/x, w, n_3, n_3+]
+
+							52. x = n_3 & w = n_3+		[51 BC 49 MP]
+
+
+							53. <x, y_1> = <n_2, n_2+>  <-->  x = n_2 & y_1 = n_2+		[50 UI/x, y_1, n_2, n_2+]
+
+							54. x = n_2 & y_1 = n_2+		[53 BC 40 MP]
+
+
+							55. x = n_3		[52 SL]
+
+							56. x = n_2		[54 SL]
+
+							57. n_2 = n_3		[55 56 LL]
+
+
+							58. Show w = y_1
+
+								59. w = n_3+		[52 SR]
+
+								60. y_1 = n_2+		[54 SR]
+
+								61. y_1 = n_3+		[57 60 LL]
+
+								62. w = y_1		[59 61 LL]
+
+								63. 	[62 DD]
+							
+							64. 	[58 CD]
+
+						65. 	[43 UD]
+					
+					66. <x, y_1> in σ & @w [ <x, w> in σ --> w = y_1 ]		[35 41 ADJ]
+
+					67. 3y [ <x, y> in σ & @w [ <x, w> in σ --> w = y ] ]		[66 EG/y_1->y]
+
+					68. 3_1y [ <x, y> in σ ]		[67 EQUIV.]
+
+					69. 	[68 CD]
+
+				70. 	[30 UD]
+			
+			71. σ is a relation & @x [ x in dom σ --> 3_1y [ <x, y> in σ ] ]		[11 28 ADJ]
+
+			72. σ is a function		[10 BC 71 MP]
+
+			73. 	[72 DD]
+		
+		74. Show dom σ = ω
+
+			75. @A, B [ @x [ x in A <--> x in B ] --> A = B ]		[Ext. Axiom]
+
+			76. @x [ x in dom σ <--> x in ω ] --> dom σ = ω		[75 UI/...]
+
+			77. Show @x [ x in dom σ <--> x in ω ]
+
+				78. let x be a set
+
+				79. Show x in dom σ --> x in ω
+
+					80. x in dom σ		[ACD]
+
+					81. @x [ x in dom σ <--> 3y [ <x, y> in σ ] ]		[1.D1]
+
+					82. x in dom σ <--> 3y [ <x, y> in σ ]		[81 UI/x]
+
+					83. 3y [ <x, y> in σ ]		[82 BC 80 MP]
+
+					84. <x, y_1> in σ 	[83 EI/y_1]
+
+					85. @t [ t in σ <--> 3n [ n in ω & t = <n, n+> ] ]  		[successor function]
+
+					86. <x, y_1> in σ <--> 3n [ n in ω & <x, y_1> = <n, n+> ]		[85 UI/<x, y_1>]
+
+					87. 3n [ n in ω & <x, y_1> = <n, n+> ]		[86 BC 84 MP]
+
+					88. n_2 in ω & <x, y_1> = <n_2, n_2+>		[87 EI/n_2]
+
+					89. n_2 in ω		[88 SL]
+
+					90. <x, y_1> = <n_2, n_2+>		[88 SR]
+
+					91. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]			[Theorem 3A]
+
+					92. <x, y_1> = <n_2, n_2+>  <-->  x = n_2 & y_1 = n_2+		[91 UI/x, y_1, n_2, n_2+]
+
+					93. x = n_2 & y_1 = n_2+		[92 BC 90 MP]
+
+					94. x = n_2		[93 SL]
+
+					95. x in ω		[94 89 LL]
+
+					96. 	[95 CD]
+				
+				97. Show x in ω --> x in dom σ
+
+					98. x in ω		[ACD]
+
+					99. @x [ x in dom σ <--> 3y [ <x, y> in σ ] ]		[1.D1]
+
+					100. x in dom σ <--> 3y [ <x, y> in σ ]		[99 UI/x]
+
+					101. Show 3y [ <x, y> in σ ]
+
+						102. @a [ a+ := a ∪ {a} ]		[Def. of successor]
+
+						103. x+ := x ∪ {x}		[102 UI/x]
+
+						104. Show <x, x+> in σ
+
+							105. @t [ t in σ <--> 3n [ n in ω & t = <n, n+> ] ]  		[successor function]
+
+							106. <x, x+> in σ <--> 3n [ n in ω & <x, x+> = <n, n+> ]		[105 UI/<x, x+>]
+
+							107. <x, x+> = <x, x+>		[SID]
+
+							108. x in ω & <x, x+> = <x, x+>		[98 107 ADJ]
+
+							109. 3n [ n in ω & <x, x+> = <n, n+> ]		[108 EG/x->n]
+
+							110. <x, x+> in σ		[106 BC 109 MP]
+
+							111. 		[110 DD]
+
+						112. 3y [ <x, y> in σ ]		[104 EG/x+ -> y]
+
+						113. 		[112 DD]
+
+					114. x in dom σ		[100 BC 101 MP]
+
+					115. 		[114 CD]
+
+				116. x in dom σ <--> x in ω		[79 97 CB]
+
+				117. 		[116 UD]
+
+			118. dom σ = ω		[76 77 MP]
+
+			119. 	[118 DD]
+
+		120. Show ran σ ⊆ ω
+
+			121. Show @t [ t in ran σ --> t in ω ]
+
+				122. let t be a set
+
+				123. Show t in ran σ --> t in ω
+
+					124. t in ran σ		[ACD]
+
+					125. @y [ y in ran σ <--> 3x [ <x, y> in σ ] ]		[1.D2]
+
+					126. t in ran σ <--> 3x [ <x, t> in σ ]		[125 UI/t]
+
+					127. 3x [ <x, t> in σ ]		[126 BC 124 MP]
+
+					128. <x_1, t> in σ		[127 EI/x_1]
+
+					129. @t [ t in σ <--> 3n [ n in ω & t = <n, n+> ] ]  		[successor function]
+
+					130. <x_1, t> in σ <--> 3n [ n in ω & <x_1, t> = <n, n+> ]		[129 UI/<x_1, t>]
+
+					131. 3n [ n in ω & <x_1, t> = <n, n+> ]		[130 BC 128 MP]
+
+					132. n_2 in ω & <x_1, t> = <n_2, n_2+>		[131 EI/n_2]
+
+					133. n_2 in ω		[132 SL]
+
+					134. <x_1, t> = <n_2, n_2+>		[132 SR]
+
+					135. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]		[Theorem 3A]
+
+					136. <x_1, t> = <n_2, n_2+>  <-->  x_1 = n_2 & t = n_2+		[135 UI/x_1, t, n_2, n_2+]
+
+					137. x_1 = n_2 & t = n_2+		[136 BC 134 MP]
+
+					138. x_1 = n_2		[137 SL]
+
+					139. t = n_2+		[137 SR]
+
+
+					140. ω is inductive & @A [ A is inductive & A != ω --> @t [ t in ω --> t in A ] ]		[Theorem 4B]
+
+					141. ω is inductive		[140 SL]
+
+					142. @A [ A is inductive <--> { } in A & @a [ a in A --> a+ in A ] ]		[Def. of inductive]
+
+					143. ω is inductive <--> { } in ω & @a [ a in ω --> a+ in ω ]		[142 UI/ω]
+
+					144. { } in ω & @a [ a in ω --> a+ in ω ]		[143 BC 141 MP]
+
+					145. @a [ a in ω --> a+ in ω ]		[144 SR]
+
+					146. n_2 in ω --> n_2+ in ω		[145 UI/n_2]
+
+					147. n_2+ in ω		[146 133 MP]
+
+					148. t = n_2+		[139 R]
+
+					149. t in ω		[147 148 LL]
+
+					150. 	[149 CD]
+				
+				151. 	[123 UD]
+
+			152. ran σ ⊆ ω		[121 EQUIV.]
+
+			153.	[152 DD]
+
+		154. σ is a function & dom σ = ω & ran σ ⊆ ω		[8 74 120 ADJ]
+
+		155. σ: ω->ω		[6 BC 154 MP]
+
+		156. 	[155 DD]
+
+	157. Show { } in ω
+
+		158. ω is inductive & @A [ A is inductive & A != ω --> @t [ t in ω --> t in A ] ]		[Theorem 4B]
+
+		159. ω is inductive		[158 SL]
+
+		160. @A [ A is inductive <--> { } in A & @a [ a in A --> a+ in A ] ]		[Def. of inductive]
+
+		161. ω is inductive <--> { } in ω & @a [ a in ω --> a+ in ω ]		[160 UI/ω]
+
+		162. { } in ω & @a [ a in ω --> a+ in ω ]		[161 BC 159 MP]
+
+		163. { } in ω		[162 SL]
+
+		164.		[163 DD]
+
+	165. Show ~({ } in ran σ)
+
+		166. { } in ran σ		[AID]
+
+		167. @y [ y in ran σ <--> 3x [ <x, y> in σ ] ]		[1.D2]
+
+		168. { } in ran σ <--> 3x [ <x, { }> in σ ]		[167 UI/{ }]
+
+		169. 3x [ <x, { }> in σ ]		[168 BC 166 MP]
+
+		170. <x_1, { }> in σ		[169 EI/x_1]
+
+		171. @t [ t in σ <--> 3n [ n in ω & t = <n, n+> ] ] 		[successor function]
+
+		172. <x_1, { }> in σ <--> 3n [ n in ω & <x_1, { }> = <n, n+> ]		[171 UI/<x_1, { }>]
+
+		173. 3n [ n in ω & <x_1, { }> = <n, n+> ]		[172 BC 170 MP]
+
+		174. n_2 in ω & <x_1, { }> = <n_2, n_2+>		[173 EI/n_2]
+
+		////////
+		165.D1. @t [ t in {n_2} <--> t = n_2 or t = n_2 ]		[Pairing axiom UI/n_2 UI/n_2 & Ext. Axiom]
+		165.D2. @t [ t in n_2 ∪ {n_2} <--> t in n_2 or t in {n_2} ]		[Union axiom UI/n_2 UI/{n_2} & Ext. Axiom]
+		////////
+
+		175. <x_1, { }> = <n_2, n_2+>		[174 SR]
+
+		176. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]		[Theorem 3A]
+
+		177. <x_1, { }> = <n_2, n_2+>  <-->  x_1 = n_2 & { } = n_2+		[176 UI/x_1, { }, n_2, n_2+]
+
+		178. x_1 = n_2 & { } = n_2+		[177 BC 175 MP]
+
+		179. { } = n_2+		[178 SR]
+
+		180. @a [ a+ := a ∪ {a} ]		[Def. of successor]
+
+		181. n_2+ := n_2 ∪ {n_2}		[180 UI/n_2]
+
+		182. @t [ t in n_2 ∪ {n_2} <--> t in n_2 or t in {n_2} ]		[165.D2]
+
+		183. n_2 in n_2 ∪ {n_2} <--> n_2 in n_2 or n_2 in {n_2}		[182 UI/n_2]
+
+		184. @t [ t in {n_2} <--> t = n_2 or t = n_2 ]		[165.D1]
+
+		185. n_2 in {n_2} <--> n_2 = n_2 or n_2 = n_2		[184 UI/n_2]
+
+		186. n_2 = n_2		[SID]
+
+		187. n_2 = n_2 or n_2 = n_2		[186 ADD/...]
+
+		188. n_2 in {n_2}		[185 BC 187 MP]
+
+		189. n_2 in n_2 or n_2 in {n_2}		[188 ADD/...]
+
+		190. n_2 in n_2 ∪ {n_2}		[183 BC 189 MP]
+
+		191. n_2 in n_2+		[190 181 LL]
+
+		192. n_2 in { }			[191 179 LL]
+
+		193. @x [ ~(x in { }) ]		[1.D0]
+
+		194. ~(n_2 in { })		[193 UI/n_2]
+
+		195. 		[192 194 ID]
+	
+	196. Show σ is single-rooted
 
 	/. Show @A [ A ⊆ ω --> [ { } in A & @x [ x in A --> σ(x) in A ] --> A = ω ] ]
 
