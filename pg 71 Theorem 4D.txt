@@ -1617,9 +1617,56 @@ Axioms, Definitions, and Theorems:
 =================================================================================
 
 
-1. Show <ω, σ, { }> is a Peano System
+Axioms, Definitions, and Theorems:
+	Definition of Peano System:
+		@S, N, e [ <S, N, e> is a Peano System <--> [ 
+									S: N->N & 				// this implies N is closed under S (as the above statement says)
+									e in N & 					// so, N satisfies "e in N & @x [ x in N --> S(x) in N ]"
 
-  
+									~(e in ran S) &
+									S is single-rooted &
+									@A [ A ⊆ N --> [ e in A & @x [ x in A --> S(x) in A ] --> A = N ] ]			// this is so that N is the "smallest" such set satisfying "e in N & @x [ x in N --> S(x) in N ]"
+									
+									] 
+						]
+
+
+1. Show <σ, ω, { }> is a Peano System
+
+	2. @S, N, e [ <S, N, e> is a Peano System <--> 
+					[ 
+						S: N->N & 				// this implies N is closed under S (as the above statement says)
+						e in N & 					// so, N satisfies "e in N & @x [ x in N --> S(x) in N ]"
+
+						~(e in ran S) &
+						S is single-rooted &
+						@A [ A ⊆ N --> [ e in A & @x [ x in A --> S(x) in A ] --> A = N ] ]			// this is so that N is the "smallest" such set satisfying "e in N & @x [ x in N --> S(x) in N ]"
+					
+					] 
+		]		[Def. of Peano System]
+
+	3. <σ, ω, { }> is a Peano System <--> 
+					[ 
+						σ: ω->ω & 				
+						{ } in ω & 					
+
+						~({ } in ran σ) &
+						σ is single-rooted &
+						@A [ A ⊆ ω --> [ { } in A & @x [ x in A --> σ(x) in A ] --> A = ω ] ]
+					] 
+	
+	4. Show σ: ω->ω
+
+	/. Show { } in ω
+
+	/. Show ~({ } in ran σ)
+
+	/. Show σ is single-rooted
+
+	/. Show @A [ A ⊆ ω --> [ { } in A & @x [ x in A --> σ(x) in A ] --> A = ω ] ]
+
+	
+	
   // Show @y [ y in ran σ --> 3_1x [ <x, y> in σ] ]
     y in ran σ
 
