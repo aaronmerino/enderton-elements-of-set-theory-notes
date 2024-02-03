@@ -2070,7 +2070,120 @@ Axioms, Definitions, and Theorems:
 	
 	196. Show σ is single-rooted
 
-	/. Show @A [ A ⊆ ω --> [ { } in A & @x [ x in A --> σ(x) in A ] --> A = ω ] ]
+		197. @R [ R is single-rooted <--> @y [ y in ran R --> 3_1x [ <x, y> in R ] ] ]		[Def. of single-rooted]
+
+		198. σ is single-rooted <--> @y [ y in ran σ --> 3_1x [ <x, y> in σ ] ]			[197 UI/σ]
+
+		199. Show @y [ y in ran σ --> 3_1x [ <x, y> in σ ] ]
+
+			200. let y be a set
+
+			201. Show y in ran σ --> 3_1x [ <x, y> in σ ]
+
+				202. y in ran σ		[ACD]
+
+				203. @y [ y in ran σ <--> 3x [ <x, y> in σ ] ]		[1.D2]
+
+				204. y in ran σ <--> 3x [ <x, y> in σ ]		[203 UI/y]
+
+				205. 3x [ <x, y> in σ ]		[204 BC 202 MP]
+
+				206. <x_1, y> in σ		[205 EI/x_1]
+
+				207. @t [ t in σ <--> 3n [ n in ω & t = <n, n+> ] ]		[successor function]
+
+				208. <x_1, y> in σ <--> 3n [ n in ω & <x_1, y> = <n, n+> ]		[207 UI/<x_1, y>]
+
+				209. 3n [ n in ω & <x_1, y> = <n, n+> ]		[208 BC 206 MP]
+
+				210. n_2 in ω & <x_1, y> = <n_2, n_2+>		[209 EI/n_2]
+
+				211. Show @q [ <q, y> in σ --> q = x_1 ]
+
+					222. let q be a set
+
+					223. Show <q, y> in σ --> q = x_1
+
+						224. <q, y> in σ		[ACD]
+
+						225. @t [ t in σ <--> 3n [ n in ω & t = <n, n+> ] ]		[successor function]
+
+						226. <q, y> in σ <--> 3n [ n in ω & <q, y> = <n, n+> ]		[225 UI/<q, y>]	
+
+						227. 3n [ n in ω & <q, y> = <n, n+> ]		[226 BC 224 MP]
+
+						228. n_3 in ω & <q, y> = <n_3, n_3+>		[227 EI/n_3]
+
+						229. <x_1, y> = <n_2, n_2+>		[210 SR]
+
+						230. <q, y> = <n_3, n_3+>		[228 SR]
+
+						231. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]		[Theorem 3A]
+
+
+						232. <x_1, y> = <n_2, n_2+>  <-->  x_1 = n_2 & y = n_2+		[231 UI/x_1, y, n_2, n_2+]
+
+						233. x_1 = n_2 & y = n_2+		[232 BC 229 MP]
+
+
+						234. <q, y> = <n_3, n_3+>  <-->  q = n_3 & y = n_3+		[231 UI/q, y, n_3, n_3+]
+
+						235. q = n_3 & y = n_3+		[234 BC 230 MP]
+
+
+						236. y = n_2+		[233 SR]
+
+						237. y = n_3+		[235 SR]
+
+						238. n_2+ = n_3+		[236 237 LL]
+
+
+						239. @n, k [ n, k in ω --> (n+ = k+ --> n = k) ]		[LEMMA isa]
+
+						240. n_2, n_3 in ω --> (n_2+ = n_3+ --> n_2 = n_3)		[239 UI/n_2 UI/n_3]
+
+						241. n_2 in ω		[210 SL]
+
+						242. n_3 in ω		[228 SL]
+
+						243. n_2, n_3 in ω		[241 242 ADJ]
+
+						244. n_2+ = n_3+ --> n_2 = n_3		[240 243 MP]
+
+
+						245. n_2 = n_3		[244 238 MP]
+
+
+						246. x_1 = n_2		[233 SL]
+
+						247. q = n_3		[235 SL]
+
+
+						248. x_1 = n_3		[245 246 LL]
+
+						249. q = x_1		[247 248 LL]
+
+						250. 		[249 CD]
+
+					251. 	[223 UD]
+
+				252. <x_1, y> in σ & @q [ <q, y> in σ --> q = x_1 ]		[206 211 ADJ]
+
+				253. 3x [ <x, y> in σ & @q [ <q, y> in σ --> q = x ] ]		[252 EG/x_1->x]
+
+				254. 3_1x [ <x, y> in σ ]		[253 EQUIV.]
+
+				255.		[254 CD]
+
+			256. 		[201 UD]
+		
+		257. σ is single-rooted		[198 BC 199 MP]
+
+		258. 		[257 DD]
+	
+	259. Show @A [ A ⊆ ω --> [ { } in A & @x [ x in A --> σ(x) in A ] --> A = ω ] ]
+
+		260. 
 
 	
 	
