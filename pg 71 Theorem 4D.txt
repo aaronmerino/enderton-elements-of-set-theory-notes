@@ -61,7 +61,7 @@ Axioms, Definitions, and Theorems:
 		Definition:
 		@F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]
 
-	Pg 43 When F is a function and x the dom F, F(x) is y IFF <x, y> in F:
+	[PATRICK] Pg 43 When F is a function and x the dom F, F(x) is y IFF <x, y> in F:
 		@F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]
 
 	Definition of into:
@@ -2183,7 +2183,172 @@ Axioms, Definitions, and Theorems:
 	
 	259. Show @A [ A ⊆ ω --> [ { } in A & @x [ x in A --> σ(x) in A ] --> A = ω ] ]
 
-		260. 
+		260. let A be a set
+
+		261. Show A ⊆ ω --> [ { } in A & @x [ x in A --> σ(x) in A ] --> A = ω ]
+
+			262. A ⊆ ω		[ACD]
+
+			263. Show { } in A & @x [ x in A --> σ(x) in A ] --> A = ω
+
+				264. { } in A & @x [ x in A --> σ(x) in A ]		[ACD]
+
+				265. Show A is inductive
+
+					266. @A [ A is inductive <--> { } in A & @a [ a in A --> a+ in A ] ]		[Def. of inductive]
+
+					267. A is inductive <--> { } in A & @a [ a in A --> a+ in A ]		[266 UI/A]
+
+					268. { } in A		[264 SL]
+
+					269. Show @a [ a in A --> a+ in A ]
+
+						270. let a be a set
+
+						271. Show a in A --> a+ in A
+
+							272. a in A		[ACD]
+
+							273. @x [ x in A --> σ(x) in A ]		[264 SR]
+
+							274. a in A --> σ(a) in A		[273 UI/a]
+
+							275. σ(a) in A		[274 272 MP]
+
+							276. σ: ω->ω		[4 R]
+
+							277. @F, A, B [ F: A->B <--> F is a function & dom F = A & ran F ⊆ B ]		[Def. of into]
+
+							278. σ: ω->ω <--> σ is a function & dom σ = ω & ran σ ⊆ ω		[277 UI/σ UI/ω UI/ω]
+
+							279. σ is a function & dom σ = ω & ran σ ⊆ ω		[278 BC 276 MP]
+
+
+							280. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]		[PATRICK]
+
+							281. σ is a function & a in dom σ -->  @w [ <a, w> in σ <--> σ(a) = w ]		[280 UI/σ UI/a]
+
+							282. A ⊆ ω		[262 R]
+
+							283. @t [ t in A --> t in ω ]		[282 EQUIV.]
+
+							284. a in A --> a in ω		[283 UI/a]
+
+							285. a in ω		[284 272 MP]
+
+							286. dom σ = ω		[279 SL SR]
+
+							287. a in dom σ		[285 286 LL]
+
+							288. σ is a function		[279 SL SL]
+
+							289. σ is a function & a in dom σ		[288 287 ADJ]
+
+							290. @w [ <a, w> in σ <--> σ(a) = w ]		[281 289 MP]
+
+							291. <a, σ(a)> in σ <--> σ(a) = σ(a)		[290 UI/σ(a)]
+
+							292. σ(a) = σ(a)		[SID]
+
+							293. <a, σ(a)> in σ		[291 BC 292 MP]
+
+							294. @t [ t in σ <--> 3n [ n in ω & t = <n, n+> ] ]			[successor function]
+
+							295. <a, σ(a)> in σ <--> 3n [ n in ω & <a, σ(a)> = <n, n+> ]			[294 UI/<a, σ(a)>]
+
+							296. 3n [ n in ω & <a, σ(a)> = <n, n+> ]		[295 BC 293 MP]
+
+							297. n_1 in ω & <a, σ(a)> = <n_1, n_1+>		[296 EI/n_1]
+
+							298. <a, σ(a)> = <n_1, n_1+>			[297 SR]
+
+							299. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]		[Theorem 3A]
+
+							300. <a, σ(a)> = <n_1, n_1+>  <-->  a = n_1 & σ(a) = n_1+		[299 UI/a, σ(a), n_1, n_1+]
+
+							301. a = n_1 & σ(a) = n_1+			[300 BC 298 MP]
+
+							302. σ(a) = n_1+		[301 SR]
+
+							303. a = n_1		[301 SL]
+
+							304. σ(a) in A		[275 R]
+
+							305. n_1+ in A		[304 302 LL]
+
+							306. a+ in A		[305 303 LL]
+
+							307. 		[306 CD]
+
+						308. 		[271 UD]
+					
+					309. { } in A & @a [ a in A --> a+ in A ]		[268 269 ADJ]
+
+					310. A is inductive		[267 BC 309 MP]
+
+					311. 		[310 DD]
+				
+				312. Show @t [ t in ω --> t in A ]
+
+					313. let t be a set
+
+					314. Show t in ω --> t in A
+
+						315. t in ω		[ACD]
+
+						316. @b [ b in ω <--> b is a natural number ]		[Theorem 4A]
+
+						317. t in ω <--> t is a natural number		[316 UI/t]
+
+						318. t is a natural number		[317 BC 315 MP]
+
+						319. @b [ b is a natural number <--> @A [ A is inductive --> b in A ] ]		[Def. of natural number]
+
+						320. t is a natural number <--> @A [ A is inductive --> t in A ]		[319 UI/t]
+
+						321. @A [ A is inductive --> t in A ]		[320 BC 318 MP]
+
+						322. A is inductive --> t in A		[321 UI/A]
+
+						323. A is inductive		[265 R]
+
+						324. t in A		[322 323 MP]
+
+						325.		[324 CD]
+
+					326. 	[314 UD]
+				
+				327. @t [ t in A --> t in ω ]		[262 EQUIV.]
+
+				328. @A, B [ @x [ x in A <--> x in B ] --> A = B ]		[Ext. Axiom]
+
+				329. @x [ x in A <--> x in ω ] --> A = ω		[328 UI/A UI/ω]
+
+				330. Show @x [ x in A <--> x in ω ]
+
+					331. let x be a set
+
+					332. x in ω --> x in A		[312 UI/x]
+
+					333. x in A --> x in ω		[327 UI/x]
+
+					334. x in A <--> x in ω		[332 333 CB]
+
+					335. 		[334 UD]
+
+				336. A = ω		[329 330 MP]
+
+				337.		[336 CD]
+			
+			338. 		[263 CD]
+		
+		339. 		[261 UD]
+
+	340. σ: ω->ω & { } in ω & ~({ } in ran σ) & σ is single-rooted & @A [ A ⊆ ω --> [ { } in A & @x [ x in A --> σ(x) in A ] --> A = ω ] ]		[4 157 165 196 259 ADJ]
+
+	341. <σ, ω, { }> is a Peano System		[3 BC 340 MP]
+
+	342.		[341 DD]
 
 	
 	
