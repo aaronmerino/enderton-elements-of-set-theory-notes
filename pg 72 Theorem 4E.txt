@@ -1,0 +1,194 @@
+Axioms, Definitions, and Theorems:
+	Extensionality Axiom:
+		@A, B [ @x [ x in A <--> x in B ] --> A = B ]
+
+	Pairing Axiom:
+		@u, v [ 3B [ @x [ x in B <--> x = u or x = v ] ] ]
+			Definition (its uniqueness is always due to Ext. Axiom):
+			For any sets u, v, the pair set {u, v} is the set whose only members are u and v.
+			[You can think of {u, v} as a 2-ary operator. It refer to one set and one set only based on the sets u and v!]
+
+			Definition:
+			Let {x} := {x, x} is the set whose only members are x and x
+
+	Union Axiom (Preliminary Form):
+		@a, b [ 3B [ @x [ x in B <--> x in a or x in b ] ] ]
+			Definition (its uniqueness is always due to Ext. Axiom):
+			For any sets a, b, the union a ∪ b is the set whose members are those sets belonging either to a or to b (or both).
+			[You can think of a ∪ b as a 2-ary operator. It refer to one set and one set only based on the sets a and b!]
+
+	Union Axiom:
+		@A [ 3B [ @x [ x in B <--> 3b [ b in A & x in b ] ] ] ]
+			Definition (its uniqueness is always due to Ext. Axiom):
+			For any set A, the union of A  U(A)     is the set whose members are exactly the members of the members of A
+			[You can think of U(A) as a 1-ary operator. It refer to one set and one set only based on the set A!]
+
+	Definition of successor:
+		@a [ a+ := a ∪ {a} ]
+		notes:
+			{a} can be constructed using Pairing Axiom (singleton)
+			a ∪ {a} can be constructed using Union Axiom
+
+	Definition of transitive set (different from transitive relation which is a relation):
+		@A [ A is a transitive set <--> @a [ a in A --> @x [ x in a --> x in A ] ] ]
+
+
+1. Show @c [ c is a transitive set --> U(c+) = c ]
+
+  2. let c be a set
+
+  ////////
+  1.D1. @x [ x in {c} <--> x = c or x = c ]   [Pairing Axiom UI/c UI/c & Ext. Axiom]
+  1.D2. @x [ x in c ∪ {c} <--> x in c or x in {c} ]   [Union Axiom (prelim) UI/c UI/{c} & Ext. Axiom]
+  1.D3. @x [ x in U(c ∪ {c}) <--> 3b [ b in c ∪ {c} & x in b ] ]    [Union Axiom UI/c ∪ {c} & Ext. Axiom]
+  ////////
+
+  3. Show c is a transitive set --> U(c+) = c
+
+    4. c is a transitive set    [ACD]
+
+    5. @A [ A is a transitive set <--> @a [ a in A --> @x [ x in a --> x in A ] ] ]   [Def. of transitive set]
+
+    6. c is a transitive set <--> @a [ a in c --> @x [ x in a --> x in c ] ]    [5 UI/c]
+
+    7. @a [ a in c --> @x [ x in a --> x in c ] ]   [6 BC 4 MP]
+
+    8. @a [ a+ := a ∪ {a} ]   [Def. of successor]
+
+    9. c+ := c ∪ {c}    [8 UI/c]
+
+    10. Show U(c+) = c
+
+      11. @A, B [ @x [ x in A <--> x in B ] --> A = B ]   [Ext. Axiom]
+
+      12. @x [ x in U(c ∪ {c}) <--> x in c ] --> U(c ∪ {c}) = c   [11 UI/U(c ∪ {c}) UI/c]
+
+      13. Show @x [ x in U(c ∪ {c}) <--> x in c ]
+
+        14. let x be a set
+
+        15. Show x in U(c ∪ {c}) --> x in c
+
+          16. x in U(c ∪ {c})   [ACD]
+
+          17. @x [ x in U(c ∪ {c}) <--> 3b [ b in c ∪ {c} & x in b ] ]   [1.D3]
+
+          18. x in U(c ∪ {c}) <--> 3b [ b in c ∪ {c} & x in b ]   [17 UI/x]
+
+          19. 3b [ b in c ∪ {c} & x in b ]    [18 BC 16 MP]
+
+          20. b_1 in c ∪ {c} & x in b_1   [19 EI/b_1]
+
+          21. b_1 in c ∪ {c}    [20 SL]
+
+          22. x in b_1    [20 SR]
+
+          23. @x [ x in c ∪ {c} <--> x in c or x in {c} ]   [1.D2]
+
+          24. b_1 in c ∪ {c} <--> b_1 in c or b_1 in {c}    [23 UI/b_1]
+
+          25. b_1 in c or b_1 in {c}    [24 BC 21 MP]
+
+          26. Show b_1 in c --> x in c    [CASE 1 for line 25]
+
+            27. b_1 in c    [ACD]
+
+            28. @a [ a in c --> @x [ x in a --> x in c ] ]    [7 R]
+
+            29. b_1 in c --> @x [ x in b_1 --> x in c ]   [28 UI/b_1]
+
+            30. @x [ x in b_1 --> x in c ]    [29 27 MP]
+
+            31. x in b_1 --> x in c   [30 UI/x]
+
+            32. x in b_1    [22 R]
+
+            33. x in c    [31 32 MP]
+
+            34.   [33 CD]
+          
+          35. Show b_1 in {c} --> x in c    [CASE 2 for line 25]
+
+            36. b_1 in {c}    [ACD]
+
+            37. @x [ x in {c} <--> x = c or x = c ]   [1.D1]
+
+            38. b_1 in {c} <--> b_1 = c or b_1 = c    [37 UI/b_1]
+
+            39. b_1 = c or b_1 = c    [38 BC 36 MP]
+
+            40. b_1 = c   [39 SIMPLIFY_OR]
+
+            41. x in b_1    [22 R]
+
+            42. x in c    [40 41 LL]
+
+            43.   [42 CD]
+
+          44. b_1 in c or b_1 in {c} --> x in c   [26 35 CASE_PROOF for line 25]
+
+          45. x in c    [44 25 MP]
+
+          46.   [45 CD]
+        
+        47. Show x in c --> x in U(c ∪ {c})
+
+          48. x in c    [ACD]
+
+          49. @x [ x in U(c ∪ {c}) <--> 3b [ b in c ∪ {c} & x in b ] ]    [1.D3]
+
+          50. x in U(c ∪ {c}) <--> 3b [ b in c ∪ {c} & x in b ]   [49 UI/x]
+
+          51. Show 3b [ b in c ∪ {c} & x in b ]
+
+            //. consider c
+
+            52. @x [ x in c ∪ {c} <--> x in c or x in {c} ]   [1.D2]
+
+            53. c in c ∪ {c} <--> c in c or c in {c}    [52 UI/c]
+
+            54. Show c in {c}
+
+              55. @x [ x in {c} <--> x = c or x = c ]   [1.D1]
+
+              56. c in {c} <--> c = c or c = c    [55 UI/c]
+
+              57. c = c   [SID]
+
+              58. c = c or c = c    [57 ADD/...]
+
+              59. c in {c}    [56 BC 58 MP]
+
+              60.   [59 DD]
+
+            61. c in c or c in {c}    [54 ADD/...]
+
+            62. c in c ∪ {c}    [53 BC 61 MP]
+
+            63. x in c    [48 R]
+
+            64. c in c ∪ {c} & x in c   [62 63 ADJ]
+
+            65. 3b [ b in c ∪ {c} & x in b ]    [64 EG/c-->b]
+
+            66.   [65 DD]
+          
+          67. x in U(c ∪ {c})   [50 BC 51 MP]
+
+          68.     [67 CD]
+
+        69. x in U(c ∪ {c}) <--> x in c   [15 47 CB]
+
+        70.   [69 UD]
+
+      71. U(c ∪ {c}) = c    [12 13 MP]
+
+      72. c+ := c ∪ {c}   [9 R]
+
+      73. U(c+) = c   [72 71 LL]
+
+      74.     [73 DD]
+
+    75.   [10 CD]
+
+  76.   [3 UD]

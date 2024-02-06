@@ -513,6 +513,13 @@ Set of Natural Numbers Chapter:
 			σ is called the successor function restricted to ω
 			@t [ t in σ <--> 3n [ n in ω & t = <n, n+> ] ]
 
+	Theorem 4D:
+		<σ, ω, { }> is a Peano System
+
+	Definition of transitive set (different from transitive relation which is a relation):
+		@A [ A is a transitive set <--> @a [ a in A --> @x [ x in a --> x in A ] ] ]
+
+
 
 Algebra of Sets:
 	Pg 24 Union of empty set:
