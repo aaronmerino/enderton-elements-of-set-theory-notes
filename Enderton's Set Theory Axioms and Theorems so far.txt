@@ -519,6 +519,14 @@ Set of Natural Numbers Chapter:
 	Definition of transitive set (different from transitive relation which is a relation):
 		@A [ A is a transitive set <--> @a [ a in A --> @x [ x in a --> x in A ] ] ]
 
+	Theorem 4E:
+		@c [ c is a transitive set --> U(c+) = c ]
+
+	Theorem 4F:
+		@n [ n in ω --> n is a transitive set ]
+		=
+		@n [ n in ω --> @x [ x in n --> @t [ t in x --> t in n ] ] ]		[lemma marin from Theorem 4D]
+		@n [ n in ω --> @a [ a in n --> @x [ x in a --> x in n ] ] ]
 
 
 Algebra of Sets:

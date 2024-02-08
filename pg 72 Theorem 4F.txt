@@ -1,0 +1,85 @@
+Axioms, Definitions, and Theorems:
+	Subset Axioms:
+		For each formula __ not containing B, the following is an axiom:
+		@t1 ... @tk @c [ 3B [ @x [ x in B <--> x in c & __ ] ] ]
+			Definition:
+			For any set t­1, ..., tk and c, the subset B = {x in c | __ } is the set whose members are exactly those sets in c and __	
+
+	Zero:
+		0 := { }
+		
+	Definition of successor:
+		@a [ a+ := a ∪ {a} ]
+		notes:
+			{a} can be constructed using Pairing Axiom (singleton)
+			a ∪ {a} can be constructed using Union Axiom
+
+	Definition of inductive:
+		@A [ A is inductive <--> { } in A & @a [ a in A --> a+ in A ] ]
+
+	Inifinity Axiom:
+		3A [ A is inductive ]
+		3A [ { } in A & @a [ a in A --> a+ in A ] ]
+
+	Definition of a natural number:
+		@b [ b is a natural number <--> @A [ A is inductive --> b in A ] ]
+
+	Theorem 4A:
+		3D [ @b [ b in D <--> b is a natural number ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			ω is the set whose members are exactly the natural numbers 
+			@b [ b in ω <--> b is a natural number ]
+
+	Theorem 4B:
+		ω is inductive & @A [ A is inductive & A != ω --> @t [ t in ω --> t in A ] ]
+
+	Theorem 4C:
+		@n [ n is a natural number & n != { } --> 3k [ k is a natural number & k+ = n ] ]
+
+	Definition of Closed Under:
+		@S, A [ S is a function & A ⊆ dom S --> [ A is closed under S <--> @x [ x in A --> S(x) in A ] ] ]
+
+	Pg 70 closed under notes (this will help with definition of Peano System):
+		@N, S [ S: N->N --> N is closed under S ]
+
+	Definition of Peano System: ***
+		@S, N, e [ <S, N, e> is a Peano System <--> [ 
+									S: N->N & 				// this implies N is closed under S (as the above statement says)
+									e in N & 					// so, N satisfies "e in N & @x [ x in N --> S(x) in N ]"
+
+									~(e in ran S) &
+									S is single-rooted &
+									@A [ A ⊆ N --> [ e in A & @x [ x in A --> S(x) in A ] --> A = N ] ]			// this is so that N is the "smallest" such set satisfying "e in N & @x [ x in N --> S(x) in N ]"
+									
+									] 
+						]
+
+	Pg 71 existence of successor function that is restricted to ω:
+		3D [ @t [ t in D <--> 3n [ n in ω & t = <n, n+> ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			σ is called the successor function restricted to ω
+			@t [ t in σ <--> 3n [ n in ω & t = <n, n+> ] ]
+
+	Theorem 4D:
+		<σ, ω, { }> is a Peano System
+
+	Definition of transitive set (different from transitive relation which is a relation):
+		@A [ A is a transitive set <--> @a [ a in A --> @x [ x in a --> x in A ] ] ]
+
+
+
+
+// note we proved this when we were proving Theorem 4D; but their proof is much more cleaner!
+// read lemma marin!
+// LEMMA marin	(induction)
+  @n [ n in ω --> @x [ x in n --> @t [ t in x --> t in n ] ] ]
+  @n [ n in ω --> @a [ a in n --> @t [ t in a --> t in n ] ] ]    [EQUIV.]
+  @n [ n in ω --> @a [ a in n --> @x [ x in a --> x in n ] ] ]    [EQUIV.]
+  @n [ n in ω --> n is a transitive set ]    [EQUIV.]
+
+  @A [ A is a transitive set <--> @a [ a in A --> @x [ x in a --> x in A ] ] ]    [Def. of transitive set]
+  n is a transitive set <--> @a [ a in n --> @x [ x in a --> x in n ] ]
+
+
+1. Show @n [ n in ω --> n is a transitive set ]
+	2. lemma marin

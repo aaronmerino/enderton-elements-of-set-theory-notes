@@ -1,0 +1,370 @@
+Axioms, Definitions, and Theorems:
+
+	Empty Set Axiom:
+		3B [ @x [ ~(x in B) ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		{ } is the set having no members
+			[You can think of {} as a 0-ary operator. It refer to one set and one set only!]
+
+
+	Subset Axioms:
+		For each formula __ not containing B, the following is an axiom:
+		@t1 ... @tk @c [ 3B [ @x [ x in B <--> x in c & __ ] ] ]
+			Definition:
+			For any set t­1, ..., tk and c, the subset B = {x in c | __ } is the set whose members are exactly those sets in c and __	
+ 
+	Zero:
+		0 := { }
+		
+	Definition of successor:
+		@a [ a+ := a ∪ {a} ]
+		notes:
+			{a} can be constructed using Pairing Axiom (singleton)
+			a ∪ {a} can be constructed using Union Axiom
+
+	Definition of inductive:
+		@A [ A is inductive <--> { } in A & @a [ a in A --> a+ in A ] ]
+
+	Inifinity Axiom:
+		3A [ A is inductive ]
+		3A [ { } in A & @a [ a in A --> a+ in A ] ]
+
+	Definition of a natural number:
+		@b [ b is a natural number <--> @A [ A is inductive --> b in A ] ]
+
+	Theorem 4A:
+		3D [ @b [ b in D <--> b is a natural number ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			ω is the set whose members are exactly the natural numbers 
+			@b [ b in ω <--> b is a natural number ]
+
+	Theorem 4B:
+		ω is inductive & @A [ A is inductive & A != ω --> @t [ t in ω --> t in A ] ]
+
+	Theorem 4C:
+		@n [ n is a natural number & n != { } --> 3k [ k is a natural number & k+ = n ] ]
+
+	Definition of Closed Under:
+		@S, A [ S is a function & A ⊆ dom S --> [ A is closed under S <--> @x [ x in A --> S(x) in A ] ] ]
+
+	Pg 70 closed under notes (this will help with definition of Peano System):
+		@N, S [ S: N->N --> N is closed under S ]
+
+	Definition of Peano System: ***
+		@S, N, e [ <S, N, e> is a Peano System <--> [ 
+									S: N->N & 				// this implies N is closed under S (as the above statement says)
+									e in N & 					// so, N satisfies "e in N & @x [ x in N --> S(x) in N ]"
+
+									~(e in ran S) &
+									S is single-rooted &
+									@A [ A ⊆ N --> [ e in A & @x [ x in A --> S(x) in A ] --> A = N ] ]			// this is so that N is the "smallest" such set satisfying "e in N & @x [ x in N --> S(x) in N ]"
+									
+									] 
+						]
+
+	Pg 71 existence of successor function that is restricted to ω:
+		3D [ @t [ t in D <--> 3n [ n in ω & t = <n, n+> ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			σ is called the successor function restricted to ω
+			@t [ t in σ <--> 3n [ n in ω & t = <n, n+> ] ]
+
+	Theorem 4D:
+		<σ, ω, { }> is a Peano System
+
+	Definition of transitive set (different from transitive relation which is a relation):
+		@A [ A is a transitive set <--> @a [ a in A --> @x [ x in a --> x in A ] ] ]
+
+	Theorem 4E:
+		@c [ c is a transitive set --> U(c+) = c ]
+
+	Theorem 4F:
+		@n [ n in ω --> n is a transitive set ]
+		=
+		@n [ n in ω --> @x [ x in n --> @t [ t in x --> t in n ] ] ]		[lemma marin from Theorem 4D]
+		@n [ n in ω --> @a [ a in n --> @x [ x in a --> x in n ] ] ]
+
+  [MIKENEKO] Subset Axiom (applied):
+		@c [ 3B [ @n [ n in B <--> n in c & @x [ x in n --> x in ω ] ] ] ]   [Subset Axiom UI_META/'@x [ x in n --> x in ω ]']	
+
+
+1. Show ω is a transitive set
+
+	////////
+	1.D1. @x [ ~(x in { }) ]		[Empty set axiom & Ext. Axiom]
+	////////
+
+  2. @A [ A is a transitive set <--> @a [ a in A --> @x [ x in a --> x in A ] ] ]   [Def. of transitive set]
+
+  3. ω is a transitive set <--> @a [ a in ω --> @x [ x in a --> x in ω ] ]    [2 UI/ω]
+
+  // we prove by induction
+  4. Show @a [ a in ω --> @x [ x in a --> x in ω ] ]
+
+    5. @c [ 3B [ @n [ n in B <--> n in c & @x [ x in n --> x in ω ] ] ] ]     [MIKENEKO]
+
+    6. 3B [ @n [ n in B <--> n in ω & @x [ x in n --> x in ω ] ] ]    [5 UI/ω]
+
+    ////////
+    7. @n [ n in B_1 <--> n in ω & @x [ x in n --> x in ω ] ]   [6 EI/B_1]
+    ////////
+
+    8. Show B_1 is inductive 
+
+      9. @A [ A is inductive <--> { } in A & @a [ a in A --> a+ in A ] ]		[Def. of inductive]
+
+		  10. B_1 is inductive <--> { } in B_1 & @a [ a in B_1 --> a+ in B_1 ]		[9 UI/B_1]
+      
+      11. Show { } in B_1
+
+        12. @n [ n in B_1 <--> n in ω & @x [ x in n --> x in ω ] ]    [7 R]
+
+        13. { } in B_1 <--> { } in ω & @x [ x in { } --> x in ω ]   [12 UI/{ }]
+
+        14. Show { } in ω
+
+          15. ω is inductive & @A [ A is inductive & A != ω --> @t [ t in ω --> t in A ] ]    [Theorem 4B]
+
+          16. ω is inductive    [15 SL]
+
+          17. @A [ A is inductive <--> { } in A & @a [ a in A --> a+ in A ] ]   [Def. of inductive]
+
+          18. ω is inductive <--> { } in ω & @a [ a in ω --> a+ in ω ]    [17 UI/ω]
+
+          19. { } in ω & @a [ a in ω --> a+ in ω ]    [18 BC 16 MP]
+
+          20. { } in ω    [19 SL]
+
+          21.   [20 DD]
+
+        22. Show @x [ x in { } --> x in ω ]
+
+          23. let x be a set
+
+          24. Show x in { } --> x in ω
+
+            25. x in { }    [ACD]
+
+            26. @x [ ~(x in { }) ]    [1.D1]
+
+            27. ~(x in { })   [26 UI/x]
+
+            28.   [25 27 ID]
+
+          29.   [24 UD]
+
+        30. { } in ω & @x [ x in { } --> x in ω ]   [14 22 ADJ]
+
+        31. { } in B_1    [13 BC 30 MP]
+
+        32.   [31 DD]
+      
+      33. Show @a [ a in B_1 --> a+ in B_1 ]
+
+        34. let a be a set
+
+        ////////
+        33.D1. @t [ t in {a} <--> t = a or t = a ]		[Pairing axiom UI/a UI/a & Ext. Axiom]
+        33.D2. @t [ t in a ∪ {a} <--> t in a or t in {a} ]		[Union axiom UI/a UI/{a} & Ext. Axiom]
+        ////////
+
+        35. Show a in B_1 --> a+ in B_1
+
+          36. a in B_1    [ACD]
+
+          37. @n [ n in B_1 <--> n in ω & @x [ x in n --> x in ω ] ]    [7 R]
+
+          38. a in B_1 <--> a in ω & @x [ x in a --> x in ω ]   [37 UI/a]
+
+          39. a in ω & @x [ x in a --> x in ω ]   [38 BC 36 MP]
+
+          40. a in ω    [39 SL]
+
+          41. @x [ x in a --> x in ω ]    [39 SR]
+
+          42. Show a+ in B_1
+
+            43. @n [ n in B_1 <--> n in ω & @x [ x in n --> x in ω ] ]    [7 R]
+
+            44. a+ in B_1 <--> a+ in ω & @x [ x in a+ --> x in ω ]    [43 UI/a+]
+
+            45. Show a+ in ω
+
+              46. a in ω    [40 R]
+
+              47. ω is inductive & @A [ A is inductive & A != ω --> @t [ t in ω --> t in A ] ]    [Theorem 4B]
+
+              48. ω is inductive    [47 SL]
+
+              49. @A [ A is inductive <--> { } in A & @a [ a in A --> a+ in A ] ]   [Def. of inductive]
+
+              50. ω is inductive <--> { } in ω & @a [ a in ω --> a+ in ω ]    [49 UI/ω]
+
+              51. { } in ω & @a [ a in ω --> a+ in ω ]    [50 BC 48 MP]
+
+              52. @a [ a in ω --> a+ in ω ]   [51 SR]
+
+              53. a in ω --> a+ in ω    [52 UI/a]
+
+              54. a+ in ω   [53 46 MP]
+
+              55.   [54 DD]
+            
+            56. Show @x [ x in a+ --> x in ω ]
+
+              57. let x be a set
+
+              58. Show x in a+ --> x in ω
+
+                59. x in a+   [ACD]
+
+                60. @a [ a+ := a ∪ {a} ]    [Def. of successor]
+
+                61. a+ := a ∪ {a}   [60 UI/a]
+
+                62. x in a ∪ {a}    [59 61 LL]
+
+                63. @t [ t in a ∪ {a} <--> t in a or t in {a} ]   [33.D2]
+
+                64. x in a ∪ {a} <--> x in a or x in {a}    [63 UI/x]
+
+                65. x in a or x in {a}    [64 BC 62 MP]
+
+                66. Show x in a --> x in ω    [CASE 1 for line 65]
+
+                  67. x in a    [ACD]
+
+                  68. @x [ x in a --> x in ω ]    [41 R]
+
+                  69. x in a --> x in ω   [68 UI/x]
+
+                  70. x in ω    [69 67 MP]
+
+                  71.   [70 CD]
+
+                72. Show x in {a} --> x in ω    [CASE 2 for line 65]
+
+                  73. x in {a}    [ACD]
+
+                  74. @t [ t in {a} <--> t = a or t = a ]   [33.D1]
+
+                  75. x in {a} <--> x = a or x = a    [74 UI/x]
+
+                  76. x = a or x = a    [75 BC 73 MP]
+
+                  77. x = a   [76 SIMPLIFY_OR]
+
+                  78. a in ω    [40 R]
+
+                  79. x in ω    [77 78 LL]
+
+                  80.   [79 CD]
+
+                81. x in a or x in {a} --> x in ω   [66 72 CASE_PROOF for line 65]
+
+                82. x in ω    [81 65 MP]
+
+                83.   [82 CD]
+
+              84.   [58 UD]
+            
+            85. a+ in ω & @x [ x in a+ --> x in ω ]   [45 56 ADJ]
+
+            86. a+ in B_1   [44 BC 85 MP]
+
+            87.   [86 DD]
+          
+          88.   [42 CD]
+        
+        89.   [35 UD]
+      
+      90. { } in B_1 & @a [ a in B_1 --> a+ in B_1 ]    [11 33 ADJ]
+
+      91. B_1 is inductive    [10 BC 90 MP]
+
+      92.   [91 DD]
+    
+    93. Show B_1 = ω
+
+      94. @A, B [ @x [ x in A <--> x in B ] --> A = B ]   [Ext. Axiom]
+
+      95. @x [ x in B_1 <--> x in ω ] --> B_1 = ω   [94 UI/...]
+
+      96. Show @x [ x in B_1 <--> x in ω ]
+
+        97. let x be a set
+
+        98. Show x in B_1 --> x in ω
+
+          99. x in B_1    [ACD]
+
+          100. @n [ n in B_1 <--> n in ω & @x [ x in n --> x in ω ] ]   [7 R]
+
+          101. x in B_1 <--> x in ω & @x [ x in x --> x in ω ]    [100 UI/x]
+
+          102. x in ω & @x [ x in x --> x in ω ]    [101 BC 99 MP]
+
+          103. x in ω   [102 SL]
+
+          104.  [103 CD]
+
+        105. Show x in ω --> x in B_1
+
+          106. x in ω   [ACD]
+
+          107. @b [ b in ω <--> b is a natural number ]   [Theorem 4A]
+
+          108. x in ω <--> x is a natural number    [107 UI/x]
+
+          109. x is a natural number    [108 BC 106 MP]
+
+          110. @b [ b is a natural number <--> @A [ A is inductive --> b in A ] ]   [Def. of natural number]
+
+          111. x is a natural number <--> @A [ A is inductive --> x in A ]    [110 UI/x]
+
+          112. @A [ A is inductive --> x in A ]   [111 BC 109 MP]
+
+          113. B_1 is inductive --> x in B_1    [112 UI/B_1]
+
+          114. B_1 is inductive   [8 R]
+
+          115. x in B_1   [113 114 MP]
+
+          116.  [115 CD]
+        
+        117. x in B_1 <--> x in ω   [98 105 CB]
+
+        118.  [117 UD]
+      
+      119. B_1 = ω    [95 96 MP]
+
+      120.  [119 DD]
+    
+    121. Show @a [ a in ω --> @x [ x in a --> x in ω ] ]
+
+      122. let a be a set
+
+      123. Show a in ω --> @x [ x in a --> x in ω ]
+
+        124. a in ω   [ACD]
+
+        125. B_1 = ω    [93 R]
+
+        126. a in B_1   [124 125 LL]
+
+        127. @n [ n in B_1 <--> n in ω & @x [ x in n --> x in ω ] ]     [7 R]
+
+        128. a in B_1 <--> a in ω & @x [ x in a --> x in ω ]    [127 UI/a]
+
+        129. a in ω & @x [ x in a --> x in ω ]    [128 BC 126 MP]
+
+        130. @x [ x in a --> x in ω ]   [129 SR]
+
+        131.  [130 CD]
+
+      132.  [123 UD]
+
+    133.  [133 DD]
+    
+
+
+
