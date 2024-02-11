@@ -1,0 +1,142 @@
+Axioms, Definitions, and Theorems:
+	Definition of successor:
+		@a [ a+ := a ∪ {a} ]
+		notes:
+			{a} can be constructed using Pairing Axiom (singleton)
+			a ∪ {a} can be constructed using Union Axiom
+
+	Definition of transitive set (different from transitive relation which is a relation):
+		@A [ A is a transitive set <--> @a [ a in A --> @x [ x in a --> x in A ] ] ]
+
+1. Show @b [ b is a transitive set --> b+ is a transitive set ]
+
+  2. let b be a set
+
+  ////////
+  1.D1. @t [ t in {b} <--> t = b or t = b ]		[Pairing axiom UI/b UI/b & Ext. Axiom]
+  1.D2. @t [ t in b ∪ {b} <--> t in b or t in {b} ]		[Union axiom UI/b UI/{b} & Ext. Axiom]
+  ////////
+
+  3. Show b is a transitive set --> b+ is a transitive set
+
+    4. b is a transitive set    [ACD]
+
+    5. @A [ A is a transitive set <--> @a [ a in A --> @x [ x in a --> x in A ] ] ]   [Def. of transitive set]
+
+    6. b is a transitive set <--> @a [ a in b --> @x [ x in a --> x in b ] ]    [5 UI/b]
+
+    7. @a [ a in b --> @x [ x in a --> x in b ] ]   [6 BC 4 MP]
+
+    8. Show b+ is a transitive set
+
+      9. @A [ A is a transitive set <--> @a [ a in A --> @x [ x in a --> x in A ] ] ]   [Def. of transitive set]
+
+      10. b+ is a transitive set <--> @a [ a in b+ --> @x [ x in a --> x in b+ ] ]    [9 UI/b+]
+
+      11. Show @a [ a in b+ --> @x [ x in a --> x in b+ ] ]
+
+        12. let a be a set
+
+        13. Show a in b+ --> @x [ x in a --> x in b+ ]
+
+          14. a in b+   [ACD]
+
+          15. @a [ a+ := a ∪ {a} ]    [Def. of successor]
+
+          16. b+ := b ∪ {b}   [15 UI/b]
+
+          17. a in b ∪ {b}    [14 16 LL]
+
+          18. @t [ t in b ∪ {b} <--> t in b or t in {b} ]   [1.D2]
+
+          19. a in b ∪ {b} <--> a in b or a in {b}    [18 UI/a]
+
+          20. a in b or a in {b}    [19 BC 17 MP]
+
+
+          21. Show @x [ x in a --> x in b+ ]
+
+            22. let x be a set
+
+            23. Show x in a --> x in b+
+
+              24. x in a    [ACD]
+
+              25. Show a in b --> x in b+     [CASE 1 for line 20]
+
+                26. a in b    [ACD]
+
+                27. @a [ a in b --> @x [ x in a --> x in b ] ]    [7 R]
+
+                28. a in b --> @x [ x in a --> x in b ]   [27 UI/a]
+
+                29. @x [ x in a --> x in b ]    [28 26 MP]
+
+                30. x in a --> x in b   [29 UI/x]
+
+                31. x in b    [30 24 MP]
+
+                32. @t [ t in b ∪ {b} <--> t in b or t in {b} ]   [1.D2]
+
+                33. x in b ∪ {b} <--> x in b or x in {b}    [32 UI/x]
+
+                34. x in b or x in {b}    [31 ADD/...]
+
+                35. x in b ∪ {b}    [33 BC 34 MP]
+
+                36. b+ := b ∪ {b}   [16 R]
+
+                37. x in b+   [35 36 LL]
+
+                38.   [37 CD]
+
+              39. Show a in {b} --> x in b+   [CASE 2 for line 20]
+
+                40. a in {b}    [ACD]
+
+                41. @t [ t in {b} <--> t = b or t = b ]   [1.D1]
+
+                42. a in {b} <--> a = b or a = b    [41 UI/a]
+
+                43. a = b or a = b    [42 BC 40 MP]
+
+                44. a = b   [43 SIMPLIFY_OR]
+
+                45. x in a    [24 R]
+
+                46. x in b    [45 44 LL]
+
+
+                47. @t [ t in b ∪ {b} <--> t in b or t in {b} ]   [1.D2]
+
+                48. x in b ∪ {b} <--> x in b or x in {b}    [47 UI/x]
+
+                49. x in b or x in {b}    [46 ADD/...]
+
+                50. x in b ∪ {b}    [48 BC 49 MP]
+
+                51. b+ := b ∪ {b}   [16 R]
+
+                52. x in b+   [50 51 LL]
+
+                53.   [52 CD]
+              
+              54. a in b or a in {b} --> x in b+    [25 39 CASE_PROOF for line 20]
+
+              55. x in b+   [54 20 MP]
+
+              56.   [55 CD]
+            
+            57.   [23 UD]
+          
+          58.   [21 CD]
+        
+        59.   [13 UD]
+      
+      60. b+ is a transitive set    [10 BC 11 MP]
+
+      61.   [60 DD]
+    
+    62.   [8 CD]
+  
+  63.   [3 UD]
