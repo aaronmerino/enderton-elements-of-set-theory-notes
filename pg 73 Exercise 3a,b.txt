@@ -1,0 +1,239 @@
+Axioms, Definitions, and Theorems:
+	Pairing Axiom:
+		@u, v [ 3B [ @x [ x in B <--> x = u or x = v ] ] ]
+			Definition (its uniqueness is always due to Ext. Axiom):
+			For any sets u, v, the pair set {u, v} is the set whose only members are u and v.
+			[You can think of {u, v} as a 2-ary operator. It refer to one set and one set only based on the sets u and v!]
+
+			Definition:
+			Let {x} := {x, x} is the set whose only members are x and x
+
+	Power Set Axiom:
+		@a [ 3B [ @x [ x in B <--> @t [ t in x --> t in a ] ] ] ]
+			Definition (its uniqueness is always due to Ext. Axiom):
+			For any set a, the power set  P(a) is the set whose members are exactly the subsets of a.
+			[You can think of P(a) as a 1-ary operator. It refer to one set and one set only based on the sets a!]
+
+	Definition of transitive set (different from transitive relation which is a relation
+    @A [ A is a transitive set <--> @a [ a in A --> @x [ x in a --> x in A ] ] ]
+
+1. Show @b [ b is a transitive set <--> P(b) is a transitive set ]
+
+  2. let b be a set
+
+  ////////
+  1.D1. @x [ x in P(b) <--> @t [ t in x --> t in b ] ]		[Power Set axiom UI/b & Ext. Axiom]
+  ////////
+
+  // part 3a
+  3. Show b is a transitive set --> P(b) is a transitive set
+
+    4. b is a transitive set    [ACD]
+
+    5. @A [ A is a transitive set <--> @a [ a in A --> @x [ x in a --> x in A ] ] ]   [Def. of transitive set]
+
+    6. b is a transitive set <--> @a [ a in b --> @x [ x in a --> x in b ] ]    [5 UI/b]
+
+    7. @a [ a in b --> @x [ x in a --> x in b ] ]   [6 BC 4 MP]
+
+    8. Show P(b) is a transitive set
+
+      9. @A [ A is a transitive set <--> @a [ a in A --> @x [ x in a --> x in A ] ] ]   [Def. of transitive set]
+
+      10. P(b) is a transitive set <--> @a [ a in P(b) --> @x [ x in a --> x in P(b) ] ]    [9 UI/P(b)]
+
+      11. Show @a [ a in P(b) --> @x [ x in a --> x in P(b) ] ]
+
+        12. let a be a set
+
+        13. Show a in P(b) --> @x [ x in a --> x in P(b) ]
+
+          14. a in P(b)   [ACD]
+
+          15. Show @x [ x in a --> x in P(b) ]
+
+            16. let x be a set
+
+            17. Show x in a --> x in P(b)
+
+              18. x in a    [ACD]
+
+
+              19. @x [ x in P(b) <--> @t [ t in x --> t in b ] ]    [1.D1]
+
+              20. a in P(b) <--> @t [ t in a --> t in b ]   [19 UI/a]
+
+              21. @t [ t in a --> t in b ]    [20 BC 14 MP]
+
+              22. x in a --> x in b   [21 UI/x]
+
+              23. x in b    [22 18 MP]
+
+
+              24. @x [ x in P(b) <--> @t [ t in x --> t in b ] ]    [1.D1]
+
+              25. x in P(b) <--> @t [ t in x --> t in b ]   [24 UI/x]
+
+              26. Show @t [ t in x --> t in b ]
+
+                27. let t be a set
+
+                28. Show t in x --> t in b
+
+                  29. t in x    [ACD]
+
+                  30. @a [ a in b --> @x [ x in a --> x in b ] ]    [7 R]
+
+                  31. @a [ a in b --> @s [ s in a --> s in b ] ]    [30 EQUIV.]
+
+                  32. x in b --> @s [ s in x --> s in b ]   [31 UI/x]
+
+                  33. @s [ s in x --> s in b ]    [23 32 MP]
+
+                  34. t in x --> t in b   [33 UI/t]
+
+                  35. t in b    [34 29 MP]
+
+                  36.   [35 CD]
+                
+                37.   [28 UD]
+              
+              38. x in P(b)   [25 BC 26 MP]
+
+              39.   [38 CD]
+            
+            40.   [17 UD]
+          
+          41.   [15 CD]
+        
+        42.   [13 UD]
+      
+      43. P(b) is a transitive set    [10 BC 11 MP]
+
+      44.   [43 DD]
+    
+    45.   [8 CD]
+  
+  
+  // part 3b
+  46. Show P(b) is a transitive set --> b is a transitive set
+    
+    47. P(b) is a transitive set    [ACD]
+
+    48. @A [ A is a transitive set <--> @a [ a in A --> @x [ x in a --> x in A ] ] ]   [Def. of transitive set]
+
+    49. P(b) is a transitive set <--> @a [ a in P(b) --> @x [ x in a --> x in P(b) ] ]    [48 UI/P(b)]
+
+    50. @a [ a in P(b) --> @x [ x in a --> x in P(b) ] ]    [49 BC 47 MP]
+
+
+    51. @A [ A is a transitive set <--> @a [ a in A --> @x [ x in a --> x in A ] ] ]   [Def. of transitive set]
+
+    52. b is a transitive set <--> @a [ a in b --> @x [ x in a --> x in b ] ]   [51 UI/b]
+
+    53. Show @a [ a in b --> @x [ x in a --> x in b ] ]
+
+      54. let a be a set
+
+      ////////
+      53.D1. @t [ t in {a} <--> t = a or t = a ]    [Pairing Axiom UI/a UI/a & Ext. Axiom]
+      ////////
+
+      55. Show a in b --> @x [ x in a --> x in b ]
+
+        56. a in b    [ACD]
+
+        57. Show @x [ x in a --> x in b ]
+
+          58. let x be a set
+
+          59. Show x in a --> x in b
+
+            60. x in a    [ACD]
+
+
+            // consider {a}
+            61. @x [ x in P(b) <--> @t [ t in x --> t in b ] ]    [1.D1]
+
+            62. {a} in P(b) <--> @t [ t in {a} --> t in b ]   [61 UI/{a}]
+
+            63. Show @t [ t in {a} --> t in b ]
+
+              64. let t be a set
+
+              65. Show t in {a} --> t in b
+
+                66. t in {a}    [ACD]
+
+                67. @t [ t in {a} <--> t = a or t = a ]   [53.D1]
+
+                68. t in {a} <--> t = a or t = a    [67 UI/t]
+
+                69. t = a or t = a    [68 BC 66 MP]
+
+                70. t = a   [69 SIMPLIFY_OR]
+
+                71. a in b    [56 R]
+
+                72. t in b    [70 71 LL]
+
+                73.   [72 CD]
+              
+              74.   [65 UD]
+            
+            75. {a} in P(b)   [62 BC 63 MP]
+
+
+            76. @a [ a in P(b) --> @x [ x in a --> x in P(b) ] ]    [50 R]
+
+            77. {a} in P(b) --> @x [ x in {a} --> x in P(b) ]   [76 UI/{a}]
+
+            78. @x [ x in {a} --> x in P(b) ]   [77 75 MP]
+
+            79. a in {a} --> a in P(b)    [78 UI/a]
+
+
+            80. @t [ t in {a} <--> t = a or t = a ]   [53.D1]
+
+            81. a in {a} <--> a = a or a = a    [80 UI/a]
+
+            82. a = a   [SID]
+
+            83. a = a or a = a    [82 ADD/...]
+
+            84. a in {a}    [81 BC 83 MP]
+
+
+            85. a in P(b)   [79 84 MP]
+
+
+            86. @x [ x in P(b) <--> @t [ t in x --> t in b ] ]    [1.D1] 
+
+            87. a in P(b) <--> @t [ t in a --> t in b ]   [86 UI/a]
+
+            88. @t [ t in a --> t in b ]    [87 BC 85 MP]
+
+            89. x in a --> x in b   [88 UI/x]
+
+            90. x in a    [60 R]
+
+            91. x in b    [89 90 MP]
+
+            92.   [91 CD]
+
+          93.   [59 UD]
+
+        94.   [57 CD]
+      
+      95.   [55 UD]
+    
+    96. b is a transitive set   [52 BC 53 MP]
+
+    97.   [96 CD]
+  
+
+  98. b is a transitive set <--> P(b) is a transitive set   [3 46 CB]
+
+  99.   [98 UD]
+
+
