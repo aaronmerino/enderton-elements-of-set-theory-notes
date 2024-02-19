@@ -1,0 +1,123 @@
+Axioms, Definitions, and Theorems:
+	Theorem 2B (Arbitrary Intersection):
+		@A [ A != { } --> 3_1B [ @x [ x in B <--> @a [ a in A --> x in a ] ] ] ] 
+			Definition (its uniqueness is always due to Ext. Axiom):
+			For any set non empty set A, the intersection of A  ∩(A)     is the set whose members are exactly the members of all members of A.
+
+
+	Definition of transitive set (different from transitive relation which is a relation):
+    @A [ A is a transitive set <--> @a [ a in A --> @x [ x in a --> x in A ] ] ]
+
+1. Show @A [ A != { } --> [ @x [ x in A --> x is a transitive set ] --> ∩(A) is a transitive set ] ]
+
+	2. let A be a set
+
+	3. Show A != { } --> [ @x [ x in A --> x is a transitive set ] --> ∩(A) is a transitive set ]
+
+		4. A != { }		[ACD]
+
+		////////
+		3.D1. @x [ x in ∩(A) <--> @a [ a in A --> x in a ] ]		[((Theorem 2B UI/A) 4 MP) EI & Ext. Axiom]
+		////////
+
+		5. Show @x [ x in A --> x is a transitive set ] --> ∩(A) is a transitive set
+
+			6. @x [ x in A --> x is a transitive set ]		[ACD]
+
+			7. Show ∩(A) is a transitive set
+
+				8. @A [ A is a transitive set <--> @a [ a in A --> @x [ x in a --> x in A ] ] ]		[Def. of transitive set]
+
+				9. ∩(A) is a transitive set <--> @a [ a in ∩(A) --> @x [ x in a --> x in ∩(A) ] ]		[8 UI/∩(A)]
+
+				10. Show @a [ a in ∩(A) --> @x [ x in a --> x in ∩(A) ] ]
+
+					11. let a be a set
+
+					12. Show a in ∩(A) --> @x [ x in a --> x in ∩(A) ]
+
+						13. a in ∩(A)		[ACD]
+
+						14. @x [ x in ∩(A) <--> @a [ a in A --> x in a ] ]		[1.D1]
+
+						15. @x [ x in ∩(A) <--> @b [ b in A --> x in b ] ]		[14 EQUIV.]
+
+						16. a in ∩(A) <--> @b [ b in A --> a in b ]		[15 UI/a]
+
+						*17. @b [ b in A --> a in b ]		[16 BC 13 MP]
+
+						18. Show @x [ x in a --> x in ∩(A) ]
+
+							19. let x be a set
+
+							20. Show x in a --> x in ∩(A)
+
+								21. x in a		[ACD]
+
+								22. @x [ x in ∩(A) <--> @a [ a in A --> x in a ] ]		[1.D1]
+
+								23. @x [ x in ∩(A) <--> @b [ b in A --> x in b ] ]		[22 EQUIV.]
+
+								24. x in ∩(A) <--> @b [ b in A --> x in b ]		[23 UI/x]
+
+								25. Show @b [ b in A --> x in b ]
+
+									26. let b be a set
+
+									27. Show b in A --> x in b
+
+										28. b in A		[ACD]
+
+										29. @x [ x in A --> x is a transitive set ]		[6 R]
+
+										30. b in A --> b is a transitive set		[29 UI/b]
+
+										31. b is a transitive set		[30 28 MP]
+
+										32. @A [ A is a transitive set <--> @a [ a in A --> @x [ x in a --> x in A ] ] ]		[Def. of transitive set]
+
+										33. b is a transitive set <--> @a [ a in b --> @x [ x in a --> x in b ] ]		[32 UI/b]
+
+										34. @a [ a in b --> @x [ x in a --> x in b ] ]		[33 BC 31 MP]
+
+
+										35. @b [ b in A --> a in b ]		[17 R]
+
+										36. b in A --> a in b		[35 UI/b]
+
+										37. a in b		[36 28 MP]
+
+
+										38. a in b --> @x [ x in a --> x in b ]		[34 UI/a]
+
+										39. @x [ x in a --> x in b ]		[38 37 MP]
+
+										40. x in a --> x in b		[39 UI/x]
+
+										41. x in a		[21 R]
+
+										42. x in b		[40 41 MP]
+
+										43. 	[42 CD]
+
+									44. 	[27 UD]
+								
+								45. x in ∩(A)		[24 BC 25 MP]
+
+								46.		[45 CD]
+							
+							47. 	[20 UD]
+						
+						48. 	[18 CD]
+					
+					49. 	[12 UD]
+				
+				50. ∩(A) is a transitive set		[9 BC 10 MP]
+
+				51.		[50 DD]
+
+			52. 	[7 CD]
+		
+		53. 	[5 CD]
+	
+	54. 	[3 UD]
