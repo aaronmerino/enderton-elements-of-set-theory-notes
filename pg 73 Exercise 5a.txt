@@ -1,0 +1,111 @@
+Axioms, Definitions, and Theorems:
+	Union Axiom:
+		@A [ 3B [ @x [ x in B <--> 3b [ b in A & x in b ] ] ] ]
+			Definition (its uniqueness is always due to Ext. Axiom):
+			For any set A, the union of A  U(A)     is the set whose members are exactly the members of the members of A
+			[You can think of U(A) as a 1-ary operator. It refer to one set and one set only based on the set A!]
+
+	Definition of transitive set (different from transitive relation which is a relation):
+    @A [ A is a transitive set <--> @a [ a in A --> @x [ x in a --> x in A ] ] ]
+
+1. Show @A [ @x [ x in A --> x is a transitive set ] --> U(A) is a transitive set ]
+  
+  2. let A be a set
+
+  ////////.
+  1.D1. @x [ x in U(A) <--> 3t [ t in A & x in t ] ]    [Union Axiom UI/A & Ext. Axiom]   
+  ////////.
+
+  3. Show @x [ x in A --> x is a transitive set ] --> U(A) is a transitive set
+
+    4. @x [ x in A --> x is a transitive set ]    [ACD]
+
+
+    5. @A [ A is a transitive set <--> @a [ a in A --> @x [ x in a --> x in A ] ] ]   [Def. of transitive set]
+
+    6. U(A) is a transitive set <--> @a [ a in U(A) --> @x [ x in a --> x in U(A) ] ]   [5 UI/U(A)]
+
+    7. Show @a [ a in U(A) --> @x [ x in a --> x in U(A) ] ]
+
+      8. let a be a set
+
+      9. Show a in U(A) --> @x [ x in a --> x in U(A) ]
+
+        10. a in U(A)   [ACD]
+
+        11. @x [ x in U(A) <--> 3t [ t in A & x in t ] ]    [1.D1]
+
+        12. a in U(A) <--> 3t [ t in A & a in t ]   [11 UI/a]
+
+        13. 3t [ t in A & a in t ]    [12 BC 10 MP]
+
+        14. t_1 in A & a in t_1   [13 EI/t_1]
+
+        15. Show @x [ x in a --> x in U(A) ]
+
+          16. let x be a set
+
+          17. Show x in a --> x in U(A)
+
+            18. x in a    [ACD]
+
+
+            19. @x [ x in A --> x is a transitive set ]   [4 R]
+
+            20. t_1 in A --> t_1 is a transitive set    [19 UI/t_1]
+
+            21. t_1 in A    [14 SL]
+
+            22. t_1 is a transitive set     [20 21 MP]
+
+
+            23. @A [ A is a transitive set <--> @a [ a in A --> @x [ x in a --> x in A ] ] ]   [Def. of transitive set]
+
+            24. t_1 is a transitive set <--> @a [ a in t_1 --> @x [ x in a --> x in t_1 ] ]   [23 UI/t_1]
+
+            25. @a [ a in t_1 --> @x [ x in a --> x in t_1 ] ]    [24 BC 22 MP]
+
+
+            26. @x [ x in U(A) <--> 3t [ t in A & x in t ] ]    [1.D1]
+
+            27. x in U(A) <--> 3t [ t in A & x in t ]   [26 UI/x]
+
+            28. Show 3t [ t in A & x in t ]
+
+              29. a in t_1    [14 SR]
+
+              30. @a [ a in t_1 --> @x [ x in a --> x in t_1 ] ]    [25 R]
+
+              31. a in t_1 --> @x [ x in a --> x in t_1 ]   [30 UI/a]
+
+              32. @x [ x in a --> x in t_1 ]    [31 29 MP]
+
+              33. x in a --> x in t_1   [32 UI/x]
+
+              34. x in a    [18 R]
+
+              35. x in t_1    [33 34 MP]
+
+              36. t_1 in A    [14 SL]
+
+              37. t_1 in A & x in t_1   [36 35 ADJ]
+
+              38. 3t [ t in A & x in t ]    [37 EG/t_1->t]
+
+              39.   [38 DD]
+
+            40. x in U(A)   [27 BC 28 MP]
+
+            41.   [40 CD]
+          
+          42.   [17 UD]
+
+        43.   [15 CD]
+      
+      44.   [9 UD]
+    
+    45. U(A) is a transitive set    [6 BC 7 MP]
+
+    46.   [45 CD]
+
+  47.   [3 UD]

@@ -14,7 +14,7 @@ Axioms, Definitions, and Theorems:
 			For any set a, the power set  P(a) is the set whose members are exactly the subsets of a.
 			[You can think of P(a) as a 1-ary operator. It refer to one set and one set only based on the sets a!]
 
-	Definition of transitive set (different from transitive relation which is a relation
+	Definition of transitive set (different from transitive relation which is a relation):
     @A [ A is a transitive set <--> @a [ a in A --> @x [ x in a --> x in A ] ] ]
 
 1. Show @b [ b is a transitive set <--> P(b) is a transitive set ]
