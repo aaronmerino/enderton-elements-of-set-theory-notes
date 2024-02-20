@@ -1,0 +1,105 @@
+Axioms, Definitions, and Theorems:
+  Union Axiom:
+		@A [ 3B [ @x [ x in B <--> 3b [ b in A & x in b ] ] ] ]
+			Definition (its uniqueness is always due to Ext. Axiom):
+			For any set A, the union of A  U(A)     is the set whose members are exactly the members of the members of A
+			[You can think of U(A) as a 1-ary operator. It refer to one set and one set only based on the set A!]
+
+	Definition of successor:
+		@a [ a+ := a ∪ {a} ]
+		notes:
+			{a} can be constructed using Pairing Axiom (singleton)
+			a ∪ {a} can be constructed using Union Axiom
+
+	Definition of transitive set (different from transitive relation which is a relation):
+		@A [ A is a transitive set <--> @a [ a in A --> @x [ x in a --> x in A ] ] ]
+
+1. Show @a [ U(a+) = a --> a is a transitive set ]
+
+  2. let a be a set
+
+  ////////
+  1.D1. @t [ t in {a} <--> t = a or t = a ]		[Pairing axiom UI/a UI/a & Ext. Axiom]
+  1.D2. @t [ t in a ∪ {a} <--> t in a or t in {a} ]		[Union axiom (prelim) UI/a UI/{a} & Ext. Axiom]
+  1.D3. @x [ x in U(a+) <--> 3t [ t in a+ & x in t ] ]    [Union Axiom UI/a+ & Ext. Axiom]   
+  ////////  
+
+  3. Show U(a+) = a --> a is a transitive set
+
+    4. U(a+) = a    [ACD]
+
+    5. @A [ A is a transitive set <--> @a [ a in A --> @x [ x in a --> x in A ] ] ]   [Def. of transitive set]
+
+    6. @A [ A is a transitive set <--> @b [ b in A --> @x [ x in b --> x in A ] ] ]   [5 EQUIV.]
+
+    7. a is a transitive set <--> @b [ b in a --> @x [ x in b --> x in a ] ]    [6 UI/a]
+
+    8. Show @b [ b in a --> @x [ x in b --> x in a ] ]
+
+      9. let b be a set
+
+      10. Show b in a --> @x [ x in b --> x in a ]
+
+        11. b in a    [ACD]
+
+        12. Show @x [ x in b --> x in a ]
+
+          13. let x be a set
+
+          14. Show x in b --> x in a
+
+            15. x in b    [ACD]
+
+            16. U(a+) = a   [4 R]
+
+            17. Show x in U(a+)
+
+              18. @x [ x in U(a+) <--> 3t [ t in a+ & x in t ] ]    [1.D3]
+
+              19. x in U(a+) <--> 3t [ t in a+ & x in t ]   [18 UI/x]
+
+              20. Show 3t [ t in a+ & x in t ]
+
+                21. @a [ a+ := a ∪ {a} ]    [Def. of successor]
+
+                22. a+ := a ∪ {a}   [21 UI/a]
+
+                23. b in a    [11 R]
+
+                24. @t [ t in a ∪ {a} <--> t in a or t in {a} ]   [1.D2]
+
+                25. b in a ∪ {a} <--> b in a or b in {a}    [24 UI/b]
+
+                26. b in a or b in {a}    [23 ADD/...]
+
+                27. b in a ∪ {a}    [25 BC 26 MP]
+
+                28. b in a+   [27 22 LL]
+
+                29. x in b    [15 R]
+
+                30. b in a+ & x in b    [28 29 ADJ]
+
+                31. 3t [ t in a+ & x in t ]   [30 EG/b->t]
+
+                32.   [31 DD]
+              
+              33. x in U(a+)    [19 BC 20 MP]
+
+              34.   [33 DD]
+            
+            35. x in a    [17 16 LL]
+
+            36.   [35 CD]
+          
+          37.   [14 UD]
+
+        38.   [12 CD]
+      
+      39.   [10 UD]
+    
+    40. a is a transitive set  [7 BC 8 MP]
+
+    41.   [40 CD]
+
+  42.   [3 UD]
