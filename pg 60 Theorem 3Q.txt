@@ -127,6 +127,83 @@ ideas:
 
 
 
+// Show F-hat is unique
+
+1. Show @F, A, R [ @C, D [ @t [ t in C <--> 3u [ u in A & t = <[u]_{R}, [F(u)]_{R}> ] ] & @t [ t in D <--> 3u [ u in A & t = <[u]_{R}, [F(u)]_{R}> ] ] --> C = D  ] ]
+
+    2. let F, A, R be sets
+
+    3. Show @C, D [ @t [ t in C <--> 3u [ u in A & t = <[u]_{R}, [F(u)]_{R}> ] ] & @t [ t in D <--> 3u [ u in A & t = <[u]_{R}, [F(u)]_{R}> ] ] --> C = D  ]
+
+        4. let C, D be sets
+
+        5. Show @t [ t in C <--> 3u [ u in A & t = <[u]_{R}, [F(u)]_{R}> ] ] & @t [ t in D <--> 3u [ u in A & t = <[u]_{R}, [F(u)]_{R}> ] ] --> C = D
+
+            6. @t [ t in C <--> 3u [ u in A & t = <[u]_{R}, [F(u)]_{R}> ] ] & @t [ t in D <--> 3u [ u in A & t = <[u]_{R}, [F(u)]_{R}> ] ]      [ACD]
+
+            7. Show C = D
+
+                8. @A, B [ @t [ t in A <--> t in B ] --> A = B ]        [Ext. Axiom]
+
+                9. @t [ t in C <--> t in D ] --> C = D      [8 UI/C UI/D]
+
+                10. Show @t [ t in C <--> t in D ]
+
+                    11. let t be a set
+
+                    12. Show t in C --> t in D
+
+                        13. t in C      [ACD]
+
+                        14. @t [ t in C <--> 3u [ u in A & t = <[u]_{R}, [F(u)]_{R}> ] ]        [6 SL]
+
+                        15. t in C <--> 3u [ u in A & t = <[u]_{R}, [F(u)]_{R}> ]       [14 UI/t]
+
+                        16. 3u [ u in A & t = <[u]_{R}, [F(u)]_{R}> ]       [15 BC 13 MP]
+
+
+                        17. @t [ t in D <--> 3u [ u in A & t = <[u]_{R}, [F(u)]_{R}> ] ]        [6 SR]
+
+                        18. t in D <--> 3u [ u in A & t = <[u]_{R}, [F(u)]_{R}> ]       [17 UI/t]
+
+                        19. t in D      [18 BC 16 MP]
+
+                        20.     [19 CD]
+                    
+                    21. Show t in D --> t in C
+
+                        22. t in D      [ACD]
+
+                        23. @t [ t in D <--> 3u [ u in A & t = <[u]_{R}, [F(u)]_{R}> ] ]        [6 SR]
+
+                        24. t in D <--> 3u [ u in A & t = <[u]_{R}, [F(u)]_{R}> ]       [23 UI/t]
+
+                        25. 3u [ u in A & t = <[u]_{R}, [F(u)]_{R}> ]       [24 BC 22 MP]
+
+                        26. @t [ t in C <--> 3u [ u in A & t = <[u]_{R}, [F(u)]_{R}> ] ]        [6 SL]
+
+                        27. t in C <--> 3u [ u in A & t = <[u]_{R}, [F(u)]_{R}> ]       [26 UI/t]
+
+                        28. t in C      [27 BC 25 MP]
+
+                        29.     [28 CD]
+
+                    30. t in C <--> t in D      [12 21 CB]
+
+                    31.     [30 UD]
+                
+                32. C = D       [9 10 MP]
+
+                33.     [32 DD]
+            
+            34.     [7 CD]
+        
+        35.     [5 UD]
+    
+    36.     [3 UD]
+
+
+
 Axioms and Theorems:
     F-hat pg 59 (This will be proven above):
         @F, A, R [ 3D [ @t [ t in D <--> 3u [ u in A & t = <[u]_{R}, [F(u)]_{R}> ] ] ] ]
