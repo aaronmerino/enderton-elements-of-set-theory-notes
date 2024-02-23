@@ -25,6 +25,24 @@ Axioms, Definitions, and Theorems:
 		A relation R is a set of ordered pairs.
 		@R [ R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ] ]
 
+	Definition of a binary (2-ary) relation on A:
+		@A [ @D [ D is a binary relation on A <--> 
+								@t [ t in D --> 3x, y [ x, y in A & t = <x, y> ] ] ] ] 
+
+		note: D is a subset of A x A, so we can define it like this:
+		@A [ @D [ D is a binary relation on A <--> 
+								D ⊆ (A x A) ] ] 		
+
+	Definition [FROM TEXTBOOK (my guess based on their proof of Theorem 3M)]:
+		@R, A [ R is reflexive on A <--> @x [ x in A --> <x, x> in R ] ]
+	
+		@R [ R is symmetric <--> @x, y [ <x, y> in R --> <y, x> in R ] ]
+
+		@R [ R is transitive <--> @x, y, z [ <x, y> in R & <y, z> in R --> <x, z> in R ] ]
+
+	Equivalence Relation on A:
+		@R, A [ R is an equivalence relation on A <--> R is a binary relation on A & R is reflexive on A & R is symmetric & R is transitive ]
+
 	Partition Definition:
 		@A, B [ B is a partition of A <--> 
 			@x [ x in B --> x != {} & x ⊆ A ] &
@@ -163,10 +181,10 @@ Axioms, Definitions, and Theorems:
 
 
 
-Results:
+Definitions:
   @Π [ 3D [ @t [ t in D <--> 3x, y [ t = <x, y> & 3B [ B in Π & x in B & y in B ] ] ] ] ]
   Definition (its uniqueness is always due to Ext. Axiom):
     @Π [ @t [ t in R_{Π} <--> 3x, y [ t = <x, y> & 3B [ B in Π & x in B & y in B ] ] ] ] 
 
 
-1. Show @Π, A [ Π is a partition of A ]
+1. Show @Π, A [ Π is a partition of A --> R_{Π} is an equivalence relation on A]
