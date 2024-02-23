@@ -1,0 +1,172 @@
+Axioms, Definitions, and Theorems:
+  Subset Axioms:
+		For each formula __ not containing B, the following is an axiom:
+		@t1 ... @tk @c [ 3B [ @x [ x in B <--> x in c & __ ] ] ]
+			Definition:
+			For any set t­1, ..., tk and c, the subset B = {x in c | __ } is the set whose members are exactly those sets in c and __	
+
+	Union Axiom:
+		@A [ 3B [ @x [ x in B <--> 3b [ b in A & x in b ] ] ] ]
+			Definition (its uniqueness is always due to Ext. Axiom):
+			For any set A, the union of A  U(A)     is the set whose members are exactly the members of the members of A
+			[You can think of U(A) as a 1-ary operator. It refer to one set and one set only based on the set A!]
+
+	Theorem 3A:
+		@u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]
+
+	Corollary 3C:
+		@A, B [ 3D [ @t[ t in D <--> 3x, y [x in A & y in B & t = <x, y> ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets A, B,  {<x, y> | x in A & y in B}    is the set whose members are exactly the sets of the form <x, y> for some x in A & y in B
+		Also known as the Cartesian Product A x B of the sets A and B!
+
+	Relation:
+		Definition:
+		A relation R is a set of ordered pairs.
+		@R [ R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ] ]
+
+	Partition Definition:
+		@A, B [ B is a partition of A <--> 
+			@x [ x in B --> x != {} & x ⊆ A ] &
+			@x, y [ x, y in B & x != y --> ~3u [ u in x & u in y ] ] &
+			@w [ w in A --> 3x [ x in B & w in x ] ] ]
+
+  [ORANGE] Subset Axiom:
+    @Π [ @c [ 3D [ @t [ t in D <--> t in c & 3x, y [ t = <x, y> & 3B [ B in Π & x in B & y in B ] ] ] ] ] ]   [Subset Axiom UI_META/'...']
+  
+// idea: use c = U(Π) x U(Π)
+1. Show @Π [ 3D [ @t [ t in D <--> 3x, y [ t = <x, y> & 3B [ B in Π & x in B & y in B ] ] ] ] ]
+
+  2. let Π be a set
+
+  ////////
+  1.D1. @x [ x in U(Π) <--> 3b [ b in Π & x in b ] ]    [Union Axiom UI/Π & Ext. Axiom]
+  1.D2. @t [ t in U(Π) x U(Π) <--> 3x, y [x in U(Π) & y in U(Π) & t = <x, y> ] ]    [Corollary 3C UI/U(Π) UI/U(Π) & Ext. Axiom]
+  ////////
+
+
+  3. Show 3D [ @t [ t in D <--> 3x, y [ t = <x, y> & 3B [ B in Π & x in B & y in B ] ] ] ]
+
+    4. @Π [ @c [ 3D [ @t [ t in D <--> t in c & 3x, y [ t = <x, y> & 3B [ B in Π & x in B & y in B ] ] ] ] ] ]    [ORANGE]
+
+    5. @c [ 3D [ @t [ t in D <--> t in c & 3x, y [ t = <x, y> & 3B [ B in Π & x in B & y in B ] ] ] ] ]   [4 UI/Π]
+
+    6. 3D [ @t [ t in D <--> t in U(Π) x U(Π) & 3x, y [ t = <x, y> & 3B [ B in Π & x in B & y in B ] ] ] ]    [5 UI/U(Π) x U(Π)]
+
+    7. @t [ t in D_1 <--> t in U(Π) x U(Π) & 3x, y [ t = <x, y> & 3B [ B in Π & x in B & y in B ] ] ]   [6 EI/D_1]
+
+    8. Show @t [ t in D_1 <--> 3x, y [ t = <x, y> & 3B [ B in Π & x in B & y in B ] ] ]
+
+      9. let t be a set
+
+      10. Show t in D_1 --> 3x, y [ t = <x, y> & 3B [ B in Π & x in B & y in B ] ]
+
+        11. t in D_1    [ACD]
+
+        12. @t [ t in D_1 <--> t in U(Π) x U(Π) & 3x, y [ t = <x, y> & 3B [ B in Π & x in B & y in B ] ] ]    [7 R]
+
+        13. t in D_1 <--> t in U(Π) x U(Π) & 3x, y [ t = <x, y> & 3B [ B in Π & x in B & y in B ] ]   [12 UI/t]
+
+        14. t in U(Π) x U(Π) & 3x, y [ t = <x, y> & 3B [ B in Π & x in B & y in B ] ]   [13 BC 11 MP]
+
+        15. 3x, y [ t = <x, y> & 3B [ B in Π & x in B & y in B ] ]    [14 SR]
+
+        16.   [15 CD]
+      
+      17. Show 3x, y [ t = <x, y> & 3B [ B in Π & x in B & y in B ] ] --> t in D_1
+
+        18. 3x, y [ t = <x, y> & 3B [ B in Π & x in B & y in B ] ]    [ACD]
+
+        19. t = <x_2, y_2> & 3B [ B in Π & x_2 in B & y_2 in B ]    [18 EI/x_2, y_2]
+
+        20. 3B [ B in Π & x_2 in B & y_2 in B ]   [19 SR]
+
+        21. B_3 in Π & x_2 in B_3 & y_2 in B_3    [20 UI/B_3]
+
+
+        22. @t [ t in D_1 <--> t in U(Π) x U(Π) & 3x, y [ t = <x, y> & 3B [ B in Π & x in B & y in B ] ] ]    [7 R]
+
+        23. t in D_1 <--> t in U(Π) x U(Π) & 3x, y [ t = <x, y> & 3B [ B in Π & x in B & y in B ] ]   [22 UI/t]
+
+        24. Show t in U(Π) x U(Π)
+
+          25. @t [ t in U(Π) x U(Π) <--> 3x, y [x in U(Π) & y in U(Π) & t = <x, y> ] ]    [1.D2]
+
+          26. t in U(Π) x U(Π) <--> 3x, y [x in U(Π) & y in U(Π) & t = <x, y> ]   [25 UI/t]
+
+          27. Show 3x, y [x in U(Π) & y in U(Π) & t = <x, y> ]
+
+            28. t = <x_2, y_2>    [19 SL]
+
+            29. B_3 in Π & x_2 in B_3 & y_2 in B_3    [21 R]
+
+
+            30. Show x_2 in U(Π)
+
+              31. @x [ x in U(Π) <--> 3b [ b in Π & x in b ] ]    [1.D1]
+
+              32. x_2 in U(Π) <--> 3b [ b in Π & x_2 in b ]   [31 UI/x_2]
+
+              33. B_3 in Π    [29 SL SL]
+
+              34. x_2 in B_3    [29 SL SR]
+
+              35. B_3 in Π & x_2 in B_3   [33 34 ADJ]
+
+              36. 3b [ b in Π & x_2 in b ]    [35 EG/B_3->b]
+
+              37. x_2 in U(Π)   [32 BC 36 MP]
+
+              38.   [37 DD]
+            
+            39. Show y_2 in U(Π)
+
+              40. @x [ x in U(Π) <--> 3b [ b in Π & x in b ] ]    [1.D1]
+
+              41. y_2 in U(Π) <--> 3b [ b in Π & y_2 in b ]   [40 UI/y_2]
+
+              42. B_3 in Π    [29 SL SL]
+
+              43. y_2 in B_3    [29 SR]
+
+              44. B_3 in Π & y_2 in B_3   [42 43 ADJ]
+
+              45. 3b [ b in Π & y_2 in b ]    [44 EG/B_3->b]
+
+              46. y_2 in U(Π)   [41 BC 45 MP]
+
+              47.   [46 DD]
+
+            48. x_2 in U(Π) & y_2 in U(Π) & t = <x_2, y_2>    [30 39 28 ADJ]
+
+            49. 3x, y [x in U(Π) & y in U(Π) & t = <x, y> ]    [48 EG/x_2->x EG/y_2->y]
+
+            50.   [49 DD]
+          
+          51. t in U(Π) x U(Π)    [26 BC 27 MP]
+
+          52.   [51 DD]
+        
+        53. t in U(Π) x U(Π) & 3x, y [ t = <x, y> & 3B [ B in Π & x in B & y in B ] ]   [24 18 ADJ]
+
+        54. t in D_1    [23 BC 53 MP]
+
+        55.   [54 CD]
+      
+      56. t in D_1 <--> 3x, y [ t = <x, y> & 3B [ B in Π & x in B & y in B ] ]    [10 17 CB]
+
+      57.   [56 UD]
+    
+    58. 3D [ @t [ t in D <--> 3x, y [ t = <x, y> & 3B [ B in Π & x in B & y in B ] ] ] ]    [8 EG/D_1->D]
+
+    59.   [58 DD]
+
+
+
+Results:
+  @Π [ 3D [ @t [ t in D <--> 3x, y [ t = <x, y> & 3B [ B in Π & x in B & y in B ] ] ] ] ]
+  Definition (its uniqueness is always due to Ext. Axiom):
+    @Π [ @t [ t in R_{Π} <--> 3x, y [ t = <x, y> & 3B [ B in Π & x in B & y in B ] ] ] ] 
+
+
+1. Show @Π, A [ Π is a partition of A ]
