@@ -182,9 +182,149 @@ Axioms, Definitions, and Theorems:
 
 
 Definitions:
+  [LEAF]
   @Π [ 3D [ @t [ t in D <--> 3x, y [ t = <x, y> & 3B [ B in Π & x in B & y in B ] ] ] ] ]
   Definition (its uniqueness is always due to Ext. Axiom):
     @Π [ @t [ t in R_{Π} <--> 3x, y [ t = <x, y> & 3B [ B in Π & x in B & y in B ] ] ] ] 
 
 
-1. Show @Π, A [ Π is a partition of A --> R_{Π} is an equivalence relation on A]
+1. Show @Π, A [ Π is a partition of A --> R_{Π} is an equivalence relation on A ]
+
+  2. let Π, A be sets
+
+  ////////
+  1.D1. @t [ t in A x A <--> 3x, y [ x in A & y in A & t = <x, y> ] ]    [Corollary 3C UI/A UI/A & Ext. Axiom]
+  ////////
+
+  3. Show Π is a partition of A --> R_{Π} is an equivalence relation on A
+
+    4. Π is a partition of A    [ACD]
+
+    5. @A, B [ B is a partition of A <--> 
+          @x [ x in B --> x != {} & x ⊆ A ] &
+          @x, y [ x, y in B & x != y --> ~3u [ u in x & u in y ] ] &
+          @w [ w in A --> 3x [ x in B & w in x ] ] ]    [Partition Definition]
+    
+    6. Π is a partition of A <--> 
+          @x [ x in Π --> x != {} & x ⊆ A ] &
+          @x, y [ x, y in Π & x != y --> ~3u [ u in x & u in y ] ] &
+          @w [ w in A --> 3x [ x in Π & w in x ] ]    [6 UI/A UI/Π]
+
+    7. @x [ x in Π --> x != {} & x ⊆ A ] &
+        @x, y [ x, y in Π & x != y --> ~3u [ u in x & u in y ] ] &
+        @w [ w in A --> 3x [ x in Π & w in x ] ]    [6 BC 4 MP]
+
+    8. Show R_{Π} is an equivalence relation on A
+
+      9. @R, A [ R is an equivalence relation on A <--> R is a binary relation on A & R is reflexive on A & R is symmetric & R is transitive ]    [Def. of equivalence relation]
+
+      10. R_{Π} is an equivalence relation on A <--> R_{Π} is a binary relation on A & R_{Π} is reflexive on A & R_{Π} is symmetric & R_{Π} is transitive   [9 UI/R_{Π} UI/A]
+
+
+      11. Show R_{Π} is a binary relation on A
+
+        12. @A [ @D [ D is a binary relation on A <--> D ⊆ (A x A) ] ]   [Def. of binary relation]
+
+        13. R_{Π} is a binary relation on A <--> R_{Π} ⊆ (A x A)    [12 UI/A UI/R_{Π}]
+
+        14. Show R_{Π} ⊆ (A x A)
+
+          15. Show @t [ t in R_{Π} --> t in A x A ]
+
+            16. let t be a set
+
+            17. Show t in R_{Π} --> t in A x A
+
+              18. t in R_{Π}    [ACD]
+
+              19. @t [ t in R_{Π} <--> 3x, y [ t = <x, y> & 3B [ B in Π & x in B & y in B ] ] ]    [LEAF UI/Π & Ext. Axiom]
+
+              20. t in R_{Π} <--> 3x, y [ t = <x, y> & 3B [ B in Π & x in B & y in B ] ]    [19 UI/t]
+
+              21. 3x, y [ t = <x, y> & 3B [ B in Π & x in B & y in B ] ]    [20 BC 18 MP]
+
+              22. t = <x_1, y_1> & 3B [ B in Π & x_1 in B & y_1 in B ]    [21 EI/x_1 EI/y_1]
+
+              23. 3B [ B in Π & x_1 in B & y_1 in B ]   [22 SR]
+
+              24. B_2 in Π & x_1 in B_2 & y_1 in B_2    [23 EI/B_2]
+
+
+              25. @x [ x in Π --> x != {} & x ⊆ A ]   [7 SL SL]
+
+              26. B_2 in Π --> B_2 != {} & B_2 ⊆ A    [25 EI/B_2]
+
+              27. B_2 in Π    [24 SL SL]
+
+              28. B_2 != {} & B_2 ⊆ A   [26 27 MP]
+
+              29. B_2 ⊆ A   [28 SR]
+
+              30. @t [ t in B_2 --> t in A ]    [29 EQUIV.]
+
+
+              31. x_1 in B_2 --> x_1 in A   [30 UI/x_1]
+
+              32. x_1 in B_2    [24 SL SR]
+
+              33. x_1 in A    [31 32 MP]
+
+
+              34. y_1 in B_2 --> y_1 in A   [30 UI/y_1]
+
+              35. y_1 in B_2    [24 SR]
+
+              36. y_1 in A    [34 35 MP]
+
+
+              37. @t [ t in A x A <--> 3x, y [ x in A & y in A & t = <x, y> ] ]   [1.D1]
+
+              38. t in A x A <--> 3x, y [ x in A & y in A & t = <x, y> ]    [37 UI/t]
+
+              39. Show 3x, y [ x in A & y in A & t = <x, y> ]
+
+                40. t = <x_1, y_1>    [22 SL]
+
+                41. x_1 in A & y_1 in A   [33 36 ADJ]
+
+                42. x_1 in A & y_1 in A & t = <x_1, y_1>    [41 40 ADJ]
+
+                43. 3x, y [ x in A & y in A & t = <x, y> ]    [42 EG/x_1->x EG/y_1->y]
+
+                44.   [43 DD]
+              
+              45. t in A x A    [38 BC 39 MP]
+
+              46.   [45 CD]
+            
+            47.   [17 UD]
+          
+          48. R_{Π} ⊆ (A x A)   [15 EQUIV.]
+
+          49.   [48 DD]
+        
+        50. R_{Π} is a binary relation on A   [13 BC 14 MP]
+      
+        51.   [50 DD]
+      
+      52. Show R_{Π} is reflexive on A
+
+        53. @R, A [ R is reflexive on A <--> @x [ x in A --> <x, x> in R ] ]    [Def. of reflexive]
+
+        54. R_{Π} is reflexive on A <--> @x [ x in A --> <x, x> in R_{Π} ]    [53 UI/R_{Π} UI/A]
+
+        55. Show @x [ x in A --> <x, x> in R_{Π} ]
+
+          56. let x be a set
+
+          57. Show x in A --> <x, x> in R_{Π}
+
+            58. x in A    [ACD]
+
+            59. @Π [ @t [ t in R_{Π} <--> 3x, y [ t = <x, y> & 3B [ B in Π & x in B & y in B ] ] ] ]    [Def. of R_{Π}]
+
+            60. @w [ w in A --> 3x [ x in Π & w in x ] ]    [7 SR]
+
+      //. Show R_{Π} is symmetric
+
+      //. Show R_{Π} is transitive 
