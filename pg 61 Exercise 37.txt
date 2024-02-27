@@ -323,8 +323,299 @@ Definitions:
 
             59. @Π [ @t [ t in R_{Π} <--> 3x, y [ t = <x, y> & 3B [ B in Π & x in B & y in B ] ] ] ]    [Def. of R_{Π}]
 
-            60. @w [ w in A --> 3x [ x in Π & w in x ] ]    [7 SR]
+            60. @Π [ @t [ t in R_{Π} <--> 3a, b [ t = <a, b> & 3B [ B in Π & a in B & b in B ] ] ] ]    [59 EQUIV.]
 
-      //. Show R_{Π} is symmetric
+            61. <x, x> in R_{Π} <--> 3a, b [ <x, x> = <a, b> & 3B [ B in Π & a in B & b in B ] ]    [60 UI/Π UI/<x, x>]
 
-      //. Show R_{Π} is transitive 
+            62. Show 3a, b [ <x, x> = <a, b> & 3B [ B in Π & a in B & b in B ] ]
+
+              63. @w [ w in A --> 3x [ x in Π & w in x ] ]    [7 SR]
+
+              64. @w [ w in A --> 3s [ s in Π & w in s ] ]    [63 EQUIV.]
+
+              65. x in A --> 3s [ s in Π & x in s ]   [64 UI/x]
+
+              66. 3s [ s in Π & x in s ]    [65 58 MP]
+
+              67. s_1 in Π & x in s_1     [66 EI/s_1]
+
+
+              68. <x, x> = <x, x>   [SID/...]
+
+              69. x in s_1    [67 SR]
+
+              70. s_1 in Π & x in s_1 & x in s_1    [67 69 ADJ]
+
+              71. 3B [ B in Π & x in B & x in B ]   [70 EG/s_1->B]
+
+              72. <x, x> = <x, x> & 3B [ B in Π & x in B & x in B ]   [68 71 ADJ]
+
+              73. 3a, b [ <x, x> = <a, b> & 3B [ B in Π & a in B & b in B ] ]   [72 EG/x->b EG/x->a]
+
+              74.   [73 DD]
+            
+            75. <x, x> in R_{Π}   [61 BC 62 MP]
+
+            76.   [75 CD]
+          
+          77.   [57 UD]
+        
+        78. R_{Π} is reflexive on A   [54 BC 55 MP]
+
+        79.   [78 DD]
+      
+      80. Show R_{Π} is symmetric
+
+        81. @R [ R is symmetric <--> @x, y [ <x, y> in R --> <y, x> in R ] ]    [Def. of Symmetric]
+
+        82. R_{Π} is symmetric <--> @x, y [ <x, y> in R_{Π} --> <y, x> in R_{Π} ]   [81 UI/R_{Π}]
+
+        83. Show @x, y [ <x, y> in R_{Π} --> <y, x> in R_{Π} ]
+
+          84. let x, y be sets
+
+          85. Show <x, y> in R_{Π} --> <y, x> in R_{Π}
+
+            86. <x, y> in R_{Π}   [ACD]
+
+            87. @Π [ @t [ t in R_{Π} <--> 3x, y [ t = <x, y> & 3B [ B in Π & x in B & y in B ] ] ] ]    [LEAF]
+
+            88. @Π [ @t [ t in R_{Π} <--> 3a, b [ t = <a, b> & 3B [ B in Π & a in B & b in B ] ] ] ]    [87 EQUIV.]
+
+            89. <x, y> in R_{Π} <--> 3a, b [ <x, y> = <a, b> & 3B [ B in Π & a in B & b in B ] ]    [88 UI/Π UI/<x, y>]
+
+            90. 3a, b [ <x, y> = <a, b> & 3B [ B in Π & a in B & b in B ] ]   [89 BC 86 MP]
+
+            91. <x, y> = <a_1, b_1> & 3B [ B in Π & a_1 in B & b_1 in B ]   [90 EI/a_1 EI/b_1]
+
+            92. 3B [ B in Π & a_1 in B & b_1 in B ]   [91 SR]
+
+
+            93. 3B [ B in Π & b_1 in B & a_1 in B ]   [92 EQUIV.]
+
+            94. Show <y, x> = <b_1, a_1>
+
+              95. <x, y> = <a_1, b_1>   [91 SL]
+
+              96. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]    [Theorem 3A]
+
+              97. <x, y> = <a_1, b_1>  <-->  x = a_1 & y = b_1    [96 UI/y, x, b_1, a_1]
+
+              98. x = a_1 & y = b_1   [97 BC 95 MP]
+
+              99. x = a_1   [98 SL]
+
+              100. y = b_1    [98 SR]
+
+
+              101. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]    [Theorem 3A]
+
+              102. <y, x> = <b_1, a_1>  <-->  y = b_1 & x = a_1   [101 UI/y, x, b_1, a_1]
+
+              103. y = b_1 & x = a_1    [100 99 ADJ]
+
+              104. <y, x> = <b_1, a_1>    [102 BC 103 MP]
+
+              105.    [104 DD]
+
+            106. <y, x> = <b_1, a_1> & 3B [ B in Π & b_1 in B & a_1 in B ]    [94 93 ADJ]
+
+
+            107. @Π [ @t [ t in R_{Π} <--> 3a, b [ t = <a, b> & 3B [ B in Π & a in B & b in B ] ] ] ]   [88 R]
+
+            108. <y, x> in R_{Π} <--> 3a, b [ <y, x> = <a, b> & 3B [ B in Π & a in B & b in B ] ]   [107 UI/Π UI/<y, x>]
+
+            109. 3a, b [ <y, x> = <a, b> & 3B [ B in Π & a in B & b in B ] ]    [106 EG/a_1->b EG/b_1->a]
+
+            110. <y, x> in R_{Π}    [108 BC 109 MP]
+
+            111.    [110 CD]
+          
+          112.  [85 UD]
+        
+        113. R_{Π} is symmetric   [82 BC 83 MP]
+
+        114.  [113 DD]
+      
+      115. Show R_{Π} is transitive 
+
+        116. @R [ R is transitive <--> @x, y, z [ <x, y> in R & <y, z> in R --> <x, z> in R ] ]   [Def. of transitive]
+
+        117. R_{Π} is transitive <--> @x, y, z [ <x, y> in R_{Π} & <y, z> in R_{Π} --> <x, z> in R_{Π} ]    [116 UI/R_{Π}]
+
+        118. Show @x, y, z [ <x, y> in R_{Π} & <y, z> in R_{Π} --> <x, z> in R_{Π} ]
+
+          119. let x, y, z be sets
+
+          120. Show <x, y> in R_{Π} & <y, z> in R_{Π} --> <x, z> in R_{Π}
+
+            121. <x, y> in R_{Π} & <y, z> in R_{Π}    [ACD]
+
+            122. <x, y> in R_{Π}    [121 SL]
+
+            123. <y, z> in R_{Π}    [121 SR]
+
+
+            124. @Π [ @t [ t in R_{Π} <--> 3x, y [ t = <x, y> & 3B [ B in Π & x in B & y in B ] ] ] ]   [LEAF]
+
+            125. @Π [ @t [ t in R_{Π} <--> 3a, b [ t = <a, b> & 3B [ B in Π & a in B & b in B ] ] ] ]   [124 EQUIIV.]
+
+
+            126. <x, y> in R_{Π} <--> 3a, b [ <x, y> = <a, b> & 3B [ B in Π & a in B & b in B ] ]   [125 UI/Π UI/<x, y>]
+
+            127. <y, z> in R_{Π} <--> 3a, b [ <y, z> = <a, b> & 3B [ B in Π & a in B & b in B ] ]   [125 UI/Π UI/<y, z>]
+
+
+            128. 3a, b [ <x, y> = <a, b> & 3B [ B in Π & a in B & b in B ] ]    [126 BC 122 MP]
+
+            129. 3a, b [ <y, z> = <a, b> & 3B [ B in Π & a in B & b in B ] ]    [127 BC 123 MP]
+
+
+            130. <x, y> = <a_1, b_1> & 3B [ B in Π & a_1 in B & b_1 in B ]    [129 EI/a_1 EI/b_1]
+
+            131. <y, z> = <a_2, b_2> & 3B [ B in Π & a_2 in B & b_2 in B ]    [130 EI/a_2 EI/b_2]
+
+
+            132. 3B [ B in Π & a_1 in B & b_1 in B ]    [130 SR]
+
+            133. B_3 in Π & a_1 in B_3 & b_1 in B_3   [132 EI/B_3]
+
+
+            134. 3B [ B in Π & a_2 in B & b_2 in B ]    [131 SR]
+
+            135. B_4 in Π & a_2 in B_4 & b_2 in B_4   [134 EI/B_4]
+
+
+            136. Show B_3 = B_4
+
+              137. B_3 != B_4   [AID]
+
+              138. @x, y [ x, y in Π & x != y --> ~3u [ u in x & u in y ] ]   [7 SL SR]
+
+              139. B_3, B_4 in Π & B_3 != B_4 --> ~3u [ u in B_3 & u in B_4 ]   [138 UI/B_3 UI/B_4]
+
+              140. B_3, B_4 in Π    [(133 SL SL) (135 SL SL) ADJ]
+
+              141. B_3, B_4 in Π & B_3 != B_4   [140 137 ADJ]
+
+              142. ~3u [ u in B_3 & u in B_4 ]    [139 141 MP]
+
+
+              143. <x, y> = <a_1, b_1>    [130 SL]
+
+              144. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]   [Theorem 3A]
+
+              145. <x, y> = <a_1, b_1>  <-->  x = a_1 & y = b_1   [144 UI/x, y, a_1, b_1]
+
+              146. x = a_1 & y = b_1    [145 BC 143 MP]
+
+
+              147. <y, z> = <a_2, b_2>    [131 SL]
+
+              148. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]   [Theorem 3A]
+
+              149. <y, z> = <a_2, b_2>  <-->  y = a_2 & z = b_2   [148 UI/y, z, a_2, b_2]
+
+              150. y = a_2 & z = b_2    [149 BC 147 MP]
+
+
+              151. y = b_1    [146 SR]
+
+              152. y = a_2    [150 SL]
+
+
+              153. b_1 = a_2    [151 152 LL]
+
+
+              154. a_2 in B_4   [135 SL SR]
+
+              155. b_1 in B_3   [133 SR]
+
+
+              156. a_2 in B_3   [155 153 LL]
+
+
+              157. a_2 in B_3 & a_2 in B_4    [156 154 ADJ]
+
+              158. 3u [ u in B_3 & u in B_4 ]   [157 EG/a_2->u]
+
+              159. ~3u [ u in B_3 & u in B_4 ]    [142 R]
+
+              160.    [158 159 ID]
+
+
+            161. <x, z> in R_{Π} <--> 3a, b [ <x, z> = <a, b> & 3B [ B in Π & a in B & b in B ] ]   [125 UI/Π UI/<x, z>]
+
+            162. Show 3a, b [ <x, z> = <a, b> & 3B [ B in Π & a in B & b in B ] ]
+
+              163. <x, y> = <a_1, b_1>    [130 SL]
+
+              165. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]   [Theorem 3A]
+
+              166. <x, y> = <a_1, b_1>  <-->  x = a_1 & y = b_1   [165 UI/x, y, a_1, b_1]
+
+              167. x = a_1 & y = b_1    [166 BC 163 MP]
+
+              168. x = a_1    [167 SL]
+
+
+              169. <y, z> = <a_2, b_2>    [131 SL]
+
+              170. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]   [Theorem 3A]
+
+              171. <y, z> = <a_2, b_2>  <-->  y = a_2 & z = b_2   [170 UI/y, z, a_2, b_2]
+
+              172. y = a_2 & z = b_2    [171 BC 169 MP]
+
+              173. z = b_2    [172 SR]
+
+
+              174. a_1 in B_3   [133 SL SR]
+
+              175. b_2 in B_4   [135 SR]
+
+
+              176. b_2 in B_3   [175 136 LL]
+
+
+              177. B_3 in Π   [133 SL SL]
+
+
+              178. B_3 in Π & a_1 in B_3 & b_2 in B_3   [177 174 176 ADJ]
+
+              179. 3B [ B in Π & a_1 in B & b_2 in B ]    [178 EG/B_3->B]
+
+              180. 3B [ B in Π & x in B & b_2 in B ]    [179 168 LL]
+
+              181. 3B [ B in Π & x in B & z in B ]    [180 173 LL]
+
+              182. <x, z> = <x, z>    [SID]
+
+              183. <x, z> = <x, z> & 3B [ B in Π & x in B & z in B ]    [182 181 ADJ]
+
+              184. 3a, b [ <x, z> = <a, b> & 3B [ B in Π & a in B & b in B ] ]    [183 EG/z->b EG/x->a]
+
+              185.    [184 DD]
+            
+            186. <x, z> in R_{Π}    [161 BC 162 MP]
+
+            187.    [186 CD]
+          
+          188.  [120 UD]
+        
+        189. R_{Π} is transitive    [117 BC 118 MP]
+
+        190.    [189 DD]
+      
+
+      191. R_{Π} is a binary relation on A & R_{Π} is reflexive on A & R_{Π} is symmetric & R_{Π} is transitive   [11 52 80 115 ADJ]
+
+      192. R_{Π} is an equivalence relation on A    [10 BC 191 MP]
+
+      193.    [192 DD]
+    
+    194.  [8 CD]
+
+  195.  [3 UD]
+
+
