@@ -1,0 +1,75 @@
+//note: I couldn't come up with a proof for this one so I just looked at their proof
+//however, they divided the proof into four parts, and i will attempt to prove those instead.
+
+Axioms, Definitions, and Theorems:
+	Function:
+		Definition:
+		@F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]
+
+	Pg 43 When F is a function and x the dom F, F(x) is y IFF <x, y> in F:
+		@F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]
+
+
+	Zero:
+		0 := { }
+		
+	Definition of successor:
+		@a [ a+ := a ∪ {a} ]
+		notes:
+			{a} can be constructed using Pairing Axiom (singleton)
+			a ∪ {a} can be constructed using Union Axiom
+
+	Definition of inductive:
+		@A [ A is inductive <--> { } in A & @a [ a in A --> a+ in A ] ]
+
+	Inifinity Axiom:
+		3A [ A is inductive ]
+		3A [ { } in A & @a [ a in A --> a+ in A ] ]
+
+	Definition of a natural number:
+		@b [ b is a natural number <--> @A [ A is inductive --> b in A ] ]
+
+	Theorem 4A:
+		3D [ @b [ b in D <--> b is a natural number ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			ω is the set whose members are exactly the natural numbers 
+			@b [ b in ω <--> b is a natural number ]
+
+	Theorem 4B:
+		ω is inductive & @A [ A is inductive & A != ω --> @t [ t in ω --> t in A ] ]
+
+	Theorem 4C:
+		@n [ n is a natural number & n != { } --> 3k [ k is a natural number & k+ = n ] ]
+
+	Definition of Closed Under:
+		@S, A [ S is a function & A ⊆ dom S --> [ A is closed under S <--> @x [ x in A --> S(x) in A ] ] ]
+
+	Pg 70 closed under notes (this will help with definition of Peano System):
+		@N, S [ S: N->N --> N is closed under S ]
+
+  Definition:
+    @F, A, a [ a in A & F:A->A -->
+                @v [ v is a function --> 
+                      [ 
+                        v is acceptable <--> 
+                          @t [ t in dom v --> t in ω ] &
+                          @t [ t in ran v --> t in A ] &
+                          0 in dom v --> v(0) = a &
+                          @n [ n in ω & n+ in dom v --> n in dom v & v(n+) = F(v(n)) ] ]
+
+                      ] 
+                    ] 
+                ]
+
+// First we define H, where H is a set of all acceptable functions
+
+// Show H exists
+// idea: 
+    H can be constructed using the subset axiom, and we let c = P(ω x A)
+
+    Subset Axiom:
+      @c [ 3D [ @v [ v in D <--> v in c & v is a function & v is acceptable ] ] ]
+
+        let c = P(ω x A)
+
+1. Show 3D [ @v [ v in D <--> v is a function & v is acceptable ] ]
