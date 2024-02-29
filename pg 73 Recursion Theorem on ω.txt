@@ -625,7 +625,96 @@ Definition (uniqueness due to ext. axiom):
 
 									119. x != { }		[ACD]
 
-									120. 
+
+									120. @x [ x in dom b_2 <--> 3y [ <x, y> in b_2 ] ]		[42.D1]
+
+									121. x in dom b_2 <--> 3y [ <x, y> in b_2 ]		[120 UI/x]
+
+									122. <x, y_1> in b_2		[53 R]
+
+									123. 3y [ <x, y> in b_2 ]		[122 EG/y_1->y]
+
+									*124. x in dom b_2		[121 BC 123 MP] 
+
+
+									125. @x [ x in dom b_3 <--> 3y [ <x, y> in b_3 ] ]		[56.D1]
+
+									126. x in dom b_3 <--> 3y [ <x, y> in b_3 ]		[125 UI/x]
+
+									127. <x, w> in b_3		[63 R]
+
+									128. 3y [ <x, y> in b_3 ]		[127 EG/w->y]
+
+									*129. x in dom b_3		[126 BC 128 MP]
+
+
+									130. @t [ t in dom b_2 --> t in ω ]		[72 SL SL SL]
+
+									131. x in dom b_2 --> x in ω		[130 UI/x]
+
+									132. x in ω		[131 124 MP]
+
+
+									133. @n [ n is a natural number & n != { } --> 3k [ k is a natural number & k+ = n ] ]		[Theorem 4C]
+
+									134. x is a natural number & x != { } --> 3k [ k is a natural number & k+ = x ]		[133 UI/x]
+
+									135. @b [ b in ω <--> b is a natural number ]		[Theorem 4A]
+
+									136. x in ω <--> x is a natural number		[135 UI/x]
+
+									137. x is a natural number		[136 BC 132 MP]
+
+									138. x is a natural number & x != { }		[137 119 ADJ]
+
+									139. 3k [ k is a natural number & k+ = x ]		[134 138 MP]
+
+									140. k_4 is a natural number & k_4+ = x		[139 EI/k_4]
+
+
+									141. k_4 is a natural number		[140 SL]
+
+									142. k_4+ = x		[140 SR]
+
+
+									143. x in dom b_2		[124 R]
+
+									144. k_4+ in dom b_2		[142 143 LL]
+
+
+									145. x in dom b_3		[129 R]
+
+									146. k_4+ in dom b_3		[142 145 LL]
+
+
+									147. @n [ n in ω & n+ in dom b_2 --> n in dom b_2 & b_2(n+) = F(b_2(n)) ]		[72 SR]
+
+									148. k_4 in ω & k_4+ in dom b_2 --> k_4 in dom b_2 & b_2(k_4+) = F(b_2(k_4))		[147 UI/k_4]
+
+
+									149. @b [ b in ω <--> b is a natural number ]		[Theorem 4A]
+
+									150. k_4 in ω <--> k_4 is a natural number		[149 UI/k_4]
+
+									151. k_4 in ω		[150 BC 141 MP]
+
+
+									152. k_4 in ω & k_4+ in dom b_2		[151 144 ADJ]
+
+									153. k_4 in dom b_2 & b_2(k_4+) = F(b_2(k_4))		[148 152 MP]
+
+
+									154. @n [ n in ω & n+ in dom b_3 --> n in dom b_3 & b_3(n+) = F(b_3(n)) ]		[74 SR]
+
+									155. k_4 in ω & k_4+ in dom b_3 --> k_4 in dom b_3 & b_3(k_4+) = F(b_3(k_4))		[154 UI/k_4]
+
+									156. k_4 in ω & k_4+ in dom b_3		[151 146 ADJ]
+
+									157. k_4 in dom b_3 & b_3(k_4+) = F(b_3(k_4))		[155 156 MP]
+
+
+									158. 
+
 
 
 
