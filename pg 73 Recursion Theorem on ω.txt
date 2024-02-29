@@ -47,7 +47,7 @@ Axioms, Definitions, and Theorems:
 		Definition:
 		@F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]
 
-	Pg 43 When F is a function and x the dom F, F(x) is y IFF <x, y> in F:
+	[MARIN] Pg 43 When F is a function and x the dom F, F(x) is y IFF <x, y> in F:
 		@F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]
 
 	Definition of into:
@@ -436,9 +436,13 @@ Definition (uniqueness due to ext. axiom):
 
 						51. b_2 in H_{F, A, a} & <x, y_1> in b_2		[50 EI/b_2]
 
+						////////
+						42.D1. @x [ x in dom b_2 <--> 3y [ <x, y> in b_2 ] ]		[dom UI/b_2 & Ext. Axiom]
+						////////
+
 						52. b_2 in H_{F, A, a}		[51 SL]
 
-						53. <x, y_1> in b_2		[51 SR]
+						*53. <x, y_1> in b_2		[51 SR]
 
 
 						54. Show @w [ <x, w> in U(H_{F, A, a}) --> w = y_1 ]
@@ -449,7 +453,179 @@ Definition (uniqueness due to ext. axiom):
 
 								57. <x, w> in U(H_{F, A, a})		[ACD]
 
-								58. 
+								58. @t [ t in U(H_{F, A, a}) <--> 3b [ b in H_{F, A, a} & t in b ] ]		[1.D2]
+
+								59. <x, w> in U(H_{F, A, a}) <--> 3b [ b in H_{F, A, a} & <x, w> in b ]			[58 UI/<x, w>]
+
+								60. 3b [ b in H_{F, A, a} & <x, w> in b ]		[59 BC 57 MP]
+
+								61. b_3 in H_{F, A, a} & <x, w> in b_3		[60 EI/b_3]
+
+								////////
+								56.D1. @x [ x in dom b_3 <--> 3y [ <x, y> in b_3 ] ]		[dom UI/b_3 & Ext. Axiom]
+								////////
+
+								62. b_3 in H_{F, A, a}		[61 SL]
+
+								*63. <x, w> in b_3			[61 SR]
+
+
+								64. @v [ v in H_{F, A, a} <--> v is a function & v is acceptable ]		[1.D1]
+
+
+								65. b_2 in H_{F, A, a} <--> b_2 is a function & b_2 is acceptable		[64 UI/b_2]
+
+								*66. b_2 is a function & b_2 is acceptable			[65 BC 52 MP]
+
+
+								67. b_3 in H_{F, A, a} <--> b_3 is a function & b_3 is acceptable		[64 UI/b_3]
+
+								*68. b_3 is a function & b_3 is acceptable		[67 BC 62 MP]
+
+
+								69. @F, A, a [
+															@v [ v is a function --> 
+																		[ 
+																			v is acceptable <--> 
+																				@t [ t in dom v --> t in ω ] &
+																				@t [ t in ran v --> t in A ] &
+																				0 in dom v --> v(0) = a &
+																				@n [ n in ω & n+ in dom v --> n in dom v & v(n+) = F(v(n)) ]
+																		] 
+																	] 
+															]		[Def. of acceptable]
+
+								70. @v [ v is a function --> 
+													[ 
+														v is acceptable <--> 
+															@t [ t in dom v --> t in ω ] &
+															@t [ t in ran v --> t in A ] &
+															0 in dom v --> v(0) = a &
+															@n [ n in ω & n+ in dom v --> n in dom v & v(n+) = F(v(n)) ]
+													] 
+												]			[69 UI/F, A, a]
+								
+								71. b_2 is acceptable <--> 
+													@t [ t in dom b_2 --> t in ω ] &
+													@t [ t in ran b_2 --> t in A ] &
+													0 in dom b_2 --> b_2(0) = a &
+													@n [ n in ω & n+ in dom b_2 --> n in dom b_2 & b_2(n+) = F(b_2(n)) ]		[(70 UI/b_2) (66 SL) MP]
+
+								*72. @t [ t in dom b_2 --> t in ω ] &
+										@t [ t in ran b_2 --> t in A ] &
+										0 in dom b_2 --> b_2(0) = a &
+										@n [ n in ω & n+ in dom b_2 --> n in dom b_2 & b_2(n+) = F(b_2(n)) ]		[71 BC (66 SR) MP]
+
+								73. b_3 is acceptable <--> 
+													@t [ t in dom b_3 --> t in ω ] &
+													@t [ t in ran b_3 --> t in A ] &
+													0 in dom b_3 --> b_3(0) = a &
+													@n [ n in ω & n+ in dom b_3 --> n in dom b_3 & b_3(n+) = F(b_3(n)) ]		[(70 UI/b_3) (68 SL) MP]
+
+								*74. @t [ t in dom b_3 --> t in ω ] &
+										@t [ t in ran b_3 --> t in A ] &
+										0 in dom b_3 --> b_3(0) = a &
+										@n [ n in ω & n+ in dom b_3 --> n in dom b_3 & b_3(n+) = F(b_3(n)) ]		[73 BC (68 SR) MP]
+								
+
+								75. x = { } or x != { }		[Tautology]
+
+								76. Show x = { } --> w = y_1		[CASE 1 for line 75]
+
+									77. x = { }		[ACD]
+
+									78. 0 in dom b_2 --> b_2(0) = a		[72 SL SR]
+
+									79. @x [ x in dom b_2 <--> 3y [ <x, y> in b_2 ] ]		[42.D1]
+
+									80. x in dom b_2 <--> 3y [ <x, y> in b_2 ]		[79 UI/x]
+
+									81. <x, y_1> in b_2		[53 R]
+
+									82. 3y [ <x, y> in b_2 ]		[81 EG/y_1->y]
+
+									83. x in dom b_2		[80 BC 82 MP] 
+
+
+									84. 0 := { }		[definition of zero]
+
+									85. x = 0		[77 84 LL]
+
+
+									86. 0 in dom b_2		[83 85 LL]
+
+									*87. b_2(0) = a		[78 86 MP]
+
+
+									88. 0 in dom b_3 --> b_3(0) = a		[74 SL SR]
+
+									89. @x [ x in dom b_3 <--> 3y [ <x, y> in b_3 ] ]		[56.D1]
+
+									90. x in dom b_3 <--> 3y [ <x, y> in b_3 ]		[89 UI/x]
+
+									91. <x, w> in b_3		[63 R]
+
+									92. 3y [ <x, y> in b_3 ]		[91 EG/w->y]
+
+									93. x in dom b_3		[90 BC 92 MP]
+
+
+									94. 0 in dom b_3		[93 85 LL]
+
+									*95. b_3(0) = a		[88 94 MP]
+
+
+									96. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]		[MARIN]
+
+									97. b_2 is a function & 0 in dom b_2 -->  @w [ <0, w> in b_2 <--> b_2(0) = w ]		[96 UI/b_2 UI/0]
+
+									98. b_2 is a function		[66 SL]
+
+									99. b_2 is a function & 0 in dom b_2		[98 86 ADJ]
+
+									100. @w [ <0, w> in b_2 <--> b_2(0) = w ]		[97 99 MP]
+
+									101. <0, y_1> in b_2 <--> b_2(0) = y_1		[100 UI/y_1]
+
+									102. <x, y_1> in b_2		[53 R]
+
+									103. <0, y_1> in b_2		[102 85 LL]
+
+									*104. b_2(0) = y_1		[101 BC 103 MP]
+
+
+									105. b_3 is a function & 0 in dom b_3 -->  @w [ <0, w> in b_3 <--> b_3(0) = w ]		[96 UI/b_3 UI/0]
+
+									106. b_3 is a function		[68 SL]
+
+									107. b_3 is a function & 0 in dom b_3		[106 94 ADJ]
+
+									108. @w [ <0, w> in b_3 <--> b_3(0) = w ]		[105 107 MP]
+
+									109. <0, w> in b_3 <--> b_3(0) = w		[108 UI/w]
+
+									110. <x, w> in b_3		[63 R]
+
+									111. <0, w> in b_3		[110 85 LL]
+
+									*112. b_3(0) = w		[109 BC 111 MP]
+
+
+									113. b_2(0) = a		[87 R]
+
+									114. b_3(0) = a		[95 R]
+
+									115. b_3(0) = b_2(0)		[114 113 LL]
+
+									116. w = y_1		[(115 112 LL) 104 LL]
+
+									117. 		[116 CD]
+
+								118. Show x != { } --> w = y_1			[CASE 2 for line 75]
+
+									119. x != { }		[ACD]
+
+									120. 
 
 
 
