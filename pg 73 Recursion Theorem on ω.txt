@@ -2,6 +2,47 @@
 //however, they divided the proof into four parts, and i will attempt to prove those instead.
 
 Axioms, Definitions, and Theorems:
+	Extensionality Axiom:
+		@A, B [ @x [ x in A <--> x in B ] --> A = B ]
+
+	Power Set Axiom:
+		@a [ 3B [ @x [ x in B <--> @t [ t in x --> t in a ] ] ] ]
+			Definition (its uniqueness is always due to Ext. Axiom):
+			For any set a, the power set  P(a) is the set whose members are exactly the subsets of a.
+			[You can think of P(a) as a 1-ary operator. It refer to one set and one set only based on the sets a!]
+
+	Union Axiom:
+		@A [ 3B [ @x [ x in B <--> 3b [ b in A & x in b ] ] ] ]
+			Definition (its uniqueness is always due to Ext. Axiom):
+			For any set A, the union of A  U(A)     is the set whose members are exactly the members of the members of A
+			[You can think of U(A) as a 1-ary operator. It refer to one set and one set only based on the set A!]
+
+	Relation:
+		Definition:
+		A relation R is a set of ordered pairs.
+		@R [ R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ] ]
+
+
+	dom R: 
+		@R [ 3D [ @x [ x in D <--> 3y [ <x, y> in R ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets R,  dom R  is the set whose members are those 1st-coordinate set of some ordered pair in R
+
+	ran R: 
+		@R [ 3D [ @x [ x in D <--> 3t [ <t, x> in R ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets R,  ran R  is the set whose members are those 2nd-coordinate set of some ordered pair in R
+
+	Corollary 3C:
+		@A, B [ 3D [ @t[ t in D <--> 3x, y [x in A & y in B & t = <x, y> ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets A, B,  {<x, y> | x in A & y in B}    is the set whose members are exactly the sets of the form <x, y> for some x in A & y in B
+		Also known as the Cartesian Product A x B of the sets A and B!
+
+	Definition of F(x): 
+	(We define it like this for the purpose of making sure that F(x) is always defined for any F and x, so that we can always refer to it)
+		@F, x [ F(x) := U({y | <x, y> in F}) ]
+
 	Function:
 		Definition:
 		@F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]
@@ -9,6 +50,12 @@ Axioms, Definitions, and Theorems:
 	Pg 43 When F is a function and x the dom F, F(x) is y IFF <x, y> in F:
 		@F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]
 
+	Definition of into:
+		@F, A, B [ F: A->B <--> 
+						F is a function &
+						dom F = A &
+						ran F ⊆ B 
+					]
 
 	Zero:
 		0 := { }
@@ -47,16 +94,15 @@ Axioms, Definitions, and Theorems:
 	Pg 70 closed under notes (this will help with definition of Peano System):
 		@N, S [ S: N->N --> N is closed under S ]
 
-  Definition:
-    @F, A, a [ a in A & F:A->A -->
+  Definition of acceptable:
+    @F, A, a [
                 @v [ v is a function --> 
                       [ 
                         v is acceptable <--> 
                           @t [ t in dom v --> t in ω ] &
                           @t [ t in ran v --> t in A ] &
                           0 in dom v --> v(0) = a &
-                          @n [ n in ω & n+ in dom v --> n in dom v & v(n+) = F(v(n)) ] ]
-
+                          @n [ n in ω & n+ in dom v --> n in dom v & v(n+) = F(v(n)) ]
                       ] 
                     ] 
                 ]
@@ -67,9 +113,348 @@ Axioms, Definitions, and Theorems:
 // idea: 
     H can be constructed using the subset axiom, and we let c = P(ω x A)
 
-    Subset Axiom:
-      @c [ 3D [ @v [ v in D <--> v in c & v is a function & v is acceptable ] ] ]
+    [SAYU] Subset Axiom:
+      @F, A, a [ @c [ 3D [ @v [ v in D <--> v in c & v is a function & v is acceptable ] ] ] ]
 
         let c = P(ω x A)
 
-1. Show 3D [ @v [ v in D <--> v is a function & v is acceptable ] ]
+[HINO]
+1. Show @F, A, a [ 3D [ @v [ v in D <--> v is a function & v is acceptable ] ] ]
+
+	2. let F, A, a be sets
+
+	////////
+	1.D1. @t [ t in ω x A <--> 3x, y [ x in ω & y in A & t = <x, y> ] ]		[Corollary 3C UI/ω UI/A & Ext. Axiom]
+	1.D2. @x [ x in P(ω x A) <--> @t [ t in x --> t in ω x A ] ]		[Power Set Axiom UI/ω x A & Ext. Axiom]
+	////////
+
+	3. Show 3D [ @v [ v in D <--> v is a function & v is acceptable ] ]
+
+		4. @F, A, a [ @c [ 3D [ @v [ v in D <--> v in c & v is a function & v is acceptable ] ] ] ]		[SAYU]
+
+		5. 3D [ @v [ v in D <--> v in P(ω x A) & v is a function & v is acceptable ] ]		[4 UI/F UI/A UI/a UI/P(ω x A)]
+
+		6. @v [ v in D_1 <--> v in P(ω x A) & v is a function & v is acceptable ]		[5 EI/D_1]
+
+		7. Show @v [ v in D_1 <--> v is a function & v is acceptable ]
+
+			8. let v be a set
+
+			////////
+			7.D1. @x [ x in dom v <--> 3y [ <x, y> in v ] ]		[dom UI/v & Ext. Axiom]
+			7.D2. @y [ y in ran v <--> 3x [ <x, y> in v ] ]		[ran UI/v & Ext. Axiom]
+			////////
+
+			9. Show v in D_1 --> v is a function & v is acceptable
+
+				10. v in D_1		[ACD]
+
+				11. @v [ v in D_1 <--> v in P(ω x A) & v is a function & v is acceptable ]		[6 R]
+
+				12. v in D_1 <--> v in P(ω x A) & v is a function & v is acceptable		[11 UI/v]
+
+				13. v in P(ω x A) & v is a function & v is acceptable		[12 BC 10 MP]
+
+				14. v is a function & v is acceptable		[13 SIMPLIFY]
+
+				15. 	[14  CD]
+			
+			16. Show v is a function & v is acceptable --> v in D_1
+
+				17. v is a function & v is acceptable		[ACD]
+
+				18. @v [ v in D_1 <--> v in P(ω x A) & v is a function & v is acceptable ]		[6 R]
+
+				19. v in D_1 <--> v in P(ω x A) & v is a function & v is acceptable		[18 UI/v]
+
+				20. Show v in P(ω x A)
+
+					21. @x [ x in P(ω x A) <--> @t [ t in x --> t in ω x A ] ]		[1.D2]
+
+					22. v in P(ω x A) <--> @t [ t in v --> t in ω x A ]		[21 UI/v]
+
+					23. Show @t [ t in v --> t in ω x A ]
+
+						24. let t be a set
+
+						25. Show t in v --> t in ω x A
+
+							26. t in v		[ACD]
+
+							27. v is a function 		[17 SL]
+
+							28. v is acceptable			[17 SR]
+
+							29. @F, A, a [
+														@v [ v is a function --> 
+																	[ 
+																		v is acceptable <--> 
+																			@t [ t in dom v --> t in ω ] &
+																			@t [ t in ran v --> t in A ] &
+																			0 in dom v --> v(0) = a &
+																			@n [ n in ω & n+ in dom v --> n in dom v & v(n+) = F(v(n)) ]
+																	] 
+																] 
+														]			[Def. of Acceptable]
+
+							30. @v [ v is a function --> 
+												[ 
+													v is acceptable <--> 
+														@t [ t in dom v --> t in ω ] &
+														@t [ t in ran v --> t in A ] &
+														0 in dom v --> v(0) = a &
+														@n [ n in ω & n+ in dom v --> n in dom v & v(n+) = F(v(n)) ]
+												] 
+											]		[29 UI/F, A, a]
+
+							31. v is a function --> 
+												[ 
+													v is acceptable <--> 
+														@t [ t in dom v --> t in ω ] &
+														@t [ t in ran v --> t in A ] &
+														0 in dom v --> v(0) = a &
+														@n [ n in ω & n+ in dom v --> n in dom v & v(n+) = F(v(n)) ]
+												] 		[30 UI/v]
+							
+							32. v is acceptable <--> 
+											@t [ t in dom v --> t in ω ] &
+											@t [ t in ran v --> t in A ] &
+											0 in dom v --> v(0) = a &
+											@n [ n in ω & n+ in dom v --> n in dom v & v(n+) = F(v(n)) ]		[31 27 MP]
+
+							33. @t [ t in dom v --> t in ω ] &
+									@t [ t in ran v --> t in A ] &
+									0 in dom v --> v(0) = a &
+									@n [ n in ω & n+ in dom v --> n in dom v & v(n+) = F(v(n)) ]		[32 BC 28 MP]
+
+
+							34. @F [ F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]		[Def. of function]
+
+							35. v is a function <--> v is a relation & @x [ x in dom v --> 3_1y [ <x, y> in v ] ]		[34 UI/v]
+
+							36. v is a relation & @x [ x in dom v --> 3_1y [ <x, y> in v ] ]		[35 BC 27 MP]
+
+							37. @R [ R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ] ]		[Def. of relation]
+
+							38. v is a relation <--> @t [ t in v --> 3x, y [ t = <x, y> ] ]			[37 UI/v]
+
+							39. @t [ t in v --> 3x, y [ t = <x, y> ] ]		[38 BC (36 SL) MP]
+
+							40. t in v --> 3x, y [ t = <x, y> ]		[39 UI/t]
+
+							41. t in v		[26 R]
+
+							42. 3x, y [ t = <x, y> ]		[40 41 MP]
+
+							43. t = <x_2, y_2>		[42 EI/x_2 EI/y_2]
+
+
+							// Show x_2 in ω
+							44. @x [ x in dom v <--> 3y [ <x, y> in v ] ]		[7.D1]
+
+							45. x_2 in dom v <--> 3y [ <x_2, y> in v ]		[44 UI/x_2]
+
+							46. <x_2, y_2> in v		[41 43 LL]
+
+							47. 3y [ <x_2, y> in v ]		[46 EG/y_2->y]
+
+							48. x_2 in dom v		[45 BC 47 MP]
+
+							49. @t [ t in dom v --> t in ω ]		[33 SL SL SL]
+
+							50. x_2 in dom v --> x_2 in ω		[49 UI/x_2]
+
+							51. x_2 in ω		[50 48 MP]
+
+
+							// Show y_2 in A
+							52. @y [ y in ran v <--> 3x [ <x, y> in v ] ]		[7.D2]
+
+							53. y_2 in ran v <--> 3x [ <x, y_2> in v ]		[52 UI/y_2]
+
+							54. <x_2, y_2> in v		[41 43 LL]
+
+							55. 3x [ <x, y_2> in v ]		[54 EG/x_2->x]
+
+							56. y_2 in ran v		[53 BC 55 MP]
+
+							57. @t [ t in ran v --> t in A ]		[33 SL SL SR]
+
+							58. y_2 in ran v --> y_2 in A		[57 UI/y_2]
+
+							59. y_2 in A		[58 56 MP]
+
+
+							// Show t in ω x A
+							60. @t [ t in ω x A <--> 3x, y [ x in ω & y in A & t = <x, y> ] ]		[1.D1]
+
+							61. t in ω x A <--> 3x, y [ x in ω & y in A & t = <x, y> ]		[60 UI/t]
+
+							62. x_2 in ω & y_2 in A & t = <x_2, y_2>		[51 59 43 ADJ]
+
+							63. 3x, y [ x in ω & y in A & t = <x, y> ]		[62 EG/y_2->y EG/x_2->x]
+
+							64. t in ω x A		[61 BC 63 MP]
+
+							65. 	[64 CD]
+						
+						66. 	[25 UD]
+					
+					67. v in P(ω x A)		[22 BC 23 MP]
+
+					68. 	[67 DD]
+				
+				69. v in P(ω x A) & v is a function & v is acceptable		[20 17 ADJ]
+
+				70. v in D_1		[19 BC 69 MP]
+
+				71.		[70 CD]
+			
+			72. v in D_1 <--> v is a function & v is acceptable		[9 16 CB]
+
+			73. 	[72 UD]
+		
+		74. 3D [ @v [ v in D <--> v is a function & v is acceptable ] ] 		[7 EG/D_1->D]
+
+		75. 	[74 DD]
+	
+	76. 	[3 UD]
+
+
+Definition (uniqueness due to ext. axiom):
+	@F, A, a [ @v [ v in H_{F, A, a} <--> v is a function & v is acceptable ] ]		[HINO & Ext. Axiom]
+
+
+[Recursion Theorem on ω]
+1. Show @F, A, a [ a in A & F:A->A --> 3h [ h:ω->A & h(0) = a & @n [ n in ω --> h(n+) = F(h(n)) ] ] ]
+
+	2. let F, A, a be sets
+
+	////////
+	1.D1. @v [ v in H_{F, A, a} <--> v is a function & v is acceptable ]			[HINO UI/F, A, a & Ext. Axiom]
+	1.D2. @t [ t in U(H_{F, A, a}) <--> 3b [ b in H_{F, A, a} & t in b ] ]		[Union Axiom UI/H_{F, A, a} & Ext. Axiom]
+
+	1.D3. @x [ x in dom U(H_{F, A, a}) <--> 3y [ <x, y> in U(H_{F, A, a}) ] ]		[dom UI/U(H_{F, A, a}) & Ext. Axiom]
+	////////
+
+	3. Show a in A & F:A->A --> 3h [ h:ω->A & h(0) = a & @n [ n in ω --> h(n+) = F(h(n)) ] ]
+
+		4. a in A & F:A->A		[ACD]
+
+		5. Show 3h [ h:ω->A & h(0) = a & @n [ n in ω --> h(n+) = F(h(n)) ] ]
+
+			6. Show U(H_{F, A, a}) is a function
+
+				7. @F [ F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]		[Def. of function]
+
+				8. U(H_{F, A, a}) is a function <--> U(H_{F, A, a}) is a relation & @x [ x in dom U(H_{F, A, a}) --> 3_1y [ <x, y> in U(H_{F, A, a}) ] ]		[7 UI/U(H_{F, A, a})]
+
+
+				9. Show U(H_{F, A, a}) is a relation
+
+					10. @R [ R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ] ]		[Def. of relation]
+
+					11. U(H_{F, A, a}) is a relation <--> @t [ t in U(H_{F, A, a}) --> 3x, y[ t = <x, y> ] ]		[10 UI/U(H_{F, A, a})]
+
+					12. Show @t [ t in U(H_{F, A, a}) --> 3x, y[ t = <x, y> ] ]
+
+						13. let t be a set
+
+						14. Show t in U(H_{F, A, a}) --> 3x, y[ t = <x, y> ]
+
+							15. t in U(H_{F, A, a})		[ACD]
+
+							16. @t [ t in U(H_{F, A, a}) <--> 3b [ b in H_{F, A, a} & t in b ] ]		[1.D2]
+
+							17. t in U(H_{F, A, a}) <--> 3b [ b in H_{F, A, a} & t in b ]		[16 UI/t]
+
+							18. 3b [ b in H_{F, A, a} & t in b ]		[17 BC 15 MP]
+
+							19. b_1 in H_{F, A, a} & t in b_1		[18 EI/b_1]
+
+							20. b_1 in H_{F, A, a}		[19 SL]
+
+							21. t in b_1		[19 SR]
+
+							22. @v [ v in H_{F, A, a} <--> v is a function & v is acceptable ]		[1.D1]
+
+							23. b_1 in H_{F, A, a} <--> b_1 is a function & b_1 is acceptable			[22 UI/b_1]
+
+							24. b_1 is a function & b_1 is acceptable		[23 BC 20 MP]
+
+							25. b_1 is a function		[24 SL]
+
+							26. @F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]		[Def. of function]
+
+							27. b_1 is a function <--> b_1 is a relation & @x [ x in dom b_1 --> 3_1y [ <x, y> in b_1 ] ]		[26 UI/b_1]
+
+							28. b_1 is a relation & @x [ x in dom b_1 --> 3_1y [ <x, y> in b_1 ] ]		[27 BC 25 MP]
+
+							29. b_1 is a relation		[28 SL]
+
+							30. @R [ R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ] ]		[Def. of relation]
+
+							31. b_1 is a relation <--> @t [ t in b_1 --> 3x, y[ t = <x, y> ] ]		[30 UI/b_1]
+
+							32. @t [ t in b_1 --> 3x, y[ t = <x, y> ] ]		[31 BC 29 MP]
+
+							33. t in b_1 --> 3x, y[ t = <x, y> ]		[32 UI/t]
+
+							34. t in b_1		[21 R]
+
+							35. 3x, y[ t = <x, y> ]		[33 34 MP]
+
+							36. 	[35 CD]
+						
+						37. 	[14 UD]
+
+					38. U(H_{F, A, a}) is a relation		[11 BC 12 MP]
+
+					39.		[38 DD]
+
+				40. Show @x [ x in dom U(H_{F, A, a}) --> 3_1y [ <x, y> in U(H_{F, A, a}) ] ]
+
+					41. let x be a set
+
+					42. Show x in dom U(H_{F, A, a}) --> 3_1y [ <x, y> in U(H_{F, A, a}) ]
+
+						43. x in dom U(H_{F, A, a})		[ACD]
+
+						44. @x [ x in dom U(H_{F, A, a}) <--> 3y [ <x, y> in U(H_{F, A, a}) ] ]		[1.D3]
+
+						45. x in dom U(H_{F, A, a}) <--> 3y [ <x, y> in U(H_{F, A, a}) ]		[44 UI/x]
+
+						46. 3y [ <x, y> in U(H_{F, A, a}) ]		[45 BC 43 MP]
+
+						47. <x, y_1> in U(H_{F, A, a})		[46 EI/y_1]
+
+						48. @t [ t in U(H_{F, A, a}) <--> 3b [ b in H_{F, A, a} & t in b ] ]		[1.D2]
+
+						49. <x, y_1> in U(H_{F, A, a}) <--> 3b [ b in H_{F, A, a} & <x, y_1> in b ]		[48 UI/<x, y_1>]
+
+						50. 3b [ b in H_{F, A, a} & <x, y_1> in b ]		[49 BC 47 MP]
+
+						51. b_2 in H_{F, A, a} & <x, y_1> in b_2		[50 EI/b_2]
+
+						52. b_2 in H_{F, A, a}		[51 SL]
+
+						53. <x, y_1> in b_2		[51 SR]
+
+
+						54. Show @w [ <x, w> in U(H_{F, A, a}) --> w = y_1 ]
+
+							55. let w be a set
+
+							56. Show <x, w> in U(H_{F, A, a}) --> w = y_1
+
+								57. <x, w> in U(H_{F, A, a})		[ACD]
+
+								58. 
+
+
+
+					
+
+					
+
+
