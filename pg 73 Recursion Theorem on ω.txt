@@ -38,6 +38,9 @@ Axioms, Definitions, and Theorems:
 			note {x, y} exists due to Pairing Axiom & Extensionality
 			finally {{x}, {x, y}} exists due to Pairing Axiom & Extensionality
 
+	Theorem 3A:
+		@u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]
+
 	Relation:
 		Definition:
 		A relation R is a set of ordered pairs.
@@ -615,9 +618,126 @@ Axioms, Definitions, and Theorems:
 
 														105. @F [ F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]		[Def. of function]
 
-														106. 
+														106. {<{ }, a>} is a function <--> {<{ }, a>} is a relation & @x [ x in dom {<{ }, a>} --> 3_1y [ <x, y> in {<{ }, a>} ] ]		[105 UI/{<{ }, a>}]
 
-													///. Show {<{ }, a>} is acceptable
+														107. Show {<{ }, a>} is a relation
+
+															108. @R [ R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ] ]		[Def. of relation]
+
+															109. {<{ }, a>} is a relation <--> @t [ t in {<{ }, a>} --> 3x, y[ t = <x, y> ] ]		[108 UI/{<{ }, a>}]
+
+															110. Show @t [ t in {<{ }, a>} --> 3x, y[ t = <x, y> ] ]
+
+																111. let t be a set
+
+																112. Show t in {<{ }, a>} --> 3x, y[ t = <x, y> ]
+
+																	113. t in {<{ }, a>}		[ACD]
+
+																	114. @x [ x in {<{ }, a>} <--> x = <{ }, a> or x = <{ }, a> ]		[1.D5]
+
+																	115. t in {<{ }, a>} <--> t = <{ }, a> or t = <{ }, a>		[114 UI/t]
+
+																	116. t = <{ }, a> or t = <{ }, a>		[115 BC 113 MP]
+
+																	117. t = <{ }, a>		[116 SIMPLIFY_OR]
+
+																	118. 3x, y[ t = <x, y> ]		[117 EG/a->y EG/{ }->x]
+
+																	119. 		[118 CD]
+																
+																120. 		[112 UD]
+															
+															121. {<{ }, a>} is a relation		[109 BC 110 MP]
+
+															122. 		[121 DD]
+														
+														123. Show @d [ d in dom {<{ }, a>} --> 3_1y [ <d, y> in {<{ }, a>} ] ]
+
+															124. let d be a set
+
+															125. Show d in dom {<{ }, a>} --> 3_1y [ <d, y> in {<{ }, a>} ]
+
+																126. d in dom {<{ }, a>}		[ACD]
+
+																127. @x [ x in dom {<{ }, a>} <--> 3y [ <x, y> in {<{ }, a>} ] ]		[1.D6]
+
+																128. d in dom {<{ }, a>} <--> 3y [ <d, y> in {<{ }, a>} ]			[127 UI/d]
+
+																129. 3y [ <d, y> in {<{ }, a>} ]		[128 BC 126 MP]
+
+																130. <d, y_2> in {<{ }, a>}		[129 EI/y_2]
+
+																131. @x [ x in {<{ }, a>} <--> x = <{ }, a> or x = <{ }, a> ]		[1.D5]
+
+																132. <d, y_2> in {<{ }, a>} <--> <d, y_2> = <{ }, a> or <d, y_2> = <{ }, a>		[131 UI/<d, y_2>]
+
+																133. <d, y_2> = <{ }, a> or <d, y_2> = <{ }, a>		[132 BC 130 MP]
+
+																134. <d, y_2> = <{ }, a>		[133 SIMPLIFY_OR]
+
+																135. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]		[Theorem 3A]
+
+																136. <d, y_2> = <{ }, a>  <-->  d = { } & y_2 = a		[135 UI/d, y_2, { }, a]
+
+																137. d = { } & y_2 = a		[136 BC 134 MP]
+
+																138. y_2 = a		[137 SR]
+
+
+																139. Show @w [ <d, w> in {<{ }, a>} --> w = y_2 ]
+
+																	140. let w be a set
+
+																	141. Show <d, w> in {<{ }, a>} --> w = y_2
+
+																		142. <d, w> in {<{ }, a>}		[ACD]
+
+																		143. @x [ x in {<{ }, a>} <--> x = <{ }, a> or x = <{ }, a> ]		[1.D5]
+
+																		144. <d, w> in {<{ }, a>} <--> <d, w> = <{ }, a> or <d, w> = <{ }, a>		[143 UI/<d, w>]
+
+																		145. <d, w> = <{ }, a> or <d, w> = <{ }, a>		[144 BC 142 MP]
+
+																		146. <d, w> = <{ }, a>		[145 SIMPLIFY_OR]
+
+																		147. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]		[Theorem 3A]
+
+																		148. <d, w> = <{ }, a>  <-->  d = { } & w = a		[147 UI/d, w, { }, a]
+
+																		149. d = { } & w = a		[148 BC 146 MP]
+
+																		150. w = a		[149 SR]
+
+																		151. y_2 = a		[138 R]
+
+																		152. w = y_2		[150 151 LL]
+
+																		153.		[152 CD]
+
+																	154. 		[141 UD]
+																
+																155. <d, y_2> in {<{ }, a>} & @w [ <d, w> in {<{ }, a>} --> w = y_2 ]		[130 139 ADJ]
+
+																156. 3y [ <d, y> in {<{ }, a>} & @w [ <d, w> in {<{ }, a>} --> w = y ] ]		[155 EG/y_2->y]
+
+																157. 3_1y [ <d, y> in {<{ }, a>} ]		[156 EQUIV.]
+
+																158. 		[157 CD]
+
+															159. 		[125 UD]
+
+														160. @x [ x in dom {<{ }, a>} --> 3_1y [ <x, y> in {<{ }, a>} ] ]		[123 EQUIV.]
+
+														161. {<{ }, a>} is a relation & @x [ x in dom {<{ }, a>} --> 3_1y [ <x, y> in {<{ }, a>} ] ]		[107 160 ADJ]
+
+														162. {<{ }, a>} is a function		[106 BC 161 MP]
+
+														163. 		[162 DD]
+
+													164. Show {<{ }, a>} is acceptable
+
+														165. 
 
 
 									//. Show @a [ a in B_1 --> a+ in B_1 ]
