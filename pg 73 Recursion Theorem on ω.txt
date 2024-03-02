@@ -5,6 +5,12 @@ Axioms, Definitions, and Theorems:
 	Extensionality Axiom:
 		@A, B [ @x [ x in A <--> x in B ] --> A = B ]
 
+	Empty Set Axiom:
+		3B [ @x [ ~(x in B) ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		{ } is the set having no members
+			[You can think of {} as a 0-ary operator. It refer to one set and one set only!]
+
 	Pairing Axiom:
 		@u, v [ 3B [ @x [ x in B <--> x = u or x = v ] ] ]
 			Definition (its uniqueness is always due to Ext. Axiom):
@@ -358,6 +364,8 @@ Axioms, Definitions, and Theorems:
 	2. let F, A, a be sets
 
 	////////
+	1.D0. @x [ ~(x in { }) ]		[Empty set axiom & Ext. Axiom]
+
 	1.D1. @v [ v in H_{F, A, a} <--> v is a function & v is acceptable ]			[HINO UI/F, A, a & Ext. Axiom]
 
 	1.D2. @t [ t in U(H_{F, A, a}) <--> 3b [ b in H_{F, A, a} & t in b ] ]		[Union Axiom UI/H_{F, A, a} & Ext. Axiom]
@@ -369,6 +377,8 @@ Axioms, Definitions, and Theorems:
 	1.D5. @x [ x in {<{ }, a>} <--> x = <{ }, a> or x = <{ }, a> ]		[Pairing Axiom UI/<{ }, a> UI/<{ }, a> & Ext. Axiom]
 
 	1.D6. @x [ x in dom {<{ }, a>} <--> 3y [ <x, y> in {<{ }, a>} ] ]		[dom UI/{<{ }, a>} & Ext. Axiom]
+
+	1.D7. @y [ y in ran {<{ }, a>} <--> 3x [ <x, y> in {<{ }, a>} ] ]		[ran UI/{<{ }, a>} & Ext. Axiom]
 	////////
 
 	3. Show a in A & F:A->A --> 3h [ h:ω->A & h(0) = a & @n [ n in ω --> h(n+) = F(h(n)) ] ]
@@ -737,13 +747,305 @@ Axioms, Definitions, and Theorems:
 
 													164. Show {<{ }, a>} is acceptable
 
-														165. 
+														165. @F, A, a [
+																					@v [ v is a function --> 
+																								[ 
+																									v is acceptable <--> 
+																										@t [ t in dom v --> t in ω ] &
+																										@t [ t in ran v --> t in A ] &
+																										0 in dom v --> v(0) = a &
+																										@n [ n in ω & n+ in dom v --> n in dom v & v(n+) = F(v(n)) ]
+																								] 
+																							] 
+																					]			[Def. of acceptable]
+
+														166. @v [ v is a function --> 
+																			[ 
+																				v is acceptable <--> 
+																					@t [ t in dom v --> t in ω ] &
+																					@t [ t in ran v --> t in A ] &
+																					0 in dom v --> v(0) = a &
+																					@n [ n in ω & n+ in dom v --> n in dom v & v(n+) = F(v(n)) ]
+																			] 
+																		]			[166 UI/F, A, a]
+														
+														167. {<{ }, a>} is a function --> 
+																		[ 
+																			{<{ }, a>} is acceptable <--> 
+																				@t [ t in dom {<{ }, a>} --> t in ω ] &
+																				@t [ t in ran {<{ }, a>} --> t in A ] &
+																				0 in dom {<{ }, a>} --> {<{ }, a>}(0) = a &
+																				@n [ n in ω & n+ in dom {<{ }, a>} --> n in dom {<{ }, a>} & {<{ }, a>}(n+) = F({<{ }, a>}(n)) ]
+																		]		[166 UI/{<{ }, a>}]
+														
+														168. {<{ }, a>} is acceptable <--> 
+																		@t [ t in dom {<{ }, a>} --> t in ω ] &
+																		@t [ t in ran {<{ }, a>} --> t in A ] &
+																		0 in dom {<{ }, a>} --> {<{ }, a>}(0) = a &
+																		@n [ n in ω & n+ in dom {<{ }, a>} --> n in dom {<{ }, a>} & {<{ }, a>}(n+) = F({<{ }, a>}(n)) ]		[167 104 MP]
 
 
-									//. Show @a [ a in B_1 --> a+ in B_1 ]
+														169. Show @t [ t in dom {<{ }, a>} --> t in ω ]
+
+															170. let t be a set
+
+															171. Show t in dom {<{ }, a>} --> t in ω
+
+																172. t in dom {<{ }, a>}		[ACD]
+
+																173. @x [ x in dom {<{ }, a>} <--> 3y [ <x, y> in {<{ }, a>} ] ]		[1.D6]
+
+																174. t in dom {<{ }, a>} <--> 3y [ <t, y> in {<{ }, a>} ]			[173 UI/t]
+
+																175. 3y [ <t, y> in {<{ }, a>} ]		[174 BC 172 MP]
+
+																176. <t, y_2> in {<{ }, a>}		[175 EI/y_2]
+
+																177. @x [ x in {<{ }, a>} <--> x = <{ }, a> or x = <{ }, a> ]		[1.D5]
+
+																178. <t, y_2> in {<{ }, a>} <--> <t, y_2> = <{ }, a> or <t, y_2> = <{ }, a>		[177 UI/<t, y_2>]
+
+																179. <t, y_2> = <{ }, a> or <t, y_2> = <{ }, a>		[178 BC 176 MP]
+
+																180. <t, y_2> = <{ }, a>		[179 SIMPLIFY_OR]
+
+																181. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]		[Theorem 3A]
+
+																182. <t, y_2> = <{ }, a>  <-->  t = { } & y_2 = a		[181 UI/t, y_2, { }, a]
+
+																183. t = { } & y_2 = a		[182 BC 180 MP]
+
+																184. t = { }		[183 SL]
 
 
-				// we will first prove dom U(H_{F, A, a}) = ω
+																185. ω is inductive & @A [ A is inductive & A != ω --> @t [ t in ω --> t in A ] ]		[Theorem 4B]
+
+																186. ω is inductive		[185 SL]
+
+																187. @A [ A is inductive <--> { } in A & @a [ a in A --> a+ in A ] ]		[Def. of inductive]
+
+																188. ω is inductive <--> { } in ω & @a [ a in ω --> a+ in ω ]		[187 UI/ω]
+
+																189. { } in ω & @a [ a in ω --> a+ in ω ]		[188 BC 186 MP]
+
+																190. { } in ω		[189 SL]
+
+																191. t in ω		[190 184 LL]
+
+																192. 		[191 CD]
+														
+															193. 		[171 UD]
+														
+														194. Show @t [ t in ran {<{ }, a>} --> t in A ]
+
+															195. let t be a set
+
+															196. Show t in ran {<{ }, a>} --> t in A
+																
+																197. t in ran {<{ }, a>}		[ACD]
+
+																198. @y [ y in ran {<{ }, a>} <--> 3x [ <x, y> in {<{ }, a>} ] ]		[1.D7]
+
+																199. t in ran {<{ }, a>} <--> 3x [ <x, t> in {<{ }, a>} ]		[198 UI/t]
+
+																200. 3x [ <x, t> in {<{ }, a>} ]		[199 BC 197 MP]
+
+																201. <x_2, t> in {<{ }, a>}		[200 EI/x_2]
+
+																202. @x [ x in {<{ }, a>} <--> x = <{ }, a> or x = <{ }, a> ]		[1.D5]
+
+																203. <x_2, t> in {<{ }, a>} <--> <x_2, t> = <{ }, a> or <x_2, t> = <{ }, a>			[202 UI/<x_2, t>]
+
+																204. <x_2, t> = <{ }, a> or <x_2, t> = <{ }, a>		[203 BC 201 MP]
+
+																205. <x_2, t> = <{ }, a>		[204 SIMPLIFY_OR]
+
+																206. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]		[Theorem 3A]
+
+																207. <x_2, t> = <{ }, a>  <-->  x_2 = { } & t = a			[206 UI/x_2, t, { }, a]
+
+																208. x_2 = { } & t = a		[207 BC 205 MP]
+
+																209. t = a		[208 SR]
+
+																210. a in A		[4 SL]
+
+																211. t in A		[209 210 LL]
+
+																212.		[211 CD]
+															
+															213. 		[196 UD]
+														
+														214. Show 0 in dom {<{ }, a>} --> {<{ }, a>}(0) = a
+
+															215. 0 in dom {<{ }, a>}		[ACD]
+
+															216. Show {<{ }, a>}(0) = a
+
+																217. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]		[MARIN]
+
+																218. {<{ }, a>} is a function & 0 in dom {<{ }, a>} -->  @w [ <0, w> in {<{ }, a>} <--> {<{ }, a>}(0) = w ]		[217 UI/{<{ }, a>} UI/0]
+
+																219. {<{ }, a>} is a function & 0 in dom {<{ }, a>}			[104 215 ADJ]
+
+																220. @w [ <0, w> in {<{ }, a>} <--> {<{ }, a>}(0) = w ]			[218 219 MP]
+
+																221. <0, a> in {<{ }, a>} <--> {<{ }, a>}(0) = a		[220 UI/a]
+
+																222. Show <0, a> in {<{ }, a>}
+
+																	223. @x [ x in {<{ }, a>} <--> x = <{ }, a> or x = <{ }, a> ]			[1.D5]
+
+																	224. <0, a> in {<{ }, a>} <--> <0, a> = <{ }, a> or <0, a> = <{ }, a>			[223 UI/<0, a>]
+
+																	225. <{ }, a> = <{ }, a>		[SID]
+
+																	226. 0 := { }		[Def. of zero]
+
+																	227. <0, a> = <{ }, a>		[225 226 LL]
+
+																	228. <0, a> = <{ }, a> or <0, a> = <{ }, a>			[227 ADD/...]
+
+																	229. <0, a> in {<{ }, a>}		[224 BC 228 MP]
+
+																	230. 		[229 DD]
+																
+																231. {<{ }, a>}(0) = a		[221 BC 222 MP]
+
+																232. 		[231 DD]
+															
+															233. 		[216 CD]
+														
+														234. Show @n [ n in ω & n+ in dom {<{ }, a>} --> n in dom {<{ }, a>} & {<{ }, a>}(n+) = F({<{ }, a>}(n)) ]
+
+															235. let n be a set
+
+															////////
+															234.D1. @t [ t in {n} <--> t = n or t = n ]		[Pairing axiom UI/n UI/n & Ext. Axiom]
+															234.D2. @t [ t in n ∪ {n} <--> t in n or t in {n} ]		[Union axiom UI/n UI/{n} & Ext. Axiom]
+															////////
+
+															236. Show n in ω & n+ in dom {<{ }, a>} --> n in dom {<{ }, a>} & {<{ }, a>}(n+) = F({<{ }, a>}(n))
+
+																237. n in ω & n+ in dom {<{ }, a>}		[ACD]
+
+																238. n+ in dom {<{ }, a>}		[237 SR]
+
+																239. @x [ x in dom {<{ }, a>} <--> 3y [ <x, y> in {<{ }, a>} ] ]		[1.D6]
+
+																240. n+ in dom {<{ }, a>} <--> 3y [ <n+, y> in {<{ }, a>} ]		[239 UI/n+]
+
+																241. 3y [ <n+, y> in {<{ }, a>} ]		[240 BC 238 MP]
+
+																242. <n+, y_2> in {<{ }, a>}		[241 EI/y_2]
+
+																243. @x [ x in {<{ }, a>} <--> x = <{ }, a> or x = <{ }, a> ]		[1.D5]
+
+																244. <n+, y_2> in {<{ }, a>} <--> <n+, y_2> = <{ }, a> or <n+, y_2> = <{ }, a>		[243 UI/<n+, y_2>]
+
+																245. <n+, y_2> = <{ }, a> or <n+, y_2> = <{ }, a>		[244 BC 242 MP]
+
+																246. <n+, y_2> = <{ }, a>		[245 SIMPLIFY_OR]
+
+																247. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]			[Theorem 3A]
+
+																248. <n+, y_2> = <{ }, a>  <-->  n+ = { } & y_2 = a		[247 UI/n+, y_2, { }, a]
+
+																249. n+ = { } & y_2 = a		[248 BC 246 MP]
+
+																250. n+ = { }		[249 SL]
+
+																251. Show n+ != { }
+
+																	252. @a [ a+ := a ∪ {a} ]		[Def. of successor]
+
+																	253. n+ := n ∪ {n}		[252 UI/n]
+
+																	254. @t [ t in n ∪ {n} <--> t in n or t in {n} ]		[234.D2]
+
+																	255. n in n ∪ {n} <--> n in n or n in {n}		[254 UI/n]
+
+																	256. @t [ t in {n} <--> t = n or t = n ]		[234.D1]
+
+																	257. n in {n} <--> n = n or n = n		[256 UI/n]
+
+																	258. n = n		[SID]
+
+																	259. n = n or n = n		[258 ADD/...]
+
+																	260. n in {n}		[257 BC 259 MP]
+
+																	261. n in n or n in {n}		[260 ADD/...]
+
+																	262. n in n ∪ {n}		[255 BC 261 MP]
+
+																	263. n in n+		[262 253 LL]
+
+																	264. n in { }		[263 250 LL]
+
+																	265. @x [ ~(x in { }) ]		[1.D0]
+
+																	266. ~(n in { })		[265 UI/n]
+
+																	267. 		[264 266 ID]
+
+																268. 		[251 250 ID]
+															
+															269. 		[236 UD]
+														
+														270. @t [ t in dom {<{ }, a>} --> t in ω ] &
+																	@t [ t in ran {<{ }, a>} --> t in A ] &
+																	0 in dom {<{ }, a>} --> {<{ }, a>}(0) = a &
+																	@n [ n in ω & n+ in dom {<{ }, a>} --> n in dom {<{ }, a>} & {<{ }, a>}(n+) = F({<{ }, a>}(n)) ]		[169 194 214 234 ADJ]
+																
+														271. {<{ }, a>} is acceptable		[168 BC 270 MP]
+
+														272. 		[271 DD]
+													
+													273. {<{ }, a>} is a function & {<{ }, a>} is acceptable		[104 164 ADJ]
+
+													274. {<{ }, a>} in H_{F, A, a}		[103 BC 273 MP]
+
+													275. Show <{ }, a> in {<{ }, a>}		
+
+														276. @x [ x in {<{ }, a>} <--> x = <{ }, a> or x = <{ }, a> ]		[1.D5]
+
+														277. <{ }, a> in {<{ }, a>} <--> <{ }, a> = <{ }, a> or <{ }, a> = <{ }, a>		[276 UI/<{ }, a>]
+
+														278. <{ }, a> = <{ }, a>		[SID]
+
+														279. <{ }, a> = <{ }, a> or <{ }, a> = <{ }, a>		[278 ADD/...]
+
+														280. <{ }, a> in {<{ }, a>}		[277 BC 279 MP]
+
+														281.		[280 DD]
+													
+													282. {<{ }, a>} in H_{F, A, a} & <{ }, a> in {<{ }, a>}		[274 275 ADJ]
+
+													283. 3b [ b in H_{F, A, a} & <{ }, a> in b ]		[282 EG/{<{ }, a>}->b]
+
+													284. 		[283 DD]
+												
+												285. <{ }, a> in U(H_{F, A, a})		[100 BC 101 MP]
+
+												286. 3y [ <{ }, y> in U(H_{F, A, a}) ]		[285 EG/a->y]
+
+												287. 		[286 DD]
+											
+											288. { } in dom U(H_{F, A, a})		[97 BC 98 MP]
+
+											289. 		[288 DD]
+										
+										290. { } in ω & { } in dom U(H_{F, A, a})		[87 95 ADJ]
+
+										291. { } in B_1		[86 BC 290 MP]
+
+										292. 		[291 DD]
+									
+									293. Show @a [ a in B_1 --> a+ in B_1 ]
+
+
+				// we will first prove dom U(H_{F, A, a}) = ω, so that we can use induction to prove this:
 				//. Show @x [ x in dom U(H_{F, A, a}) --> 3_1y [ <x, y> in U(H_{F, A, a}) ] ]
 
 
