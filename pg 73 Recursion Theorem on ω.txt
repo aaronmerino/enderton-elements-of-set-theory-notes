@@ -385,6 +385,8 @@ Axioms, Definitions, and Theorems:
 	1.D6. @x [ x in dom {<{ }, a>} <--> 3y [ <x, y> in {<{ }, a>} ] ]		[dom UI/{<{ }, a>} & Ext. Axiom]
 
 	1.D7. @y [ y in ran {<{ }, a>} <--> 3x [ <x, y> in {<{ }, a>} ] ]		[ran UI/{<{ }, a>} & Ext. Axiom]
+
+	1.D8. @y [ y in ran F <--> 3x [ <x, y> in F ] ]		[ran UI/F & Ext. Axiom]
 	////////
 
 	3. Show a in A & F:A->A --> 3h [ h:ω->A & h(0) = a & @n [ n in ω --> h(n+) = F(h(n)) ] ]
@@ -1088,6 +1090,10 @@ Axioms, Definitions, and Theorems:
 											295.D3. @x [ x in dom (b_3 ∪ {<a+, F(b_3(a))>}) <--> 3y [ <x, y> in b_3 ∪ {<a+, F(b_3(a))>} ] ]		[dom UI/b_3 ∪ {<a+, F(b_3(a))>} & Ext. Axiom]
 
 											295.D4. @x [ x in dom b_3 <--> 3y [ <x, y> in b_3 ] ]		[dom UI/b_3 & Ext. Axiom]
+
+											295.D5. @y [ y in ran (b_3 ∪ {<a+, F(b_3(a))>}) <--> 3x [ <x, y> in (b_3 ∪ {<a+, F(b_3(a))>}) ] ]		[ran UI/b_3 ∪ {<a+, F(b_3(a))>} & Ext. Axiom]
+
+											295.D6. @y [ y in ran b_3 <--> 3x [ <x, y> in b_3 ] ]		[ran UI/b_3 & Ext. Axiom]
 											////////
 
 											310. b_3 in H_{F, A, a}		[309 SL]
@@ -1583,7 +1589,317 @@ Axioms, Definitions, and Theorems:
 															
 															537. Show b_3 ∪ {<a+, F(b_3(a))>} is acceptable
 
-																538. 
+																538. @F, A, a [
+																								@v [ v is a function --> 
+																											[ 
+																												v is acceptable <--> 
+																													@t [ t in dom v --> t in ω ] &
+																													@t [ t in ran v --> t in A ] &
+																													0 in dom v --> v(0) = a &
+																													@n [ n in ω & n+ in dom v --> n in dom v & v(n+) = F(v(n)) ]
+																											] 
+																										] 
+																							]			[Def. of acceptable]
+																
+																539. @v [ v is a function --> 
+																					[ 
+																						v is acceptable <--> 
+																							@t [ t in dom v --> t in ω ] &
+																							@t [ t in ran v --> t in A ] &
+																							0 in dom v --> v(0) = a &
+																							@n [ n in ω & n+ in dom v --> n in dom v & v(n+) = F(v(n)) ]
+																					] 
+																				] 		[538 UI/F, A, a]
+																
+																540. (b_3 ∪ {<a+, F(b_3(a))>}) is a function --> 
+																					[ 
+																						(b_3 ∪ {<a+, F(b_3(a))>}) is acceptable <--> 
+																							@t [ t in dom (b_3 ∪ {<a+, F(b_3(a))>}) --> t in ω ] &
+																							@t [ t in ran (b_3 ∪ {<a+, F(b_3(a))>}) --> t in A ] &
+																							0 in dom (b_3 ∪ {<a+, F(b_3(a))>}) --> (b_3 ∪ {<a+, F(b_3(a))>})(0) = a &
+																							@n [ n in ω & n+ in dom (b_3 ∪ {<a+, F(b_3(a))>}) --> n in dom (b_3 ∪ {<a+, F(b_3(a))>}) & (b_3 ∪ {<a+, F(b_3(a))>})(n+) = F((b_3 ∪ {<a+, F(b_3(a))>})(n)) ]
+																					] 		[540 UI/(b_3 ∪ {<a+, F(b_3(a))>})]
+																
+																541. (b_3 ∪ {<a+, F(b_3(a))>}) is acceptable <--> 
+																							@t [ t in dom (b_3 ∪ {<a+, F(b_3(a))>}) --> t in ω ] &
+																							@t [ t in ran (b_3 ∪ {<a+, F(b_3(a))>}) --> t in A ] &
+																							0 in dom (b_3 ∪ {<a+, F(b_3(a))>}) --> (b_3 ∪ {<a+, F(b_3(a))>})(0) = a &
+																							@n [ n in ω & n+ in dom (b_3 ∪ {<a+, F(b_3(a))>}) --> n in dom (b_3 ∪ {<a+, F(b_3(a))>}) & (b_3 ∪ {<a+, F(b_3(a))>})(n+) = F((b_3 ∪ {<a+, F(b_3(a))>})(n)) ]		[540 344 MP]
+																
+																542. Show @t [ t in dom (b_3 ∪ {<a+, F(b_3(a))>}) --> t in ω ]
+
+																	543. let t be a set
+
+																	544. Show t in dom (b_3 ∪ {<a+, F(b_3(a))>}) --> t in ω
+
+																		545. t in dom (b_3 ∪ {<a+, F(b_3(a))>})		[ACD]
+
+																		546. @x [ x in dom (b_3 ∪ {<a+, F(b_3(a))>}) <--> 3y [ <x, y> in b_3 ∪ {<a+, F(b_3(a))>} ] ]		[295.D3]
+
+																		547. t in dom (b_3 ∪ {<a+, F(b_3(a))>}) <--> 3y [ <t, y> in b_3 ∪ {<a+, F(b_3(a))>} ]			[546 UI/t]
+
+																		548. 3y [ <t, y> in b_3 ∪ {<a+, F(b_3(a))>} ]			[547 BC 545 MP]
+
+																		549. <t, y_4> in b_3 ∪ {<a+, F(b_3(a))>}		[548 EI/y_4]
+
+																		550. @x [ x in b_3 ∪ {<a+, F(b_3(a))>} <--> x in b_3 or x in {<a+, F(b_3(a))>} ]		[295.D2]
+
+																		551. <t, y_4> in b_3 ∪ {<a+, F(b_3(a))>} <--> <t, y_4> in b_3 or <t, y_4> in {<a+, F(b_3(a))>}		[550 UI/<t, y_4>]
+
+																		552. <t, y_4> in b_3 or <t, y_4> in {<a+, F(b_3(a))>}		[551 BC 549 MP]
+
+																		553. Show <t, y_4> in b_3 --> t in ω		[CASE 1 for line 552]
+
+																			554. <t, y_4> in b_3		[ACD]
+
+																			555. @t [ t in dom b_3 --> t in ω ]		[320 SL SL SL]
+
+																			556. t in dom b_3 --> t in ω		[555 UI/t]
+
+																			557. @x [ x in dom b_3 <--> 3y [ <x, y> in b_3 ] ]		[295.D4]
+
+																			558. t in dom b_3 <--> 3y [ <t, y> in b_3 ]			[557 UI/t]
+
+																			559. 3y [ <t, y> in b_3 ]		[554 EG/y_4->y]
+
+																			560. t in dom b_3		[558 BC 559 MP]
+
+																			561. t in ω		[556 560 MP]
+
+																			562. 		[561 CD]
+
+																		563. Show <t, y_4> in {<a+, F(b_3(a))>} --> t in ω		[CASE 2 for line 552]
+
+																			564. <t, y_4> in {<a+, F(b_3(a))>}		[ACD]
+
+																			565. @x [ x in {<a+, F(b_3(a))>} <--> x = <a+, F(b_3(a))> or x = <a+, F(b_3(a))>]		[295.D1]
+
+																			566. <t, y_4> in {<a+, F(b_3(a))>} <--> <t, y_4> = <a+, F(b_3(a))> or <t, y_4> = <a+, F(b_3(a))>		[565 UI/<t, y_4>]
+
+																			567. <t, y_4> = <a+, F(b_3(a))> or <t, y_4> = <a+, F(b_3(a))>		[566 BC 564 MP]
+
+																			568. <t, y_4> = <a+, F(b_3(a))>		[567 SIMPLIFY_OR]
+
+																			569. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]		[Theorem 3A]
+
+																			570. <t, y_4> = <a+, F(b_3(a))>  <-->  t = a+ & y_4 = F(b_3(a))		[569 UI/t, y_4, a+, F(b_3(a))]
+
+																			571. t = a+ & y_4 = F(b_3(a))		[570 BC 568 MP]
+
+																			572. t = a+		[571 SL]
+
+																			573. ω is inductive & @A [ A is inductive & A != ω --> @t [ t in ω --> t in A ] ]		[Theorem 4B]
+
+																			574. ω is inductive		[573 SL]
+
+																			575. @A [ A is inductive <--> { } in A & @a [ a in A --> a+ in A ] ]		[Def. of inductive]
+
+																			576. ω is inductive <--> { } in ω & @a [ a in ω --> a+ in ω ]		[575 UI/ω]
+
+																			577. { } in ω & @a [ a in ω --> a+ in ω ]		[576 BC 574 MP]
+
+																			578. @a [ a in ω --> a+ in ω ]		[577 SR]
+
+																			579. a in ω --> a+ in ω		[578 UI/a]
+
+																			580. a in ω		[300 R]
+
+																			581. a+ in ω		[579 580 MP]
+
+																			582. t in ω			[581 572 LL]
+
+																			583. 		[582 CD]
+																		
+																		584. <t, y_4> in b_3 or <t, y_4> in {<a+, F(b_3(a))>} --> t in ω		[553 563 CASE_PROOF for line 552]
+
+																		585. t in ω		[584 552 MP]
+
+																		586. 		[585 CD]
+																	
+																	587. 		[544 UD]
+
+
+																588. Show @t [ t in ran (b_3 ∪ {<a+, F(b_3(a))>}) --> t in A ]
+
+																	589. let t be a set
+
+																	590. Show t in ran (b_3 ∪ {<a+, F(b_3(a))>}) --> t in A
+
+																		591. t in ran (b_3 ∪ {<a+, F(b_3(a))>})		[ACD]
+
+																		592. @y [ y in ran (b_3 ∪ {<a+, F(b_3(a))>}) <--> 3x [ <x, y> in (b_3 ∪ {<a+, F(b_3(a))>}) ] ]		[295.D5]
+
+																		593. t in ran (b_3 ∪ {<a+, F(b_3(a))>}) <--> 3x [ <x, t> in (b_3 ∪ {<a+, F(b_3(a))>}) ]		[592 UI/t]
+
+																		594. 3x [ <x, t> in (b_3 ∪ {<a+, F(b_3(a))>}) ]		[593 BC 591 MP]
+
+																		595. <x_4, t> in (b_3 ∪ {<a+, F(b_3(a))>})		[594 EI/x_4]
+
+																		596. @x [ x in b_3 ∪ {<a+, F(b_3(a))>} <--> x in b_3 or x in {<a+, F(b_3(a))>} ]		[295.D2]
+
+																		597. <x_4, t> in b_3 ∪ {<a+, F(b_3(a))>} <--> <x_4, t> in b_3 or <x_4, t> in {<a+, F(b_3(a))>}		[596 UI/<x_4, t>]
+
+																		598. <x_4, t> in b_3 or <x_4, t> in {<a+, F(b_3(a))>}		[597 BC 595 MP]
+
+																		599. Show <x_4, t> in b_3 --> t in A		[CASE 1 for line 598]
+
+																			600. <x_4, t> in b_3		[ACD]
+
+																			601. @t [ t in ran b_3 --> t in A ]		[320 SL SL SR]
+
+																			602. t in ran b_3 --> t in A		[601 UI/t]
+
+																			603. @y [ y in ran b_3 <--> 3x [ <x, y> in b_3 ] ]		[295.D6]
+
+																			604. t in ran b_3 <--> 3x [ <x, t> in b_3 ]		[603 UI/t]
+
+																			605. 3x [ <x, t> in b_3 ]		[600 EG/x_4->x]
+
+																			606. t in ran b_3		[604 BC 605 MP]
+
+																			607. t in A		[602 606 MP]
+
+																			608.		[607 CD]
+																		
+																		609. Show <x_4, t> in {<a+, F(b_3(a))>} --> t in A		[CASE 2 for line 598]
+
+																			610. <x_4, t> in {<a+, F(b_3(a))>}		[ACD]
+
+																			611. @x [ x in {<a+, F(b_3(a))>} <--> x = <a+, F(b_3(a))> or x = <a+, F(b_3(a))>]		[295.D1]
+
+																			612. <x_4, t> in {<a+, F(b_3(a))>} <--> <x_4, t> = <a+, F(b_3(a))> or <x_4, t> = <a+, F(b_3(a))>		[611 UI/<x_4, t>]
+
+																			613. <x_4, t> = <a+, F(b_3(a))> or <x_4, t> = <a+, F(b_3(a))>		[612 BC 610 MP]
+
+																			614. <x_4, t> = <a+, F(b_3(a))>		[613 SIMPLIFY_OR]
+
+																			615. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]		[Theorem 3A]
+
+																			616. <x_4, t> = <a+, F(b_3(a))>  <-->  x_4 = a+ & t = F(b_3(a))			[615 UI/x_4, t, a+, F(b_3(a))]
+
+																			617. x_4 = a+ & t = F(b_3(a))		[616 BC 614 MP]
+
+																			618. t = F(b_3(a))		[617 SR]
+
+																			619. F:A->A		[4 SR]
+
+																			620. @F, A, B [ F:A->B <--> 
+																								F is a function &
+																								dom F = A &
+																								ran F ⊆ B 
+																							]		[Def. of into]
+
+																			621. F:A->A <--> 
+																								F is a function &
+																								dom F = A &
+																								ran F ⊆ A 		[620 UI/F, A, A]
+																			
+																			622. F is a function &
+																								dom F = A &
+																								ran F ⊆ A		[621 BC 619 MP]
+
+																			623. F is a function		[622 SL SL]
+
+																			624. ran F ⊆ A		[622 SR]
+
+
+																			625. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]		[MARIN]
+
+																			626. F is a function & b_3(a) in dom F -->  @w [ <b_3(a), w> in F <--> F(b_3(a)) = w ]		[625 UI/F UI/b_3(a)]
+
+																			627. Show b_3(a) in dom F
+
+																				628. @t [ t in ran b_3 --> t in A ]		[320 SL SL SR]
+
+																				629. b_3(a) in ran b_3 --> b_3(a) in A		[628 UI/b_3(a)]
+
+																				630. b_3 is a function		[315 R]
+
+																				631. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]		[MARIN]
+
+																				632. b_3 is a function & a in dom b_3 -->  @w [ <a, w> in b_3 <--> b_3(a) = w ]		[631 UI/b_3 UI/a]
+
+																				633. <a, y_2> in b_3		[311 R]
+
+																				634. @x [ x in dom b_3 <--> 3y [ <x, y> in b_3 ] ]		[295.D4]
+
+																				635. a in dom b_3 <--> 3y [ <a, y> in b_3 ]		[634 UI/a]
+
+																				636. 3y [ <a, y> in b_3 ]		[633 EG/y_2->y]
+
+																				637. a in dom b_3		[635 BC 636 MP]
+
+																				638. b_3 is a function & a in dom b_3		[630 637 ADJ]
+
+																				639. @w [ <a, w> in b_3 <--> b_3(a) = w ]		[632 638 MP]
+
+																				640. <a, b_3(a)> in b_3 <--> b_3(a) = b_3(a)		[639 UI/b_3(a)]
+
+																				641. b_3(a) = b_3(a)		[SID]
+
+																				642. <a, b_3(a)> in b_3		[640 BC 641 MP]
+
+																				643. @y [ y in ran b_3 <--> 3x [ <x, y> in b_3 ] ]		[295.D6]
+
+																				644. b_3(a) in ran b_3 <--> 3x [ <x, b_3(a)> in b_3 ]			[643 UI/b_3(a)]
+
+																				645. 3x [ <x, b_3(a)> in b_3 ]		[642 EG/a->x]
+
+																				646. b_3(a) in ran b_3		[644 BC 645 MP]
+
+																				647. b_3(a) in A		[629 646 MP]
+
+																				648. dom F = A		[622 SL SR]
+
+																				649. b_3(a) in dom F		[647 648 LL]
+
+																				650. 		[649 DD]
+																			
+																			651. F is a function & b_3(a) in dom F		[623 627 ADJ]
+
+																			652. @w [ <b_3(a), w> in F <--> F(b_3(a)) = w ]		[626 651 MP]
+
+																			653. <b_3(a), F(b_3(a))> in F <--> F(b_3(a)) = F(b_3(a))		[652 UI/F(b_3(a))]
+
+																			654. F(b_3(a)) = F(b_3(a))		[SID]
+
+																			655. <b_3(a), F(b_3(a))> in F		[653 BC 654 MP]
+
+																			656. @y [ y in ran F <--> 3x [ <x, y> in F ] ]		[1.D8]
+
+																			657. F(b_3(a)) in ran F <--> 3x [ <x, F(b_3(a))> in F ]		[656 UI/F(b_3(a))]
+
+																			658. 3x [ <x, F(b_3(a))> in F ]		[655 EG/b_3(a) -> x]
+
+																			659. F(b_3(a)) in ran F		[657 BC 658 MP]
+
+																			660. ran F ⊆ A		[624 R]
+
+																			661. @t [ t in ran F --> t in A ]			[660 EQUIV.]
+
+																			662. F(b_3(a)) in ran F --> F(b_3(a)) in A		[661 UI/F(b_3(a))]
+
+																			663. F(b_3(a)) in A		[662 659 MP]
+
+																			664. t = F(b_3(a))		[618 R]
+
+																			665. t in A		[663 664 LL]
+
+																			666. 		[665 CD]
+
+																		667. <x_4, t> in b_3 or <x_4, t> in {<a+, F(b_3(a))>} --> t in A		[599 609 CASE_PROOF for line 598]
+
+																		668. t in A		[667 598 MP]
+
+																		669. 		[668 CD]
+																	
+																	670. 		[590 UD]
+																
+																671. Show 0 in dom (b_3 ∪ {<a+, F(b_3(a))>}) --> (b_3 ∪ {<a+, F(b_3(a))>})(0) = a
+
+																	672. 
+
+																///. Show @n [ n in ω & n+ in dom (b_3 ∪ {<a+, F(b_3(a))>}) --> n in dom (b_3 ∪ {<a+, F(b_3(a))>}) & (b_3 ∪ {<a+, F(b_3(a))>})(n+) = F((b_3 ∪ {<a+, F(b_3(a))>})(n)) ]
 
 
 				// we will first prove dom U(H_{F, A, a}) = ω, so that we can use induction to prove this:
