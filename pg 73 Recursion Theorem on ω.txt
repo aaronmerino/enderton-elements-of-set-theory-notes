@@ -2214,12 +2214,141 @@ Axioms, Definitions, and Theorems:
 
 																					819. <n+, (b_3 ∪ {<a+, F(b_3(a))>})(n+)> in b_3 <--> b_3(n+) = (b_3 ∪ {<a+, F(b_3(a))>})(n+)		[818 UI/(b_3 ∪ {<a+, F(b_3(a))>})(n+)]
 
-																					820. b_3(n+) = (b_3 ∪ {<a+, F(b_3(a))>})(n+)		[819 BC 806 MP]
+																					*820. b_3(n+) = (b_3 ∪ {<a+, F(b_3(a))>})(n+)		[819 BC 806 MP]
 
 
+																					821. @n [ n in ω & n+ in dom b_3 --> n in dom b_3 & b_3(n+) = F(b_3(n)) ]			[320 SR]
+
+																					822. n in ω & n+ in dom b_3 --> n in dom b_3 & b_3(n+) = F(b_3(n))		[821 UI/n]
+
+																					823. n in ω			[742 R]
+
+																					824. n+ in dom b_3		[810 R]
+
+																					825. n in ω & n+ in dom b_3		[823 824 ADJ]
+
+																					826. n in dom b_3 & b_3(n+) = F(b_3(n))			[825 822 MP]
+
+																					827. n in dom b_3		[826 SL]
+
+																					*828. b_3(n+) = F(b_3(n))		[826 SR]
 
 
-																				///. Show n+ = a+ --> (b_3 ∪ {<a+, F(b_3(a))>})(n+) = F((b_3 ∪ {<a+, F(b_3(a))>})(n))			[CASE 2 for line 779]
+																					829. (b_3 ∪ {<a+, F(b_3(a))>})(n+) = F(b_3(n))			[820 828 LL]
+
+
+																					/// Now we show F((b_3 ∪ {<a+, F(b_3(a))>})(n)) = F(b_3(n))
+
+																					830. n in dom (b_3 ∪ {<a+, F(b_3(a))>})			[753 R]
+
+																					831. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]		[MARIN]
+
+																					832. (b_3 ∪ {<a+, F(b_3(a))>}) is a function & n in dom (b_3 ∪ {<a+, F(b_3(a))>}) -->  @w [ <n, w> in (b_3 ∪ {<a+, F(b_3(a))>}) <--> (b_3 ∪ {<a+, F(b_3(a))>})(n) = w ]			[831 UI/(b_3 ∪ {<a+, F(b_3(a))>}) UI/n]
+
+																					833. b_3 ∪ {<a+, F(b_3(a))>} is a function		[344 R]
+
+																					834. (b_3 ∪ {<a+, F(b_3(a))>}) is a function & n in dom (b_3 ∪ {<a+, F(b_3(a))>})			[833 830 ADJ]
+
+																					835. @w [ <n, w> in (b_3 ∪ {<a+, F(b_3(a))>}) <--> (b_3 ∪ {<a+, F(b_3(a))>})(n) = w ]			[832 834 MP]
+
+																					836. <n, (b_3 ∪ {<a+, F(b_3(a))>})(n)> in (b_3 ∪ {<a+, F(b_3(a))>}) <--> (b_3 ∪ {<a+, F(b_3(a))>})(n) = (b_3 ∪ {<a+, F(b_3(a))>})(n)		[835 UI/(b_3 ∪ {<a+, F(b_3(a))>})(n)]
+
+																					837. (b_3 ∪ {<a+, F(b_3(a))>})(n) = (b_3 ∪ {<a+, F(b_3(a))>})(n)			[SID]
+
+																					838. <n, (b_3 ∪ {<a+, F(b_3(a))>})(n)> in (b_3 ∪ {<a+, F(b_3(a))>})			[836 BC 837 MP]
+
+																					839. @x [ x in b_3 ∪ {<a+, F(b_3(a))>} <--> x in b_3 or x in {<a+, F(b_3(a))>} ]		[295.D2]
+
+																					840. <n, (b_3 ∪ {<a+, F(b_3(a))>})(n)> in b_3 ∪ {<a+, F(b_3(a))>} <--> <n, (b_3 ∪ {<a+, F(b_3(a))>})(n)> in b_3 or <n, (b_3 ∪ {<a+, F(b_3(a))>})(n)> in {<a+, F(b_3(a))>}		[839 UI/<n, (b_3 ∪ {<a+, F(b_3(a))>})(n)>]
+
+																					841. <n, (b_3 ∪ {<a+, F(b_3(a))>})(n)> in b_3 or <n, (b_3 ∪ {<a+, F(b_3(a))>})(n)> in {<a+, F(b_3(a))>}			[840 BC 838 MP]
+
+																					842. Show <n, (b_3 ∪ {<a+, F(b_3(a))>})(n)> in b_3 --> F((b_3 ∪ {<a+, F(b_3(a))>})(n)) = F(b_3(n))		[CASE 1 for line 841]
+
+																						843. <n, (b_3 ∪ {<a+, F(b_3(a))>})(n)> in b_3		[ACD]
+
+																						844. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]		[MARIN]
+
+																						845. b_3 is a function & n in dom b_3 -->  @w [ <n, w> in b_3 <--> b_3(n) = w ]		[844 UI/b_3 UI/n]
+
+																						846. b_3 is a function		[315 R]
+
+																						847. b_3 is a function & n in dom b_3			[846 827 ADJ]
+																						
+																						848. @w [ <n, w> in b_3 <--> b_3(n) = w ]		[845 847 MP]
+
+																						849. <n, (b_3 ∪ {<a+, F(b_3(a))>})(n)> in b_3 <--> b_3(n) = (b_3 ∪ {<a+, F(b_3(a))>})(n)			[848 UI/(b_3 ∪ {<a+, F(b_3(a))>})(n)]
+
+																						850. b_3(n) = (b_3 ∪ {<a+, F(b_3(a))>})(n)		[849 BC 843 MP]
+
+
+																						851. F((b_3 ∪ {<a+, F(b_3(a))>})(n)) = F((b_3 ∪ {<a+, F(b_3(a))>})(n))		[SID]
+
+																						852. F((b_3 ∪ {<a+, F(b_3(a))>})(n)) = F(b_3(n))		[851 850 LL]
+
+																						853.		[852 CD]
+																					
+																					854. Show <n, (b_3 ∪ {<a+, F(b_3(a))>})(n)> in {<a+, F(b_3(a))>} --> F((b_3 ∪ {<a+, F(b_3(a))>})(n)) = F(b_3(n))		[CASE 2 for line 841]
+
+																						855. <n, (b_3 ∪ {<a+, F(b_3(a))>})(n)> in {<a+, F(b_3(a))>}		[ACD]
+
+																						856. @x [ x in {<a+, F(b_3(a))>} <--> x = <a+, F(b_3(a))> or x = <a+, F(b_3(a))>]		[295.D1]
+
+																						857. <n, (b_3 ∪ {<a+, F(b_3(a))>})(n)> in {<a+, F(b_3(a))>} <--> <n, (b_3 ∪ {<a+, F(b_3(a))>})(n)> = <a+, F(b_3(a))> or <n, (b_3 ∪ {<a+, F(b_3(a))>})(n)> = <a+, F(b_3(a))>			[856 UI/<n, (b_3 ∪ {<a+, F(b_3(a))>})(n)>]
+
+																						858. <n, (b_3 ∪ {<a+, F(b_3(a))>})(n)> = <a+, F(b_3(a))> or <n, (b_3 ∪ {<a+, F(b_3(a))>})(n)> = <a+, F(b_3(a))>		[857 BC 855 MP]
+
+																						859. <n, (b_3 ∪ {<a+, F(b_3(a))>})(n)> = <a+, F(b_3(a))>		[858 SIMPLIFY_OR]
+
+																						860. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]			[Theorem 3A]
+
+																						861. <n, (b_3 ∪ {<a+, F(b_3(a))>})(n)> = <a+, F(b_3(a))>  <-->  n = a+ & (b_3 ∪ {<a+, F(b_3(a))>})(n) = F(b_3(a))		[860 UI/n, (b_3 ∪ {<a+, F(b_3(a))>})(n), a+, F(b_3(a))]
+
+																						862. n = a+ & (b_3 ∪ {<a+, F(b_3(a))>})(n) = F(b_3(a))			[861 BC 859 MP]
+
+																						863. n = a+		[862 SL]
+
+																						864. (b_3 ∪ {<a+, F(b_3(a))>})(n) = F(b_3(a))		[862 SR]
+
+
+																						865. @n [ n in ω & n+ in dom b_3 --> n in dom b_3 & b_3(n+) = F(b_3(n)) ]		[320 SR]
+
+																						866. a in ω & a+ in dom b_3 --> a in dom b_3 & b_3(a+) = F(b_3(a))			[865 UI/a]
+
+																						867. a in ω		[300 R]
+
+																						868. n in dom b_3		[827 R]
+
+																						869. a+ in dom b_3		[868 863 LL]
+
+																						870. a in ω & a+ in dom b_3		[867 869 ADJ]
+
+																						871. a in dom b_3 & b_3(a+) = F(b_3(a))			[866 870 MP]
+
+																						872. b_3(a+) = F(b_3(a))		[871 SR]
+
+																						873. b_3(n) = F(b_3(a))			[872 863 LL]
+
+																						874. (b_3 ∪ {<a+, F(b_3(a))>})(n) = b_3(n)		[864 873 LL]
+
+
+																						875. F((b_3 ∪ {<a+, F(b_3(a))>})(n)) = F((b_3 ∪ {<a+, F(b_3(a))>})(n))			[SID]
+
+																						876. F((b_3 ∪ {<a+, F(b_3(a))>})(n)) = F(b_3(n))		[875 874 LL]
+
+																						877. 		[876 CD]
+																					
+																					878. <n, (b_3 ∪ {<a+, F(b_3(a))>})(n)> in b_3 or <n, (b_3 ∪ {<a+, F(b_3(a))>})(n)> in {<a+, F(b_3(a))>} --> F((b_3 ∪ {<a+, F(b_3(a))>})(n)) = F(b_3(n))			[842 854 CASE_PROOF for line 841]
+
+																					879. F((b_3 ∪ {<a+, F(b_3(a))>})(n)) = F(b_3(n))		[878 841 MP]
+
+																					880. (b_3 ∪ {<a+, F(b_3(a))>})(n+) = F(b_3(n))		[829 R]
+
+																					881. (b_3 ∪ {<a+, F(b_3(a))>})(n+) = F((b_3 ∪ {<a+, F(b_3(a))>})(n))		[880 879 LL]
+
+																					882. 		[881 CD]
+
+																				883. Show n+ = a+ --> (b_3 ∪ {<a+, F(b_3(a))>})(n+) = F((b_3 ∪ {<a+, F(b_3(a))>})(n))			[CASE 2 for line 779]
 																					/// use one-to-one property of {}+
 
 																					///. n+ = a+		[ACD]
