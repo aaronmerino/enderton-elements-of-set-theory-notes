@@ -125,10 +125,18 @@ Axioms, Definitions, and Theorems:
 		@n [ n is a natural number & n != { } --> 3k [ k is a natural number & k+ = n ] ]
 
 	Definition of Closed Under:
-		@S, A [ S is a function & A ⊆ dom S --> [ A is closed under S <--> @x [ x in A --> S(x) in A ] ] ]
+		@SL, A [ SL is a function & A ⊆ dom SL --> [ A is closed under SL <--> @x [ x in A --> SL(x) in A ] ] ]
 
 	Pg 70 closed under notes (this will help with definition of Peano System):
-		@N, S [ S: N->N --> N is closed under S ]
+		@N, SL [ SL: N->N --> N is closed under SL ]
+
+
+	LEMMA daydream from Theorem 4D:
+		@n [ n in ω --> ~(n in n) ]
+
+	LEMMA isa from Theorem 4D:
+		@n, k [ n, k in ω --> (n+ = k+ --> n = k) ]
+
 
   Definition of acceptable:
     @F, A, a [
@@ -2044,7 +2052,185 @@ Axioms, Definitions, and Theorems:
 
 																		741. n in ω & n+ in dom (b_3 ∪ {<a+, F(b_3(a))>})		[ACD]
 
-																		742. 
+																		742. n in ω		[741 SL]
+
+																		743. n+ in dom (b_3 ∪ {<a+, F(b_3(a))>})		[741 SR]
+
+																		744. @x [ x in dom (b_3 ∪ {<a+, F(b_3(a))>}) <--> 3y [ <x, y> in b_3 ∪ {<a+, F(b_3(a))>} ] ]		[285.D3]
+
+																		745. n+ in dom (b_3 ∪ {<a+, F(b_3(a))>}) <--> 3y [ <n+, y> in b_3 ∪ {<a+, F(b_3(a))>} ]			[744 UI/n+]
+
+																		746. 3y [ <n+, y> in b_3 ∪ {<a+, F(b_3(a))>} ]			[745 BC 743 MP]
+
+																		747. <n+, y_4> in b_3 ∪ {<a+, F(b_3(a))>}			[746 EI/y_4]
+
+																		748. @x [ x in b_3 ∪ {<a+, F(b_3(a))>} <--> x in b_3 or x in {<a+, F(b_3(a))>} ]		[295.D2]
+
+																		749. <n+, y_4> in b_3 ∪ {<a+, F(b_3(a))>} <--> <n+, y_4> in b_3 or <n+, y_4> in {<a+, F(b_3(a))>}		[748 UI/<n+, y_4>]
+
+																		750. <n+, y_4> in b_3 or <n+, y_4> in {<a+, F(b_3(a))>}		[749 BC 747 MP]
+
+																		751. Show <n+, y_4> in b_3 --> n in dom (b_3 ∪ {<a+, F(b_3(a))>}) & (b_3 ∪ {<a+, F(b_3(a))>})(n+) = F((b_3 ∪ {<a+, F(b_3(a))>})(n))		[CASE 1 for line 750]
+
+																			752. <n+, y_4> in b_3		[ACD]
+
+																			753. Show n in dom (b_3 ∪ {<a+, F(b_3(a))>})
+
+																				754. @n [ n in ω & n+ in dom b_3 --> n in dom b_3 & b_3(n+) = F(b_3(n)) ]		[320 SR]
+
+																				755. n in ω & n+ in dom b_3 --> n in dom b_3 & b_3(n+) = F(b_3(n))		[754 UI/n]
+
+																				756. @x [ x in dom b_3 <--> 3y [ <x, y> in b_3 ] ]		[295.D4]
+
+																				757. n+ in dom b_3 <--> 3y [ <n+, y> in b_3 ]			[756 UI/n+]
+
+																				758. 3y [ <n+, y> in b_3 ]		[752 EG/y_4->y]
+
+																				759. n+ in dom b_3			[757 BC 758 MP]
+
+																				760. n in ω & n+ in dom b_3			[742 759 ADJ]
+
+																				761. n in dom b_3 & b_3(n+) = F(b_3(n))			[755 760 MP]
+
+																				762. n in dom b_3		[761 SL]
+
+
+																				763. @x [ x in dom (b_3 ∪ {<a+, F(b_3(a))>}) <--> 3y [ <x, y> in b_3 ∪ {<a+, F(b_3(a))>} ] ]		[295.D3]
+
+																				764. n in dom (b_3 ∪ {<a+, F(b_3(a))>}) <--> 3y [ <n, y> in b_3 ∪ {<a+, F(b_3(a))>} ]			[763 UI/n]
+
+																				765. Show 3y [ <n, y> in b_3 ∪ {<a+, F(b_3(a))>} ]
+
+																					766. @x [ x in dom b_3 <--> 3y [ <x, y> in b_3 ] ]		[295.D4]
+
+																					767. n in dom b_3 <--> 3y [ <n, y> in b_3 ]			[766 UI/n]
+
+																					768. 3y [ <n, y> in b_3 ]		[767 BC 762 MP]
+
+																					769. <n, y_5> in b_3		[768 EI/y_5]
+
+
+																					770. @x [ x in b_3 ∪ {<a+, F(b_3(a))>} <--> x in b_3 or x in {<a+, F(b_3(a))>} ]		[295.D2]
+
+																					771. <n, y_5> in b_3 ∪ {<a+, F(b_3(a))>} <--> <n, y_5> in b_3 or <n, y_5> in {<a+, F(b_3(a))>}			[770 UI/<n, y_5>]
+
+																					772. <n, y_5> in b_3 or <n, y_5> in {<a+, F(b_3(a))>}			[769 ADD/...]
+
+																					773. <n, y_5> in b_3 ∪ {<a+, F(b_3(a))>}			[771 BC 772 MP]
+
+																					774. 3y [ <n, y> in b_3 ∪ {<a+, F(b_3(a))>} ]			[773 EG/y_5->y]
+
+																					775. 		[774 DD]
+																				
+																				776. n in dom (b_3 ∪ {<a+, F(b_3(a))>})			[764 BC 765 MP]
+
+																				777. 		[776 DD]
+																			
+
+																			778. Show (b_3 ∪ {<a+, F(b_3(a))>})(n+) = F((b_3 ∪ {<a+, F(b_3(a))>})(n))
+
+																				779. n+ = a+ or n+ != a+		[TAUTOLOGY]
+
+																				780. Show n+ != a+ --> (b_3 ∪ {<a+, F(b_3(a))>})(n+) = F((b_3 ∪ {<a+, F(b_3(a))>})(n))			[CASE 1 for line 779]
+																					
+																					///. use the fact that {}+ is a function, so n != a
+
+																					781. n+ != a+		[ACD]
+
+																					782. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]		[MARIN]
+
+																					783. (b_3 ∪ {<a+, F(b_3(a))>}) is a function & n+ in dom (b_3 ∪ {<a+, F(b_3(a))>}) -->  @w [ <n+, w> in (b_3 ∪ {<a+, F(b_3(a))>}) <--> (b_3 ∪ {<a+, F(b_3(a))>})(n+) = w ]		[782 UI/(b_3 ∪ {<a+, F(b_3(a))>}) UI/n+]
+
+																					784. b_3 ∪ {<a+, F(b_3(a))>} is a function		[344 R]
+
+																					785. n+ in dom (b_3 ∪ {<a+, F(b_3(a))>})		[743 R]
+
+																					786. (b_3 ∪ {<a+, F(b_3(a))>}) is a function & n+ in dom (b_3 ∪ {<a+, F(b_3(a))>})		[784 785 ADJ]
+
+																					787. @w [ <n+, w> in (b_3 ∪ {<a+, F(b_3(a))>}) <--> (b_3 ∪ {<a+, F(b_3(a))>})(n+) = w ]			[783 786 MP]
+
+																					788. <n+, (b_3 ∪ {<a+, F(b_3(a))>})(n+)> in (b_3 ∪ {<a+, F(b_3(a))>}) <--> (b_3 ∪ {<a+, F(b_3(a))>})(n+) = (b_3 ∪ {<a+, F(b_3(a))>})(n+)		[787 UI/(b_3 ∪ {<a+, F(b_3(a))>})(n+)]
+																				
+																					789. (b_3 ∪ {<a+, F(b_3(a))>})(n+) = (b_3 ∪ {<a+, F(b_3(a))>})(n+)		[SID]
+
+																					790. <n+, (b_3 ∪ {<a+, F(b_3(a))>})(n+)> in (b_3 ∪ {<a+, F(b_3(a))>})		[788 BC 789 MP]
+
+																					791. @x [ x in b_3 ∪ {<a+, F(b_3(a))>} <--> x in b_3 or x in {<a+, F(b_3(a))>} ]		[295.D2]
+
+																					792. <n+, (b_3 ∪ {<a+, F(b_3(a))>})(n+)> in b_3 ∪ {<a+, F(b_3(a))>} <--> <n+, (b_3 ∪ {<a+, F(b_3(a))>})(n+)> in b_3 or <n+, (b_3 ∪ {<a+, F(b_3(a))>})(n+)> in {<a+, F(b_3(a))>}			[791 UI/<n+, (b_3 ∪ {<a+, F(b_3(a))>})(n+)>]
+
+																					793. <n+, (b_3 ∪ {<a+, F(b_3(a))>})(n+)> in b_3 or <n+, (b_3 ∪ {<a+, F(b_3(a))>})(n+)> in {<a+, F(b_3(a))>}			[792 BC 790 MP]
+
+																					794. Show ~(<n+, (b_3 ∪ {<a+, F(b_3(a))>})(n+)> in {<a+, F(b_3(a))>})
+
+																						795. <n+, (b_3 ∪ {<a+, F(b_3(a))>})(n+)> in {<a+, F(b_3(a))>}			[AID]
+
+																						796. @x [ x in {<a+, F(b_3(a))>} <--> x = <a+, F(b_3(a))> or x = <a+, F(b_3(a))>]		[295.D1]
+
+																						797. <n+, (b_3 ∪ {<a+, F(b_3(a))>})(n+)> in {<a+, F(b_3(a))>} <--> <n+, (b_3 ∪ {<a+, F(b_3(a))>})(n+)> = <a+, F(b_3(a))> or <n+, (b_3 ∪ {<a+, F(b_3(a))>})(n+)> = <a+, F(b_3(a))>			[796 UI/<n+, (b_3 ∪ {<a+, F(b_3(a))>})(n+)>]
+
+																						798. <n+, (b_3 ∪ {<a+, F(b_3(a))>})(n+)> = <a+, F(b_3(a))> or <n+, (b_3 ∪ {<a+, F(b_3(a))>})(n+)> = <a+, F(b_3(a))>			[797 BC 795 MP]
+
+																						799. <n+, (b_3 ∪ {<a+, F(b_3(a))>})(n+)> = <a+, F(b_3(a))>		[798 SIMPLIFY_OR]
+
+																						800. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]		[Theorem 3A]
+
+																						801. <n+, (b_3 ∪ {<a+, F(b_3(a))>})(n+)> = <a+, F(b_3(a))>  <-->  n+ = a+ & (b_3 ∪ {<a+, F(b_3(a))>})(n+) = F(b_3(a))			[800 UI/n+, (b_3 ∪ {<a+, F(b_3(a))>})(n+), a+, F(b_3(a))]
+
+																						802. n+ = a+ & (b_3 ∪ {<a+, F(b_3(a))>})(n+) = F(b_3(a))		[801 BC 799 MP]
+
+																						803. n+ = a+		[802 SL]	
+
+																						804. n+ != a+		[781 R]
+
+																						805. 		[803 804 ID]
+																					
+																					806. <n+, (b_3 ∪ {<a+, F(b_3(a))>})(n+)> in b_3		[793 794 MTP]
+
+
+																					807. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]		[MARIN]
+
+																					808. b_3 is a function & n+ in dom b_3 -->  @w [ <n+, w> in b_3 <--> b_3(n+) = w ]		[807 UI/b_3 UI/n+]
+
+																					809. b_3 is a function		[315 R]
+
+																					810. Show n+ in dom b_3
+
+																						811. <n+, y_4> in b_3		[752 R]
+
+																						812. @x [ x in dom b_3 <--> 3y [ <x, y> in b_3 ] ]		[295.D4]
+
+																						813. n+ in dom b_3 <--> 3y [ <n+, y> in b_3 ] 		[812 UI/n+]
+
+																						814. 3y [ <n+, y> in b_3 ]		[811 EG/y_4->y]
+
+																						815. n+ in dom b_3		[813 BC 814 MP]
+
+																						816. 		[815 DD]
+																					
+																					817. b_3 is a function & n+ in dom b_3		[809 810 ADJ]
+
+																					818. @w [ <n+, w> in b_3 <--> b_3(n+) = w ]		[808 817 MP]
+
+																					819. <n+, (b_3 ∪ {<a+, F(b_3(a))>})(n+)> in b_3 <--> b_3(n+) = (b_3 ∪ {<a+, F(b_3(a))>})(n+)		[818 UI/(b_3 ∪ {<a+, F(b_3(a))>})(n+)]
+
+																					820. b_3(n+) = (b_3 ∪ {<a+, F(b_3(a))>})(n+)		[819 BC 806 MP]
+
+
+
+
+																				///. Show n+ = a+ --> (b_3 ∪ {<a+, F(b_3(a))>})(n+) = F((b_3 ∪ {<a+, F(b_3(a))>})(n))			[CASE 2 for line 779]
+																					/// use one-to-one property of {}+
+
+																					///. n+ = a+		[ACD]
+
+																					
+
+
+
+
+																		///. Show <n+, y_4> in {<a+, F(b_3(a))>} --> n in dom (b_3 ∪ {<a+, F(b_3(a))>}) & (b_3 ∪ {<a+, F(b_3(a))>})(n+) = F((b_3 ∪ {<a+, F(b_3(a))>})(n))		[CASE 2 for line 750]
+
 
 
 				// we will first prove dom U(H_{F, A, a}) = ω, so that we can use induction to prove this:
