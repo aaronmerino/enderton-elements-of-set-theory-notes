@@ -2047,6 +2047,11 @@ Axioms, Definitions, and Theorems:
 																738. Show @n [ n in ω & n+ in dom (b_3 ∪ {<a+, F(b_3(a))>}) --> n in dom (b_3 ∪ {<a+, F(b_3(a))>}) & (b_3 ∪ {<a+, F(b_3(a))>})(n+) = F((b_3 ∪ {<a+, F(b_3(a))>})(n)) ]
 
 																	739. let n be a set
+																	
+																	////////
+																	738.D1. @t [ t in {n} <--> t = n or t = n ]		[Pairing axiom UI/n UI/n & Ext. Axiom]
+																	738.D2. @t [ t in n ∪ {n} <--> t in n or t in {n} ]		[Union axiom UI/n UI/{n} & Ext. Axiom]	
+																	////////
 
 																	740. Show n in ω & n+ in dom (b_3 ∪ {<a+, F(b_3(a))>}) --> n in dom (b_3 ∪ {<a+, F(b_3(a))>}) & (b_3 ∪ {<a+, F(b_3(a))>})(n+) = F((b_3 ∪ {<a+, F(b_3(a))>})(n))
 
@@ -2348,17 +2353,295 @@ Axioms, Definitions, and Theorems:
 
 																					882. 		[881 CD]
 
+
 																				883. Show n+ = a+ --> (b_3 ∪ {<a+, F(b_3(a))>})(n+) = F((b_3 ∪ {<a+, F(b_3(a))>})(n))			[CASE 2 for line 779]
 																					/// use one-to-one property of {}+
 
-																					///. n+ = a+		[ACD]
+																					884. n+ = a+		[ACD]
 
+																					885. Show (b_3 ∪ {<a+, F(b_3(a))>})(n+) = F(b_3(a))
+
+																						886. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]			[MARIN]
+
+																						887. (b_3 ∪ {<a+, F(b_3(a))>}) is a function & n+ in dom (b_3 ∪ {<a+, F(b_3(a))>}) -->  @w [ <n+, w> in (b_3 ∪ {<a+, F(b_3(a))>}) <--> (b_3 ∪ {<a+, F(b_3(a))>})(n+) = w ]			[886 UI/(b_3 ∪ {<a+, F(b_3(a))>}) UI/n+]
+
+																						888. b_3 ∪ {<a+, F(b_3(a))>} is a function		[344 R]
+
+																						889. n+ in dom (b_3 ∪ {<a+, F(b_3(a))>})		[743 R]
+
+																						890. (b_3 ∪ {<a+, F(b_3(a))>}) is a function & n+ in dom (b_3 ∪ {<a+, F(b_3(a))>})			[888 889 ADJ]
+
+																						891. @w [ <n+, w> in (b_3 ∪ {<a+, F(b_3(a))>}) <--> (b_3 ∪ {<a+, F(b_3(a))>})(n+) = w ]			[887 890 MP]
+
+																						892. <n+, (b_3 ∪ {<a+, F(b_3(a))>})(n+)> in (b_3 ∪ {<a+, F(b_3(a))>}) <--> (b_3 ∪ {<a+, F(b_3(a))>})(n+) = (b_3 ∪ {<a+, F(b_3(a))>})(n+)			[891 UI/(b_3 ∪ {<a+, F(b_3(a))>})(n+)]
+
+																						893. (b_3 ∪ {<a+, F(b_3(a))>})(n+) = (b_3 ∪ {<a+, F(b_3(a))>})(n+)		[SID]
+
+																						894. <n+, (b_3 ∪ {<a+, F(b_3(a))>})(n+)> in (b_3 ∪ {<a+, F(b_3(a))>})			[892 BC 893 MP]
+
+																						895. @x [ x in b_3 ∪ {<a+, F(b_3(a))>} <--> x in b_3 or x in {<a+, F(b_3(a))>} ]		[295.D5]
+
+																						896. <n+, (b_3 ∪ {<a+, F(b_3(a))>})(n+)> in b_3 ∪ {<a+, F(b_3(a))>} <--> <n+, (b_3 ∪ {<a+, F(b_3(a))>})(n+)> in b_3 or <n+, (b_3 ∪ {<a+, F(b_3(a))>})(n+)> in {<a+, F(b_3(a))>}			[895 UI/<n+, (b_3 ∪ {<a+, F(b_3(a))>})(n+)>]
+
+																						897. <n+, (b_3 ∪ {<a+, F(b_3(a))>})(n+)> in b_3 or <n+, (b_3 ∪ {<a+, F(b_3(a))>})(n+)> in {<a+, F(b_3(a))>}			[896 BC 894 MP]
+
+																						898. Show <n+, (b_3 ∪ {<a+, F(b_3(a))>})(n+)> in b_3 --> (b_3 ∪ {<a+, F(b_3(a))>})(n+) = F(b_3(a))		[CASE 1 for line 897]
+
+																							899. <n+, (b_3 ∪ {<a+, F(b_3(a))>})(n+)> in b_3		[ACD]
+
+																							900. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]			[MARIN]
+
+																							901. b_3 is a function & n+ in dom b_3 -->  @w [ <n+, w> in b_3 <--> b_3(n+) = w ]			[900 UI/b_3 UI/n+]
+
+																							902. @x [ x in dom b_3 <--> 3y [ <x, y> in b_3 ] ]		[295.D4]
+
+																							903. n+ in dom b_3 <--> 3y [ <n+, y> in b_3 ]			[902 UI/n+]
+
+																							904. 3y [ <n+, y> in b_3 ]			[899 EG/(b_3 ∪ {<a+, F(b_3(a))>})(n+) -> y]
+
+																							905. n+ in dom b_3		[903 BC 904 MP]
+
+																							906. b_3 is a function		[315 R]
+
+																							907. b_3 is a function & n+ in dom b_3			[906 905 ADJ]
+
+																							908. @w [ <n+, w> in b_3 <--> b_3(n+) = w ]			[901 907 MP]
+
+																							909. <n+, (b_3 ∪ {<a+, F(b_3(a))>})(n+)> in b_3 <--> b_3(n+) = (b_3 ∪ {<a+, F(b_3(a))>})(n+)			[908 UI/(b_3 ∪ {<a+, F(b_3(a))>})(n+)]
+
+																							910. b_3(n+) = (b_3 ∪ {<a+, F(b_3(a))>})(n+)			[909 BC 899 MP]
+
+
+																							911. @n [ n in ω & n+ in dom b_3 --> n in dom b_3 & b_3(n+) = F(b_3(n)) ]		[320 SR]
+
+																							912. n in ω & n+ in dom b_3 --> n in dom b_3 & b_3(n+) = F(b_3(n))			[911 UI/n]
+
+																							913. n in ω		[742 R]
+
+																							914. n in ω & n+ in dom b_3			[913 905 ADJ]
+
+																							915. n in dom b_3 & b_3(n+) = F(b_3(n))			[912 914 MP]
+
+																							916. b_3(n+) = F(b_3(n))		[915 SR]
+
+
+																							917. n+ = a+		[884 R]
+
+																							918. @n, k [ n, k in ω --> (n+ = k+ --> n = k) ]			[LEMMA ISA from Theorem 4D]
+
+																							919. n, a in ω --> (n+ = a+ --> n = a)			[918 UI/n UI/a]
+
+																							920. n in ω			[913 R]
+
+																							921. a in ω			[300 R]
+
+																							922. n, a in ω		[920 921 ADJ]
+
+																							923. n+ = a+ --> n = a		[919 922 MP]
+
+																							924. n = a		[917 923 MP]
+
+
+																							925. b_3(n+) = F(b_3(a))		[916 924 LL]
+
+																							926. b_3(n+) = (b_3 ∪ {<a+, F(b_3(a))>})(n+)		[910 R]
+
+																							927. (b_3 ∪ {<a+, F(b_3(a))>})(n+) = F(b_3(a))		[926 925 LL]
+
+																							928. 		[927 CD]
+
+
+																						929. Show <n+, (b_3 ∪ {<a+, F(b_3(a))>})(n+)> in {<a+, F(b_3(a))>} --> (b_3 ∪ {<a+, F(b_3(a))>})(n+) = F(b_3(a))		[CASE 2 for line 897]
+
+																							930. <n+, (b_3 ∪ {<a+, F(b_3(a))>})(n+)> in {<a+, F(b_3(a))>}			[ACD]
+
+																							931. @x [ x in {<a+, F(b_3(a))>} <--> x = <a+, F(b_3(a))> or x = <a+, F(b_3(a))>]			[295.D1]
+
+																							932. <n+, (b_3 ∪ {<a+, F(b_3(a))>})(n+)> in {<a+, F(b_3(a))>} <--> <n+, (b_3 ∪ {<a+, F(b_3(a))>})(n+)> = <a+, F(b_3(a))> or <n+, (b_3 ∪ {<a+, F(b_3(a))>})(n+)> = <a+, F(b_3(a))>			[931 UI/<n+, (b_3 ∪ {<a+, F(b_3(a))>})(n+)>]
+
+																							933. <n+, (b_3 ∪ {<a+, F(b_3(a))>})(n+)> = <a+, F(b_3(a))> or <n+, (b_3 ∪ {<a+, F(b_3(a))>})(n+)> = <a+, F(b_3(a))>			[932 BC 930 MP]
+
+																							934. <n+, (b_3 ∪ {<a+, F(b_3(a))>})(n+)> = <a+, F(b_3(a))>		[933 SIMPLIFY_OR]
+
+																							935. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]		[Theorem 3A]
+
+																							936. <n+, (b_3 ∪ {<a+, F(b_3(a))>})(n+)> = <a+, F(b_3(a))>  <-->  n+ = a+ & (b_3 ∪ {<a+, F(b_3(a))>})(n+) = F(b_3(a))			[935 UI/n+, (b_3 ∪ {<a+, F(b_3(a))>})(n+), a+, F(b_3(a))]
+
+																							937. n+ = a+ & (b_3 ∪ {<a+, F(b_3(a))>})(n+) = F(b_3(a))			[936 BC 934 MP]
+
+																							938. (b_3 ∪ {<a+, F(b_3(a))>})(n+) = F(b_3(a))		[937 SR]
+
+																							939.		[938 CD]
+
+
+																						940. <n+, (b_3 ∪ {<a+, F(b_3(a))>})(n+)> in b_3 or <n+, (b_3 ∪ {<a+, F(b_3(a))>})(n+)> in {<a+, F(b_3(a))>} --> (b_3 ∪ {<a+, F(b_3(a))>})(n+) = F(b_3(a))			[898 929 CASE_PROOF for line 897]
+
+																						941. (b_3 ∪ {<a+, F(b_3(a))>})(n+) = F(b_3(a))			[940 897 MP]
+
+																						942. 		[941 DD]
+
+																					943. Show F((b_3 ∪ {<a+, F(b_3(a))>})(n)) = F(b_3(a))
+
+																						944. Show (b_3 ∪ {<a+, F(b_3(a))>})(n) = b_3(a)
+
+																							945. b_3 ∪ {<a+, F(b_3(a))>} is a function			[344 R]
+
+																							946. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]			[MARIN]
+
+																							947. (b_3 ∪ {<a+, F(b_3(a))>}) is a function & n in dom (b_3 ∪ {<a+, F(b_3(a))>}) -->  @w [ <n, w> in (b_3 ∪ {<a+, F(b_3(a))>}) <--> (b_3 ∪ {<a+, F(b_3(a))>})(n) = w ]			[946 UI/(b_3 ∪ {<a+, F(b_3(a))>}) UI/n]
+
+																							948. n in dom (b_3 ∪ {<a+, F(b_3(a))>})			[753 R]
+
+																							949. (b_3 ∪ {<a+, F(b_3(a))>}) is a function & n in dom (b_3 ∪ {<a+, F(b_3(a))>})			[945 948 ADJ]
+
+																							950. @w [ <n, w> in (b_3 ∪ {<a+, F(b_3(a))>}) <--> (b_3 ∪ {<a+, F(b_3(a))>})(n) = w ]			[947 949 MP]
+
+																							951. <n, (b_3 ∪ {<a+, F(b_3(a))>})(n)> in (b_3 ∪ {<a+, F(b_3(a))>}) <--> (b_3 ∪ {<a+, F(b_3(a))>})(n) = (b_3 ∪ {<a+, F(b_3(a))>})(n)		[950 UI/(b_3 ∪ {<a+, F(b_3(a))>})(n)]
+
+
+																							952. (b_3 ∪ {<a+, F(b_3(a))>})(n) = (b_3 ∪ {<a+, F(b_3(a))>})(n)			[SID]
+
+																							953. <n, (b_3 ∪ {<a+, F(b_3(a))>})(n)> in (b_3 ∪ {<a+, F(b_3(a))>})			[951 BC 952 MP]
+
+																							954. @x [ x in b_3 ∪ {<a+, F(b_3(a))>} <--> x in b_3 or x in {<a+, F(b_3(a))>} ]			[295.D2]
+
+																							955. <n, (b_3 ∪ {<a+, F(b_3(a))>})(n)> in b_3 ∪ {<a+, F(b_3(a))>} <--> <n, (b_3 ∪ {<a+, F(b_3(a))>})(n)> in b_3 or <n, (b_3 ∪ {<a+, F(b_3(a))>})(n)> in {<a+, F(b_3(a))>}			[954 UI/<n, (b_3 ∪ {<a+, F(b_3(a))>})(n)>]
+
+																							956. <n, (b_3 ∪ {<a+, F(b_3(a))>})(n)> in b_3 or <n, (b_3 ∪ {<a+, F(b_3(a))>})(n)> in {<a+, F(b_3(a))>}			[955 BC 953 MP]
+
+																							957. Show ~(<n, (b_3 ∪ {<a+, F(b_3(a))>})(n)> in {<a+, F(b_3(a))>})
+
+																								958. <n, (b_3 ∪ {<a+, F(b_3(a))>})(n)> in {<a+, F(b_3(a))>}		[AID]
+
+																								959. @x [ x in {<a+, F(b_3(a))>} <--> x = <a+, F(b_3(a))> or x = <a+, F(b_3(a))>]			[295.D1]
+
+																								960. <n, (b_3 ∪ {<a+, F(b_3(a))>})(n)> in {<a+, F(b_3(a))>} <--> <n, (b_3 ∪ {<a+, F(b_3(a))>})(n)> = <a+, F(b_3(a))> or <n, (b_3 ∪ {<a+, F(b_3(a))>})(n)> = <a+, F(b_3(a))>			[959 UI/<n, (b_3 ∪ {<a+, F(b_3(a))>})(n)>]
+
+																								961. <n, (b_3 ∪ {<a+, F(b_3(a))>})(n)> = <a+, F(b_3(a))> or <n, (b_3 ∪ {<a+, F(b_3(a))>})(n)> = <a+, F(b_3(a))>		[960 BC 958 MP]
+
+																								962. <n, (b_3 ∪ {<a+, F(b_3(a))>})(n)> = <a+, F(b_3(a))>			[961 SIMPLIFY_OR]
+
+																								963. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]			[Theorem 3A]
+
+																								964. <n, (b_3 ∪ {<a+, F(b_3(a))>})(n)> = <a+, F(b_3(a))>  <-->  n = a+ & (b_3 ∪ {<a+, F(b_3(a))>})(n) = F(b_3(a))			[963 UI/n, (b_3 ∪ {<a+, F(b_3(a))>})(n), a+, F(b_3(a))]
+
+																								965. n = a+ & (b_3 ∪ {<a+, F(b_3(a))>})(n) = F(b_3(a))		[964 BC 962 MP]
+
+																								966. n = a+		[965 SL]
+
+																								967. n+ = a+		[884 R]
+
+																								968. n+ = n 		[966 967 LL]
+
+																								969. @a [ a+ := a ∪ {a} ]		[Def. of successor]
+
+																								970. n+ := n ∪ {n}		[969 UI/n]
+
+																								971. n ∪ {n} = n			[968 970 LL]
+
+																								972. @t [ t in n ∪ {n} <--> t in n or t in {n} ]			[738.D2]
+
+																								973. n in n ∪ {n} <--> n in n or n in {n}			[972 UI/n]
+
+																								974. @t [ t in {n} <--> t = n or t = n ]			[738.D1]
+
+																								975. n in {n} <--> n = n or n = n			[974 UI/n]
+
+																								976. n = n		[SID]
+
+																								977. n = n or n = n			[976 ADD/...]
+
+																								978. n in {n}		[975 BC 977 MP]
+
+																								979. n in n or n in {n}			[978 ADD/...]
+
+																								980. n in n ∪ {n}			[973 BC 979 MP]
+
+																								981. n in n			[980 971 LL]
+
+																								982. @n [ n in ω --> ~(n in n) ]		[LEMMA daydream from Theorem 4D]
+
+																								983. n in ω --> ~(n in n)		[982 UI/n]
+
+																								984. n in ω		[742 R]
+
+																								985. ~(n in n)		[983 984 MP]
+
+																								986. 		[981 985 ID]
+																							
+																							987. <n, (b_3 ∪ {<a+, F(b_3(a))>})(n)> in b_3			[956 957 MTP]
+
+
+																							988. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]			[MARIN]
+
+																							989. b_3 is a function & n in dom b_3 -->  @w [ <n, w> in b_3 <--> b_3(n) = w ]			[988 UI/b_3 UI/n]
+
+																							990. @x [ x in dom b_3 <--> 3y [ <x, y> in b_3 ] ]		[295.D4]
+
+																							991. n in dom b_3 <--> 3y [ <n, y> in b_3 ]			[990 UI/n]
+
+																							992. 3y [ <n, y> in b_3 ]			[987 EG/(b_3 ∪ {<a+, F(b_3(a))>})(n) -> y]
+
+																							993. n in dom b_3			[991 BC 992 MP]
+
+																							994. b_3 is a function		[315 R]
+
+																							995. b_3 is a function & n in dom b_3			[994 993 ADJ]
+
+																							996. @w [ <n, w> in b_3 <--> b_3(n) = w ]			[989 995 MP]
+
+																							997. <n, (b_3 ∪ {<a+, F(b_3(a))>})(n)> in b_3 <--> b_3(n) = (b_3 ∪ {<a+, F(b_3(a))>})(n)		[996 UI/(b_3 ∪ {<a+, F(b_3(a))>})(n)]3
+
+																							998. b_3(n) = (b_3 ∪ {<a+, F(b_3(a))>})(n)		[997 BC 987 MP]
+
+
+																							999. n+ = a+		[884 R]
+
+																							1000. @n, k [ n, k in ω --> (n+ = k+ --> n = k) ]			[LEMMA ISA from Theorem 4D]
+
+																							1001. n, a in ω --> (n+ = a+ --> n = a)			[1000 UI/n, a]
+
+																							1002. n in ω			[913 R]
+
+																							1003. a in ω			[300 R]
+
+																							1004. n, a in ω		[1002 1003 ADJ]
+
+																							1005. n+ = a+ --> n = a		[1001 1004 MP]
+
+																							1006. n = a		[1005 999 MP]
+
+																							1007. b_3(a) = (b_3 ∪ {<a+, F(b_3(a))>})(n)			[998 1006 LL]
+
+																							1008. (b_3 ∪ {<a+, F(b_3(a))>})(n) = b_3(a)			[1007 EQUIV.]
+
+																							1009. 		[1008 DD]
+																						
+																						1010. F((b_3 ∪ {<a+, F(b_3(a))>})(n)) = F((b_3 ∪ {<a+, F(b_3(a))>})(n))		[SID]
+
+																						1011. F((b_3 ∪ {<a+, F(b_3(a))>})(n)) = F(b_3(a))			[1010 944 LL]
+
+																						1012. 		[1011 DD]
 																					
+																					1013. (b_3 ∪ {<a+, F(b_3(a))>})(n+) = F((b_3 ∪ {<a+, F(b_3(a))>})(n))			[885 943 LL]
 
+																					1014. 		[1013 CD]
+																				
+																				1015. n+ = a+ or n+ != a+	--> (b_3 ∪ {<a+, F(b_3(a))>})(n+) = F((b_3 ∪ {<a+, F(b_3(a))>})(n))			[780 883 CASE_PROOF for line 779]
 
+																				1016. (b_3 ∪ {<a+, F(b_3(a))>})(n+) = F((b_3 ∪ {<a+, F(b_3(a))>})(n))		[1015 779 MP]
 
+																				1017. 		[1016 DD]
+																			
+																			1018. n in dom (b_3 ∪ {<a+, F(b_3(a))>}) & (b_3 ∪ {<a+, F(b_3(a))>})(n+) = F((b_3 ∪ {<a+, F(b_3(a))>})(n))		[753 778 ADJ]
 
-																		///. Show <n+, y_4> in {<a+, F(b_3(a))>} --> n in dom (b_3 ∪ {<a+, F(b_3(a))>}) & (b_3 ∪ {<a+, F(b_3(a))>})(n+) = F((b_3 ∪ {<a+, F(b_3(a))>})(n))		[CASE 2 for line 750]
+																			1019. 		[1018 CD]
+																		
+																		1020. Show <n+, y_4> in {<a+, F(b_3(a))>} --> n in dom (b_3 ∪ {<a+, F(b_3(a))>}) & (b_3 ∪ {<a+, F(b_3(a))>})(n+) = F((b_3 ∪ {<a+, F(b_3(a))>})(n))		[CASE 2 for line 750]
+
+																			1021. <n+, y_4> in {<a+, F(b_3(a))>}		[ACD]
+
+																			1022. 
 
 
 
