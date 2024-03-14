@@ -2073,6 +2073,12 @@ Axioms, Definitions, and Theorems:
 
 																		749. <n+, y_4> in b_3 ∪ {<a+, F(b_3(a))>} <--> <n+, y_4> in b_3 or <n+, y_4> in {<a+, F(b_3(a))>}		[748 UI/<n+, y_4>]
 
+																		//////////////////////////////////////////////////////////////////////////////////////////
+																		///. there's some redundunt proofs starting at line 750; it can be made shorter of if we split the cases of n+ = a+ or n+ != a+ outside first
+																		///. so, rather than putting it at line 779, we do it on line 750.
+																		///. If we did this, we wouldnt have to do lines 1029-1185 again, since we already proved it inside line 883.
+																		//////////////////////////////////////////////////////////////////////////////////////////
+
 																		750. <n+, y_4> in b_3 or <n+, y_4> in {<a+, F(b_3(a))>}		[749 BC 747 MP]
 
 																		751. Show <n+, y_4> in b_3 --> n in dom (b_3 ∪ {<a+, F(b_3(a))>}) & (b_3 ∪ {<a+, F(b_3(a))>})(n+) = F((b_3 ∪ {<a+, F(b_3(a))>})(n))		[CASE 1 for line 750]
@@ -2509,6 +2515,28 @@ Axioms, Definitions, and Theorems:
 
 																							956. <n, (b_3 ∪ {<a+, F(b_3(a))>})(n)> in b_3 or <n, (b_3 ∪ {<a+, F(b_3(a))>})(n)> in {<a+, F(b_3(a))>}			[955 BC 953 MP]
 
+																							//////////////////////////////////////////////////////////////////////////////////////////]
+																							///. note, to read things easier, b_3 = b
+																							///. We can actually just split into cases, where case 1 is <n, (b_3 ∪ {<a+, F(b_3(a))>})(n)> in b_3
+																							///. and case 2 is <n, (b_3 ∪ {<a+, F(b_3(a))>})(n)> in {<a+, F(b_3(a))>}
+																							///. in case 2, we can show that (b_3 ∪ {<a+, F(b_3(a))>})(n) = b_3(a) 
+																							///. 			n = a+ & (b_3 ∪ {<a+, F(b_3(a))>})(n) = F(b_3(a))
+																							///.			b(n) 	= b(n)
+																							///.			b(n) 	= b(a+)		[since n = a+]
+
+																							///. note a in dom b		[since on line 311: <a, y_2> in b_3]
+																							///. since n+ = a+, then n = a		[since {}+ is one-to-one]
+																							///. so, n in dom b
+																							///. so, a+ in dom b
+
+																							///. recall: @n [ n in ω & n+ in dom b_3 --> n in dom b_3 & b_3(n+) = F(b_3(n)) ]			[since b is acceptable]
+
+																							///. 			b(a+)	=	F(b(a)) 		[since b is acceptable & n in dom b, so a+ in dom b]
+																							///. but  (b_3 ∪ {<a+, F(b_3(a))>})(n) = F(b_3(a))		[case 2]
+																							///. so, (b_3 ∪ {<a+, F(b_3(a))>})(n) = b(a+)
+																							///. but n = a+, so (b_3 ∪ {<a+, F(b_3(a))>})(n) = b(n)
+																							///. but n = a, so (b_3 ∪ {<a+, F(b_3(a))>})(n) = b(a)
+																							//////////////////////////////////////////////////////////////////////////////////////////
 																							957. Show ~(<n, (b_3 ∪ {<a+, F(b_3(a))>})(n)> in {<a+, F(b_3(a))>})
 
 																								958. <n, (b_3 ∪ {<a+, F(b_3(a))>})(n)> in {<a+, F(b_3(a))>}		[AID]
@@ -2989,7 +3017,7 @@ Axioms, Definitions, and Theorems:
 																	
 																	1189. 	[740 UD]
 																
-																1190. 
+																1190.
 
 
 
