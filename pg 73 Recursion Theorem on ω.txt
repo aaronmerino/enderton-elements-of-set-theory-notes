@@ -2515,9 +2515,10 @@ Axioms, Definitions, and Theorems:
 
 																							956. <n, (b_3 ∪ {<a+, F(b_3(a))>})(n)> in b_3 or <n, (b_3 ∪ {<a+, F(b_3(a))>})(n)> in {<a+, F(b_3(a))>}			[955 BC 953 MP]
 
-																							//////////////////////////////////////////////////////////////////////////////////////////]
+																							//////////////////////////////////////////////////////////////////////////////////////////
 																							///. note, to read things easier, b_3 = b
-																							///. We can actually just split into cases, where case 1 is <n, (b_3 ∪ {<a+, F(b_3(a))>})(n)> in b_3
+																							///. We can actually just split into cases instead of doing line 957, 
+																							///. so, case 1 is <n, (b_3 ∪ {<a+, F(b_3(a))>})(n)> in b_3
 																							///. and case 2 is <n, (b_3 ∪ {<a+, F(b_3(a))>})(n)> in {<a+, F(b_3(a))>}
 																							///. in case 2, we can show that (b_3 ∪ {<a+, F(b_3(a))>})(n) = b_3(a) 
 																							///. 			n = a+ & (b_3 ∪ {<a+, F(b_3(a))>})(n) = F(b_3(a))
