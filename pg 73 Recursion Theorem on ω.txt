@@ -3081,7 +3081,18 @@ Axioms, Definitions, and Theorems:
 
 										1217. 		[321 CD]
 									
-									1218. 
+									1218. 		[295 UD]
+								
+								1219. { } in B_1 & @a [ a in B_1 --> a+ in B_1 ]		[84 293 ADJ]
+
+								1220. B_1 is inductive		[83 BC 1219 MP]
+								
+								1221.		[1220 DD]
+							
+							1222. 
+
+
+
 
 
 
