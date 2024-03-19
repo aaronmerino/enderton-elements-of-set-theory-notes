@@ -3089,7 +3089,100 @@ Axioms, Definitions, and Theorems:
 								
 								1221.		[1220 DD]
 							
-							1222. 
+							1222. Show B_1 = ω
+
+								1223. @A, B [ @v [ v in A <--> v in B ] --> A = B ]   [Ext. Axiom]
+
+    						1224. @v [ v in B_1 <--> v in ω ] --> B_1 = ω   [1223 UI/...]
+
+								1225. Show @v [ v in B_1 <--> v in ω ]
+
+									1226. let v be a set
+
+									1227. Show v in B_1 --> v in ω
+
+										1228. v in B_1		[ACD]
+
+										1229. @t [ t in B_1 <--> t in ω & t in dom U(H_{F, A, a}) ]		[80 R]
+
+										1230. v in B_1 <--> v in ω & v in dom U(H_{F, A, a})		[1229 UI/v]
+
+										1231. v in ω & v in dom U(H_{F, A, a})		[1230 BC 1228 MP]
+
+										1232. v in ω		[1231 SL]
+
+										1233. 		[1232 CD]
+									
+									1234. Show v in ω --> v in B_1
+
+										1235. v in ω		[ACD]
+
+										1236. @b [ b is a natural number <--> @A [ A is inductive --> b in A ] ]		[Def. of natural number]
+
+										1237. v is a natural number <--> @A [ A is inductive --> v in A ]		[1236 UI/v]
+
+										1238. @b [ b in ω <--> b is a natural number ]		[Theorem 4A & Ext. Axiom]
+
+										1239. v in ω <--> v is a natural number		[1238 UI/v]
+
+										1240. v is a natural number		[1239 BC 1235 MP]
+
+										1241. @A [ A is inductive --> v in A ]		[1237 BC 1240 MP]
+
+										1242. B_1 is inductive --> v in B_1		[1241 UI/B_1]
+
+										1243. B_1 is inductive		[81 R]
+
+										1244. v in B_1		[1242 1243 MP]
+
+										1245. 		[1244 CD]
+									
+									1246. v in B_1 <--> v in ω		[1227 1234 CB]
+
+									1247.		[1246 UD]
+								
+								1248. B_1 = ω		[1224 1225 MP]
+
+								1249. 		[1248 DD]
+							
+							1250. Show @t [ t in ω --> t in dom U(H_{F, A, a}) ]
+
+								1251. let t be a set
+
+								1252. Show t in ω --> t in dom U(H_{F, A, a})
+
+									1253. t in ω		[ACD]
+
+									1254. t in B_1		[1253 1222 LL]
+
+									1255. @t [ t in B_1 <--> t in ω & t in dom U(H_{F, A, a}) ]		[80 R]
+
+									1256. t in B_1 <--> t in ω & t in dom U(H_{F, A, a})		[1255 UI/t]
+
+									1257. t in ω & t in dom U(H_{F, A, a})		[1256 BC 1254 MP]
+
+									1258. t in dom U(H_{F, A, a})		[1257 SR]
+
+									1259. 		[1258 CD]
+
+								1260. 		[1252 UD]
+							
+							1261. 		[1250 DD]
+						
+						1262. x in ω --> x in dom U(H_{F, A, a})		[77 UI/x]
+
+						1263. 		[1262 DD]
+					
+					1264. x in dom U(H_{F, A, a}) <--> x in ω		[45 76 CB]
+
+					1265. 		[1264 UD]
+				
+				1266. dom U(H_{F, A, a}) = ω		[42 43 MP]
+
+				1267. 		[1266 DD]
+			
+			
+			1268. 
 
 
 
