@@ -1,0 +1,52 @@
+{
+  "todohighlight.keywords": [
+    {
+      "text": "<-->",
+      "color": "#ffffff",
+      "backgroundColor": "rgba(0,0,0,.2)",
+      "overviewRulerColor": "grey"
+    },
+    {
+      "text": "-->",
+      "color": "#ffffff",
+      "backgroundColor": "rgba(0,0,0,.2)",
+      "overviewRulerColor": "grey"
+    },
+    {
+      "text": "&",
+      "color": "#ffffff",
+      "backgroundColor": "rgba(0,0,0,.2)",
+      "overviewRulerColor": "grey"
+    },
+    {
+      "text": "or",
+      "color": "#ffffff",
+      "backgroundColor": "rgba(0,0,0,.2)",
+      "overviewRulerColor": "grey"
+    }
+  ],
+  "todohighlight.keywordsPattern": "<-->|-->|&|or",
+  "todohighlight.defaultStyle": {
+    "color": "rgba(200, 250, 250, 0.5)",
+    "backgroundColor": "rgba(10,10,10,.2)",
+    "overviewRulerColor": "grey",
+    "borderRadius": "2px",
+  },
+  "todohighlight.include": [
+    "**/*.txt",
+    "**/*.js",
+    "**/*.jsx",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.html",
+    "**/*.php",
+    "**/*.css",
+    "**/*.scss"
+  ],
+  "todohighlight.isEnable": true,
+  "workbench.colorCustomizations": {
+    "editor.selectionBackground": "#d4e026",
+    "editor.selectionHighlightBackground": "#9de046",
+    "editor.selectionForeground": "#000000"
+  }
+}

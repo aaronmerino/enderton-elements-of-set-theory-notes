@@ -372,6 +372,9 @@ Axioms, Definitions, and Theorems:
 	[MOO] Subset Axiom (applied):
 		@F, A, a [ @c [ 3B [ @t [ t in B <--> t in c & t in dom U(H_{F, A, a}) ] ] ] ]   [Subset Axiom UI_META/'t in dom U(H_{F, A, a})']	
 
+	[PROMISE] Subset Axiom (applied):
+		@F, A, a [ @c [ 3B [ @t [ t in B <--> t in c & 3_1y [ <t, y> in U(H_{F, A, a}) ] ] ] ] ]   [Subset Axiom UI_META/'3_1y [ <t, y> in U(H_{F, A, a}) ]']
+
 [Recursion Theorem on ω]
 1. Show @F, A, a [ a in A & F:A->A --> 3h [ h:ω->A & h(0) = a & @n [ n in ω --> h(n+) = F(h(n)) ] ] ]
 
@@ -3182,16 +3185,460 @@ Axioms, Definitions, and Theorems:
 				1267. 		[1266 DD]
 			
 			
-			1268. 
-
-
-
-
-
-
 
 			// we will first prove dom U(H_{F, A, a}) = ω, so that we can use induction to prove this:
-			//. Show @x [ x in dom U(H_{F, A, a}) --> 3_1y [ <x, y> in U(H_{F, A, a}) ] ]
+			1268. Show @x [ x in dom U(H_{F, A, a}) --> 3_1y [ <x, y> in U(H_{F, A, a}) ] ]
+
+				1269. Show @x [ x in ω --> 3_1y [ <x, y> in U(H_{F, A, a}) ] ]
+
+					1270. @F, A, a [ @c [ 3B [ @t [ t in B <--> t in c & 3_1y [ <t, y> in U(H_{F, A, a}) ] ] ] ] ]			[PROMISE]
+
+					1271. @c [ 3B [ @t [ t in B <--> t in c & 3_1y [ <t, y> in U(H_{F, A, a}) ] ] ] ]			[1270 UI/F, A, a]
+
+					1272. 3B [ @t [ t in B <--> t in ω & 3_1y [ <t, y> in U(H_{F, A, a}) ] ] ]		[1271 UI/ω]
+
+					////////
+					1273. @t [ t in B_1 <--> t in ω & 3_1y [ <t, y> in U(H_{F, A, a}) ] ]			[1272 EI/B_1]
+					////////
+
+					1274. Show B_1 is inductive
+
+						1275. @A [ A is inductive <--> { } in A & @a [ a in A --> a+ in A ] ]			[Def. of inductive]
+
+						1276. B_1 is inductive <--> { } in B_1 & @a [ a in B_1 --> a+ in B_1 ]		[1275 UI/B_1]
+
+						1277. Show { } in B_1
+
+							1278. @t [ t in B_1 <--> t in ω & 3_1y [ <t, y> in U(H_{F, A, a}) ] ]			[1273 R]
+
+							1279. { } in B_1 <--> { } in ω & 3_1y [ <{ }, y> in U(H_{F, A, a}) ]			[1278 UI/{ }]
+
+							1280. Show { } in ω
+
+								1281. ω is inductive & @A [ A is inductive & A != ω --> @t [ t in ω --> t in A ] ]		[Theorem 4B]
+
+								1282. ω is inductive		[1281 SL]
+
+								1283. @A [ A is inductive <--> { } in A & @a [ a in A --> a+ in A ] ]			[Def. of inductive]
+
+								1284. ω is inductive <--> { } in ω & @a [ a in ω --> a+ in ω ]		[1283 UI/ω]
+
+								1285. { } in ω & @a [ a in ω --> a+ in ω ]		[1284 BC 1282 MP]
+
+								1286. { } in ω		[1285 SL]
+
+								1287.		[1286 DD]
+							
+							1288. Show 3_1y [ <{ }, y> in U(H_{F, A, a}) ]
+
+								1289. @t [ t in U(H_{F, A, a}) <--> 3b [ b in H_{F, A, a} & t in b ] ]			[1.D1]
+
+								1290. <{ }, a> in U(H_{F, A, a}) <--> 3b [ b in H_{F, A, a} & <{ }, a> in b ]			[1289 UI/<{ }, a>]
+
+								1291. Show 3b [ b in H_{F, A, a} & <{ }, a> in b ]
+
+									1292. @v [ v in H_{F, A, a} <--> v is a function & v is acceptable ]		[1.D1]
+
+									1293. {<{ }, a>} in H_{F, A, a} <--> {<{ }, a>} is a function & {<{ }, a>} is acceptable			[1292 UI/{<{ }, a>}]
+
+									1294. Show {<{ }, a>} is a function
+
+										1295. @F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]			[Def. of Function]
+
+										1296. {<{ }, a>} is a function <--> {<{ }, a>} is a relation & @x [ x in dom {<{ }, a>} --> 3_1y [ <x, y> in {<{ }, a>} ] ]			[1295 UI/{<{ }, a>}]
+
+										1297. Show {<{ }, a>} is a relation
+
+											1298. @R [ R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ] ]		[Def. of Relation]
+
+											1299. {<{ }, a>} is a relation <--> @t [ t in {<{ }, a>} --> 3x, y[ t = <x, y> ] ]
+
+											1300. Show @t [ t in {<{ }, a>} --> 3x, y[ t = <x, y> ] ]
+
+												1301. let t be a set
+
+												1302. Show t in {<{ }, a>} --> 3x, y[ t = <x, y> ]
+
+													1303. t in {<{ }, a>}		[ACD]
+
+													1304. @x [ x in {<{ }, a>} <--> x = <{ }, a> or x = <{ }, a> ]			[1.D5]
+
+													1305. t in {<{ }, a>} <--> t = <{ }, a> or t = <{ }, a>			[1304 UI/t]
+
+													1306. t = <{ }, a> or t = <{ }, a>		[1305 BC 1303 MP]
+
+													1307. t = <{ }, a>		[1306 SIMPLIFY_OR]
+
+													1308. 3x, y[ t = <x, y> ]		[1307 EG/a->y EG/{ }->x]
+
+													1309.		[1308 CD]
+												
+												1310. 		[1302 UD]
+											
+											1311. {<{ }, a>} is a relation		[1299 BC 1300 MP]
+
+											1312.		[1311 DD]
+										
+										1313. Show @x [ x in dom {<{ }, a>} --> 3_1y [ <x, y> in {<{ }, a>} ] ]
+
+											1314. let x be a set
+
+											1315. Show x in dom {<{ }, a>} --> 3_1y [ <x, y> in {<{ }, a>} ]
+
+												1316. x in dom {<{ }, a>}		[ACD]
+
+												1317. @x [ x in dom {<{ }, a>} <--> 3y [ <x, y> in {<{ }, a>} ] ]			[1.D6]
+
+												1318. x in dom {<{ }, a>} <--> 3y [ <x, y> in {<{ }, a>} ]		[1317 UI/x]
+
+												1319. 3y [ <x, y> in {<{ }, a>} ]		[1318 BC 1316 MP]
+
+												1320. <x, y_2> in {<{ }, a>}		[1319 EI/y_2]
+
+												1321. Show @z [ <x, z> in {<{ }, a>} --> z = y_2 ]
+
+													1322. let z be a set
+
+													1323. Show <x, z> in {<{ }, a>} --> z = y_2
+
+														1324. <x, z> in {<{ }, a>}		[ACD]
+
+														1325. <x, y_2> in {<{ }, a>}		[1320 R]
+
+
+														1326. @x [ x in {<{ }, a>} <--> x = <{ }, a> or x = <{ }, a> ]		[1.D5]
+
+														1327. <x, z> in {<{ }, a>} <--> <x, z> = <{ }, a> or <x, z> = <{ }, a>		[1326 UI/<x, z>]
+
+														1328. <x, z> = <{ }, a> or <x, z> = <{ }, a>		[1327 BC 1324 MP]
+
+														1329. <x, z> = <{ }, a>		[1328 SIMPLIFY_OR]
+
+														1330. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]			[Theorem 3A]
+
+														1331. <x, z> = <{ }, a>  <-->  x = { } & z = a			[1330 UI/x, z, { }, a]
+
+														1332. x = { } & z = a			[1331 BC 1329 MP]
+
+
+														1333. @x [ x in {<{ }, a>} <--> x = <{ }, a> or x = <{ }, a> ]		[1.D5]
+														
+														1334. <x, y_2> in {<{ }, a>} <--> <x, y_2> = <{ }, a> or <x, y_2> = <{ }, a>			[1333 UI/<x, y_2>]
+
+														1335. <x, y_2> = <{ }, a> or <x, y_2> = <{ }, a>			[1334 BC 1325 MP]
+
+														1336. <x, y_2> = <{ }, a>		[1335 SIMPLIFY_OR]
+
+														1337. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]			[Theorem 3A]
+
+														1338. <x, y_2> = <{ }, a>  <-->  x = { } & y_2 = a			[1337 UI/x, y_2, { }, a]
+
+														1339. x = { } & y_2 = a			[1338 BC 1336 MP]
+
+
+														1340. z = a		[1332 SR]
+
+														1341. y_2 = a		[1339 SR]
+
+														1342. z = y_2		[1340 1341 LL]
+
+														1343.		[1342 CD]
+													
+													1344. 		[1323 UD]
+												
+												1345. <x, y_2> in {<{ }, a>} & @z [ <x, z> in {<{ }, a>} --> z = y_2 ]			[1320 1321 ADJ]
+
+												1346. 3y [ <x, y> in {<{ }, a>} & @z [ <x, z> in {<{ }, a>} --> z = y ] ]			[1345 EG/y_2->y]
+
+												1347. 3_1y [ <x, y> in {<{ }, a>} ]			[1346 EQUIV.]
+
+												1348. 		[1347 CD]
+											
+											1349. 		[1315 UD]
+										
+										1350. {<{ }, a>} is a relation & @x [ x in dom {<{ }, a>} --> 3_1y [ <x, y> in {<{ }, a>} ] ]				[1297 1313 ADJ]
+
+										1351. {<{ }, a>} is a function		[1296 BC 1350 MP]
+
+										1352.		[1351 DD]
+									
+									1353. Show {<{ }, a>} is acceptable	
+
+										1354. @F, A, a [
+																		@v [ v is a function --> 
+																					[ 
+																						v is acceptable <--> 
+																							@t [ t in dom v --> t in ω ] &
+																							@t [ t in ran v --> t in A ] &
+																							0 in dom v --> v(0) = a &
+																							@n [ n in ω & n+ in dom v --> n in dom v & v(n+) = F(v(n)) ]
+																					] 
+																				] 
+																		]
+
+										1355. @v [ v is a function --> 
+																[ 
+																	v is acceptable <--> 
+																		@t [ t in dom v --> t in ω ] &
+																		@t [ t in ran v --> t in A ] &
+																		0 in dom v --> v(0) = a &
+																		@n [ n in ω & n+ in dom v --> n in dom v & v(n+) = F(v(n)) ]
+																] 
+															]			[1354 UI/F, A, a]
+
+										1356. {<{ }, a>} is acceptable <--> 
+															@t [ t in dom {<{ }, a>} --> t in ω ] &
+															@t [ t in ran {<{ }, a>} --> t in A ] &
+															0 in dom {<{ }, a>} --> {<{ }, a>}(0) = a &
+															@n [ n in ω & n+ in dom {<{ }, a>} --> n in dom {<{ }, a>} & {<{ }, a>}(n+) = F({<{ }, a>}(n)) ]
+
+										1357. Show @t [ t in dom {<{ }, a>} --> t in ω ]
+
+											1358. let t be a set
+
+											1359. Show t in dom {<{ }, a>} --> t in ω
+
+												1360. t in dom {<{ }, a>}		[ACD]
+
+												1361. @x [ x in dom {<{ }, a>} <--> 3y [ <x, y> in {<{ }, a>} ] ]			[1.D6]
+
+												1362. t in dom {<{ }, a>} <--> 3y [ <t, y> in {<{ }, a>} ]		[1361 UI/t]
+
+												1363. 3y [ <t, y> in {<{ }, a>} ]			[1362 BC 1360 MP]
+
+												1364. <t, y_2> in {<{ }, a>}		[1363 EI/y_2]
+
+												1365. @x [ x in {<{ }, a>} <--> x = <{ }, a> or x = <{ }, a> ]			[1.D5]
+
+												1366. <t, y_2> in {<{ }, a>} <--> <t, y_2> = <{ }, a> or <t, y_2> = <{ }, a>		[1365 UI/<t, y_2>]
+
+												1367. <t, y_2> = <{ }, a> or <t, y_2> = <{ }, a>			[1366 BC 1364 MP]
+
+												1368. <t, y_2> = <{ }, a>			[1367 SIMPLIFY_OR]
+
+												1369. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]			[Theorem 3A]
+
+												1370. <t, y_2> = <{ }, a>  <-->  t = { } & y_2 = a			[1369 UI/t, y_2, { }, a]
+
+												1371. t = { } & y_2 = a				[1370 BC 1368 MP]
+
+												1372. t = { }		[1371 SL]
+
+												1373. ω is inductive & @A [ A is inductive & A != ω --> @t [ t in ω --> t in A ] ]		[Theorem 4B]
+
+												1374. ω is inductive		[1373 SL]
+
+												1375. @A [ A is inductive <--> { } in A & @a [ a in A --> a+ in A ] ]			[Def. of inductive]
+
+												1376. ω is inductive <--> { } in ω & @a [ a in ω --> a+ in ω ]		[1375 UI/ω]
+
+												1377. { } in ω & @a [ a in ω --> a+ in ω ]		[1376 BC 1374 MP]
+
+												1378. { } in ω		[1377 SL]
+
+												1379. t in ω		[1378 1372 LL]
+
+												1380. 		[1379 CD]
+											
+											1381. 	[1359 UD]
+										
+										1382. Show @t [ t in ran {<{ }, a>} --> t in A ]
+
+											1383. let t be a set
+
+											1384. Show t in ran {<{ }, a>} --> t in A
+
+												1385. t in ran {<{ }, a>}		[ACD]
+
+												1386. @y [ y in ran {<{ }, a>} <--> 3x [ <x, y> in {<{ }, a>} ] ]		[1.D7]
+
+												1387. t in ran {<{ }, a>} <--> 3x [ <x, t> in {<{ }, a>} ]		[1386 UI/t]
+
+												1388. 3x [ <x, t> in {<{ }, a>} ]		[1387 BC 1385 MP]
+
+												1389. <x_2, t> in {<{ }, a>}		[1388 EI/x_2]
+
+												1390. @x [ x in {<{ }, a>} <--> x = <{ }, a> or x = <{ }, a> ]		[1.D5]
+
+												1391. <x_2, t> in {<{ }, a>} <--> <x_2, t> = <{ }, a> or <x_2, t> = <{ }, a>		[1390 UI/<x_2, t>]
+
+												1392. <x_2, t> = <{ }, a> or <x_2, t> = <{ }, a>		[1391 BC 1389 MP]
+
+												1393. <x_2, t> = <{ }, a>		[1392 SIMPLIFY_OR]
+
+												1394. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]		[Theorem 3A]
+
+												1395. <x_2, t> = <{ }, a>  <-->  x_2 = { } & t = a			[1394 UI/x_2, t, { }, a]
+
+												1396. x_2 = { } & t = a			[1395 BC 1393 MP]
+
+												1397. t = a		[1396 SR]
+
+												1398. a in A		[4 SL]
+
+												1399. t in A		[1397 1398 LL]
+
+												1400. 		[1399 CD]
+											
+											1401. 	[1384 UD]
+										
+										1402. Show 0 in dom {<{ }, a>} --> {<{ }, a>}(0) = a
+
+											1403. 0 in dom {<{ }, a>}		[ACD]
+
+											1404. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]		[MARIN]
+
+											1405. {<{ }, a>} is a function & 0 in dom {<{ }, a>} -->  @w [ <0, w> in {<{ }, a>} <--> {<{ }, a>}(0) = w ]		[1404 UI/{<{ }, a>} UI/0]
+
+											1406. {<{ }, a>} is a function & 0 in dom {<{ }, a>}		[1294 1403 ADJ]
+
+											1407. @w [ <0, w> in {<{ }, a>} <--> {<{ }, a>}(0) = w ]		[1405 1406 MP]
+
+											1408. <0, {<{ }, a>}(0)> in {<{ }, a>} <--> {<{ }, a>}(0) = {<{ }, a>}(0)			[1407 UI/{<{ }, a>}(0)]
+
+											1409. {<{ }, a>}(0) = {<{ }, a>}(0)		[SID]
+
+											1410. <0, {<{ }, a>}(0)> in {<{ }, a>}		[1408 BC 1409 MP]
+
+											1411. @x [ x in {<{ }, a>} <--> x = <{ }, a> or x = <{ }, a> ]		[1.D5]
+
+											1412. <0, {<{ }, a>}(0)> in {<{ }, a>} <--> <0, {<{ }, a>}(0)> = <{ }, a> or <0, {<{ }, a>}(0)> = <{ }, a>		[1411 UI/<0, {<{ }, a>}(0)>]
+
+											1413. <0, {<{ }, a>}(0)> = <{ }, a> or <0, {<{ }, a>}(0)> = <{ }, a>		[1412 BC 1410 MP]
+
+											1414. <0, {<{ }, a>}(0)> = <{ }, a>		[1413 SIMPLIFY_OR]
+
+											1415. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]		[Theorem 3A]
+
+											1416. <0, {<{ }, a>}(0)> = <{ }, a>  <-->  0 = { } & {<{ }, a>}(0) = a		[1415 UI/0, {<{ }, a>}(0), { }, a]
+
+											1417. 0 = { } & {<{ }, a>}(0) = a			[1416 BC 1414 MP]
+
+											1418. {<{ }, a>}(0) = a		[1417 SR]
+
+											1419.		[1418 CD]
+										
+										1420. Show @n [ n in ω & n+ in dom {<{ }, a>} --> n in dom {<{ }, a>} & {<{ }, a>}(n+) = F({<{ }, a>}(n)) ]
+
+											1421. let n be a set
+
+											////////
+											1420.D1. @t [ t in {n} <--> t = n or t = n ]		[Pairing axiom UI/n UI/n & Ext. Axiom]
+
+											1420.D2. @t [ t in n ∪ {n} <--> t in n or t in {n} ]		[Union axiom UI/n UI/{n} & Ext. Axiom]
+											////////
+
+											1422. Show n in ω & n+ in dom {<{ }, a>} --> n in dom {<{ }, a>} & {<{ }, a>}(n+) = F({<{ }, a>}(n))
+
+												1423. n in ω & n+ in dom {<{ }, a>}		[ACD]
+
+												1424. n+ in dom {<{ }, a>}		[1423 SR]
+
+												1425. @x [ x in dom {<{ }, a>} <--> 3y [ <x, y> in {<{ }, a>} ] ]		[1.D6]
+
+												1426. n+ in dom {<{ }, a>} <--> 3y [ <n+, y> in {<{ }, a>} ]		[1425 UI/n+]
+
+												1427. 3y [ <n+, y> in {<{ }, a>} ]		[1426 BC 1424 MP]
+
+												1428. <n+, y_2> in {<{ }, a>}		[1427 EI/y_2]
+
+												1429. @x [ x in {<{ }, a>} <--> x = <{ }, a> or x = <{ }, a> ]		[1.D5]
+
+												1430. <n+, y_2> in {<{ }, a>} <--> <n+, y_2> = <{ }, a> or <n+, y_2> = <{ }, a>			[1429 UI/<n+, y_2>]
+
+												1431. <n+, y_2> = <{ }, a> or <n+, y_2> = <{ }, a>		[1430 BC 1428 MP]
+
+												1432. <n+, y_2> = <{ }, a>		[1431 SIMPLIFY_OR]
+
+												1433. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]		[Theorem 3A]
+
+												1434. <n+, y_2> = <{ }, a>  <-->  n+ = { } & y_2 = a		[1433 UI/n+, y_2, { }, a]
+
+												1435. n+ = { } & y_2 = a		[1434 BC 1432 MP]
+
+												1436. n+ = { }		[1435 SL]
+
+												1437. Show n in { }
+
+													1438. @t [ t in n ∪ {n} <--> t in n or t in {n} ]		[1420.D2]
+
+													1439. n in n ∪ {n} <--> n in n or n in {n}		[1438 UI/n]
+
+													1440. @t [ t in {n} <--> t = n or t = n ]		[1420.D1]
+
+													1441. n in {n} <--> n = n or n = n		[1440 UI/n]
+
+													1442. n = n		[SID]
+
+													1443. n = n or n = n		[1442 ADD/...]
+
+													1444. n in {n}		[1441 BC 1443 MP]
+
+													1445. n in n or n in {n}		[1444 ADD/...]
+
+													1446. n in n ∪ {n}		[1439 BC 1445 MP]
+
+													1447. @a [ a+ := a ∪ {a} ]		[Def. of successor]
+
+													1448. n+ := n ∪ {n}		[1447 UI/n]
+
+													1449. n in n+			[1446 1448 LL]
+
+													1450. n+ = { }		[1436 R]
+
+													1451. n in { }		[1449 1450 LL]
+
+													1452.		[1451 DD]
+												
+												1453. @x [ ~(x in { }) ]		[1.D0]
+
+												1454. ~(n in { })			[1453 UI/n]
+
+												1455. 		[1437 1454 ID]
+											
+											1456. 		[1422 UD]
+										
+										1457. @t [ t in dom {<{ }, a>} --> t in ω ] &
+															@t [ t in ran {<{ }, a>} --> t in A ] &
+															0 in dom {<{ }, a>} --> {<{ }, a>}(0) = a &
+															@n [ n in ω & n+ in dom {<{ }, a>} --> n in dom {<{ }, a>} & {<{ }, a>}(n+) = F({<{ }, a>}(n)) ]		[1357 1382 1402 1420 ADJ]
+
+										1458. {<{ }, a>} is acceptable		[1356 BC 1457 MP]
+
+										1459. 		[1458 DD]
+									
+									1460. {<{ }, a>} is a function & {<{ }, a>} is acceptable			[1294 1353 ADJ]
+
+									1461. {<{ }, a>} in H_{F, A, a}		[1293 BC 1460 MP]
+
+									1462. Show <{ }, a> in {<{ }, a>}
+
+										1463. @x [ x in {<{ }, a>} <--> x = <{ }, a> or x = <{ }, a> ]		[1.D5]
+
+										1464. <{ }, a> in {<{ }, a>} <--> <{ }, a> = <{ }, a> or <{ }, a> = <{ }, a>		[1463 UI/<{ }, a>]
+
+										1465. <{ }, a> = <{ }, a>		[SID]
+
+										1466. <{ }, a> = <{ }, a> or <{ }, a> = <{ }, a>		[1465 ADD/...]
+
+										1467. <{ }, a> in {<{ }, a>}		[1464 BC 1466 MP]
+
+										1468. 		[1467 DD]
+									
+									1469. {<{ }, a>} in H_{F, A, a} & <{ }, a> in {<{ }, a>}		[1461 1462 ADJ]
+
+									1470. 3b [ b in H_{F, A, a} & <{ }, a> in b ]		[1469 EG/{<{ }, a>} -> b]
+
+									1471. 		[1470 DD]
+								
+								1472. <{ }, a> in U(H_{F, A, a})		[1290 BC 1291 MP]
+
+								1473. Show @z [ <{ }, z> in U(H_{F, A, a}) --> z = a ]
+
+									1474. let z be a set
+
+									
+
 
 
 
