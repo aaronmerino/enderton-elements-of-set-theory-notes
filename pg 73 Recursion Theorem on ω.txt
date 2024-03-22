@@ -3637,6 +3637,140 @@ Axioms, Definitions, and Theorems:
 
 									1474. let z be a set
 
+									1475. Show <{ }, z> in U(H_{F, A, a}) --> z = a
+
+										1476. <{ }, z> in U(H_{F, A, a})		[ACD]
+
+										1477. @t [ t in U(H_{F, A, a}) <--> 3b [ b in H_{F, A, a} & t in b ] ]		[1.D2]
+
+										1478. <{ }, z> in U(H_{F, A, a}) <--> 3b [ b in H_{F, A, a} & <{ }, z> in b ]		[1477 UI/<{ }, z>]
+
+										1479. 3b [ b in H_{F, A, a} & <{ }, z> in b ]		[1478 BC 1476 MP]
+
+										1480. b_2 in H_{F, A, a} & <{ }, z> in b_2		[1479 EI/b_2]
+
+										1481. b_2 in H_{F, A, a}		[1480 SL]
+
+										1482. <{ }, z> in b_2			[1480 SR]
+
+										////////
+										1475.D1. @x [ x in dom b_2 <--> 3y [ <x, y> in b_2 ] ]		[dom UI/b_2 & Ext. Axiom]
+										////////
+
+
+										1483. @v [ v in H_{F, A, a} <--> v is a function & v is acceptable ]		[1.D1]
+
+										1484. b_2 in H_{F, A, a} <--> b_2 is a function & b_2 is acceptable			[1483 UI/b_2]
+
+										1485. b_2 is a function & b_2 is acceptable			[1484 BC 1481 MP]
+
+
+										1486. b_2 is a function		[1485 SL]
+
+										1487. b_2 is acceptable		[1485 SR]
+
+										1488. @F, A, a [
+															@v [ v is a function --> 
+																		[ 
+																			v is acceptable <--> 
+																				@t [ t in dom v --> t in ω ] &
+																				@t [ t in ran v --> t in A ] &
+																				0 in dom v --> v(0) = a &
+																				@n [ n in ω & n+ in dom v --> n in dom v & v(n+) = F(v(n)) ]
+																		] 
+																	] 
+															]			[Def. of acceptable]
+										
+										1489. @v [ v is a function --> 
+																[ 
+																	v is acceptable <--> 
+																		@t [ t in dom v --> t in ω ] &
+																		@t [ t in ran v --> t in A ] &
+																		0 in dom v --> v(0) = a &
+																		@n [ n in ω & n+ in dom v --> n in dom v & v(n+) = F(v(n)) ]
+																] 
+															]			[1488 UI/F, A, a]
+
+										1490. b_2 is a function --> 
+																[ 
+																	b_2 is acceptable <--> 
+																		@t [ t in dom b_2 --> t in ω ] &
+																		@t [ t in ran b_2 --> t in A ] &
+																		0 in dom b_2 --> b_2(0) = a &
+																		@n [ n in ω & n+ in dom b_2 --> n in dom b_2 & b_2(n+) = F(b_2(n)) ]
+																]			[1489 UI/b_2]
+										
+										1491. b_2 is acceptable <--> 
+														@t [ t in dom b_2 --> t in ω ] &
+														@t [ t in ran b_2 --> t in A ] &
+														0 in dom b_2 --> b_2(0) = a &
+														@n [ n in ω & n+ in dom b_2 --> n in dom b_2 & b_2(n+) = F(b_2(n)) ]			[1490 1486 MP]
+
+										1492. @t [ t in dom b_2 --> t in ω ] &
+														@t [ t in ran b_2 --> t in A ] &
+														0 in dom b_2 --> b_2(0) = a &
+														@n [ n in ω & n+ in dom b_2 --> n in dom b_2 & b_2(n+) = F(b_2(n)) ]			[1491 BC 1487 MP]
+
+										1493. 0 in dom b_2 --> b_2(0) = a			[1492 SL SR]
+
+
+										1494. @x [ x in dom b_2 <--> 3y [ <x, y> in b_2 ] ]		[1475.D1]
+
+										1495. 0 in dom b_2 <--> 3y [ <0, y> in b_2 ]		[1494 UI/0]
+
+										1496. 3y [ <{ }, y> in b_2 ]		[1482 EG/z->y]
+
+										1497. 0 := { }		[Def. of zero]
+
+										1498. 3y [ <0, y> in b_2 ]		[1496 1497 LL]
+
+										1499. 0 in dom b_2		[1495 BC 1498 MP]
+
+										1500. b_2(0) = a		[1493 1499 MP]
+
+
+										1501. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]		[MARIN]
+
+										1502. b_2 is a function & 0 in dom b_2 -->  @w [ <0, w> in b_2 <--> b_2(0) = w ]		[1501 UI/b_2 UI/0]
+
+										1503. b_2 is a function & 0 in dom b_2		[1486 1499 ADJ]
+
+										1504. @w [ <0, w> in b_2 <--> b_2(0) = w ]		[1502 1503 MP]
+
+										1505. <0, z> in b_2 <--> b_2(0) = z			[1504 UI/z]
+
+										1506. <{ }, z> in b_2		[1482 R]
+
+										1507. <0, z> in b_2		[1506 1497 LL]
+
+										1508. b_2(0) = z		[1505 BC 1507 MP]
+
+
+										1509. z = a 			[1500 1508 LL]
+
+										1510.		[1509 CD]
+									
+									1511. 		[1475 UD]
+								
+								1512. <{ }, a> in U(H_{F, A, a}) & @z [ <{ }, z> in U(H_{F, A, a}) --> z = a ]		[1472 1473 ADJ]
+
+								1513. 3y [ <{ }, y> in U(H_{F, A, a}) & @z [ <{ }, z> in U(H_{F, A, a}) --> z = y ] ]		[1512 EG/a->y]
+
+								1514. 3_1y [ <{ }, y> in U(H_{F, A, a}) ]		[1513 EQUIV.]
+
+								1515. 		[1514 DD]
+							
+							1516. { } in ω & 3_1y [ <{ }, y> in U(H_{F, A, a}) ]		[1280 1288 ADJ]
+
+							1517. { } in B_1		[1279 BC 1516 MP]
+
+							1518. 		[1517 DD]
+						
+						1519. 
+
+
+
+
 									
 
 
