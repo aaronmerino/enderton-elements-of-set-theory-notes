@@ -1,0 +1,83 @@
+Axioms, Definitions, and Theorems:
+	Extensionality Axiom:
+		@A, B [ @x [ x in A <--> x in B ] --> A = B ]
+
+	Definition of a natural number:
+		@b [ b is a natural number <--> @A [ A is inductive --> b in A ] ]
+
+	Theorem 4A:
+		3D [ @b [ b in D <--> b is a natural number ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			ω is the set whose members are exactly the natural numbers 
+			@b [ b in ω <--> b is a natural number ]
+
+1. Show @T [ T is inductive & @n [ n in T --> n in ω ] --> T = ω ]
+
+  2. let T be a set
+
+  3. Show T is inductive & @n [ n in T --> n in ω ] --> T = ω
+
+    4. T is inductive & @n [ n in T --> n in ω ]    [ACD]
+
+    5. T is inductive   [4 SL]
+
+    6. @n [ n in T --> n in ω ]   [4 SR]
+
+    7. Show T = ω
+
+      8. @A, B [ @x [ x in A <--> x in B ] --> A = B ]   [Ext. Axiom]
+
+      9. @x [ x in T <--> x in ω ] --> T = ω   [8 UI/T UI/ω]
+
+      10. Show @x [ x in T <--> x in ω ]
+
+        11. let x be a set
+
+        12. Show x in T --> x in ω
+
+          13. x in T		[ACD]
+
+          14. @n [ n in T --> n in ω ]    [6 R]
+
+          15. x in T --> x in ω		[14 UI/x]
+
+          16. x in ω		[15 13 MP]
+
+          17. 	[16 CD]
+
+        18. Show x in ω --> x in T
+
+          19. x in ω		[ACD]
+
+          20. @b [ b in ω <--> b is a natural number ]		[Theorem 4A]
+
+          21. x in ω <--> x is a natural number		[20 UI/x]
+
+          22. x is a natural number		[21 BC 19 MP]
+
+          23. @b [ b is a natural number <--> @A [ A is inductive --> b in A ] ]		[Def. of natural number]
+
+          24. x is a natural number <--> @A [ A is inductive --> x in A ]			[23 UI/x]
+
+          25. @A [ A is inductive --> x in A ]		[24 BC 22 MP]
+
+          26. T is inductive --> x in T			[25 UI/T]
+
+          27. T is inductive		[5 R]
+
+          28. x in T		[26 27 MP]
+
+          29.		[28 CD]
+        
+        30. x in T <--> x in ω    [12 18 CB]
+
+        31.   [30 UD]
+      
+      32. T = ω   [9 10 MP]
+
+      33.   [32 DD]
+    
+    34.   [7 CD]
+  
+  35.   [3 UD]
+							

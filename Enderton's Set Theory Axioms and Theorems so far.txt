@@ -486,6 +486,9 @@ Set of Natural Numbers Chapter:
 	Theorem 4B:
 		ω is inductive & @A [ A is inductive & A != ω --> @t [ t in ω --> t in A ] ]
 
+	Induction Principle for ω:
+		@T [ T is inductive & @n [ n in T --> n in ω ] --> T = ω ]
+
 	Theorem 4C:
 		@n [ n is a natural number & n != { } --> 3k [ k is a natural number & k+ = n ] ]
 

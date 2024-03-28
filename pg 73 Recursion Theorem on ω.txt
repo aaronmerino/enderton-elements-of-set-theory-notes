@@ -121,6 +121,9 @@ Axioms, Definitions, and Theorems:
 	Theorem 4B:
 		ω is inductive & @A [ A is inductive & A != ω --> @t [ t in ω --> t in A ] ]
 
+	Induction Principle for ω:
+		@T [ T is inductive & @n [ n in T --> n in ω ] --> T = ω ]
+
 	Theorem 4C:
 		@n [ n is a natural number & n != { } --> 3k [ k is a natural number & k+ = n ] ]
 
@@ -4270,7 +4273,79 @@ Axioms, Definitions, and Theorems:
 
 						1721.		[1720 DD]
 					
-					1722. 
+					1722. Show B_1 = ω
+
+						1723. @T [ T is inductive & @n [ n in T --> n in ω ] --> T = ω ]		[Induction Principle for ω]
+
+						1724. B_1 is inductive & @n [ n in B_1 --> n in ω ] --> B_1 = ω			[1723 UI/B_1]
+
+						1725. Show @n [ n in B_1 --> n in ω ]
+
+							1726. let n be a set
+
+							1727. Show n in B_1 --> n in ω
+
+								1728. n in B_1		[ACD]
+
+								1729. @t [ t in B_1 <--> t in ω & 3_1y [ <t, y> in U(H_{F, A, a}) ] ]		[1273 R]
+
+								1730. n in B_1 <--> n in ω & 3_1y [ <n, y> in U(H_{F, A, a}) ]		[1729 UI/n]
+
+								1731. n in ω & 3_1y [ <n, y> in U(H_{F, A, a}) ]		[1730 BC 1728 MP]
+
+								1732. n in ω		[1731 SL]
+
+								1733. 	[1732 CD]
+							
+							1734. 	[1727 UD]
+						
+						1735. B_1 is inductive & @n [ n in B_1 --> n in ω ]		[1274 1725 ADJ]
+
+						1736. B_1 = ω		[1735 1724 MP]
+
+						1737.		[1736 DD]
+					
+					1738. Show @x [ x in ω --> 3_1y [ <x, y> in U(H_{F, A, a}) ] ]
+
+						1739. let x be a set
+
+						1740. Show x in ω --> 3_1y [ <x, y> in U(H_{F, A, a}) ]
+
+							1741. x in ω		[ACD]
+
+							1742. B_1 = ω		[1722 R]
+
+							1743. x in B_1		[1741 1742 LL]
+
+							1744. @t [ t in B_1 <--> t in ω & 3_1y [ <t, y> in U(H_{F, A, a}) ] ]			[1273 R]
+
+							1745. x in B_1 <--> x in ω & 3_1y [ <x, y> in U(H_{F, A, a}) ]		[1744 UI/x]
+
+							1746. x in ω & 3_1y [ <x, y> in U(H_{F, A, a}) ]		[1745 BC 1743 MP]
+
+							1747. 3_1y [ <x, y> in U(H_{F, A, a}) ]		[1746 SR]
+
+							1748. 		[1747 CD]
+
+						1749. 	[1740 UD]
+					
+					1750. 	[1738 DD]
+				
+				1751. dom U(H_{F, A, a}) = ω		[40 R]
+
+				1752. @x [ x in dom U(H_{F, A, a}) --> 3_1y [ <x, y> in U(H_{F, A, a}) ] ]		[1751 1269 LL]
+
+				1753. 	[1752 DD]
+			
+			1754. U(H_{F, A, a}) is a relation & @x [ x in dom U(H_{F, A, a}) --> 3_1y [ <x, y> in U(H_{F, A, a}) ] ]		[9 1268 ADJ]
+
+			1755. U(H_{F, A, a}) is a function		[8 BC 1754 MP]
+
+
+			1756. 
+
+
+
 
 
 
