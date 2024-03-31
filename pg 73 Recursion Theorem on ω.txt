@@ -4509,10 +4509,149 @@ Axioms, Definitions, and Theorems:
 
 				1803. Show 0 in dom U(H_{F, A, a}) --> U(H_{F, A, a})(0) = a
 
-					1804. 
+					1804. 0 in dom U(H_{F, A, a})			[ACD]
+
+					1805. @x [ x in dom U(H_{F, A, a}) <--> 3y [ <x, y> in U(H_{F, A, a}) ] ]		[1.D3]
+
+					1806. 0 in dom U(H_{F, A, a}) <--> 3y [ <0, y> in U(H_{F, A, a}) ]		[1805 UI/0]
+
+					1807. 3y [ <0, y> in U(H_{F, A, a}) ]		[1806 BC 1804 MP]
+
+					1808. <0, y_1> in U(H_{F, A, a})		[1807 EI/y_1]
+
+					1809. @t [ t in U(H_{F, A, a}) <--> 3b [ b in H_{F, A, a} & t in b ] ]		[1.D2]
+
+					1810. <0, y_1> in U(H_{F, A, a}) <--> 3b [ b in H_{F, A, a} & <0, y_1> in b ]		[1809 UI/<0, y_1>]
+
+					1811. 3b [ b in H_{F, A, a} & <0, y_1> in b ]			[1810 BC 1808 MP]
+
+					1812. b_2 in H_{F, A, a} & <0, y_1> in b_2			[1811 EI/b_2]
+
+					////////
+					1803.D1. @x [ x in dom b_2 <--> 3y [ <x, y> in b_2 ] ]		[dom UI/b_2 & Ext. Axiom]
+					////////
+
+					1813. b_2 in H_{F, A, a}		[1812 SL]
+
+					1814. <0, y_1> in b_2		[1812 SR]
+
+					1815. @v [ v in H_{F, A, a} <--> v is a function & v is acceptable ]		[1.D1]
+
+					1816. b_2 in H_{F, A, a} <--> b_2 is a function & b_2 is acceptable			[1815 UI/b_2]
+
+					1817. b_2 is a function & b_2 is acceptable			[1816 BC 1813 MP]
+
+					1818. b_2 is a function		[1817 SL]
+
+					1819. b_2 is acceptable		[1817 SR]
 
 
-				0000. Show @n [ n in ω & n+ in dom U(H_{F, A, a}) --> n in dom U(H_{F, A, a}) & U(H_{F, A, a})(n+) = F(U(H_{F, A, a})(n)) ]
+					1820. @F, A, a [
+													@v [ v is a function --> 
+																[ 
+																	v is acceptable <--> 
+																		@t [ t in dom v --> t in ω ] &
+																		@t [ t in ran v --> t in A ] &
+																		0 in dom v --> v(0) = a &
+																		@n [ n in ω & n+ in dom v --> n in dom v & v(n+) = F(v(n)) ]
+																] 
+															] 
+													]		[Def. of acceptable]
+
+					1821. @v [ v is a function --> 
+											[ 
+												v is acceptable <--> 
+													@t [ t in dom v --> t in ω ] &
+													@t [ t in ran v --> t in A ] &
+													0 in dom v --> v(0) = a &
+													@n [ n in ω & n+ in dom v --> n in dom v & v(n+) = F(v(n)) ]
+											] 
+										]			[1820 UI/F, A, a]
+					
+					1822. b_2 is a function --> 
+											[ 
+												b_2 is acceptable <--> 
+													@t [ t in dom b_2 --> t in ω ] &
+													@t [ t in ran b_2 --> t in A ] &
+													0 in dom b_2 --> b_2(0) = a &
+													@n [ n in ω & n+ in dom b_2 --> n in dom b_2 & b_2(n+) = F(b_2(n)) ]
+											]			[1821 UI/b_2]
+					
+					1823. b_2 is acceptable <--> 
+													@t [ t in dom b_2 --> t in ω ] &
+													@t [ t in ran b_2 --> t in A ] &
+													0 in dom b_2 --> b_2(0) = a &
+													@n [ n in ω & n+ in dom b_2 --> n in dom b_2 & b_2(n+) = F(b_2(n)) ]			[1822 1818 MP]
+					
+					1824. @t [ t in dom b_2 --> t in ω ] &
+								@t [ t in ran b_2 --> t in A ] &
+								0 in dom b_2 --> b_2(0) = a &
+								@n [ n in ω & n+ in dom b_2 --> n in dom b_2 & b_2(n+) = F(b_2(n)) ]			[1823 BC 1819 MP]
+					
+					1825. 0 in dom b_2 --> b_2(0) = a		[1824 SL SR]
+
+
+					1826. Show 0 in dom b_2
+
+						1827. @x [ x in dom b_2 <--> 3y [ <x, y> in b_2 ] ]			[1803.D1]
+
+						1828. 0 in dom b_2 <--> 3y [ <0, y> in b_2 ]		[1827 UI/0]
+
+						1829. <0, y_1> in b_2		[1814 R]
+
+						1830. 3y [ <0, y> in b_2 ]		[1829 EG/y_1->y]
+
+						1831. 0 in dom b_2		[1828 BC 1830 MP]
+
+						1832. 		[1831 DD]
+					
+					1833. b_2(0) = a		[1825 1826 MP]
+
+
+					1834. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]		[MARIN]
+
+					1835. b_2 is a function & 0 in dom b_2 -->  @w [ <0, w> in b_2 <--> b_2(0) = w ]			[1834 UI/b_2 UI/0]
+
+					1836. b_2 is a function & 0 in dom b_2	[1818 1826 ADJ]
+
+					1837. @w [ <0, w> in b_2 <--> b_2(0) = w ]		[1835 1836 MP]
+
+					1838. <0, y_1> in b_2 <--> b_2(0) = y_1		[1837 UI/y_1]
+
+					1839. <0, y_1> in b_2		[1814 R]
+
+					1840. b_2(0) = y_1		[1838 BC 1839 MP]
+
+					1841. y_1 = a			[1833 1840 LL]
+
+
+					1842. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]		[MARIN]
+
+					1843. U(H_{F, A, a}) is a function & 0 in dom U(H_{F, A, a}) -->  @w [ <0, w> in U(H_{F, A, a}) <--> U(H_{F, A, a})(0) = w ]		[1842 UI/U(H_{F, A, a}) UI/0]
+
+					1844. U(H_{F, A, a}) is a function		[1755 R]
+
+					1845. 0 in dom U(H_{F, A, a})		[1804 R]
+
+					1846. U(H_{F, A, a}) is a function & 0 in dom U(H_{F, A, a})		[1844 1845 ADJ]
+
+					1847. @w [ <0, w> in U(H_{F, A, a}) <--> U(H_{F, A, a})(0) = w ]		[1843 1846 MP]
+
+					1848. <0, y_1> in U(H_{F, A, a}) <--> U(H_{F, A, a})(0) = y_1			[1847 UI/y_1]
+
+					1849. <0, y_1> in U(H_{F, A, a})		[1808 R]
+
+					1850. U(H_{F, A, a})(0) = y_1		[1848 BC 1849 MP]
+
+
+					1851. U(H_{F, A, a})(0) = a			[1850 1841 LL]
+
+					1852. 		[1851 CD]
+				
+
+				1853. Show @n [ n in ω & n+ in dom U(H_{F, A, a}) --> n in dom U(H_{F, A, a}) & U(H_{F, A, a})(n+) = F(U(H_{F, A, a})(n)) ]
+
+					1854. 
 
 
 
