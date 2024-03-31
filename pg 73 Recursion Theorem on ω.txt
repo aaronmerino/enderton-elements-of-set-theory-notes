@@ -405,6 +405,8 @@ Axioms, Definitions, and Theorems:
 	1.D9. @t [ t in {a} <--> t = a or t = a ]		[Pairing axiom UI/a UI/a & Ext. Axiom]
 
 	1.D10. @t [ t in a ∪ {a} <--> t in a or t in {a} ]		[Union axiom UI/a UI/{a} & Ext. Axiom]
+
+	1.D11. @y [ y in ran U(H_{F, A, a}) <--> 3x [ <x, y> in U(H_{F, A, a}) ] ]		[ran UI/U(H_{F, A, a}) & Ext. Axiom]
 	////////
 
 	3. Show a in A & F:A->A --> 3h [ h:ω->A & h(0) = a & @n [ n in ω --> h(n+) = F(h(n)) ] ]
@@ -4342,7 +4344,175 @@ Axioms, Definitions, and Theorems:
 			1755. U(H_{F, A, a}) is a function		[8 BC 1754 MP]
 
 
-			1756. 
+
+			1756. Show U(H_{F, A, a}) is acceptable
+
+				1757. @F, A, a [
+											@v [ v is a function --> 
+														[ 
+															v is acceptable <--> 
+																@t [ t in dom v --> t in ω ] &
+																@t [ t in ran v --> t in A ] &
+																0 in dom v --> v(0) = a &
+																@n [ n in ω & n+ in dom v --> n in dom v & v(n+) = F(v(n)) ]
+														] 
+													] 
+											]		[Def. of acceptable]
+				
+				1758. @v [ v is a function --> 
+										[ 
+											v is acceptable <--> 
+												@t [ t in dom v --> t in ω ] &
+												@t [ t in ran v --> t in A ] &
+												0 in dom v --> v(0) = a &
+												@n [ n in ω & n+ in dom v --> n in dom v & v(n+) = F(v(n)) ]
+										] 
+									]		[1757 UI/F, A, a]
+				
+				1759. U(H_{F, A, a}) is a function --> 
+										[ 
+											U(H_{F, A, a}) is acceptable <--> 
+												@t [ t in dom U(H_{F, A, a}) --> t in ω ] &
+												@t [ t in ran U(H_{F, A, a}) --> t in A ] &
+												0 in dom U(H_{F, A, a}) --> U(H_{F, A, a})(0) = a &
+												@n [ n in ω & n+ in dom U(H_{F, A, a}) --> n in dom U(H_{F, A, a}) & U(H_{F, A, a})(n+) = F(U(H_{F, A, a})(n)) ]
+										]		[1758 UI/U(H_{F, A, a})]
+
+				1760. U(H_{F, A, a}) is acceptable <--> 
+								@t [ t in dom U(H_{F, A, a}) --> t in ω ] &
+								@t [ t in ran U(H_{F, A, a}) --> t in A ] &
+								0 in dom U(H_{F, A, a}) --> U(H_{F, A, a})(0) = a &
+								@n [ n in ω & n+ in dom U(H_{F, A, a}) --> n in dom U(H_{F, A, a}) & U(H_{F, A, a})(n+) = F(U(H_{F, A, a})(n)) ]		[1759 1755 MP]
+				
+
+				1761. Show @t [ t in dom U(H_{F, A, a}) --> t in ω ]
+
+					1762. let t be a set
+
+					1763. Show t in dom U(H_{F, A, a}) --> t in ω
+
+						1764. t in dom U(H_{F, A, a})			[ACD]
+
+						1765. dom U(H_{F, A, a}) = ω		[40 R]
+
+						1766. t in ω		[1764 1765 LL]
+
+						1767.		[1766 CD]
+					
+					1768. 		[1763 UD]
+				
+				
+				1769. Show @t [ t in ran U(H_{F, A, a}) --> t in A ]
+
+					1770. let t be a set
+
+					1771. Show t in ran U(H_{F, A, a}) --> t in A
+
+						1772. t in ran U(H_{F, A, a})		[ACD]
+
+						1773. @y [ y in ran U(H_{F, A, a}) <--> 3x [ <x, y> in U(H_{F, A, a}) ] ]			[1.D11]
+
+						1774. t in ran U(H_{F, A, a}) <--> 3x [ <x, t> in U(H_{F, A, a}) ]		[1773 UI/t]
+
+						1775. 3x [ <x, t> in U(H_{F, A, a}) ]			[1774 BC 1772 MP]
+
+						1776. <x_1, t> in U(H_{F, A, a})		[1775 EI/x_1]
+
+						1777. @t [ t in U(H_{F, A, a}) <--> 3b [ b in H_{F, A, a} & t in b ] ]		[1.D2]
+
+						1778. <x_1, t> in U(H_{F, A, a}) <--> 3b [ b in H_{F, A, a} & <x_1, t> in b ]			[1777 UI/<x_1, t>]
+
+						1779. 3b [ b in H_{F, A, a} & <x_1, t> in b ]			[1778 BC 1776 MP]
+
+						1780. b_2 in H_{F, A, a} & <x_1, t> in b_2			[1779 EI/b_2]
+
+						////////
+						1771.D1. @y [ y in ran b_2 <--> 3x [ <x, y> in b_2 ] ]		[ran UI/b_2 & Ext. Axiom]
+						////////
+
+						1781. b_2 in H_{F, A, a}		[1780 SL]
+
+						1782. <x_1, t> in b_2			[1780 SR]
+
+						1783. @v [ v in H_{F, A, a} <--> v is a function & v is acceptable ]		[1.D1]
+
+						1784. b_2 in H_{F, A, a} <--> b_2 is a function & b_2 is acceptable			[1783 UI/b_2]
+
+						1785. b_2 is a function & b_2 is acceptable		[1784 BC 1781 MP]
+
+						1786. b_2 is a function			[1785 SL]
+
+						1787. b_2 is acceptable			[1785 SR]
+
+						1788. @F, A, a [
+													@v [ v is a function --> 
+																[ 
+																	v is acceptable <--> 
+																		@t [ t in dom v --> t in ω ] &
+																		@t [ t in ran v --> t in A ] &
+																		0 in dom v --> v(0) = a &
+																		@n [ n in ω & n+ in dom v --> n in dom v & v(n+) = F(v(n)) ]
+																] 
+															] 
+													]			[Def. of acceptable]
+
+						1789. @v [ v is a function --> 
+												[ 
+													v is acceptable <--> 
+														@t [ t in dom v --> t in ω ] &
+														@t [ t in ran v --> t in A ] &
+														0 in dom v --> v(0) = a &
+														@n [ n in ω & n+ in dom v --> n in dom v & v(n+) = F(v(n)) ]
+												] 
+											]			[1788 UI/F, A, a]
+
+						1790. b_2 is a function --> 
+										[ 
+											b_2 is acceptable <--> 
+												@t [ t in dom b_2 --> t in ω ] &
+												@t [ t in ran b_2 --> t in A ] &
+												0 in dom b_2 --> b_2(0) = a &
+												@n [ n in ω & n+ in dom b_2 --> n in dom b_2 & b_2(n+) = F(b_2(n)) ]
+										]			[1790 UI/b_2]
+						
+						1791. b_2 is acceptable <--> 
+										@t [ t in dom b_2 --> t in ω ] &
+										@t [ t in ran b_2 --> t in A ] &
+										0 in dom b_2 --> b_2(0) = a &
+										@n [ n in ω & n+ in dom b_2 --> n in dom b_2 & b_2(n+) = F(b_2(n)) ]		[1790 1786 MP]
+
+						1792. @t [ t in dom b_2 --> t in ω ] &
+										@t [ t in ran b_2 --> t in A ] &
+										0 in dom b_2 --> b_2(0) = a &
+										@n [ n in ω & n+ in dom b_2 --> n in dom b_2 & b_2(n+) = F(b_2(n)) ]		[1791 BC 1787 MP]
+
+						1793. @t [ t in ran b_2 --> t in A ]		[1792 SL SL SR]
+
+						1794. t in ran b_2 --> t in A		[1793 UI/t]
+
+						1795. @y [ y in ran b_2 <--> 3x [ <x, y> in b_2 ] ]			[1771.D1]
+
+						1796. t in ran b_2 <--> 3x [ <x, t> in b_2 ]		[1795 UI/t]
+
+						1797. <x_1, t> in b_2		[1782 R]
+
+						1798. 3x [ <x, t> in b_2 ]		[1797 EG/x_1->x]
+
+						1799. t in ran b_2		[1796 BC 1798 MP]
+
+						1800. t in A		[1794 1799 MP]
+
+						1801.		[1800 CD]
+					
+					1802. 	[1771 UD]
+				
+
+				1803. Show 0 in dom U(H_{F, A, a}) --> U(H_{F, A, a})(0) = a
+
+					1804. 
+
+
+				0000. Show @n [ n in ω & n+ in dom U(H_{F, A, a}) --> n in dom U(H_{F, A, a}) & U(H_{F, A, a})(n+) = F(U(H_{F, A, a})(n)) ]
 
 
 
