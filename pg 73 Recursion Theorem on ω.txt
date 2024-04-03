@@ -4651,7 +4651,29 @@ Axioms, Definitions, and Theorems:
 
 				1853. Show @n [ n in ω & n+ in dom U(H_{F, A, a}) --> n in dom U(H_{F, A, a}) & U(H_{F, A, a})(n+) = F(U(H_{F, A, a})(n)) ]
 
-					1854. 
+					1854. let n be a set
+
+					1855. Show n in ω & n+ in dom U(H_{F, A, a}) --> n in dom U(H_{F, A, a}) & U(H_{F, A, a})(n+) = F(U(H_{F, A, a})(n))
+
+						1856. n in ω & n+ in dom U(H_{F, A, a})			[ACD]
+
+						1857. n in ω			[1856 SL]
+
+						1858. n+ in dom U(H_{F, A, a})			[1856 SR]
+
+						1859. Show n in dom U(H_{F, A, a})
+
+							1860. n in ω		[1857 R]
+
+							1861. dom U(H_{F, A, a}) = ω		[40 R]
+
+							1862. n in dom U(H_{F, A, a})			[1860 1861 LL]
+
+							1863. 		[1862 DD]
+
+						1864. Show U(H_{F, A, a})(n+) = F(U(H_{F, A, a})(n))
+
+							1865. 
 
 
 
