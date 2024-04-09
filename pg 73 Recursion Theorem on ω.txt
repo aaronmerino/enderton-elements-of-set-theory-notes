@@ -379,7 +379,7 @@ Axioms, Definitions, and Theorems:
 		@F, A, a [ @c [ 3B [ @t [ t in B <--> t in c & 3_1y [ <t, y> in U(H_{F, A, a}) ] ] ] ] ]   [Subset Axiom UI_META/'3_1y [ <t, y> in U(H_{F, A, a}) ]']
 
 [Recursion Theorem on ω]
-1. Show @F, A, a [ a in A & F:A->A --> 3h [ h:ω->A & h(0) = a & @n [ n in ω --> h(n+) = F(h(n)) ] ] ]
+1. Show @F, A, a [ a in A & F:A->A --> 3_1h [ h:ω->A & h(0) = a & @n [ n in ω --> h(n+) = F(h(n)) ] ] ]
 
 	2. let F, A, a be sets
 
@@ -409,11 +409,11 @@ Axioms, Definitions, and Theorems:
 	1.D11. @y [ y in ran U(H_{F, A, a}) <--> 3x [ <x, y> in U(H_{F, A, a}) ] ]		[ran UI/U(H_{F, A, a}) & Ext. Axiom]
 	////////
 
-	3. Show a in A & F:A->A --> 3h [ h:ω->A & h(0) = a & @n [ n in ω --> h(n+) = F(h(n)) ] ]
+	3. Show a in A & F:A->A --> 3_1h [ h:ω->A & h(0) = a & @n [ n in ω --> h(n+) = F(h(n)) ] ]
 
 		4. a in A & F:A->A		[ACD]
 
-		5. Show 3h [ h:ω->A & h(0) = a & @n [ n in ω --> h(n+) = F(h(n)) ] ]
+		5. Show 3_1h [ h:ω->A & h(0) = a & @n [ n in ω --> h(n+) = F(h(n)) ] ]
 
 			6. //// Showing F is a function
 
@@ -4886,7 +4886,361 @@ Axioms, Definitions, and Theorems:
 
 				1947. 	[1946 DD]
 			
-			1948. 
+			
+
+			// Now we prove 3_1h [ h:ω->A & h(0) = a & @n [ n in ω --> h(n+) = F(h(n)) ] ]
+			1948. Show 3_1h [ h:ω->A & h(0) = a & @n [ n in ω --> h(n+) = F(h(n)) ] ]
+
+				1949. Show U(H_{F, A, a}):ω->A
+
+					1950. @F, S, T [ F:S->T <--> 
+														F is a function &
+														dom F = S &
+														ran F ⊆ T 
+													]		[Def. of into]
+					
+					1951. U(H_{F, A, a}):ω->A <--> 
+										U(H_{F, A, a}) is a function &
+										dom U(H_{F, A, a}) = ω &
+										ran U(H_{F, A, a}) ⊆ A 			[1950 UI/U(H_{F, A, a}) UI/ω UI/A]
+
+
+					1952. U(H_{F, A, a}) is a function			[1755 R]
+
+					1953. Show ran U(H_{F, A, a}) ⊆ A
+
+						1954. Show @t [ t in ran U(H_{F, A, a}) --> t in A ]
+
+							1955. let t be a set
+
+							1956. Show t in ran U(H_{F, A, a}) --> t in A
+
+								1957. t in ran U(H_{F, A, a})			[ACD]
+
+								1958. @y [ y in ran U(H_{F, A, a}) <--> 3x [ <x, y> in U(H_{F, A, a}) ] ]			[1.D11]
+
+								1959. t in ran U(H_{F, A, a}) <--> 3x [ <x, t> in U(H_{F, A, a}) ]			[1958 UI/t]
+
+								1960. 3x [ <x, t> in U(H_{F, A, a}) ]			[1959 BC 1957 MP]
+
+								1961. <x_1, t> in U(H_{F, A, a})			[1960 EI/x_1]
+
+								1962. @t [ t in U(H_{F, A, a}) <--> 3b [ b in H_{F, A, a} & t in b ] ]			[1.D2]
+
+								1963. <x_1, t> in U(H_{F, A, a}) <--> 3b [ b in H_{F, A, a} & <x_1, t> in b ]			[1962 UI/<x_1, t>]
+
+								1964. 3b [ b in H_{F, A, a} & <x_1, t> in b ]			[1963 BC 1961 MP]
+
+								1965. b_2 in H_{F, A, a} & <x_1, t> in b_2			[1964 EI/b_2]
+
+								////////
+								1956.D1. @y [ y in ran b_2 <--> 3x [ <x, y> in b_2 ] ]		[ran UI/b_2 & Ext. Axiom]
+								////////
+
+								1966. b_2 in H_{F, A, a}			[1965 SL]
+
+								1967. <x_1, t> in b_2				[1965 SR]
+
+
+								1968. @v [ v in H_{F, A, a} <--> v is a function & v is acceptable ]		[1.D1]
+
+								1969. b_2 in H_{F, A, a} <--> b_2 is a function & b_2 is acceptable			[1968 UI/b_2]
+
+								1970. b_2 is a function & b_2 is acceptable			[1969 BC 1966 MP]
+
+								1971. b_2 is a function			[1970 SL]
+
+								1972. b_2 is acceptable			[1970 SR]
+
+
+								1973. @F, A, a [
+															@v [ v is a function --> 
+																		[ 
+																			v is acceptable <--> 
+																				@t [ t in dom v --> t in ω ] &
+																				@t [ t in ran v --> t in A ] &
+																				0 in dom v --> v(0) = a &
+																				@n [ n in ω & n+ in dom v --> n in dom v & v(n+) = F(v(n)) ]
+																		] 
+																	] 
+															]			[Def. of acceptable]
+								
+								1974. @v [ v is a function --> 
+														[ 
+															v is acceptable <--> 
+																@t [ t in dom v --> t in ω ] &
+																@t [ t in ran v --> t in A ] &
+																0 in dom v --> v(0) = a &
+																@n [ n in ω & n+ in dom v --> n in dom v & v(n+) = F(v(n)) ]
+														] 
+													]			[1973 UI/F, A, a]
+								
+								1975. b_2 is a function --> 
+														[ 
+															b_2 is acceptable <--> 
+																@t [ t in dom b_2 --> t in ω ] &
+																@t [ t in ran b_2 --> t in A ] &
+																0 in dom b_2 --> b_2(0) = a &
+																@n [ n in ω & n+ in dom b_2 --> n in dom b_2 & b_2(n+) = F(b_2(n)) ]
+														]			[1974 UI/b_2]
+								
+								1976. b_2 is acceptable <--> 
+												@t [ t in dom b_2 --> t in ω ] &
+												@t [ t in ran b_2 --> t in A ] &
+												0 in dom b_2 --> b_2(0) = a &
+												@n [ n in ω & n+ in dom b_2 --> n in dom b_2 & b_2(n+) = F(b_2(n)) ]			[1975 1971 MP]
+								
+								1977. @t [ t in dom b_2 --> t in ω ] &
+											@t [ t in ran b_2 --> t in A ] &
+											0 in dom b_2 --> b_2(0) = a &
+											@n [ n in ω & n+ in dom b_2 --> n in dom b_2 & b_2(n+) = F(b_2(n)) ]			[1976 BC 1972 MP]
+								
+								1978. @t [ t in ran b_2 --> t in A ]		[1977 SL SL SR]
+
+
+								1979. @y [ y in ran b_2 <--> 3x [ <x, y> in b_2 ] ] 		[1956.D1]
+
+								1980. t in ran b_2 <--> 3x [ <x, t> in b_2 ]			[1979 UI/t]
+
+								1981. <x_1, t> in b_2		[1967 R]
+
+								1982. 3x [ <x, t> in b_2 ]		[1981 EG/x_1->x]
+
+								1983. t in ran b_2			[1980 BC 1982 MP]
+
+								1984. t in ran b_2 --> t in A			[1978 UI/t]
+
+								1985. t in A			[1983 1984 MP]
+
+								1986. 		[1985 CD]
+							
+							1987. 	[1956 UD]
+						
+						1988. ran U(H_{F, A, a}) ⊆ A		[1954 EQUIV.]
+
+						1989. 	[1988 DD]
+					
+					1990. dom U(H_{F, A, a}) = ω			[40 R]
+
+					1991. U(H_{F, A, a}) is a function &
+								dom U(H_{F, A, a}) = ω &
+								ran U(H_{F, A, a}) ⊆ A		[1952 1990 1953 ADJ]
+					
+					1992. U(H_{F, A, a}):ω->A		[1951 BC 1991 MP]
+
+					1993. 	[1992 DD]
+				
+				
+				1994. Show U(H_{F, A, a})(0) = a
+
+					1995. U(H_{F, A, a}) is acceptable		[1756 R]
+
+					1996. @F, A, a [
+													@v [ v is a function --> 
+																[ 
+																	v is acceptable <--> 
+																		@t [ t in dom v --> t in ω ] &
+																		@t [ t in ran v --> t in A ] &
+																		0 in dom v --> v(0) = a &
+																		@n [ n in ω & n+ in dom v --> n in dom v & v(n+) = F(v(n)) ]
+																] 
+															] 
+													]			 [Def. of acceptable]
+					
+					1997. @v [ v is a function --> 
+											[ 
+												v is acceptable <--> 
+													@t [ t in dom v --> t in ω ] &
+													@t [ t in ran v --> t in A ] &
+													0 in dom v --> v(0) = a &
+													@n [ n in ω & n+ in dom v --> n in dom v & v(n+) = F(v(n)) ]
+											] 
+										]			[1996 UI/F, A, a]
+
+					1998. U(H_{F, A, a}) is a function --> 
+											[ 
+												U(H_{F, A, a}) is acceptable <--> 
+													@t [ t in dom U(H_{F, A, a}) --> t in ω ] &
+													@t [ t in ran U(H_{F, A, a}) --> t in A ] &
+													0 in dom U(H_{F, A, a}) --> U(H_{F, A, a})(0) = a &
+													@n [ n in ω & n+ in dom U(H_{F, A, a}) --> n in dom U(H_{F, A, a}) & U(H_{F, A, a})(n+) = F(U(H_{F, A, a})(n)) ]
+											]			[1997 UI/U(H_{F, A, a})]
+
+					1999. U(H_{F, A, a}) is a function		[1755 R]
+
+					2000. U(H_{F, A, a}) is acceptable <--> 
+									@t [ t in dom U(H_{F, A, a}) --> t in ω ] &
+									@t [ t in ran U(H_{F, A, a}) --> t in A ] &
+									0 in dom U(H_{F, A, a}) --> U(H_{F, A, a})(0) = a &
+									@n [ n in ω & n+ in dom U(H_{F, A, a}) --> n in dom U(H_{F, A, a}) & U(H_{F, A, a})(n+) = F(U(H_{F, A, a})(n)) ]		[1998 1999 MP]
+
+					2001. U(H_{F, A, a}) is acceptable		[1756 R]
+
+					2002. @t [ t in dom U(H_{F, A, a}) --> t in ω ] &
+								@t [ t in ran U(H_{F, A, a}) --> t in A ] &
+								0 in dom U(H_{F, A, a}) --> U(H_{F, A, a})(0) = a &
+								@n [ n in ω & n+ in dom U(H_{F, A, a}) --> n in dom U(H_{F, A, a}) & U(H_{F, A, a})(n+) = F(U(H_{F, A, a})(n)) ]			[2000 BC 2001 MP]
+
+					2003. 0 in dom U(H_{F, A, a}) --> U(H_{F, A, a})(0) = a		[2002 SL SR]
+
+					2004. Show 0 in dom U(H_{F, A, a})
+
+						2005. dom U(H_{F, A, a}) = ω			[40 R]
+
+						2006. ω is inductive & @A [ A is inductive & A != ω --> @t [ t in ω --> t in A ] ]		[Theorem 4B]
+						
+						2007. ω is inductive		[2006 SL]
+
+						2008. @A [ A is inductive <--> { } in A & @a [ a in A --> a+ in A ] ]			[Def. of inductive]
+
+						2009. ω is inductive <--> { } in ω & @a [ a in ω --> a+ in ω ]		[2008 UI/ω]
+
+						2010. { } in ω & @a [ a in ω --> a+ in ω ]			[2009 BC 2007 MP]
+
+						2011. { } in ω		[2010 SL]
+
+						2012. 0 := { }		[Def. of zero]
+
+						2013. 0 in ω			[2011 2012 LL]
+
+						2014. 0 in dom U(H_{F, A, a})			[2013 2005 LL]
+
+						2015. 		[2014 DD]
+					
+					2016. U(H_{F, A, a})(0) = a		[2003 2004 MP]
+
+					2017. 	[2016 DD]
+				
+
+				2018. Show @n [ n in ω --> U(H_{F, A, a})(n+) = F(U(H_{F, A, a})(n)) ]
+
+					2019. let n be a set
+
+					2020. Show n in ω --> U(H_{F, A, a})(n+) = F(U(H_{F, A, a})(n))
+
+						2021. n in ω		[ACD]
+
+						2022. @F, A, a [
+														@v [ v is a function --> 
+																	[ 
+																		v is acceptable <--> 
+																			@t [ t in dom v --> t in ω ] &
+																			@t [ t in ran v --> t in A ] &
+																			0 in dom v --> v(0) = a &
+																			@n [ n in ω & n+ in dom v --> n in dom v & v(n+) = F(v(n)) ]
+																	] 
+																] 
+														]			[Def. of acceptable]
+						
+						2023. @v [ v is a function --> 
+												[ 
+													v is acceptable <--> 
+														@t [ t in dom v --> t in ω ] &
+														@t [ t in ran v --> t in A ] &
+														0 in dom v --> v(0) = a &
+														@n [ n in ω & n+ in dom v --> n in dom v & v(n+) = F(v(n)) ]
+												] 
+											]		[2022 UI/F, A, a]
+
+						2024. U(H_{F, A, a}) is a function --> 
+										[ 
+											U(H_{F, A, a}) is acceptable <--> 
+												@t [ t in dom U(H_{F, A, a}) --> t in ω ] &
+												@t [ t in ran U(H_{F, A, a}) --> t in A ] &
+												0 in dom U(H_{F, A, a}) --> U(H_{F, A, a})(0) = a &
+												@n [ n in ω & n+ in dom U(H_{F, A, a}) --> n in dom U(H_{F, A, a}) & U(H_{F, A, a})(n+) = F(U(H_{F, A, a})(n)) ]
+										]			[2023 UI/U(H_{F, A, a})]
+						
+						2025. U(H_{F, A, a}) is a function		[1755 R]
+
+						2026. U(H_{F, A, a}) is acceptable <--> 
+												@t [ t in dom U(H_{F, A, a}) --> t in ω ] &
+												@t [ t in ran U(H_{F, A, a}) --> t in A ] &
+												0 in dom U(H_{F, A, a}) --> U(H_{F, A, a})(0) = a &
+												@n [ n in ω & n+ in dom U(H_{F, A, a}) --> n in dom U(H_{F, A, a}) & U(H_{F, A, a})(n+) = F(U(H_{F, A, a})(n)) ]		[2024 2025 MP]
+
+						2027. U(H_{F, A, a}) is acceptable		[1756 R]
+
+						2028. @t [ t in dom U(H_{F, A, a}) --> t in ω ] &
+									@t [ t in ran U(H_{F, A, a}) --> t in A ] &
+									0 in dom U(H_{F, A, a}) --> U(H_{F, A, a})(0) = a &
+									@n [ n in ω & n+ in dom U(H_{F, A, a}) --> n in dom U(H_{F, A, a}) & U(H_{F, A, a})(n+) = F(U(H_{F, A, a})(n)) ]		[2026 BC 2027 MP]
+
+						2029. @n [ n in ω & n+ in dom U(H_{F, A, a}) --> n in dom U(H_{F, A, a}) & U(H_{F, A, a})(n+) = F(U(H_{F, A, a})(n)) ]		[2028 SR]
+
+						2030. n in ω & n+ in dom U(H_{F, A, a}) --> n in dom U(H_{F, A, a}) & U(H_{F, A, a})(n+) = F(U(H_{F, A, a})(n))			[2029 UI/n]
+
+						2031. n in ω		[2021 R]
+
+						2032. Show n+ in dom U(H_{F, A, a})
+
+							2033. dom U(H_{F, A, a}) = ω		[40 R]
+
+							2034. ω is inductive & @A [ A is inductive & A != ω --> @t [ t in ω --> t in A ] ]		[Theorem 4B]
+
+							2035. ω is inductive		[2034 SL]
+
+							2036. @A [ A is inductive <--> { } in A & @a [ a in A --> a+ in A ] ]		[Def. of inductive]
+
+							2037. ω is inductive <--> { } in ω & @a [ a in ω --> a+ in ω ]		[2036 UI/ω]
+
+							2038. { } in ω & @a [ a in ω --> a+ in ω ]		[2037 BC 2035 MP]
+
+							2039. @a [ a in ω --> a+ in ω ]		[2038 SR]
+
+							2040. n in ω --> n+ in ω		[2039 UI/n]
+
+							2041. n+ in ω		[2040 2031 MP]
+
+							2042. n+ in dom U(H_{F, A, a})		[2041 2033 LL]
+							
+							2043. 		[2042 DD]
+						
+						2044. n in ω & n+ in dom U(H_{F, A, a})		[2031 2032 ADJ]
+
+						2045. n in dom U(H_{F, A, a}) & U(H_{F, A, a})(n+) = F(U(H_{F, A, a})(n))		[2030 2044 MP]
+
+						2046. U(H_{F, A, a})(n+) = F(U(H_{F, A, a})(n))		[2045 SR]
+
+						2047. 	[2046 CD]
+					
+					2048. 	[2020 UD]
+				
+
+				// now we prove uniqueness
+				2049. Show @h [ h:ω->A & h(0) = a & @n [ n in ω --> h(n+) = F(h(n)) ] --> h = U(H_{F, A, a}) ]
+
+					2050. let h be a set
+
+					2051. Show h:ω->A & h(0) = a & @n [ n in ω --> h(n+) = F(h(n)) ] --> h = U(H_{F, A, a})
+
+						2052. h:ω->A & h(0) = a & @n [ n in ω --> h(n+) = F(h(n)) ]			[ACD]
+
+						2053. h:ω->A		[2052 SL]
+
+						2054. h(0) = a		[2052 SL SR]
+
+						2055. @n [ n in ω --> h(n+) = F(h(n)) ]		[2052 SR]
+
+
+						// we can use induction
+						2056. @F, G [ F, G are functions & dom F = dom G & @x [ x in dom F --> F(x) = G(x) ] --> F = G ]		[pg 52 Exercise 11]
+
+						2057. h, U(H_{F, A, a}) are functions & dom h = dom U(H_{F, A, a}) & @x [ x in dom h --> h(x) = U(H_{F, A, a})(x) ] --> h = U(H_{F, A, a})		[2056 UI/h UI/U(H_{F, A, a})]
+
+						2058. 
+
+
+
+
+
+
+
+
+
+
+				0000. Show @n [ n in ω --> h(n+) = F(h(n)) ]
+
 
 
 

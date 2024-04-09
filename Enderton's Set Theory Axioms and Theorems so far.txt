@@ -341,6 +341,9 @@ Axioms, Definitions, and Theorems:
 	
 	Pg 52 example 2 part 2:
 		@A [ A-pre-{} = {{}} ]
+	
+	Pg 52 Exercise 11:
+		@F, G [ F, G are functions & dom F = dom G & @x [ x in dom F --> F(x) = G(x) ] --> F = G ]		[pg 52 Exercise 11]
 
 	Infinite Cartesiona Product:
 		@I, H [ H is a function & I ⊆ dom H --> 3D [ @f [ f in D <--> f is a function & dom f = I & @i [ i in I --> f(i) in H(i) ] ] ] ]
