@@ -383,7 +383,7 @@ Axioms, Definitions, and Theorems:
 		
 
 [Recursion Theorem on ω]
-1. Show @F, A, a [ a in A & F:A->A --> 3_1h [ h:ω->A & h(0) = a & @n [ n in ω --> h(n+) = F(h(n)) ] ] ]
+1. Show @F, A, a [ a in A & F:A->A --> 3_1p [ p:ω->A & p(0) = a & @n [ n in ω --> p(n+) = F(p(n)) ] ] ]
 
 	2. let F, A, a be sets
 
@@ -413,11 +413,11 @@ Axioms, Definitions, and Theorems:
 	1.D11. @y [ y in ran U(H_{F, A, a}) <--> 3x [ <x, y> in U(H_{F, A, a}) ] ]		[ran UI/U(H_{F, A, a}) & Ext. Axiom]
 	////////
 
-	3. Show a in A & F:A->A --> 3_1h [ h:ω->A & h(0) = a & @n [ n in ω --> h(n+) = F(h(n)) ] ]
+	3. Show a in A & F:A->A --> 3_1p [ p:ω->A & p(0) = a & @n [ n in ω --> p(n+) = F(p(n)) ] ]
 
 		4. a in A & F:A->A		[ACD]
 
-		5. Show 3_1h [ h:ω->A & h(0) = a & @n [ n in ω --> h(n+) = F(h(n)) ] ]
+		5. Show 3_1p [ p:ω->A & p(0) = a & @n [ n in ω --> p(n+) = F(p(n)) ] ]
 
 			6. //// Showing F is a function
 
@@ -4892,8 +4892,8 @@ Axioms, Definitions, and Theorems:
 			
 			
 
-			// Now we prove 3_1h [ h:ω->A & h(0) = a & @n [ n in ω --> h(n+) = F(h(n)) ] ]
-			1948. Show 3_1h [ h:ω->A & h(0) = a & @n [ n in ω --> h(n+) = F(h(n)) ] ]
+			// Now we prove 3_1p [ p:ω->A & p(0) = a & @n [ n in ω --> p(n+) = F(p(n)) ] ]
+			1948. Show 3_1p [ p:ω->A & p(0) = a & @n [ n in ω --> p(n+) = F(p(n)) ] ]
 
 				1949. Show U(H_{F, A, a}):ω->A
 
@@ -5494,7 +5494,81 @@ Axioms, Definitions, and Theorems:
 
 									2171. 	[2170 DD]
 								
-								2172. 
+								2172. Show @x [ x in ω --> h(x) = U(H_{F, A, a})(x) ]
+
+									2173. let x be a set
+
+									2174. Show x in ω --> h(x) = U(H_{F, A, a})(x)
+
+										2175. x in ω		[ACD]
+
+										2176. B_1 = ω			[2155 R]
+
+										2177. x in B_1		[2175 2176 LL]
+
+										2178. @x [ x in B_1 <--> x in ω & h(x) = U(H_{F, A, a})(x) ]		[2085 R]
+
+										2179. x in B_1 <--> x in ω & h(x) = U(H_{F, A, a})(x)		[2178 UI/x]
+
+										2180. x in ω & h(x) = U(H_{F, A, a})(x)		[2179 BC 2177 MP]
+
+										2181. h(x) = U(H_{F, A, a})(x)		[2180 SR]
+
+										2182.		[2181 CD]
+									
+									2183. 	[2174 UD]
+								
+								2184. 	[2172 DD]
+							
+							2185. Show dom h = ω
+
+								2186. h:ω->A		[2053 R]
+
+								2187. @F, S, B [ F:S->B <--> 
+																	F is a function &
+																	dom F = S &
+																	ran F ⊆ B 
+																]			[Def. of into]
+								
+								2188. h:ω->A <--> 
+													h is a function &
+													dom h = ω &
+													ran h ⊆ A 		[2187 UI/h UI/ω UI/A]
+								
+								2189. h is a function &
+											dom h = ω &
+											ran h ⊆ A		[2188 BC 2186 MP]
+
+								2190. dom h = ω		[2189 SL SR]
+
+								2191. 	[2190 DD]
+							
+							2192. @x [ x in dom h --> h(x) = U(H_{F, A, a})(x) ]		[2082 2185 LL]
+
+							2193. 	[2192 DD]
+						
+						2194. h, U(H_{F, A, a}) are functions & dom h = dom U(H_{F, A, a}) & @x [ x in dom h --> h(x) = U(H_{F, A, a})(x) ]			[2058 2068 2081 ADJ]
+
+						2195. h = U(H_{F, A, a})		[2057 2194 MP]
+
+						2196. 	[2195 CD]
+					
+					2197. 	[2051 UD]
+				
+
+				2198. U(H_{F, A, a}):ω->A & U(H_{F, A, a})(0) = a & @n [ n in ω --> U(H_{F, A, a})(n+) = F(U(H_{F, A, a})(n)) ] & @h [ h:ω->A & h(0) = a & @n [ n in ω --> h(n+) = F(h(n)) ] --> h = U(H_{F, A, a}) ]			[1949 1994 2018 2049 ADJ]
+
+				2199. 3p [ p:ω->A & p(0) = a & @n [ n in ω --> p(n+) = F(p(n)) ] & @h [ h:ω->A & h(0) = a & @n [ n in ω --> h(n+) = F(h(n)) ] --> h = p ] ] 		[2198 EG/U(H_{F, A, a}) -> p]
+
+				2200. 3_1p [ p:ω->A & p(0) = a & @n [ n in ω --> p(n+) = F(p(n)) ] ]		[2199 EQUIV.]
+
+				2201.		[2200 DD]
+			
+			2202. 	[1948 DD]
+		
+		2203. 	[5 CD]
+	
+	2204. 	[3 UD]
 
 
 
