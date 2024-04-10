@@ -406,10 +406,6 @@ Axioms, Definitions, and Theorems:
 
 	1.D8. @y [ y in ran F <--> 3x [ <x, y> in F ] ]		[ran UI/F & Ext. Axiom]
 
-	// 1.D9. @t [ t in {a} <--> t = a or t = a ]		[Pairing axiom UI/a UI/a & Ext. Axiom]
-
-	// 1.D10. @t [ t in a ∪ {a} <--> t in a or t in {a} ]		[Union axiom UI/a UI/{a} & Ext. Axiom]
-
 	1.D11. @y [ y in ran U(H_{F, A, a}) <--> 3x [ <x, y> in U(H_{F, A, a}) ] ]		[ran UI/U(H_{F, A, a}) & Ext. Axiom]
 	////////
 
@@ -1927,7 +1923,7 @@ Axioms, Definitions, and Theorems:
 																670. 		[590 UD]
 															
 
-															671. Show 0 in dom (b_3 ∪ {<r+, F(b_3(r))>}) --> (b_3 ∪ {<r+, F(b_3(r))>})(0) = r
+															671. Show 0 in dom (b_3 ∪ {<r+, F(b_3(r))>}) --> (b_3 ∪ {<r+, F(b_3(r))>})(0) = a
 
 																672. 0 in dom (b_3 ∪ {<r+, F(b_3(r))>})		[ACD]
 
@@ -3038,7 +3034,7 @@ Axioms, Definitions, and Theorems:
 															
 															1190. @t [ t in dom (b_3 ∪ {<r+, F(b_3(r))>}) --> t in ω ] &
 																		@t [ t in ran (b_3 ∪ {<r+, F(b_3(r))>}) --> t in A ] &
-																		0 in dom (b_3 ∪ {<r+, F(b_3(r))>}) --> (b_3 ∪ {<r+, F(b_3(r))>})(0) = r &
+																		0 in dom (b_3 ∪ {<r+, F(b_3(r))>}) --> (b_3 ∪ {<r+, F(b_3(r))>})(0) = a &
 																		@n [ n in ω & n+ in dom (b_3 ∪ {<r+, F(b_3(r))>}) --> n in dom (b_3 ∪ {<r+, F(b_3(r))>}) & (b_3 ∪ {<r+, F(b_3(r))>})(n+) = F((b_3 ∪ {<r+, F(b_3(r))>})(n)) ]		[542 588 671 738 ADJ]
 
 															1191. (b_3 ∪ {<r+, F(b_3(r))>}) is acceptable			[541 BC 1190 MP]
