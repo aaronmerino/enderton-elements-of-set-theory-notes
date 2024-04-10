@@ -377,6 +377,10 @@ Axioms, Definitions, and Theorems:
 
 	[PROMISE] Subset Axiom (applied):
 		@F, A, a [ @c [ 3B [ @t [ t in B <--> t in c & 3_1y [ <t, y> in U(H_{F, A, a}) ] ] ] ] ]   [Subset Axiom UI_META/'3_1y [ <t, y> in U(H_{F, A, a}) ]']
+	
+	[SAYAPLAYER]
+		@F, A, a, h [ @c [ 3B [ @x [ x in B <--> x in c & h(x) = U(H_{F, A, a})(x) ] ] ] ]   [Subset Axiom UI_META/'h(x) = U(H_{F, A, a})(x)']
+		
 
 [Recursion Theorem on ω]
 1. Show @F, A, a [ a in A & F:A->A --> 3_1h [ h:ω->A & h(0) = a & @n [ n in ω --> h(n+) = F(h(n)) ] ] ]
@@ -5228,18 +5232,273 @@ Axioms, Definitions, and Theorems:
 
 						2057. h, U(H_{F, A, a}) are functions & dom h = dom U(H_{F, A, a}) & @x [ x in dom h --> h(x) = U(H_{F, A, a})(x) ] --> h = U(H_{F, A, a})		[2056 UI/h UI/U(H_{F, A, a})]
 
-						2058. 
+						2058. Show h, U(H_{F, A, a}) are functions
+
+							2059. h:ω->A		[2053 R]
+
+							2060. @F, S, B [ F:S->B <--> 
+																F is a function &
+																dom F = S &
+																ran F ⊆ B 
+															]		[Def. of into]
+
+							2061. h:ω->A <--> 
+											h is a function &
+											dom h = ω &
+											ran h ⊆ A 		[2060 UI/h UI/ω UI/A]
+
+							2062. h is a function &
+										dom h = ω &
+										ran h ⊆ A				[2061 BC 2059 MP]
+							
+							2063. h is a function		[2062 SL SL]
+
+							2064. U(H_{F, A, a}) is a function		[1755 R]
+
+							2065. h is a function & U(H_{F, A, a}) is a function		[2063 2064 ADJ]
+
+							2066. h, U(H_{F, A, a}) are functions		[2065 EQUIV.]
+
+							2067. 	[2066 DD]
+						
+						2068. Show dom h = dom U(H_{F, A, a})
+
+							2069. @F, S, B [ F:S->B <--> 
+																F is a function &
+																dom F = S &
+																ran F ⊆ B 
+															]		[Def. of into]
+
+							2070. h:ω->A <--> 
+											h is a function &
+											dom h = ω &
+											ran h ⊆ A			[2069 UI/h UI/ω UI/A]
+							
+							2071. h:ω->A		[2053 R]
+
+							2072. h is a function &
+										dom h = ω &
+										ran h ⊆ A		[2070 BC 2071 MP]
+
+							2073. dom h = ω		[2072 SL SR]
+
+
+							2074. @F, S, B [ F:S->B <--> 
+																F is a function &
+																dom F = S &
+																ran F ⊆ B 
+															]		[Def. of into]
+
+							2075. U(H_{F, A, a}):ω->A <--> 
+													U(H_{F, A, a}) is a function &
+													dom U(H_{F, A, a}) = ω &
+													ran U(H_{F, A, a}) ⊆ A 		[2074 UI/U(H_{F, A, a}) UI/ω UI/A]
+												
+							2076. U(H_{F, A, a}):ω->A		[1949 R]
+
+							2077. U(H_{F, A, a}) is a function &
+										dom U(H_{F, A, a}) = ω &
+										ran U(H_{F, A, a}) ⊆ A		[2075 BC 2076 MP]
+
+							2078. dom U(H_{F, A, a}) = ω		[2077 SL SR]
+
+
+							2079. dom h = dom U(H_{F, A, a})			[2073 2078 LL]
+
+							2080. 	[2079 DD]
+						
+						// we prove this by induction
+						2081. Show @x [ x in dom h --> h(x) = U(H_{F, A, a})(x) ]
+
+							2082. Show @x [ x in ω --> h(x) = U(H_{F, A, a})(x) ]
+
+								2083. @F, A, a, h [ @c [ 3B [ @x [ x in B <--> x in c & h(x) = U(H_{F, A, a})(x) ] ] ] ]		[SAYAPLAYER]
+
+								2084. 3B [ @x [ x in B <--> x in ω & h(x) = U(H_{F, A, a})(x) ] ]		[2083 UI/F, A, a, h   UI/ω]
+
+								////////
+								2085. @x [ x in B_1 <--> x in ω & h(x) = U(H_{F, A, a})(x) ]		[2084 EI/B_1]
+								////////
+
+								2086. Show B_1 is inductive
+
+									2087. @A [ A is inductive <--> { } in A & @a [ a in A --> a+ in A ] ]		[Def. of inductive]
+
+									2088. B_1 is inductive <--> { } in B_1 & @a [ a in B_1 --> a+ in B_1 ]		[2087 UI/B_1]
+
+									2089. Show { } in B_1
+
+										2090. @x [ x in B_1 <--> x in ω & h(x) = U(H_{F, A, a})(x) ]		[2085 R]
+
+										2091. 0 in B_1 <--> 0 in ω & h(0) = U(H_{F, A, a})(0)			[2090 UI/0]
+
+										2092. Show 0 in ω
+
+											2093. ω is inductive & @A [ A is inductive & A != ω --> @t [ t in ω --> t in A ] ]		[Theorem 4B]
+
+											2094. ω is inductive		[2093 SL]
+
+											2095. @A [ A is inductive <--> { } in A & @a [ a in A --> a+ in A ] ]		[Def. of inductive]
+
+											2096. ω is inductive <--> { } in ω & @a [ a in ω --> a+ in ω ]		[2095 UI/ω]
+
+											2097. { } in ω & @a [ a in ω --> a+ in ω ]		[2096 BC 2094 MP]
+
+											2098. { } in ω		[2097 SL]
+
+											2099. 0 := { }		[Def. of zero]
+
+											2100. 0 in ω		[2098 2099 LL]
+
+											2101. 	[2100 DD]
+
+										2102. Show h(0) = U(H_{F, A, a})(0)
+
+											2103. h(0) = a		[2054 R]
+
+											2104. U(H_{F, A, a})(0) = a			[1994 R]
+
+											2105. h(0) = U(H_{F, A, a})(0)		[2103 2104 LL]
+
+											2106. 	[2105 DD]
+										
+										2107. 0 in ω & h(0) = U(H_{F, A, a})(0)			[2092 2102 ADJ]
+
+										2108. 0 in B_1		[2091 BC 2107 MP]
+
+										2109. 0 := { }		[Def. of zero]
+
+										2110. { } in B_1		[2108 2109 LL]
+
+										2111. 	[2110 DD]
+									
+									2112. Show @a [ a in B_1 --> a+ in B_1 ]
+
+										2113. let a be a set
+
+										2114. Show a in B_1 --> a+ in B_1
+
+											2115. a in B_1		[ACD]
+
+											2116. @x [ x in B_1 <--> x in ω & h(x) = U(H_{F, A, a})(x) ]		[2085 R]
+
+											2117. a in B_1 <--> a in ω & h(a) = U(H_{F, A, a})(a)			[2116 UI/a]
+
+											2118. a in ω & h(a) = U(H_{F, A, a})(a)		[2117 BC 2115 MP]
+
+											2119. a in ω				[2118 SL]
+
+											2120. h(a) = U(H_{F, A, a})(a)			[2118 SR]
+
+											2121. Show a+ in B_1
+
+												2122. @x [ x in B_1 <--> x in ω & h(x) = U(H_{F, A, a})(x) ]		[2085 R]
+
+												2123. a+ in B_1 <--> a+ in ω & h(a+) = U(H_{F, A, a})(a+)			[2122 UI/a+]
+
+												2124. Show a+ in ω
+
+													2125. ω is inductive & @A [ A is inductive & A != ω --> @t [ t in ω --> t in A ] ]		[Theorem 4B]
+
+													2126. ω is inductive		[2125 SL]
+
+													2127. @A [ A is inductive <--> { } in A & @a [ a in A --> a+ in A ] ]		[Def. of inductive]
+
+													2128. ω is inductive <--> { } in ω & @a [ a in ω --> a+ in ω ]		[2127 UI/ω]
+
+													2129. { } in ω & @a [ a in ω --> a+ in ω ]		[2128 BC 2126 MP]
+
+													2130. @a [ a in ω --> a+ in ω ]			[2129 SR]
+
+													2131. a in ω --> a+ in ω		[2130 UI/a]
+
+													2132. a+ in ω		[2131 2119 MP]
+
+													2133. 	[2132 DD]
+												
+												2134. Show h(a+) = U(H_{F, A, a})(a+)
+
+													2135. @n [ n in ω --> h(n+) = F(h(n)) ]			[2055 R]
+
+													2136. a in ω --> h(a+) = F(h(a))		[2135 UI/a]
+
+													2137. a in ω		[2119 R]
+
+													2138. h(a+) = F(h(a))		[2136 2137 MP]
+
+
+													2139. @n [ n in ω --> U(H_{F, A, a})(n+) = F(U(H_{F, A, a})(n)) ]			[2018 R]
+
+													2140. a in ω --> U(H_{F, A, a})(a+) = F(U(H_{F, A, a})(a))			[2139 UI/a]
+
+													2141. a in ω		[2119 R]
+
+													2142. U(H_{F, A, a})(a+) = F(U(H_{F, A, a})(a))			[2140 2141 MP]
+
+
+													2143. h(a) = U(H_{F, A, a})(a)		[2120 R]
+
+													2144. h(a+) = F(U(H_{F, A, a})(a))			[2138 2143 LL]
+
+													2145. h(a+) = U(H_{F, A, a})(a+)			[2144 2142 LL]
+
+													2146. 	[2145 DD]
+												
+												2147. a+ in ω & h(a+) = U(H_{F, A, a})(a+)		[2124 2134 ADJ]
+												
+												2148. a+ in B_1		[2123 BC 2147 MP]
+
+												2149. 	[2148 DD]
+											
+											2150. 	[2121 CD]
+										
+										2151. 	[2114 UD]
+									
+									2152. { } in B_1 & @a [ a in B_1 --> a+ in B_1 ]		[2089 2112 ADJ]
+
+									2153. B_1 is inductive		[2088 BC 2152 MP]
+
+									2154. 	[2153 DD]
+								
+								2155. Show B_1 = ω
+
+									2156. @T [ T is inductive & @n [ n in T --> n in ω ] --> T = ω ]			[Induction Principle for ω]
+
+									2157. B_1 is inductive & @n [ n in B_1 --> n in ω ] --> B_1 = ω				[2156 UI/B_1]
+
+									2158. B_1 is inductive		[2086 R]
+
+									2159. Show @n [ n in B_1 --> n in ω ]
+
+										2160. let n be a set
+
+										2161. Show n in B_1 --> n in ω
+
+											2162. n in B_1		[ACD]
+
+											2163. @x [ x in B_1 <--> x in ω & h(x) = U(H_{F, A, a})(x) ]		[2085 R]
+
+											2164. n in B_1 <--> n in ω & h(n) = U(H_{F, A, a})(n)			[2163 UI/n]
+
+											2165. n in ω & h(n) = U(H_{F, A, a})(n)		[2164 BC 2162 MP]
+
+											2166. n in ω		[2165 SL]
+
+											2167. 	[2166 CD]
+										
+										2168. 	[2161 UD]
+									
+									2169. B_1 is inductive & @n [ n in B_1 --> n in ω ]			[2158 2159 ADJ]
+
+									2170. B_1 = ω		[2157 2169 MP]
+
+									2171. 	[2170 DD]
+								
+								2172. 
 
 
 
-
-
-
-
-
-
-
-				0000. Show @n [ n in ω --> h(n+) = F(h(n)) ]
+			
 
 
 
