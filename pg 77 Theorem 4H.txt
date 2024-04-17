@@ -1,0 +1,190 @@
+Axioms, Theorems, and Definitions:
+	Theorem 3A:
+		@u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]
+
+	dom R: 
+		@R [ 3D [ @x [ x in D <--> 3y [ <x, y> in R ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets R,  dom R  is the set whose members are those 1st-coordinate set of some ordered pair in R
+
+	ran R: 
+		@R [ 3D [ @x [ x in D <--> 3t [ <t, x> in R ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets R,  ran R  is the set whose members are those 2nd-coordinate set of some ordered pair in R
+
+
+	Function:
+		Definition:
+		@F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]
+
+	
+	[MARIN] Pg 43 When F is a function and x the dom F, F(x) is y IFF <x, y> in F:
+		@F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]
+
+	Definition of into:
+		@F, A, B [ F maps A into B (F: A->B) <--> 
+						F is a function &
+						dom F = A &
+						ran F ⊆ B 
+					]
+
+	Definition of onto:
+		@F, A, B [ F maps A onto B <--> 
+						F is a function &
+						dom F = A &
+						ran F = B 
+					]
+
+	Definition of single-rooted:
+		@R [ R is single-rooted <--> 
+				@y [ y in ran R --> 3_1x [ <x, y> in R ] ]
+			]
+
+	Definition of inductive:
+		@A [ A is inductive <--> { } in A & @a [ a in A --> a+ in A ] ]
+
+	Definition of a natural number:
+		@b [ b is a natural number <--> @A [ A is inductive --> b in A ] ]
+
+	Theorem 4A:
+		3D [ @b [ b in D <--> b is a natural number ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			ω is the set whose members are exactly the natural numbers 
+			@b [ b in ω <--> b is a natural number ]
+
+	Theorem 4B:
+		ω is inductive & @A [ A is inductive & A != ω --> @t [ t in ω --> t in A ] ]
+
+
+	Definition of Peano System: ***
+		@S, N, e [ <S, N, e> is a Peano System <--> [ 
+									S: N->N & 				// this implies N is closed under S (as the above statement says)
+									e in N & 					// so, N satisfies "e in N & @x [ x in N --> S(x) in N ]"
+
+									~(e in ran S) &
+									S is single-rooted &
+									@A [ A ⊆ N --> [ e in A & @x [ x in A --> S(x) in A ] --> A = N ] ]			// this is so that N is the "smallest" such set satisfying "e in N & @x [ x in N --> S(x) in N ]"
+									
+									] 
+						]
+
+	Pg 71 existence of successor function that is restricted to ω:
+		3D [ @t [ t in D <--> 3n [ n in ω & t = <n, n+> ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			σ is called the successor function restricted to ω
+			@t [ t in σ <--> 3n [ n in ω & t = <n, n+> ] ]
+
+	Recursion Theorem on ω:
+		@F, A, a [ a in A & F:A->A --> 3_1p [ p:ω->A & p(0) = a & @n [ n in ω --> p(n+) = F(p(n)) ] ] ]
+
+1. Show @S, N, e [ <S, N, e> is a Peano System --> 3h [ h maps ω onto N & h is single-rooted & h(0) = e & @n [ n in ω --> h(σ(n)) = S(h(n)) ] ] ]
+  
+  2. let S be a set
+
+  3. let N be a set
+
+  4. let e be a set
+
+  5. Show <S, N, e> is a Peano System --> 3h [ h maps ω onto N & h is single-rooted & h(0) = e & @n [ n in ω --> h(σ(n)) = S(h(n)) ] ]
+
+    6. <S, N, e> is a Peano System    [ACD]
+
+    7. @S, N, e [ <S, N, e> is a Peano System <--> [ 
+									S:N->N & 				// this implies N is closed under S (as the above statement says)
+									e in N & 					// so, N satisfies "e in N & @x [ x in N --> S(x) in N ]"
+
+									~(e in ran S) &
+									S is single-rooted &
+									@A [ A ⊆ N --> [ e in A & @x [ x in A --> S(x) in A ] --> A = N ] ]			// this is so that N is the "smallest" such set satisfying "e in N & @x [ x in N --> S(x) in N ]"
+									
+									] 
+						]     [Def. of Peano System]
+      
+    8.  S:N->N & 
+			  e in N & 
+
+				~(e in ran S) &
+				S is single-rooted &
+				@A [ A ⊆ N --> [ e in A & @x [ x in A --> S(x) in A ] --> A = N ] ]     [(7 UI/S, N, e)  BC 6 MP]
+    
+
+    9. @F, A, a [ a in A & F:A->A --> 3_1p [ p:ω->A & p(0) = a & @n [ n in ω --> p(n+) = F(p(n)) ] ] ]    [Recursion Theorem on ω]
+
+    10. e in N & S:N->N --> 3_1p [ p:ω->N & p(0) = e & @n [ n in ω --> p(n+) = S(p(n)) ] ]    [9 UI/S, N, e]
+
+    11. e in N & S:N->N     [8 SL SL SL]
+
+    12. 3_1p [ p:ω->N & p(0) = e & @n [ n in ω --> p(n+) = S(p(n)) ] ]    [10 11 MP]
+
+    13. h_1:ω->N & h_1(0) = e & @n [ n in ω --> h_1(n+) = S(h_1(n)) ]   [12 EI/h_1]
+
+    ////////////////////////////////////////////////////////////////////////////////
+    5.D1. @x [ x in dom h_1 <--> 3y [ <x, y> in h_1 ] ]		  [dom UI/h_1 & Ext. Axiom]
+    5.D2. @y [ y in ran h_1 <--> 3x [ <x, y> in h_1 ] ]		  [ran UI/h_1 & Ext. Axiom]
+    ////////////////////////////////////////////////////////////////////////////////
+
+    14. h_1:ω->N      [13 SL SL]
+
+    15. h_1(0) = e      [13 SL SR]
+
+    16. @n [ n in ω --> h_1(n+) = S(h_1(n)) ]     [13 SR]
+
+
+    17. Show ran h_1 = N
+
+      18. @A [ A ⊆ N --> [ e in A & @x [ x in A --> S(x) in A ] --> A = N ] ]       [8 SR]
+
+      19. ran h_1 ⊆ N --> [ e in ran h_1 & @x [ x in ran h_1 --> S(x) in ran h_1 ] --> ran h_1 = N ]      [18 UI/ran h_1]
+
+      20. h_1:ω->N    [14 R]
+
+      21. @F, A, B [ F:A->B <--> 
+						F is a function &
+						dom F = A &
+						ran F ⊆ B 
+					]   [Def. of into]
+      
+      22. h_1:ω->N <--> 
+						h_1 is a function &
+						dom h_1 = ω &
+						ran h_1 ⊆ N       [21 UI/h_1, ω, N]
+      
+      23. h_1 is a function &
+          dom h_1 = ω &
+          ran h_1 ⊆ N     [22 BC 20 MP]
+      
+      24. ran h_1 ⊆ N   [23 SR]
+
+      25. e in ran h_1 & @x [ x in ran h_1 --> S(x) in ran h_1 ] --> ran h_1 = N    [19 24 MP]
+
+      26. Show e in ran h_1
+
+        27. h_1(0) = e    [15 R]
+
+        28. h_1 is a function     [23 SL SL]
+
+        29. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]      [MARIN]
+
+        30. h_1 is a function & 0 in dom h_1 -->  @w [ <0, w> in h_1 <--> h_1(0) = w ]      [29 UI/h_1 UI/0]
+
+        31. Show 0 in dom h_1
+
+          32. dom h_1 = ω   [23 SL SR]
+
+          33. ω is inductive & @A [ A is inductive & A != ω --> @t [ t in ω --> t in A ] ]    [Theorem 4B]
+
+          34. ω is inductive    [33 SL]
+
+          35. @A [ A is inductive <--> { } in A & @a [ a in A --> a+ in A ] ]     [Def. of inductive]
+
+          36. ω is inductive <--> { } in ω & @a [ a in ω --> a+ in ω ]    [35 UI/ω]
+
+          37. { } in ω & @a [ a in ω --> a+ in ω ]    [36 BC 34 MP]
+
+          38. 
+
+      //. Show @x [ x in ran h_1 --> S(x) in ran h_1 ]
+
+
+
+    //. Show h_1 is single-rooted

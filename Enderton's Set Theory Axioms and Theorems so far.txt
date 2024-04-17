@@ -534,6 +534,9 @@ Set of Natural Numbers Chapter:
 		@n [ n in ω --> @x [ x in n --> @t [ t in x --> t in n ] ] ]		[lemma marin from Theorem 4D]
 		@n [ n in ω --> @a [ a in n --> @x [ x in a --> x in n ] ] ]
 
+	Recursion Theorem on ω:
+		@F, A, a [ a in A & F:A->A --> 3_1p [ p:ω->A & p(0) = a & @n [ n in ω --> p(n+) = F(p(n)) ] ] ]
+
 
 Algebra of Sets:
 	Pg 24 Union of empty set:
