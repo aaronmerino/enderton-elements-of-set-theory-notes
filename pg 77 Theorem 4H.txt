@@ -1,4 +1,10 @@
 Axioms, Theorems, and Definitions:
+	Subset Axioms:
+		For each formula __ not containing B, the following is an axiom:
+		@t1 ... @tk @c [ 3B [ @x [ x in B <--> x in c & __ ] ] ]
+			Definition:
+			For any set t­1, ..., tk and c, the subset B = {x in c | __ } is the set whose members are exactly those sets in c and __	
+
 	Theorem 3A:
 		@u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]
 
@@ -330,8 +336,58 @@ Axioms, Theorems, and Definitions:
 
       108.    [107 DD]
     
-    109. 
+    
+    109. Show h_1 is single-rooted
 
+      110. @R [ R is single-rooted <--> 
+				          @y [ y in ran R --> 3_1x [ <x, y> in R ] ]
+			        ]   [Def. of single-rooted]
 
+      111. h_1 is single-rooted <--> 
+				          @y [ y in ran h_1 --> 3_1x [ <x, y> in h_1 ] ]      [111 UI/h_1]
 
-    //. Show h_1 is single-rooted
+      112. Show @y [ y in ran h_1 --> 3_1x [ <x, y> in h_1 ] ]
+
+        113. @c [ 3B [ @t [ t in B <--> t in c & 3_1x [ <x, t> in h_1 ] ] ] ]     [SUBSET_AXIOM UI_META/'3_1x [ <x, t> in h_1 ]']
+
+        114. 3B [ @t [ t in B <--> t in N & 3_1x [ <x, t> in h_1 ] ] ]    [113 UI/N]
+
+        ////////////////////////////////////////////////////////////////////////////////
+        115. @t [ t in B_2 <--> t in N & 3_1x [ <x, t> in h_1 ] ]   [114 EI/B_2]
+        ////////////////////////////////////////////////////////////////////////////////
+
+        116. @A [ A ⊆ N --> [ e in A & @x [ x in A --> S(x) in A ] --> A = N ] ]      [8 SR]
+
+        117. B_2 ⊆ N --> [ e in B_2 & @x [ x in B_2 --> S(x) in B_2 ] --> B_2 = N ]     [116 UI/B_2]
+
+        118. Show B_2 ⊆ N
+
+          119. Show @t [ t in B_2 --> t in N ]
+
+            120. let t be a set
+
+            121. Show t in B_2 --> t in N
+
+              122. t in B_2   [ACD]
+
+              123. @t [ t in B_2 <--> t in N & 3_1x [ <x, t> in h_1 ] ]   [115 R]
+
+              124. t in B_2 <--> t in N & 3_1x [ <x, t> in h_1 ]    [123 UI/t]
+
+              125. t in N & 3_1x [ <x, t> in h_1 ]    [124 BC 122 MP]
+
+              126. t in N   [125 SL]
+
+              127.    [126 CD]
+            
+            128.    [121 UD]
+          
+          129. B_2 ⊆ N    [119 EQUIV.]
+
+          130.    [129 DD]
+        
+        131. e in B_2 & @x [ x in B_2 --> S(x) in B_2 ] --> B_2 = N     [117 118 MP]
+
+        132. Show e in B_2
+
+        ///. Show @x [ x in B_2 --> S(x) in B_2 ]
