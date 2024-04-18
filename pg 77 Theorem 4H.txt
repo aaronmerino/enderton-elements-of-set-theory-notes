@@ -40,6 +40,9 @@ Axioms, Theorems, and Definitions:
 				@y [ y in ran R --> 3_1x [ <x, y> in R ] ]
 			]
 
+	Zero:
+		0 := { }
+
 	Definition of inductive:
 		@A [ A is inductive <--> { } in A & @a [ a in A --> a+ in A ] ]
 
@@ -181,9 +184,153 @@ Axioms, Theorems, and Definitions:
 
           37. { } in ω & @a [ a in ω --> a+ in ω ]    [36 BC 34 MP]
 
-          38. 
+          38. { } in ω    [37 SL]
 
-      //. Show @x [ x in ran h_1 --> S(x) in ran h_1 ]
+          39. 0 := { }    [Def. of zero]
+
+          40. 0 in ω    [38 39 LL]
+
+          41. 0 in dom h_1    [40 32 LL]
+
+          42.   [41 DD]
+        
+        43. h_1 is a function & 0 in dom h_1    [28 31 ADJ]
+
+        44. @w [ <0, w> in h_1 <--> h_1(0) = w ]    [30 43 MP]
+
+        45. <0, e> in h_1 <--> h_1(0) = e     [44 UI/e]
+        
+        46. <0, e> in h_1     [45 BC 27 MP]
+
+        47. @y [ y in ran h_1 <--> 3x [ <x, y> in h_1 ] ]     [5.D2]
+
+        48. e in ran h_1 <--> 3x [ <x, e> in h_1 ]    [47 UI/e]
+
+        49. 3x [ <x, e> in h_1 ]    [46 EG/0->x]
+
+        50. e in ran h_1    [48 BC 49 MP]
+
+        51.   [50 DD]
+      
+
+      52. Show @x [ x in ran h_1 --> S(x) in ran h_1 ]
+
+        53. let x be a set
+
+        54. Show x in ran h_1 --> S(x) in ran h_1
+
+          55. x in ran h_1    [ACD]
+
+          56. @y [ y in ran h_1 <--> 3x [ <x, y> in h_1 ] ]   [5.D2]
+
+          57. @y [ y in ran h_1 <--> 3m [ <m, y> in h_1 ] ]   [56 EQUIV.]
+
+          58. x in ran h_1 <--> 3m [ <m, x> in h_1 ]    [57 UI/x]
+
+          59. 3m [ <m, x> in h_1 ]    [58 BC 55 MP]
+
+          60. <m_2, x> in h_1     [59 EI/m_2]
+
+          61. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]      [MARIN]
+
+          62. h_1 is a function & m_2 in dom h_1 -->  @w [ <m_2, w> in h_1 <--> h_1(m_2) = w ]      [29 UI/h_1 UI/m_2]
+
+          63. Show m_2 in dom h_1
+
+            64. @x [ x in dom h_1 <--> 3y [ <x, y> in h_1 ] ]	    [5.D1]
+
+            65. m_2 in dom h_1 <--> 3y [ <m_2, y> in h_1 ]      [64 UI/m_2]
+
+            66. 3y [ <m_2, y> in h_1 ]    [60 EG/x->y]
+
+            67. m_2 in dom h_1    [65 BC 66 MP]
+
+            68.   [67 DD]
+          
+          69. h_1 is a function   [23 SL SL]
+
+          70. h_1 is a function & m_2 in dom h_1      [69 63 ADJ]
+
+          71. @w [ <m_2, w> in h_1 <--> h_1(m_2) = w ]      [70 62 MP]
+
+          72. <m_2, x> in h_1 <--> h_1(m_2) = x     [71 UI/x]
+
+          73. h_1(m_2) = x    [72 BC 60 MP]
+
+
+          74. @n [ n in ω --> h_1(n+) = S(h_1(n)) ]   [16 R]
+
+          75. m_2 in ω --> h_1(m_2+) = S(h_1(m_2))    [74 UI/m_2]
+
+          76. dom h_1 = ω   [23 SL SR]
+
+          77. m_2 in ω    [76 63 LL]
+
+          78. h_1(m_2+) = S(h_1(m_2))   [75 77 MP]
+
+
+          79. h_1(m_2+) = S(x)    [78 73 LL]
+
+          80. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]      [MARIN]
+
+          81. h_1 is a function & m_2+ in dom h_1 -->  @w [ <m_2+, w> in h_1 <--> h_1(m_2+) = w ]     [80 UI/h_1 UI/m_2+]
+
+          82. Show m_2+ in dom h_1
+
+            83. dom h_1 = ω   [23 SL SR]
+
+            84. ω is inductive & @A [ A is inductive & A != ω --> @t [ t in ω --> t in A ] ]    [Theorem 4B]
+
+            85. ω is inductive    [84 SL]
+
+            86. @A [ A is inductive <--> { } in A & @a [ a in A --> a+ in A ] ]   [Def. of inductive]
+
+            87. ω is inductive <--> { } in ω & @a [ a in ω --> a+ in ω ]    [86 UI/ω]
+
+            88. { } in ω & @a [ a in ω --> a+ in ω ]    [87 BC 85 MP]
+
+            89. @a [ a in ω --> a+ in ω ]   [88 SR]
+
+            90. m_2 in ω --> m_2+ in ω    [89 UI/m_2]
+
+            91. m_2 in ω    [77 R]
+
+            92. m_2+ in ω   [90 91 MP]
+
+            93. m_2+ in dom h_1     [92 83 LL]
+
+            94.   [93 DD]
+
+          95. h_1 is a function & m_2+ in dom h_1   [69 82 ADJ]
+
+          96. @w [ <m_2+, w> in h_1 <--> h_1(m_2+) = w ]    [81 95 MP]
+
+          97. <m_2+, S(x)> in h_1 <--> h_1(m_2+) = S(x)     [96 UI/S(x)]
+
+          98. <m_2+, S(x)> in h_1     [97 BC 79 MP]
+
+
+          99. @y [ y in ran h_1 <--> 3x [ <x, y> in h_1 ] ]     [5.D2]
+
+          100. @y [ y in ran h_1 <--> 3t [ <t, y> in h_1 ] ]     [99 EQUIV.]
+
+          101. S(x) in ran h_1 <--> 3t [ <t, S(x)> in h_1 ]     [100 UI/S(x)]
+
+          102. 3t [ <t, S(x)> in h_1 ]     [98 EG/m_2+ -> t]
+
+          103. S(x) in ran h_1    [101 BC 102 MP]
+
+          104.    [103 CD]
+        
+        105.  [54 UD]
+      
+      106. e in ran h_1 & @x [ x in ran h_1 --> S(x) in ran h_1 ]   [26 52 ADJ]
+
+      107. ran h_1 = N    [25 106 MP]
+
+      108.    [107 DD]
+    
+    109. 
 
 
 
