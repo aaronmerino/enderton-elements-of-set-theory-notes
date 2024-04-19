@@ -696,3 +696,200 @@ Axioms, Theorems, and Definitions:
           264.    [263 DD]
         
         265. Show @x [ x in B_2 --> S(x) in B_2 ]
+
+          266. let x be a set
+
+          267. Show x in B_2 --> S(x) in B_2
+
+            268. x in B_2   [ACD]
+
+            269. @t [ t in B_2 <--> t in N & 3_1x [ <x, t> in h_1 ] ]     [115 R]
+
+            270. @t [ t in B_2 <--> t in N & 3_1z [ <z, t> in h_1 ] ]     [269 EQUIV.]
+
+            271. x in B_2 <--> x in N & 3_1z [ <z, x> in h_1 ]      [270 UI/x]
+
+            272. x in N & 3_1z [ <z, x> in h_1 ]    [271 BC 268 MP]
+
+            273. x in N   [272 SL]
+
+            274. 3_1z [ <z, x> in h_1 ]   [272 SR]
+
+
+            275. <z_3, x> in h_1 & @p [ <p, x> in h_1 --> p = z_3 ]        [274 EI/z_3]
+
+            276. <z_3, x> in h_1    [275 SL]
+
+            277. @p [ <p, x> in h_1 --> p = z_3 ]     [275 SR]
+
+
+            278. Show h_1(z_3) = x
+
+              279. <z_3, x> in h_1    [276 R]
+
+              280. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]     [MARIN]
+
+              281. @F, q [ F is a function & q in dom F -->  @w [ <q, w> in F <--> F(q) = w ] ]     [280 EQUIV.]
+
+              282. h_1 is a function & z_3 in dom h_1 -->  @w [ <z_3, w> in h_1 <--> h_1(z_3) = w ]     [281 UI/h_1 UI/z_3]
+
+              283. h_1:ω->N     [14 R]
+
+              284. @F, A, B [ F:A->B <--> 
+                        F is a function &
+                        dom F = A &
+                        ran F ⊆ B 
+                      ]     [Def. of into]
+              
+              285. h_1:ω->N <--> 
+                      h_1 is a function &
+                      dom h_1 = ω &
+                      ran h_1 ⊆ N       [284 UI/h_1, ω, N]
+
+              286. h_1 is a function &
+                    dom h_1 = ω &
+                    ran h_1 ⊆ N     [285 BC 283 MP]
+
+              287. h_1 is a function    [286 SL SL]
+
+              288. Show z_3 in dom h_1
+
+                289. @x [ x in dom h_1 <--> 3y [ <x, y> in h_1 ] ]      [5.D1]
+
+                290. z_3 in dom h_1 <--> 3y [ <z_3, y> in h_1 ]     [289 UI/z_3]
+              
+                291. 3y [ <z_3, y> in h_1 ]     [279 EG/x->y]
+
+                292. z_3 in dom h_1   [290 BC 291 MP]
+
+                293.    [292 DD]
+              
+              294. h_1 is a function & z_3 in dom h_1     [287 288 ADJ]
+
+              295. @w [ <z_3, w> in h_1 <--> h_1(z_3) = w ]     [282 294 MP]
+
+              296. <z_3, x> in h_1 <--> h_1(z_3) = x      [295 UI/x]
+
+              297. h_1(z_3) = x     [296 BC 279 MP]
+
+              298.    [297 DD]
+            
+            
+            299. Show S(x) in B_2
+
+              300. @t [ t in B_2 <--> t in N & 3_1x [ <x, t> in h_1 ] ]     [115 R]
+
+              301. @t [ t in B_2 <--> t in N & 3_1z [ <z, t> in h_1 ] ]     [300 EQUIV.]
+
+              302. S(x) in B_2 <--> S(x) in N & 3_1z [ <z, S(x)> in h_1 ]   [301 UI/S(x)]
+
+              303. Show S(x) in N
+
+                304. x in N   [273 R]
+
+                305. S:N->N     [8 SL SL SL SL]
+
+                306. @F, A, B [ F:A->B <--> 
+                        F is a function &
+                        dom F = A &
+                        ran F ⊆ B 
+                      ]     [Def. of into]
+                
+                307. S:N->N <--> 
+                        S is a function &
+                        dom S = N &
+                        ran S ⊆ N     [306 UI/S, N, N]
+                
+                308. S is a function &
+                      dom S = N &
+                      ran S ⊆ N     [307 BC 305 MP]
+
+                309. ran S ⊆ N    [308 SR]
+
+                310. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]     [MARIN]
+
+                311. S is a function & x in dom S -->  @w [ <x, w> in S <--> S(x) = w ]     [310 UI/S UI/x]
+
+                312. S is a function    [308 SL SL]
+
+                313. x in N     [304 R]
+
+                314. dom S = N      [308 SL SR]
+
+                315. x in dom S     [313 314 LL]
+
+                316. S is a function & x in dom S     [312 315 ADJ]
+
+                317. @w [ <x, w> in S <--> S(x) = w ]     [311 316 MP]
+
+                318. <x, S(x)> in S <--> S(x) = S(x)     [317 UI/S(x)]
+
+                319. S(x) = S(x)      [SID]
+
+                320. <x, S(x)> in S     [318 BC 319 MP]
+
+                321. @y [ y in ran S <--> 3x [ <x, y> in S ] ]    [1.D2]
+
+                322. @y [ y in ran S <--> 3t [ <t, y> in S ] ]    [321 EQUIV.]
+
+                323. S(x) in ran S <--> 3t [ <t, S(x)> in S ]     [322 UI/S(x)]
+
+                324. 3t [ <t, S(x)> in S ]      [320 EG/x->t]
+
+                325. S(x) in ran S    [323 BC 324 MP]
+
+                326. ran S ⊆ N    [309 R]
+
+                327. @t [ t in ran S --> t in N ]     [326 EQUIV.]
+
+                328. S(x) in ran S --> S(x) in N      [327 UI/S(x)]
+
+                329. S(x) in N    [328 325 MP]
+
+                330.    [329 DD]
+              
+              331. Show 3_1z [ <z, S(x)> in h_1 ]
+
+                332. <z_3, x> in h_1      [276 R]
+
+                333. @n [ n in ω --> h_1(n+) = S(h_1(n)) ]      [16 R]
+
+                334. z_3 in ω --> h_1(z_3+) = S(h_1(z_3))       [333 UI/z_3]
+
+                335. Show z_3 in ω
+
+                  336. @x [ x in dom h_1 <--> 3y [ <x, y> in h_1 ] ]    [5.D1]
+
+                  337. z_3 in dom h_1 <--> 3y [ <z_3, y> in h_1 ]     [336 UI/z_3]
+
+                  338. 3y [ <z_3, y> in h_1 ]     [332 EG/x->y]
+
+                  339. z_3 in dom h_1     [337 BC 338 MP]
+
+                  340. h_1:ω->N   [14 R]
+
+                  341. @F, A, B [ F:A->B <--> 
+                          F is a function &
+                          dom F = A &
+                          ran F ⊆ B 
+                        ]     [Def. of into]
+
+                  342. h_1:ω->N <--> 
+                          h_1 is a function &
+                          dom h_1 = ω &
+                          ran h_1 ⊆ N     [341 UI/h_1, ω, N]
+                  
+                  343. h_1 is a function &
+                        dom h_1 = ω &
+                        ran h_1 ⊆ N       [342 BC 340 MP]
+
+                  344. dom h_1 = ω    [343 SL SR]
+
+                  345. z_3 in ω     [339 344 LL]
+
+                  346.    [345 DD]
+                
+                347. h_1(z_3+) = S(h_1(z_3))    [334 335 MP]
+
+
+                348. 
