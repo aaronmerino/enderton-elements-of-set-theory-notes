@@ -79,11 +79,14 @@ Axioms, Theorems, and Definitions:
 									] 
 						]
 
-	Pg 71 existence of successor function that is restricted to ω:
+	[SALT] Pg 71 existence of successor function that is restricted to ω:
 		3D [ @t [ t in D <--> 3n [ n in ω & t = <n, n+> ] ] ]
 		Definition (its uniqueness is always due to Ext. Axiom):
 			σ is called the successor function restricted to ω
 			@t [ t in σ <--> 3n [ n in ω & t = <n, n+> ] ]
+
+	Theorem 4D:
+		<σ, ω, { }> is a Peano System
 
 	Recursion Theorem on ω:
 		@F, A, a [ a in A & F:A->A --> 3_1p [ p:ω->A & p(0) = a & @n [ n in ω --> p(n+) = F(p(n)) ] ] ]
@@ -342,7 +345,6 @@ Axioms, Theorems, and Definitions:
       107. ran h_1 = N    [25 106 MP]
 
       108.    [107 DD]
-    
     
     109. Show h_1 is single-rooted
 
@@ -892,4 +894,773 @@ Axioms, Theorems, and Definitions:
                 347. h_1(z_3+) = S(h_1(z_3))    [334 335 MP]
 
 
-                348. 
+                348. h_1(z_3) = x   [278 R]
+
+                349. h_1(z_3+) = S(x)     [347 348 LL]
+
+
+                350. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]     [MARIN]
+
+                351. h_1 is a function & z_3+ in dom h_1 -->  @w [ <z_3+, w> in h_1 <--> h_1(z_3+) = w ]      [350 UI/h_1 UI/z_3+]
+
+                352. h_1:ω->N   [14 R]
+
+
+                353. @F, A, B [ F:A->B <--> 
+                        F is a function &
+                        dom F = A &
+                        ran F ⊆ B 
+                      ]     [Def. of into]
+                
+                354. h_1:ω->N <--> 
+                        h_1 is a function &
+                        dom h_1 = ω &
+                        ran h_1 ⊆ N       [353 UI/h_1, ω, N]
+
+                355. h_1 is a function &
+                      dom h_1 = ω &
+                      ran h_1 ⊆ N     [354 BC 352 MP]
+
+                356. Show z_3+ in dom h_1
+
+                  357. dom h_1 = ω    [355 SL SR]
+
+                  358. z_3 in ω     [335 R]
+
+                  359. ω is inductive & @A [ A is inductive & A != ω --> @t [ t in ω --> t in A ] ]     [Theorem 4B]
+
+                  360. ω is inductive   [359 SL]
+
+                  361. @A [ A is inductive <--> { } in A & @a [ a in A --> a+ in A ] ]      [Def. of inductive]
+
+                  362. ω is inductive <--> { } in ω & @a [ a in ω --> a+ in ω ]     [361 UI/ω]
+
+                  363. { } in ω & @a [ a in ω --> a+ in ω ]     [362 BC 360 MP]
+
+                  364. @a [ a in ω --> a+ in ω ]    [363 SR]
+
+                  365. z_3 in ω --> z_3+ in ω       [364 UI/z_3]
+
+                  366. z_3+ in ω    [365 358 MP]
+
+                  367. z_3+ in dom h_1      [366 357 LL]
+
+                  368.    [367 DD]
+                
+                369. h_1 is a function    [355 SL SL]
+
+                370. h_1 is a function & z_3+ in dom h_1      [369 356 ADJ]
+
+                371. @w [ <z_3+, w> in h_1 <--> h_1(z_3+) = w ]     [351 370 MP]
+                 
+
+                372. <z_3+, S(x)> in h_1 <--> h_1(z_3+) = S(x)      [371 UI/S(x)]
+
+                373. <z_3+, S(x)> in h_1      [372 BC 349 MP]
+
+
+                374. Show @m [ <m, S(x)> in h_1 --> m = z_3+ ]
+
+                  375. let m be a set
+
+                  376. Show <m, S(x)> in h_1 --> m = z_3+
+
+                    377. <m, S(x)> in h_1     [ACD]
+
+                    378. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]       [MARIN]
+
+                    379. h_1 is a function & m in dom h_1 -->  @w [ <m, w> in h_1 <--> h_1(m) = w ]       [378 UI/h_1 UI/m]
+
+                    380. h_1 is a function    [369 R]
+
+                    381. Show m in dom h_1
+
+                      382. @x [ x in dom h_1 <--> 3y [ <x, y> in h_1 ] ]    [5.D1]
+
+                      383. m in dom h_1 <--> 3y [ <m, y> in h_1 ]     [382 UI/m]
+
+                      384. 3y [ <m, y> in h_1 ]      [377 EG/S(x)->y]
+
+                      385. m in dom h_1     [383 BC 384 MP]
+
+                      386.    [385 DD]
+                    
+                    387. h_1 is a function & m in dom h_1     [380 381 ADJ]
+
+                    388. @w [ <m, w> in h_1 <--> h_1(m) = w ]     [379 387 MP]
+
+                    389. <m, S(x)> in h_1 <--> h_1(m) = S(x)      [388 UI/S(x)]
+
+                    390. h_1(m) = S(x)      [389 BC 377 MP]
+
+
+                    391. m = { } or m != { }    [TAUTOLOGY]
+
+                    392. Show m = { } --> m = z_3+    [CASE 1 for line 391]
+
+                      393. m = { }      [ACD]
+
+                      394. 0 := { }     [Def. of zero]
+
+                      395. m = 0      [393 394 LL]
+
+                      396. h_1(0) = S(x)      [390 395 LL]
+
+                      397. h_1(0) = e     [15 R]
+
+                      398. e = S(x)     [396 397 LL]
+
+                      399. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]     [MARIN]
+
+                      400. S is a function & x in dom S -->  @w [ <x, w> in S <--> S(x) = w ]     [399 UI/S UI/x]
+
+                      401. S:N->N     [8 SL SL SL SL]  
+
+                      402. @F, A, B [ F:A->B <--> 
+                              F is a function &
+                              dom F = A &
+                              ran F ⊆ B 
+                            ]     [Def. of into]
+                      
+                      403. S:N->N <--> 
+                              S is a function &
+                              dom S = N &
+                              ran S ⊆ N     [402 UI/S UI/N UI/N]
+                      
+                      404. S is a function &
+                              dom S = N &
+                              ran S ⊆ N     [403 BC 401 MP]
+
+                      405. S is a function    [404 SL SL]
+
+                      406. x in N     [273 R]
+
+                      407. dom S = N    [404 SL SR]
+
+                      408. x in dom S     [407 406 LL]
+
+                      409. S is a function & x in dom S     [405 408 ADJ]
+
+                      410. @w [ <x, w> in S <--> S(x) = w ]     [400 409 MP]
+
+                      411. <x, e> in S <--> S(x) = e      [410 UI/e]
+
+                      412. e = S(x)   [398 R]
+
+                      413. S(x) = e   [412 EQUIV.]
+
+                      414. <x, e> in S    [411 BC 413 MP]
+
+                      415. @y [ y in ran S <--> 3x [ <x, y> in S ] ]      [1.D2]
+
+                      416. e in ran S <--> 3x [ <x, e> in S ]     [415 UI/e]
+
+                      417. 3x [ <x, e> in S ]     [414 EG/x->x]
+
+                      418. e in ran S   [416 BC 417 MP]
+
+                      419. ~(e in ran S)      [8 SL SL SR]
+
+                      420.    [418 419 ID]
+                    
+                    421. Show m != { } --> m = z_3+   [CASE 2 for line 391]
+
+                      422. m != { }   [ACD]
+
+                      423. @n [ n is a natural number & n != { } --> 3k [ k is a natural number & k+ = n ] ]     [Theorem 4C]
+
+                      424. m is a natural number & m != { } --> 3k [ k is a natural number & k+ = m ]     [423 UI/m]
+
+                      425. Show m is a natural number
+
+                        426. m in dom h_1   [381 R]
+
+                        427. dom h_1 = ω    [355 SL SR]
+
+                        428. m in ω     [426 427 LL]
+
+                        429. @b [ b in ω <--> b is a natural number ]     [Theorem 4A]
+
+                        430. m in ω <--> m is a natural number      [429 UI/m]
+
+                        431. m is a natural number    [430 BC 428 MP]
+
+                        432.    [431 DD]
+                      
+                      433. m is a natural number & m != { }     [425 422 ADJ]
+
+                      434. 3k [ k is a natural number & k+ = m ]    [424 433 MP]
+
+                      435. k_4 is a natural number & k_4+ = m     [434 EI/k_4]
+
+                      436. k_4 is a natural number    [435 SL]
+
+                      437. k_4+ = m     [435 SR]
+
+                      438. @b [ b in ω <--> b is a natural number ]     [Theorem 4A]
+
+                      439. k_4 in ω <--> k_4 is a natural number      [438 UI/k_4]
+
+                      440. k_4 in ω     [439 BC 436 MP]
+
+                      441. @n [ n in ω --> h_1(n+) = S(h_1(n)) ]      [16 R]
+
+                      442. k_4 in ω --> h_1(k_4+) = S(h_1(k_4))     [441 UI/k_4]
+
+                      443. h_1(k_4+) = S(h_1(k_4))      [442 440 MP]
+
+                      444. h_1(m) = S(h_1(k_4))     [443 437 LL]
+
+                      445. h_1(m) = S(x)    [390 R]
+
+                      446. S(x) = S(h_1(k_4))     [444 445 LL]
+
+
+                      447. S is single-rooted   [8 SL SR]
+
+                      448. @R [ R is single-rooted <--> 
+                              @y [ y in ran R --> 3_1x [ <x, y> in R ] ]
+                            ]   [Def. of single-rooted]
+
+                      449. S is single-rooted <--> 
+                              @y [ y in ran S --> 3_1x [ <x, y> in S ] ]      [448 UI/S]
+
+                      450. @y [ y in ran S --> 3_1x [ <x, y> in S ] ]     [449 BC 447 MP]
+
+
+                      451. S(h_1(k_4)) in ran S --> 3_1x [ <x, S(h_1(k_4))> in S ]      [450 UI/S(h_1(k_4))]
+
+                      452. Show S(h_1(k_4)) in ran S
+
+                        453. S:N->N     [8 SL SL SL SL]
+
+                        454. @F, A, B [ F:A->B <--> 
+                                F is a function &
+                                dom F = A &
+                                ran F ⊆ B 
+                              ]       [Def. of into]
+                        
+                        455. S:N->N <--> 
+                                S is a function &
+                                dom S = N &
+                                ran S ⊆ N     [454 UI/S, N, N]
+                        
+                        456. S is a function &
+                                dom S = N &
+                                ran S ⊆ N       [455 BC 453 MP]
+                        
+                        457. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]     [MARIN]
+
+                        458. S is a function & h_1(k_4) in dom S -->  @w [ <h_1(k_4), w> in S <--> S(h_1(k_4)) = w ]      [457 UI/S UI/h_1(k_4)]
+
+                        459. S is a function    [456 SL SL]
+
+                        460. Show h_1(k_4) in dom S
+
+                          461. dom S = N    [456 SL SR]
+
+                          462. ran h_1 ⊆ N    [355 SR]
+
+                          463. @t [ t in ran h_1 --> t in N ]     [462 EQUIV.]
+
+                          464. Show h_1(k_4) in ran h_1
+
+                            465. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]     [MARIN]
+
+                            466. h_1 is a function & k_4 in dom h_1 -->  @w [ <k_4, w> in h_1 <--> h_1(k_4) = w ]     [465 UI/h_1 UI/k_4]
+
+                            467. h_1 is a function    [369 R]
+
+                            468. Show k_4 in dom h_1
+
+                              469. k_4 in ω   [440 R]
+
+                              470. dom h_1 = ω      [355 SL SR]
+
+                              471. k_4 in dom h_1     [469 470 LL]
+
+                              472.    [471 DD]
+                            
+                            473. h_1 is a function & k_4 in dom h_1     [467 468 ADJ]
+
+                            474. @w [ <k_4, w> in h_1 <--> h_1(k_4) = w ]     [466 473 MP]
+
+                            475. <k_4, h_1(k_4)> in h_1 <--> h_1(k_4) = h_1(k_4)      [474 UI/h_1(k_4)]
+
+                            476. h_1(k_4) = h_1(k_4)      [SID]
+
+                            477. <k_4, h_1(k_4)> in h_1     [475 BC 476 MP]
+
+                            478. @y [ y in ran h_1 <--> 3x [ <x, y> in h_1 ] ]      [5.D2]
+
+                            479. h_1(k_4) in ran h_1 <--> 3x [ <x, h_1(k_4)> in h_1 ]     [478 UI/h_1(k_4)]
+
+                            480. 3x [ <x, h_1(k_4)> in h_1 ]      [477 EG/k_4->x]
+
+                            481. h_1(k_4) in ran h_1      [479 BC 480 MP]
+
+                            482.    [481 DD]
+                          
+                          483. h_1(k_4) in ran h_1 --> h_1(k_4) in N    [463 UI/h_1(k_4)]
+
+                          484. h_1(k_4) in N      [464 483 MP]
+
+                          485. h_1(k_4) in dom S    [484 461 LL]
+
+                          486.    [485 DD]
+                        
+                        487. S is a function & h_1(k_4) in dom S      [459 460 ADJ]
+
+                        488. @w [ <h_1(k_4), w> in S <--> S(h_1(k_4)) = w ]     [458 487 MP]
+
+                        489. <h_1(k_4), S(h_1(k_4))> in S <--> S(h_1(k_4)) = S(h_1(k_4))      [488 UI/S(h_1(k_4))]
+
+                        490. S(h_1(k_4)) = S(h_1(k_4))    [SID]
+
+                        491. <h_1(k_4), S(h_1(k_4))> in S     [489 BC 490 MP]
+
+                        492. @y [ y in ran S <--> 3x [ <x, y> in S ] ]      [1.D2]
+
+                        493. S(h_1(k_4)) in ran S <--> 3x [ <x, S(h_1(k_4))> in S ]     [492 UI/S(h_1(k_4))]
+
+                        494. 3x [ <x, S(h_1(k_4))> in S ]      [491 EG/h_1(k_4) -> x]
+
+                        495. S(h_1(k_4)) in ran S   [493 BC 494 MP]
+
+                        496.    [495 DD]
+                      
+                      497. 3_1x [ <x, S(h_1(k_4))> in S ]   [451 452 MP]
+
+                      498. 3x [ <x, S(h_1(k_4))> in S & @j [ <j, S(h_1(k_4))> in S --> j = x ] ]      [497 EQUIV.]
+
+                      499. <x_5, S(h_1(k_4))> in S & @j [ <j, S(h_1(k_4))> in S --> j = x_5 ]     [498 EI/x_5]
+
+                      500. @j [ <j, S(h_1(k_4))> in S --> j = x_5 ]     [499 SR]
+
+
+                      501. Show <x, S(h_1(k_4))> in S
+
+                        502. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]       [MARIN]
+
+                        503. S is a function & x in dom S -->  @w [ <x, w> in S <--> S(x) = w ]     [502 UI/S UI/x]
+
+                        504. S:N->N     [8 SL SL SL SL]
+
+                        505. @F, A, B [ F:A->B <--> 
+                                F is a function &
+                                dom F = A &
+                                ran F ⊆ B 
+                              ]     [Def. of into]
+                        
+                        506. S:N->N <--> 
+                                S is a function &
+                                dom S = N &
+                                ran S ⊆ N     [505 UI/S UI/N UI/N]
+
+                        507. S is a function &
+                                dom S = N &
+                                ran S ⊆ N       [506 BC 504 MP]
+
+                        508. S is a function    [507 SL SL]
+
+                        509. x in N    [273 R]
+
+                        510. dom S = N    [507 SL SR]
+
+                        511. x in dom S    [509 510 LL]
+
+                        512. S is a function & x in dom S     [508 511 ADJ]
+
+                        513. @w [ <x, w> in S <--> S(x) = w ]     [503 512 MP]
+
+                        514. <x, S(h_1(k_4))> in S <--> S(x) = S(h_1(k_4))    [513 UI/S(h_1(k_4))]
+
+                        515. S(x) = S(h_1(k_4))      [446 R]
+
+                        516. <x, S(h_1(k_4))> in S    [514 BC 515 MP]
+
+                        517.    [516 DD]
+                      
+                      518. Show <h_1(k_4), S(h_1(k_4))> in S
+
+                        519. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]       [MARIN]
+
+                        520. S is a function & h_1(k_4) in dom S -->  @w [ <h_1(k_4), w> in S <--> S(h_1(k_4)) = w ]     [519 UI/S UI/h_1(k_4)]
+
+                        521. S:N->N     [8 SL SL SL SL]
+
+                        522. @F, A, B [ F:A->B <--> 
+                                F is a function &
+                                dom F = A &
+                                ran F ⊆ B 
+                              ]     [Def. of into]
+                        
+                        523. S:N->N <--> 
+                                S is a function &
+                                dom S = N &
+                                ran S ⊆ N     [522 UI/S UI/N UI/N]
+
+                        524. S is a function &
+                                dom S = N &
+                                ran S ⊆ N       [523 BC 521 MP]
+
+                        525. S is a function    [524 SL SL]
+
+                        526. Show h_1(k_4) in dom S
+
+                          527. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]       [MARIN]
+
+                          528. h_1 is a function & k_4 in dom h_1 -->  @w [ <k_4, w> in h_1 <--> h_1(k_4) = w ]     [527 UI/h_1 UI/k_4]
+
+                          529. h_1 is a function    [369 R]
+
+                          530. k_4 in ω     [440 R]
+
+                          531. dom h_1 = ω    [355 SL SR]
+
+                          532. k_4 in dom h_1     [530 531 LL]
+
+                          533. h_1 is a function & k_4 in dom h_1     [529 532 ADJ]
+
+                          534. @w [ <k_4, w> in h_1 <--> h_1(k_4) = w ]     [528 533 MP]
+
+                          535. <k_4, h_1(k_4)> in h_1 <--> h_1(k_4) = h_1(k_4)      [534 UI/h_1(k_4)]
+
+                          536. h_1(k_4) = h_1(k_4)      [SID]
+
+                          537. <k_4, h_1(k_4)> in h_1   [535 BC 536 MP]
+
+                          538. @y [ y in ran h_1 <--> 3x [ <x, y> in h_1 ] ]    [5.D2]
+
+                          539. h_1(k_4) in ran h_1 <--> 3x [ <x, h_1(k_4)> in h_1 ]     [538 UI/h_1(k_4)]
+
+                          540. 3x [ <x, h_1(k_4)> in h_1 ]      [537 EG/k_4 -> x]
+
+                          541. h_1(k_4) in ran h_1    [539 BC 540 MP]
+
+                          542. ran h_1 ⊆ N    [355 SR]
+
+                          543. @t [ t in ran h_1 --> t in N ]     [542 EQUIV.]
+
+                          544. h_1(k_4) in ran h_1 --> h_1(k_4) in N      [543 UI/h_1(k_4)]
+
+                          545. h_1(k_4) in N      [544 541 MP]
+
+                          546. dom S = N      [524 SL SR]
+
+                          547. h_1(k_4) in dom S      [545 546 LL]
+
+                          548.    [547 DD]
+                        
+                        549. S is a function & h_1(k_4) in dom S      [525 526 ADJ]
+
+                        550. @w [ <h_1(k_4), w> in S <--> S(h_1(k_4)) = w ]     [520 549 MP]
+
+                        551. <h_1(k_4), S(h_1(k_4))> in S <--> S(h_1(k_4)) = S(h_1(k_4))      [550 UI/S(h_1(k_4))]
+
+                        552. S(h_1(k_4)) = S(h_1(k_4))      [SID]
+
+                        553. <h_1(k_4), S(h_1(k_4))> in S     [551 BC 552 MP]
+
+                        554.    [553 DD]
+                      
+
+                      555. Show x = x_5
+
+                        556. @j [ <j, S(h_1(k_4))> in S --> j = x_5 ]     [500 R]
+
+                        557. <x, S(h_1(k_4))> in S --> x = x_5      [556 UI/x]
+
+                        558. x = x_5    [557 501 MP]
+
+                        559.    [558 DD]
+                      
+                      560. Show h_1(k_4) = x_5
+
+                        561. @j [ <j, S(h_1(k_4))> in S --> j = x_5 ]     [500 R]
+
+                        562. <h_1(k_4), S(h_1(k_4))> in S --> h_1(k_4) = x_5      [561 UI/h_1(k_4)]
+
+                        563. h_1(k_4) = x_5    [562 518 MP]
+
+                        564.    [563 DD]
+                      
+
+                      565. x = h_1(k_4)   [555 560 LL]
+
+
+                      566. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]       [MARIN]
+
+                      567. h_1 is a function & k_4 in dom h_1 -->  @w [ <k_4, w> in h_1 <--> h_1(k_4) = w ]       [566 UI/h_1 UI/k_4]
+
+                      568. h_1 is a function      [369 R]
+
+                      569. Show k_4 in dom h_1
+
+                        570. k_4 in ω   [440 R]
+
+                        571. dom h_1 = ω    [355 SL SR]
+
+                        572. k_4 in dom h_1     [570 571 LL]
+
+                        573.    [572 DD]
+                      
+                      574. h_1 is a function & k_4 in dom h_1     [568 569 ADJ]
+
+                      575. @w [ <k_4, w> in h_1 <--> h_1(k_4) = w ]     [567 574 MP]
+
+                      576. <k_4, x> in h_1 <--> h_1(k_4) = x      [575 UI/x]
+
+                      577. h_1(k_4) = x     [565 EQUIV.]
+
+                      578. <k_4, x> in h_1    [576 BC 577 MP]
+
+
+                      579. @p [ <p, x> in h_1 --> p = z_3 ]     [277 R]
+
+                      580. <k_4, x> in h_1 --> k_4 = z_3      [579 UI/k_4]
+
+                      581. k_4 = z_3    [580 578 MP]
+
+
+                      582. k_4+ = k_4+      [SID]
+
+                      583. k_4+ = z_3+      [581 582 LL]
+
+
+                      584. k_4+ = m    [437 R]
+
+                      585. m = z_3+     [583 584 LL]
+
+                      586.    [585 CD]
+                    
+                    587. m = { } or m != { } --> m = z_3+     [392 421 CASE_PROOF for line 391]
+
+                    588. m = z_3+     [391 587 MP]
+
+                    589.    [588 CD]
+                  
+                  590.    [376 UD]
+                
+                591. <z_3+, S(x)> in h_1 & @m [ <m, S(x)> in h_1 --> m = z_3+ ]      [373 374 ADJ]
+
+                592. 3z [ <z, S(x)> in h_1 & @m [ <m, S(x)> in h_1 --> m = z ] ]    [591 EG/z_3+ -> z]
+
+                593. 3_1z [ <z, S(x)> in h_1 ]    [592 EQUIV.]
+
+                594.    [593 DD]
+              
+              595. S(x) in N & 3_1z [ <z, S(x)> in h_1 ]      [303 331 ADJ]
+
+              596. S(x) in B_2      [302 BC 595 MP]
+
+              597.    [596 DD]
+            
+            598.    [299 CD]
+          
+          599.    [267 UD]
+        
+        600. e in B_2 & @x [ x in B_2 --> S(x) in B_2 ]   [132 265 ADJ]
+
+        601. B_2 = N    [131 600 MP]
+
+
+        602. Show @y [ y in ran h_1 --> 3_1x [ <x, y> in h_1 ] ]
+
+          603. let y be a set
+
+          604. Show y in ran h_1 --> 3_1x [ <x, y> in h_1 ]
+
+            605. y in ran h_1     [ACD]
+
+            606. ran h_1 = N      [17 R]
+
+            607. y in N   [605 606 LL]
+
+            608. y in B_2     [607 601 LL]
+
+            609. @t [ t in B_2 <--> t in N & 3_1x [ <x, t> in h_1 ] ]     [115 R]
+
+            610. y in B_2 <--> y in N & 3_1x [ <x, y> in h_1 ]      [609 UI/y]
+
+            611. y in N & 3_1x [ <x, y> in h_1 ]      [610 BC 608 MP]
+
+            612. 3_1x [ <x, y> in h_1 ]   [611 SR]
+
+            613.    [612 CD]
+          
+          614.    [604 UD]
+        
+        616.    [602 DD]
+      
+      617. h_1 is single-rooted     [111 BC 112 MP]
+
+      618.    [617 DD]
+    
+
+
+    619. Show h_1 maps ω onto N 
+
+      620. @F, A, B [ F maps A onto B <--> 
+              F is a function &
+              dom F = A &
+              ran F = B 
+            ]     [Def. of onto]
+
+      621. h_1 maps ω onto N <--> 
+              h_1 is a function &
+              dom h_1 = ω &
+              ran h_1 = N       [620 UI/h_1 UI/ω UI/N]
+
+      622. @F, A, B [ F:A->B <--> 
+                F is a function &
+                dom F = A &
+                ran F ⊆ B 
+              ]     [Def. of into]
+      
+      623. h_1:ω->N <--> 
+                h_1 is a function &
+                dom h_1 = ω &
+                ran h_1 ⊆ N     [622 UI/h_1 UI/ω UI/N]
+
+      624. h_1 is a function &
+            dom h_1 = ω &
+            ran h_1 ⊆ N     [623 BC 14 MP]
+      
+      625. h_1 is a function &
+            dom h_1 = ω   [624 SL]
+      
+      626. h_1 is a function &
+            dom h_1 = ω &
+            ran h_1 = N     [625 17 ADJ]
+      
+      627. h_1 maps ω onto N      [621 BC 626 MP]
+
+      628.    [627 DD]
+    
+
+    629. Show @n [ n in ω --> h_1(σ(n)) = S(h_1(n)) ]
+
+      630. let n be a set
+
+      631. Show n in ω --> h_1(σ(n)) = S(h_1(n))
+
+        632. n in ω   [ACD]
+
+        634. @n [ n in ω --> h_1(n+) = S(h_1(n)) ]    [16 R]
+
+        635. n in ω --> h_1(n+) = S(h_1(n))   [634 UI/n]
+
+        636. h_1(n+) = S(h_1(n))      [635 632 MP]
+
+
+        637. <σ, ω, { }> is a Peano System    [Theorem 4D]
+
+        638. @S, N, e [ <S, N, e> is a Peano System <--> [ 
+									S:N->N & 				// this implies N is closed under S (as the above statement says)
+									e in N & 					// so, N satisfies "e in N & @x [ x in N --> S(x) in N ]"
+
+									~(e in ran S) &
+									S is single-rooted &
+									@A [ A ⊆ N --> [ e in A & @x [ x in A --> S(x) in A ] --> A = N ] ]			// this is so that N is the "smallest" such set satisfying "e in N & @x [ x in N --> S(x) in N ]"
+									
+									] 
+						]     [Def. of Peano System]
+
+        639. <σ, ω, { }> is a Peano System <--> [ 
+                    σ:ω->ω & 				
+                    { } in ω & 					
+
+                    ~({ } in ran σ) &
+                    σ is single-rooted &
+                    @A [ A ⊆ ω --> [ { } in A & @x [ x in A --> σ(x) in A ] --> A = ω ] ]			
+									
+									]     [638 UI/σ, ω, { }]
+        
+        640. σ:ω->ω & 				
+              { } in ω & 					
+
+              ~({ } in ran σ) &
+              σ is single-rooted &
+              @A [ A ⊆ ω --> [ { } in A & @x [ x in A --> σ(x) in A ] --> A = ω ] ]			    [639 BC 637 MP]
+        
+        641. σ:ω->ω    [640 SL SL SL SL]
+
+        642. @F, A, B [ F:A->B <--> 
+                  F is a function &
+                  dom F = A &
+                  ran F ⊆ B 
+                ]     [Def. of into]
+        
+        643. σ:ω->ω <--> 
+                  σ is a function &
+                  dom σ = ω &
+                  ran σ ⊆ ω       [642 UI/σ UI/ω UI/ω]
+        
+        644. σ is a function &
+              dom σ = ω &
+              ran σ ⊆ ω     [643 BC 641 MP]
+
+
+        645. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]     [MARIN]
+
+        646. σ is a function & n in dom σ -->  @w [ <n, w> in σ <--> σ(n) = w ]     [645 UI/σ UI/n]
+      
+        647. σ is a function      [644 SL SL]
+
+        648. Show n in dom σ
+
+          649. n in ω   [632 R]
+
+          650. dom σ = ω    [644 SL SR]
+
+          651. n in dom σ     [649 650 LL]
+
+          652.    [651 DD]
+        
+        653. σ is a function & n in dom σ     [647 648 ADJ]
+
+        654. @w [ <n, w> in σ <--> σ(n) = w ]   [646 653 MP]
+
+        655. <n, n+> in σ <--> σ(n) = n+      [654 UI/n+]
+
+        656. Show <n, n+> in σ
+
+          657. @t [ t in σ <--> 3n [ n in ω & t = <n, n+> ] ]   [SALT]
+
+          658. @t [ t in σ <--> 3r [ r in ω & t = <r, r+> ] ]   [657 EQUIV.]
+
+          659. <n, n+> in σ <--> 3r [ r in ω & <n, n+> = <r, r+> ]      [658 UI/<n, n+>]
+
+          660. n in ω   [632 R]
+
+          661. <n, n+> = <n, n+>    [SID]
+
+          662. n in ω & <n, n+> = <n, n+>     [660 661 ADJ]
+
+          663. 3r [ r in ω & <n, n+> = <r, r+> ]      [662 EG/n->r]
+
+          664. <n, n+> in σ   [659 BC 663 MP]
+
+          665.    [664 DD]
+        
+        666. σ(n) = n+    [655 BC 656 MP]
+
+        667. h_1(n+) = S(h_1(n))   [636 R]
+
+        668. h_1(σ(n)) = S(h_1(n))   [667 666 LL]
+
+        669.    [668 CD]
+      
+      670.    [631 UD]
+    
+
+    671. h_1 maps ω onto N & h_1 is single-rooted & h_1(0) = e & @n [ n in ω --> h_1(σ(n)) = S(h_1(n)) ]    [619 109 15 629 ADJ]
+
+    672. 3h [ h maps ω onto N & h is single-rooted & h(0) = e & @n [ n in ω --> h(σ(n)) = S(h(n)) ] ]     [671 EG/h_1->h]
+
+    673.    [672 CD]
+  
+  674.    [5 UD]
+
+                      
