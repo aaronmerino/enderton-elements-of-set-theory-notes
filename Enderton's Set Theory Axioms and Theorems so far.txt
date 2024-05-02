@@ -537,6 +537,11 @@ Set of Natural Numbers Chapter:
 	Recursion Theorem on ω:
 		@F, A, a [ a in A & F:A->A --> 3_1p [ p:ω->A & p(0) = a & @n [ n in ω --> p(n+) = F(p(n)) ] ] ]
 
+	Theorem 4G:
+		ω is a transitive set
+
+	Theorem 4H:
+		@S, N, e [ <S, N, e> is a Peano System --> 3h [ h maps ω onto N & h is single-rooted & h(0) = e & @n [ n in ω --> h(σ(n)) = S(h(n)) ] ] ]
 
 Algebra of Sets:
 	Pg 24 Union of empty set:

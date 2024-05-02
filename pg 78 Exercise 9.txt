@@ -1,0 +1,4 @@
+
+
+// First we show existence of the thing inside the ∩ of C*
+// use subset axiom; it is a subset of P(B)
