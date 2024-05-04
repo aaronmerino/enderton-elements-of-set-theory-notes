@@ -1,4 +1,124 @@
+Axioms and Theorems:
+	Power Set Axiom:
+		@a [ 3B [ @x [ x in B <--> @t [ t in x --> t in a ] ] ] ]
+			Definition (its uniqueness is always due to Ext. Axiom):
+			For any set a, the power set  P(a) is the set whose members are exactly the subsets of a.
+			[You can think of P(a) as a 1-ary operator. It refer to one set and one set only based on the sets a!]
 
+	Subset Axioms:
+	For each formula __ not containing B, the following is an axiom:
+	@t1 ... @tk @c [ 3B [ @x [ x in B <--> x in c & __ ] ] ]
+		Definition:
+		For any set t­1, ..., tk and c, the subset B = {x in c | __ } is the set whose members are exactly those sets in c and __	
+
+	Power Set Axiom:
+		@a [ 3B [ @x [ x in B <--> @t [ t in x --> t in a ] ] ] ]
+			Definition (its uniqueness is always due to Ext. Axiom):
+			For any set a, the power set  P(a) is the set whose members are exactly the subsets of a.
+			[You can think of P(a) as a 1-ary operator. It refer to one set and one set only based on the sets a!]
+
+	Theorem 2B (Arbitrary Intersection):
+		@A [ A != { } --> 3_1B [ @x [ x in B <--> @a [ a in A --> x in a ] ] ] ] 
+			Definition (its uniqueness is always due to Ext. Axiom):
+			For any set non empty set A, the intersection of A  ∩(A)     is the set whose members are exactly the members of all members of A.
+
+	Theorem 3A:
+		@u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]
+
+	The Image of A under F set:
+		@F, A [ 3D [ @v [ v in D <--> 3u [ u in A & <u, v> in F ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			For any sets F, A, F[A] is the set known as the Image of A under F
+			When F is a function & A ⊆ dom F, then we can define like so:
+				F[A] := {F(u) | u in A}
+
+  [VIRTUOSA] Subset Axiom Applied
+    @c [ 3D [ @t [ t in D <--> t in c & A ⊆ t & t ⊆ B & f[t] ⊆ t ] ] ]      [Subset Axiom UI_META/'A ⊆ t & t ⊆ B & f[t] ⊆ t']
 
 // First we show existence of the thing inside the ∩ of C*
 // use subset axiom; it is a subset of P(B)
+
+1. Show @A, B, f [ 3D [ @t [ t in D <--> A ⊆ t & t ⊆ B & f[t] ⊆ t ] ] ]
+
+  2. let A be a set
+
+  3. let B be a set
+
+  4. let f be a set
+
+  ////////
+  1.D1. @x [ x in P(B) <--> @w [ w in x --> w in B ] ]    [Power Set Axiom UI/B & Ext. Axiom]
+  ////////
+
+  5. Show 3D [ @t [ t in D <--> A ⊆ t & t ⊆ B & f[t] ⊆ t ] ]
+
+    6. @c [ 3D [ @t [ t in D <--> t in c & A ⊆ t & t ⊆ B & f[t] ⊆ t ] ] ]     [VIRTUOSA]
+
+    7. 3D [ @t [ t in D <--> t in P(B) & A ⊆ t & t ⊆ B & f[t] ⊆ t ] ]     [6 UI/P(B)]
+
+    ////////
+    8. @t [ t in D_1 <--> t in P(B) & A ⊆ t & t ⊆ B & f[t] ⊆ t ]    [7 EI/D_1]
+    ////////
+    
+    9. Show @t [ t in D_1 <--> A ⊆ t & t ⊆ B & f[t] ⊆ t ]
+
+			10. let t be a set
+
+			11. Show t in D_1 --> A ⊆ t & t ⊆ B & f[t] ⊆ t
+
+				12. t in D_1		[ACD]
+
+				13. @t [ t in D_1 <--> t in P(B) & A ⊆ t & t ⊆ B & f[t] ⊆ t ]			[8 R]
+
+				14. t in D_1 <--> t in P(B) & A ⊆ t & t ⊆ B & f[t] ⊆ t			[13 UI/t]
+
+				15. t in P(B) & A ⊆ t & t ⊆ B & f[t] ⊆ t			[14 BC 12 MP]
+
+				16. A ⊆ t & t ⊆ B & f[t] ⊆ t		[15 S]
+
+				17. 		[16 CD]
+			
+
+			18. Show A ⊆ t & t ⊆ B & f[t] ⊆ t --> t in D_1
+
+				19. A ⊆ t & t ⊆ B & f[t] ⊆ t			[ACD]
+
+				20. @t [ t in D_1 <--> t in P(B) & A ⊆ t & t ⊆ B & f[t] ⊆ t ]			[8 R]
+
+				21. t in D_1 <--> t in P(B) & A ⊆ t & t ⊆ B & f[t] ⊆ t			[20 UI/t]
+
+				22. Show t in P(B)
+
+					23. @x [ x in P(B) <--> @w [ w in x --> w in B ] ]			[1.D1]
+
+					24. t in P(B) <--> @w [ w in t --> w in B ]			[23 UI/t]
+
+					25. Show @w [ w in t --> w in B ]
+
+						26. t ⊆ B		[19 SL SR]
+
+						27. @w [ w in t --> w in B ]		[26 EQUIV.]
+
+						28. 	[27 DD]
+					
+					29. t in P(B)		[24 BC 25 MP]
+
+					30.		[29 DD]
+				
+				31. t in P(B) & A ⊆ t & t ⊆ B & f[t] ⊆ t			[22 19 ADJ]
+
+				32. t in D_1			[21 BC 31 MP]
+
+				33. 		[32 CD]
+			
+
+			34. t in D_1 <--> A ⊆ t & t ⊆ B & f[t] ⊆ t			[11 18 CB]
+
+			35. 	[34 UD]
+		
+		36. 3D [ @t [ t in D <--> A ⊆ t & t ⊆ B & f[t] ⊆ t ] ]		[9 EG/D_1->D]
+
+		37. 	[36 DD]
+	
+	38. 	[5 UD]
+
