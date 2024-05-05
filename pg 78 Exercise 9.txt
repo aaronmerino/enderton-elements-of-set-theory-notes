@@ -1,4 +1,7 @@
 Axioms and Theorems:
+	Extensionality Axiom:
+		@A, B [ @x [ x in A <--> x in B ] --> A = B ]
+
 	Union Axiom (Preliminary Form):
 		@a, b [ 3B [ @x [ x in B <--> x in a or x in b ] ] ]
 			Definition (its uniqueness is always due to Ext. Axiom):
@@ -36,6 +39,35 @@ Axioms and Theorems:
 		Definition (its uniqueness is always due to Ext. Axiom):
 		For any set sets A, B,  {<x, y> | x in A & y in B}    is the set whose members are exactly the sets of the form <x, y> for some x in A & y in B
 		Also known as the Cartesian Product A x B of the sets A and B!
+
+	Relation:
+		Definition:
+		A relation R is a set of ordered pairs.
+		@R [ R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ] ]
+
+	dom R: 
+		@R [ 3D [ @x [ x in D <--> 3y [ <x, y> in R ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets R,  dom R  is the set whose members are those 1st-coordinate set of some ordered pair in R
+
+	ran R: 
+		@R [ 3D [ @x [ x in D <--> 3t [ <t, x> in R ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets R,  ran R  is the set whose members are those 2nd-coordinate set of some ordered pair in R
+
+	Function:
+		Definition:
+		@F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]
+
+	Pg 43 When F is a function and x the dom F, F(x) is y IFF <x, y> in F:
+		@F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]
+		
+	Definition of into:
+		@F, A, C [ F:A->C <--> 
+						F is a function &
+						dom F = A &
+						ran F ⊆ C 
+					]
 
 	The Image of A under F set:
 		@F, A [ 3D [ @v [ v in D <--> 3u [ u in A & <u, v> in F ] ] ] ]
@@ -157,9 +189,11 @@ Definition (its uniqueness is always due to Ext. Axiom):
 
 	4. let f be a set
 
-	////////
+	////////////////////////
   1.D1. @x [ x in P(B) <--> @w [ w in x --> w in B ] ]    [Power Set Axiom UI/B & Ext. Axiom]
-  ////////
+	1.D2. @t [ t in P(B) x P(B) <--> 3a, b [ a in P(B) & b in P(B) & t = <a, b> ] ]			[Corollary 3C UI/P(B) UI/P(B)]
+	1.D3. @y [ y in ran f <--> 3x [ <x, y> in f ] ]			[ran UI/f & Ext. Axiom]
+  ////////////////////////
 
 	5. Show f:B->B & A ⊆ B --> 3_1h [ h:ω->P(B) & h(0) = A & @n [ n in ω --> h(n+) = h(n) ∪ f[h(n)] ] ]
 
@@ -173,9 +207,387 @@ Definition (its uniqueness is always due to Ext. Axiom):
 
 		10. 3D [ @t [ t in D <--> t in P(B) x P(B) & 3x, y [ t = <x, y> & y = x ∪ f[x] ] ] ]		[9 UI/f UI/P(B) x P(B)]
 
+		////////////////////////
 		11. @t [ t in F_1 <--> t in P(B) x P(B) & 3x, y [ t = <x, y> & y = x ∪ f[x] ] ]			[10 EI/F_1]
+		////////////////////////
 
+		////////////////////////
+		5.D1. @x [ x in dom F_1 <--> 3y [ <x, y> in F_1 ] ]			[dom UI/F_1 & Ext. Axiom]
+		////////////////////////
 
 		12. Show F_1:P(B)->P(B)
 
-			13. 
+			13. @F, A, C [ F:A->C <--> 
+						F is a function &
+						dom F = A &
+						ran F ⊆ C 
+					]			[Def. of into]
+			
+			14. F_1:P(B)->P(B) <--> 
+						F_1 is a function &
+						dom F_1 = P(B) &
+						ran F_1 ⊆ P(B) 		[13 UI/F_1, P(B), P(B)]
+
+			15. Show F_1 is a function
+
+				15. @F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]		[Def. of function]
+
+				16. F_1 is a function <--> F_1 is a relation & @x [ x in dom F_1 --> 3_1y [ <x, y> in F_1 ] ]		[15 UI/F_1]
+
+				17. Show F_1 is a relation
+
+					18. @R [ R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ] ]		[Def. of relation]
+
+					19. F_1 is a relation <--> @t [ t in F_1 --> 3x, y[ t = <x, y> ] ]			[18 UI/F_1]
+
+					20. Show @t [ t in F_1 --> 3x, y[ t = <x, y> ] ]
+
+						21. let t be a set
+
+						22. Show t in F_1 --> 3x, y[ t = <x, y> ]
+
+							23. t in F_1		[ACD]
+
+							24. @t [ t in F_1 <--> t in P(B) x P(B) & 3x, y [ t = <x, y> & y = x ∪ f[x] ] ]			[11 R]
+
+							25. t in F_1 <--> t in P(B) x P(B) & 3x, y [ t = <x, y> & y = x ∪ f[x] ]			[24 UI/t]
+
+							26. t in P(B) x P(B) & 3x, y [ t = <x, y> & y = x ∪ f[x] ]		[25 BC 23 MP]
+
+							27. 3x, y [ t = <x, y> & y = x ∪ f[x] ]		[26 SR]
+
+							28. t = <x_2, y_2> & y_2 = x_2 ∪ f[x_2]		[27 EI/x_2 EI/y_2]
+
+							29. t = <x_2, y_2>		[28 SL]
+
+							30. 3x, y[ t = <x, y> ]			[29 EG/x_2->x EG/y_2->y]
+
+							31. 	[30 CD]
+						
+						32. 	[22 UD]
+					
+					33. F_1 is a relation		[19 BC 20 MP]
+
+					34.		[33 DD]
+				
+				35. Show @x [ x in dom F_1 --> 3_1y [ <x, y> in F_1 ] ]
+
+					36. let x be a set
+
+					37. Show x in dom F_1 --> 3_1y [ <x, y> in F_1 ]
+
+						38. x in dom F_1		[ACD]
+
+						39. @x [ x in dom F_1 <--> 3y [ <x, y> in F_1 ] ]		[5.D1]
+
+						40. x in dom F_1 <--> 3y [ <x, y> in F_1 ]			[39 UI/x]
+
+						41. 3y [ <x, y> in F_1 ]		[40 BC 38 MP]
+
+						42. <x, y_2> in F_1			[41 EI/y_2]
+
+						43. Show @w [ <x, w> in F_1 --> w = y_2 ]
+
+							44. let w be a set
+
+							45. Show <x, w> in F_1 --> w = y_2
+
+								46. <x, w> in F_1		[ACD]
+
+
+								47. @t [ t in F_1 <--> t in P(B) x P(B) & 3x, y [ t = <x, y> & y = x ∪ f[x] ] ]			[11 R]
+
+								48. @t [ t in F_1 <--> t in P(B) x P(B) & 3u, v [ t = <u, v> & v = u ∪ f[u] ] ]			[47 EQUIV.]
+
+								49. <x, y_2> in F_1 <--> <x, y_2> in P(B) x P(B) & 3u, v [ <x, y_2> = <u, v> & v = u ∪ f[u] ]			[48 UI/<x, y_2>]
+
+								50. <x, y_2> in P(B) x P(B) & 3u, v [ <x, y_2> = <u, v> & v = u ∪ f[u] ]			[49 BC 42 MP]
+
+								51. 3u, v [ <x, y_2> = <u, v> & v = u ∪ f[u] ]		[50 SR]
+
+								52. <x, y_2> = <u_3, v_3> & v_3 = u_3 ∪ f[u_3]		[51 EI/u_3 EI/v_3]
+
+								53. <x, y_2> = <u_3, v_3>			[52 SL]
+
+								54. v_3 = u_3 ∪ f[u_3]				[52 SR]
+
+
+								55. <x, w> in F_1 <--> <x, w> in P(B) x P(B) & 3u, v [ <x, w> = <u, v> & v = u ∪ f[u] ]			[48 UI/<x, w>]
+
+								56. <x, w> in P(B) x P(B) & 3u, v [ <x, w> = <u, v> & v = u ∪ f[u] ]			[55 BC 46 MP]
+
+								57. 3u, v [ <x, w> = <u, v> & v = u ∪ f[u] ]		[56 SR]
+
+								58. <x, w> = <u_4, v_4> & v_4 = u_4 ∪ f[u_4]		[57 EI/u_4 EI/v_4]
+
+								59. <x, w> = <u_4, v_4>		[58 SL]
+
+								60. v_4 = u_4 ∪ f[u_4]		[58 SR]
+								
+
+								61. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]		[Theorem 3A]
+
+								62. <x, y_2> = <u_3, v_3>  <-->  x = u_3 & y_2 = v_3			[61 UI/x, y_2, u_3, v_3]
+
+								63. x = u_3 & y_2 = v_3			[62 BC 53 MP]
+
+								64. x = u_3		[63 SL]
+
+
+								65. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]		[Theorem 3A]
+
+								66. <x, w> = <u_4, v_4>  <-->  x = u_4 & w = v_4			[65 UI/x, w, u_4, v_4]
+
+								67. x = u_4 & w = v_4			[66 BC 59 MP]
+
+								68. x = u_4		[67 SL]
+
+
+								69. u_3 = u_4			[64 68 LL]
+
+
+								70. v_3 = u_3 ∪ f[u_3]		[54 R]
+
+								71. v_4 = u_4 ∪ f[u_4]		[60 R]
+
+
+								72. v_3 = u_4 ∪ f[u_4]		[70 69 LL]
+
+								73. v_3 = v_4			[71 72 LL]
+
+
+								74. y_2 = v_3		[63 SR]
+
+								75. w = v_4			[67 SR]
+ 
+
+								76. y_2 = v_4		[74 73 LL]
+
+								77. w = y_2			[75 76 LL]
+
+								78. 		[77 CD]
+							
+							79. 	[45 UD]
+						
+						80. <x, y_2> in F_1 & @w [ <x, w> in F_1 --> w = y_2 ]		[42 43 ADJ]
+
+						81. 3y [ <x, y> in F_1 & @w [ <x, w> in F_1 --> w = y ] ]			[80 EG/y_2->y]
+
+						82. 3_1y [ <x, y> in F_1 ]		[81 EQUIV.]
+
+						83.		[82 CD]
+					
+					84. 		[37 UD]
+				
+				85. F_1 is a relation & @x [ x in dom F_1 --> 3_1y [ <x, y> in F_1 ] ]			[17 35 ADJ]
+			
+				86. F_1 is a function			[16 BC 85 MP]
+
+				87.		[86 DD]
+			
+			88. Show dom F_1 = P(B)
+
+				89. @A, B [ @x [ x in A <--> x in B ] --> A = B ]			[Ext. Axiom]
+
+				90. @x [ x in dom F_1 <--> x in P(B) ] --> dom F_1 = P(B)			[89 UI/dom F_1, P(B)]
+
+				91. Show @x [ x in dom F_1 <--> x in P(B) ]
+
+					92. let x be a set
+
+					////////////////////////
+					91.D1. @v [ v in f[x] <--> 3u [ u in x & <u, v> in f ] ]			[Image UI/f UI/x & Ext. Axiom]
+					91.D2. @s [ s in x ∪ f[x] <--> s in x or s in f[x] ]					[Union UI/x UI/f[x] & Ext. Axiom]
+					////////////////////////
+
+					93. Show x in dom F_1 --> x in P(B)
+
+						94. x in dom F_1		[ACD]
+
+						95. @x [ x in dom F_1 <--> 3y [ <x, y> in F_1 ] ]			[5.D1]
+
+						96. x in dom F_1 <--> 3y [ <x, y> in F_1 ]			[95 UI/x]	
+
+						97. 3y [ <x, y> in F_1 ]			[96 BC 94 MP]
+
+						98. <x, y_2> in F_1			[97 EI/y_2]
+
+						99. @t [ t in F_1 <--> t in P(B) x P(B) & 3x, y [ t = <x, y> & y = x ∪ f[x] ] ]				[11 R]
+
+						100. @t [ t in F_1 <--> t in P(B) x P(B) & 3u, v [ t = <u, v> & v = u ∪ f[u] ] ]			[99 EQUIV.]
+
+						101. <x, y_2> in F_1 <--> <x, y_2> in P(B) x P(B) & 3u, v [ <x, y_2> = <u, v> & v = u ∪ f[u] ]			[100 UI/<x, y_2>]
+
+						102. <x, y_2> in P(B) x P(B) & 3u, v [ <x, y_2> = <u, v> & v = u ∪ f[u] ]				[101 BC 98 MP]
+
+						103. <x, y_2> in P(B) x P(B)			[102 SL]
+
+						104. @t [ t in P(B) x P(B) <--> 3a, b [ a in P(B) & b in P(B) & t = <a, b> ] ]			[1.D2]
+
+						105. <x, y_2> in P(B) x P(B) <--> 3a, b [ a in P(B) & b in P(B) & <x, y_2> = <a, b> ]			[104 UI/<x, y_2>]
+
+						106. 3a, b [ a in P(B) & b in P(B) & <x, y_2> = <a, b> ]			[105 BC 103 MP]
+
+						107. a_3 in P(B) & b_3 in P(B) & <x, y_2> = <a_3, b_3>			[106 EI/a_3 EI/b_3]
+
+						108. a_3 in P(B)			[107 SL SL]
+
+						109. <x, y_2> = <a_3, b_3>		[107 SR]
+
+						110. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]			[Theorem 3A]
+
+
+						111. <x, y_2> = <a_3, b_3>  <-->  x = a_3 & y_2 = b_3			[110 UI/x, y_2, a_3, b_3]
+
+						112. x = a_3 & y_2 = b_3			[111 BC 109 MP]
+
+						113. x = a_3		[112 SL]
+
+						114. x in P(B)			[108 113 LL]
+
+						115. 		[114 CD]
+					
+					116. Show x in P(B) --> x in dom F_1
+
+						117. x in P(B)			[ACD]
+
+						118. @x [ x in dom F_1 <--> 3y [ <x, y> in F_1 ] ]			[5.D1]
+
+						119. x in dom F_1 <--> 3y [ <x, y> in F_1 ]			[118 UI/x]
+
+						120. Show 3y [ <x, y> in F_1 ]
+
+							121. @t [ t in F_1 <--> t in P(B) x P(B) & 3x, y [ t = <x, y> & y = x ∪ f[x] ] ]			[11 R]
+
+							122. @t [ t in F_1 <--> t in P(B) x P(B) & 3u, v [ t = <u, v> & v = u ∪ f[u] ] ]			[121 EQUIV.]
+
+							123. <x, x ∪ f[x]> in F_1 <--> <x, x ∪ f[x]> in P(B) x P(B) & 3u, v [ <x, x ∪ f[x]> = <u, v> & v = u ∪ f[u] ]		[122 UI/<x, x ∪ f[x]>]
+
+							124. Show <x, x ∪ f[x]> in P(B) x P(B)
+
+								125. @t [ t in P(B) x P(B) <--> 3a, b [ a in P(B) & b in P(B) & t = <a, b> ] ]			[1.D2]
+
+								126. <x, x ∪ f[x]> in P(B) x P(B) <--> 3a, b [ a in P(B) & b in P(B) & <x, x ∪ f[x]> = <a, b> ]			[125 UI/<x, x ∪ f[x]>]
+
+								127. Show x ∪ f[x] in P(B)
+
+									128. @x [ x in P(B) <--> @w [ w in x --> w in B ] ]			[1.D1]
+
+									129. x ∪ f[x] in P(B) <--> @w [ w in x ∪ f[x] --> w in B ]			[128 UI/x ∪ f[x]]
+
+									130. Show @w [ w in x ∪ f[x] --> w in B ]
+
+										131. let w be a set
+
+										132. Show w in x ∪ f[x] --> w in B
+
+											133. w in x ∪ f[x]		[ACD]
+
+											134. @s [ s in x ∪ f[x] <--> s in x or s in f[x] ]		[91.D2]
+
+											135. w in x ∪ f[x] <--> w in x or w in f[x]			[134 UI/w]
+
+											136. w in x or w in f[x]		[135 BC 133 MP]
+
+											137. Show w in x --> w in B		[CASE 1 for line 136]
+
+												138. w in x			[ACD]
+
+												139. x in P(B)			[117 R]
+
+												140. @x [ x in P(B) <--> @w [ w in x --> w in B ] ]			[1.D1]
+
+												141. x in P(B) <--> @w [ w in x --> w in B ]			[140 UI/x]
+
+												142. @w [ w in x --> w in B ]			[141 BC 139 MP]
+
+												143. w in x --> w in B		[142 UI/x]
+
+												144. w in B			[143 138 MP]
+
+												145. 		[144 CD]
+											
+											146. Show w in f[x] --> w in B		[CASE 2 for line 136]
+
+												147. w in f[x]			[ACD]
+
+												148. @v [ v in f[x] <--> 3u [ u in x & <u, v> in f ] ]		[91.D1]
+
+												149. w in f[x] <--> 3u [ u in x & <u, w> in f ]			[148 UI/w]
+
+												150. 3u [ u in x & <u, w> in f ]			[149 BC 147 MP]
+
+												151. u_2 in x & <u_2, w> in f			[150 EI/u_2]
+
+												152. <u_2, w> in f		[151 SR]
+
+												153. @y [ y in ran f <--> 3x [ <x, y> in f ] ]		[1.D3]
+
+												154. w in ran f <--> 3x [ <x, w> in f ]			[153 UI/w]
+
+												155. 3x [ <x, w> in f ]			[152 EG/u_2->x]
+
+												156. w in ran f			[154 BC 155 MP]
+
+												157. f:B->B			[7 R]
+
+												158. @F, A, C [ F:A->C <--> 
+																F is a function &
+																dom F = A &
+																ran F ⊆ C 
+															]			[Def. of into]
+
+												159. f:B->B <--> 
+																f is a function &
+																dom f = B &
+																ran f ⊆ B 		[158 UI/f, B, B]
+												
+												160. f is a function &
+																dom f = B &
+																ran f ⊆ B			[159 BC 157 MP]
+
+												161. ran f ⊆ B		[160 SR]
+
+												162. @t [ t in ran f --> t in B ]			[161 EQUIV.]
+
+												163. w in ran f --> w in B		[162 UI/w]
+
+												164. w in B			[163 156 MP]
+
+												165.		[164 CD]
+
+											166. w in x or w in f[x] --> w in B			[137 146 CASE_PROOF for line 136]
+
+											167. w in B		[166 136 MP]
+
+											168. 		[167 CD]
+										
+										169. 		[132 UD]
+									
+									170. x ∪ f[x] in P(B)		[129 BC 130 MP]
+
+									171. 		[170 DD]
+								
+								172. x in P(B)		[117 R]
+
+								173. <x, x ∪ f[x]> = <x, x ∪ f[x]>			[SID]
+
+								174. x in P(B) & x ∪ f[x] in P(B) & <x, x ∪ f[x]> = <x, x ∪ f[x]>			[172 127 173 ADJ]
+
+								175. 3b [ x in P(B) & b in P(B) & <x, x ∪ f[x]> = <x, b> ]			[174 EG/x ∪ f[x] -> b]
+
+								176. 3a [ 3b [ a in P(B) & b in P(B) & <x, x ∪ f[x]> = <a, b> ] ]			[175 EG/x -> a]
+
+								177. 3a, b [ a in P(B) & b in P(B) & <x, x ∪ f[x]> = <a, b> ]		[176 EQUIV.]
+
+								178. <x, x ∪ f[x]> in P(B) x P(B)			[126 BC 177 MP]
+
+								179. 		[178 DD]
+							
+							180. 
+
+							000. Show 3u, v [ <x, x ∪ f[x]> = <u, v> & v = u ∪ f[u] ]
+
+
+
+			00. Show ran F_1 ⊆ P(B)
