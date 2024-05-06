@@ -213,6 +213,7 @@ Definition (its uniqueness is always due to Ext. Axiom):
 
 		////////////////////////
 		5.D1. @x [ x in dom F_1 <--> 3y [ <x, y> in F_1 ] ]			[dom UI/F_1 & Ext. Axiom]
+		5.D2. @y [ y in ran F_1 <--> 3x [ <x, y> in F_1 ] ]			[ran UI/F_1 & Ext. Axiom]
 		////////////////////////
 
 		12. Show F_1:P(B)->P(B)
@@ -584,10 +585,145 @@ Definition (its uniqueness is always due to Ext. Axiom):
 
 								179. 		[178 DD]
 							
-							180. 
+							180. Show 3u, v [ <x, x ∪ f[x]> = <u, v> & v = u ∪ f[u] ]
 
-							000. Show 3u, v [ <x, x ∪ f[x]> = <u, v> & v = u ∪ f[u] ]
+								181. <x, x ∪ f[x]> = <x, x ∪ f[x]>		[SID]
+
+								182. x ∪ f[x] = x ∪ f[x]			[SID]
+
+								183. <x, x ∪ f[x]> = <x, x ∪ f[x]> & x ∪ f[x] = x ∪ f[x]		[181 182 ADJ]
+
+								184. 3v [ <x, x ∪ f[x]> = <x, v> & v = x ∪ f[x] ]			[183 EG/x ∪ f[x] -> v]
+
+								185. 3u [ 3v [ <x, x ∪ f[x]> = <u, v> & v = u ∪ f[u] ] ]		[184 EG/x -> u]
+
+								186. 3u, v [ <x, x ∪ f[x]> = <u, v> & v = u ∪ f[u] ]			[185 EQUIV.]
+
+								187.		[186 DD]
+							
+							188. <x, x ∪ f[x]> in P(B) x P(B) & 3u, v [ <x, x ∪ f[x]> = <u, v> & v = u ∪ f[u] ]			[124 180 ADJ]
+
+							189. <x, x ∪ f[x]> in F_1			[123 BC 188 MP]
+
+							190. 3y [ <x, y> in F_1 ]			[189 EG/x ∪ f[x] -> y]
+
+							191. 		[190 DD]
+						
+						192. x in dom F_1			[119 BC 120 MP]
+
+						193. 		[192 CD]
+					
+					194. x in dom F_1 <--> x in P(B)		[93 116 CB]
+
+					195.		[194 UD]
+				
+				196. dom F_1 = P(B)		[90 91 MP]
+
+				197.		[196 DD]
+			
+			198. Show ran F_1 ⊆ P(B)
+
+				199. Show @t [ t in ran F_1 --> t in P(B) ]
+
+					200. let t be a set
+
+					201. Show t in ran F_1 --> t in P(B)
+
+						202. t in ran F_1		[ACD]
+
+						203. @y [ y in ran F_1 <--> 3x [ <x, y> in F_1 ] ]		[5.D2]
+
+						204. t in ran F_1 <--> 3x [ <x, t> in F_1 ]			[203 UI/t]
+
+						205. 3x [ <x, t> in F_1 ]		[204 BC 202 MP]
+
+						206. <x_2, t> in F_1			[205 EI/x_2]
+
+						207. @t [ t in F_1 <--> t in P(B) x P(B) & 3x, y [ t = <x, y> & y = x ∪ f[x] ] ]		[11 R]
+
+						208. <x_2, t> in F_1 <--> <x_2, t> in P(B) x P(B) & 3x, y [ <x_2, t> = <x, y> & y = x ∪ f[x] ]			[207 UI/<x_2, t>]
+
+						209. <x_2, t> in P(B) x P(B) & 3x, y [ <x_2, t> = <x, y> & y = x ∪ f[x] ]			[208 BC 206 MP]
+
+						210. <x_2, t> in P(B) x P(B)			[209 SL]
+
+						211. @t [ t in P(B) x P(B) <--> 3a, b [ a in P(B) & b in P(B) & t = <a, b> ] ]			[1.D2]
+
+						212. <x_2, t> in P(B) x P(B) <--> 3a, b [ a in P(B) & b in P(B) & <x_2, t> = <a, b> ]			[211 UI/<x_2, t>]
+
+						213. 3a, b [ a in P(B) & b in P(B) & <x_2, t> = <a, b> ]			[212 BC 210 MP]
+
+						214. a_3 in P(B) & b_3 in P(B) & <x_2, t> = <a_3, b_3>			[213 EI/a_3 EI/b_3]
+
+						215. b_3 in P(B)			[214 SL SR]
+
+						216. <x_2, t> = <a_3, b_3>			[214 SR]
+
+						217. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]			[Theorem 3A]
+
+						218. <x_2, t> = <a_3, b_3>  <-->  x_2 = a_3 & t = b_3			[217 UI/x_2, t, a_3, b_3]
+
+						219. x_2 = a_3 & t = b_3		[218 BC 216 MP]
+
+						220. t = b_3		[219 SR]
+
+						221. t in P(B) 		[215 220 LL]
+
+						222. 		[221 CD]
+					
+					223. 		[201 UD]
+				
+				224. ran F_1 ⊆ P(B)			[199 EQUIV.]
+
+				225. 		[224 DD]
+			
+			226. F_1 is a function &
+						dom F_1 = P(B) &
+						ran F_1 ⊆ P(B)			[15 88 198 ADJ]
+			
+			227. F_1:P(B)->P(B)			[14 BC 226 MP]
+
+			228. 		[227 DD]
+		
+		229. @F, A, a [ a in A & F:A->A --> 3_1p [ p:ω->A & p(0) = a & @n [ n in ω --> p(n+) = F(p(n)) ] ] ]			[Recursion Theorem on ω]
+
+		230. @F, S, a [ a in S & F:S->S --> 3_1p [ p:ω->S & p(0) = a & @n [ n in ω --> p(n+) = F(p(n)) ] ] ]			[228 EQUIV.]
+
+		231. A in P(B) & F_1:P(B)->P(B) --> 3_1p [ p:ω->P(B) & p(0) = A & @n [ n in ω --> p(n+) = F_1(p(n)) ] ]				[230 UI/F_1, P(B), A]
+
+		232. Show A in P(B)
+
+			233. @x [ x in P(B) <--> @w [ w in x --> w in B ] ]			[1.D1]
+
+			234. A in P(B) <--> @w [ w in A --> w in B ]			[233 UI/A]
+
+			235. A ⊆ B			[8 R]
+
+			236. @w [ w in A --> w in B ]			[235 EQUIV.]
+
+			237. A in P(B)			[234 BC 236 MP]
+
+			238. 		[237 DD]
+		
+		239. A in P(B) & F_1:P(B)->P(B)			[12 232 ADJ]
 
 
+		240. 3_1p [ p:ω->P(B) & p(0) = A & @n [ n in ω --> p(n+) = F_1(p(n)) ] ]			[231 239 MP]
 
-			00. Show ran F_1 ⊆ P(B)
+		241. 3p [ p:ω->P(B) & p(0) = A & @n [ n in ω --> p(n+) = F_1(p(n)) ]  & @h [ h:ω->P(B) & h(0) = A & @n [ n in ω --> h(n+) = F_1(h(n)) ] --> h = p ] ]  [240 EQUIV.]
+
+		242. p_2:ω->P(B) & p_2(0) = A & @n [ n in ω --> p_2(n+) = F_1(p_2(n)) ] & @h [ h:ω->P(B) & h(0) = A & @n [ n in ω --> h(n+) = F_1(h(n)) ] --> h = p_2 ]			[241 EI/p_2]
+
+		243. p_2:ω->P(B) & p_2(0) = A & @n [ n in ω --> p_2(n+) = F_1(p_2(n)) ]			[242 SL]
+
+		244. @h [ h:ω->P(B) & h(0) = A & @n [ n in ω --> h(n+) = F_1(h(n)) ] --> h = p_2 ]			[242 SR]
+
+
+		245. Show F_1(p_2(n)) = p_2(n) ∪ f[p_2(n)]
+
+			246. 
+
+
+		// need to prove this later
+		000. Show @h [ h:ω->P(B) & h(0) = A & @n [ n in ω --> h(n+) = h(n) ∪ f[h(n)] ] --> h = p_2 ]
+			///. use line 244
