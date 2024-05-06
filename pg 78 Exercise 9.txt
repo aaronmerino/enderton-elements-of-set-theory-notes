@@ -59,7 +59,7 @@ Axioms and Theorems:
 		Definition:
 		@F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]
 
-	Pg 43 When F is a function and x the dom F, F(x) is y IFF <x, y> in F:
+	[MARIN] Pg 43 When F is a function and x the dom F, F(x) is y IFF <x, y> in F:
 		@F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]
 		
 	Definition of into:
@@ -714,16 +714,526 @@ Definition (its uniqueness is always due to Ext. Axiom):
 
 		242. p_2:ω->P(B) & p_2(0) = A & @n [ n in ω --> p_2(n+) = F_1(p_2(n)) ] & @h [ h:ω->P(B) & h(0) = A & @n [ n in ω --> h(n+) = F_1(h(n)) ] --> h = p_2 ]			[241 EI/p_2]
 
+		////////////////////////
+		5.D3. @x [ x in dom p_2 <--> 3y [ <x, y> in p_2 ] ]			[dom UI/p_2 & Ext. Axiom]
+		5.D4. @y [ y in ran p_2 <--> 3x [ <x, y> in p_2 ] ]			[ran UI/p_2 & Ext. Axiom]
+		////////////////////////
+
 		243. p_2:ω->P(B) & p_2(0) = A & @n [ n in ω --> p_2(n+) = F_1(p_2(n)) ]			[242 SL]
 
 		244. @h [ h:ω->P(B) & h(0) = A & @n [ n in ω --> h(n+) = F_1(h(n)) ] --> h = p_2 ]			[242 SR]
 
+		// lemma we use for line 345 and 393
+		245. Show @x [ x in dom F_1 --> F_1(x) = x ∪ f[x] ]
 
-		245. Show F_1(p_2(n)) = p_2(n) ∪ f[p_2(n)]
+			246. let x be a set
+			
+			////////////////////////
+			245.D1. @v [ v in f[x] <--> 3u [ u in x & <u, v> in f ] ]			[Image UI/f UI/x & Ext. Axiom]
+			245.D2. @s [ s in x ∪ f[x] <--> s in x or s in f[x] ]					[Union UI/x UI/f[x] & Ext. Axiom]
+			//////////////////////// 
 
-			246. 
+			247. Show x in dom F_1 --> F_1(x) = x ∪ f[x]
+
+				248. x in dom F_1			[ACD]
+
+				249. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]			[MARIN]
+
+				250. F_1 is a function & x in dom F_1 -->  @w [ <x, w> in F_1 <--> F_1(x) = w ]			[249 UI/F_1 UI/x]
+
+				251. Show F_1 is a function
+
+					252. F_1:P(B)->P(B)			[12 R]
+
+					253. @F, A, C [ F:A->C <--> 
+													F is a function &
+													dom F = A &
+													ran F ⊆ C 
+												]			[Def. of into]
+					
+					254. F_1:P(B)->P(B) <--> 
+									F_1 is a function &
+									dom F_1 = P(B) &
+									ran F_1 ⊆ P(B) 			[253 UI/F_1, P(B), P(B)]
+					
+					255. F_1 is a function &
+									dom F_1 = P(B) &
+									ran F_1 ⊆ P(B)		[254 BC 252 MP]
+
+					256. F_1 is a function			[255 SL SL]
+
+					257. 		[256 DD]
+				
+				258. F_1 is a function & x in dom F_1			[251 248 ADJ]
+
+				259. @w [ <x, w> in F_1 <--> F_1(x) = w ]			[250 258 MP]
+
+				260. <x, x ∪ f[x]> in F_1 <--> F_1(x) = x ∪ f[x]			[259 UI/x ∪ f[x]]
+
+				261. Show <x, x ∪ f[x]> in F_1
+
+					262. @t [ t in F_1 <--> t in P(B) x P(B) & 3x, y [ t = <x, y> & y = x ∪ f[x] ] ]			[11 R]
+
+					263. @t [ t in F_1 <--> t in P(B) x P(B) & 3u, v [ t = <u, v> & v = u ∪ f[u] ] ]			[262 EQUIV.]
+
+					264. <x, x ∪ f[x]> in F_1 <--> <x, x ∪ f[x]> in P(B) x P(B) & 3u, v [ <x, x ∪ f[x]> = <u, v> & v = u ∪ f[u] ]			[263 UI/<x, x ∪ f[x]>]
+
+					265. Show <x, x ∪ f[x]> in P(B) x P(B)
+
+						266. @t [ t in P(B) x P(B) <--> 3a, b [ a in P(B) & b in P(B) & t = <a, b> ] ]		[1.D2]
+
+						267. <x, x ∪ f[x]> in P(B) x P(B) <--> 3a, b [ a in P(B) & b in P(B) & <x, x ∪ f[x]> = <a, b> ]			[266 UI/<x, x ∪ f[x]>]
+
+						268. Show 3a, b [ a in P(B) & b in P(B) & <x, x ∪ f[x]> = <a, b> ]
+
+							269. Show x in P(B)	
+
+								270. x in dom F_1			[248 R]
+
+								271. F_1:P(B)->P(B)		[12 R]
+
+								272. @F, A, C [ F:A->C <--> 
+												F is a function &
+												dom F = A &
+												ran F ⊆ C 
+											]			[Def. of into]
+								
+								273. F_1:P(B)->P(B) <--> 
+												F_1 is a function &
+												dom F_1 = P(B) &
+												ran F_1 ⊆ P(B)			[272 UI/F_1, P(B), P(B)]
+								
+								274. F_1 is a function &
+												dom F_1 = P(B) &
+												ran F_1 ⊆ P(B)			[273 BC 271 MP]
+
+								275. dom F_1 = P(B)		[274 SL SR]
+
+								276. x in P(B)			[270 275 LL]
+
+								277. 		[276 DD]
+							
+							278. Show x ∪ f[x] in P(B)
+
+								279. @x [ x in P(B) <--> @w [ w in x --> w in B ] ]			[1.D1]
+
+								280. x ∪ f[x] in P(B) <--> @w [ w in x ∪ f[x] --> w in B ]			[279 UI/x ∪ f[x]]
+
+								281. Show @w [ w in x ∪ f[x] --> w in B ]
+
+									282. let w be a set
+
+									283. Show w in x ∪ f[x] --> w in B
+
+										284. w in x ∪ f[x]		[ACD]
+
+										285. @s [ s in x ∪ f[x] <--> s in x or s in f[x] ]			[245.D2]
+
+										286. w in x ∪ f[x] <--> w in x or w in f[x]			[285 UI/w]
+
+										287. w in x or w in f[x]			[286 BC 284 MP]
+
+										288. Show w in x --> w in B		[CASE 1 for line 287]
+
+											289. w in x		[ACD]
+
+											290. x in P(B)			[269 R]
+
+											291. @x [ x in P(B) <--> @w [ w in x --> w in B ] ]			[1.D1]
+
+											292. x in P(B) <--> @w [ w in x --> w in B ]			[291 UI/x]
+
+											293. @w [ w in x --> w in B ]			[292 BC 290 MP]
+
+											294. w in x --> w in B			[293 UI/w]
+
+											295. w in B		[294 289 MP]
+
+											296.		[295 CD]
+
+										297. Show w in f[x] --> w in B		[CASE 2 for line 287]
+
+											298. w in f[x]			[ACD]
+
+											299. @v [ v in f[x] <--> 3u [ u in x & <u, v> in f ] ]			[245.D1]
+
+											300. w in f[x] <--> 3u [ u in x & <u, w> in f ]			[299 UI/w]
+
+											301. 3u [ u in x & <u, w> in f ]			[300 BC 298 MP]
+
+											302. u_3 in x & <u_3, w> in f			[301 EI/u_3]
+
+											303. <u_3, w> in f			[302 SR]
+
+											304. @y [ y in ran f <--> 3x [ <x, y> in f ] ]			[1.D3]
+
+											305. w in ran f <--> 3x [ <x, w> in f ]			[304 UI/w]
+
+											306. 3x [ <x, w> in f ]			[303 EG/u_3->x]
+
+											307. w in ran f			[305 BC 306 MP]
+
+											308. f:B->B			[7 R]
+
+											309. @F, A, C [ F:A->C <--> 
+																			F is a function &
+																			dom F = A &
+																			ran F ⊆ C 
+																		]			[Def. of into]
+											
+											310. f:B->B <--> 
+																			f is a function &
+																			dom f = B &
+																			ran f ⊆ B 			[308 UI/f, B, B]
+											
+											311. f is a function &
+															dom f = B &
+															ran f ⊆ B			[310 BC 308 MP]
+
+											312. ran f ⊆ B			[311 SR]
+
+											313. @w [ w in ran f --> w in B ]			[312 EQUIV.]
+
+											314. w in ran f --> w in B			[313 UI/w]
+
+											315. w in B			[314 307 MP]
+
+											316. 		[315 CD]
+										
+										317. w in x or w in f[x] --> w in B			[288 297 CASE_PROOF for line 287]
+
+										318. w in B			[317 287 MP]
+
+										319. 		[318 CD]
+									
+									320. 		[283 UD]
+								
+								321. x ∪ f[x] in P(B)			[280 BC 281 MP]
+
+								322. 		[321 DD]
+							
+							323. <x, x ∪ f[x]> = <x, x ∪ f[x]>		[SID]
+
+							324. x in P(B) & x ∪ f[x] in P(B) & <x, x ∪ f[x]> = <x, x ∪ f[x]>			[269 278 323 ADJ]
+
+							325. 3b [ x in P(B) & b in P(B) & <x, x ∪ f[x]> = <x, b> ]				[324 EG/x ∪ f[x] -> b]
+
+							326. 3a [ 3b [ a in P(B) & b in P(B) & <x, x ∪ f[x]> = <a, b> ] ]				[325 EG/x -> a]
+
+							327. 3a, b [ a in P(B) & b in P(B) & <x, x ∪ f[x]> = <a, b> ]			[326 EQUIV.]
+
+							328. 		[327 DD]
+
+						329. <x, x ∪ f[x]> in P(B) x P(B)			[267 BC 268 MP]
+
+						330. 		[329 DD]
+					
+					331. Show 3u, v [ <x, x ∪ f[x]> = <u, v> & v = u ∪ f[u] ]
+
+						332. <x, x ∪ f[x]> = <x, x ∪ f[x]>		[SID]
+
+						333. x ∪ f[x] = x ∪ f[x]			[SID]
+
+						334. <x, x ∪ f[x]> = <x, x ∪ f[x]> & x ∪ f[x] = x ∪ f[x]			[332 333 ADJ]
+
+						335. 3v [ <x, x ∪ f[x]> = <x, v> & v = x ∪ f[x] ]			[334 EG/x ∪ f[x] -> v]
+
+						336. 3u [ 3v [ <x, x ∪ f[x]> = <u, v> & v = u ∪ f[u] ] ]			[335 EG/x->u]
+
+						337. 3u, v [ <x, x ∪ f[x]> = <u, v> & v = u ∪ f[u] ]			[336 EQUIV.]
+
+						338. 		[337 DD]
+					
+					339. <x, x ∪ f[x]> in P(B) x P(B) & 3u, v [ <x, x ∪ f[x]> = <u, v> & v = u ∪ f[u] ]			[265 331 ADJ]
+
+					340. <x, x ∪ f[x]> in F_1			[264 BC 339 MP]
+
+					341. 		[340 DD]
+				
+				342. F_1(x) = x ∪ f[x]			[260 BC 261 MP]
+
+				343. 		[342 CD]
+			
+			344. 		[247 UD]
+		
+
+		345. Show @n [ n in ω --> p_2(n+) = p_2(n) ∪ f[p_2(n)] ]
+
+			346. let n be a set
+
+			347. Show n in ω --> p_2(n+) = p_2(n) ∪ f[p_2(n)]
+
+				348. n in ω			[ACD]
+
+				349. @n [ n in ω --> p_2(n+) = F_1(p_2(n)) ]			[243 SR]
+
+				350. n in ω --> p_2(n+) = F_1(p_2(n))			[349 UI/n]
+
+				351. p_2(n+) = F_1(p_2(n))			[350 348 MP]
 
 
-		// need to prove this later
-		000. Show @h [ h:ω->P(B) & h(0) = A & @n [ n in ω --> h(n+) = h(n) ∪ f[h(n)] ] --> h = p_2 ]
+				352. Show F_1(p_2(n)) = p_2(n) ∪ f[p_2(n)]
+
+					353. @x [ x in dom F_1 --> F_1(x) = x ∪ f[x] ]			[245 R]
+
+					354. p_2(n) in dom F_1 --> F_1(p_2(n)) = p_2(n) ∪ f[p_2(n)]				[353 UI/p_2(n)]
+					
+					355. Show p_2(n) in dom F_1
+
+						356. p_2:ω->P(B)		[243 SL SL]
+
+						357. @F, A, C [ F:A->C <--> 
+										F is a function &
+										dom F = A &
+										ran F ⊆ C 
+									]			[Def. of into]
+						
+						358. p_2:ω->P(B) <--> 
+										p_2 is a function &
+										dom p_2 = ω &
+										ran p_2 ⊆ P(B)			[357 UI/p_2, ω, P(B)]
+						
+						359. p_2 is a function &
+										dom p_2 = ω &
+										ran p_2 ⊆ P(B)			[358 BC 356 MP]
+
+						360. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]			[MARIN]
+
+						361. p_2 is a function & n in dom p_2 -->  @w [ <n, w> in p_2 <--> p_2(n) = w ]			[360 UI/p_2 UI/n]
+
+						362. Show n in dom p_2
+
+							363. dom p_2 = ω			[359 SL SR]
+
+							364. n in ω			[348 R]
+
+							365. n in dom p_2			[363 364 LL]
+
+							366.		[365 DD]
+						
+						367. p_2 is a function			[359 SL SL]
+
+						368. p_2 is a function & n in dom p_2			[367 362 ADJ]
+
+						369. @w [ <n, w> in p_2 <--> p_2(n) = w ]			[361 368 MP]
+
+						370. <n, p_2(n)> in p_2 <--> p_2(n) = p_2(n)			[369 UI/p_2(n)]
+
+						371. p_2(n) = p_2(n)		[SID]
+
+						372. <n, p_2(n)> in p_2			[370 BC 371 MP]
+
+						373. @y [ y in ran p_2 <--> 3x [ <x, y> in p_2 ] ]			[5.D4]
+
+						374. p_2(n) in ran p_2 <--> 3x [ <x, p_2(n)> in p_2 ]			[373 UI/p_2(n)]
+
+						375. 3x [ <x, p_2(n)> in p_2 ]			[372 EG/n->x]
+
+						376. p_2(n) in ran p_2			[374 BC 375 MP]
+
+						377. ran p_2 ⊆ P(B)			[359 SR]
+
+						378. @w [ w in ran p_2 --> w in P(B) ]			[377 EQUIV.]
+
+						379. p_2(n) in ran p_2 --> p_2(n) in P(B)				[378 UI/p_2(n)]
+
+						380. p_2(n) in P(B)			[379 376 MP]
+
+
+						381. F_1:P(B)->P(B)			[12 R]
+
+						382. @F, A, C [ F:A->C <--> 
+										F is a function &
+										dom F = A &
+										ran F ⊆ C 
+									]			[Def. of into]
+						
+						383. F_1:P(B)->P(B) <--> 
+										F_1 is a function &
+										dom F_1 = P(B) &
+										ran F_1 ⊆ P(B)			[382 UI/F_1, P(B), P(B)]
+
+						384. F_1 is a function &
+										dom F_1 = P(B) &
+										ran F_1 ⊆ P(B)			[383 BC 381 MP]
+
+						385. dom F_1 = P(B)			[384 SL SR]
+
+						386. p_2(n) in dom F_1			[380 385 LL]
+
+						387.		[386 DD]
+					
+					388. F_1(p_2(n)) = p_2(n) ∪ f[p_2(n)]			[354 355 MP]
+
+					389. 		[388 DD]
+				
+				390. p_2(n+) = p_2(n) ∪ f[p_2(n)]			[351 352 LL]
+
+				391.		[390 CD]
+			
+			392. 		[347 UD]
+		
+		
+		393. Show @h [ h:ω->P(B) & h(0) = A & @n [ n in ω --> h(n+) = h(n) ∪ f[h(n)] ] --> h = p_2 ]
 			///. use line 244
+			394. let h be a set
+
+			////////////////////////
+			393.D1. @x [ x in dom h <--> 3y [ <x, y> in h ] ]			[dom UI/h & Ext. Axiom]
+			393.D2. @y [ y in ran h <--> 3x [ <x, y> in h ] ]			[ran UI/h & Ext. Axiom]
+			////////////////////////
+
+			395. Show h:ω->P(B) & h(0) = A & @n [ n in ω --> h(n+) = h(n) ∪ f[h(n)] ] --> h = p_2
+
+				396. h:ω->P(B) & h(0) = A & @n [ n in ω --> h(n+) = h(n) ∪ f[h(n)] ]			[ACD]
+
+				397. @n [ n in ω --> h(n+) = h(n) ∪ f[h(n)] ]			[396 SR]
+
+
+				398. @h [ h:ω->P(B) & h(0) = A & @n [ n in ω --> h(n+) = F_1(h(n)) ] --> h = p_2 ]			[244 R]
+
+				399. h:ω->P(B) & h(0) = A & @n [ n in ω --> h(n+) = F_1(h(n)) ] --> h = p_2			[398 UI/h]
+
+				400. Show @n [ n in ω --> h(n+) = F_1(h(n)) ]
+
+					401. let n be a set
+					
+					402. Show n in ω --> h(n+) = F_1(h(n))
+
+						403. n in ω		[ACD]
+
+						404. @n [ n in ω --> h(n+) = h(n) ∪ f[h(n)] ]		[397 R]
+
+						405. n in ω --> h(n+) = h(n) ∪ f[h(n)]		[404 UI/n]
+
+						406. h(n+) = h(n) ∪ f[h(n)]			[405 403 MP]
+
+
+						407. @x [ x in dom F_1 --> F_1(x) = x ∪ f[x] ]		[245 R]
+
+						408. h(n) in dom F_1 --> F_1(h(n)) = h(n) ∪ f[h(n)]			[407 UI/h(n)]
+
+						409. Show h(n) in dom F_1
+
+							410. h:ω->P(B)			[396 SL SL]
+
+							411. @F, A, C [ F:A->C <--> 
+											F is a function &
+											dom F = A &
+											ran F ⊆ C 
+										]			[Def. of into]
+							
+							412. h:ω->P(B) <--> 
+											h is a function &
+											dom h = ω &
+											ran h ⊆ P(B)			[411 UI/h, ω, P(B)]
+							
+							413. h is a function &
+											dom h = ω &
+											ran h ⊆ P(B)			[412 BC 410 MP]
+
+
+							414. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]			[MARIN]
+
+							415. h is a function & n in dom h -->  @w [ <n, w> in h <--> h(n) = w ]			[414 UI/h UI/n]
+
+							416. Show n in dom h
+
+								417. n in ω		[403 R]
+
+								418. dom h = ω		[413 SL SR]
+
+								419. n in dom h			[417 418 LL]
+
+								420. 		[419 DD]
+							
+							421. h is a function		[413 SL SL]
+
+							422. h is a function & n in dom h			[421 416 ADJ]
+
+							423. @w [ <n, w> in h <--> h(n) = w ]			[415 422 MP]
+
+							424. <n, h(n)> in h <--> h(n) = h(n)			[423 UI/h(n)]
+
+							425. h(n) = h(n)			[SID]
+
+							426. <n, h(n)> in h			[424 BC 425 MP]
+
+							427. @y [ y in ran h <--> 3x [ <x, y> in h ] ]			[393.D2]
+
+							428. h(n) in ran h <--> 3x [ <x, h(n)> in h ]			[427 UI/h(n)]
+
+							429. 3x [ <x, h(n)> in h ]			[426 EG/n->x]
+
+							430. h(n) in ran h			[428 BC 429 MP]
+
+
+							431. ran h ⊆ P(B)			[413 SR]
+
+							432. @w [ w in ran h --> w in P(B) ]			[431 EQUIV.]
+
+							433. h(n) in ran h --> h(n) in P(B)			[432 UI/h(n)]
+
+							434. h(n) in P(B)		[433 430 MP]
+
+
+							435. F_1:P(B)->P(B)		[12 R]
+
+							436. @F, A, C [ F:A->C <--> 
+											F is a function &
+											dom F = A &
+											ran F ⊆ C 
+										]			[Def. of into]			
+							
+							437. F_1:P(B)->P(B) <--> 
+											F_1 is a function &
+											dom F_1 = P(B) &
+											ran F_1 ⊆ P(B) 			[436 UI/F_1, P(B), P(B)]
+
+							438. F_1 is a function &
+											dom F_1 = P(B) &
+											ran F_1 ⊆ P(B)		[437 BC 435 MP]
+
+							439. dom F_1 = P(B)		[438 SL SR]
+						
+							440. h(n) in dom F_1			[434 439 LL]
+
+							441. 		[440 DD]
+						
+						442. F_1(h(n)) = h(n) ∪ f[h(n)]			[408 409 MP]
+
+
+						443. h(n+) = F_1(h(n))			[406 442 LL]
+
+						444.		[443 CD]
+					
+					445. 		[402 UD]
+				
+				446. h:ω->P(B) & h(0) = A			[396 SL]
+
+				447. h:ω->P(B) & h(0) = A & @n [ n in ω --> h(n+) = F_1(h(n)) ]			[446 400 ADJ]
+
+				448. h = p_2			[399 447 MP]
+
+				449.		[448 CD]
+			
+			450. 		[395 UD]
+		
+
+		451. @j [ j:ω->P(B) & j(0) = A & @n [ n in ω --> j(n+) = j(n) ∪ f[j(n)] ] --> j = p_2 ] 		[393 EQUIV.]
+
+		452. p_2:ω->P(B) & p_2(0) = A		[243 SL]
+
+		453. p_2:ω->P(B) & p_2(0) = A & @n [ n in ω --> p_2(n+) = p_2(n) ∪ f[p_2(n)] ] & @j [ j:ω->P(B) & j(0) = A & @n [ n in ω --> j(n+) = j(n) ∪ f[j(n)] ] --> j = p_2 ]	 		[452 345 451 ADJ]
+
+		454. 3h [ h:ω->P(B) & h(0) = A & @n [ n in ω --> h(n+) = h(n) ∪ f[h(n)] ] & @j [ j:ω->P(B) & j(0) = A & @n [ n in ω --> j(n+) = j(n) ∪ f[j(n)] ] --> j = h ] ]			[453 EG/p_2->h]
+
+		455. 3_1h [ h:ω->P(B) & h(0) = A & @n [ n in ω --> h(n+) = h(n) ∪ f[h(n)] ] ]			[454 EQUIV.]
+
+		456.		[455 CD]
+	
+	457. 		[5 UD]
+
+
+
+
