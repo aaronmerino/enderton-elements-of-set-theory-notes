@@ -2,6 +2,12 @@ Axioms and Theorems:
 	Extensionality Axiom:
 		@A, B [ @x [ x in A <--> x in B ] --> A = B ]
 
+	Empty Set Axiom:
+		3B [ @x [ ~(x in B) ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		{ } is the set having no members
+			[You can think of {} as a 0-ary operator. It refer to one set and one set only!]
+
 	Union Axiom (Preliminary Form):
 		@a, b [ 3B [ @x [ x in B <--> x in a or x in b ] ] ]
 			Definition (its uniqueness is always due to Ext. Axiom):
@@ -20,11 +26,12 @@ Axioms and Theorems:
 		Definition:
 		For any set t­1, ..., tk and c, the subset B = {x in c | __ } is the set whose members are exactly those sets in c and __	
 
-	Power Set Axiom:
-		@a [ 3B [ @x [ x in B <--> @t [ t in x --> t in a ] ] ] ]
+	Union Axiom:
+		@A [ 3B [ @x [ x in B <--> 3b [ b in A & x in b ] ] ] ]
 			Definition (its uniqueness is always due to Ext. Axiom):
-			For any set a, the power set  P(a) is the set whose members are exactly the subsets of a.
-			[You can think of P(a) as a 1-ary operator. It refer to one set and one set only based on the sets a!]
+			For any set A, the union of A  U(A)     is the set whose members are exactly the members of the members of A
+			[You can think of U(A) as a 1-ary operator. It refer to one set and one set only based on the set A!]
+
 
 	Theorem 2B (Arbitrary Intersection):
 		@A [ A != { } --> 3_1B [ @x [ x in B <--> @a [ a in A --> x in a ] ] ] ] 
@@ -176,7 +183,7 @@ Axioms and Theorems:
 	38. 	[5 UD]
 
 Definition (its uniqueness is always due to Ext. Axiom):
-		For any A, B, f, the set named C*_{A, B, f} is the set that contains sets t where A ⊆ t & t ⊆ B & f[t] ⊆ t.
+		For any A, B, f, the set named S* is the set that contains sets t where A ⊆ t & t ⊆ B & f[t] ⊆ t.
 
 
 
@@ -1234,6 +1241,162 @@ Definition (its uniqueness is always due to Ext. Axiom):
 	
 	457. 		[5 UD]
 
+Definition (its uniqueness is always due to Ext. Axiom):
+		For any A, B, f, such that f:B->B & A ⊆ B, then the set named h is the set where h:ω->P(B) & h(0) = A & @n [ n in ω --> h(n+) = h(n) ∪ f[h(n)] ]
+	
 
+1. Show @A, B, f [ f:B->B & A ⊆ B --> ∩(S*) = U(ran h) ]
+
+	2. let A be a set
+
+	3. let B be a set
+
+	4. let f be a set
+
+	////////
+	1.D0. @x [ ~(x in { }) ]			[Empty Set Axiom & Ext. Axiom]
+	1.D1. @v [ v in f[B] <--> 3u [ u in B & <u, v> in f ] ]			[Image UI/f UI/B & Ext. Axiom]
+	1.D2. @y [ y in ran f <--> 3x [ <x, y> in f ] ]			[ran UI/f & Ext. Axiom]
+	////////
+
+	5. Show f:B->B & A ⊆ B --> ∩(S*) = U(ran h)
+
+		6. f:B->B & A ⊆ B			[ACD]
+
+		7. f:B->B			[6 SL]
+
+		8. A ⊆ B			[6 SR]
+
+		9. @F, A, C [ F:A->C <--> 
+						F is a function &
+						dom F = A &
+						ran F ⊆ C 
+					]			[Def. of into]
+
+		10. f:B->B <--> 
+						f is a function &
+						dom f = B &
+						ran f ⊆ B				[9 UI/f, B, B]
+		
+		11. f is a function &
+						dom f = B &
+						ran f ⊆ B			[10 BC 7 MP]
+		
+		12. f is a function			[11 SL SL]
+
+		13. dom f = B			[11 SL SR]
+
+		14. ran f ⊆ B			[11 SR]
+
+
+		////////
+		5.D1. h:ω->P(B) & h(0) = A & @n [ n in ω --> h(n+) = h(n) ∪ f[h(n)] ]			[((YOOJIN-C_* UI/A, B, f)  6 MP) EI_1 -> h]
+
+		5.D2. @y [ y in ran h <--> 3x [ <x, y> in h ] ]			[ran UI/h & Ext. Axiom]
+
+		5.D3. @x [ x in U(ran h) <--> 3b [ b in ran h & x in b ] ]			[Union UI/ran h & Ext. Axiom]
+
+		5.D4. @t [ t in S* <--> A ⊆ t & t ⊆ B & f[t] ⊆ t ]			[IRIS-C* UI/A, B, f & Ext. Axiom]
+		////////
+
+		15. Show S* != { } 
+
+			16. S* = { } 			[AID]
+
+			17. @t [ t in S* <--> A ⊆ t & t ⊆ B & f[t] ⊆ t ]			[5.D4]
+
+			18. B in S* <--> A ⊆ B & B ⊆ B & f[B] ⊆ B			[17 UI/B]
+
+			19. A ⊆ B		[8 R]
+
+			20. Show B ⊆ B
+
+				21. Show @w [ w in B --> w in B ]
+
+					22. let w be a set
+
+					23. Show w in B --> w in B
+
+						24. w in B		[ACD]
+
+						25.		[24 CD]
+					
+					26. 	[23 UD]
+				
+				27. B ⊆ B		[21 EQUIV.]
+
+				28.		[27 DD]
+			
+			29. Show f[B] ⊆ B 
+
+				30. Show @w [ w in f[B] --> w in B ]
+
+					31. let w be a set
+
+					32. Show w in f[B] --> w in B
+
+						33. w in f[B]			[ACD]
+
+						34. @v [ v in f[B] <--> 3u [ u in B & <u, v> in f ] ]			[1.D1]
+
+						35. w in f[B] <--> 3u [ u in B & <u, w> in f ]			[34 UI/w]
+
+						36. 3u [ u in B & <u, w> in f ]			[35 BC 33 MP]
+
+						37. u_1 in B & <u_1, w> in f			[36 EI/u_1]
+
+						38. @y [ y in ran f <--> 3x [ <x, y> in f ] ]		[1.D2]
+
+						39. w in ran f <--> 3x [ <x, w> in f ]			[38 UI/w]
+
+						40. <u_1, w> in f		[37 SR]
+
+						41. 3x [ <x, w> in f ]			[40 EG/u_1->x]
+
+						42. w in ran f		[39 BC 41 MP]
+
+						43. ran f ⊆ B		[14 R]
+
+						44. @w [ w in ran f --> w in B ]			[43 EQUIV.]
+
+						45. w in ran f --> w in B			[44 UI/w]
+
+						46. w in B			[45 42 MP]
+
+						47. 		[46 CD]
+					
+					48. 		[32 UD]
+				
+				49. f[B] ⊆ B 		[30 EQUIV.]
+
+				50.		[49 DD]
+			
+			51. A ⊆ B & B ⊆ B & f[B] ⊆ B			[19 20 29 ADJ]
+
+			52. B in S*			[18 BC 51 MP]
+
+			53. B in { }			[52 16 LL]
+
+			54. @x [ ~(x in { }) ]			[1.D0]
+
+			55. ~(B in { })			[54 UI/B]
+
+			56. 		[53 55 ID]
+		
+		57. @A [ A != { } --> 3_1D [ @t [ t in D <--> @a [ a in A --> t in a ] ] ] ] 			[Theorem 2B]
+
+		58. S* != { } --> 3_1D [ @t [ t in D <--> @a [ a in S* --> t in a ] ] ]			[57 UI/S*]
+
+		59. 3_1D [ @t [ t in D <--> @a [ a in S* --> t in a ] ] ]			[58 15 MP]
+
+		////////
+		5.D5. @t [ t in ∩(S*) <--> @a [ a in S* --> t in a ] ]			[59 & Ext. Axiom]
+		////////
+
+
+		60. Show ∩(S*) = U(ran h)
+
+			61. 
+		 
 
 
