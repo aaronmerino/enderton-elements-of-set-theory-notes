@@ -183,7 +183,7 @@ Axioms and Theorems:
 	38. 	[5 UD]
 
 Definition (its uniqueness is always due to Ext. Axiom):
-		For any A, B, f, the set named S* is the set that contains sets t where A ⊆ t & t ⊆ B & f[t] ⊆ t.
+		For any A, B, f, the set named S_{A, B, f} is the set that contains sets t where A ⊆ t & t ⊆ B & f[t] ⊆ t.
 
 
 
@@ -1242,10 +1242,10 @@ Definition (its uniqueness is always due to Ext. Axiom):
 	457. 		[5 UD]
 
 Definition (its uniqueness is always due to Ext. Axiom):
-		For any A, B, f, such that f:B->B & A ⊆ B, then the set named h is the set where h:ω->P(B) & h(0) = A & @n [ n in ω --> h(n+) = h(n) ∪ f[h(n)] ]
+		For any A, B, f, such that f:B->B & A ⊆ B, then the set named h_{A, B, f} is the set where h_{A, B, f}:ω->P(B) & h_{A, B, f}(0) = A & @n [ n in ω --> h_{A, B, f}(n+) = h_{A, B, f}(n) ∪ f[h_{A, B, f}(n)] ]
 	
 
-1. Show @A, B, f [ f:B->B & A ⊆ B --> ∩(S*) = U(ran h) ]
+1. Show @A, B, f [ f:B->B & A ⊆ B --> ∩(S_{A, B, f}) = U(ran h_{A, B, f}) ]
 
 	2. let A be a set
 
@@ -1259,7 +1259,7 @@ Definition (its uniqueness is always due to Ext. Axiom):
 	1.D2. @y [ y in ran f <--> 3x [ <x, y> in f ] ]			[ran UI/f & Ext. Axiom]
 	////////
 
-	5. Show f:B->B & A ⊆ B --> ∩(S*) = U(ran h)
+	5. Show f:B->B & A ⊆ B --> ∩(S_{A, B, f}) = U(ran h_{A, B, f})
 
 		6. f:B->B & A ⊆ B			[ACD]
 
@@ -1290,22 +1290,22 @@ Definition (its uniqueness is always due to Ext. Axiom):
 
 
 		////////
-		5.D1. h:ω->P(B) & h(0) = A & @n [ n in ω --> h(n+) = h(n) ∪ f[h(n)] ]			[((YOOJIN-C_* UI/A, B, f)  6 MP) EI_1 -> h]
+		5.D1. h_{A, B, f}:ω->P(B) & h_{A, B, f}(0) = A & @n [ n in ω --> h_{A, B, f}(n+) = h_{A, B, f}(n) ∪ f[h_{A, B, f}(n)] ]			[((YOOJIN-C_* UI/A, B, f)  6 MP) EI_1 -> h_{A, B, f}]
 
-		5.D2. @y [ y in ran h <--> 3x [ <x, y> in h ] ]			[ran UI/h & Ext. Axiom]
+		5.D2. @y [ y in ran h_{A, B, f} <--> 3x [ <x, y> in h_{A, B, f} ] ]			[ran UI/h_{A, B, f} & Ext. Axiom]
 
-		5.D3. @x [ x in U(ran h) <--> 3b [ b in ran h & x in b ] ]			[Union UI/ran h & Ext. Axiom]
+		5.D3. @x [ x in U(ran h_{A, B, f}) <--> 3b [ b in ran h_{A, B, f} & x in b ] ]			[Union UI/ran h_{A, B, f} & Ext. Axiom]
 
-		5.D4. @t [ t in S* <--> A ⊆ t & t ⊆ B & f[t] ⊆ t ]			[IRIS-C* UI/A, B, f & Ext. Axiom]
+		5.D4. @t [ t in S_{A, B, f} <--> A ⊆ t & t ⊆ B & f[t] ⊆ t ]			[IRIS-C* UI/A, B, f & Ext. Axiom]
 		////////
 
-		15. Show S* != { } 
+		15. Show S_{A, B, f} != { } 
 
-			16. S* = { } 			[AID]
+			16. S_{A, B, f} = { } 			[AID]
 
-			17. @t [ t in S* <--> A ⊆ t & t ⊆ B & f[t] ⊆ t ]			[5.D4]
+			17. @t [ t in S_{A, B, f} <--> A ⊆ t & t ⊆ B & f[t] ⊆ t ]			[5.D4]
 
-			18. B in S* <--> A ⊆ B & B ⊆ B & f[B] ⊆ B			[17 UI/B]
+			18. B in S_{A, B, f} <--> A ⊆ B & B ⊆ B & f[B] ⊆ B			[17 UI/B]
 
 			19. A ⊆ B		[8 R]
 
@@ -1373,7 +1373,7 @@ Definition (its uniqueness is always due to Ext. Axiom):
 			
 			51. A ⊆ B & B ⊆ B & f[B] ⊆ B			[19 20 29 ADJ]
 
-			52. B in S*			[18 BC 51 MP]
+			52. B in S_{A, B, f}			[18 BC 51 MP]
 
 			53. B in { }			[52 16 LL]
 
@@ -1385,18 +1385,36 @@ Definition (its uniqueness is always due to Ext. Axiom):
 		
 		57. @A [ A != { } --> 3_1D [ @t [ t in D <--> @a [ a in A --> t in a ] ] ] ] 			[Theorem 2B]
 
-		58. S* != { } --> 3_1D [ @t [ t in D <--> @a [ a in S* --> t in a ] ] ]			[57 UI/S*]
+		58. S_{A, B, f} != { } --> 3_1D [ @t [ t in D <--> @a [ a in S_{A, B, f} --> t in a ] ] ]			[57 UI/S_{A, B, f}]
 
-		59. 3_1D [ @t [ t in D <--> @a [ a in S* --> t in a ] ] ]			[58 15 MP]
+		59. 3_1D [ @t [ t in D <--> @a [ a in S_{A, B, f} --> t in a ] ] ]			[58 15 MP]
 
 		////////
-		5.D5. @t [ t in ∩(S*) <--> @a [ a in S* --> t in a ] ]			[59 & Ext. Axiom]
+		5.D5. @t [ t in ∩(S_{A, B, f}) <--> @a [ a in S_{A, B, f} --> t in a ] ]			[59 & Ext. Axiom]
 		////////
 
 
-		60. Show ∩(S*) = U(ran h)
+		60. Show ∩(S_{A, B, f}) = U(ran h_{A, B, f})
 
-			61. 
+			61. @A, B [ @x [ x in A <--> x in B ] --> A = B ]			[Ext. Axiom]
+
+			62. @x [ x in ∩(S_{A, B, f}) <--> x in U(ran h_{A, B, f}) ] --> ∩(S_{A, B, f}) = U(ran h_{A, B, f})			[61 UI/∩(S_{A, B, f}) UI/U(ran h_{A, B, f})]
+
+			63. Show @x [ x in ∩(S_{A, B, f}) <--> x in U(ran h_{A, B, f}) ]
+
+				64. let x be a set 
+
+				65. Show x in ∩(S_{A, B, f}) --> x in U(ran h_{A, B, f})
+
+					66. x in ∩(S_{A, B, f})		[ACD]
+
+					67. 
+
+				00. Show x in U(ran h_{A, B, f}) --> x in ∩(S_{A, B, f})
+
+
+
+
 		 
 
 
