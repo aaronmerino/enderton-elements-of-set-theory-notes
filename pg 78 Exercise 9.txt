@@ -83,6 +83,40 @@ Axioms and Theorems:
 			When F is a function & A ⊆ dom F, then we can define like so:
 				F[A] := {F(u) | u in A}
 
+	Zero:
+		0 := { }
+		
+	Definition of successor:
+		@a [ a+ := a ∪ {a} ]
+		notes:
+			{a} can be constructed using Pairing Axiom (singleton)
+			a ∪ {a} can be constructed using Union Axiom
+
+	Definition of inductive:
+		@A [ A is inductive <--> { } in A & @a [ a in A --> a+ in A ] ]
+
+	Inifinity Axiom:
+		3A [ A is inductive ]
+		3A [ { } in A & @a [ a in A --> a+ in A ] ]
+
+	Definition of a natural number:
+		@b [ b is a natural number <--> @A [ A is inductive --> b in A ] ]
+
+	Theorem 4A:
+		3D [ @b [ b in D <--> b is a natural number ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			ω is the set whose members are exactly the natural numbers 
+			@b [ b in ω <--> b is a natural number ]
+
+	Theorem 4B:
+		ω is inductive & @A [ A is inductive & A != ω --> @t [ t in ω --> t in A ] ]
+
+	Induction Principle for ω:
+		@T [ T is inductive & @n [ n in T --> n in ω ] --> T = ω ]
+
+	Theorem 4C:
+		@n [ n is a natural number & n != { } --> 3k [ k is a natural number & k+ = n ] ]
+
 	Recursion Theorem on ω:
 		@F, A, a [ a in A & F:A->A --> 3_1p [ p:ω->A & p(0) = a & @n [ n in ω --> p(n+) = F(p(n)) ] ] ]
 
@@ -1290,7 +1324,7 @@ Definition (its uniqueness is always due to Ext. Axiom):
 
 
 		////////
-		5.D1. h_{A, B, f}:ω->P(B) & h_{A, B, f}(0) = A & @n [ n in ω --> h_{A, B, f}(n+) = h_{A, B, f}(n) ∪ f[h_{A, B, f}(n)] ]			[((YOOJIN-C_* UI/A, B, f)  6 MP) EI_1 -> h_{A, B, f}]
+		5.D1. h_{A, B, f}:ω->P(B) & h_{A, B, f}(0) = A & @n [ n in ω --> h_{A, B, f}(n+) = h_{A, B, f}(n) ∪ f[h_{A, B, f}(n)] ]			[((YOOJIN-C_* UI/A, B, f)  6 MP) & Ext. Axiom -> h_{A, B, f}]
 
 		5.D2. @y [ y in ran h_{A, B, f} <--> 3x [ <x, y> in h_{A, B, f} ] ]			[ran UI/h_{A, B, f} & Ext. Axiom]
 
@@ -1408,7 +1442,145 @@ Definition (its uniqueness is always due to Ext. Axiom):
 
 					66. x in ∩(S_{A, B, f})		[ACD]
 
-					67. 
+					67. @t [ t in ∩(S_{A, B, f}) <--> @a [ a in S_{A, B, f} --> t in a ] ]			[5.D5]
+
+					68. x in ∩(S_{A, B, f}) <--> @a [ a in S_{A, B, f} --> x in a ]			[67 UI/x]
+
+					69. @a [ a in S_{A, B, f} --> x in a ]			[68 BC 66 MP]
+
+					70. Show x in U(ran h_{A, B, f})
+
+						71. U(ran h_{A, B, f}) in S_{A, B, f} --> x in U(ran h_{A, B, f})			[69 UI/U(ran h_{A, B, f})]
+
+						72. Show U(ran h_{A, B, f}) in S_{A, B, f}
+
+							73. @t [ t in S_{A, B, f} <--> A ⊆ t & t ⊆ B & f[t] ⊆ t ]			[5.D4]
+
+							74. U(ran h_{A, B, f}) in S_{A, B, f} <--> A ⊆ U(ran h_{A, B, f}) & U(ran h_{A, B, f}) ⊆ B & f[U(ran h_{A, B, f})] ⊆ U(ran h_{A, B, f})				[73 UI/U(ran h_{A, B, f})]
+
+							75. Show A ⊆ U(ran h_{A, B, f})
+
+								76. Show @m [ m in A --> m in U(ran h_{A, B, f}) ]
+
+									77. let m be a set
+
+									78. Show m in A --> m in U(ran h_{A, B, f})
+
+										79. m in A 			[ACD]
+
+										80. @x [ x in U(ran h_{A, B, f}) <--> 3b [ b in ran h_{A, B, f} & x in b ] ]			[5.D3]
+
+										81. m in U(ran h_{A, B, f}) <--> 3b [ b in ran h_{A, B, f} & m in b ]			[80 UI/m]
+
+										82. Show 3b [ b in ran h_{A, B, f} & m in b ]
+
+											83. Show A in ran h_{A, B, f}
+
+												84. h_{A, B, f}:ω->P(B) & h_{A, B, f}(0) = A & @n [ n in ω --> h_{A, B, f}(n+) = h_{A, B, f}(n) ∪ f[h_{A, B, f}(n)] ]			[5.D1]
+
+												85. h_{A, B, f}(0) = A			[84 SL SR]
+
+												86. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]			[MARIN]
+
+												87. h_{A, B, f} is a function & 0 in dom h_{A, B, f} -->  @w [ <0, w> in h_{A, B, f} <--> h_{A, B, f}(0) = w ]			[86 UI/h_{A, B, f} UI/0]
+
+												88. Show h_{A, B, f} is a function
+
+													89. h_{A, B, f}:ω->P(B)			[84 SL SL]
+
+													90. @F, D, C [ F:D->C <--> 
+																					F is a function &
+																					dom F = D &
+																					ran F ⊆ C 
+																				]		[Def. of into]
+													
+													91. h_{A, B, f}:ω->P(B) <--> 
+																h_{A, B, f} is a function &
+																dom h_{A, B, f} = ω &
+																ran h_{A, B, f} ⊆ P(B) 			[90 UI/h_{A, B, f}, ω, P(B)]
+													
+													92. h_{A, B, f} is a function			[(91 BC 89 MP) SL SL]
+
+													93. 		[92 DD]
+												
+												94. Show 0 in dom h_{A, B, f}
+
+													95. h_{A, B, f}:ω->P(B)			[84 SL SL]
+
+													96. @F, D, C [ F:D->C <--> 
+																					F is a function &
+																					dom F = D &
+																					ran F ⊆ C 
+																				]		[Def. of into]
+
+													97. h_{A, B, f}:ω->P(B) <--> 
+																h_{A, B, f} is a function &
+																dom h_{A, B, f} = ω &
+																ran h_{A, B, f} ⊆ P(B) 			[96 UI/h_{A, B, f}, ω, P(B)]
+													
+													98. dom h_{A, B, f} = ω			[(97 BC 95 MP) SL SR]
+
+													99. ω is inductive & @A [ A is inductive & A != ω --> @t [ t in ω --> t in A ] ]			[Theorem 4B]
+
+													100. ω is inductive			[99 SL]
+
+													101. @A [ A is inductive <--> { } in A & @a [ a in A --> a+ in A ] ]			[Def. of inductive]
+
+													102. ω is inductive <--> { } in ω & @a [ a in ω --> a+ in ω ]			[101 UI/ω]
+
+													103. { } in ω & @a [ a in ω --> a+ in ω ]			[102 BC 100 MP]
+
+													104. { } in ω			[103 SL]
+
+													105. 0 := { }			[Def. of zero]
+
+													106. 0 in ω			[104 105 LL]
+
+													107. 0 in dom h_{A, B, f}			[98 106 LL]
+
+													108. 		[107 DD]
+												
+												109. h_{A, B, f} is a function & 0 in dom h_{A, B, f}			[88 94 ADJ]
+
+												110. @w [ <0, w> in h_{A, B, f} <--> h_{A, B, f}(0) = w ]			[87 109 MP]
+
+												111. <0, A> in h_{A, B, f} <--> h_{A, B, f}(0) = A			[110 UI/A]
+
+												112. <0, A> in h_{A, B, f}			[111 BC 85 MP]
+
+												113. @y [ y in ran h_{A, B, f} <--> 3x [ <x, y> in h_{A, B, f} ] ]			[5.D2]
+
+												114. A in ran h_{A, B, f} <--> 3x [ <x, A> in h_{A, B, f} ]			[113 UI/A]
+
+												115. 3x [ <x, A> in h_{A, B, f} ]			[112 EG/0->x]
+
+												116. A in ran h_{A, B, f}			[114 BC 115 MP]
+
+												117. 		[116 DD]
+											
+											118. m in A			[79 R]
+
+											119. A in ran h_{A, B, f} & m in A			[83 118 ADJ]
+
+											120. 3b [ b in ran h_{A, B, f} & m in b ]			[119 EG/A->b]
+
+											121. 		[120 DD]
+
+										122. m in U(ran h_{A, B, f})			[81 BC 82 MP]
+
+										123.		[122 CD]
+
+									124. 		[78 UD]
+								
+								125. A ⊆ U(ran h_{A, B, f})			[76 EQUIV.]
+
+								126.		[125 DD]
+							
+							127. Show U(ran h_{A, B, f}) ⊆ B
+
+								128. 
+
+							00. Show f[U(ran h_{A, B, f})] ⊆ U(ran h_{A, B, f})
 
 				00. Show x in U(ran h_{A, B, f}) --> x in ∩(S_{A, B, f})
 
