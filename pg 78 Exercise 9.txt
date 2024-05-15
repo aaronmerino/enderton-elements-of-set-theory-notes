@@ -70,9 +70,9 @@ Axioms and Theorems:
 		@F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]
 		
 	Definition of into:
-		@F, A, C [ F:A->C <--> 
+		@F, D, C [ F:D->C <--> 
 						F is a function &
-						dom F = A &
+						dom F = D &
 						ran F ⊆ C 
 					]
 
@@ -1289,8 +1289,12 @@ Definition (its uniqueness is always due to Ext. Axiom):
 
 	////////
 	1.D0. @x [ ~(x in { }) ]			[Empty Set Axiom & Ext. Axiom]
+
 	1.D1. @v [ v in f[B] <--> 3u [ u in B & <u, v> in f ] ]			[Image UI/f UI/B & Ext. Axiom]
+
 	1.D2. @y [ y in ran f <--> 3x [ <x, y> in f ] ]			[ran UI/f & Ext. Axiom]
+
+	1.D3. @x [ x in P(B) <--> @t [ t in x --> t in B ] ]			[Power Set Axiom UI/B & Ext. Axiom]
 	////////
 
 	5. Show f:B->B & A ⊆ B --> ∩(S_{A, B, f}) = U(ran h_{A, B, f})
@@ -1578,9 +1582,74 @@ Definition (its uniqueness is always due to Ext. Axiom):
 							
 							127. Show U(ran h_{A, B, f}) ⊆ B
 
-								128. 
+								128. Show @m [ m in U(ran h_{A, B, f}) --> m in B ]
 
-							00. Show f[U(ran h_{A, B, f})] ⊆ U(ran h_{A, B, f})
+									129. let m be a set
+
+									130. Show m in U(ran h_{A, B, f}) --> m in B
+
+										131. m in U(ran h_{A, B, f})			[ACD]
+
+										132. @x [ x in U(ran h_{A, B, f}) <--> 3b [ b in ran h_{A, B, f} & x in b ] ]			[5.D3]
+
+										133. m in U(ran h_{A, B, f}) <--> 3b [ b in ran h_{A, B, f} & m in b ]		[132 UI/m]
+
+										134. 3b [ b in ran h_{A, B, f} & m in b ]			[133 BC 131 MP]
+
+										135. b_1 in ran h_{A, B, f} & m in b_1			[134 EI/b_1]
+
+										136. b_1 in ran h_{A, B, f}			[135 SL]
+
+										137. m in b_1			[135 SR]
+
+
+										138. h_{A, B, f}:ω->P(B) & h_{A, B, f}(0) = A & @n [ n in ω --> h_{A, B, f}(n+) = h_{A, B, f}(n) ∪ f[h_{A, B, f}(n)] ]		[5.D1]
+
+										139. h_{A, B, f}:ω->P(B)			[138 SL SL]
+
+										140. @F, D, C [ F:D->C <--> 
+																			F is a function &
+																			dom F = D &
+																			ran F ⊆ C 
+																		]			[Def. of into]
+
+										141. h_{A, B, f}:ω->P(B) <--> 
+															h_{A, B, f} is a function &
+															dom h_{A, B, f} = ω &
+															ran h_{A, B, f} ⊆ P(B) 			[140 UI/h_{A, B, f} UI/ω UI/P(B)]
+										
+										142. h_{A, B, f} is a function &
+													dom h_{A, B, f} = ω &
+													ran h_{A, B, f} ⊆ P(B)			[141 BC 139 MP]
+
+										143. ran h_{A, B, f} ⊆ P(B)				[142 SR]
+
+
+										144. @w [ w in ran h_{A, B, f} --> w in P(B) ]			[143 EQUIV.]
+
+										145. b_1 in ran h_{A, B, f} --> b_1 in P(B)			[144 UI/b_1]
+
+										146. b_1 in P(B)			[145 136 MP]
+
+										147. @x [ x in P(B) <--> @t [ t in x --> t in B ] ]			[1.D3]
+
+										148. b_1 in P(B) <--> @t [ t in b_1 --> t in B ]			[147 UI/b_1]
+
+										149. @t [ t in b_1 --> t in B ]			[148 BC 146 MP]
+
+										150. m in b_1 --> m in B			[149 UI/m]
+
+										151. m in B			[150 137 MP]
+
+										152.		[151 CD]
+									
+									153. 		[130 UD]
+								
+								154. U(ran h_{A, B, f}) ⊆ B			[128 EQUIV.]
+
+								155. 		[154 DD]
+							
+							156. Show f[U(ran h_{A, B, f})] ⊆ U(ran h_{A, B, f})
 
 				00. Show x in U(ran h_{A, B, f}) --> x in ∩(S_{A, B, f})
 
