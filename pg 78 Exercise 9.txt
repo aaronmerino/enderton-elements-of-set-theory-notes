@@ -62,6 +62,13 @@ Axioms and Theorems:
 		Definition (its uniqueness is always due to Ext. Axiom):
 		For any set sets R,  ran R  is the set whose members are those 2nd-coordinate set of some ordered pair in R
 
+	Definition of F(x): 
+	(We define it like this for the purpose of making sure that F(x) is always defined for any F and x, so that we can always refer to it)
+		@F, x [ F(x) := U({y | <x, y> in F}) ]
+
+	Union of singleton (Pg 43):
+		@w [ w = U({w}) ]	
+
 	Function:
 		Definition:
 		@F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]
@@ -1327,6 +1334,7 @@ Definition (its uniqueness is always due to Ext. Axiom):
 		14. ran f ⊆ B			[11 SR]
 
 
+
 		////////
 		5.D1. h_{A, B, f}:ω->P(B) & h_{A, B, f}(0) = A & @n [ n in ω --> h_{A, B, f}(n+) = h_{A, B, f}(n) ∪ f[h_{A, B, f}(n)] ]			[((YOOJIN-C_* UI/A, B, f)  6 MP) & Ext. Axiom -> h_{A, B, f}]
 
@@ -1336,6 +1344,8 @@ Definition (its uniqueness is always due to Ext. Axiom):
 
 		5.D4. @t [ t in S_{A, B, f} <--> A ⊆ t & t ⊆ B & f[t] ⊆ t ]			[IRIS-C* UI/A, B, f & Ext. Axiom]
 		////////
+
+
 
 		15. Show S_{A, B, f} != { } 
 
@@ -1429,6 +1439,10 @@ Definition (its uniqueness is always due to Ext. Axiom):
 
 		////////
 		5.D5. @t [ t in ∩(S_{A, B, f}) <--> @a [ a in S_{A, B, f} --> t in a ] ]			[59 & Ext. Axiom]
+
+		5.D6. @v [ v in f[U(ran h_{A, B, f})] <--> 3u [ u in U(ran h_{A, B, f}) & <u, v> in f ] ]			[Image of {2} under {1} UI/f UI/U(ran h_{A, B, f}) & Ext. Axiom]
+
+		5.D7. @x [ x in dom h_{A, B, f} <--> 3y [ <x, y> in h_{A, B, f} ] ]			[dom UI/h_{A, B, f} & Ext. Axiom]
 		////////
 
 
@@ -1651,7 +1665,325 @@ Definition (its uniqueness is always due to Ext. Axiom):
 							
 							156. Show f[U(ran h_{A, B, f})] ⊆ U(ran h_{A, B, f})
 
-				00. Show x in U(ran h_{A, B, f}) --> x in ∩(S_{A, B, f})
+								157. Show @m [ m in f[U(ran h_{A, B, f})] --> m in U(ran h_{A, B, f}) ]
+
+									158. let m be a set
+
+									159. Show m in f[U(ran h_{A, B, f})] --> m in U(ran h_{A, B, f})
+
+										160. m in f[U(ran h_{A, B, f})]			[ACD]
+
+										161. @v [ v in f[U(ran h_{A, B, f})] <--> 3u [ u in U(ran h_{A, B, f}) & <u, v> in f ] ]			[5.D6]
+
+										162. m in f[U(ran h_{A, B, f})] <--> 3u [ u in U(ran h_{A, B, f}) & <u, m> in f ]			[161 UI/m]
+
+										163. 3u [ u in U(ran h_{A, B, f}) & <u, m> in f ]			[162 BC 160 MP]
+
+										164. u_1 in U(ran h_{A, B, f}) & <u_1, m> in f			[163 EI/u_1]
+
+										165. u_1 in U(ran h_{A, B, f})			[164 SL]
+
+										166. <u_1, m> in f			[164 SR]
+
+										167. Show m in U(ran h_{A, B, f})
+
+											168. @x [ x in U(ran h_{A, B, f}) <--> 3b [ b in ran h_{A, B, f} & x in b ] ]			[5.D3]
+
+											169. m in U(ran h_{A, B, f}) <--> 3b [ b in ran h_{A, B, f} & m in b ]			[168 UI/m]
+
+											170. Show 3b [ b in ran h_{A, B, f} & m in b ]
+
+												171. u_1 in U(ran h_{A, B, f})			[165 R]
+
+												172. @x [ x in U(ran h_{A, B, f}) <--> 3b [ b in ran h_{A, B, f} & x in b ] ]			[5.D3]		
+
+												173. u_1 in U(ran h_{A, B, f}) <--> 3b [ b in ran h_{A, B, f} & u_1 in b ]		[172 UI/u_1]
+
+												174. 3b [ b in ran h_{A, B, f} & u_1 in b ]			[173 BC 171 MP]
+
+												175. b_2 in ran h_{A, B, f} & u_1 in b_2			[174 EI/b_2]
+
+												176. b_2 in ran h_{A, B, f}			[175 SL]
+
+												177. u_1 in b_2			[175 SR]
+
+												178. @y [ y in ran h_{A, B, f} <--> 3x [ <x, y> in h_{A, B, f} ] ]			[5.D2]
+
+												179. b_2 in ran h_{A, B, f} <--> 3x [ <x, b_2> in h_{A, B, f} ]			[178 UI/b_2]
+
+												180. 3x [ <x, b_2> in h_{A, B, f} ]			[179 BC 176 MP]
+
+												181. <x_3, b_2> in h_{A, B, f}			[180 EI/x_3]
+
+												////////
+												170.D1. @v [ v in f[h_{A, B, f}(x_3)] <--> 3u [ u in h_{A, B, f}(x_3) & <u, v> in f ] ]			[Image of {2} under {1} UI/f UI/h_{A, B, f}(x_3) & Ext. Axiom]
+
+												170.D2. @x [ x in h_{A, B, f}(x_3) ∪ f[h_{A, B, f}(x_3)] <--> x in h_{A, B, f}(x_3) or x in f[h_{A, B, f}(x_3)] ]			[Union Axiom UI/h_{A, B, f}(x_3) UI/f[h_{A, B, f}(x_3)] & Ext. Axiom]
+												////////
+
+												182. Show u_1 in h_{A, B, f}(x_3)
+
+													183. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]			[MARIN]
+
+													184. h_{A, B, f} is a function & x_3 in dom h_{A, B, f} -->  @w [ <x_3, w> in h_{A, B, f} <--> h_{A, B, f}(x_3) = w ]			[183 UI/h_{A, B, f} UI/x_3]
+
+													185. Show h_{A, B, f} is a function
+
+														186. h_{A, B, f}:ω->P(B) & h_{A, B, f}(0) = A & @n [ n in ω --> h_{A, B, f}(n+) = h_{A, B, f}(n) ∪ f[h_{A, B, f}(n)] ]		[5.D1]
+
+														187. h_{A, B, f}:ω->P(B)			[186 SL SL]
+
+														188. @F, D, C [ F:D->C <--> 
+																						F is a function &
+																						dom F = D &
+																						ran F ⊆ C 
+																					]			[Def. of into]
+														
+														189. h_{A, B, f}:ω->P(B) <--> 
+																			h_{A, B, f} is a function &
+																			dom h_{A, B, f} = ω &
+																			ran h_{A, B, f} ⊆ P(B)			[188 UI/h_{A, B, f}, ω, P(B)]
+														
+														190. h_{A, B, f} is a function &
+																			dom h_{A, B, f} = ω &
+																			ran h_{A, B, f} ⊆ P(B)			[189 BC 187 MP]
+
+														191. h_{A, B, f} is a function			[190 SL SL]
+
+														192. 		[191 DD]
+													
+													193. Show x_3 in dom h_{A, B, f}
+
+														194. @x [ x in dom h_{A, B, f} <--> 3y [ <x, y> in h_{A, B, f} ] ]		[5.D7]
+
+														195. x_3 in dom h_{A, B, f} <--> 3y [ <x_3, y> in h_{A, B, f} ]			[194 UI/x_3]
+
+														196. <x_3, b_2> in h_{A, B, f}		[181 R]
+
+														197. 3y [ <x_3, y> in h_{A, B, f} ]			[196 EG/b_2->y]
+
+														198. x_3 in dom h_{A, B, f}			[195 BC 197 MP]
+
+														199. 		[198 DD]
+													
+													200. h_{A, B, f} is a function & x_3 in dom h_{A, B, f}			[185 193 ADJ]
+
+													201. @w [ <x_3, w> in h_{A, B, f} <--> h_{A, B, f}(x_3) = w ]			[184 200 MP]
+
+													202. <x_3, b_2> in h_{A, B, f} <--> h_{A, B, f}(x_3) = b_2			[201 UI/b_2]
+
+													203. <x_3, b_2> in h_{A, B, f}			[181 R]
+
+													204. h_{A, B, f}(x_3) = b_2			[202 BC 203 MP]
+
+													205. u_1 in b_2		[177 R]
+
+													206. u_1 in h_{A, B, f}(x_3)			[204 205 LL]
+
+													207. 		[206 DD]
+												
+
+												// consider h_{A, B, f}(x_3+)
+												208. h_{A, B, f}:ω->P(B) & h_{A, B, f}(0) = A & @n [ n in ω --> h_{A, B, f}(n+) = h_{A, B, f}(n) ∪ f[h_{A, B, f}(n)] ]		[5.D1] 
+
+												209. @n [ n in ω --> h_{A, B, f}(n+) = h_{A, B, f}(n) ∪ f[h_{A, B, f}(n)] ]		[208 SR]
+
+												210. x_3 in ω --> h_{A, B, f}(x_3+) = h_{A, B, f}(x_3) ∪ f[h_{A, B, f}(x_3)]		[209 UI/x_3]
+
+												211. Show x_3 in ω
+
+													212. h_{A, B, f}:ω->P(B)			[208 SL SL]
+
+													213. @F, D, C [ F:D->C <--> 
+																		F is a function &
+																		dom F = D &
+																		ran F ⊆ C 
+																	]			[Def. of into]
+													
+													214. h_{A, B, f}:ω->P(B) <--> 
+																		h_{A, B, f} is a function &
+																		dom h_{A, B, f} = ω &
+																		ran h_{A, B, f} ⊆ P(B)			[213 UI/h_{A, B, f}, ω, P(B)]
+													
+													215. h_{A, B, f} is a function &
+																		dom h_{A, B, f} = ω &
+																		ran h_{A, B, f} ⊆ P(B)			[214 BC 212 MP]
+
+													216. dom h_{A, B, f} = ω		[215 SL SR]
+
+													217. Show x_3 in dom h_{A, B, f}
+
+														218. @x [ x in dom h_{A, B, f} <--> 3y [ <x, y> in h_{A, B, f} ] ]		[5.D7]
+
+														219. x_3 in dom h_{A, B, f} <--> 3y [ <x_3, y> in h_{A, B, f} ]			[218 UI/x_3]
+
+														220. <x_3, b_2> in h_{A, B, f}		[181 R]
+
+														221. 3y [ <x_3, y> in h_{A, B, f} ]			[220 EG/b_2->y]
+
+														222. x_3 in dom h_{A, B, f}			[219 BC 221 MP]
+
+														223. 		[222 DD]
+													
+													224. x_3 in ω			[216 217 LL]
+
+													225. 		[224 DD]
+												
+												226. h_{A, B, f}(x_3+) = h_{A, B, f}(x_3) ∪ f[h_{A, B, f}(x_3)]			[210 211 MP]
+
+
+												227. Show m in h_{A, B, f}(x_3+)
+
+													228. @x [ x in h_{A, B, f}(x_3) ∪ f[h_{A, B, f}(x_3)] <--> x in h_{A, B, f}(x_3) or x in f[h_{A, B, f}(x_3)] ]			[170.D2]
+
+													229. m in h_{A, B, f}(x_3) ∪ f[h_{A, B, f}(x_3)] <--> m in h_{A, B, f}(x_3) or m in f[h_{A, B, f}(x_3)]			[228 UI/m]
+
+													230. Show m in f[h_{A, B, f}(x_3)]
+
+														231. @v [ v in f[h_{A, B, f}(x_3)] <--> 3u [ u in h_{A, B, f}(x_3) & <u, v> in f ] ]			[170.D1]
+
+														232. m in f[h_{A, B, f}(x_3)] <--> 3u [ u in h_{A, B, f}(x_3) & <u, m> in f ]			[231 UI/m]
+
+														233. u_1 in h_{A, B, f}(x_3)		[182 R]
+
+														234. <u_1, m> in f		[166 R]
+
+														235. u_1 in h_{A, B, f}(x_3) & <u_1, m> in f			[233 234 ADJ]
+
+														236. 3u [ u in h_{A, B, f}(x_3) & <u, m> in f ]			[235 EG/u_1->u]
+
+														237. m in f[h_{A, B, f}(x_3)]			[232 BC 236 MP]
+
+														238. 		[237 DD]
+													
+													239. m in h_{A, B, f}(x_3) or m in f[h_{A, B, f}(x_3)]			[230 ADD/...]
+
+													240. m in h_{A, B, f}(x_3) ∪ f[h_{A, B, f}(x_3)]			[229 BC 239 MP]
+
+													241. h_{A, B, f}(x_3+) = h_{A, B, f}(x_3) ∪ f[h_{A, B, f}(x_3)]			[226 R]
+
+													242. m in h_{A, B, f}(x_3+)			[240 241 LL]
+
+													243. 		[242 DD]
+												
+												244. Show h_{A, B, f}(x_3+) in ran h_{A, B, f}
+
+													245. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]			[MARIN]
+
+													246. h_{A, B, f} is a function & x_3+ in dom h_{A, B, f} -->  @w [ <x_3+, w> in h_{A, B, f} <--> h_{A, B, f}(x_3+) = w ]			[245 UI/h_{A, B, f} UI/x_3+]
+
+													247. Show h_{A, B, f} is a function
+
+														248. h_{A, B, f}:ω->P(B)			[84 SL SL]
+
+														249. @F, D, C [ F:D->C <--> 
+																						F is a function &
+																						dom F = D &
+																						ran F ⊆ C 
+																					]		[Def. of into]
+														
+														250. h_{A, B, f}:ω->P(B) <--> 
+																	h_{A, B, f} is a function &
+																	dom h_{A, B, f} = ω &
+																	ran h_{A, B, f} ⊆ P(B) 			[249 UI/h_{A, B, f}, ω, P(B)]
+														
+														251. h_{A, B, f} is a function			[(250 BC 248 MP) SL SL]
+
+														252. 		[251 DD]
+
+													253. Show x_3+ in dom h_{A, B, f}
+
+														254. h_{A, B, f}:ω->P(B)			[84 SL SL]
+
+														255. @F, D, C [ F:D->C <--> 
+																						F is a function &
+																						dom F = D &
+																						ran F ⊆ C 
+																					]		[Def. of into]
+														
+														256. h_{A, B, f}:ω->P(B) <--> 
+																	h_{A, B, f} is a function &
+																	dom h_{A, B, f} = ω &
+																	ran h_{A, B, f} ⊆ P(B) 			[255 UI/h_{A, B, f}, ω, P(B)]
+														
+														257. dom h_{A, B, f} = ω			[(256 BC 254 MP) SL SR]
+
+
+														258. x_3 in ω			[211 R]
+
+														259. ω is inductive & @A [ A is inductive & A != ω --> @t [ t in ω --> t in A ] ]			[Theorem 4B]
+
+														260. ω is inductive		[259 SL]
+
+														261. @A [ A is inductive <--> { } in A & @a [ a in A --> a+ in A ] ]			[Def. of inductive]
+
+														262. ω is inductive <--> { } in ω & @a [ a in ω --> a+ in ω ]			[261 UI/ω]
+
+														263. { } in ω & @a [ a in ω --> a+ in ω ]			[262 BC 260 MP]
+
+														264. @a [ a in ω --> a+ in ω ]		[263 SR]
+
+														265. x_3 in ω --> x_3+ in ω			[264 UI/x_3]
+
+														266. x_3+ in ω			[265 258 MP]
+
+														267. x_3+ in dom h_{A, B, f}			[266 257 LL]
+
+														268. 		[267 DD]
+													
+													269. h_{A, B, f} is a function & x_3+ in dom h_{A, B, f}			[247 253 ADJ]
+
+													270. @w [ <x_3+, w> in h_{A, B, f} <--> h_{A, B, f}(x_3+) = w ]			[246 269 MP]
+
+													271. <x_3+, h_{A, B, f}(x_3+)> in h_{A, B, f} <--> h_{A, B, f}(x_3+) = h_{A, B, f}(x_3+)			[270 UI/h_{A, B, f}(x_3+)]
+
+													272. h_{A, B, f}(x_3+) = h_{A, B, f}(x_3+)		[SID]
+
+													273. <x_3+, h_{A, B, f}(x_3+)> in h_{A, B, f}			[271 BC 272 MP]
+
+													274. @y [ y in ran h_{A, B, f} <--> 3x [ <x, y> in h_{A, B, f} ] ]		[5.D2]
+
+													275. h_{A, B, f}(x_3+) in ran h_{A, B, f} <--> 3x [ <x, h_{A, B, f}(x_3+)> in h_{A, B, f} ]			[274 UI/h_{A, B, f}(x_3+)]
+
+													276. 3x [ <x, h_{A, B, f}(x_3+)> in h_{A, B, f} ]		[273 EG/x_3+ -> x]
+
+													277. h_{A, B, f}(x_3+) in ran h_{A, B, f}			[275 BC 276 MP]
+
+													278.		[277 DD]
+
+												279. h_{A, B, f}(x_3+) in ran h_{A, B, f} & m in h_{A, B, f}(x_3+)		[244 227 ADJ]
+
+												280. 3b [ b in ran h_{A, B, f} & m in b ]			[279 EG/h_{A, B, f}(x_3+) -> b]
+
+												281.		[280 DD]
+											
+											282. m in U(ran h_{A, B, f})		[169 BC 170 MP]
+
+											283. 		[282 DD]
+										
+										284. 		[167 CD]
+									
+									285. 		[159 UD]
+								
+								286. f[U(ran h_{A, B, f})] ⊆ U(ran h_{A, B, f})		[157 EQUIV.]
+
+								287.		[286 DD]
+							
+							288. A ⊆ U(ran h_{A, B, f}) & U(ran h_{A, B, f}) ⊆ B & f[U(ran h_{A, B, f})] ⊆ U(ran h_{A, B, f})			[75 127 156 ADJ]
+
+							289. U(ran h_{A, B, f}) in S_{A, B, f}			[74 BC 288 MP]
+
+							290. 		[289 DD]
+						
+						291. x in U(ran h_{A, B, f})			[71 72 MP]
+
+						292.		[291 DD]
+					
+					293. 		[70 CD]
+				
+				294. Show x in U(ran h_{A, B, f}) --> x in ∩(S_{A, B, f})
+
+					295. x in U(ran h_{A, B, f})		[ACD]
 
 
 
