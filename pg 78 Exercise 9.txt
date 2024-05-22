@@ -1286,6 +1286,8 @@ Definition (its uniqueness is always due to Ext. Axiom):
 		For any A, B, f, such that f:B->B & A ⊆ B, then the set named h_{A, B, f} is the set where h_{A, B, f}:ω->P(B) & h_{A, B, f}(0) = A & @n [ n in ω --> h_{A, B, f}(n+) = h_{A, B, f}(n) ∪ f[h_{A, B, f}(n)] ]
 	
 
+
+
 1. Show @A, B, f [ f:B->B & A ⊆ B --> ∩(S_{A, B, f}) = U(ran h_{A, B, f}) ]
 
 	2. let A be a set
@@ -1985,6 +1987,115 @@ Definition (its uniqueness is always due to Ext. Axiom):
 
 					295. x in U(ran h_{A, B, f})		[ACD]
 
+					296. @x [ x in U(ran h_{A, B, f}) <--> 3b [ b in ran h_{A, B, f} & x in b ] ]			[5.D3]
+
+					297. x in U(ran h_{A, B, f}) <--> 3b [ b in ran h_{A, B, f} & x in b ]			[296 UI/x]
+
+					298. 3b [ b in ran h_{A, B, f} & x in b ]			[297 BC 295 MP]
+
+					299. b_1 in ran h_{A, B, f} & x in b_1		[298 EI/b_1]
+
+					300. b_1 in ran h_{A, B, f}			[299 SL]
+
+					301. x in b_1			[299 SR]
+
+					302. @y [ y in ran h_{A, B, f} <--> 3x [ <x, y> in h_{A, B, f} ] ]		[5.D2]
+
+					303. b_1 in ran h_{A, B, f} <--> 3x [ <x, b_1> in h_{A, B, f} ]			[302 UI/b_1]
+
+					304. 3x [ <x, b_1> in h_{A, B, f} ]			[303 BC 300 MP]
+
+					305. <x_2, b_1> in h_{A, B, f}			[304 EI/x_2]
+
+
+					306. h_{A, B, f}:ω->P(B) & h_{A, B, f}(0) = A & @n [ n in ω --> h_{A, B, f}(n+) = h_{A, B, f}(n) ∪ f[h_{A, B, f}(n)] ]		[5.D1]
+
+
+					307. h_{A, B, f}:ω->P(B)		[306 SL SL]
+
+					308. @F, D, C [ F:D->C <--> 
+													F is a function &
+													dom F = D &
+													ran F ⊆ C 
+												]			[Def. of into]
+					
+					309. h_{A, B, f}:ω->P(B) <--> 
+										h_{A, B, f} is a function &
+										dom h_{A, B, f} = ω &
+										ran h_{A, B, f} ⊆ P(B) 		[308 UI/h_{A, B, f}, ω, P(B)]
+					
+					310. h_{A, B, f} is a function &
+								dom h_{A, B, f} = ω &
+								ran h_{A, B, f} ⊆ P(B)			[309 BC 307 MP]
+
+					311. Show h_{A, B, f}(x_2) = b_1
+
+						312. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]		[MARIN]
+
+						313. h_{A, B, f} is a function & x_2 in dom h_{A, B, f} -->  @w [ <x_2, w> in h_{A, B, f} <--> h_{A, B, f}(x_2) = w ]			[312 UI/h_{A, B, f} UI/x_2]
+
+						314. h_{A, B, f} is a function			[310 SL SL]
+
+						315. Show x_2 in dom h_{A, B, f}
+
+							316. @x [ x in dom h_{A, B, f} <--> 3y [ <x, y> in h_{A, B, f} ] ]		[5.D7]
+
+							317. x_2 in dom h_{A, B, f} <--> 3y [ <x_2, y> in h_{A, B, f} ]			[316 UI/x_2]
+
+							318. <x_2, b_1> in h_{A, B, f}			[305 R]
+
+							319. 3y [ <x_2, y> in h_{A, B, f} ]			[318 EG/b_1->y]
+
+							320. x_2 in dom h_{A, B, f}			[317 BC 319 MP]
+
+							321. 		[320 DD]
+						
+						322. h_{A, B, f} is a function & x_2 in dom h_{A, B, f}			[314 315 ADJ]
+
+						323. @w [ <x_2, w> in h_{A, B, f} <--> h_{A, B, f}(x_2) = w ]			[313 322 MP]
+
+						324. <x_2, b_1> in h_{A, B, f} <--> h_{A, B, f}(x_2) = b_1			[323 UI/b_1]
+
+						325. <x_2, b_1> in h_{A, B, f}			[305 R]	
+
+						326. h_{A, B, f}(x_2) = b_1			[324 BC 325 MP]
+
+						327. 		[326 DD]
+					
+				
+
+					328. Show @n [ n in ω --> h_{A, B, f}(n) ⊆ ∩(S_{A, B, f}) ]
+
+						329. @A, B, f [ @c [ 3D [ @n [ n in D <--> n in c & h_{A, B, f}(n) ⊆ ∩(S_{A, B, f}) ] ] ] ]      [Subset Axiom UI_META/'h_{A, B, f}(n) ⊆ ∩(S_{A, B, f})']
+						
+						330. @c [ 3D [ @n [ n in D <--> n in c & h_{A, B, f}(n) ⊆ ∩(S_{A, B, f}) ] ] ]			[329 UI/A, B, f]
+
+						331. 3D [ @n [ n in D <--> n in ω & h_{A, B, f}(n) ⊆ ∩(S_{A, B, f}) ] ]			[330 UI/ω]
+
+
+						////////
+						332. @n [ n in D_3 <--> n in ω & h_{A, B, f}(n) ⊆ ∩(S_{A, B, f}) ]			[331 EI/D_3]
+						////////
+
+						333. Show D_3 is inductive
+
+							334. @A [ A is inductive <--> { } in A & @a [ a in A --> a+ in A ] ]			[Def. of inductive]
+
+							335. @A [ A is inductive <--> { } in A & @k [ k in A --> k+ in A ] ]			[334 EQUIV.]
+
+							336. D_3 is inductive <--> { } in D_3 & @k [ k in D_3 --> k+ in D_3 ]			[335 UI/D_3]
+
+							337. Show { } in D_3
+
+								338. 
+
+							000. Show @k [ k in D_3 --> k+ in D_3 ]
+
+								000. let k be a set
+
+								000. Show k in D_3 --> k+ in D_3
+
+									000. k in D_3			[ACD]
 
 
 
