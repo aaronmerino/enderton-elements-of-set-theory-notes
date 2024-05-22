@@ -2087,15 +2087,100 @@ Definition (its uniqueness is always due to Ext. Axiom):
 
 							337. Show { } in D_3
 
-								338. 
+								338. @n [ n in D_3 <--> n in ω & h_{A, B, f}(n) ⊆ ∩(S_{A, B, f}) ]		[332 R]
 
-							000. Show @k [ k in D_3 --> k+ in D_3 ]
+								339. { } in D_3 <--> { } in ω & h_{A, B, f}({ }) ⊆ ∩(S_{A, B, f})			[338 UI/{ }]
 
-								000. let k be a set
+								340. Show { } in ω
 
-								000. Show k in D_3 --> k+ in D_3
+									341. ω is inductive & @A [ A is inductive & A != ω --> @t [ t in ω --> t in A ] ]			[Theorem 4B]
 
-									000. k in D_3			[ACD]
+									342. ω is inductive			[341 SL]
+
+									343. @A [ A is inductive <--> { } in A & @a [ a in A --> a+ in A ] ]			[Def. of inductive]
+
+									344. ω is inductive <--> { } in ω & @a [ a in ω --> a+ in ω ]			[343 UI/ω]
+
+									345. { } in ω & @a [ a in ω --> a+ in ω ]			[344 BC 342 MP]
+
+									346. { } in ω			[345 SL]
+
+									347. 		[346 DD]
+								
+								348. Show h_{A, B, f}({ }) ⊆ ∩(S_{A, B, f})
+
+									349. Show @t [ t in h_{A, B, f}({ }) -->  t in ∩(S_{A, B, f}) ]
+
+										350. let t be a set
+
+										351. Show t in h_{A, B, f}({ }) -->  t in ∩(S_{A, B, f})
+
+											352. t in h_{A, B, f}({ })			[ACD]
+
+											353. h_{A, B, f}(0) = A			[306 SL SR]
+
+											354. 0 := { }		[Def. of zero]
+
+											355. t in h_{A, B, f}(0)			[352 354 LL]
+
+											356. t in A			[355 353 LL]
+
+
+											357. @t [ t in ∩(S_{A, B, f}) <--> @a [ a in S_{A, B, f} --> t in a ] ]			[5.D5]
+
+											358. t in ∩(S_{A, B, f}) <--> @a [ a in S_{A, B, f} --> t in a ]			[357 UI/t]
+
+											359. Show @a [ a in S_{A, B, f} --> t in a ]
+
+												360. let a be a set
+
+												361. Show a in S_{A, B, f} --> t in a
+
+													362. a in S_{A, B, f}			[ACD]
+
+													363. @t [ t in S_{A, B, f} <--> A ⊆ t & t ⊆ B & f[t] ⊆ t ]		[5.D4]
+
+													364. a in S_{A, B, f} <--> A ⊆ a & a ⊆ B & f[a] ⊆ a			[363 UI/a]
+
+													365. A ⊆ a & a ⊆ B & f[a] ⊆ a			[364 BC 362 MP]
+
+													366. A ⊆ a			[365 SL SL]
+
+													367. @t [ t in A --> t in a ]			[366 EQUIV.]
+
+													368. t in A --> t in a			[367 UI/t]
+
+													369. t in A			[356 R]
+
+													370. t in a			[368 369 MP]
+
+													371. 		[370 CD]
+												
+												372. 		[361 UD]
+
+											373. t in ∩(S_{A, B, f})			[358 BC 359 MP]
+
+											374. 		[373 CD]
+										
+										375. 		[351 UD]
+									
+									376. h_{A, B, f}({ }) ⊆ ∩(S_{A, B, f})			[349 EQUIV.]
+
+									377.		[376 DD]
+								
+								378. { } in ω & h_{A, B, f}({ }) ⊆ ∩(S_{A, B, f})			[340 348 ADJ]
+
+								379. { } in D_3			[339 BC 378 MP]
+
+								380.		[379 DD]
+							
+							381. Show @k [ k in D_3 --> k+ in D_3 ]
+
+								382. let k be a set
+
+								383. Show k in D_3 --> k+ in D_3
+
+									384. k in D_3			[ACD]
 
 
 
