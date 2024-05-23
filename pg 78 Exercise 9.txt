@@ -2178,9 +2178,314 @@ Definition (its uniqueness is always due to Ext. Axiom):
 
 								382. let k be a set
 
+								////////
+								381.D1. @v [ v in f[h_{A, B, f}(k)] <--> 3u [ u in h_{A, B, f}(k) & <u, v> in f ] ]			[Image of {2} under {1} UI/f UI/h_{A, B, f}(k) & Ext. Axiom]
+
+								381.D2. @x [ x in h_{A, B, f}(k) ∪ f[h_{A, B, f}(k)] <--> x in h_{A, B, f}(k) or x in f[h_{A, B, f}(k)] ]			[Union Axiom UI/h_{A, B, f}(k), f[h_{A, B, f}(k)]  & Ext. Axiom]
+								////////
+
 								383. Show k in D_3 --> k+ in D_3
 
 									384. k in D_3			[ACD]
+
+									385. @n [ n in D_3 <--> n in ω & h_{A, B, f}(n) ⊆ ∩(S_{A, B, f}) ]		[332 R]
+
+									386. k in D_3 <--> k in ω & h_{A, B, f}(k) ⊆ ∩(S_{A, B, f})			[385 UI/k]
+
+									387. k in ω & h_{A, B, f}(k) ⊆ ∩(S_{A, B, f})			[386 BC 384 MP]
+
+									388. k in ω		[387 SL]
+
+									389. h_{A, B, f}(k) ⊆ ∩(S_{A, B, f})			[387 SR]
+
+
+									390. @n [ n in D_3 <--> n in ω & h_{A, B, f}(n) ⊆ ∩(S_{A, B, f}) ]		[332 R]
+
+									391. k+ in D_3 <--> k+ in ω & h_{A, B, f}(k+) ⊆ ∩(S_{A, B, f})			[390 UI/k+]
+
+									392. Show k+ in ω
+
+										393. k in ω			[388 R]
+
+										394. ω is inductive & @A [ A is inductive & A != ω --> @t [ t in ω --> t in A ] ]			[Theorem 4B]
+
+										395. ω is inductive			[394 SL]
+
+										396. @A [ A is inductive <--> { } in A & @a [ a in A --> a+ in A ] ]			[Def. of inductive]
+
+										397. ω is inductive <--> { } in ω & @a [ a in ω --> a+ in ω ]			[396 UI/ω]
+
+										398. { } in ω & @a [ a in ω --> a+ in ω ]			[397 BC 395 MP]
+
+										399. @a [ a in ω --> a+ in ω ]			[398 SR]
+
+										400. k in ω --> k+ in ω			[399 UI/k]
+
+										401. k+ in ω			[400 393 MP]
+
+										402. 		[401 DD]
+									
+									403. Show h_{A, B, f}(k+) ⊆ ∩(S_{A, B, f})
+
+										404. Show @z [ z in h_{A, B, f}(k+) --> z in ∩(S_{A, B, f}) ]
+
+											405. let z be a set
+
+											406. Show z in h_{A, B, f}(k+) --> z in ∩(S_{A, B, f})
+
+												407. z in h_{A, B, f}(k+)			[ACD]
+
+												408. h_{A, B, f}:ω->P(B) & h_{A, B, f}(0) = A & @n [ n in ω --> h_{A, B, f}(n+) = h_{A, B, f}(n) ∪ f[h_{A, B, f}(n)] ]			[5.D1]
+
+												409. @n [ n in ω --> h_{A, B, f}(n+) = h_{A, B, f}(n) ∪ f[h_{A, B, f}(n)] ]			[408 SR]
+
+												410. k in ω --> h_{A, B, f}(k+) = h_{A, B, f}(k) ∪ f[h_{A, B, f}(k)]			[409 UI/k]
+
+												411. h_{A, B, f}(k+) = h_{A, B, f}(k) ∪ f[h_{A, B, f}(k)]			[410 388 MP]
+
+												412. z in h_{A, B, f}(k) ∪ f[h_{A, B, f}(k)]			[411 407 LL]
+
+												413. @x [ x in h_{A, B, f}(k) ∪ f[h_{A, B, f}(k)] <--> x in h_{A, B, f}(k) or x in f[h_{A, B, f}(k)] ]		[381.D2]
+
+												414. z in h_{A, B, f}(k) ∪ f[h_{A, B, f}(k)] <--> z in h_{A, B, f}(k) or z in f[h_{A, B, f}(k)]			[413 UI/z]
+
+												415. z in h_{A, B, f}(k) or z in f[h_{A, B, f}(k)]			[414 BC 412 MP]
+
+												416. Show z in h_{A, B, f}(k) --> z in ∩(S_{A, B, f})			[CASE 1 for line 415]
+
+													417. z in h_{A, B, f}(k)			[ACD]
+
+													418. h_{A, B, f}(k) ⊆ ∩(S_{A, B, f})		[389 R]
+
+													419. @t [ t in h_{A, B, f}(k) --> t in ∩(S_{A, B, f}) ]			[418 EQUIV.]
+
+													420. z in h_{A, B, f}(k) --> z in ∩(S_{A, B, f})			[419 UI/z]
+
+													421. z in ∩(S_{A, B, f})		[420 417 MP]
+
+													422. 		[421 CD]
+												
+												423. Show z in f[h_{A, B, f}(k)] --> z in ∩(S_{A, B, f})		[CASE 2 for line 415]
+
+													424. z in f[h_{A, B, f}(k)]			[ACD]
+
+													425. @v [ v in f[h_{A, B, f}(k)] <--> 3u [ u in h_{A, B, f}(k) & <u, v> in f ] ]			[381.D1]
+
+													426. z in f[h_{A, B, f}(k)] <--> 3u [ u in h_{A, B, f}(k) & <u, z> in f ]			[425 UI/z]
+
+													427. 3u [ u in h_{A, B, f}(k) & <u, z> in f ]			[426 BC 424 MP]
+
+													428. u_4 in h_{A, B, f}(k) & <u_4, z> in f			[427 EI/u_4]
+
+													429. u_4 in h_{A, B, f}(k)			[428 SL]
+
+													430. <u_4, z> in f		[428 SR]
+
+
+													431. h_{A, B, f}(k) ⊆ ∩(S_{A, B, f})			[389 R]
+
+													432. @t [ t in h_{A, B, f}(k) --> t in ∩(S_{A, B, f}) ]			[431 EQUIV.]
+
+													433. u_4 in h_{A, B, f}(k) --> u_4 in ∩(S_{A, B, f})			[432 UI/u_4]
+
+													434. u_4 in ∩(S_{A, B, f})			[433 429 MP]
+
+
+													435. @t [ t in ∩(S_{A, B, f}) <--> @a [ a in S_{A, B, f} --> t in a ] ]			[5.D5]
+
+													436. z in ∩(S_{A, B, f}) <--> @a [ a in S_{A, B, f} --> z in a ]			[435 UI/z]
+
+													437. Show @a [ a in S_{A, B, f} --> z in a ]
+
+														438. let a be a set
+
+														////////
+														437.D1. @v [ v in f[a] <--> 3u [ u in a & <u, v> in f ] ]			[Image of {2} under {1} UI/f UI/a & Ext. Axiom]
+														////////
+
+														439. Show a in S_{A, B, f} --> z in a
+
+															440. a in S_{A, B, f}			[ACD]
+
+															441. @t [ t in S_{A, B, f} <--> A ⊆ t & t ⊆ B & f[t] ⊆ t ]			[5.D4]
+
+															442. a in S_{A, B, f} <--> A ⊆ a & a ⊆ B & f[a] ⊆ a			[441 UI/a]
+
+															443. A ⊆ a & a ⊆ B & f[a] ⊆ a			[442 BC 440 MP]
+
+
+															444. @t [ t in ∩(S_{A, B, f}) <--> @a [ a in S_{A, B, f} --> t in a ] ]			[5.D5]
+
+															445. u_4 in ∩(S_{A, B, f}) <--> @a [ a in S_{A, B, f} --> u_4 in a ]			[444 UI/u_4]
+
+															446. u_4 in ∩(S_{A, B, f})			[434 R]
+
+															447. @a [ a in S_{A, B, f} --> u_4 in a ]			[445 BC 446 MP]
+
+															448. a in S_{A, B, f} --> u_4 in a			[447 UI/a]
+
+															449. u_4 in a			[448 440 MP]
+
+
+															450. @v [ v in f[a] <--> 3u [ u in a & <u, v> in f ] ]			[437.D1]
+
+															451. z in f[a] <--> 3u [ u in a & <u, z> in f ]			[450 UI/z]
+
+															452. Show 3u [ u in a & <u, z> in f ]
+
+																453. u_4 in a & <u_4, z> in f			[449 430 ADJ]
+
+																454. 3u [ u in a & <u, z> in f ]			[453 EG/u_4->u]
+
+																455. 		[454 DD]
+															
+															456. z in f[a]			[451 BC 452 MP]
+
+
+															457. f[a] ⊆ a			[443 SR]
+
+															458. @t [ t in f[a] --> t in a ]			[457 EQUIV.]
+
+															459. z in f[a] --> z in a			[458 UI/z]
+
+															460. z in a			[459 456 MP]
+
+															461.		[460 CD]
+														
+														462. 		[439 UD]
+													
+													463. z in ∩(S_{A, B, f})		[436 BC 437 MP]
+
+													464.		[463 CD]
+
+												465. z in h_{A, B, f}(k) or z in f[h_{A, B, f}(k)] --> z in ∩(S_{A, B, f})			[416 423 CASE_PROOF for line 415]
+
+												466. z in ∩(S_{A, B, f})			[465 415 MP]
+
+												467. 		[466 CD]
+											
+											468. 		[406 UD]
+										
+										469. h_{A, B, f}(k+) ⊆ ∩(S_{A, B, f})			[404 EQUIV.]
+
+										470.		[469 DD]
+									
+									471. k+ in ω & h_{A, B, f}(k+) ⊆ ∩(S_{A, B, f})			[392 403 ADJ]
+
+									472. k+ in D_3			[391 BC 471 MP]
+
+									473.		[472 CD]
+								
+								474. 		[383 UD]
+							
+							475. { } in D_3 & @k [ k in D_3 --> k+ in D_3 ]			[337 381 ADJ]
+
+							476. D_3 is inductive			[336 BC 475 MP]
+
+							477.		[476 DD]
+						
+						478. @T [ T is inductive & @n [ n in T --> n in ω ] --> T = ω ]			[Induction Principle for ω]
+
+						479. D_3 is inductive & @n [ n in D_3 --> n in ω ] --> D_3 = ω			[478 UI/D_3]
+
+						480. Show @n [ n in D_3 --> n in ω ]
+
+							481. let n be a set
+
+							482. Show n in D_3 --> n in ω
+
+								483. n in D_3		[ACD]
+
+								484. @n [ n in D_3 <--> n in ω & h_{A, B, f}(n) ⊆ ∩(S_{A, B, f}) ]		[332 R]
+
+								485. n in D_3 <--> n in ω & h_{A, B, f}(n) ⊆ ∩(S_{A, B, f})		[484 UI/n]
+
+								486. n in ω & h_{A, B, f}(n) ⊆ ∩(S_{A, B, f})		[485 BC 483 MP]
+
+								487. n in ω			[486 SL]
+
+								488. 		[487 CD]
+
+							489. 		[482 UD]
+						
+						490. D_3 is inductive & @n [ n in D_3 --> n in ω ]			[333 480 ADJ]
+
+						491. D_3 = ω		[479 490 MP]
+
+						492. Show @n [ n in ω --> h_{A, B, f}(n) ⊆ ∩(S_{A, B, f}) ]
+
+							493. let n be a set
+
+							494. Show n in ω --> h_{A, B, f}(n) ⊆ ∩(S_{A, B, f})
+
+								495. n in ω			[ACD]
+
+								496. n in D_3		[495 491 LL]
+
+								497. @n [ n in D_3 <--> n in ω & h_{A, B, f}(n) ⊆ ∩(S_{A, B, f}) ]		[332 R]
+
+								498. n in D_3 <--> n in ω & h_{A, B, f}(n) ⊆ ∩(S_{A, B, f})			[497 UI/n]
+
+								499. n in ω & h_{A, B, f}(n) ⊆ ∩(S_{A, B, f})			[498 BC 496 MP]
+
+								500. h_{A, B, f}(n) ⊆ ∩(S_{A, B, f})			[499 SR]
+
+								501.		[500 CD]
+							
+							502. 		[494 UD]
+						
+						503. 		[492 DD]
+					
+					
+					504. x_2 in ω --> h_{A, B, f}(x_2) ⊆ ∩(S_{A, B, f})			[328 UI/x_2]
+
+					505. Show x_2 in ω
+
+						506. <x_2, b_1> in h_{A, B, f}		[305 R]
+
+						507. @x [ x in dom h_{A, B, f} <--> 3y [ <x, y> in h_{A, B, f} ] ]			[5.D7]
+
+						508. x_2 in dom h_{A, B, f} <--> 3y [ <x_2, y> in h_{A, B, f} ]			[507 UI/x_2]
+
+						509. 3y [ <x_2, y> in h_{A, B, f} ]			[506 EG/b_1->y]
+
+						510. x_2 in dom h_{A, B, f}			[508 BC 509 MP]
+
+						511. dom h_{A, B, f} = ω		[310 SL SR]
+
+						512. x_2 in ω			[510 511 LL]
+
+						513. 		[512 DD]
+					
+					514. h_{A, B, f}(x_2) ⊆ ∩(S_{A, B, f})		[504 505 MP]
+
+					515. @t [ t in h_{A, B, f}(x_2) --> t in ∩(S_{A, B, f}) ]			[514 EQUIV.]
+
+					516. x in h_{A, B, f}(x_2) --> x in ∩(S_{A, B, f})			[515 UI/x]
+
+					517. x in b_1			[301 R]
+
+					518. h_{A, B, f}(x_2) = b_1			[311 R]
+
+					519. x in h_{A, B, f}(x_2)			[517 518 LL]
+
+					520. x in ∩(S_{A, B, f})			[516 519 MP]
+
+					521. 		[520 CD]
+				
+				522. x in ∩(S_{A, B, f}) <--> x in U(ran h_{A, B, f})			[65 294 CB]
+
+				523. 		[522 UD]
+			
+			524. ∩(S_{A, B, f}) = U(ran h_{A, B, f})			[62 63 MP]
+
+			525.		[524 DD]
+			
+		526. 		[60 CD]
+	
+	527. 		[5 UD]
+
+
 
 
 
