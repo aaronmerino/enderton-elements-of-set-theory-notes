@@ -1,0 +1,83 @@
+Axioms, Definitions, and Theorems:
+	Definition of Peano System: ***
+		@S, N, e [ <S, N, e> is a Peano System <--> [ 
+									S: N->N & 				// this implies N is closed under S (as the above statement says)
+									e in N & 					// so, N satisfies "e in N & @x [ x in N --> S(x) in N ]"
+
+									~(e in ran S) &
+									S is single-rooted &
+									@A [ A ⊆ N --> [ e in A & @x [ x in A --> S(x) in A ] --> A = N ] ]			// this is so that N is the "smallest" such set satisfying "e in N & @x [ x in N --> S(x) in N ]"
+									
+									] 
+						]
+
+  [Pg 71 existence of successor function that is restricted to ω]
+    3D [ @t [ t in D <--> 3n [ n in ω & t = <n, n+> ] ] ]
+    Definition (its uniqueness is always due to Ext. Axiom):
+      σ is called the successor function restricted to ω
+      @t [ t in σ <--> 3n [ n in ω & t = <n, n+> ] ]
+
+	Theorem 4D:
+		<σ, ω, { }> is a Peano System
+
+  [Recursion Theorem on ω]
+    @F, A, a [ a in A & F:A->A --> 3_1p [ p:ω->A & p(0) = a & @n [ n in ω --> p(n+) = F(p(n)) ] ] ]
+
+
+
+
+1. Show @m [ m in ω -->  3_1p [ p:ω->ω & p(0) = m & @n [ n in ω --> p(n+) = σ(p(n)) ] ] ]  
+
+  2. let m be a set
+
+  3. Show m in ω -->  3_1p [ p:ω->ω & p(0) = m & @n [ n in ω --> p(n+) = σ(p(n)) ] ]
+
+    4. m in ω  [ACD]
+
+    5. @F, A, a [ a in A & F:A->A --> 3_1p [ p:ω->A & p(0) = a & @n [ n in ω --> p(n+) = F(p(n)) ] ] ]  [Recursion Theorem on ω]
+
+    6. m in ω & σ:ω->ω --> 3_1p [ p:ω->ω & p(0) = m & @n [ n in ω --> p(n+) = σ(p(n)) ] ]      [5 UI/σ, ω, m]
+
+    7. Show σ:ω->ω
+
+      8. <σ, ω, { }> is a Peano System      [Theorem 4D]
+
+      9. @S, N, e [ <S, N, e> is a Peano System <--> [ 
+									S:N->N & 				  // this implies N is closed under S (as the above statement says)
+									e in N & 					// so, N satisfies "e in N & @x [ x in N --> S(x) in N ]"
+
+									~(e in ran S) &
+									S is single-rooted &
+									@A [ A ⊆ N --> [ e in A & @x [ x in A --> S(x) in A ] --> A = N ] ]			// this is so that N is the "smallest" such set satisfying "e in N & @x [ x in N --> S(x) in N ]"
+									
+									] 
+						]     [Def. of Peano System]
+
+      10. <σ, ω, { }> is a Peano System <--> 
+              [ 
+                σ:ω->ω & 				
+                { } in ω & 					
+
+                ~({ } in ran σ) &
+                σ is single-rooted &
+                @A [ A ⊆ ω --> [ { } in A & @x [ x in A --> σ(x) in A ] --> A = ω ] ]
+              ]     [9 UI/σ, ω, { }]
+      
+      11. σ:ω->ω & 				
+          { } in ω & 					
+
+          ~({ } in ran σ) &
+          σ is single-rooted &
+          @A [ A ⊆ ω --> [ { } in A & @x [ x in A --> σ(x) in A ] --> A = ω ] ]     [10 BC 8 MP]
+
+      12. σ:ω->ω     [11 SL SL SL SL]
+
+      13.     [13 DD]
+    
+    14. m in ω & σ:ω->ω      [4 7 ADJ]
+
+    15. 3_1p [ p:ω->ω & p(0) = m & @n [ n in ω --> p(n+) = σ(p(n)) ] ]     [6 14 MP]
+
+    16.    [15 CD]
+
+  17.    [3 UD]
