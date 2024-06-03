@@ -70,10 +70,10 @@ Set of Natural Numbers Chapter:
   1. {}+ = {}+++    [AID]
 
   ////////
-  1.D0. @x [ ~(x in {}) ]         [Empty Set Axiom & Ext. Axiom]
-  1.D1. {}+ := {} ∪ {{}}          [Def. of successor UI/{}]
-  1.D2. {}++ := {}+ ∪ {{}+}       [Def. of successor UI/{}+]
-  1.D3. {}+++ := {}++ ∪ {{}++}    [Def. of successor UI/{}++]
+  0.D0. @x [ ~(x in {}) ]         [Empty Set Axiom & Ext. Axiom]
+  0.D1. {}+ := {} ∪ {{}}          [Def. of successor UI/{}]
+  0.D2. {}++ := {}+ ∪ {{}+}       [Def. of successor UI/{}+]
+  0.D3. {}+++ := {}++ ∪ {{}++}    [Def. of successor UI/{}++]
   ////////
 
   2. Show {}++ in {}+++
@@ -112,7 +112,7 @@ Set of Natural Numbers Chapter:
 
     19. {}++ in {} or {}++ in {{}}      [18 BC 16 MP]
 
-    20. @x [ ~(x in {}) ]     [1.D0]
+    20. @x [ ~(x in {}) ]     [0.D0]
 
     21. ~({}++ in {})     [20 UI/{}++]
 
@@ -155,7 +155,7 @@ Set of Natural Numbers Chapter:
     
     40. {}+ in {}     [26 27 LL]
 
-    41. @x [ ~(x in {}) ]     [1.D0]
+    41. @x [ ~(x in {}) ]     [0.D0]
 
     42. ~({}+ in {})      [41 UI/{}+]
 
