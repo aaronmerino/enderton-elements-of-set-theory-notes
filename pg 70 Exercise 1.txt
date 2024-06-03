@@ -1,0 +1,166 @@
+Axioms, Definitions, and Theorems:
+	Extensionality Axiom:
+		@A, B [ @x [ x in A <--> x in B ] --> A = B ]
+
+	Converse of Extensionality Axiom (Theorem Pg.2):
+		@A, B [ A = B  --> @x [ x in A <--> x in B ]  ]
+
+	Empty Set Axiom:
+		3B [ @x [ ~(x in B) ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		{ } is the set having no members
+			[You can think of {} as a 0-ary operator. It refer to one set and one set only!]
+
+	LEMMA - NON-EMPTY:
+		@A [ A != {} --> 3t [ t in A ] ]
+		
+	Pairing Axiom:
+		@u, v [ 3B [ @x [ x in B <--> x = u or x = v ] ] ]
+			Definition (its uniqueness is always due to Ext. Axiom):
+			For any sets u, v, the pair set {u, v} is the set whose only members are u and v.
+			[You can think of {u, v} as a 2-ary operator. It refer to one set and one set only based on the sets u and v!]
+
+			Definition:
+			Let {x} := {x, x} is the set whose only members are x and x
+
+	Union Axiom (Preliminary Form):
+		@a, b [ 3B [ @x [ x in B <--> x in a or x in b ] ] ]
+			Definition (its uniqueness is always due to Ext. Axiom):
+			For any sets a, b, the union a ∪ b is the set whose members are those sets belonging either to a or to b (or both).
+			[You can think of a ∪ b as a 2-ary operator. It refer to one set and one set only based on the sets a and b!]
+
+Set of Natural Numbers Chapter:
+	Zero:
+		0 := { }
+		
+	Definition of successor:
+		@a [ a+ := a ∪ {a} ]
+		notes:
+			{a} can be constructed using Pairing Axiom (singleton)
+			a ∪ {a} can be constructed using Union Axiom
+
+	Definition of inductive:
+		@A [ A is inductive <--> { } in A & @a [ a in A --> a+ in A ] ]
+
+	Inifinity Axiom:
+		3A [ A is inductive ]
+		3A [ { } in A & @a [ a in A --> a+ in A ] ]
+
+	Definition of a natural number:
+		@b [ b is a natural number <--> @A [ A is inductive --> b in A ] ]
+
+	Theorem 4A:
+		3D [ @b [ b in D <--> b is a natural number ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			ω is the set whose members are exactly the natural numbers 
+			@b [ b in ω <--> b is a natural number ]
+
+	Theorem 4B:
+		ω is inductive & @A [ A is inductive & A != ω --> @t [ t in ω --> t in A ] ]
+
+	Induction Principle for ω:
+		@T [ T is inductive & @n [ n in T --> n in ω ] --> T = ω ]
+
+	Theorem 4C:
+		@n [ n is a natural number & n != { } --> 3k [ k is a natural number & k+ = n ] ]
+
+
+0. Show {}+ != {}+++
+
+  1. {}+ = {}+++    [AID]
+
+  ////////
+  1.D0. @x [ ~(x in {}) ]         [Empty Set Axiom & Ext. Axiom]
+  1.D1. {}+ := {} ∪ {{}}          [Def. of successor UI/{}]
+  1.D2. {}++ := {}+ ∪ {{}+}       [Def. of successor UI/{}+]
+  1.D3. {}+++ := {}++ ∪ {{}++}    [Def. of successor UI/{}++]
+  ////////
+
+  2. Show {}++ in {}+++
+
+    3. @t [ t in {}+++ <--> t in {}++ or t in {{}++} ]    [0.D?]
+
+    4. {}++ in {}+++ <--> {}++ in {}++ or {}++ in {{}++}      [3 UI/{}++]
+
+    5. Show {}++ in {{}++}
+
+      6. @t [ t in {{}++} <--> t = {}++ or t = {}++ ]    [0.D?]
+
+      7. {}++ in {{}++} <--> {}++ = {}++ or {}++ = {}++   [6 UI/{}++]
+
+      8. {}++ = {}++      [SID/{}++]
+
+      9. {}++ = {}++ or {}++ = {}++     [8 ADD/{}++ = {}++]
+
+      10. {}++ in {{}++}      [7 BC 9 MP]
+
+      11.     [10 DD]
+    
+    12. {}++ in {}++ or {}++ in {{}++}      [5 ADD/{}++ in {}++]
+
+    13. {}++ in {}+++     [4 BC 12 MP]
+
+    14.   [13 DD]
+
+  15. Show ~({}++ in {}+)
+
+    16. {}++ in {}+     [AID]
+
+    17. @t [ t in {}+ <--> t in {} or t in {{}} ]    [0.D?]
+
+    18. {}++ in {}+ <--> {}++ in {} or {}++ in {{}}     [17 UI/{}++]
+
+    19. {}++ in {} or {}++ in {{}}      [18 BC 16 MP]
+
+    20. @x [ ~(x in {}) ]     [1.D0]
+
+    21. ~({}++ in {})     [20 UI/{}++]
+
+    22. {}++ in {{}}      [19 21 MTP]
+
+    23. @t [ t in {{}} <--> t = {} or t = {} ]    [0.D?]
+
+    24. {}++ in {{}} <--> {}++ = {} or {}++ = {}    [23 UI/{}++]
+
+    25. {}++ = {} or {}++ = {}      [24 BC 22 MP]
+
+    26. {}++ = {}     [25 SIMPLIFY_OR]
+
+
+    27. Show {}+ in {}++
+
+      28. @t [ t in {}++ <--> t in {}+ or t in {{}+} ]    [0.D?]
+
+      29. {}+ in {}++ <--> {}+ in {}+ or {}+ in {{}+}     [28 UI/{}+]
+
+      30. Show {}+ in {{}+}
+
+        31. @t [ t in {{}+} <--> t = {}+ or t = {}+ ]    [0.D?]
+
+        32. {}+ in {{}+} <--> {}+ = {}+ or {}+ = {}+      [31 UI/{}+]
+
+        33. {}+ = {}+     [SID/{}+]
+
+        34. {}+ = {}+ or {}+ = {}+      [33 ADD/{}+ = {}+]
+
+        35. {}+ in {{}+}      [32 BC 34 MP]
+
+        36.     [35 DD]
+      
+      37. {}+ in {}+ or {}+ in {{}+}      [30 ADD/{}+ in {}+]
+
+      38. {}+ in {}++     [29 BC 37 MP]
+
+      39.   [38 DD]
+    
+    40. {}+ in {}     [26 27 LL]
+
+    41. @x [ ~(x in {}) ]     [1.D0]
+
+    42. ~({}+ in {})      [41 UI/{}+]
+
+    43.     [40 42 ID]
+  
+  44. {}++ in {}+     [2 1 LL]
+
+  45.     [15 44 ID]
