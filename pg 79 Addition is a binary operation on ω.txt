@@ -1,0 +1,271 @@
+Axioms, Definitions, and Theorems:
+	Extensionality Axiom:
+		@A, B [ @x [ x in A <--> x in B ] --> A = B ]
+
+	Subset Axioms:
+		For each formula __ not containing B, the following is an axiom:
+		@t1 ... @tk @c [ 3B [ @x [ x in B <--> x in c & __ ] ] ]
+			Definition:
+			For any set t­1, ..., tk and c, the subset B = {x in c | __ } is the set whose members are exactly those sets in c and __	
+
+	Corollary 3C:
+		@A, B [ 3D [ @t[ t in D <--> 3x, y [x in A & y in B & t = <x, y> ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets A, B,  {<x, y> | x in A & y in B}    is the set whose members are exactly the sets of the form <x, y> for some x in A & y in B
+		Also known as the Cartesian Product A x B of the sets A and B!
+
+	ran R: 
+		@R [ 3D [ @x [ x in D <--> 3t [ <t, x> in R ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets R,  ran R  is the set whose members are those 2nd-coordinate set of some ordered pair in R
+    
+      
+	Pg 43 Existence part:	
+		@F, x [ 3D [ @y [ y in D <--> <x, y> in F ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			For any F, x, the set {y | <x, y> in F} is the set that contains all 2nd-coordinate sets of all ordered pairs in F where x is the first-coordinate set.
+
+	Definition of F(x): 
+	(We define it like this for the purpose of making sure that F(x) is always defined for any F and x, so that we can always refer to it)
+		@F, x [ F(x) := U({y | <x, y> in F}) ]
+
+	Union of singleton (Pg 43):
+		@w [ w = U({w}) ]	
+
+	Function:
+		Definition:
+		@F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]
+
+	
+	[MARIN] Pg 43 When F is a function and x the dom F, F(x) is y IFF <x, y> in F:
+		@F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]
+		
+
+	Identity relation is a function:
+		@S [ I_S is a function ]
+
+	Definition of into:
+		@F, A, B [ F maps A into B (F: A->B) <--> 
+						F is a function &
+						dom F = A &
+						ran F ⊆ B 
+					]  
+
+
+Set of Natural Numbers Chapter:
+	Zero:
+		0 := { }
+		
+	Definition of successor:
+		@a [ a+ := a ∪ {a} ]
+		notes:
+			{a} can be constructed using Pairing Axiom (singleton)
+			a ∪ {a} can be constructed using Union Axiom
+
+	Definition of inductive:
+		@A [ A is inductive <--> { } in A & @a [ a in A --> a+ in A ] ]
+
+	Inifinity Axiom:
+		3A [ A is inductive ]
+		3A [ { } in A & @a [ a in A --> a+ in A ] ]
+
+	Definition of a natural number:
+		@b [ b is a natural number <--> @A [ A is inductive --> b in A ] ]
+
+	Theorem 4A:
+		3D [ @b [ b in D <--> b is a natural number ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			ω is the set whose members are exactly the natural numbers 
+			@b [ b in ω <--> b is a natural number ]
+
+	[海老] pg 79 Arithmetic A_m existence:
+		@m [ m in ω -->  3_1p [ p:ω->ω & p(0) = m & @n [ n in ω --> p(n+) = σ(p(n)) ] ] ]  
+			Definition (uniqueness due to 3_1p):
+				for any m in ω, A_m:ω->ω & A_m(0) = m & @n [ n in ω --> A_m(n+) = σ(A_m(n)) ]
+
+	Definition of a binary operation:
+		@A, f [ f is a binary operation on the set A <--> f: A x A -> A ]
+
+  [SUNJOS] Subset Axiom (applied):
+    @c [ 3D [ @t [ t in D <--> t in c & 3m, n [ m in ω & n in ω & t = <<m, n>, A_m(n)> ] ] ] ]
+
+
+1. Show 3D [ @t [ t in D <--> 3m, n [ m in ω & n in ω & t = <<m, n>, A_m(n)> ] ] ]
+
+  ////////
+  1.D1. @t [ t in (ω x ω) <--> 3x, y [ x in ω & y in ω & t = <x, y> ] ]                 [Corollary 3C UI/ω, ω & Ext. Axiom]
+  1.D2. @t [ t in (ω x ω) x ω <--> 3x, y [ x in (ω x ω) & y in ω & t = <x, y> ] ]     [Corollary 3C UI/(ω x ω), ω & Ext. Axiom]
+  ////////
+
+  2. @c [ 3D [ @t [ t in D <--> t in c & 3m, n [ m in ω & n in ω & t = <<m, n>, A_m(n)> ] ] ] ]     [SUNJOS]
+
+  3. 3D [ @t [ t in D <--> t in (ω x ω) x ω & 3m, n [ m in ω & n in ω & t = <<m, n>, A_m(n)> ] ] ]      [2 UI/(ω x ω) x ω]
+
+  4. @t [ t in D_1 <--> t in (ω x ω) x ω & 3m, n [ m in ω & n in ω & t = <<m, n>, A_m(n)> ] ]           [3 EI/D_1]
+
+  5. Show @t [ t in D_1 <--> 3m, n [ m in ω & n in ω & t = <<m, n>, A_m(n)> ] ]
+
+    6. let t be a set
+
+    7. Show t in D_1 --> 3m, n [ m in ω & n in ω & t = <<m, n>, A_m(n)> ]
+
+      8. t in D_1   [ACD]
+
+      9. @t [ t in D_1 <--> t in (ω x ω) x ω & 3m, n [ m in ω & n in ω & t = <<m, n>, A_m(n)> ] ]     [4 R]
+
+      10. t in D_1 <--> t in (ω x ω) x ω & 3m, n [ m in ω & n in ω & t = <<m, n>, A_m(n)> ]     [9 UI/t]
+
+      11. t in (ω x ω) x ω & 3m, n [ m in ω & n in ω & t = <<m, n>, A_m(n)> ]     [10 BC 8 MP]
+
+      12. 3m, n [ m in ω & n in ω & t = <<m, n>, A_m(n)> ]      [11 SR]
+
+      13.   [12 CD]
+    
+    14. Show 3m, n [ m in ω & n in ω & t = <<m, n>, A_m(n)> ] --> t in D_1 
+
+      15. 3m, n [ m in ω & n in ω & t = <<m, n>, A_m(n)> ]      [ACD]
+
+      16. m_2 in ω & n_2 in ω & t = <<m_2, n_2>, A_{m_2}(n_2)>      [15 EI/m_2, n_2]
+
+      ////////
+      14.D1. A_{m_2}:ω->ω & A_{m_2}(0) = m_2 & @n [ n in ω --> A_{m_2}(n+) = σ(A_{m_2}(n)) ]        [海老 UI/m_2 & EI_1->A_{m_2}] 
+      14.D2. @y [ y in ran A_{m_2} <--> 3x [ <x, y> in A_{m_2} ] ]      [ran UI/A_{m_2} & Ext. Axiom]
+      ////////
+
+      17. @t [ t in D_1 <--> t in (ω x ω) x ω & 3m, n [ m in ω & n in ω & t = <<m, n>, A_m(n)> ] ]      [4 R]
+
+      18. t in D_1 <--> t in (ω x ω) x ω & 3m, n [ m in ω & n in ω & t = <<m, n>, A_m(n)> ]     [17 UI/t]
+
+      19. Show t in (ω x ω) x ω
+
+        20. @t [ t in (ω x ω) x ω <--> 3x, y [ x in (ω x ω) & y in ω & t = <x, y> ] ]     [1.D2]
+
+        21. t in (ω x ω) x ω <--> 3x, y [ x in (ω x ω) & y in ω & t = <x, y> ]      [20 UI/t]
+
+        22. Show 3x, y [ x in (ω x ω) & y in ω & t = <x, y> ]
+
+          23. Show <m_2, n_2> in (ω x ω)
+
+            24. @t [ t in (ω x ω) <--> 3x, y [ x in ω & y in ω & t = <x, y> ] ]     [1.D1]
+
+            25. <m_2, n_2> in (ω x ω) <--> 3x, y [ x in ω & y in ω & <m_2, n_2> = <x, y> ]      [24 UI/]
+
+            26. m_2 in ω & n_2 in ω     [16 SL]
+
+            27. <m_2, n_2> = <m_2, n_2>   [SID]
+
+            28. m_2 in ω & n_2 in ω & <m_2, n_2> = <m_2, n_2>     [26 27 ADJ]
+
+            29. 3y [ m_2 in ω & y in ω & <m_2, n_2> = <m_2, y> ]      [28 EG/n_2->y]
+
+            30. 3x [ 3y [ x in ω & y in ω & <m_2, n_2> = <x, y> ] ]    [29 EG/m_2->x]
+
+            31. 3x, y [ x in ω & y in ω & <m_2, n_2> = <x, y> ]     [30 EQUIV.]
+
+            32. <m_2, n_2> in (ω x ω)     [25 BC 31 MP]
+
+            33.   [32 DD]
+          
+          34. Show A_{m_2}(n_2) in ω 
+
+            35. A_{m_2}:ω->ω    [14.D1 SL SL]
+
+            36. @F, C, B [ F:C->B <--> 
+                            F is a function &
+                            dom F = C &
+                            ran F ⊆ B 
+                          ]       [Def. of into]
+            
+            37. A_{m_2}:ω->ω <--> 
+                            A_{m_2} is a function &
+                            dom A_{m_2} = ω &
+                            ran A_{m_2} ⊆ ω     [36 UI/A_{m_2}, ω, ω]
+            
+            38. A_{m_2} is a function &
+                dom A_{m_2} = ω &
+                ran A_{m_2} ⊆ ω     [37 BC 35 MP]
+              
+
+            39. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]      [MARIN]
+
+            40. A_{m_2} is a function & n_2 in dom A_{m_2} -->  @w [ <n_2, w> in A_{m_2} <--> A_{m_2}(n_2) = w ]      [39 UI/A_{m_2} UI/n_2]
+
+            41. Show n_2 in dom A_{m_2}
+
+              42. dom A_{m_2} = ω     [38 SL SR]
+
+              43. n_2 in ω      [16 SL SR]
+
+              44. n_2 in dom A_{m_2}      [42 43 LL]
+
+              45.     [44 DD]
+            
+            46. A_{m_2} is a function     [38 SL SL]
+
+            47. A_{m_2} is a function & n_2 in dom A_{m_2}      [46 41 ADJ]
+
+            48. @w [ <n_2, w> in A_{m_2} <--> A_{m_2}(n_2) = w ]      [40 47 MP]
+
+            49. <n_2, A_{m_2}(n_2)> in A_{m_2} <--> A_{m_2}(n_2) = A_{m_2}(n_2)       [48 UI/A_{m_2}(n_2)]
+
+            50. A_{m_2}(n_2) = A_{m_2}(n_2)     [SID]
+
+            51. <n_2, A_{m_2}(n_2)> in A_{m_2}      [49 BC 50 MP]
+
+            52. @y [ y in ran A_{m_2} <--> 3x [ <x, y> in A_{m_2} ] ]    [14.D2]
+
+            53. A_{m_2}(n_2) in ran A_{m_2} <--> 3x [ <x, A_{m_2}(n_2)> in A_{m_2} ]      [52 UI/A_{m_2}(n_2)]
+
+            54. 3x [ <x, A_{m_2}(n_2)> in A_{m_2} ]     [51 EG/n_2->x]
+
+            55. A_{m_2}(n_2) in ran A_{m_2}     [53 BC 54 MP]
+
+
+            56. ran A_{m_2} ⊆ ω     [38 SR]
+
+            57. @t [ t in ran A_{m_2} --> t in ω ]      [56 EQUIV.]
+
+            58. A_{m_2}(n_2) in ran A_{m_2} --> A_{m_2}(n_2) in ω     [57 UI/A_{m_2}(n_2)]
+
+            59. A_{m_2}(n_2) in ω     [55 58 MP]
+
+            60.     [59 DD]
+          
+          61. t = <<m_2, n_2>, A_{m_2}(n_2)>      [16 SR]
+
+          62. <m_2, n_2> in (ω x ω) & A_{m_2}(n_2) in ω & t = <<m_2, n_2>, A_{m_2}(n_2)>      [23 34 61 ADJ]
+
+          63. 3y [ <m_2, n_2> in (ω x ω) & y in ω & t = <<m_2, n_2>, y> ]     [62 EG/A_{m_2}(n_2) -> y]
+
+          64. 3x [ 3y [ x in (ω x ω) & y in ω & t = <x, y> ] ]      [63 EG/<m_2, n_2> -> x]
+
+          65. 3x, y [ x in (ω x ω) & y in ω & t = <x, y> ]      [64 EQUIV.]
+
+          66.   [65 DD]
+        
+        67. t in (ω x ω) x ω      [21 BC 22 MP]
+
+        68.     [67 DD]
+      
+      69. t in (ω x ω) x ω & 3m, n [ m in ω & n in ω & t = <<m, n>, A_m(n)> ]     [19 15 ADJ]
+
+      70. t in D_1      [18 BC 69 MP]
+
+      71.   [70 CD]
+    
+    72. t in D_1 <--> 3m, n [ m in ω & n in ω & t = <<m, n>, A_m(n)> ]      [7 14 CB]
+
+    73.   [72 UD]
+  
+  74. 3D [ @t [ t in D <--> 3m, n [ m in ω & n in ω & t = <<m, n>, A_m(n)> ] ] ]      [5 EG/D_1->D]
+
+  75.   [74 DD]
+
+
+Definition (its uniqueness is always due to Ext. Axiom):
+  @t [ t in + <--> 3m, n [ m in ω & n in ω & t = <<m, n>, A_m(n)> ] ]
+
+  + := {<<m, n>, p> | m in ω & n in ω & p = A_m(n)}
+
+
+1. Show + is a binary operation on ω
