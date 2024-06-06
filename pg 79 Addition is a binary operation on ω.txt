@@ -14,6 +14,11 @@ Axioms, Definitions, and Theorems:
 		For any set sets A, B,  {<x, y> | x in A & y in B}    is the set whose members are exactly the sets of the form <x, y> for some x in A & y in B
 		Also known as the Cartesian Product A x B of the sets A and B!
 
+	Relation:
+		Definition:
+		A relation R is a set of ordered pairs.
+		@R [ R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ] ]
+
 	ran R: 
 		@R [ 3D [ @x [ x in D <--> 3t [ <t, x> in R ] ] ] ]
 		Definition (its uniqueness is always due to Ext. Axiom):
@@ -268,4 +273,83 @@ Definition (its uniqueness is always due to Ext. Axiom):
   + := {<<m, n>, p> | m in ω & n in ω & p = A_m(n)}
 
 
-1. Show + is a binary operation on ω
+1. Show + is a binary operation on the set ω
+
+  ////////
+  1.D1. @t [ t in + <--> 3m, n [ m in ω & n in ω & t = <<m, n>, A_m(n)> ] ]     [Definition of +]
+  ////////
+
+  2. @A, f [ f is a binary operation on the set A <--> f: A x A -> A ]      [Definition of a binary operation]
+
+  3. + is a binary operation on the set ω <--> +: ω x ω -> ω      [2 UI/ω UI/+]
+
+  4. Show +: ω x ω -> ω
+
+    5. @F, A, B [ F: A->B <--> 
+                  F is a function &
+                  dom F = A &
+                  ran F ⊆ B 
+                ]     [Def. of into]
+    
+    6. +: ω x ω->ω <--> 
+                  + is a function &
+                  dom + = ω x ω &
+                  ran + ⊆ ω       [5 UI/+, ω x ω, ω]
+
+    7. Show + is a function
+
+      8. @F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]      [Def. of function]
+
+      9. + is a function <--> + is a relation & @x [ x in dom + --> 3_1y [ <x, y> in + ] ]      [8 UI/+]
+
+      10. Show + is a relation
+
+        11. @R [ R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ] ]     [Def. of relation]
+
+        12. + is a relation <--> @t [ t in + --> 3x, y[ t = <x, y> ] ]      [11 UI/+]
+
+        13. Show @t [ t in + --> 3x, y[ t = <x, y> ] ]
+
+          14. let t be a set
+
+          15. Show t in + --> 3x, y[ t = <x, y> ]
+
+            16. t in +      [ACD]
+
+            17. @t [ t in + <--> 3m, n [ m in ω & n in ω & t = <<m, n>, A_m(n)> ] ]       [1.D1]
+
+            18. t in + <--> 3m, n [ m in ω & n in ω & t = <<m, n>, A_m(n)> ]      [17 UI/t]
+
+            19. 3m, n [ m in ω & n in ω & t = <<m, n>, A_m(n)> ]      [18 BC 16 MP]
+
+            20. m_1 in ω & n_1 in ω & t = <<m_1, n_1>, A_{m_1}(n_1)>      [19 EI/m_1, n_1]
+
+            21. t = <<m_1, n_1>, A_{m_1}(n_1)>      [20 SR]
+
+            22. 3y [ t = <<m_1, n_1>, y> ]     [21 EG/A_{m_1}(n_1) -> y]
+
+            23. 3x [ 3y [ t = <x, y> ] ]      [22 EG/<m_1, n_1> -> x]
+
+            24. 3x, y[ t = <x, y> ]     [23 EQUIV.]
+
+            25.     [24 CD]
+          
+          26.     [15 UD]
+        
+        27. + is a relation     [12 BC 13 MP]
+
+        28.   [27 DD]
+      
+      29. Show @x [ x in dom + --> 3_1y [ <x, y> in + ] ]
+
+        30. let x be a set
+
+        31. Show x in dom + --> 3_1y [ <x, y> in + ]
+
+          32. x in dom +      [ACD]
+
+          33. W
+
+    0. Show dom + = ω x ω
+
+    0. Show ran + ⊆ ω
