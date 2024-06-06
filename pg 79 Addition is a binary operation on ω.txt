@@ -8,6 +8,9 @@ Axioms, Definitions, and Theorems:
 			Definition:
 			For any set t­1, ..., tk and c, the subset B = {x in c | __ } is the set whose members are exactly those sets in c and __	
 
+	Theorem 3A:
+		@u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]
+
 	Corollary 3C:
 		@A, B [ 3D [ @t[ t in D <--> 3x, y [x in A & y in B & t = <x, y> ] ] ] ]
 		Definition (its uniqueness is always due to Ext. Axiom):
@@ -19,6 +22,11 @@ Axioms, Definitions, and Theorems:
 		A relation R is a set of ordered pairs.
 		@R [ R is a relation <--> @t [ t in R --> 3x, y[ t = <x, y> ] ] ]
 
+	dom R: 
+		@R [ 3D [ @x [ x in D <--> 3y [ <x, y> in R ] ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+		For any set sets R,  dom R  is the set whose members are those 1st-coordinate set of some ordered pair in R
+    
 	ran R: 
 		@R [ 3D [ @x [ x in D <--> 3t [ <t, x> in R ] ] ] ]
 		Definition (its uniqueness is always due to Ext. Axiom):
@@ -277,6 +285,8 @@ Definition (its uniqueness is always due to Ext. Axiom):
 
   ////////
   1.D1. @t [ t in + <--> 3m, n [ m in ω & n in ω & t = <<m, n>, A_m(n)> ] ]     [Definition of +]
+
+  1.D2. @x [ x in dom + <--> 3y [ <x, y> in + ] ]     [dom UI/+ & Ext. Axiom]
   ////////
 
   2. @A, f [ f is a binary operation on the set A <--> f: A x A -> A ]      [Definition of a binary operation]
@@ -348,8 +358,106 @@ Definition (its uniqueness is always due to Ext. Axiom):
 
           32. x in dom +      [ACD]
 
-          33. W
+          33. @x [ x in dom + <--> 3y [ <x, y> in + ] ]     [1.D2]
 
-    0. Show dom + = ω x ω
+          34. x in dom + <--> 3y [ <x, y> in + ]      [33 UI/x]
+
+          35. 3y [ <x, y> in + ]      [34 BC 32 MP]
+
+          36. <x, y_1> in +     [35 EI/y_1]
+
+          37. Show @w [ <x, w> in + --> w = y_1 ]
+
+            38. let w be a set
+
+            39. Show <x, w> in + --> w = y_1
+
+              40. <x, w> in +     [ACD]
+
+              41. @t [ t in + <--> 3m, n [ m in ω & n in ω & t = <<m, n>, A_m(n)> ] ]     [1.D1]
+
+              42. <x, y_1> in + <--> 3m, n [ m in ω & n in ω & <x, y_1> = <<m, n>, A_m(n)> ]      [41 UI/<x, y_1>]
+
+              43. 3m, n [ m in ω & n in ω & <x, y_1> = <<m, n>, A_m(n)> ]     [42 BC 36 MP]
+
+              44. m_2 in ω & n_2 in ω & <x, y_1> = <<m_2, n_2>, A_{m_2}(n_2)>     [43 EI/m_2 EI/n_2]
+
+
+              45. @t [ t in + <--> 3m, n [ m in ω & n in ω & t = <<m, n>, A_m(n)> ] ]     [1.D1]
+
+              46. <x, w> in + <--> 3m, n [ m in ω & n in ω & <x, w> = <<m, n>, A_m(n)> ]      [45 UI/<x, w>]
+
+              47. 3m, n [ m in ω & n in ω & <x, w> = <<m, n>, A_m(n)> ]     [46 BC 40 MP]
+
+              48. m_3 in ω & n_3 in ω & <x, w> = <<m_3, n_3>, A_{m_3}(n_3)>     [47 EI/m_3 EI/n_3]
+
+
+              49. @u, v, a, b [ <u, v> = <a, b>  <-->  u = a & v = b ]      [Theorem 3A]
+
+              50. <x, y_1> = <<m_2, n_2>, A_{m_2}(n_2)>  <-->  x = <m_2, n_2> & y_1 = A_{m_2}(n_2)      [49 UI/x, y_1, <m_2, n_2>, A_{m_2}(n_2)]
+
+              51. <x, y_1> = <<m_2, n_2>, A_{m_2}(n_2)>     [44 SR]
+
+              52. x = <m_2, n_2> & y_1 = A_{m_2}(n_2)     [50 BC 51 MP]
+
+
+              53. @u, v, a, b [ <u, v> = <a, b>  <-->  u = a & v = b ]      [Theorem 3A]
+
+              54. <x, w> = <<m_3, n_3>, A_{m_3}(n_3)>  <-->  x = <m_3, n_3> & w = A_{m_3}(n_3)      [53 UI/x, w, <m_3, n_3>, A_{m_3}(n_3)]
+
+              55. <x, w> = <<m_3, n_3>, A_{m_3}(n_3)>     [48 SR]
+
+              56. x = <m_3, n_3> & w = A_{m_3}(n_3)     [54 BC 55 MP]
+
+
+              57. x = <m_2, n_2>    [52 SL]
+
+              58. x = <m_3, n_3>    [56 SL]
+
+              59. <m_2, n_2> = <m_3, n_3>     [57 58 LL]
+
+
+              60. @u, v, a, b [ <u, v> = <a, b>  <-->  u = a & v = b ]      [Theorem 3A]
+
+              61. <m_2, n_2> = <m_3, n_3>  <-->  m_2 = m_3 & n_2 = n_3      [60 UI/m_2, n_2, m_3, n_3]
+
+              62. m_2 = m_3 & n_2 = n_3     [61 BC 59 MP]
+
+
+              63. m_2 = m_3     [62 SL]
+
+              64. n_2 = n_3     [62 SR]
+
+              65. y_1 = A_{m_2}(n_2)    [52 SR]
+
+              66. y_1 = A_{m_3}(n_2)    [65 63 LL]
+
+              67. y_1 = A_{m_3}(n_3)    [66 64 LL]
+
+              68. w = A_{m_3}(n_3)      [56 SR]
+
+              69. w = y_1   [67 68 LL]
+
+              70.   [69 CD]
+            
+            71.     [39 UD]
+          
+          72. <x, y_1> in + & @w [ <x, w> in + --> w = y_1 ]      [36 37 ADJ]
+
+          73. 3y [ <x, y> in + & @w [ <x, w> in + --> w = y ] ]    [72 EG/y_1->y]
+
+          74. 3_1y [ <x, y> in + ]      [73 EQUIV.]
+
+          75.     [74 CD]
+        
+        76.     [31 UD]
+      
+      77. + is a relation & @x [ x in dom + --> 3_1y [ <x, y> in + ] ]      [10 29 ADJ]
+
+      78. + is a function     [9 BC 77 MP]
+
+      79.     [78 DD]
+    
+    80. Show dom + = ω x ω
 
     0. Show ran + ⊆ ω
