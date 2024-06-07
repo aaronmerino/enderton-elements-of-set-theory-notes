@@ -549,7 +549,7 @@ Set of Natural Numbers Chapter:
 				for any m in ω, A_m:ω->ω & A_m(0) = m & @n [ n in ω --> A_m(n+) = σ(A_m(n)) ]
 
 	Definition of a binary operation:
-		@A, f [ f is a binary operation on the set A <--> f: A x A -> A ]
+		@A, f [ f is a binary operation on the set A <--> f: A x A->A ]
 
 Algebra of Sets:
 	Pg 24 Union of empty set:
