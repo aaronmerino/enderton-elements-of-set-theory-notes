@@ -558,6 +558,9 @@ Set of Natural Numbers Chapter:
 
 				+ := {<<m, n>, p> | m in ω & n in ω & p = A_m(n)}
 
+      Definition of {1} + {2}:
+				@m, n [ m, n in ω --> m + n := +(<m, n>) ]
+
 	+ binary operator result:
 		+ is a binary operation on the set ω
 
