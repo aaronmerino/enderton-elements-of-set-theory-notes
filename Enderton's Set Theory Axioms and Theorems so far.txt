@@ -551,6 +551,16 @@ Set of Natural Numbers Chapter:
 	Definition of a binary operation:
 		@A, f [ f is a binary operation on the set A <--> f: A x A->A ]
 
+	Definition of + operator
+		3D [ @t [ t in D <--> 3m, n [ m in ω & n in ω & t = <<m, n>, A_m(n)> ] ] ]
+			Definition (its uniqueness is always due to Ext. Axiom):
+				@t [ t in + <--> 3m, n [ m in ω & n in ω & t = <<m, n>, A_m(n)> ] ]
+
+				+ := {<<m, n>, p> | m in ω & n in ω & p = A_m(n)}
+
+	+ binary operator result:
+		+ is a binary operation on the set ω
+
 Algebra of Sets:
 	Pg 24 Union of empty set:
 		U({}) = ({})
