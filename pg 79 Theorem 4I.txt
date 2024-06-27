@@ -18,7 +18,7 @@ Axioms, Definitions, and Theorems:
 		@F [F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]
 
 	
-	Pg 43 When F is a function and x the dom F, F(x) is y IFF <x, y> in F:
+	[MARIN] Pg 43 When F is a function and x the dom F, F(x) is y IFF <x, y> in F:
 		@F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]
 
 	Definition of into:
@@ -28,7 +28,68 @@ Axioms, Definitions, and Theorems:
 						ran F ⊆ B 
 					]
 
-	pg 79 Arithmetic A_m existence:
+	Zero:
+		0 := { }
+		
+	Definition of successor:
+		@a [ a+ := a ∪ {a} ]
+		notes:
+			{a} can be constructed using Pairing Axiom (singleton)
+			a ∪ {a} can be constructed using Union Axiom
+
+	Definition of inductive:
+		@A [ A is inductive <--> { } in A & @a [ a in A --> a+ in A ] ]
+
+	Inifinity Axiom:
+		3A [ A is inductive ]
+		3A [ { } in A & @a [ a in A --> a+ in A ] ]
+
+	Definition of a natural number:
+		@b [ b is a natural number <--> @A [ A is inductive --> b in A ] ]
+
+	Theorem 4A:
+		3D [ @b [ b in D <--> b is a natural number ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			ω is the set whose members are exactly the natural numbers 
+			@b [ b in ω <--> b is a natural number ]
+
+	Theorem 4B:
+		ω is inductive & @A [ A is inductive & A != ω --> @t [ t in ω --> t in A ] ]
+
+	Induction Principle for ω:
+		@T [ T is inductive & @n [ n in T --> n in ω ] --> T = ω ]
+
+	Theorem 4C:
+		@n [ n is a natural number & n != { } --> 3k [ k is a natural number & k+ = n ] ]
+
+	Definition of Closed Under:
+		@S, A [ S is a function & A ⊆ dom S --> [ A is closed under S <--> @x [ x in A --> S(x) in A ] ] ]
+
+	Pg 70 closed under notes (this will help with definition of Peano System):
+		@N, S [ S: N->N --> N is closed under S ]
+
+	Definition of Peano System: ***
+		@S, N, e [ <S, N, e> is a Peano System <--> [ 
+									S: N->N & 				// this implies N is closed under S (as the above statement says)
+									e in N & 					// so, N satisfies "e in N & @x [ x in N --> S(x) in N ]"
+
+									~(e in ran S) &
+									S is single-rooted &
+									@A [ A ⊆ N --> [ e in A & @x [ x in A --> S(x) in A ] --> A = N ] ]			// this is so that N is the "smallest" such set satisfying "e in N & @x [ x in N --> S(x) in N ]"
+									
+									] 
+						]
+
+	Pg 71 existence of successor function that is restricted to ω:
+		3D [ @t [ t in D <--> 3n [ n in ω & t = <n, n+> ] ] ]
+		Definition (its uniqueness is always due to Ext. Axiom):
+			σ is called the successor function restricted to ω
+			@t [ t in σ <--> 3n [ n in ω & t = <n, n+> ] ]
+
+	Theorem 4D:
+		<σ, ω, { }> is a Peano System
+
+	[先祖代々] pg 79 Arithmetic A_m existence:
 		@m [ m in ω -->  3_1p [ p:ω->ω & p(0) = m & @n [ n in ω --> p(n+) = σ(p(n)) ] ] ]  
 			Definition (uniqueness due to 3_1p):
 				for any m in ω, A_m:ω->ω & A_m(0) = m & @n [ n in ω --> A_m(n+) = σ(A_m(n)) ]
@@ -46,7 +107,7 @@ Axioms, Definitions, and Theorems:
       Definition of {1} + {2}:
 				@m, n [ m, n in ω --> m + n := +(<m, n>) ]
 
-	+ binary operator result:
+	[SHRIMP] + binary operator result:
 		+ is a binary operation on the set ω
 
 
@@ -54,6 +115,18 @@ Axioms, Definitions, and Theorems:
 1. Show @m [ m in ω --> m + 0 = m ]
 
   2. let m be a set
+
+	////////
+  1.D1. @t [ t in + <--> 3m, n [ m in ω & n in ω & t = <<m, n>, A_m(n)> ] ]     [Definition of +]
+
+  1.D2. @x [ x in dom + <--> 3y [ <x, y> in + ] ]     [dom UI/+ & Ext. Axiom]
+
+  1.D3. @t [ t in ω x ω <--> 3x, y [ x in ω & y in ω & t = <x, y> ] ]      [Corollary 3C UI/ω UI/ω]
+
+  1.D4. @y [ y in ran + <--> 3x [ <x, y> in + ] ]     [ran UI/+ & Ext. Axiom]
+
+	1.D5. A_m:ω->ω & A_m(0) = m & @n [ n in ω --> A_m(n+) = σ(A_m(n)) ]     [先祖代々 UI/m & Ext. Axiom]
+	////////
 
   3. Show m in ω --> m + 0 = m
 
@@ -63,9 +136,132 @@ Axioms, Definitions, and Theorems:
 
     6. m, 0 in ω --> m + 0 := +(<m, 0>)     [5 UI/m, 0]
 
-    7. 
+    7. Show 0 in ω
 
-    8. 
+    	8. ω is inductive & @A [ A is inductive & A != ω --> @t [ t in ω --> t in A ] ]			[Theorem 4B]
+
+			9. ω is inductive			[8 SL]
+
+			10. @A [ A is inductive <--> { } in A & @a [ a in A --> a+ in A ] ]			[Def. of inductive]
+
+			11. ω is inductive <--> { } in ω & @a [ a in ω --> a+ in ω ]			[10 UI/ω]
+
+			12. { } in ω & @a [ a in ω --> a+ in ω ]			[11 BC 9 MP]
+
+			13. { } in ω			[12 SL]
+
+			14.	0 := { }			[Definition of zero]
+		
+			15. 0 in ω				[13 14 LL]
+
+			16.		[15 DD]
+
+		17. m, 0 in ω			[4 7 ADJ]
+
+		18. m + 0 := +(<m, 0>)			[6 17 MP]
+
+
+		19. + is a binary operation on the set ω			[SHRIMP]
+
+		20. @A, f [ f is a binary operation on the set A <--> f: A x A->A ]			[Def. of binary operation]
+
+		21. + is a binary operation on the set ω <--> +: ω x ω->ω			[20 UI/+, ω]
+
+		22. +: ω x ω->ω			[21 BC 19 MP]
+
+		23. @F, A, B [ F: A->B <--> 
+											F is a function &
+											dom F = A &
+											ran F ⊆ B 
+									]			[Def. of into]
+		
+		24. +: ω x ω->ω <--> 
+							+ is a function &
+							dom + = ω x ω &
+							ran + ⊆ ω			[23 UI/+, ω x ω, ω]
+		
+		25. + is a function &
+					dom + = ω x ω &
+					ran + ⊆ ω					[24 BC 22 MP]
+
+
+		26. Show <<m, 0>, A_m(0)> in +
+
+			27. @t [ t in + <--> 3m, n [ m in ω & n in ω & t = <<m, n>, A_m(n)> ] ]			[1.D1]
+
+			28. @t [ t in + <--> 3u, v [ u in ω & v in ω & t = <<u, v>, A_u(v)> ] ]			[27 EQUIV.]
+
+			29. <<m, 0>, A_m(0)> in + <--> 3u, v [ u in ω & v in ω & <<m, 0>, A_m(0)> = <<u, v>, A_u(v)> ]			[28 UI/<<m, 0>, A_m(0)>]
+
+			30. Show 3u, v [ u in ω & v in ω & <<m, 0>, A_m(0)> = <<u, v>, A_u(v)> ]
+
+				31. m, 0 in ω			[17 R]
+
+				32. m in ω				[31 SL]
+
+				33. 0 in ω 				[31 SR]
+
+				34. <<m, 0>, A_m(0)> = <<m, 0>, A_m(0)>			[SID]
+
+				35. m in ω & 0 in ω & <<m, 0>, A_m(0)> = <<m, 0>, A_m(0)>				[32 33 34 ADJ]
+
+				36. 3v [ m in ω & v in ω & <<m, 0>, A_m(0)> = <<m, v>, A_m(v)> ]			[35 EG/0->v]
+
+				37. 3u [ 3v [ u in ω & v in ω & <<m, 0>, A_m(0)> = <<u, v>, A_u(v)> ] ]			[36 EG/m->u]
+
+				38. 3u, v [ u in ω & v in ω & <<m, 0>, A_m(0)> = <<u, v>, A_u(v)> ]			[37 EQUIV.]
+
+				39. 		[38 DD]
+			
+			40. <<m, 0>, A_m(0)> in +			[29 BC 30 MP]
+
+			41. 		[40 DD]
+		
+		
+		42. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]			[MARIN]
+
+		43. + is a function & <m, 0> in dom + -->  @w [ <<m, 0>, w> in + <--> +(<m, 0>) = w ]			[42 UI/+ UI/<m, 0>]
+
+		44. + is a function			[25 SL SL]
+
+		45. Show <m, 0> in dom +
+
+			46. @x [ x in dom + <--> 3y [ <x, y> in + ] ] 		[1.D2]
+
+			47. <m, 0> in dom + <--> 3y [ <<m, 0>, y> in + ]			[46 UI/<m, 0>]
+
+			48. <<m, 0>, A_m(0)> in +			[26 R]
+
+			49. 3y [ <<m, 0>, y> in + ]				[48 EG/A_m(0)->y]
+
+			50. <m, 0> in dom +			[47 BC 49 MP]
+
+			51. 		[50 DD]
+		
+		52. + is a function & <m, 0> in dom +			[44 45 ADJ]
+
+		53. @w [ <<m, 0>, w> in + <--> +(<m, 0>) = w ]				[43 52 MP]
+
+		54. <<m, 0>, A_m(0)> in + <--> +(<m, 0>) = A_m(0)			[53 UI/A_m(0)]
+
+		55. +(<m, 0>) = A_m(0)			[54 BC 26 MP]
+
+		56. A_m:ω->ω & A_m(0) = m & @n [ n in ω --> A_m(n+) = σ(A_m(n)) ]		[1.D5]
+
+		57. A_m(0) = m			[56 SL SR]
+
+		58. +(<m, 0>) = m			[55 57 LL]
+
+		59. m + 0 := +(<m, 0>)			[18 R]
+
+		60. m + 0 = m			[58 59 LL]
+
+		61. 		[60 CD]
+	
+	62. 		[3 UD]
+
+
+
 
 
 (A2)
