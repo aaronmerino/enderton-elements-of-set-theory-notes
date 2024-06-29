@@ -265,4 +265,113 @@ Axioms, Definitions, and Theorems:
 
 
 (A2)
-1. Show @m, n [ m, n in ω --> m + n+ =  (m + n)+ ]
+1. Show @m, n [ m, n in ω --> m + n+ = (m + n)+ ]
+
+  2. let m be a set
+
+	3. let n be a set
+
+	////////
+  1.D1. @t [ t in + <--> 3m, n [ m in ω & n in ω & t = <<m, n>, A_m(n)> ] ]     [Definition of +]
+
+  1.D2. @x [ x in dom + <--> 3y [ <x, y> in + ] ]     [dom UI/+ & Ext. Axiom]
+
+  1.D3. @t [ t in ω x ω <--> 3x, y [ x in ω & y in ω & t = <x, y> ] ]      [Corollary 3C UI/ω UI/ω]
+
+  1.D4. @y [ y in ran + <--> 3x [ <x, y> in + ] ]     [ran UI/+ & Ext. Axiom]
+
+	1.D5. A_m:ω->ω & A_m(0) = m & @n [ n in ω --> A_m(n+) = σ(A_m(n)) ]     [先祖代々 UI/m & Ext. Axiom]
+	////////
+
+	4. Show m, n in ω --> m + n+ = (m + n)+
+
+		5. m, n in ω			[ACD]
+
+		6. @m, n [ m, n in ω --> m + n := +(<m, n>) ]   [Definition of {1} + {2}]
+
+		7. m, n+ in ω --> m + n+ := +(<m, n+>)			[6 UI/m, n+]
+
+		8. m in ω			[5 SL]
+
+		9. Show n+ in ω
+
+			10. ω is inductive & @A [ A is inductive & A != ω --> @t [ t in ω --> t in A ] ]		[Theorem 4B]
+
+			11. ω is inductive			[10 SL]
+
+			12. @A [ A is inductive <--> { } in A & @a [ a in A --> a+ in A ] ]				[Definition of inductive]
+
+			13. ω is inductive <--> { } in ω & @a [ a in ω --> a+ in ω ]			[12 UI/ω]
+
+			14. { } in ω & @a [ a in ω --> a+ in ω ]			[13 BC 11 MP]
+
+			15. @a [ a in ω --> a+ in ω ]			[14 SR]
+
+			16. n in ω --> n+ in ω				[15 UI/n]
+
+			17. n in ω			[5 SR]
+
+			18. n+ in ω			[16 17 MP]
+
+			19. 		[18 DD]
+		
+		20. m, n+ in ω			[8 9 ADJ]
+
+		21. m + n+ := +(<m, n+>)			[7 20 MP]
+
+
+		22. + is a binary operation on the set ω			[SHRIMP]
+
+		23. @A, f [ f is a binary operation on the set A <--> f: A x A->A ]			[Def. of binary operation]
+
+		24. + is a binary operation on the set ω <--> +: ω x ω->ω			[23 UI/+, ω]
+
+		25. +: ω x ω->ω			[24 BC 22 MP]
+
+		26. @F, A, B [ F: A->B <--> 
+											F is a function &
+											dom F = A &
+											ran F ⊆ B 
+									]			[Def. of into]
+		
+		27. +: ω x ω->ω <--> 
+							+ is a function &
+							dom + = ω x ω &
+							ran + ⊆ ω			[26 UI/+, ω x ω, ω]
+		
+		28. + is a function &
+					dom + = ω x ω &
+					ran + ⊆ ω					[27 BC 25 MP]
+
+
+		29. Show <<m, n+>, A_m(n+)> in +
+
+			30. @t [ t in + <--> 3m, n [ m in ω & n in ω & t = <<m, n>, A_m(n)> ] ]				[1.D1]
+
+			31. @t [ t in + <--> 3u, v [ u in ω & v in ω & t = <<u, v>, A_u(v)> ] ]				[30 EQUIV.]
+
+			32. <<m, n+>, A_m(n+)> in + <--> 3u, v [ u in ω & v in ω & <<m, n+>, A_m(n+)> = <<u, v>, A_u(v)> ]			[31 UI/<<m, n+>, A_m(n+)>]
+
+			33. Show 3u, v [ u in ω & v in ω & <<m, n+>, A_m(n+)> = <<u, v>, A_u(v)> ]
+
+				34. m in ω			[8 R]
+
+				35. n+ in ω			[9 R]
+
+				36. <<m, n+>, A_m(n+)> = <<m, n+>, A_m(n+)>			[SID]
+
+				37. m in ω & n+ in ω & <<m, n+>, A_m(n+)> = <<m, n+>, A_m(n+)>			[34 35 36 ADJ]
+
+				38. 3v [ m in ω & v in ω & <<m, n+>, A_m(n+)> = <<m, v>, A_m(v)> ]			[37 EG/n+->v]
+
+				39. 3u [ 3v [ u in ω & v in ω & <<m, n+>, A_m(n+)> = <<u, v>, A_u(v)> ] ]				[38 EG/m->u]
+
+				40. 3u, v [ u in ω & v in ω & <<m, n+>, A_m(n+)> = <<u, v>, A_u(v)> ]			[39 EQUIV.]
+
+				41.		[40 DD]
+			
+			42. <<m, n+>, A_m(n+)> in +			[32 BC 33 MP]
+
+			43.		[42 DD]
+		
+		44. 
