@@ -80,7 +80,7 @@ Axioms, Definitions, and Theorems:
 									] 
 						]
 
-	Pg 71 existence of successor function that is restricted to ω:
+	[LOCO] Pg 71 existence of successor function that is restricted to ω:
 		3D [ @t [ t in D <--> 3n [ n in ω & t = <n, n+> ] ] ]
 		Definition (its uniqueness is always due to Ext. Axiom):
 			σ is called the successor function restricted to ω
@@ -281,6 +281,8 @@ Axioms, Definitions, and Theorems:
   1.D4. @y [ y in ran + <--> 3x [ <x, y> in + ] ]     [ran UI/+ & Ext. Axiom]
 
 	1.D5. A_m:ω->ω & A_m(0) = m & @n [ n in ω --> A_m(n+) = σ(A_m(n)) ]     [先祖代々 UI/m & Ext. Axiom]
+
+	1.D6. @y [ y in ran A_m <--> 3x [ <x, y> in A_m ] ]     [ran UI/A_m & Ext. Axiom]
 	////////
 
 	4. Show m, n in ω --> m + n+ = (m + n)+
@@ -374,4 +376,307 @@ Axioms, Definitions, and Theorems:
 
 			43.		[42 DD]
 		
-		44. 
+
+		44. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]			[MARIN]
+
+		45. + is a function & <m, n+> in dom + -->  @w [ <<m, n+>, w> in + <--> +(<m, n+>) = w ]			[44 UI/+, <m, n+>]
+
+		46. + is a function			[28 SL SL]
+
+		47. Show <m, n+> in dom +
+
+			48. @x [ x in dom + <--> 3y [ <x, y> in + ] ]			[1.D2]
+
+			49. <m, n+> in dom + <--> 3y [ <<m, n+>, y> in + ]			[48 UI/<m, n+>]
+
+			50. <<m, n+>, A_m(n+)> in +			[29 R]
+
+			51. 3y [ <<m, n+>, y> in + ]			[50 EG/A_m(n+) -> y]
+
+			52. <m, n+> in dom +			[49 BC 51 MP]
+
+			53. 		[52 DD]
+		
+		54. + is a function & <m, n+> in dom +			[46 47 ADJ]
+
+		55. @w [ <<m, n+>, w> in + <--> +(<m, n+>) = w ]			[45 54 MP]
+
+		56. <<m, n+>, A_m(n+)> in + <--> +(<m, n+>) = A_m(n+)			[55 UI/A_m(n+)]
+
+		57. +(<m, n+>) = A_m(n+)			[56 BC 29 MP]
+
+
+		58. A_m:ω->ω & A_m(0) = m & @n [ n in ω --> A_m(n+) = σ(A_m(n)) ]			[1.D5]
+
+		59. @n [ n in ω --> A_m(n+) = σ(A_m(n)) ]			[58 SR]
+
+		60. n in ω --> A_m(n+) = σ(A_m(n))			[59 UI/n]
+
+		61. n in ω			[5 SR]
+
+		62. A_m(n+) = σ(A_m(n))			[60 61 MP]
+
+
+		63. @t [ t in σ <--> 3n [ n in ω & t = <n, n+> ] ]		[LOCO]
+
+		64. <σ, ω, { }> is a Peano System			[Theorem 4D]
+
+		65. @S, N, e [ <S, N, e> is a Peano System <--> [ 
+									S: N->N & 				// this implies N is closed under S (as the above statement says)
+									e in N & 					// so, N satisfies "e in N & @x [ x in N --> S(x) in N ]"
+
+									~(e in ran S) &
+									S is single-rooted &
+									@A [ A ⊆ N --> [ e in A & @x [ x in A --> S(x) in A ] --> A = N ] ]			// this is so that N is the "smallest" such set satisfying "e in N & @x [ x in N --> S(x) in N ]"
+									
+									] 
+						]			[Def. of Peano System]
+		
+
+		66. <σ, ω, { }> is a Peano System <--> [ 
+									σ: ω->ω & 				// this implies ω is closed under σ (as the above statement says)
+									{ } in ω & 					// so, ω satisfies "{ } in ω & @x [ x in ω --> σ(x) in ω ]"
+
+									~({ } in ran σ) &
+									σ is single-rooted &
+									@A [ A ⊆ ω --> [ { } in A & @x [ x in A --> σ(x) in A ] --> A = ω ] ]			// this is so that ω is the "smallest" such set satisfying "{ } in ω & @x [ x in ω --> σ(x) in ω ]"
+									
+									]			[65 UI/σ, ω, { }]
+
+		67. σ: ω->ω & 					// this implies ω is closed under σ (as the above statement says)
+				{ } in ω & 					// so, ω satisfies "{ } in ω & @x [ x in ω --> σ(x) in ω ]"
+
+				~({ } in ran σ) &
+				σ is single-rooted &
+				@A [ A ⊆ ω --> [ { } in A & @x [ x in A --> σ(x) in A ] --> A = ω ] ]			// this is so that ω is the "smallest" such set satisfying "{ } in ω & @x [ x in ω --> σ(x) in ω ]"				[66 BC 64 MP]
+		
+		68. σ: ω->ω			[67 SL SL SL SL]
+
+
+		69. @F, A, B [ F: A->B <--> 
+						F is a function &
+						dom F = A &
+						ran F ⊆ B 
+					]			[Def. of into]
+		
+		70. σ: ω->ω <--> 
+						σ is a function &
+						dom σ = ω &
+						ran σ ⊆ ω 			[70 UI/σ, ω, ω]
+		
+		71. σ is a function &
+				dom σ = ω &
+				ran σ ⊆ ω			[70 BC 68 MP]
+		
+		72. σ is a function			[71 SL SL]
+
+
+		73. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]			[MARIN]
+
+		74. σ is a function & A_m(n) in dom σ -->  @w [ <A_m(n), w> in σ <--> σ(A_m(n)) = w ]			[73 UI/σ UI/A_m(n)]
+	
+		75. Show A_m(n) in dom σ
+
+			76. dom σ = ω			[71 SL SR]
+
+			77. A_m:ω->ω & A_m(0) = m & @n [ n in ω --> A_m(n+) = σ(A_m(n)) ]			[1.D5]
+
+			78. A_m:ω->ω			[77 SL SL]
+
+			79. @F, A, B [ F: A->B <--> 
+						F is a function &
+						dom F = A &
+						ran F ⊆ B 
+					]			[Def. of into]
+			
+			80. A_m: ω->ω <--> 
+						A_m is a function &
+						dom A_m = ω &
+						ran A_m ⊆ ω 			[79 UI/A_m, ω, ω]
+			
+			81. A_m is a function &
+					dom A_m = ω &
+					ran A_m ⊆ ω			[80 BC 78 MP]
+
+
+			82. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]			[MARIN]
+
+			83. A_m is a function & n in dom A_m -->  @w [ <n, w> in A_m <--> A_m(n) = w ]			[82 UI/A_m, n]
+
+			84. Show n in dom A_m
+
+				85. dom A_m = ω			[81 SL SR]
+
+				86. n in ω			[5 SR]
+
+				87. n in dom A_m			[85 86 LL]
+
+				88. 		[87 DD]
+			
+			89. A_m is a function & n in dom A_m			[(81 SL SL) 84 ADJ]
+
+			90. @w [ <n, w> in A_m <--> A_m(n) = w ]			[83 89 MP]
+
+			91. <n, A_m(n)> in A_m <--> A_m(n) = A_m(n)			[90 UI/A_m(n)]
+
+			92. A_m(n) = A_m(n)				[SID]				
+
+			93. <n, A_m(n)> in A_m				[91 BC 92 MP]
+
+			94. @y [ y in ran A_m <--> 3x [ <x, y> in A_m ] ]				[1.D6]
+
+			95. A_m(n) in ran A_m <--> 3x [ <x, A_m(n)> in A_m ]			[94 UI/A_m(n)]
+
+			96. 3x [ <x, A_m(n)> in A_m ]			[93 EG/n->x]
+
+			97. A_m(n) in ran A_m			[95 BC 96 MP]
+
+			98. ran A_m ⊆ ω			[81 SR]
+
+			99. @t [ t in ran A_m --> t in ω ]			[98 EQUIV.]
+
+			100. A_m(n) in ran A_m --> A_m(n) in ω			[99 UI/A_m(n)]
+
+			101. A_m(n) in ω			[100 97 MP]
+
+			102. dom σ = ω			[76 R]
+
+			103. A_m(n) in dom σ			[101 102 LL]
+
+			104. 		[103 DD]
+		
+		105. σ is a function & A_m(n) in dom σ			[72 75 ADJ]
+
+		106. @w [ <A_m(n), w> in σ <--> σ(A_m(n)) = w ]			[74 105 MP]
+
+
+		107. <A_m(n), σ(A_m(n))> in σ <--> σ(A_m(n)) = σ(A_m(n))			[106 UI/σ(A_m(n))]
+
+		108. σ(A_m(n)) = σ(A_m(n))			[SID]
+
+		109. <A_m(n), σ(A_m(n))> in σ			[107 BC 108 MP]
+
+
+		110. @t [ t in σ <--> 3n [ n in ω & t = <n, n+> ] ]			[63 R]
+
+		111. @t [ t in σ <--> 3u [ u in ω & t = <u, u+> ] ]			[110 EQUIV.]
+
+		112. <A_m(n), σ(A_m(n))> in σ <--> 3u [ u in ω & <A_m(n), σ(A_m(n))> = <u, u+> ]			[111 UI/<A_m(n), σ(A_m(n))>]
+
+		113. 3u [ u in ω & <A_m(n), σ(A_m(n))> = <u, u+> ]			[112 BC 109 MP]
+
+
+		114. u_1 in ω & <A_m(n), σ(A_m(n))> = <u_1, u_1+>				[113 EI/u_1]
+
+		115. <A_m(n), σ(A_m(n))> = <u_1, u_1+>			[114 SR]
+
+
+		116. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]			[Theorem 3A]
+
+		117. <A_m(n), σ(A_m(n))> = <u_1, u_1+>  <-->  A_m(n) = u_1 & σ(A_m(n)) = u_1+				[116 UI/A_m(n), σ(A_m(n)), u_1, u_1+]
+
+		118. A_m(n) = u_1 & σ(A_m(n)) = u_1+			[117 BC 115 MP]
+
+
+		119. A_m(n) = u_1			[118 SL]
+
+		120. σ(A_m(n)) = u_1+			[118 SR]
+
+
+		121. σ(A_m(n)) = A_m(n)+			[119 120 LL]
+
+
+
+		// Now we show A_m(n) = m + n
+
+		121. @m, n [ m, n in ω --> m + n := +(<m, n>) ]   [Definition of {1} + {2}]
+
+		122. m, n in ω --> m + n := +(<m, n>)			[121 UI/m, n]
+
+		123. m, n in ω			[5 R]
+
+		124. m + n := +(<m, n>)			[122 123 MP]
+
+		125. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]			[MARIN]
+
+		126. + is a function & <m, n> in dom + -->  @w [ <<m, n>, w> in + <--> +(<m, n>) = w ]			[125 UI/+, <m, n>]
+
+		127. + is a function		[46 R]
+
+
+		128. Show <<m, n>, A_m(n)> in +
+
+			129. @t [ t in + <--> 3m, n [ m in ω & n in ω & t = <<m, n>, A_m(n)> ] ]				[1.D1]
+
+			130. @t [ t in + <--> 3u, v [ u in ω & v in ω & t = <<u, v>, A_u(v)> ] ]				[30 EQUIV.]
+
+			131. <<m, n>, A_m(n)> in + <--> 3u, v [ u in ω & v in ω & <<m, n>, A_m(n)> = <<u, v>, A_u(v)> ]				[130 UI/<<m, n>, A_m(n)>]
+
+			132. Show 3u, v [ u in ω & v in ω & <<m, n>, A_m(n)> = <<u, v>, A_u(v)> ]
+			
+				133. m, n in ω		[123 R]
+
+				134. m in ω & n in ω			[133 EQUIV.]
+
+				135. <<m, n>, A_m(n)> = <<m, n>, A_m(n)>			[SID]
+
+				136. m in ω & n in ω & <<m, n>, A_m(n)> = <<m, n>, A_m(n)>			[134 135 ADJ]
+
+				137. 3v [ m in ω & v in ω & <<m, n>, A_m(n)> = <<m, v>, A_m(v)> ]			[136 EG/n->v]
+
+				138. 3u [ 3v [ u in ω & v in ω & <<m, n>, A_m(n)> = <<u, v>, A_u(v)> ] ]				[137 EG/m->u]
+
+				139. 3u, v [ u in ω & v in ω & <<m, n>, A_m(n)> = <<u, v>, A_u(v)> ]				[138 EQUIV.]
+
+				140. 		[139 DD]
+
+			141. <<m, n>, A_m(n)> in +			[131 BC 132 MP]
+
+			142.		[141 DD]
+		
+
+		143. Show <m, n> in dom +
+
+			144. @x [ x in dom + <--> 3y [ <x, y> in + ] ]			[1.D2]
+
+			145. <m, n> in dom + <--> 3y [ <<m, n>, y> in + ]			[144 UI/<m, n>]
+
+			146. 3y [ <<m, n>, y> in + ]			[128 EG/A_m(n)->y]
+
+			147. <m, n> in dom +			[145 BC 146 MP]
+
+			148. 		[147 DD]
+		
+		149. + is a function & <m, n> in dom +			[127 143 ADJ]
+
+		150. @w [ <<m, n>, w> in + <--> +(<m, n>) = w ]			[126 149 MP]
+
+
+		151. <<m, n>, A_m(n)> in + <--> +(<m, n>) = A_m(n)			[150 UI/A_m(n)]
+
+		152. +(<m, n>) = A_m(n)			[151 BC 128 MP]
+
+
+		153. m + n = A_m(n)			[152 124 LL]
+
+		154. σ(A_m(n)) = A_m(n)+			[121 R]
+
+		155. σ(A_m(n)) = (m + n)+			[153 154 LL]
+
+
+		156. m + n+ := +(<m, n+>)			[21 R]
+
+		157. +(<m, n+>) = A_m(n+)			[57 R]
+
+		158. A_m(n+) = σ(A_m(n))			[62 R]
+
+
+		159. m + n+ = A_m(n+)			[156 157 LL]
+
+		160. m + n+ = σ(A_m(n))			[158 159 LL]
+
+		161. m + n+ = (m + n)+			[160 155 LL]
+
+		162. 		[161 CD]
+	
+	163. 		[4 UD]
