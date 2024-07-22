@@ -563,6 +563,22 @@ Set of Natural Numbers Chapter:
 
 	+ binary operator result:
 		+ is a binary operation on the set ω
+	
+	pg 80 Multiplication M_m existence:          
+    @m [ m in ω -->  3_1p [ p:ω->ω & p(0) = 0 & @n [ n in ω --> p(n+) = A_m(p(n)) ] ] ]
+			Definition (uniqueness due to 3_1p):
+				for any m in ω, M_m:ω->ω & M_m(0) = 0 & @n [ n in ω --> M_m(n+) = A_m(M_m(n)) ]
+	
+	Definition of * operator
+		3D [ @t [ t in D <--> 3m, n [ m in ω & n in ω & t = <<m, n>, M_m(n)> ] ] ]
+			Definition (its uniqueness is always due to Ext. Axiom):
+				@t [ t in * <--> 3m, n [ m in ω & n in ω & t = <<m, n>, M_m(n)> ] ]
+
+				* := {<<m, n>, p> | m in ω & n in ω & p = M_m(n)}
+
+      Definition of {1} * {2}:
+				@m, n [ m, n in ω --> m * n := *(<m, n>) ]
+
 
 Algebra of Sets:
 	Pg 24 Union of empty set:
