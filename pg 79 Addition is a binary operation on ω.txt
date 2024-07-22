@@ -141,7 +141,7 @@ Set of Natural Numbers Chapter:
       16. m_2 in ω & n_2 in ω & t = <<m_2, n_2>, A_{m_2}(n_2)>      [15 EI/m_2, n_2]
 
       ////////
-      14.D1. A_{m_2}:ω->ω & A_{m_2}(0) = m_2 & @n [ n in ω --> A_{m_2}(n+) = σ(A_{m_2}(n)) ]        [海老 UI/m_2 & EI_1->A_{m_2}] 
+      14.D1. A_{m_2}:ω->ω & A_{m_2}(0) = m_2 & @n [ n in ω --> A_{m_2}(n+) = σ(A_{m_2}(n)) ]        [[海老 UI/m_2 (16 SL SL) MP] EI_1->A_{m_2}] 
       14.D2. @y [ y in ran A_{m_2} <--> 3x [ <x, y> in A_{m_2} ] ]      [ran UI/A_{m_2} & Ext. Axiom]
       ////////
 
@@ -161,7 +161,7 @@ Set of Natural Numbers Chapter:
 
             24. @t [ t in (ω x ω) <--> 3x, y [ x in ω & y in ω & t = <x, y> ] ]     [1.D1]
 
-            25. <m_2, n_2> in (ω x ω) <--> 3x, y [ x in ω & y in ω & <m_2, n_2> = <x, y> ]      [24 UI/]
+            25. <m_2, n_2> in (ω x ω) <--> 3x, y [ x in ω & y in ω & <m_2, n_2> = <x, y> ]      [24 UI/<m_2, n_2>]
 
             26. m_2 in ω & n_2 in ω     [16 SL]
 
