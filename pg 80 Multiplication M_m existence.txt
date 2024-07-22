@@ -1,0 +1,71 @@
+Axioms, Definitions, and Theorems:
+	Zero:
+		0 := { }
+
+	Definition of inductive:
+		@A [ A is inductive <--> { } in A & @a [ a in A --> a+ in A ] ]
+
+	Theorem 4B:
+		ω is inductive & @A [ A is inductive & A != ω --> @t [ t in ω --> t in A ] ]
+
+  [海老] pg 79 Arithmetic A_m existence:
+      @m [ m in ω -->  3_1p [ p:ω->ω & p(0) = m & @n [ n in ω --> p(n+) = σ(p(n)) ] ] ]  
+        Definition (uniqueness due to 3_1p):
+          for any m in ω, A_m:ω->ω & A_m(0) = m & @n [ n in ω --> A_m(n+) = σ(A_m(n)) ]
+
+  [Recursion Theorem on ω]
+    @F, A, a [ a in A & F:A->A --> 3_1p [ p:ω->A & p(0) = a & @n [ n in ω --> p(n+) = F(p(n)) ] ] ]
+
+
+1. Show @m [ m in ω -->  3_1p [ p:ω->ω & p(0) = 0 & @n [ n in ω --> p(n+) = A_m(p(n)) ] ] ]
+
+  2. let m be a set
+
+  3. Show m in ω -->  3_1p [ p:ω->ω & p(0) = 0 & @n [ n in ω --> p(n+) = A_m(p(n)) ] ]
+
+    4. m in ω     [ACD]
+
+
+    ////////
+    3.D1. A_m:ω->ω & A_m(0) = m & @n [ n in ω --> A_m(n+) = σ(A_m(n)) ]   [海老 UI/m 4 MP & EI_1/A_m]   
+    ////////
+
+
+    5. @F, A, a [ a in A & F:A->A --> 3_1p [ p:ω->A & p(0) = a & @n [ n in ω --> p(n+) = F(p(n)) ] ] ]  [Recursion Theorem on ω]
+
+    6. @F, B, a [ a in B & F:B->B --> 3_1p [ p:ω->B & p(0) = a & @n [ n in ω --> p(n+) = F(p(n)) ] ] ]  [5 EQUIV.]
+
+    7. 0 in ω & A_m:ω->ω --> 3_1p [ p:ω->ω & p(0) = 0 & @n [ n in ω --> p(n+) = A_m(p(n)) ] ]     [6 UI/A_m, ω, 0]
+
+    8. Show 0 in ω
+
+      9. ω is inductive & @A [ A is inductive & A != ω --> @t [ t in ω --> t in A ] ]     [Theorem 4B]
+
+      10. ω is inductive      [9 SL]
+
+      11. @A [ A is inductive <--> { } in A & @a [ a in A --> a+ in A ] ]   [Def. of inductive]
+
+      12. ω is inductive <--> { } in ω & @a [ a in ω --> a+ in ω ]      [11 UI/ω]
+
+      13. { } in ω & @a [ a in ω --> a+ in ω ]      [12 BC 10 MP]
+
+      14. { } in ω      [13 SL]
+
+      15. 0 := { }    [Def. of zero]
+
+      16. 0 in ω      [14 15 LL]
+
+      17.     [16 DD]
+    
+    18. A_m:ω->ω    [3.D1 SL SL]
+
+    19. 0 in ω & A_m:ω->ω     [8 18 ADJ]
+
+    20. 3_1p [ p:ω->ω & p(0) = 0 & @n [ n in ω --> p(n+) = A_m(p(n)) ] ]      [7 19 MP]
+
+    21.     [20 CD]
+  
+  22.     [3 UD]
+
+
+    
