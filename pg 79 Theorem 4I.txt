@@ -583,7 +583,7 @@ Axioms, Definitions, and Theorems:
 		120. σ(A_m(n)) = u_1+			[118 SR]
 
 
-		121. σ(A_m(n)) = A_m(n)+			[119 120 LL]
+		120.1. σ(A_m(n)) = A_m(n)+			[119 120 LL]
 
 
 
@@ -659,7 +659,7 @@ Axioms, Definitions, and Theorems:
 
 		153. m + n = A_m(n)			[152 124 LL]
 
-		154. σ(A_m(n)) = A_m(n)+			[121 R]
+		154. σ(A_m(n)) = A_m(n)+			[120.1 R]
 
 		155. σ(A_m(n)) = (m + n)+			[153 154 LL]
 

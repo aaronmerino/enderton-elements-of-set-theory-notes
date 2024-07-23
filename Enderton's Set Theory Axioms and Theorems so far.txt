@@ -579,6 +579,9 @@ Set of Natural Numbers Chapter:
       Definition of {1} * {2}:
 				@m, n [ m, n in ω --> m * n := *(<m, n>) ]
 
+	* binary operator result:
+		* is a binary operation on the set ω
+
 
 Algebra of Sets:
 	Pg 24 Union of empty set:
