@@ -90,7 +90,250 @@ Axioms, Definitions, and Theorems:
 
 1. Show @m [ m in ω --> 3D [ @t [ t in D <--> 3u [ u in ω & t = <u, u + m> ] ] ] ]
 
-1. Show @m [ m in ω --> RIGHT_ADD_m: ω->ω]
+	2. let m be a set
+
+
+	////////
+
+	1.D1. @t [ t in ω x ω <--> 3x, y [ x in ω & y in ω & t = <x, y> ] ]      [Corollary 3C UI/ω UI/ω]
+
+  1.D2. @t [ t in + <--> 3m, n [ m in ω & n in ω & t = <<m, n>, A_m(n)> ] ]     [Definition of +]
+
+  1.D3. @x [ x in dom + <--> 3y [ <x, y> in + ] ]     [dom UI/+ & Ext. Axiom]
+
+  1.D4. @y [ y in ran + <--> 3x [ <x, y> in + ] ]     [ran UI/+ & Ext. Axiom]
+
+	////////
+
+
+	3. Show m in ω --> 3D [ @t [ t in D <--> 3u [ u in ω & t = <u, u + m> ] ] ]
+
+		4. m in ω			[ACD]
+
+		5. @m [ @c [ 3D [ @t [ t in D <--> t in c & 3u [ u in ω & t = <u, u + m> ] ] ] ] ]			[RA]
+
+		6. @c [ 3D [ @t [ t in D <--> t in c & 3u [ u in ω & t = <u, u + m> ] ] ] ]			[5 UI/m]
+
+		7. 3D [ @t [ t in D <--> t in ω x ω & 3u [ u in ω & t = <u, u + m> ] ] ]			[6 UI/ω x ω]
+
+		8. @t [ t in D_1 <--> t in ω x ω & 3u [ u in ω & t = <u, u + m> ] ]			[7 EI/D_1]
+
+		9. Show @t [ t in D_1 <--> 3u [ u in ω & t = <u, u + m> ] ]
+
+			10. let t be a set
+
+			11. Show t in D_1 --> 3u [ u in ω & t = <u, u + m> ]
+
+				12. t in D_1			[ACD]
+
+				13. @t [ t in D_1 <--> t in ω x ω & 3u [ u in ω & t = <u, u + m> ] ]			[8 R]
+
+				14. t in D_1 <--> t in ω x ω & 3u [ u in ω & t = <u, u + m> ]			[13 UI/t]
+
+				15. t in ω x ω & 3u [ u in ω & t = <u, u + m> ]			[14 BC 12 MP]
+
+				16. 3u [ u in ω & t = <u, u + m> ]			[15 SR]
+
+				17. 		[16 CD]
+			
+			18. Show 3u [ u in ω & t = <u, u + m> ] --> t in D_1
+
+				19. 3u [ u in ω & t = <u, u + m> ]			[ACD]
+
+				20. u_2 in ω & t = <u_2, u_2 + m>				[19 EI/u_2]
+
+				21. @t [ t in D_1 <--> t in ω x ω & 3u [ u in ω & t = <u, u + m> ] ]			[8 R]
+
+				22. t in D_1 <--> t in ω x ω & 3u [ u in ω & t = <u, u + m> ]			[21 UI/t]
+
+				23. Show t in ω x ω
+
+					24. @t [ t in ω x ω <--> 3x, y [ x in ω & y in ω & t = <x, y> ] ]			[1.D1]
+
+					25. t in ω x ω <--> 3x, y [ x in ω & y in ω & t = <x, y> ]			[24 UI/t]
+
+					26. Show 3x, y [ x in ω & y in ω & t = <x, y> ]
+
+						27. u_2 in ω & t = <u_2, u_2 + m>			[20 R]
+
+						28. Show u_2 + m in ω
+
+							29. + is a binary operation on the set ω			[SHRIMP]
+
+							30. @A, f [ f is a binary operation on the set A <--> f: A x A->A ]			[Def. of a binary operation]
+
+							31. + is a binary operation on the set ω <--> +: ω x ω->ω				[30 UI/ω, +]
+
+							32. +: ω x ω->ω			[31 BC 29 MP]
+
+							33. @F, A, B [ F: A->B <--> 
+															F is a function &
+															dom F = A &
+															ran F ⊆ B 
+														]			[Def. of into]
+							
+							34. +: ω x ω->ω <--> 
+												+ is a function &
+												dom + = ω x ω &
+												ran + ⊆ ω 			[33 UI/+, ω x ω, ω]
+							
+							35. + is a function &
+									dom + = ω x ω &
+									ran + ⊆ ω				[34 BC 32 MP]
+											
+
+							36. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]			[MARIN]
+
+							37. + is a function & <u_2, m> in dom + -->  @w [ <<u_2, m>, w> in + <--> +(<u_2, m>) = w ]			[36 UI/+, <u_2, m>]
+
+							38. + is a function			[35 SL SL]
+
+							39. Show <u_2, m> in dom +
+
+								40. dom + = ω x ω			[35 SL SR]
+
+								41. @t [ t in ω x ω <--> 3x, y [ x in ω & y in ω & t = <x, y> ] ]			[1.D1]
+
+								42. <u_2, m> in ω x ω <--> 3x, y [ x in ω & y in ω & <u_2, m> = <x, y> ]			[41 UI/<u_2, m>]
+
+								43. Show 3x, y [ x in ω & y in ω & <u_2, m> = <x, y> ]
+
+									44. u_2 in ω			[27 SL]
+
+									45. m in ω				[4 R]
+
+									46. u_2 in ω & m in ω				[44 45 ADJ]
+
+									47. <u_2, m> = <u_2, m>			[SID]
+
+									48. u_2 in ω & m in ω & <u_2, m> = <u_2, m>			[46 47 ADJ]
+
+									49. 3y [ u_2 in ω & y in ω & <u_2, m> = <u_2, y> ]			[48 EG/m->y]
+									
+									50. 3x [ 3y [ x in ω & y in ω & <u_2, m> = <x, y> ] ]			[49 EG/u_2->x]
+
+									51. 3x, y [ x in ω & y in ω & <u_2, m> = <x, y> ]			[50 EQUIV.]
+
+									52. 		[51 DD]
+								
+								53. <u_2, m> in ω x ω			[42 BC 43 MP]
+
+								54. <u_2, m> in dom +			[53 40 LL]
+
+								55. 		[54 DD]
+							
+							56. + is a function & <u_2, m> in dom +			[38 39 ADJ]
+
+							57. @w [ <<u_2, m>, w> in + <--> +(<u_2, m>) = w ]			[37 56 MP]
+
+							58. <<u_2, m>, +(<u_2, m>)> in + <--> +(<u_2, m>) = +(<u_2, m>)				[57 UI/+(<u_2, m>)]
+
+							59. +(<u_2, m>) = +(<u_2, m>)			[SID]
+
+							60. <<u_2, m>, +(<u_2, m>)> in +			[58 BC 59 MP]
+
+							61. @y [ y in ran + <--> 3x [ <x, y> in + ] ]			[1.D4]
+
+							62. +(<u_2, m>) in ran + <--> 3x [ <x, +(<u_2, m>)> in + ]			[61 UI/+(<u_2, m>)]
+
+							63. 3x [ <x, +(<u_2, m>)> in + ]			[60 EG/<u_2, m>->x]
+
+							64. +(<u_2, m>) in ran +			[62 BC 63 MP]
+
+							65. ran + ⊆ ω			[35 SR]
+
+							66. @t [ t in ran + --> t in ω ]			[65 EQUIV.]
+
+							67. +(<u_2, m>) in ran + --> +(<u_2, m>) in ω			[66 UI/+(<u_2, m>)]
+
+							68. +(<u_2, m>) in ω			[67 64 MP]
+
+							69. @m, n [ m, n in ω --> m + n := +(<m, n>) ]			[Definition of {1} + {2}]
+
+							70. u_2, m in ω --> u_2 + m := +(<u_2, m>)				[69 UI/u_2, m]
+
+							71. u_2, m in ω			[20 SL 4 ADJ]
+
+							72. u_2 + m := +(<u_2, m>)			[70 71 MP]
+
+							73. u_2 + m in ω			[68 72 LL]
+
+							74.			[73 DD]
+						
+						75. u_2 in ω		[27 SL]
+
+						76. t = <u_2, u_2 + m>			[27 SR]
+
+						77. u_2 in ω & u_2 + m in ω & t = <u_2, u_2 + m>			[75 28 76 ADJ]
+
+						78. 3y [ u_2 in ω & y in ω & t = <u_2, y> ]			[77 EG/u_2 + m -> y]
+
+						79. 3x [ 3y [ x in ω & y in ω & t = <x, y> ] ]			[78 EG/u_2 -> x]
+
+						80. 3x, y [ x in ω & y in ω & t = <x, y> ]			[79 EQUIV.]
+
+						81. 		[80 DD]
+					
+					82. t in ω x ω			[25 BC 26 MP]
+
+					83. 		[82 DD]
+				
+				84. t in ω x ω & 3u [ u in ω & t = <u, u + m> ]			[23 19 ADJ]
+
+				85. t in D_1			[22 BC 84 MP]
+
+				86. 		[85 CD]
+			
+			87. t in D_1 <--> 3u [ u in ω & t = <u, u + m> ]			[11 18 CB]
+
+			88.		[87 UD]
+		
+		89. 3D [ @t [ t in D <--> 3u [ u in ω & t = <u, u + m> ] ] ]			[9 EG/D_1->D]
+
+		90.		[89 CD]
+	
+	91. 		[3 UD]
+
+Definition (its uniqueness is always due to Ext. Axiom):
+	for any m in ω, @t [ t in RIGHT_ADD_m <--> 3u [ u in ω & t = <u, u + m> ] ]
+
+
+1. Show @m [ m in ω --> RIGHT_ADD_m: ω->ω ]
+
+	2. let m be a set
+
+	3. Show m in ω --> RIGHT_ADD_m: ω->ω
+
+		4. m in ω		[ACD]
+
+		////////
+		3.D1. @t [ t in RIGHT_ADD_m <--> 3u [ u in ω & t = <u, u + m> ] ]			[Def. of RIGHT_ADD_m]
+		////////
+
+		5. @F, A, B [ F: A->B <--> 
+									F is a function &
+									dom F = A &
+									ran F ⊆ B 
+								]			[Def. of into]
+
+		6. RIGHT_ADD_m: ω->ω <--> 
+									RIGHT_ADD_m is a function &
+									dom RIGHT_ADD_m = ω &
+									ran RIGHT_ADD_m ⊆ ω			[5 UI/RIGHT_ADD_m, ω, ω]
+
+		7. Show RIGHT_ADD_m is a function
+
+			8. @F [ F is a function <--> F is a relation & @x [ x in dom F --> 3_1y [ <x, y> in F ] ] ]		[Def. of function]
+
+			9. RIGHT_ADD_m is a function <--> RIGHT_ADD_m is a relation & @x [ x in dom RIGHT_ADD_m --> 3_1y [ <x, y> in RIGHT_ADD_m ] ]			[8 UI/RIGHT_ADD_m]
+
+			10. Show RIGHT_ADD_m is a relation
+
+			00. Show @x [ x in dom RIGHT_ADD_m --> 3_1y [ <x, y> in RIGHT_ADD_m ] ]
+
+		00. Show dom RIGHT_ADD_m = ω
+
+		00. Show ran RIGHT_ADD_m ⊆ ω
 
 
 
@@ -100,4 +343,4 @@ Axioms, Definitions, and Theorems:
 
 1. Show @m [ m in ω --> 3D [ @t [ t in D <--> 3u [ u in ω & t = <u, m + u> ] ] ] ]
 
-1. Show @m [ m in ω --> LEFT_ADD_m: ω->ω]
+1. Show @m [ m in ω --> LEFT_ADD_m: ω->ω ]
