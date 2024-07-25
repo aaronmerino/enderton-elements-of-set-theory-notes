@@ -306,9 +306,15 @@ Definition (its uniqueness is always due to Ext. Axiom):
 
 		4. m in ω		[ACD]
 
+
 		////////
-		3.D1. @t [ t in RIGHT_ADD_m <--> 3u [ u in ω & t = <u, u + m> ] ]			[Def. of RIGHT_ADD_m]
+
+		3.D1. @t [ t in RIGHT_ADD_m <--> 3u [ u in ω & t = <u, u + m> ] ]			[(Def. of RIGHT_ADD_m) UI/m 4 MP & Ext. Axiom]
+
+		3.D2. @x [ x in dom RIGHT_ADD_m <--> 3y [ <x, y> in RIGHT_ADD_m ] ]			[dom UI/RIGHT_ADD_m & Ext. Axiom]
+
 		////////
+
 
 		5. @F, A, B [ F: A->B <--> 
 									F is a function &
@@ -329,9 +335,140 @@ Definition (its uniqueness is always due to Ext. Axiom):
 
 			10. Show RIGHT_ADD_m is a relation
 
-			00. Show @x [ x in dom RIGHT_ADD_m --> 3_1y [ <x, y> in RIGHT_ADD_m ] ]
+				11. @R [ R is a relation <--> @t [ t in R --> 3x, y [ t = <x, y> ] ] ]			[Def. of relation]
 
-		00. Show dom RIGHT_ADD_m = ω
+				12. RIGHT_ADD_m is a relation <--> @t [ t in RIGHT_ADD_m --> 3x, y [ t = <x, y> ] ]			[11 UI/RIGHT_ADD_m]
+
+				13. Show @t [ t in RIGHT_ADD_m --> 3x, y [ t = <x, y> ] ]
+
+					14. let t be a set
+
+					15. Show t in RIGHT_ADD_m --> 3x, y [ t = <x, y> ]
+
+						16. t in RIGHT_ADD_m			[ACD]
+
+						17. @t [ t in RIGHT_ADD_m <--> 3u [ u in ω & t = <u, u + m> ] ]			[3.D1]
+
+						18. t in RIGHT_ADD_m <--> 3u [ u in ω & t = <u, u + m> ]			[17 UI/t]
+
+						19. 3u [ u in ω & t = <u, u + m> ]			[18 BC 16 MP]
+
+						20. u_1 in ω & t = <u_1, u_1 + m>				[19 EI/u_1]
+
+						21. t = <u_1, u_1 + m>		[20 SR]
+
+						22. 3y [ t = <u_1, y> ]			[21 EG/u_1 + m -> y]
+
+						23. 3x [ 3y [ t = <x, y> ] ]			[22 EG/u_1 -> x]
+
+						24. 3x, y [ t = <x, y> ]		[23 EQUIV.]
+
+						25.		[24 CD]
+
+					26. 		[15 UD]
+				
+				27. RIGHT_ADD_m is a relation			[12 BC 13 MP]
+
+				28.		[27 DD]
+			
+			29. Show @x [ x in dom RIGHT_ADD_m --> 3_1y [ <x, y> in RIGHT_ADD_m ] ]
+
+				30. let x be a set
+
+				31. Show x in dom RIGHT_ADD_m --> 3_1y [ <x, y> in RIGHT_ADD_m ]
+
+					32. x in dom RIGHT_ADD_m			[ACD]
+
+					33. @x [ x in dom RIGHT_ADD_m <--> 3y [ <x, y> in RIGHT_ADD_m ] ]			[3.D2]
+
+					34. x in dom RIGHT_ADD_m <--> 3y [ <x, y> in RIGHT_ADD_m ]			[33 UI/x]
+
+					35. 3y [ <x, y> in RIGHT_ADD_m ]			[34 BC 32 MP]
+
+					36. <x, y_1> in RIGHT_ADD_m			[35 EI/y_1]
+
+					37. Show @w [ <x, w> in RIGHT_ADD_m --> w = y_1 ]
+
+						38. let w be a set
+
+						39. Show <x, w> in RIGHT_ADD_m --> w = y_1
+
+							40. <x, w> in RIGHT_ADD_m			[ACD]
+
+
+							41. @t [ t in RIGHT_ADD_m <--> 3u [ u in ω & t = <u, u + m> ] ]			[3.D1]
+
+							42. <x, y_1> in RIGHT_ADD_m <--> 3u [ u in ω & <x, y_1> = <u, u + m> ]			[41 UI/<x, y_1>]
+
+							43. 3u [ u in ω & <x, y_1> = <u, u + m> ]			[42 BC 36 MP]
+
+							44. u_2 in ω & <x, y_1> = <u_2, u_2 + m>			[43 EI/u_2]
+
+
+							45. @t [ t in RIGHT_ADD_m <--> 3u [ u in ω & t = <u, u + m> ] ]			[3.D1]
+
+							46. <x, w> in RIGHT_ADD_m <--> 3u [ u in ω & <x, w> = <u, u + m> ]			[45 UI/<x, w>]
+
+							47. 3u [ u in ω & <x, w> = <u, u + m> ]			[46 BC 40 MP]
+
+							48. u_3 in ω & <x, w> = <u_3, u_3 + m>			[47 EI/u_3] 
+
+
+							49. <x, y_1> = <u_2, u_2 + m>			[44 SR]
+
+							50. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]			[Theorem 3A]
+
+							51. <x, y_1> = <u_2, u_2 + m>  <-->  x = u_2 & y_1 = u_2 + m			[50 UI/x, y_1, u_2, u_2 + m]
+
+							52. x = u_2 & y_1 = u_2 + m			[51 BC 49 MP]
+
+							53. x = u_2		[52 SL]
+
+							54. y_1 = u_2 + m		[52 SR]
+
+
+							55. <x, w> = <u_3, u_3 + m>			[48 SR]
+
+							56. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]			[Theorem 3A]
+
+							57. <x, w> = <u_3, u_3 + m>  <-->  x = u_3 & w = u_3 + m			[56 UI/x, w, u_3, u_3 + m]
+
+							58. x = u_3 & w = u_3 + m			[57 BC 55 MP]
+
+							59. x = u_3			[58 SL]
+
+							60. w = u_3 + m				[58 SR]
+
+
+							61. u_2 = u_3			[53 59 LL]
+
+							62. w = u_2 + m			[60 61 LL]
+
+							63. w = y_1			[62 54 LL]
+
+							64. 		[63 CD]
+						
+						65. 		[39 UD]
+					
+					66. <x, y_1> in RIGHT_ADD_m & @w [ <x, w> in RIGHT_ADD_m --> w = y_1 ]			[36 37 ADJ]
+
+					67. 3y [ <x, y> in RIGHT_ADD_m & @w [ <x, w> in RIGHT_ADD_m --> w = y ] ]			[66 EG/y_1->y]
+
+					68. 3_1y [ <x, y> in RIGHT_ADD_m ]			[67 EQUIV.]
+
+					69.		[68 CD]
+				
+				70. 		[31 UD]
+			
+			71. RIGHT_ADD_m is a relation & @x [ x in dom RIGHT_ADD_m --> 3_1y [ <x, y> in RIGHT_ADD_m ] ]			[10 29 ADJ]
+
+			72.	RIGHT_ADD_m is a function			[9 BC 71 MP]
+
+			73.		[72 DD]
+		
+		74. Show dom RIGHT_ADD_m = ω
+
+			75. 
 
 		00. Show ran RIGHT_ADD_m ⊆ ω
 
