@@ -468,9 +468,95 @@ Definition (its uniqueness is always due to Ext. Axiom):
 		
 		74. Show dom RIGHT_ADD_m = ω
 
-			75. 
+			75. @A, B [ @x [ x in A <--> x in B ] --> A = B ]			[Ext. Axiom]
 
-		00. Show ran RIGHT_ADD_m ⊆ ω
+			76. @x [ x in dom RIGHT_ADD_m <--> x in ω ] --> dom RIGHT_ADD_m = ω				[75 UI/dom RIGHT_ADD_m, ω].
+
+			77. Show @x [ x in dom RIGHT_ADD_m <--> x in ω ]
+
+				78. let x be a set
+
+				79. Show x in dom RIGHT_ADD_m --> x in ω
+
+					80. x in dom RIGHT_ADD_m			[ACD]
+
+					81. @x [ x in dom RIGHT_ADD_m <--> 3y [ <x, y> in RIGHT_ADD_m ] ]			[3.D2]
+
+					82. x in dom RIGHT_ADD_m <--> 3y [ <x, y> in RIGHT_ADD_m ]			[81 UI/x]
+
+					83. 3y [ <x, y> in RIGHT_ADD_m ]			[82 BC 80 MP]
+
+					84. <x, y_1> in RIGHT_ADD_m			[83 EI/y_1]
+
+					85. @t [ t in RIGHT_ADD_m <--> 3u [ u in ω & t = <u, u + m> ] ]			[3.D1]
+
+					86. <x, y_1> in RIGHT_ADD_m <--> 3u [ u in ω & <x, y_1> = <u, u + m> ]		[85 UI/<x, y_1>]
+
+					87. 3u [ u in ω & <x, y_1> = <u, u + m> ]			[86 BC 84 MP]
+
+					88. u_2 in ω & <x, y_1> = <u_2, u_2 + m>			[87 EI/u_2]
+
+					89. u_2 in ω			[88 SL]
+
+					90. <x, y_1> = <u_2, u_2 + m>			[88 SR]
+
+					91. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]			[Theorem 3A]
+
+					92. <x, y_1> = <u_2, u_2 + m>  <-->  x = u_2 & y_1 = u_2 + m			[91 UI/x, y_1, u_2, u_2 + m]
+
+					93. x = u_2 & y_1 = u_2 + m			[92 BC 90 MP]
+
+					94. x = u_2		[93 SL]
+
+					95. x in ω			[89 94 LL]
+
+					96. 		[95 CD]
+
+				97. Show x in ω --> x in dom RIGHT_ADD_m
+
+					98. x in ω			[ACD]
+
+					99. @x [ x in dom RIGHT_ADD_m <--> 3y [ <x, y> in RIGHT_ADD_m ] ]			[3.D2]
+
+					100. x in dom RIGHT_ADD_m <--> 3y [ <x, y> in RIGHT_ADD_m ]			[99 UI/x]
+
+					101. Show 3y [ <x, y> in RIGHT_ADD_m ]
+
+						102. @t [ t in RIGHT_ADD_m <--> 3u [ u in ω & t = <u, u + m> ] ]			[3.D1]
+
+						103. <x, x + m> in RIGHT_ADD_m <--> 3u [ u in ω & <x, x + m> = <u, u + m> ]			[102 UI/<x, x + m>]
+
+						104. Show 3u [ u in ω & <x, x + m> = <u, u + m> ]
+
+							105. x in ω			[98 R]
+
+							106. <x, x + m> = <x, x + m>			[SID]
+
+							107. x in ω & <x, x + m> = <x, x + m>			[105 106 ADJ]
+
+							108. 3u [ u in ω & <x, x + m> = <u, u + m> ] 		[107 EG/x->u]
+
+							109. 		[108 DD]
+						
+						110. <x, x + m> in RIGHT_ADD_m			[103 BC 104 MP]
+
+						111. 3y [ <x, y> in RIGHT_ADD_m ]			[110 EG/x + m -> y]
+
+						112. 		[111 DD]
+					
+					113. x in dom RIGHT_ADD_m			[100 BC 101 MP]
+
+					114.		[113 CD]
+				
+				115. x in dom RIGHT_ADD_m <--> x in ω			[79 97 CB]
+
+				116.		[115 UD]
+			
+			117. dom RIGHT_ADD_m = ω			[76 77 MP]
+
+			118. 		[117 DD]
+		
+		119. Show ran RIGHT_ADD_m ⊆ ω
 
 
 

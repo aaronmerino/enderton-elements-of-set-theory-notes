@@ -27,6 +27,7 @@
   ],
   "todohighlight.keywordsPattern": "<-->|-->|&|or",
   "todohighlight.defaultStyle": {
+  
     "color": "rgba(200, 250, 250, 0.5)",
     "backgroundColor": "rgba(10,10,10,.2)",
     "overviewRulerColor": "grey",
@@ -45,8 +46,8 @@
   ],
   "todohighlight.isEnable": true,
   "workbench.colorCustomizations": {
-    "editor.selectionBackground": "#d4e026",
-    "editor.selectionHighlightBackground": "#9de046",
+    "editor.selectionBackground": "#848d00",
+    "editor.selectionHighlightBackground": "#4b8500",
     "editor.selectionForeground": "#000000"
   }
 }
