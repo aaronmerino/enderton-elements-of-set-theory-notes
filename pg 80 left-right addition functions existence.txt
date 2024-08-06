@@ -313,6 +313,12 @@ Definition (its uniqueness is always due to Ext. Axiom):
 
 		3.D2. @x [ x in dom RIGHT_ADD_m <--> 3y [ <x, y> in RIGHT_ADD_m ] ]			[dom UI/RIGHT_ADD_m & Ext. Axiom]
 
+		3.D3. @y [ y in ran RIGHT_ADD_m <--> 3x [ <x, y> in RIGHT_ADD_m ] ]			[dom UI/RIGHT_ADD_m & Ext. Axiom]
+
+		3.D4. @x [ x in dom + <--> 3y [ <x, y> in + ] ]			[dom UI/+ & Ext. Axiom]
+
+		3.D5. @y [ y in ran + <--> 3x [ <x, y> in + ] ]			[dom UI/+ & Ext. Axiom]
+
 		////////
 
 
@@ -557,6 +563,180 @@ Definition (its uniqueness is always due to Ext. Axiom):
 			118. 		[117 DD]
 		
 		119. Show ran RIGHT_ADD_m ⊆ ω
+		
+			120. Show @t [ t in ran RIGHT_ADD_m --> t in ω ]
+
+				121. let t be a set
+
+				122. Show t in ran RIGHT_ADD_m --> t in ω
+
+					123. t in ran RIGHT_ADD_m			[ACD]
+
+					124. @y [ y in ran RIGHT_ADD_m <--> 3x [ <x, y> in RIGHT_ADD_m ] ]		[3.D3]
+
+					125. t in ran RIGHT_ADD_m <--> 3x [ <x, t> in RIGHT_ADD_m ]			[124 UI/t]
+
+					126. 3x [ <x, t> in RIGHT_ADD_m ]				[125 BC 123 MP]
+
+					127. <x_1, t> in RIGHT_ADD_m			[126 EI/x_1]
+
+					128. @t [ t in RIGHT_ADD_m <--> 3u [ u in ω & t = <u, u + m> ] ]			[3.D1]
+
+					129. <x_1, t> in RIGHT_ADD_m <--> 3u [ u in ω & <x_1, t> = <u, u + m> ]			[128 UI/<x_1, t>]
+
+					130. 3u [ u in ω & <x_1, t> = <u, u + m> ]			[129 BC 127 MP]
+
+					131. u_2 in ω & <x_1, t> = <u_2, u_2 + m>			[130 EI/u_2]
+
+					132. u_2 in ω			[131 SL]
+
+					133. <x_1, t> = <u_2, u_2 + m>			[131 SR]
+
+					134. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]			[Theorem 3A]
+
+					135. <x_1, t> = <u_2, u_2 + m>  <-->  x_1 = u_2 & t = u_2 + m			[134 UI/x_1, t, u_2, u_2 + m]
+
+					136. x_1 = u_2 & t = u_2 + m			[135 BC 133 MP]
+
+					137. t = u_2 + m		[136 SR]
+
+					138. @m, n [ m, n in ω --> m + n := +(<m, n>) ]			[Definition of {1} + {2}]
+
+					139. u_2, m in ω --> u_2 + m := +(<u_2, m>)			[138 UI/u_2, m]
+
+					140. u_2, m in ω			[132 4 ADJ]
+
+					141. u_2 + m := +(<u_2, m>)			[139 140 MP]
+
+
+					142. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]			[MARIN]
+
+					143. + is a function & <u_2, m> in dom + -->  @w [ <<u_2, m>, w> in + <--> +(<u_2, m>) = w ]			[142 UI/+, <u_2, m>]
+
+					144. 
+
+					145. + is a binary operation on the set ω			[SHRIMP]
+
+					146. @A, f [ f is a binary operation on the set A <--> f: A x A->A ]			[Def. of binary operation]
+
+					147. + is a binary operation on the set ω <--> +: ω x ω->ω				[146 UI/ω, +]
+
+					148. +: ω x ω->ω			[147 BC 145 MP]
+
+					149. @F, A, B [ F: A->B <--> 
+													F is a function &
+													dom F = A &
+													ran F ⊆ B 
+												]			[Def. of into]
+
+					150. +: ω x ω->ω <--> 
+									+ is a function &
+									dom + = ω x ω &
+									ran + ⊆ ω 			[149 UI/+, ω x ω, ω]
+					
+					151. + is a function &
+									dom + = ω x ω &
+									ran + ⊆ ω			[150 BC 148 MP]
+					
+					152. + is a function			[151 SL SL]
+
+					153. 	
+					
+					154. Show <u_2, m> in dom +
+
+						155. @x [ x in dom + <--> 3y [ <x, y> in + ] ]			[3.D4]
+
+						156. <u_2, m> in dom + <--> 3y [ <<u_2, m>, y> in + ]			[155 UI/<u_2, m>]
+
+						157. Show 3y [ <<u_2, m>, y> in + ]
+
+							158. @t [ t in + <--> 3m, n [ m in ω & n in ω & t = <<m, n>, A_m(n)> ] ]			[Def. of + operator]
+
+							159. @t [ t in + <--> 3q, s [ q in ω & s in ω & t = <<q, s>, A_q(s)> ] ]			[158 EQUIV.]
+
+							160. <<u_2, m>, A_{u_2}(m)> in + <--> 3q, s [ q in ω & s in ω & <<u_2, m>, A_{u_2}(m)> = <<q, s>, A_q(s)> ]			[159 UI/<<u_2, m>, A_{u_2}(m)>]
+
+							161. Show 3q, s [ q in ω & s in ω & <<u_2, m>, A_{u_2}(m)> = <<q, s>, A_q(s)> ]
+
+								162. u_2 in ω			[132 R]
+
+								163. m in ω				[4 R]
+
+								164. <<u_2, m>, A_{u_2}(m)> = <<u_2, m>, A_{u_2}(m)>			[SID]
+
+								165. u_2 in ω & m in ω & <<u_2, m>, A_{u_2}(m)> = <<u_2, m>, A_{u_2}(m)>			[162 163 164 ADJ]
+
+								166. 3s [ u_2 in ω & s in ω & <<u_2, m>, A_{u_2}(m)> = <<u_2, s>, A_{u_2}(s)> ]			[165 EG/m->s]
+
+								167. 3q [ 3s [ q in ω & s in ω & <<u_2, m>, A_{u_2}(m)> = <<q, s>, A_q(s)> ] ]			[166 EG/u_2->q]
+
+								168. 3q, s [ q in ω & s in ω & <<u_2, m>, A_{u_2}(m)> = <<q, s>, A_q(s)> ]			[167 EQUIV.]
+
+								169. 		[168 DD]
+							
+							170. <<u_2, m>, A_{u_2}(m)> in +			[160 BC 161 MP]
+
+							171. 3y [ <<u_2, m>, y> in + ]			[170 EG/A_{u_2}(m) -> y]
+
+							172.		[171 DD]
+						
+						173. <u_2, m> in dom +			[156 BC 157 MP]
+
+						174. 		[173 DD]
+					
+					175. + is a function & <u_2, m> in dom +			[152 154 ADJ]
+
+					176. @w [ <<u_2, m>, w> in + <--> +(<u_2, m>) = w ]			[143 175 MP]
+
+					177. <<u_2, m>, +(<u_2, m>)> in + <--> +(<u_2, m>) = +(<u_2, m>)			[176 UI/+(<u_2, m>)]
+
+					178. +(<u_2, m>) = +(<u_2, m>)		[SID]
+
+					179. <<u_2, m>, +(<u_2, m>)> in +			[177 BC 178 MP]
+
+					180. @y [ y in ran + <--> 3x [ <x, y> in + ] ]			[3.D5]
+
+					181. +(<u_2, m>) in ran + <--> 3x [ <x, +(<u_2, m>)> in + ]			[180 UI/+(<u_2, m>)]
+
+					182. 3x [ <x, +(<u_2, m>)> in + ]			[179 EG/<u_2, m> -> x]
+
+					183. +(<u_2, m>) in ran +			[181 BC 182 MP]
+
+					184. ran + ⊆ ω		[151 SR]
+
+					185. @t [ t in ran + --> t in ω ]			[184 EQUIV.]
+
+					186. +(<u_2, m>) in ran + --> +(<u_2, m>) in ω			[185 UI/+(<u_2, m>)]
+
+					187. +(<u_2, m>) in ω			[186 183 MP]
+
+					188. u_2 + m := +(<u_2, m>)			[141 R]
+
+					189. u_2 + m in ω			[187 188 LL]
+
+					190. t = u_2 + m			[137 R]
+
+					191. t in ω			[189 190 LL]
+
+					192. 		[191 CD]
+				
+				193. 		[122 UD]
+			
+			194. ran RIGHT_ADD_m ⊆ ω			[120 EQUIV.]
+
+			195.		[194 DD]
+		
+		196. RIGHT_ADD_m is a function &
+									dom RIGHT_ADD_m = ω &
+									ran RIGHT_ADD_m ⊆ ω			[7 74 119 ADJ]
+		
+		197. RIGHT_ADD_m: ω->ω			[6 BC 196 MP]
+	
+		198.		[197 CD]
+	
+	199. 		[3 UD]
+
+			
 
 
 
