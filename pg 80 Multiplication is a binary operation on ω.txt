@@ -99,6 +99,14 @@ Set of Natural Numbers Chapter:
 	Definition of a binary operation:
 		@A, f [ f is a binary operation on the set A <--> f: A x A->A ]
 
+  [AQUA] pg 80 right addition function existence:
+    @m [ m in ω --> 3D [ @t [ t in D <--> 3u [ u in ω & t = <u, u + m> ] ] ] ]
+      Definition (its uniqueness is always due to Ext. Axiom):
+        for any m in ω, @t [ t in RIGHT_ADD_m <--> 3u [ u in ω & t = <u, u + m> ] ]
+  
+  [MINATO] pg 80 right addition function is into:
+    @m [ m in ω --> RIGHT_ADD_m: ω->ω ]
+    
   [PENGUIN] Subset Axiom (applied):
     @c [ 3D [ @t [ t in D <--> t in c & 3m, n [ m in ω & n in ω & t = <<m, n>, M_m(n)> ] ] ] ]
 

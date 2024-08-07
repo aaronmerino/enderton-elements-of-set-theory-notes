@@ -568,6 +568,14 @@ Set of Natural Numbers Chapter:
 		(A1) @m [ m in ω --> m + 0 = m ]
 		(A2) @m, n [ m, n in ω --> m + n+ = (m + n)+ ]
 
+  pg 80 right addition function existence:
+    @m [ m in ω --> 3D [ @t [ t in D <--> 3u [ u in ω & t = <u, u + m> ] ] ] ]
+      Definition (its uniqueness is always due to Ext. Axiom):
+        for any m in ω, @t [ t in RIGHT_ADD_m <--> 3u [ u in ω & t = <u, u + m> ] ]
+  
+  pg 80 right addition function is into:
+    @m [ m in ω --> RIGHT_ADD_m: ω->ω ]
+
 	pg 80 Multiplication M_m existence:          
     @m [ m in ω -->  3_1p [ p: ω->ω & p(0) = 0 & @n [ n in ω --> p(n+) = RIGHT_ADD_m(p(n)) ] ] ]
 			Definition (uniqueness due to 3_1p):
