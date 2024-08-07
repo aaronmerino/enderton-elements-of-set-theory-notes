@@ -564,6 +564,10 @@ Set of Natural Numbers Chapter:
 	+ binary operator result:
 		+ is a binary operation on the set ω
 	
+	Theorem 4I:
+		(A1) @m [ m in ω --> m + 0 = m ]
+		(A2) @m, n [ m, n in ω --> m + n+ = (m + n)+ ]
+
 	pg 80 Multiplication M_m existence:          
     @m [ m in ω -->  3_1p [ p:ω->ω & p(0) = 0 & @n [ n in ω --> p(n+) = A_m(p(n)) ] ] ]
 			Definition (uniqueness due to 3_1p):

@@ -8,14 +8,21 @@ Axioms, Definitions, and Theorems:
 	Theorem 4B:
 		ω is inductive & @A [ A is inductive & A != ω --> @t [ t in ω --> t in A ] ]
 
-  [海老] pg 79 Arithmetic A_m existence:
-      @m [ m in ω -->  3_1p [ p:ω->ω & p(0) = m & @n [ n in ω --> p(n+) = σ(p(n)) ] ] ]  
-        Definition (uniqueness due to 3_1p):
-          for any m in ω, A_m:ω->ω & A_m(0) = m & @n [ n in ω --> A_m(n+) = σ(A_m(n)) ]
+	Theorem 4I:
+		(A1) @m [ m in ω --> m + 0 = m ]
+		(A2) @m, n [ m, n in ω --> m + n+ = (m + n)+ ]
+
 
   [Recursion Theorem on ω]
     @F, A, a [ a in A & F:A->A --> 3_1p [ p:ω->A & p(0) = a & @n [ n in ω --> p(n+) = F(p(n)) ] ] ]
 
+  [AQUA] pg 80 right addition function existence:
+    @m [ m in ω --> 3D [ @t [ t in D <--> 3u [ u in ω & t = <u, u + m> ] ] ] ]
+      Definition (its uniqueness is always due to Ext. Axiom):
+        for any m in ω, @t [ t in RIGHT_ADD_m <--> 3u [ u in ω & t = <u, u + m> ] ]
+  
+  [MINATO] pg 80 right addition function is into:
+    @m [ m in ω --> RIGHT_ADD_m: ω->ω ]
 
 1. Show @m [ m in ω -->  3_1p [ p:ω->ω & p(0) = 0 & @n [ n in ω --> p(n+) = A_m(p(n)) ] ] ]
 
