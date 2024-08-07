@@ -103,9 +103,11 @@ Set of Natural Numbers Chapter:
     @c [ 3D [ @t [ t in D <--> t in c & 3m, n [ m in ω & n in ω & t = <<m, n>, M_m(n)> ] ] ] ]
 
   [MARS] pg 80 Multiplication M_m existence:          
-    @m [ m in ω -->  3_1p [ p:ω->ω & p(0) = 0 & @n [ n in ω --> p(n+) = A_m(p(n)) ] ] ]
+    @m [ m in ω -->  3_1p [ p: ω->ω & p(0) = 0 & @n [ n in ω --> p(n+) = RIGHT_ADD_m(p(n)) ] ] ]
 			Definition (uniqueness due to 3_1p):
-				for any m in ω, M_m:ω->ω & M_m(0) = 0 & @n [ n in ω --> M_m(n+) = A_m(M_m(n)) ]
+				for any m in ω, M_m: ω->ω & M_m(0) = 0 & @n [ n in ω --> M_m(n+) = RIGHT_ADD_m(M_m(n)) ]
+
+//TODO: REDO with RIGHT_ADD_m
 
 1. Show 3D [ @t [ t in D <--> 3m, n [ m in ω & n in ω & t = <<m, n>, M_m(n)> ] ] ]
 
@@ -146,7 +148,7 @@ Set of Natural Numbers Chapter:
 
 
 			////////
-			14.D1. M_{m_2}:ω->ω & M_{m_2}(0) = 0 & @n [ n in ω --> M_{m_2}(n+) = A_{m_2}(M_{m_2}(n)) ]			[[MARS UI/m_2 (16 SL SL) MP] EI_1->M_{m_2}]
+			14.D1. M_{m_2}: ω->ω & M_{m_2}(0) = 0 & @n [ n in ω --> M_{m_2}(n+) = RIGHT_ADD_{m_2}(M_{m_2}(n)) ]			[[MARS UI/m_2 (16 SL SL) MP] EI_1->M_{m_2}]
 
 			14.D2. @y [ y in ran M_{m_2} <--> 3x [ <x, y> in M_{m_2} ] ]      [ran UI/M_{m_2} & Ext. Axiom]
 			////////
@@ -287,6 +289,8 @@ Definition (its uniqueness is always due to Ext. Axiom):
 
   * := {<<m, n>, p> | m in ω & n in ω & p = M_m(n)}
 
+
+//TODO: REDO with RIGHT_ADD_m
 
 1. Show * is a binary operation on the set ω
 
@@ -620,7 +624,7 @@ Definition (its uniqueness is always due to Ext. Axiom):
           152. m_2 in ω & n_2 in ω & <x_1, y> = <<m_2, n_2>, M_{m_2}(n_2)>      [151 EI/m_2 EI/n_2]
 
           ////////
-          152.D1. M_{m_2}:ω->ω & M_{m_2}(0) = 0 & @n [ n in ω --> M_{m_2}(n+) = A_{m_2}(M_{m_2}(n)) ]     [MARS UI/m_2 & Ext. Axiom]
+          152.D1. M_{m_2}: ω->ω & M_{m_2}(0) = 0 & @n [ n in ω --> M_{m_2}(n+) = RIGHT_ADD_{m_2}(M_{m_2}(n)) ]     [MARS UI/m_2 & Ext. Axiom]
 
           152.D2. @y [ y in ran M_{m_2} <--> 3x [ <x, y> in M_{m_2} ] ]     [ran UI/M_{m_2} & Ext. Axiom]
           ////////
@@ -641,15 +645,15 @@ Definition (its uniqueness is always due to Ext. Axiom):
           159. M_{m_2} is a function & n_2 in dom M_{m_2} -->  @w [ <n_2, w> in M_{m_2} <--> M_{m_2}(n_2) = w ]     [158 UI/M_{m_2} UI/n_2]
 
 
-          160. M_{m_2}:ω->ω     [152.D1 SL SL]
+          160. M_{m_2}: ω->ω     [152.D1 SL SL]
 
-          161. @F, C, B [ F:C->B <--> 
+          161. @F, C, B [ F: C->B <--> 
                           F is a function &
                           dom F = C &
                           ran F ⊆ B 
                         ]     [Def. of into]
           
-          162. M_{m_2}:ω->ω <--> 
+          162. M_{m_2}: ω->ω <--> 
                           M_{m_2} is a function &
                           dom M_{m_2} = ω &
                           ran M_{m_2} ⊆ ω     [161 UI/M_{m_2}, ω, ω]
