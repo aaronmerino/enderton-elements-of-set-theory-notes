@@ -24,25 +24,26 @@ Axioms, Definitions, and Theorems:
   [MINATO] pg 80 right addition function is into:
     @m [ m in ω --> RIGHT_ADD_m: ω->ω ]
 
-1. Show @m [ m in ω -->  3_1p [ p:ω->ω & p(0) = 0 & @n [ n in ω --> p(n+) = A_m(p(n)) ] ] ]
+1. Show @m [ m in ω -->  3_1p [ p: ω->ω & p(0) = 0 & @n [ n in ω --> p(n+) = RIGHT_ADD_m(p(n)) ] ] ]
 
   2. let m be a set
 
-  3. Show m in ω -->  3_1p [ p:ω->ω & p(0) = 0 & @n [ n in ω --> p(n+) = A_m(p(n)) ] ]
+  3. Show m in ω -->  3_1p [ p: ω->ω & p(0) = 0 & @n [ n in ω --> p(n+) = RIGHT_ADD_m(p(n)) ] ]
 
     4. m in ω     [ACD]
 
 
     ////////
-    3.D1. A_m:ω->ω & A_m(0) = m & @n [ n in ω --> A_m(n+) = σ(A_m(n)) ]   [海老 UI/m 4 MP & EI_1/A_m]   
+    3.D0. @t [ t in RIGHT_ADD_m <--> 3u [ u in ω & t = <u, u + m> ] ]       [AQUA UI/m 4 MP & Ext. Axiom]
+    3.D1. RIGHT_ADD_m: ω->ω     [MINATO UI/m 4 MP]   
     ////////
 
 
-    5. @F, A, a [ a in A & F:A->A --> 3_1p [ p:ω->A & p(0) = a & @n [ n in ω --> p(n+) = F(p(n)) ] ] ]  [Recursion Theorem on ω]
+    5. @F, A, a [ a in A & F: A->A --> 3_1p [ p: ω->A & p(0) = a & @n [ n in ω --> p(n+) = F(p(n)) ] ] ]  [Recursion Theorem on ω]
 
-    6. @F, B, a [ a in B & F:B->B --> 3_1p [ p:ω->B & p(0) = a & @n [ n in ω --> p(n+) = F(p(n)) ] ] ]  [5 EQUIV.]
+    6. @F, B, a [ a in B & F: B->B --> 3_1p [ p: ω->B & p(0) = a & @n [ n in ω --> p(n+) = F(p(n)) ] ] ]  [5 EQUIV.]
 
-    7. 0 in ω & A_m:ω->ω --> 3_1p [ p:ω->ω & p(0) = 0 & @n [ n in ω --> p(n+) = A_m(p(n)) ] ]     [6 UI/A_m, ω, 0]
+    7. 0 in ω & RIGHT_ADD_m: ω->ω --> 3_1p [ p: ω->ω & p(0) = 0 & @n [ n in ω --> p(n+) = RIGHT_ADD_m(p(n)) ] ]     [6 UI/RIGHT_ADD_m, ω, 0]
 
     8. Show 0 in ω
 
@@ -64,11 +65,11 @@ Axioms, Definitions, and Theorems:
 
       17.     [16 DD]
     
-    18. A_m:ω->ω    [3.D1 SL SL]
+    18. RIGHT_ADD_m: ω->ω    [3.D1]
 
-    19. 0 in ω & A_m:ω->ω     [8 18 ADJ]
+    19. 0 in ω & RIGHT_ADD_m: ω->ω     [8 18 ADJ]
 
-    20. 3_1p [ p:ω->ω & p(0) = 0 & @n [ n in ω --> p(n+) = A_m(p(n)) ] ]      [7 19 MP]
+    20. 3_1p [ p: ω->ω & p(0) = 0 & @n [ n in ω --> p(n+) = RIGHT_ADD_m(p(n)) ] ]      [7 19 MP]
 
     21.     [20 CD]
   
