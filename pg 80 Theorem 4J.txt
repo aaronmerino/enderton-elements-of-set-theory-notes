@@ -577,7 +577,162 @@ Axioms, Definitions, and Theorems:
 
 			110. <M_m(n), RIGHT_ADD_m(M_m(n))> in RIGHT_ADD_m <--> 3u [ u in ω & <M_m(n), RIGHT_ADD_m(M_m(n))> = <u, u + m> ]				[109 UI/<M_m(n), RIGHT_ADD_m(M_m(n))>]
 
-			111. 
+			111. 3u [ u in ω & <M_m(n), RIGHT_ADD_m(M_m(n))> = <u, u + m> ]			[110 BC 108 MP]
+
+
+			112. u_1 in ω & <M_m(n), RIGHT_ADD_m(M_m(n))> = <u_1, u_1 + m>			[111 EI/u_1]
+
+			113. <M_m(n), RIGHT_ADD_m(M_m(n))> = <u_1, u_1 + m>			[112 SR]
+
+			114. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]				[Theorem 3A]
+
+			115. <M_m(n), RIGHT_ADD_m(M_m(n))> = <u_1, u_1 + m>  <-->  M_m(n) = u_1 & RIGHT_ADD_m(M_m(n)) = u_1 + m				[114 UI/M_m(n), RIGHT_ADD_m(M_m(n)), u_1, u_1 + m]
+
+			116. M_m(n) = u_1 & RIGHT_ADD_m(M_m(n)) = u_1 + m			[115 BC 113 MP]
+
+			117. M_m(n) = u_1			[116 SL]
+
+			118. RIGHT_ADD_m(M_m(n)) = u_1 + m			[116 SR]
+
+			119. RIGHT_ADD_m(M_m(n)) = M_m(n) + m			[118 117 LL]
+
+
+			120. @m, n [ m, n in ω --> m * n := *(<m, n>) ]			[Def. of {1} * {2}]
+
+			121. m, n in ω --> m * n := *(<m, n>)			[120 UI/m, n]
+
+			122. m, n in ω			[5 R]
+
+			123. m * n := *(<m, n>)			[121 122 MP]
+
+
+			124. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]			[MARIN]
+
+			125. * is a function & <m, n> in dom * -->  @w [ <<m, n>, w> in * <--> *(<m, n>) = w ]			[124 UI/*, <m, n>]
+
+			126. * is a function			[28 SL SL]
+
+			127. Show <m, n> in dom *
+
+				128. @x [ x in dom * <--> 3y [ <x, y> in * ] ]			[4.D2]
+
+				129. <m, n> in dom * <--> 3y [ <<m, n>, y> in * ]			[48 UI/<m, n>]
+
+				130. Show <<m, n>, M_m(n)> in *
+
+					131. @t [ t in * <--> 3m, n [ m in ω & n in ω & t = <<m, n>, M_m(n)> ] ]				[4.D1]
+
+					132. @t [ t in * <--> 3u, v [ u in ω & v in ω & t = <<u, v>, M_u(v)> ] ]				[131 EQUIV.]
+
+					133. <<m, n>, M_m(n)> in * <--> 3u, v [ u in ω & v in ω & <<m, n>, M_m(n)> = <<u, v>, M_u(v)> ]			[132 UI/<<m, n>, M_m(n)>]
+
+					134. Show 3u, v [ u in ω & v in ω & <<m, n>, M_m(n)> = <<u, v>, M_u(v)> ]
+
+						135. m in ω			[122 SL]
+
+						136. n in ω			[122 SR]
+
+						137. <<m, n>, M_m(n)> = <<m, n>, M_m(n)>			[SID]
+
+						138. m in ω & n in ω & <<m, n>, M_m(n)> = <<m, n>, M_m(n)>			[135 136 137 ADJ]
+
+						139. 3v [ m in ω & v in ω & <<m, n>, M_m(n)> = <<m, v>, M_m(v)> ]			[138 EG/n->v]
+
+						140. 3u [ 3v [ u in ω & v in ω & <<m, n>, M_m(n)> = <<u, v>, M_u(v)> ] ]				[139 EG/m->u]
+
+						141. 3u, v [ u in ω & v in ω & <<m, n>, M_m(n)> = <<u, v>, M_u(v)> ]			[140 EQUIV.]
+
+						142.		[141 DD]
+					
+					143. <<m, n>, M_m(n)> in *			[133 BC 134 MP]
+
+					144.		[143 DD]
+				
+				145. 3y [ <<m, n>, y> in * ]			[130 EG/M_m(n)->y]
+
+				146. <m, n> in dom *			[129 BC 145 MP]
+
+				147. 		[146 DD]
+			
+			148. * is a function & <m, n> in dom *			[126 127 ADJ]
+
+			149. @w [ <<m, n>, w> in * <--> *(<m, n>) = w ]			[125 148 MP]
+
+
+			150. <<m, n>, *(<m, n>)> in * <--> *(<m, n>) = *(<m, n>)			[149 UI/*(<m, n>)]
+
+			151. *(<m, n>) = *(<m, n>)			[SID]
+
+			152. <<m, n>, *(<m, n>)> in *			[150 BC 151 MP]
+
+			153. @t [ t in * <--> 3m, n [ m in ω & n in ω & t = <<m, n>, M_m(n)> ] ]		[4.D1]
+
+			154. @t [ t in * <--> 3u, v [ u in ω & v in ω & t = <<u, v>, M_u(v)> ] ]				[153 EQUIV.]
+
+			155. <<m, n>, *(<m, n>)> in * <--> 3u, v [ u in ω & v in ω & <<m, n>, *(<m, n>)> = <<u, v>, M_u(v)> ]			[154 UI/<<m, n>, *(<m, n>)>]
+
+			156. 3u, v [ u in ω & v in ω & <<m, n>, *(<m, n>)> = <<u, v>, M_u(v)> ]			[155 BC 152 MP]
+
+			157. u_2 in ω & v_2 in ω & <<m, n>, *(<m, n>)> = <<u_2, v_2>, M_{u_2}(v_2)>			[156 EI/u_2, v_2]
+
+			158. <<m, n>, *(<m, n>)> = <<u_2, v_2>, M_{u_2}(v_2)>			[157 SR]
+
+			159. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]			[Theorem 3A]
+
+			160. <<m, n>, *(<m, n>)> = <<u_2, v_2>, M_{u_2}(v_2)>  <-->  <m, n> = <u_2, v_2> & *(<m, n>) = M_{u_2}(v_2)			[159 UI/...]
+
+			161. <m, n> = <u_2, v_2> & *(<m, n>) = M_{u_2}(v_2)			[160 BC 158 MP]
+
+			162. <m, n> = <u_2, v_2>			[161 SL]
+
+			163. *(<m, n>) = M_{u_2}(v_2)			[161 SR]
+
+			164. @u, v, x, y [ <u, v> = <x, y>  <-->  u = x & v = y ]			[Theorem 3A]	
+
+			165. <m, n> = <u_2, v_2>  <-->  m = u_2 & n = v_2			[164 UI/...]
+
+			166. m = u_2 & n = v_2			[165 BC 162 MP]
+
+			167. m = u_2		[166 SL]
+
+			168. n = v_2		[166 SR]
+
+			169. *(<m, n>) = M_m(v_2)		[163 167 LL]
+
+			170. *(<m, n>) = M_m(n)		[169 168 LL]
+
+			171. m * n := *(<m, n>)			[123 R]
+
+			172. m * n = M_m(n)			[170 171 LL]
+
+			173. RIGHT_ADD_m(M_m(n)) = M_m(n) + m			[119 R]
+
+			174. RIGHT_ADD_m(M_m(n)) = m * n + m			[173 172 LL]
+
+			175. 		[174 DD]
+		
+
+		176. m * n+ := *(<m, n+>)			[21 R]
+
+		177. *(<m, n+>) = M_m(n+)			[57 R]
+
+		178. m * n+ = M_m(n+)			[176 177 LL]
+		
+		179. M_m(n+) = RIGHT_ADD_m(M_m(n))			[62 R]
+
+		180. m * n+ = RIGHT_ADD_m(M_m(n))			[178 179 LL]
+
+		181. RIGHT_ADD_m(M_m(n)) = m * n + m			[63 R]
+
+		182. m * n+ = m * n + m			[180 181 LL]
+
+		183. 		[182 CD]
+	
+	184. 		[4 UD]
+
+
+			
+		
 
       
 
