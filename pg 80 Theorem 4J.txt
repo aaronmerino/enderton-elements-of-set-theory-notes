@@ -114,12 +114,12 @@ Axioms, Definitions, and Theorems:
 		(A1) @m [ m in ω --> m + 0 = m ]
 		(A2) @m, n [ m, n in ω --> m + n+ = (m + n)+ ]
 
-  pg 80 right addition function existence:
+  [LAZVELL] pg 80 right addition function existence:
     @m [ m in ω --> 3D [ @t [ t in D <--> 3u [ u in ω & t = <u, u + m> ] ] ] ]
       Definition (its uniqueness is always due to Ext. Axiom):
         for any m in ω, @t [ t in RIGHT_ADD_m <--> 3u [ u in ω & t = <u, u + m> ] ]
   
-  pg 80 right addition function is into:
+  [Y2K] pg 80 right addition function is into:
     @m [ m in ω --> RIGHT_ADD_m: ω->ω ]
 
 	[先祖代々] pg 80 Multiplication M_m existence:          
@@ -156,7 +156,7 @@ Axioms, Definitions, and Theorems:
 
   1.D4. @y [ y in ran * <--> 3x [ <x, y> in * ] ]     [ran UI/* & Ext. Axiom]
 
-	1.D5. M_m:ω->ω & M_m(0) = 0 & @n [ n in ω --> M_m(n+) = A_m(M_m(n)) ]     [先祖代々 UI/m & Ext. Axiom]
+	1.D5. M_m: ω->ω & M_m(0) = 0 & @n [ n in ω --> M_m(n+) = RIGHT_ADD_m(M_m(n)) ]     [先祖代々 UI/m & Ext. Axiom]
 	////////
 
   3. Show m in ω --> m * 0 = m
@@ -277,7 +277,7 @@ Axioms, Definitions, and Theorems:
 
 		55. *(<m, 0>) = M_m(0)			[54 BC 26 MP]
 
-		56. M_m:ω->ω & M_m(0) = 0 & @n [ n in ω --> M_m(n+) = A_m(M_m(n)) ]		[1.D5]
+		56. M_m: ω->ω & M_m(0) = 0 & @n [ n in ω --> M_m(n+) = RIGHT_ADD_m(M_m(n)) ]		[1.D5]
 
 		57. M_m(0) = 0			[56 SL SR]
 
@@ -302,34 +302,36 @@ Axioms, Definitions, and Theorems:
 
 	3. let n be a set
 
-	////////
-  1.D1. @t [ t in * <--> 3m, n [ m in ω & n in ω & t = <<m, n>, M_m(n)> ] ]     [Definition of *]
-
-  1.D2. @x [ x in dom * <--> 3y [ <x, y> in * ] ]     [dom UI/* & Ext. Axiom]
-
-  1.D3. @t [ t in ω x ω <--> 3x, y [ x in ω & y in ω & t = <x, y> ] ]      [Corollary 3C UI/ω UI/ω]
-
-  1.D4. @y [ y in ran * <--> 3x [ <x, y> in * ] ]     [ran UI/* & Ext. Axiom]
-
-	1.D5. M_m:ω->ω & M_m(0) = 0 & @n [ n in ω --> M_m(n+) = A_m(M_m(n)) ]     [先祖代々 UI/m & Ext. Axiom]
-
-	1.D6. @y [ y in ran M_m <--> 3x [ <x, y> in M_m ] ]     [ran UI/M_m & Ext. Axiom]
-
-
-  1.D7. @t [ t in + <--> 3m, n [ m in ω & n in ω & t = <<m, n>, A_m(n)> ] ]     [HAZELNUT]
-
-  1.D8. @x [ x in dom + <--> 3y [ <x, y> in * ] ]     [dom UI/+ & Ext. Axiom]
-
-  1.D9. @y [ y in ran + <--> 3x [ <x, y> in + ] ]     [ran UI/+ & Ext. Axiom]  
-
-  1.D10. A_m:ω->ω & A_m(0) = m & @n [ n in ω --> A_m(n+) = σ(A_m(n)) ]     [ZHU YUAN]
-
-  1.D11. @y [ y in ran A_m <--> 3x [ <x, y> in A_m ] ]     [ran UI/A_m & Ext. Axiom]
-	////////
-
 	4. Show m, n in ω --> m * n+ = m * n + m
 
 		5. m, n in ω			[ACD]
+
+		////////
+		4.D0. @t [ t in RIGHT_ADD_m <--> 3u [ u in ω & t = <u, u + m> ] ]			[LAZVELL UI/m 5 MP & Ext. Axiom]
+
+		4.D1. @t [ t in * <--> 3m, n [ m in ω & n in ω & t = <<m, n>, M_m(n)> ] ]     [Definition of *]
+
+		4.D2. @x [ x in dom * <--> 3y [ <x, y> in * ] ]     [dom UI/* & Ext. Axiom]
+
+		4.D3. @t [ t in ω x ω <--> 3x, y [ x in ω & y in ω & t = <x, y> ] ]      [Corollary 3C UI/ω UI/ω]
+
+		4.D4. @y [ y in ran * <--> 3x [ <x, y> in * ] ]     [ran UI/* & Ext. Axiom]
+
+		4.D5. M_m: ω->ω & M_m(0) = 0 & @n [ n in ω --> M_m(n+) = RIGHT_ADD_m(M_m(n)) ]     [先祖代々 UI/m 5 MP & Ext. Axiom]
+
+		4.D6. @y [ y in ran M_m <--> 3x [ <x, y> in M_m ] ]     [ran UI/M_m & Ext. Axiom]
+
+
+		4.D7. @t [ t in + <--> 3m, n [ m in ω & n in ω & t = <<m, n>, A_m(n)> ] ]     [HAZELNUT]
+
+		4.D8. @x [ x in dom + <--> 3y [ <x, y> in * ] ]     [dom UI/+ & Ext. Axiom]
+
+		4.D9. @y [ y in ran + <--> 3x [ <x, y> in + ] ]     [ran UI/+ & Ext. Axiom]  
+
+		4.D10. A_m:ω->ω & A_m(0) = m & @n [ n in ω --> A_m(n+) = σ(A_m(n)) ]     [ZHU YUAN]
+
+		4.D11. @y [ y in ran A_m <--> 3x [ <x, y> in A_m ] ]     [ran UI/A_m & Ext. Axiom]
+		////////		
 
 		6. @m, n [ m, n in ω --> m * n := *(<m, n>) ]   [Definition of {1} * {2}]
 
@@ -390,7 +392,7 @@ Axioms, Definitions, and Theorems:
 
 		29. Show <<m, n+>, M_m(n+)> in *
 
-			30. @t [ t in * <--> 3m, n [ m in ω & n in ω & t = <<m, n>, M_m(n)> ] ]				[1.D1]
+			30. @t [ t in * <--> 3m, n [ m in ω & n in ω & t = <<m, n>, M_m(n)> ] ]				[4.D1]
 
 			31. @t [ t in * <--> 3u, v [ u in ω & v in ω & t = <<u, v>, M_u(v)> ] ]				[30 EQUIV.]
 
@@ -427,7 +429,7 @@ Axioms, Definitions, and Theorems:
 
 		47. Show <m, n+> in dom *
 
-			48. @x [ x in dom * <--> 3y [ <x, y> in * ] ]			[1.D2]
+			48. @x [ x in dom * <--> 3y [ <x, y> in * ] ]			[4.D2]
 
 			49. <m, n+> in dom * <--> 3y [ <<m, n+>, y> in * ]			[48 UI/<m, n+>]
 
@@ -448,26 +450,135 @@ Axioms, Definitions, and Theorems:
 		57. *(<m, n+>) = M_m(n+)			[56 BC 29 MP]
 
 
-		58. M_m:ω->ω & M_m(0) = 0 & @n [ n in ω --> M_m(n+) = A_m(M_m(n)) ]			[1.D5]
+		58. M_m: ω->ω & M_m(0) = 0 & @n [ n in ω --> M_m(n+) = RIGHT_ADD_m(M_m(n)) ]			[4.D5]
 
-		59. @n [ n in ω --> M_m(n+) = A_m(M_m(n)) ]			[58 SR]
+		59. @n [ n in ω --> M_m(n+) = RIGHT_ADD_m(M_m(n)) ]			[58 SR]
 
-		60. n in ω --> M_m(n+) = A_m(M_m(n))			[59 UI/n]
+		60. n in ω --> M_m(n+) = RIGHT_ADD_m(M_m(n))			[59 UI/n]
 
 		61. n in ω			[5 SR]
 
-		62. M_m(n+) = A_m(M_m(n))			[60 61 MP]
+		62. M_m(n+) = RIGHT_ADD_m(M_m(n))			[60 61 MP]
 
 
-    63. Show A_m(M_m(n)) = m * n + m
+    63. Show RIGHT_ADD_m(M_m(n)) = m * n + m
 
-      ***PROBLEM***
-			/*
-				we need to rewrite how M_m is defined because, A_m(M_m(n)) is technically equal to m + m * n
+			64. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]			[MARIN]
 
-				so will make two new functions RIGHT_ADD_m: ω->ω and LEFT_ADD_m: ω->ω using definition of the binary operator +
+			65. RIGHT_ADD_m is a function & M_m(n) in dom RIGHT_ADD_m -->  @w [ <M_m(n), w> in RIGHT_ADD_m <--> RIGHT_ADD_m(M_m(n)) = w ]			[64 UI/RIGHT_ADD_m, M_m(n)]
 
-				we use those in defining M_m so that M_m(n+) = RIGHT_ADD_m(M_m(n))
-			*/
+			66. 
+
+			67. @m [ m in ω --> RIGHT_ADD_m: ω->ω ]			[Y2K]
+
+			68. m in ω --> RIGHT_ADD_m: ω->ω			[67 UI/m]
+
+			69. m in ω			[8 R]
+
+			70. RIGHT_ADD_m: ω->ω			[68 69 MP]
+
+			71. @F, A, B [ F: A->B <--> 
+											F is a function &
+											dom F = A &
+											ran F ⊆ B 
+										]			[Def. of into]
+
+			72. RIGHT_ADD_m: ω->ω <--> 
+											RIGHT_ADD_m is a function &
+											dom RIGHT_ADD_m = ω &
+											ran RIGHT_ADD_m ⊆ ω 			[71 UI/RIGHT_ADD_m, ω, ω]
+			
+			73. RIGHT_ADD_m is a function &
+					dom RIGHT_ADD_m = ω &
+					ran RIGHT_ADD_m ⊆ ω			[72 BC 70 MP]
+
+			74. RIGHT_ADD_m is a function			[73 SL SL]
+
+			75. Show M_m(n) in dom RIGHT_ADD_m
+
+				76. M_m: ω->ω & M_m(0) = 0 & @n [ n in ω --> M_m(n+) = RIGHT_ADD_m(M_m(n)) ]			[4.D5]
+
+				77. M_m: ω->ω			[76 SL SL]
+
+				78. @F, A, B [ F: A->B <--> 
+											F is a function &
+											dom F = A &
+											ran F ⊆ B 
+										]			[Def. of into]
+				
+				79. M_m: ω->ω <--> 
+											M_m is a function &
+											dom M_m = ω &
+											ran M_m ⊆ ω 			[79 UI/M_m, ω, ω]
+				
+				80. M_m is a function &
+						dom M_m = ω &
+						ran M_m ⊆ ω					[79 BC 77 MP]
+				
+				81. @F, x [ F is a function & x in dom F -->  @w [ <x, w> in F <--> F(x) = w ] ]			[MARIN]
+
+				82. M_m is a function & n in dom M_m -->  @w [ <n, w> in M_m <--> M_m(n) = w ]			[81 UI/M_m, n]
+
+				83. Show n in dom M_m
+
+					84. n in ω		[5 SR]
+
+					85. dom M_m = ω			[80 SL SR]
+
+					86. n in dom M_m		[84 85 LL]
+
+					87. 		[86 DD]
+				
+				88. M_m is a function & n in dom M_m		[(80 SL SL) 83 ADJ]
+
+				89. @w [ <n, w> in M_m <--> M_m(n) = w ]			[82 88 MP]
+
+				90. <n, M_m(n)> in M_m <--> M_m(n) = M_m(n)		[89 UI/M_m(n)]
+
+				91. M_m(n) = M_m(n)			[SID]
+
+				92. <n, M_m(n)> in M_m			[90 BC 91 MP]
+
+				93. @y [ y in ran M_m <--> 3x [ <x, y> in M_m ] ]			[4.D6]
+
+				94. M_m(n) in ran M_m <--> 3x [ <x, M_m(n)> in M_m ]			[93 UI/M_m(n)]
+
+				95. 3x [ <x, M_m(n)> in M_m ]			[92 EG/n->x]
+
+				96. M_m(n) in ran M_m			[94 BC 95 MP]
+
+				97. ran M_m ⊆ ω		[80 SR]
+
+				98. @t [ t in ran M_m --> t in ω ]			[97 EQUIV.]
+
+				99. M_m(n) in ran M_m --> M_m(n) in ω			[98 UI/M_m(n)]
+
+				100. M_m(n) in ω			[99 96 MP]
+
+				101. dom RIGHT_ADD_m = ω			[73 SL SR]
+
+				102. M_m(n) in dom RIGHT_ADD_m			[100 101 LL]
+
+				103.		[102 DD]
+			
+			
+			104. RIGHT_ADD_m is a function & M_m(n) in dom RIGHT_ADD_m			[74 75 ADJ]
+
+			105. @w [ <M_m(n), w> in RIGHT_ADD_m <--> RIGHT_ADD_m(M_m(n)) = w ]			[65 104 MP]
+
+			106. <M_m(n), RIGHT_ADD_m(M_m(n))> in RIGHT_ADD_m <--> RIGHT_ADD_m(M_m(n)) = RIGHT_ADD_m(M_m(n))			[105 UI/RIGHT_ADD_m(M_m(n))]
+
+			107. RIGHT_ADD_m(M_m(n)) = RIGHT_ADD_m(M_m(n))			[SID]
+
+			108. <M_m(n), RIGHT_ADD_m(M_m(n))> in RIGHT_ADD_m			[106 BC 107 MP]
+
+
+			109. @t [ t in RIGHT_ADD_m <--> 3u [ u in ω & t = <u, u + m> ] ]		[4.D0]
+
+			110. <M_m(n), RIGHT_ADD_m(M_m(n))> in RIGHT_ADD_m <--> 3u [ u in ω & <M_m(n), RIGHT_ADD_m(M_m(n))> = <u, u + m> ]				[109 UI/<M_m(n), RIGHT_ADD_m(M_m(n))>]
+
+			111. 
+
+      
 
 
