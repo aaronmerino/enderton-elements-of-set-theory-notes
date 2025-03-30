@@ -862,7 +862,7 @@ Part (a)
 							575. <F(u_2), u_2> in ((F^-1) ∪ ((B - ran F) x {t_1}))				[550 BC 574 MP]
 							
 							576. <u_2, F(u_2)> in F & <F(u_2), u_2> in ((F^-1) ∪ ((B - ran F) x {t_1}))							[548 575 ADJ]
-							577. 3t [ <u_2, t> in F & <t, u_2> in ((F^-1) ∪ ((B - ran F) x {t_1})) ]								[576 EG/F(u_2->t)]
+							577. 3t [ <u_2, t> in F & <t, u_2> in ((F^-1) ∪ ((B - ran F) x {t_1})) ]								[576 EG/F(u_2)->t]
 							578. z = <u_2, u_2>			[535 SL]
 
 							579. z = <u_2, u_2> & 3t [ <u_2, t> in F & <t, u_2> in ((F^-1) ∪ ((B - ran F) x {t_1})) ]								[578 577 ADJ]

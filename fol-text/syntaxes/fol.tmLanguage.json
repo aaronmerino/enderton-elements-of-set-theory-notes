@@ -13,7 +13,7 @@
 		"keywords": {
 			"patterns": [{
 				"name": "keyword.control.fol",
-				"match": "or|&|-->|~|@|3"
+				"match": " or |&|-->|~|@|3"
 			}]
 		},
 		"strings": {

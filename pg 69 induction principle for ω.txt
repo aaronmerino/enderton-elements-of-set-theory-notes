@@ -46,6 +46,8 @@ Axioms, Definitions, and Theorems:
           17. 	[16 CD]
 
         18. Show x in ω --> x in T
+        
+          // EDIT: we could also use Theorem 4B directly
 
           19. x in ω		[ACD]
 
