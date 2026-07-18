@@ -92,6 +92,7 @@ ideas:
     -if not assuming F:A->A, then its a subset of (A/R) x P(ran R)
     
 
+// Showing existence of F-hat
 1. Show @F, A, R [ 3D [ @t [ t in D <--> 3u [ u in A & t = <[u]_{R}, [F(u)]_{R}> ] ] ] ]
     rough:
     @c [ 3D [ @t [ t in D <--> t in c & 3u [ u in A & t = <[u]_{R}, [F(u)]_{R}> ] ] ] ]     [subset axiom applied]
@@ -127,7 +128,13 @@ ideas:
 
 
 
-// Show F-hat is unique
+// Show F-hat is unique (wrong version)
+// EDIT: THIS PROOF IS CORRECT, BUT DOES NOT ANSWER THE UNIQUENESS QUESTION.
+// we have proven that the set definition is a well-defined set, but 
+// we have not proven that no other function can behave the way F-hat behaves.
+
+// What we are actually asking is: If a function satisfies F-hat([x]) = [F(x)], is it the only function that does so?"
+
 
 1. Show @F, A, R [ @C, D [ @t [ t in C <--> 3u [ u in A & t = <[u]_{R}, [F(u)]_{R}> ] ] & @t [ t in D <--> 3u [ u in A & t = <[u]_{R}, [F(u)]_{R}> ] ] --> C = D  ] ]
 
@@ -201,6 +208,105 @@ ideas:
         35.     [5 UD]
     
     36.     [3 UD]
+
+
+
+
+
+
+Pg 52 Exercise 11:
+    @F, G [ F, G are functions & dom F = dom G & @x [ x in dom F --> F(x) = G(x) ] --> F = G ]		[pg 52 Exercise 11]
+
+// Show F-hat is unique (correct version)
+1. Show @F, A, R [ R is an equivalence relation on A & F: A->A & F is compatible with R --> 
+                    @G [G: A/R -> A/R & @x[ x in A --> G([x]_{R}) = [F[x]]_{R} ] --> 
+                        @H [H: A/R -> A/R & @x[ x in A --> H([x]_{R}) = [F[x]]_{R} ] --> G = H] ] ]
+
+    2. let F, A, R be sets
+
+    3. Show R is an equivalence relation on A & F: A->A & F is compatible with R --> 
+                    @G [G: A/R -> A/R & @x[ x in A --> G([x]_{R}) = [F[x]]_{R} ] --> 
+                        @H [H: A/R -> A/R & @x[ x in A --> H([x]_{R}) = [F[x]]_{R} ] --> G = H] ]
+
+        4. R is an equivalence relation on A & F: A->A & F is compatible with R     [ACD]
+
+        5. Show @G [G: A/R -> A/R & @x[ x in A --> G([x]_{R}) = [F[x]]_{R} ] --> @H [H: A/R -> A/R & @x[ x in A --> H([x]_{R}) = [F[x]]_{R} ] --> G = H] ]
+
+            6. let G be a set
+
+            7. Show G: A/R -> A/R & @x[ x in A --> G([x]_{R}) = [F[x]]_{R} ] --> @H [H: A/R -> A/R & @x[ x in A --> H([x]_{R}) = [F[x]]_{R} ] --> G = H]
+
+                8. G: A/R -> A/R & @x[ x in A --> G([x]_{R}) = [F[x]]_{R} ]     [ACD]
+
+                9. Show @H [H: A/R -> A/R & @x[ x in A --> H([x]_{R}) = [F[x]]_{R} ] --> G = H]
+
+                    10. let H be a set
+
+                    11. Show H: A/R -> A/R & @x[ x in A --> H([x]_{R}) = [F[x]]_{R} ] --> G = H
+
+                        12. H: A/R -> A/R & @x[ x in A --> H([x]_{R}) = [F[x]]_{R} ]        [ACD]
+
+                        13. Show G = H
+
+                            14. @F, G [ F, G are functions & dom F = dom G & @x [ x in dom F --> F(x) = G(x) ] --> F = G ]		[pg 52 Exercise 11]
+
+                            15. H, G are functions & dom H = dom G & @x [ x in dom H --> H(x) = G(x) ] --> H = G            [14 UI/H, G]
+
+                            16. Show @x [ x in dom H --> H(x) = G(x) ]  
+
+                                18. let x be a set
+
+                                19. Show x in dom H --> H(x) = G(x)
+
+                                    20. x in dom H      [ACD]
+
+
+
+                                    dom H = A/R
+                                    
+                                    x in A/R
+
+                                    x = [q]_{R} for some q in A
+
+                                    @x[ x in A --> G([x]_{R}) = [F[x]]_{R} ]            [8 SR]
+
+                                    q in A --> G([q]_{R}) = [F[q]]_{R}
+
+                                    G([q]_{R}) = [F[q]]_{R}
+
+
+                                    @x[ x in A --> H([x]_{R}) = [F[x]]_{R} ]            [12 SR]
+
+                                    q in A --> H([q]_{R}) = [F[q]]_{R}
+
+                                    H([q]_{R}) = [F[q]]_{R}
+
+                                    H([q]_{R}) = G([q]_{R})
+
+                                    H(x) = G(x)         [CD]
+
+                                21.             [19 UD]
+
+                            22. Show H, G are functions
+
+                                23. H: A/R -> A/R           [12 SL]
+
+                                24. G: A/R -> A/R           [8 SL]
+
+                                25. ...
+                            
+                            26. Show dom H = dom G
+                                
+                                27. H: A/R -> A/R           [12 SL]
+
+                                28. G: A/R -> A/R           [8 SL]
+
+                                29. ...
+                            
+                            30. H = G       [16 22 26 ADJ 15 MP]
+
+                            31.             [30 DD]
+
 
 
 

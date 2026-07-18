@@ -407,6 +407,9 @@ Axioms, Definitions, and Theorems:
 			@x, y [ x, y in B & x != y --> ~3u [ u in x & u in y ] ] &
 			@w [ w in A --> 3x [ x in B & w in x ] ] ]
 
+	Theorem 3P:
+		@R, A [ R is an equivalence relation on A --> {[x]_{R} | x in A} is a partition of A ]
+
 	Definition of Natural Map:
 		@A, R [ 3D [ @t [ t in D <--> 3x [ x in A & t = <x, [x]_{R}> ] ] ] ]
 		Definition (its uniqueness is always due to Ext. Axiom):
@@ -430,6 +433,18 @@ Axioms, Definitions, and Theorems:
 		@F, A [ ~_{F, A} is an equivalence relation on A ]
 
 	
+	Theorem 3Q:
+		// Showing existence of F-hat as defined in for Theorem 3Q (not the same F-hat as pg 58)
+		1) @F, A, R [ 3D [ @t [ t in D <--> 3u [ u in A & t = <[u]_{R}, [F(u)]_{R}> ] ] ] ]
+
+		// Showing F-hat is unique
+		2) @F, A, R [ R is an equivalence relation on A & F: A->A & F is compatible with R --> 
+                    @G [G: A/R -> A/R & @x[ x in A --> G([x]_{R}) = [F[x]]_{R} ] --> 
+                        @H [H: A/R -> A/R & @x[ x in A --> H([x]_{R}) = [F[x]]_{R} ] --> G = H] ] ]
+
+		// Showing F-hat is a function
+		3) @F, A, R [ R is an equivalence relation on A & F: A->A --> [ F is compatible with R <--> F-hat_{F, A, R}: A/R -> A/R ] ]
+
 	Definition of Trichotomy:
 		@A, R [ R is a trichotomy on A <-->
 							@x, y [ x, y in A -->
